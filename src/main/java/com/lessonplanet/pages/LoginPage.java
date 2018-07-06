@@ -33,4 +33,16 @@ public class LoginPage extends LpUiBasePage {
     public String getContentAlertMessage() {
         return findElement(CONTENT_ALERT_MESSAGE).getText();
     }
+
+    /**
+     * Accesses the login page, performs the login and after that it returns to the original URL
+     */
+    public void performLogin(String email, String password) {
+        final String path = getPath();
+        loadPage();
+        typeEmail(email);
+        typePassword(password);
+        clickOnSignInButton();
+        loadUrl(path);
+    }
 }
