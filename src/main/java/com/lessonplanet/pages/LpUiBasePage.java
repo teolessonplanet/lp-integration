@@ -2,14 +2,15 @@ package com.lessonplanet.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
+
+import java.util.List;
 
 public class LpUiBasePage {
 
@@ -23,6 +24,11 @@ public class LpUiBasePage {
     protected WebElement findElement(String cssLocator) {
         waitForElement(cssLocator);
         return driver.findElement(By.cssSelector(cssLocator));
+    }
+
+    protected List<WebElement> findElements(String cssLocator) {
+        waitForElement(cssLocator);
+        return driver.findElements(By.cssSelector(cssLocator));
     }
 
     protected void waitForElement(String cssSelector) {
@@ -70,5 +76,68 @@ public class LpUiBasePage {
             }
         });
         logger.info("jQuery completed");
+    }
+
+    public void dragAndDrop(WebElement element, WebElement target) {
+        try {
+            (new Actions(driver)).dragAndDrop(element, target).perform();
+        } catch (Exception e) {
+            logger.info("The webElement is not visible");
+            scrollToElement(element);
+            (new Actions(driver)).dragAndDrop(element, target).perform();
+        }
+        waitForPageLoad();
+    }
+
+    private void scrollToElement(WebElement element) {
+        logger.info("Scrolling to element");
+        waitForPageLoad();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
+        waitForPageLoad();
+    }
+
+    protected void waitUntilAnimationIsDone(String cssSelector) {
+        WebElement element = new WebDriverWait(driver, TestData.TIMEOUT).until(steadinessOfElementLocated(cssSelector));
+    }
+
+    private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
+        return new ExpectedCondition<WebElement>() {
+            private WebElement element = null;
+            private Point location = null;
+
+            @Override
+            public WebElement apply(WebDriver driver) {
+                if (element == null) {
+                    try {
+                        element = driver.findElement(By.cssSelector(cssSelector));
+                    } catch (NoSuchElementException e) {
+                        return null;
+                    }
+                }
+
+                try {
+                    if (element.isDisplayed()) {
+                        Point currentLocation = element.getLocation();
+                        if (currentLocation.equals(location) && isOnTop(element)) {
+                            return element;
+                        }
+                        location = currentLocation;
+                    }
+                } catch (StaleElementReferenceException e) {
+                    element = null;
+                }
+                return null;
+            }
+        };
+    }
+
+    private boolean isOnTop(WebElement element) {
+        WebDriver driver = ((RemoteWebElement) element).getWrappedDriver();
+        return (boolean) ((JavascriptExecutor) driver).executeScript(
+                "var elm = arguments[0];" +
+                        "var doc = elm.ownerDocument || document;" +
+                        "var rect = elm.getBoundingClientRect();" +
+                        "return elm === doc.elementFromPoint(rect.left + (rect.width / 2), rect.top + (rect.height / 2));"
+                , element);
     }
 }
