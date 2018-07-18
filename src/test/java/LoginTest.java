@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
         loginPage.typePassword(TestData.INVALID_PASSWORD);
         loginPage.clickOnSignInButton();
         final String errorMessage = loginPage.getContentAlertMessage();
-        Assert.assertEquals(TestData.INVALID_LOGIN_OR_PASSWORD, errorMessage);
+        Assert.assertEquals(TestData.INVALID_LOGIN_OR_PASSWORD_MESSAGE, errorMessage);
     }
 
     @Test(description = "Freemium - Login In/Sign in - lessonp-715 - User supplies valid form data ")
