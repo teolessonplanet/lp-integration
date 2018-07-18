@@ -10,20 +10,35 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LpUiBasePage {
 
     private static final Logger logger = LogManager.getRootLogger();
     private WebDriver driver;
+    private WebDriverWait webDriverWait;
+    private JavascriptExecutor javascriptExecutor;
 
     protected LpUiBasePage(WebDriver driver) {
         this.driver = driver;
+        javascriptExecutor = (JavascriptExecutor) driver;
+        webDriverWait = new WebDriverWait(driver, TestData.TIMEOUT);
     }
 
     protected WebElement findElement(String cssLocator) {
         waitForElement(cssLocator);
         return driver.findElement(By.cssSelector(cssLocator));
+    }
+
+    protected boolean isElementClickable(String cssSelector) {
+        try {
+            WebElement element = driver.findElement(By.cssSelector(cssSelector));
+            element.click();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -32,13 +47,16 @@ public class LpUiBasePage {
     }
 
     protected void waitForElement(String cssSelector) {
-        WebDriverWait wait = new WebDriverWait(driver, TestData.TIMEOUT);
         logger.info("Wait until the webElement is clickable: " + cssSelector);
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
     }
 
     protected void sendKeys(String cssLocator, String text) {
         findElement(cssLocator).sendKeys(text);
+    }
+
+    protected void clearText(String cssSelector) {
+        findElement(cssSelector).clear();
     }
 
     protected void clickElement(String cssLocator) {
@@ -67,12 +85,12 @@ public class LpUiBasePage {
         return driver.getCurrentUrl();
     }
 
-    protected void waitForPageLoad() {
+    public void waitForPageLoad() {
         logger.info("Waiting for jQuery to complete");
-        (new WebDriverWait(driver, 20)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver webDriver) {
-                JavascriptExecutor js = (JavascriptExecutor) webDriver;
-                return (Boolean) js.executeScript("return !!window.jQuery && window.jQuery.active == 0");
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
             }
         });
         logger.info("jQuery completed");
@@ -92,12 +110,12 @@ public class LpUiBasePage {
     private void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForPageLoad();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
         waitForPageLoad();
     }
 
     protected void waitUntilAnimationIsDone(String cssSelector) {
-        WebElement element = new WebDriverWait(driver, TestData.TIMEOUT).until(steadinessOfElementLocated(cssSelector));
+        webDriverWait.until(steadinessOfElementLocated(cssSelector));
     }
 
     private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
@@ -132,12 +150,44 @@ public class LpUiBasePage {
     }
 
     private boolean isOnTop(WebElement element) {
-        WebDriver driver = ((RemoteWebElement) element).getWrappedDriver();
-        return (boolean) ((JavascriptExecutor) driver).executeScript(
+        return (boolean) javascriptExecutor.executeScript(
                 "var elm = arguments[0];" +
                         "var doc = elm.ownerDocument || document;" +
                         "var rect = elm.getBoundingClientRect();" +
                         "return elm === doc.elementFromPoint(rect.left + (rect.width / 2), rect.top + (rect.height / 2));"
                 , element);
+    }
+
+    protected void createCaptchaBypassCookie() {
+        driver.manage().addCookie(new Cookie(TestData.STAGING_SERVER_CAPTCHA_COOKIE_NAME, ""));
+    }
+
+    protected void openInANewTab(String cssSelector) {
+        openInANewTab(findElement(cssSelector));
+    }
+
+    protected void openInANewTab(WebElement webElement) {
+        waitForPageLoad();
+        final String url = webElement.getAttribute("href");
+        logger.info("Opening a new tab and accessing the url: " + url);
+        javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", "");
+        focusDriverToLastTab();
+        driver.get(url);
+        waitForPageLoad();
+    }
+
+    public void closeTab() {
+        logger.info("Closing the tab");
+        driver.close();
+        focusDriverToLastTab();
+    }
+
+    private void focusDriverToLastTab() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabs.size() - 1));
+    }
+
+    public void goBackOnePage() {
+        javascriptExecutor.executeScript("window.history.go(-1)");
     }
 }
