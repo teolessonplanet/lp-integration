@@ -3,11 +3,12 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class StepOneModal extends LpUiBasePage {
+    private static final String TITLE_TEXT = "[class='title']";
     private static final String EMAIL_INPUT = "#user_email";
     private static final String PASSWORD_INPUT = "#user_password";
     private static final String SEND_COMMUNICATIONS_CHECKBOX = "#signup-send-communications";
     private static final String GET_STARTED_TODAY_BUTTON = "#submit-signup";
-    private static final String CLOSE_MODAL_BUTTON = "[class='close']";
+    private static final String CLOSE_MODAL_BUTTON = "[class*='text-center'] [class='close']";
 
     private static final String EMAIL_ERROR_MESSAGE = "#user_email-error";
 
@@ -30,5 +31,14 @@ public class StepOneModal extends LpUiBasePage {
 
     public String getErrorMessage() {
         return findElement(EMAIL_ERROR_MESSAGE).getText();
+    }
+
+    public boolean isTitleTextDisplayed() {
+        waitUntilAnimationIsDone(TITLE_TEXT);
+        return isElementClickable(TITLE_TEXT);
+    }
+
+    public void clickCloseModal() {
+        clickElement(CLOSE_MODAL_BUTTON);
     }
 }

@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class LpUiBasePage {
 
-    private static final Logger logger = LogManager.getRootLogger();
+    protected static final Logger logger = LogManager.getRootLogger();
     private WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
@@ -33,8 +32,8 @@ public class LpUiBasePage {
 
     protected boolean isElementClickable(String cssSelector) {
         try {
-            WebElement element = driver.findElement(By.cssSelector(cssSelector));
-            element.click();
+            driver.findElement(By.cssSelector(cssSelector));
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
         } catch (Exception e) {
             return false;
@@ -46,9 +45,22 @@ public class LpUiBasePage {
         return driver.findElements(By.cssSelector(cssLocator));
     }
 
+    protected List<WebElement> findElements(WebElement element, String cssSelector) {
+        try {
+            return element.findElements(By.cssSelector(cssSelector));
+        } catch (Exception e) {
+            logger.info("The element " + cssSelector + " cannot be found in the current webElement");
+        }
+        return null;
+    }
+
     protected void waitForElement(String cssSelector) {
         logger.info("Wait until the webElement is clickable: " + cssSelector);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+        }catch (TimeoutException timeoutException){
+            logger.error("The element " + cssSelector + " cannot be clicked");
+        }
     }
 
     protected void sendKeys(String cssLocator, String text) {
@@ -81,7 +93,7 @@ public class LpUiBasePage {
         }
     }
 
-    protected String getUrl() {
+    public String getUrl() {
         return driver.getCurrentUrl();
     }
 
@@ -173,21 +185,45 @@ public class LpUiBasePage {
         javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", "");
         focusDriverToLastTab();
         driver.get(url);
-        waitForPageLoad();
+        //Go to resource(shared resource) -> XML error on staging -> it will crash the test because of the jQuery wait
+        if (!url.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_REDIRECT_URL)) {
+            waitForPageLoad();
+        }
     }
 
     public void closeTab() {
         logger.info("Closing the tab");
         driver.close();
         focusDriverToLastTab();
+        waitForPageLoad();
     }
 
-    private void focusDriverToLastTab() {
+    public void focusDriverToLastTab() {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
     public void goBackOnePage() {
         javascriptExecutor.executeScript("window.history.go(-1)");
+        waitForPageLoad();
+    }
+
+    public void waitForLinkToLoad() {
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (!driver.getCurrentUrl().contains(TestData.EMPTY_URL));
+            }
+        });
+    }
+
+    public void waitForNewTab() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (driver.getWindowHandles().size() > 1);
+            }
+        });
     }
 }

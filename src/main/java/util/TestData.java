@@ -2,12 +2,18 @@ package util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class TestData {
 
     public static final int TIMEOUT = 15;
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
+    public static final String EMPTY_URL = "about:blank";
+    public static final Locale LOCALE = java.util.Locale.US;
     public static final String STAGING_SERVER_CAPTCHA_COOKIE_NAME = "bypass_captcha";
+    public static final String STAGING_SERVER_SHARED_RESOURCE_REDIRECT_URL = "https://staging.lessonplanet.com/drive/documents/";
+    public static final String STAGING_SERVER_SHARED_RESOURCE_URL = "https://s3.amazonaws.com/dev-lessonplanet-files/drive/";
+    public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "https://staging.lessonplanet.com/goto/";
 
     public static final String LP_HOME_PAGE_PATH = "";
     public static final String STEP_ONE_PAGE_PATH = "subscription/new";
@@ -22,7 +28,7 @@ public class TestData {
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
-    public static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
+    private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -32,6 +38,9 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS = "Collections";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_ACTIVITIES_AND_PROJECTS = "Activities & Projects";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
 
     public static final String NEW_COLLECTION_NAME = "testAutomation";
     public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
@@ -66,11 +75,11 @@ public class TestData {
     }
 
     public static String GET_PRIME_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT,PRIME_ANNUALLY, PRIME_ANNUALLY);
+        return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY);
     }
 
     public static String GET_PRO_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT ,PRO_ANNUALLY, PRO_ANNUALLY);
+        return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY);
     }
 
     public static final String FREE_MEMBERSHIP_TEXT = "Free Membership";
@@ -86,7 +95,7 @@ public class TestData {
     public static final String INVALID_CARD_CVV = "22";
     public static final String ZIP_CODE = "578631";
 
-    //Subsciption success page
+    //Subscription success page
     public static final String SUBSCRIPTION_SUCCESS_PAGE_TITLE = "Thank you for signing up for Lesson Planet";
 
     //Sign In Modal
@@ -101,4 +110,17 @@ public class TestData {
         Date date = new Date();
         return formatter.format(date);
     }
+
+    //Search data
+    public static final String VALID_SEARCH_WORD = "math";
+    public static final String INVALID_SEARCH_WORD = "maeybdhth";
+
+    public static final String INVALID_SEARCH_MESSAGE = "We found 0 reviewed resources for " + INVALID_SEARCH_WORD;
+    public static final int ZERO_RESOURCES_FOUND = 0;
+    public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
+    public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
+    public static final String SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE = "Showing all reviewed resources";
+
+    //Discovery page
+    public static final int TOTAL_RESOURCES_PER_PAGE = 24;
 }

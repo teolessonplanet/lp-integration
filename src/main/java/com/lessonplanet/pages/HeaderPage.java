@@ -17,6 +17,10 @@ public class HeaderPage extends LpUiBasePage {
         return findElement(USER_DROPDOWN_BUTTON).getText();
     }
 
+    public boolean isUsernameDropDownDisplayed() {
+        return isElementClickable(USER_DROPDOWN_BUTTON);
+    }
+
     public void clickOnTryItFree(boolean openInANewTab) {
         if (openInANewTab) {
             openInANewTab(TRY_IT_FREE_BUTTON);
