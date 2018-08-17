@@ -46,7 +46,7 @@ public class CollectionBuilderTest extends BaseTest {
         createNewCollectionModal.clickOnCreateCollection();
 
         discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnListViewButton();
+        discoverResourcesPage.clickOnListView();
 
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         //put all 24 resources in the created collection

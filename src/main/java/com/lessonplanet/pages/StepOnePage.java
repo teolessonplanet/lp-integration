@@ -45,4 +45,8 @@ public class StepOnePage extends LpUiBasePage {
     public void clickOnAlreayAMember() {
         clickElement(ALREADY_A_MEMBER_BUTTON);
     }
+
+    public boolean isAlreadyAMemberButtonDisplayed() {
+        return isElementClickable(ALREADY_A_MEMBER_BUTTON);
+    }
 }
