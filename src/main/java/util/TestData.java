@@ -67,8 +67,8 @@ public class TestData {
     private static final String STARTER_ANNUALLY = "24";
     private static final String PRIME_MONTHLY = "3";
     private static final String PRIME_ANNUALLY = "36";
-    private static final String PRO_MONTHLY = "5";
-    private static final String PRO_ANNUALLY = "60";
+    private static final String PRO_MONTHLY = "6";
+    private static final String PRO_ANNUALLY = "72";
 
     public static String GET_STARTER_BILLING_TERMS_MESSAGE() {
         return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY);
