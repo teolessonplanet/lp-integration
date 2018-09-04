@@ -8,6 +8,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
     private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade']";
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
+    private static final String SIGN_IN_BUTTON = "[class='lp-sign-in'] a";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -35,5 +36,13 @@ public class HeaderPage extends LpUiBasePage {
 
     public boolean isLogoClicable() {
         return isElementClickable(LOGO_IMAGE);
+    }
+
+    public void clickOnSignInButton(boolean openInANewTab) {
+        if (openInANewTab) {
+            openInANewTab(SIGN_IN_BUTTON);
+        } else {
+            clickElement(SIGN_IN_BUTTON);
+        }
     }
 }
