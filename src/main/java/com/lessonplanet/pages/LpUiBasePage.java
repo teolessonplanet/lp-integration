@@ -3,6 +3,7 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -58,7 +59,7 @@ public class LpUiBasePage {
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
-        }catch (TimeoutException timeoutException){
+        } catch (TimeoutException timeoutException) {
             logger.error("The element " + cssSelector + " cannot be clicked");
         }
     }
@@ -117,6 +118,14 @@ public class LpUiBasePage {
             (new Actions(driver)).dragAndDrop(element, target).perform();
         }
         waitForPageLoad();
+    }
+
+    protected void hoverOverElement(WebElement element) {
+        (new Actions(driver)).moveToElement(element).build().perform();
+    }
+
+    protected void hoverOverElement(String cssSelector) {
+        hoverOverElement(findElement(cssSelector));
     }
 
     private void scrollToElement(WebElement element) {

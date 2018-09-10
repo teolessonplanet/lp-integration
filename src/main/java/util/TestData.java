@@ -123,4 +123,14 @@ public class TestData {
 
     //Discovery page
     public static final int TOTAL_RESOURCES_PER_PAGE = 24;
+
+
+    public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
+    public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
+    public static final String CURRICULUM_CALENDAR_PAGE_PATH = "calendar";
+    public static final String LESSON_PLANNING_ARTICLES_PAGE_PATH = "articles";
+
+    public static final String EDUCATOR_EDITION_PAGE_PATH = "content/how_it_works";
+    public static final String SCHOOL_EDITION_URL = "https://schooledition.lessonplanet.com/";
+    public static final String SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_URL = "https://schooledition.lessonplanet.com/pdln";
 }
