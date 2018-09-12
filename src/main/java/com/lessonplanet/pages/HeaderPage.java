@@ -27,6 +27,20 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_BUTTON = "[class='lp-solutions-se-pd']";
 
     private static final String ABOUT_BUTTON = "[class='lp-about']";
+    private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
+    private static final String OUR_STORY_BUTTON = "[class='lp-about'] [href='/us/about_us']";
+    private static final String PRESS_BUTTON = "[class='lp-about'] [href='/us/about_us#news']";
+    private static final String FAQ_BUTTON = "[class='lp-about'] [href='/us/faq']";
+    private static final String TESTIMONIALS_BUTTON = "[class='lp-about'] [href='/us/testimonials']";
+
+    private static final String PRICING_BUTTON = "[class='lp-pricing']";
+
+    private static final String MY_ACCOUNT_BUTTON = "[class='lp-username'] [href='/profile/account']";
+    private static final String MY_MEMBER_PROFILE_BUTTON = "[class='lp-username'] [href='/profile']";
+    private static final String MY_RESOURCES_BUTTON = "[class='lp-username'] [href='/my/curriculum_manager']";
+    private static final String SEARCH_HISTORY_BUTTON = "[class='lp-username'] [href='/my/saved_searches']";
+    private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
+
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -48,7 +62,7 @@ public class HeaderPage extends LpUiBasePage {
         }
     }
 
-    public void clickOnUpgradeMe() {
+    public void clickOnUpgradeMeButton() {
         clickElement(UPGRADE_ME_BUTTON);
     }
 
@@ -88,11 +102,11 @@ public class HeaderPage extends LpUiBasePage {
         hoverOverElement(CURRICULUM_MANAGER_BUTTON);
     }
 
-    public boolean isSignInPopupLinkDisplayed(){
+    public boolean isSignInPopupLinkDisplayed() {
         return isElementClickable(SIGN_IN_POPUP);
     }
 
-    public boolean isSignUpPopupLinkDisplyed(){
+    public boolean isSignUpPopupLinkDisplyed() {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
@@ -122,5 +136,49 @@ public class HeaderPage extends LpUiBasePage {
 
     public void hoverOverAboutButton() {
         hoverOverElement(ABOUT_BUTTON);
+    }
+
+    public void clickOnContactUsButton() {
+        clickElement(CONTACT_US_BUTTON);
+    }
+
+    public void clickOnOurStoryButton() {
+        clickElement(OUR_STORY_BUTTON);
+    }
+
+    public void clickOnPressButton() {
+        clickElement(PRESS_BUTTON);
+    }
+
+    public void clickOnFaqButton() {
+        clickElement(FAQ_BUTTON);
+    }
+
+    public void clickOnTestimonialsButton() {
+        clickElement(TESTIMONIALS_BUTTON);
+    }
+
+    public void clickOnPricingButton() {
+        clickElement(PRICING_BUTTON);
+    }
+
+    public void clickOnMyAccountButton() {
+        clickElement(MY_ACCOUNT_BUTTON);
+    }
+
+    public void clickOnMyMemberProfileButton() {
+        clickElement(MY_MEMBER_PROFILE_BUTTON);
+    }
+
+    public void clickOnMyResourcesButton() {
+        clickElement(MY_RESOURCES_BUTTON);
+    }
+
+    public void clickOnSearchHistoryButton() {
+        clickElement(SEARCH_HISTORY_BUTTON);
+    }
+
+    public void clickOnSignOutButton() {
+        clickElement(SIGN_OUT_BUTTON);
     }
 }

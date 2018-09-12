@@ -30,7 +30,7 @@ public class StepTwoTest extends BaseTest {
     private void reachStepTwoModal() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
-        headerPage.clickOnUpgradeMe();
+        headerPage.clickOnUpgradeMeButton();
         stepTwoModal.waitForModal();
     }
 
