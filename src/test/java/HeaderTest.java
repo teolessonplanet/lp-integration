@@ -90,6 +90,12 @@ public class HeaderTest extends BaseTest {
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
     }
 
+    @Test(description = "Freemium - Header - lessonp-648:Your_Account")
+    public void testLessonp_648() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testYourAccountButton();
+    }
+
     private void testResourcesButton(boolean loggedIn) {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
@@ -187,4 +193,10 @@ public class HeaderTest extends BaseTest {
             }
         }
     }
+
+    private void testYourAccountButton() {
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnMyAccountButton();
+    }
+
 }

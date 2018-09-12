@@ -54,6 +54,10 @@ public class HeaderPage extends LpUiBasePage {
         return isElementClickable(USER_DROPDOWN_BUTTON);
     }
 
+    public void hoverOverUserDropDownButton() {
+        hoverOverElement(USER_DROPDOWN_BUTTON);
+    }
+
     public void clickOnTryItFree(boolean openInANewTab) {
         if (openInANewTab) {
             openInANewTab(TRY_IT_FREE_BUTTON);
