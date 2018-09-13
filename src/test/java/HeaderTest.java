@@ -96,6 +96,12 @@ public class HeaderTest extends BaseTest {
         testYourAccountButton();
     }
 
+    @Test(description = "Active user - Header - lessonp-653:Your_Account")
+    public void testLessonp_653() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testYourAccountButton();
+    }
+
     private void testResourcesButton(boolean loggedIn) {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
@@ -176,6 +182,7 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverResourcesButton();
         headerPage.hoverOverSolutionsButton();
         headerPage.hoverOverAboutButton();
+
         if (emailAddress.equals(TestData.INVALID_EMAIL)) {
             headerPage.clickOnPricingButton();
             Assert.assertEquals(headerPage.getPath(), TestData.PRICING_PAGE_PATH);
@@ -197,6 +204,23 @@ public class HeaderTest extends BaseTest {
     private void testYourAccountButton() {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyAccountButton();
+        Assert.assertEquals(headerPage.getPath(), TestData.MY_ACCOUNT_PAGE_PATH);
+
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnMyMemberProfileButton();
+        Assert.assertEquals(headerPage.getPath(), TestData.MEMBER_PROFILE_PAGE_PATH);
+
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnMyResourcesButton();
+        Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
+
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnSearchHistoryButton();
+        Assert.assertEquals(headerPage.getPath(), TestData.SEARCH_HISTORY_PAGE_PATH);
+
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnSignOutButton();
+        Assert.assertTrue(headerPage.isSignInButtonDisplayed());
     }
 
 }

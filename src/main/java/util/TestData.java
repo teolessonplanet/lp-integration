@@ -123,8 +123,6 @@ public class TestData {
 
     //Discovery page
     public static final int TOTAL_RESOURCES_PER_PAGE = 24;
-
-
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";
@@ -143,4 +141,6 @@ public class TestData {
 
     public static final String PRICING_PAGE_PATH = "pricing";
 
+    public static final String MEMBER_PROFILE_PAGE_PATH = "profile";
+    public static final String SEARCH_HISTORY_PAGE_PATH = "my/saved_searches";
 }

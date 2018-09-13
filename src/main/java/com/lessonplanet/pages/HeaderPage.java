@@ -10,7 +10,6 @@ public class HeaderPage extends LpUiBasePage {
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
     private static final String SIGN_IN_BUTTON = "[class='lp-sign-in'] a";
 
-
     private static final String RESOURCES_BUTTON = "[class='lp-resources']";
     private static final String DISCOVER_RESOURCES_BUTTON = "[class='lp-resources'] [href='/search']";
     private static final String BROWSE_RESOURCE_DIRECTORY = "[class='lp-resources'] [href='/lesson-plans']";
@@ -40,7 +39,6 @@ public class HeaderPage extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "[class='lp-username'] [href='/my/curriculum_manager']";
     private static final String SEARCH_HISTORY_BUTTON = "[class='lp-username'] [href='/my/saved_searches']";
     private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
-
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -80,6 +78,10 @@ public class HeaderPage extends LpUiBasePage {
         } else {
             clickElement(SIGN_IN_BUTTON);
         }
+    }
+
+    public boolean isSignInButtonDisplayed() {
+        return isElementClickable(SIGN_IN_BUTTON);
     }
 
     public void hoverOverResourcesButton() {
