@@ -143,4 +143,26 @@ public class TestData {
 
     public static final String MEMBER_PROFILE_PAGE_PATH = "profile";
     public static final String SEARCH_HISTORY_PAGE_PATH = "my/saved_searches";
+
+    public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
+    public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
+    public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
+    public static final String MATH_PAGE_PATH = "lesson-plans/math";
+    public static final String PHYSICAL_EDUCATION_PAGE_PATH = "lesson-plans/physical-education";
+    public static final String SCIENCE_PAGE_PATH = "lesson-plans/science";
+    public static final String SOCIAL_STUDIES_PAGE_PATH = "lesson-plans/social-studies";
+    public static final String SPECIAL_EDUCATION_PAGE_PATH = "lesson-plans/special-education";
+    public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_PATH = "lesson-plans/visual-and-performing-arts";
+
+    public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
+    public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
+    public static final String LANGUAGES_PAGE_TITLE = "Languages Teacher Resources";
+    public static final String MATH_PAGE_TITLE = "Math Teacher Resources";
+    public static final String PHYSICAL_EDUCATION_PAGE_TITLE = "Physical Education Teacher Resources";
+    public static final String SCIENCE_PAGE_TITLE = "Science Teacher Resources";
+    public static final String SOCIAL_STUDIES_PAGE_TITLE = "Social Studies Teacher Resources";
+    public static final String SPECIAL_EDUCATION_PAGE_TITLE = "Special Education Teacher Resources";
+    public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE = "Visual and Performing Arts Teacher Resources";
+
+
 }
