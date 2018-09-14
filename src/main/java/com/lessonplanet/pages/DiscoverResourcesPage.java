@@ -12,9 +12,9 @@ public class DiscoverResourcesPage extends ResourcesPage {
     private static final String SUGGESTIONS_BLOCK_TEXT = "[class*='alert-warning']";
     private static final String RESOURCES_COUNTER_TEXT = "[class='count text-action']";
 
-    private static final String LIST_VIEW_BUTTON = "span[data-reactid*='$list']";
-    private static final String TILED_VIEW_BUTTON = "span[data-reactid*='$tiled']";
-    private static final String THUMBNAIL_VIEW_BUTTON = "span[data-reactid*='$thumbnail']";
+    private static final String LIST_VIEW_BUTTON = "#list";
+    private static final String TILED_VIEW_BUTTON = "#tiled";
+    private static final String THUMBNAIL_VIEW_BUTTON = "#thumbnail";
 
     public DiscoverResourcesPage(WebDriver driver) {
         super(driver);
