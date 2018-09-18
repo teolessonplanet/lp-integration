@@ -27,7 +27,7 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String SHOW_ALL_BUTTONS = "[class*='open-modal']";
 
     private static final String WELLNESS_AND_SAFETY_LINK = "[href='/lesson-plans/health-triangle']";
-    private static final String NUTRITION_LINK = "[href='/lesson-plans/nutrition']']";
+    private static final String NUTRITION_LINK = "[href='/lesson-plans/nutrition']";
     private static final String GROWTH_AND_DEVELOPMENT_LINK = "[href='/lesson-plans/growth-and-development']";
     private static final String SEX_EDUCATION_LINK = "[href='/lesson-plans/sex-education']";
     private static final String RESEARCH_LINK = "[href='/lesson-plans/research']";
@@ -61,6 +61,9 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String VISUAL_ARTS_LINK = "[href='/lesson-plans/visual-arts']";
     private static final String FILM_STUDIES_LINK = "[href='/lesson-plans/film-studies']";
     private static final String DANCE_LINKS = "[href='/lesson-plans/dance']";
+
+    private static final String CARETS = "[class=''] [class*='fa-caret-right']";
+    private static final String CATEGORY_AND_SUBCATEGORY_CARDS = "div[class='panel-body']";
 
     public DirectoryPage(WebDriver driver) {
         super(driver);
@@ -284,6 +287,14 @@ public class DirectoryPage extends LpUiBasePage {
 
     public void clickOnFilmStudiesLink() {
         clickElement(FILM_STUDIES_LINK);
+    }
+
+    public String getHealthCategoryAndSubcategoriesText(){
+        return findElements(CATEGORY_AND_SUBCATEGORY_CARDS).get(0).getText();
+    }
+
+    public void clickOnFirstCaretFromHealthCategory(){
+        findElements(CARETS).get(0).click();
     }
 
 }

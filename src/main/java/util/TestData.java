@@ -184,7 +184,7 @@ public class TestData {
     public static final String WATER_ACTIVITIES_PAGE_TITLE = "Water Activities Teacher Resources";
     public static final String SPORT_SKILLS_PAGE_TITLE = "Sports Skills Teacher Resources";
     public static final String NATURAL_SCIENCE_PAGE_TITLE = "Natural Science Teacher Resources";
-    public static final String SCIENTISTS_PAGE_TITLE = "Scientist Teacher Resources";
+    public static final String SCIENTISTS_PAGE_TITLE = "Scientists Teacher Resources";
     public static final String BIOLOGY_PAGE_TITLE = "Biology Teacher Resources";
     public static final String APPLIED_SCIENCE_PAGE_TITLE = "Applied Science Teacher Resources";
     public static final String TWENTY_ONE_CENTURY_LEARNING_SKILLS_PAGE_TITLE = "21st Century Learning Skills Teacher Resources";
