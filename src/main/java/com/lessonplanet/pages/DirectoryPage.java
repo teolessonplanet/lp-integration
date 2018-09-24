@@ -5,8 +5,9 @@ import util.TestData;
 
 public class DirectoryPage extends LpUiBasePage {
 
-    private static final String HEALTH_SUBJECT_LINK = "h4 [href*='/health']";
-    private static final String HEALTH_SUBJECT_THUMBNAIL = "[class*='img'][href*='/health']";
+//    private static final String HEALTH_SUBJECT_LINK = "h4 [href*='/health']";
+    private static final String HEALTH_SUBJECT_LINK = "[class*='panel-default']:not([class*='react-modal']) h4 [href*='/health']";
+    private static final String HEALTH_SUBJECT_THUMBNAIL = "[class*='panel-default']:not([class*='react-modal']) [class*='img'][href*='/health']";
     private static final String LANGUAGE_ARTS_SUBJECT_LINK = "h4 [href*='/language-arts']";
     private static final String LANGUAGE_ARTS_SUBJECT_THUMBNAIL = "[class*='img'][href*='/language-arts']";
     private static final String LANGUAGES_SUBJECT_LINK = "h4 [href*='/languages']";
@@ -289,12 +290,20 @@ public class DirectoryPage extends LpUiBasePage {
         clickElement(FILM_STUDIES_LINK);
     }
 
-    public String getHealthCategoryAndSubcategoriesText(){
+    public String getHealthCategoryAndSubcategoriesText() {
         return findElements(CATEGORY_AND_SUBCATEGORY_CARDS).get(0).getText();
     }
 
-    public void clickOnFirstCaretFromHealthCategory(){
+    public void clickOnFirstCaretFromHealthCategory() {
         findElements(CARETS).get(0).click();
+    }
+
+    public int countShowAllButtons(){
+        return findElements(SHOW_ALL_BUTTONS).size();
+    }
+
+    public void clickOnShowAllButtonFromHealthCategory() {
+        findElements(SHOW_ALL_BUTTONS).get(0).click();
     }
 
 }

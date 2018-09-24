@@ -154,6 +154,9 @@ public class TestData {
     public static final String SPECIAL_EDUCATION_PAGE_PATH = "lesson-plans/special-education";
     public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_PATH = "lesson-plans/visual-and-performing-arts";
 
+    public static final int DIRECTORY_CATEGORIES_COUNTER = 9;
+    public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
+
     public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
     public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
     public static final String LANGUAGES_PAGE_TITLE = "Languages Teacher Resources";

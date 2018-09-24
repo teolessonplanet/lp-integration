@@ -11,7 +11,7 @@ public class DirectoryTest extends BaseTest {
     private HeaderPage headerPage;
     private DirectoryPage directoryPage;
     private BrowseBySubjectPage browseBySubjectPage;
-
+    private CategoryModal categoryModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -20,6 +20,7 @@ public class DirectoryTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
         directoryPage = new DirectoryPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
+        categoryModal = new CategoryModal(webDriver);
     }
 
     @Test(description = "Visitor - Directory Page - lessonp-1015:Page UI")
@@ -27,7 +28,6 @@ public class DirectoryTest extends BaseTest {
         lpHomePage.loadPage();
         testPageUi();
     }
-
 
     @Test(description = "Freemium - Directory Page - lessonp-1035:Page UI")
     public void testLessonp_1035() {
@@ -41,13 +41,6 @@ public class DirectoryTest extends BaseTest {
         testPageUi();
     }
 
-//    @Test(description = "Visitor - Directory Page - lessonp-____:Tumbnails")
-//    public void testLessonp_1015() {
-//        lpHomePage.loadPage();
-//        testThumbnails();
-//    }
-
-
     @Test(description = "Freemium - Directory Page - lessonp-1330:Tumbnails")
     public void testLessonp_1030() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
@@ -60,14 +53,6 @@ public class DirectoryTest extends BaseTest {
         testThumbnails();
     }
 
-
-//    @Test(description = "Visitor - Directory Page - lessonp-____:Links")
-//    public void testLessonp_1015() {
-//        lpHomePage.loadPage();
-//        testPageUi();
-//    }
-
-
     @Test(description = "Freemium - Directory Page - lessonp-1331:Links")
     public void testLessonp_1331() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
@@ -78,6 +63,38 @@ public class DirectoryTest extends BaseTest {
     public void testLessonp_1042() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testLinks();
+    }
+
+    @Test(description = "Freemium - Directory Page - lessonp-1332:Show All button")
+    public void testLessonp_1332() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testShowAllButton();
+    }
+
+    @Test(description = "Active user - Directory Page - lessonp-1043:Show All button")
+    public void testLessonp_1043() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testShowAllButton();
+    }
+
+    @Test(description = "Visitor - Directory Page - lessonp-1018:Categories modal")
+    public void testLessonp_1018() {
+//        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testShowAllButton();
+
+        directoryPage.loadPage();
+        directoryPage.clickOnHealthSubjectLink();
+        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
+        browseBySubjectPage.goBackOnePage();
+
+        directoryPage.clickOnHealthSubjectThumbnail();
+        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
+        browseBySubjectPage.goBackOnePage();
+
+        directoryPage.clickOnShowAllButtonFromHealthCategory();
+        categoryModal.clickOnFirstCaret();
+        categoryModal.clickOnFirstCaret();
+
     }
 
     private void testPageUi() {
@@ -118,6 +135,8 @@ public class DirectoryTest extends BaseTest {
     }
 
     private void testThumbnails() {
+        directoryPage.loadPage();
+
         directoryPage.clickOnHealthSubjectThumbnail();
         checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
 
@@ -147,6 +166,8 @@ public class DirectoryTest extends BaseTest {
     }
 
     private void testLinks() {
+        directoryPage.loadPage();
+
         directoryPage.clickOnWellnessAndSafetyLink();
         checkPageTitle(TestData.WELLNESS_AND_SAFETY_PAGE_TITLE);
 
@@ -265,5 +286,13 @@ public class DirectoryTest extends BaseTest {
     private void checkPageTitle(String expectedTitle) {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), expectedTitle);
         browseBySubjectPage.goBackOnePage();
+    }
+
+    private void testShowAllButton() {
+        directoryPage.loadPage();
+        Assert.assertEquals(directoryPage.countShowAllButtons(), TestData.DIRECTORY_CATEGORIES_COUNTER);
+        directoryPage.clickOnShowAllButtonFromHealthCategory();
+        Assert.assertEquals(categoryModal.getModalTitle(), TestData.HEALTH_CATEGORY_MODAL_TITLE);
+        categoryModal.clickOnCloseModalButton();
     }
 }

@@ -213,6 +213,7 @@ public class LpUiBasePage {
     }
 
     public void goBackOnePage() {
+        waitForPageLoad();
         javascriptExecutor.executeScript("window.history.go(-1)");
         waitForPageLoad();
     }
