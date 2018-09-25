@@ -125,7 +125,7 @@ public class DirectoryTest extends BaseTest {
         directoryPage.clickOnVisualAndPerformingArtsSubjectLink();
         checkPageTitleAndPagePath(TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE, TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_PATH);
 
-        //Click the carrets displayed in front of the categories title-links
+        //Click the carets displayed in front of the categories title-links
         final String healthCategoryAndSubcategoriesText = directoryPage.getHealthCategoryAndSubcategoriesText();
         directoryPage.clickOnFirstCaretFromHealthCategory();
         Assert.assertEquals(directoryPage.getHealthCategoryAndSubcategoriesText(), healthCategoryAndSubcategoriesText);
