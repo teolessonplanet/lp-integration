@@ -143,4 +143,66 @@ public class TestData {
 
     public static final String MEMBER_PROFILE_PAGE_PATH = "profile";
     public static final String SEARCH_HISTORY_PAGE_PATH = "my/saved_searches";
+
+    public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
+    public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
+    public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
+    public static final String MATH_PAGE_PATH = "lesson-plans/math";
+    public static final String PHYSICAL_EDUCATION_PAGE_PATH = "lesson-plans/physical-education";
+    public static final String SCIENCE_PAGE_PATH = "lesson-plans/science";
+    public static final String SOCIAL_STUDIES_PAGE_PATH = "lesson-plans/social-studies";
+    public static final String SPECIAL_EDUCATION_PAGE_PATH = "lesson-plans/special-education";
+    public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_PATH = "lesson-plans/visual-and-performing-arts";
+
+    public static final int DIRECTORY_CATEGORIES_COUNTER = 9;
+    public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
+    public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
+
+    public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
+    public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
+    public static final String LANGUAGES_PAGE_TITLE = "Languages Teacher Resources";
+    public static final String MATH_PAGE_TITLE = "Math Teacher Resources";
+    public static final String PHYSICAL_EDUCATION_PAGE_TITLE = "Physical Education Teacher Resources";
+    public static final String SCIENCE_PAGE_TITLE = "Science Teacher Resources";
+    public static final String SOCIAL_STUDIES_PAGE_TITLE = "Social Studies Teacher Resources";
+    public static final String SPECIAL_EDUCATION_PAGE_TITLE = "Special Education Teacher Resources";
+    public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE = "Visual and Performing Arts Teacher Resources";
+
+    public static final String WELLNESS_AND_SAFETY_PAGE_TITLE = "Wellness & Safety Teacher Resources";
+    public static final String NUTRITION_PAGE_TITLE = "Nutrition Teacher Resources";
+    public static final String GROWTH_AND_DEVELOPMENT_PAGE_TITLE = "Growth and Development Teacher Resources";
+    public static final String SEX_EDUCATION_PAGE_TITLE = "Sex Education Teacher Resources";
+    public static final String RESEARCH_PAGE_TITLE = "Research Teacher Resources";
+    public static final String LITERATURE_PAGE_TITLE = "Literature Teacher Resources";
+    public static final String GRAPHIC_ORGANIZER_PAGE_TITLE = "Graphic Organizer Teacher Resources";
+    public static final String GENRE_TYPES_PAGE_TITLE = "Genre Types Teacher Resources";
+    public static final String ENGLISH_LANGUAGE_DEVELOPMENT_PAGE_TITLE = "English Language Development Teacher Resources";
+    public static final String AMERICAN_SIGN_LANGUAGE_PAGE_TITLE = "American Sign Language Teacher Resources";
+    public static final String FRENCH_PAGE_TITLE = "French Teacher Resources";
+    public static final String SPANISH_PAGE_TITLE = "Spanish Teacher Resources";
+    public static final String MEASUREMENT_PAGE_TITLE = "Measurement Teacher Resources";
+    public static final String TEACHING_MATH_PAGE_TITLE = "Teaching Math Teacher Resources";
+    public static final String ALGEBRA_PAGE_TITLE = "Algebra Teacher Resources";
+    public static final String GRAPHING_PAGE_TITLE = "Graphing Teacher Resources";
+    public static final String ANAEROBIC_ACTIVITY_PAGE_TITLE = "Anaerobic Activity Teacher Resources";
+    public static final String WATER_ACTIVITIES_PAGE_TITLE = "Water Activities Teacher Resources";
+    public static final String SPORT_SKILLS_PAGE_TITLE = "Sports Skills Teacher Resources";
+    public static final String NATURAL_SCIENCE_PAGE_TITLE = "Natural Science Teacher Resources";
+    public static final String SCIENTISTS_PAGE_TITLE = "Scientists Teacher Resources";
+    public static final String BIOLOGY_PAGE_TITLE = "Biology Teacher Resources";
+    public static final String APPLIED_SCIENCE_PAGE_TITLE = "Applied Science Teacher Resources";
+    public static final String TWENTY_ONE_CENTURY_LEARNING_SKILLS_PAGE_TITLE = "21st Century Learning Skills Teacher Resources";
+    public static final String GEOGRAPHY_PAGE_TITLE = "Geography Teacher Resources";
+    public static final String FLAGS_PAGE_TITLE = "Flags Teacher Resources";
+    public static final String HISTORY_PAGE_TITLE = "History Teacher Resources";
+    public static final String DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PAGE_TITLE = "Developmental & Behavioral Disorders Teacher Resources";
+    public static final String PHYSICAL_DISABILITIES_PAGE_TITLE = "Physical Disabilities Teacher Resources";
+    public static final String SPECIAL_NEEDS_TEACHER_RESOURCES_PAGE_TITLE = "Special Needs Teacher Resources Teacher Resources";
+    public static final String ACCOMMODATION_PAGE_TITLE = "Accommodations Teacher Resources";
+    public static final String MUSIC_PAGE_TITLE = "Music Teacher Resources";
+    public static final String VISUAL_ARTS_PAGE_TITLE = "Visual Arts Teacher Resources";
+    public static final String FILM_STUDIES_PAGE_TITLE = "Film Studies Teacher Resources";
+    public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
 }
