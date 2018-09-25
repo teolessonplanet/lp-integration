@@ -5,12 +5,10 @@ import org.openqa.selenium.WebDriver;
 public class CategoryModal extends LpUiBasePage {
 
     private static final String CLOSE_MODAL_BUTTON = "div[class*='close-modal']";
-    private static final String THUMBNAIL = "[class*='panel-container'] img[class*='full-card-img']";
     private static final String MODAL_TITLE = "[class*='panel-container'] h4 a";
     private static final String CARETS = "[class*='panel-container'] a[class*='subcategory']";
     private static final String SUBCATEGORIES_TEXT = "[class*='react-modal'] [class='fa-ul mb0']";
-//    private static final String CARETS = "[class=''] [class*='fa-caret-right']";
-    private static final String CATEGORY_AND_SUBCATEGORY_CARDS = "div[class='panel-body']";
+
     public CategoryModal(WebDriver driver) {
         super(driver);
     }
@@ -33,9 +31,5 @@ public class CategoryModal extends LpUiBasePage {
 
     public String getSubcategoriesAsText() {
         return findElement(SUBCATEGORIES_TEXT).getText();
-    }
-
-    public String getCategoryAndSubcategoriesText() {
-        return findElements(CATEGORY_AND_SUBCATEGORY_CARDS).get(0).getText();
     }
 }

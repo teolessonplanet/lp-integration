@@ -5,7 +5,6 @@ import util.TestData;
 
 public class DirectoryPage extends LpUiBasePage {
 
-//    private static final String HEALTH_SUBJECT_LINK = "h4 [href*='/health']";
     private static final String HEALTH_SUBJECT_LINK = "[class*='panel-default']:not([class*='react-modal']) h4 [href*='/health']";
     private static final String HEALTH_SUBJECT_THUMBNAIL = "[class*='panel-default']:not([class*='react-modal']) [class*='img'][href*='/health']";
     private static final String LANGUAGE_ARTS_SUBJECT_LINK = "h4 [href*='/language-arts']";
@@ -24,7 +23,6 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String SPECIAL_EDUCATION_SUBJECT_THUMBNAIL = "[class*='img'][href*='/special-education']";
     private static final String VISUAL_AND_PERFORMING_ARTS_SUBJECT_LINK = "h4 [href*='/visual-and-performing-arts']";
     private static final String VISUAL_AND_PERFORMING_ARTS_SUBJECT_THUMBNAIL = "[class*='img'][href*='/visual-and-performing-arts']";
-    private static final String ALL_VISIBLE_CATEGORIES = ".panel-body [class='fa-ul mb0'] li[class='']";
     private static final String SHOW_ALL_BUTTONS = "[class*='open-modal']";
 
     private static final String WELLNESS_AND_SAFETY_LINK = "[href='/lesson-plans/health-triangle']";
@@ -305,5 +303,4 @@ public class DirectoryPage extends LpUiBasePage {
     public void clickOnShowAllButtonFromHealthCategory() {
         findElements(SHOW_ALL_BUTTONS).get(0).click();
     }
-
 }

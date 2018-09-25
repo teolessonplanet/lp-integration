@@ -88,7 +88,7 @@ public class DirectoryTest extends BaseTest {
         testCategoriesModal();
     }
 
-    @Test(description = "Visitor - Directory Page - lessonp-1044:Categories modal")
+    @Test(description = "Active user - Directory Page - lessonp-1044:Categories modal")
     public void testLessonp_1044() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testCategoriesModal();
@@ -293,7 +293,7 @@ public class DirectoryTest extends BaseTest {
         categoryModal.clickOnCloseModalButton();
     }
 
-    private void testCategoriesModal(){
+    private void testCategoriesModal() {
         testShowAllButton();
 
         directoryPage.clickOnHealthSubjectLink();
@@ -312,5 +312,4 @@ public class DirectoryTest extends BaseTest {
         categoryModal.clickOnSecondCaret();
         Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
     }
-
 }
