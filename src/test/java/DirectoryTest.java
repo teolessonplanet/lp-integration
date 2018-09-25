@@ -79,22 +79,19 @@ public class DirectoryTest extends BaseTest {
 
     @Test(description = "Visitor - Directory Page - lessonp-1018:Categories modal")
     public void testLessonp_1018() {
-//        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testShowAllButton();
+        testCategoriesModal();
+    }
 
-        directoryPage.loadPage();
-        directoryPage.clickOnHealthSubjectLink();
-        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
-        browseBySubjectPage.goBackOnePage();
+    @Test(description = "Freemium - Directory Page - lessonp-1039:Categories modal")
+    public void testLessonp_1039() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testCategoriesModal();
+    }
 
-        directoryPage.clickOnHealthSubjectThumbnail();
-        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
-        browseBySubjectPage.goBackOnePage();
-
-        directoryPage.clickOnShowAllButtonFromHealthCategory();
-        categoryModal.clickOnFirstCaret();
-        categoryModal.clickOnFirstCaret();
-
+    @Test(description = "Visitor - Directory Page - lessonp-1044:Categories modal")
+    public void testLessonp_1044() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testCategoriesModal();
     }
 
     private void testPageUi() {
@@ -295,4 +292,25 @@ public class DirectoryTest extends BaseTest {
         Assert.assertEquals(categoryModal.getModalTitle(), TestData.HEALTH_CATEGORY_MODAL_TITLE);
         categoryModal.clickOnCloseModalButton();
     }
+
+    private void testCategoriesModal(){
+        testShowAllButton();
+
+        directoryPage.clickOnHealthSubjectLink();
+        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
+
+        directoryPage.clickOnHealthSubjectThumbnail();
+        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
+        directoryPage.clickOnShowAllButtonFromHealthCategory();
+        Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
+        categoryModal.clickOnFirstCaret();
+        Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT);
+        categoryModal.clickOnFirstCaret();
+        Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
+        categoryModal.clickOnSecondCaret();
+        Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT);
+        categoryModal.clickOnSecondCaret();
+        Assert.assertEquals(categoryModal.getSubcategoriesAsText(), TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
+    }
+
 }
