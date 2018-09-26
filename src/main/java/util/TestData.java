@@ -22,6 +22,42 @@ public class TestData {
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
 
+    public static final String HEALTH_PATH = "lesson-plans/health";
+    public static final String LANGUAGE_ARTS_PATH = "lesson-plans/language-arts";
+    public static final String LANGUAGES_PATH = "lesson-plans/languages";
+    public static final String MATH_PATH = "lesson-plans/math";
+    public static final String PHYSICAL_EDUCATION_PATH = "lesson-plans/physical-education";
+    public static final String SCIENCE_PATH = "lesson-plans/science";
+    public static final String SOCIAL_STUDIES_PATH = "lesson-plans/social-studies";
+    public static final String SPECIAL_EDUCATION_PATH = "lesson-plans/special-education";
+    public static final String VISUAL_AND_PERFORMING_ARTS_PATH = "lesson-plans/visual-and-performing-arts";
+
+
+    public static final String EDIT_A_COLLECTION_PATH = "us/videos?autoplay=collections_edit";
+    public static final String ASSIGN_TO_STUDENTS_PATH = "us/videos?autoplay=how_to_share_collections";
+    public static final String MANAGE_MY_RESOURCES_PATH = "us/videos?autoplay=curriculum_manager";
+    public static final String SHARING_WITH_OTHERS_PATH = "us/videos?autoplay=how_to_share_collections";
+
+    public static final String OUR_REVIEW_PROCESS_PATH = "content/how_it_works";
+    public static final String HOW_IT_WOKKS_PATH = "us/videos?autoplay=review";
+    public static final String HOW_TO_SEARCH_PATH = "us/videos?autoplay=search";
+    public static final String CREATE_A_COLLECTION_PATH = "us/videos?autoplay=collections_how_to";
+
+    public static final String FACEBOOK_URL = "www.facebook.com/LessonPlanet";
+    public static final String TWITTER_URL = "https://twitter.com/lessonplanet";
+    public static final String GOOGLE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
+    public static final String LINKEDIN_URL = "https://www.linkedin.com/company/lesson-planet";
+    public static final String YOUTUBE_URL = "www.youtube.com/user/lessonplanet";
+    public static final String PINTEREST_URL = "https://www.pinterest.com/lessonplanet/";
+
+    public static final String CONTACT_US_PATH="us/contact";
+    public static final String SITE_MAP_PATH="content/site_map";
+    public static final String PRIVACY_POLICY_PATH="us/privacy_policy";
+    public static final String TERMS_OF_USE_PATH="us/terms_of_use";
+
+    public static final String SUBSCRIPTION_TEXT="Thank you for subscribing to Lesson Planet News.";
+    public static final String EMPTY_FIELD_TEXT= "";
+
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
