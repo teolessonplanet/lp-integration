@@ -9,9 +9,9 @@ public class FooterPage extends LpUiBasePage {
     private static final String CONTACT_US_BUTTON = "[class*='lp-footer-contact-link lp-bottom-footer-link']";
     private static final String SITE_MAP_BUTTON = "[href='/content/site_map']";
     private static final String PRIVACY_POLICY_LINK = "[href='/us/privacy_policy']";
-    private static final String TERMS_OF_USE = "[href='/us/terms_of_use']";
+    private static final String TERMS_OF_USE_LINK = "[href='/us/terms_of_use']";
 
-    private static final String EMAIL_FIELD = "[class*='lp-newsletter-email-input form-control required email']";
+    private static final String EMAIL_INPUT = "[class*='lp-newsletter-email-input form-control required email']";
     private static final String SEND_BUTTON = "[class*='lp-newsletter-email-submit']";
 
     private static final String LP_LOGO_IMAGE = "[class*='img-responsive']";
@@ -64,7 +64,7 @@ public class FooterPage extends LpUiBasePage {
     }
 
     public void clickOnTermsOfUseButton() {
-        clickElement(TERMS_OF_USE);
+        clickElement(TERMS_OF_USE_LINK);
     }
 
     public void clickOnLessonPlanetLogo() {
@@ -76,7 +76,7 @@ public class FooterPage extends LpUiBasePage {
     }
 
     public String getTextFromEMailField() {
-        return findElement(EMAIL_FIELD).getAttribute("value");
+        return findElement(EMAIL_INPUT).getAttribute("value");
     }
 
     public void clickOnLanguageArtsLink() {
@@ -172,7 +172,6 @@ public class FooterPage extends LpUiBasePage {
     }
 
     public void typeEmail(String email) {
-        sendKeys(EMAIL_FIELD, email);
+        sendKeys(EMAIL_INPUT, email);
     }
-
 }

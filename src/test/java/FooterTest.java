@@ -112,142 +112,142 @@ public class FooterTest extends BaseTest {
     private void testBasicInfoLinks() {
         lpHomePage.loadPage();
         footerPage.clickOnContactUsButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
 
         footerPage.clickOnSiteMapButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
 
         footerPage.clickOnPrivacyPolicyButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PAGE_PATH);
 
         footerPage.clickOnTermsOfUseButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
     }
     private void testLessonPlanetSocialLinks() {
         lpHomePage.loadPage();
         footerPage.clickOnLessonPlanetFacebookButton();;
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.FACEBOOK_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.FACEBOOK_PAGE_URL));
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetTwitterButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.TWITTER_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.TWITTER_PAGE_URL));
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetGoogleButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.GOOGLE_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.GOOGLE_PAGE_URL));
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetLinkedInButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.LINKEDIN_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.LINKEDIN_PAGE_URL));
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetYoutubeButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.YOUTUBE_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.YOUTUBE_PAGE_URL));
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetPinterestButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.PINTEREST_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.PINTEREST_PAGE_URL));
         footerPage.closeTab();
     }
 
     private void testOpenEducationalResourcesSection() {
         footerPage.clickOnHealthLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.HEALTH_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.HEALTH_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnLanguageArtsLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LANGUAGE_ARTS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LANGUAGE_ARTS_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnLanguagesLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LANGUAGES_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LANGUAGES_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnMathLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.MATH_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.MATH_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnPhysicalEducationLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.PHYSICAL_EDUCATION_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.PHYSICAL_EDUCATION_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnScienceLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SCIENCE_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SCIENCE_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnSocialStudiesLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SOCIAL_STUDIES_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SOCIAL_STUDIES_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnSpecialEducationLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SPECIAL_EDUCATION_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SPECIAL_EDUCATION_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnVisualAndPerformingArtsLink();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.VISUAL_AND_PERFORMING_ARTS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_PATH);
     }
 
     private void testDiscoverResourcesSection() {
         footerPage.clickOnOurReviewProcessLink();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.OUR_REVIEW_PROCESS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.OUR_REVIEW_PROCESS_PAGE_PATH);
 
         footerPage.clickOnHowItWorksLink();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_IT_WOKKS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_IT_WORKS_PAGE_PATH);
 
         footerPage.clickOnHowToSearchLink();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_TO_SEARCH_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_TO_SEARCH_PAGE_PATH);
 
         footerPage.clickOnCreateACollectionLink();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.CREATE_A_COLLECTION_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.CREATE_A_COLLECTION_PAGE_PATH);
     }
 
     private void testManageCurriculumSection() {
         footerPage.clickOnEditACollectionLink();
         howToUseVideoPage.waitForModal();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.EDIT_A_COLLECTION_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.EDIT_A_COLLECTION_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnAssignToStudentsLink();
         howToUseVideoPage.waitForModal();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.ASSIGN_TO_STUDENTS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.ASSIGN_TO_STUDENTS_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnManageMyResourcesLink();
         howToUseVideoPage.waitForModal();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.MANAGE_MY_RESOURCES_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.MANAGE_MY_RESOURCES_PAGE_PATH);
 
         lpHomePage.loadPage();
         footerPage.clickOnSharingWithOthersLink();
         howToUseVideoPage.waitForModal();
         howToUseVideoPage.clickOnXButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PATH);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);
     }
 
     private void testClickOnLessonPlanetLogo(){
@@ -256,7 +256,3 @@ public class FooterTest extends BaseTest {
 
     }
 }
-
-
-
-
