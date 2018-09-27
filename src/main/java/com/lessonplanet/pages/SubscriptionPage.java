@@ -4,12 +4,18 @@ import org.openqa.selenium.WebDriver;
 
 public class SubscriptionPage extends LpUiBasePage {
 
-    private static final String SUBSCRIPTION_MODAL_TEXT = "[class*='modal-body']";
-    private static final String CLOSE_BUTTON ="[class*='close']";
+    private static final String SUBSCRIPTION_MODAL = "[class*='modal-body']";
+    private static final String CLOSE_BUTTON = "[class*='close']";
 
-    public SubscriptionPage (WebDriver driver) { super(driver); }
+    public SubscriptionPage(WebDriver driver) {
+        super(driver);
+    }
 
-    public String getSubscriptionText() {return findElement(SUBSCRIPTION_MODAL_TEXT).getText(); }
+    public String getSubscriptionModalText() {
+        return findElement(SUBSCRIPTION_MODAL).getText();
+    }
 
-    public void clickOnCloseButton(){ findElements(CLOSE_BUTTON).get(0).click(); }
+    public void clickOnCloseButton() {
+        findElements(CLOSE_BUTTON).get(0).click();
+    }
 }

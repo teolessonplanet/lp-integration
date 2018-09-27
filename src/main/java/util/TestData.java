@@ -32,11 +32,11 @@ public class TestData {
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
 
-    public static final String FACEBOOK_PAGE_URL = "www.facebook.com/LessonPlanet";
+    public static final String FACEBOOK_PAGE_URL = "facebook";
     public static final String TWITTER_PAGE_URL = "https://twitter.com/lessonplanet";
     public static final String GOOGLE_PAGE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
     public static final String LINKEDIN_PAGE_URL = "linkedin";
-    public static final String YOUTUBE_PAGE_URL = "www.youtube.com/user/lessonplanet";
+    public static final String YOUTUBE_PAGE_URL = "youtube";
     public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
 
     public static final String SITE_MAP_PAGE_PATH ="content/site_map";
