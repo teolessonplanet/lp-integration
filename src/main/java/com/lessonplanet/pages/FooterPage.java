@@ -16,15 +16,15 @@ public class FooterPage extends LpUiBasePage {
     private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/us/privacy_policy']";
     private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href='/us/terms_of_use']";
 
-    private static final String HEALTH_LINK = "[href='/lesson-plans/health']";
-    private static final String LANGUAGE_ARTS_LINK = "[href='/lesson-plans/language-arts']";
-    private static final String LANGUAGES_LINK = "[href='/lesson-plans/languages']";
-    private static final String MATH_LINK = "[href='/lesson-plans/math']";
-    private static final String PHYSICAL_EDUCATION_LINK = "[href='/lesson-plans/physical-education']";
-    private static final String SCIENCE_LINK = "[href='/lesson-plans/science']";
-    private static final String SOCIAL_STUDIES_LINK = "[href='/lesson-plans/social-studies']";
-    private static final String SPECIAL_EDUCATION_LINK = "[href='/lesson-plans/special-education']";
-    private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[href='/lesson-plans/visual-and-performing-arts']";
+    private static final String HEALTH_LINK = "[href*='/health']";
+    private static final String LANGUAGE_ARTS_LINK = "[href*='/language-arts']";
+    private static final String LANGUAGES_LINK = "[href*='/languages']";
+    private static final String MATH_LINK = "[href*='/math']";
+    private static final String PHYSICAL_EDUCATION_LINK = "[href*='/physical-education']";
+    private static final String SCIENCE_LINK = "[href*='/science']";
+    private static final String SOCIAL_STUDIES_LINK = "[href*='/social-studies']";
+    private static final String SPECIAL_EDUCATION_LINK = "[href*='/special-education']";
+    private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[href*='/visual-and-performing-arts']";
 
     private static final String OUR_REVIEW_PROCESS_LINK = "[class*='footer-col-content'] [href='/content/how_it_works']";
     private static final String HOW_IT_WORKS_LINK = "[class*='footer-col-content'] [href='/us/videos?autoplay=review']";
@@ -83,40 +83,45 @@ public class FooterPage extends LpUiBasePage {
         clickElement(TERMS_OF_USE_LINK);
     }
 
+    private void scrollToElementAndClick(String cssSelector){
+        scrollToElement(cssSelector);
+        clickElement(cssSelector);
+
+    }
     public void clickOnHealthLink() {
-        clickElement(HEALTH_LINK);
+        scrollToElementAndClick(HEALTH_LINK);
     }
 
     public void clickOnLanguageArtsLink() {
-        clickElement(LANGUAGE_ARTS_LINK);
+        scrollToElementAndClick(LANGUAGE_ARTS_LINK);
     }
 
     public void clickOnLanguagesLink() {
-        clickElement(LANGUAGES_LINK);
+        scrollToElementAndClick(LANGUAGES_LINK);
     }
 
     public void clickOnMathLink() {
-        clickElement(MATH_LINK);
+        scrollToElementAndClick(MATH_LINK);
     }
 
     public void clickOnPhysicalEducationLink() {
-        clickElement(PHYSICAL_EDUCATION_LINK);
+        scrollToElementAndClick(PHYSICAL_EDUCATION_LINK);
     }
 
     public void clickOnScienceLink() {
-        clickElement(SCIENCE_LINK);
+        scrollToElementAndClick(SCIENCE_LINK);
     }
 
     public void clickOnSocialStudiesLink() {
-        clickElement(SOCIAL_STUDIES_LINK);
+        scrollToElementAndClick(SOCIAL_STUDIES_LINK);
     }
 
     public void clickOnSpecialEducationLink() {
-        clickElement(SPECIAL_EDUCATION_LINK);
+        scrollToElementAndClick(SPECIAL_EDUCATION_LINK);
     }
 
     public void clickOnVisualAndPerformingArtsLink() {
-        clickElement(VISUAL_AND_PERFORMING_ARTS_LINK);
+        scrollToElementAndClick(VISUAL_AND_PERFORMING_ARTS_LINK);
     }
 
     public void clickOnOurReviewProcessLink() {

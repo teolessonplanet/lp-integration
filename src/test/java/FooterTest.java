@@ -174,39 +174,39 @@ public class FooterTest extends BaseTest {
         footerPage.closeTab();
     }
 
-    private void checkPageTitleAndPagePath(String expectedTitle, String expectedPath) {
+    private void checkPageTitle(String expectedTitle) {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), expectedTitle);
-        Assert.assertEquals(browseBySubjectPage.getPath(), expectedPath);
         browseBySubjectPage.goBackOnePage();
     }
 
     private void testOpenEducationalResourcesSection() {
+        footerPage.loadPage();
         footerPage.clickOnHealthLink();
-        checkPageTitleAndPagePath(TestData.HEALTH_PAGE_TITLE, TestData.HEALTH_PAGE_PATH);
+        checkPageTitle(TestData.HEALTH_PAGE_TITLE);
 
         footerPage.clickOnLanguageArtsLink();
-        checkPageTitleAndPagePath(TestData.LANGUAGE_ARTS_PAGE_TITLE, TestData.LANGUAGE_ARTS_PAGE_PATH);
+        checkPageTitle(TestData.LANGUAGE_ARTS_PAGE_TITLE);
 
         footerPage.clickOnLanguagesLink();
-        checkPageTitleAndPagePath(TestData.LANGUAGES_PAGE_TITLE, TestData.LANGUAGES_PAGE_PATH);
+        checkPageTitle(TestData.LANGUAGES_PAGE_TITLE);
 
         footerPage.clickOnMathLink();
-        checkPageTitleAndPagePath(TestData.MATH_PAGE_TITLE, TestData.MATH_PAGE_PATH);
+        checkPageTitle(TestData.MATH_PAGE_TITLE);
 
         footerPage.clickOnPhysicalEducationLink();
-        checkPageTitleAndPagePath(TestData.PHYSICAL_EDUCATION_PAGE_TITLE, TestData.PHYSICAL_EDUCATION_PAGE_PATH);
+        checkPageTitle(TestData.PHYSICAL_EDUCATION_PAGE_TITLE);
 
         footerPage.clickOnScienceLink();
-        checkPageTitleAndPagePath(TestData.SCIENCE_PAGE_TITLE, TestData.SCIENCE_PAGE_PATH);
+        checkPageTitle(TestData.SCIENCE_PAGE_TITLE);
 
         footerPage.clickOnSocialStudiesLink();
-        checkPageTitleAndPagePath(TestData.SOCIAL_STUDIES_PAGE_TITLE, TestData.SOCIAL_STUDIES_PAGE_PATH);
+        checkPageTitle(TestData.SOCIAL_STUDIES_PAGE_TITLE);
 
         footerPage.clickOnSpecialEducationLink();
-        checkPageTitleAndPagePath(TestData.SPECIAL_EDUCATION_PAGE_TITLE, TestData.SPECIAL_EDUCATION_PAGE_PATH);
+        checkPageTitle(TestData.SPECIAL_EDUCATION_PAGE_TITLE);
 
         footerPage.clickOnVisualAndPerformingArtsLink();
-        checkPageTitleAndPagePath(TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE, TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_PATH);
+        checkPageTitle(TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE);
     }
 
     private void testDiscoverResourcesSection() {

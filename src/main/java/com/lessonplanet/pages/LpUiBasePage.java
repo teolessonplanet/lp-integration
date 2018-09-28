@@ -128,11 +128,15 @@ public class LpUiBasePage {
         hoverOverElement(findElement(cssSelector));
     }
 
-    private void scrollToElement(WebElement element) {
+    protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForPageLoad();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
         waitForPageLoad();
+    }
+
+    protected void scrollToElement(String cssSelector){
+        scrollToElement(findElement(cssSelector));
     }
 
     protected void waitUntilAnimationIsDone(String cssSelector) {
