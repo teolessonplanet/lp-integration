@@ -118,11 +118,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(footerPage.getTextFromEMailField(), account);
     }
 
-    private void testFooterContainer(String account) {
-        testClickOnLessonPlanetLogo();
-
-        testSendEmailNewsletter(account);
-
+    private void testHelpInformationLinks() {
         footerPage.clickOnContactUsButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
 
@@ -134,7 +130,9 @@ public class FooterTest extends BaseTest {
 
         footerPage.clickOnTermsOfUseButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
+    }
 
+    private void testLessonPlanetSocialLinks() {
         lpHomePage.loadPage();
 
         footerPage.clickOnLessonPlanetFacebookButton();
@@ -174,6 +172,16 @@ public class FooterTest extends BaseTest {
         footerPage.closeTab();
     }
 
+    private void testFooterContainer(String account) {
+        testClickOnLessonPlanetLogo();
+
+        testSendEmailNewsletter(account);
+
+        testHelpInformationLinks();
+
+        testLessonPlanetSocialLinks();
+    }
+
     private void checkPageTitle(String expectedTitle) {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), expectedTitle);
         browseBySubjectPage.goBackOnePage();
@@ -181,6 +189,7 @@ public class FooterTest extends BaseTest {
 
     private void testOpenEducationalResourcesSection() {
         footerPage.loadPage();
+
         footerPage.clickOnHealthLink();
         checkPageTitle(TestData.HEALTH_PAGE_TITLE);
 
