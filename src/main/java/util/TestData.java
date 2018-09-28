@@ -205,8 +205,4 @@ public class TestData {
     public static final String VISUAL_ARTS_PAGE_TITLE = "Visual Arts Teacher Resources";
     public static final String FILM_STUDIES_PAGE_TITLE = "Film Studies Teacher Resources";
     public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
-
-    public static final String PAGINATION_FIRST_PAGE_PATH = "";
-    public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
-    public static final String PAGINATION_ALL_ITEMES_PATH = "/all";
 }
