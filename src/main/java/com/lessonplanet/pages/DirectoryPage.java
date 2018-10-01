@@ -301,6 +301,7 @@ public class DirectoryPage extends LpUiBasePage {
     }
 
     public void clickOnShowAllButtonFromHealthCategory() {
+        waitForPageLoad();
         findElements(SHOW_ALL_BUTTONS).get(0).click();
     }
 }
