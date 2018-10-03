@@ -61,4 +61,27 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickElement(THUMBNAIL_VIEW_BUTTON);
         waitForPageLoad();
     }
+
+    public void changeToListView() {
+        final String currentPath = getPath();
+        loadPage();
+        clickOnListView();
+        loadUrl(currentPath);
+    }
+
+    public void changeToTiledView() {
+        final String currentPath = getPath();
+        loadPage();
+        clickOnTiledView();
+        loadUrl(currentPath);
+    }
+
+
+    public void changeToThumbnailView() {
+        final String currentPath = getPath();
+        loadPage();
+        clickThumbnailView();
+        loadUrl(currentPath);
+    }
+
 }

@@ -21,13 +21,17 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
 
     private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [href*='/collections/']";
-    private static final String SEE_REVIEW_BUTTON = "[class*='panel-footer'] [href*='teachers']:not([class*='free-sample'])";
-    private static final String GET_FREE_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-access-btn']";
+    protected static final String SEE_REVIEW_BUTTON = "[class*='panel-footer'] [href*='teachers']:not([class*='free-sample'])";
+    protected static final String GET_FREE_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-access-btn']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE = "[class*='trk-goto-resource'][href^='/goto/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE = "[class*='trk-goto-resource'][href^='/drive/documents/']";
     private static final String SEE_PREVIEW_BUTTON = "[class*='panel-footer'] [href*='/member/resource']";
     private static final String FREE_FULL_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-sample']";
     private static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
+
+    private static final String PREVIOUS_BUTTON = "[class='pagination'] [class*='previous_page'] a";
+    private static final String NEXT_BUTTON = "[class='pagination'] [class*='next_page'] a";
+    private static final String SEE_ALL_BUTTON = "[class='pagination'] #see_all";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -123,12 +127,43 @@ public class ResourcesPage extends LpUiBasePage {
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 
-    private void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {
+    protected void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {
         WebElement button = findElements(cssSelector).get(0);
         if (inANewTab) {
             openInANewTab(button);
         } else {
             button.click();
         }
+    }
+
+    public int getCountFreeAcessButtons() {
+        return findElements(GET_FREE_ACCESS_BUTTON).size();
+    }
+
+    public int getCountSeeReviewButton(){
+        return findElements(SEE_REVIEW_BUTTON).size();
+    }
+
+    public void clickOnPreviousButton() {
+        clickElement(PREVIOUS_BUTTON);
+//        waitForPageLoad();
+    }
+
+    public boolean isPreviousButtonDisplayed() {
+        return isElementClickable(PREVIOUS_BUTTON);
+    }
+
+    public void clickOnNextButton() {
+        clickElement(NEXT_BUTTON);
+//        waitForPageLoad();
+    }
+
+    public boolean isSeeAllButtonDisplayed() {
+        return isElementClickable(SEE_ALL_BUTTON);
+    }
+
+    public void clickOnSeeAllButton() {
+        clickElement(SEE_ALL_BUTTON);
+//        waitForPageLoad();
     }
 }
