@@ -226,17 +226,14 @@ public class FooterTest extends BaseTest {
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.EDIT_A_COLLECTION_PAGE_PATH);
 
-        footerPage.loadPage();
         footerPage.clickOnAssignToStudentsLink();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.ASSIGN_TO_STUDENTS_PAGE_PATH);
 
-        footerPage.loadPage();
         footerPage.clickOnManageMyResourcesLink();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.MANAGE_MY_RESOURCES_PAGE_PATH);
 
-        footerPage.loadPage();
         footerPage.clickOnSharingWithOthersLink();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);

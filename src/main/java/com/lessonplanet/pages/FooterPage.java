@@ -83,7 +83,7 @@ public class FooterPage extends LpUiBasePage {
         clickElement(TERMS_OF_USE_LINK);
     }
 
-    private void scrollToElementAndClick(String cssSelector){
+    private void scrollToElementAndClick(String cssSelector) {
         scrollToElement(cssSelector);
         clickElement(cssSelector);
     }

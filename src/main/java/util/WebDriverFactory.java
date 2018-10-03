@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /*
  * Factory to instantiate a WebDriver object.
@@ -33,9 +34,12 @@ public class WebDriverFactory {
 
         if (CHROME.equals(browser)) {
             setChromeDriver();
-            webDriver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("start-maximized");
+            webDriver = new ChromeDriver(options);
         } else if (FIREFOX.equals(browser)) {
             webDriver = new FirefoxDriver();
+            webDriver.manage().window().maximize();
         }
         return webDriver;
     }
