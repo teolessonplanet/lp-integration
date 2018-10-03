@@ -32,19 +32,18 @@ public class TestData {
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
 
-    public static final String FACEBOOK_PAGE_URL = "facebook";
+    public static final String FACEBOOK_PAGE_URL = "https://www.facebook.com/LessonPlanet";
     public static final String TWITTER_PAGE_URL = "https://twitter.com/lessonplanet";
     public static final String GOOGLE_PAGE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
-    public static final String LINKEDIN_PAGE_URL = "linkedin";
-    public static final String YOUTUBE_PAGE_URL = "youtube";
+    public static final String LINKEDIN_PAGE_URL = "https://www.linkedin.com/company/lesson-planet";
+    public static final String YOUTUBE_PAGE_URL = "https://www.youtube.com/user/lessonplanet";
     public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
 
     public static final String SITE_MAP_PAGE_PATH ="content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH ="us/privacy_policy";
     public static final String TERMS_OF_USE_PAGE_PATH ="us/terms_of_use";
 
-    public static final String SUBSCRIPTION_TEXT="Thank you for subscribing to Lesson Planet News.";
-    public static final String EMPTY_FIELD_TEXT= "";
+    public static final String SUBSCRIPTION_MODAL_TEXT="Thank you for subscribing to Lesson Planet News.";
 
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";

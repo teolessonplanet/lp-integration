@@ -55,7 +55,7 @@ public class FooterPage extends LpUiBasePage {
         clickElement(LP_LOGO_IMAGE);
     }
 
-    public String getTextFromEMailField() {
+    public String getTextFromEmailField() {
         return findElement(EMAIL_INPUT).getAttribute("value");
     }
 
@@ -86,8 +86,8 @@ public class FooterPage extends LpUiBasePage {
     private void scrollToElementAndClick(String cssSelector){
         scrollToElement(cssSelector);
         clickElement(cssSelector);
-
     }
+
     public void clickOnHealthLink() {
         scrollToElementAndClick(HEALTH_LINK);
     }

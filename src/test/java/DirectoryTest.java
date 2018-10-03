@@ -274,7 +274,7 @@ public class DirectoryTest extends BaseTest {
         checkPageTitle(TestData.FILM_STUDIES_PAGE_TITLE);
     }
 
-    public void checkPageTitleAndPagePath(String expectedTitle, String expectedPath) {
+    private void checkPageTitleAndPagePath(String expectedTitle, String expectedPath) {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), expectedTitle);
         Assert.assertEquals(browseBySubjectPage.getPath(), expectedPath);
         browseBySubjectPage.goBackOnePage();
