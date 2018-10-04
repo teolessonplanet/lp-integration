@@ -39,36 +39,59 @@ public class ResourcesPage extends LpUiBasePage {
         super(driver);
     }
 
-    private WebElement selectFacetCategory(String facetCategory) {
+//    private WebElement selectFacetCategory(String facetCategory) {
+//        //returns the entire category with all options
+//        List<WebElement> categories = findElements(FACETS_CATEGORIES);
+//        for (WebElement category : categories) {
+//            if (category.getText().startsWith(facetCategory)) {
+//                return category;
+//            }
+//        }
+//        logger.error("The facet category " + facetCategory + " was not found");
+//        return null;
+//    }
+
+    //    private WebElement selectWidgetCategory(String widgetSelector, String widgetCategory) {
+    protected WebElement getCategoryFromLeftSide(String widgetSelector, String widgetCategory) {
         //returns the entire category with all options
-        List<WebElement> categories = findElements(FACETS_CATEGORIES);
+        List<WebElement> categories = findElements(widgetSelector);
         for (WebElement category : categories) {
-            if (category.getText().startsWith(facetCategory)) {
+            if (category.getText().startsWith(widgetCategory)) {
                 return category;
             }
         }
-        logger.error("The facet category " + facetCategory + " was not found");
+        logger.error("The facet category " + widgetCategory + " was not found");
         return null;
     }
 
-    public void selectFacetFilter(String facetCategory, String facetName) {
+    public void selectFacetFilter(String facetCategoryName, String facetName) {
+        clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
+    }
+
+    public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
+        WebElement option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, optionName);
+        if (findElements(option, UNSELECTED_FACET_OPTIONS).size() >= 0) {
+            option.click();
+            waitForPageLoad();
+            return;
+        } else {
+            logger.info("The option " + optionName + " from category " + widgetCategoryName + " is already selected.");
+            return;
+        }
+    }
+
+    public WebElement getOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         waitForPageLoad();
-        WebElement category = selectFacetCategory(facetCategory);
+        WebElement category = getCategoryFromLeftSide(widgetCategorySelector, widgetCategoryName);
         // parse all options and select the option that contains the string facetName
-        List<WebElement> options = findElements(category, FACET_OPTIONS);
+        List<WebElement> options = findElements(category, optionNameSelector);
         for (WebElement option : options) {
-            if (option.getText().contains(facetName)) {
-                if (findElements(option, UNSELECTED_FACET_OPTIONS).size() > 0) {
-                    option.click();
-                    waitForPageLoad();
-                    return;
-                } else {
-                    logger.info("The option " + facetName + " from category " + facetCategory + " is already selected.");
-                    return;
-                }
+            if (option.getText().contains(optionName)) {
+                return option;
             }
         }
-        logger.error("The option " + facetName + " from category " + facetCategory + " was not found.");
+        logger.error("The option " + optionName + " from category " + widgetCategoryName + " was not found.");
+        return null;
     }
 
     public List<WebElement> getAllResources() {
@@ -140,13 +163,12 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(GET_FREE_ACCESS_BUTTON).size();
     }
 
-    public int getCountSeeReviewButton(){
+    public int getCountSeeReviewButton() {
         return findElements(SEE_REVIEW_BUTTON).size();
     }
 
     public void clickOnPreviousButton() {
         clickElement(PREVIOUS_BUTTON);
-//        waitForPageLoad();
     }
 
     public boolean isPreviousButtonDisplayed() {
@@ -155,7 +177,6 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickOnNextButton() {
         clickElement(NEXT_BUTTON);
-//        waitForPageLoad();
     }
 
     public boolean isSeeAllButtonDisplayed() {
@@ -164,6 +185,5 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickOnSeeAllButton() {
         clickElement(SEE_ALL_BUTTON);
-//        waitForPageLoad();
     }
 }
