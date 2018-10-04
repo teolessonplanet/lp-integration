@@ -101,7 +101,6 @@ public class FooterTest extends BaseTest {
     }
 
     private void testSendButton(String account) {
-        Assert.assertEquals(footerPage.getTextFromEmailField(), account);
         footerPage.clickSendButton();
         Assert.assertEquals(subscriptionEmailModal.getSubscriptionModalText(), TestData.SUBSCRIPTION_MODAL_TEXT);
         subscriptionEmailModal.clickOnCloseButton();
@@ -109,8 +108,12 @@ public class FooterTest extends BaseTest {
     }
 
     private void testSendEmailNewsletter(String account) {
-        if (footerPage.getTextFromEmailField().equals(TestData.LP_HOME_PAGE_PATH))
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            Assert.assertEquals(footerPage.getTextFromEmailField(), account);
+        } else {
+            Assert.assertEquals(footerPage.getTextFromEmailField(), TestData.LP_HOME_PAGE_PATH);
             footerPage.typeEmail(account);
+        }
         testSendButton(account);
     }
 
@@ -129,8 +132,6 @@ public class FooterTest extends BaseTest {
     }
 
     private void testLessonPlanetSocialLinks() {
-        lpHomePage.loadPage();
-
         footerPage.clickOnLessonPlanetFacebookButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();

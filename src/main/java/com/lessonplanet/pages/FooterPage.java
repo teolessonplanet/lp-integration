@@ -16,6 +16,13 @@ public class FooterPage extends LpUiBasePage {
     private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/us/privacy_policy']";
     private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href='/us/terms_of_use']";
 
+    private static final String FACEBOOK_BUTTON = "[class*='fa-facebook']";
+    private static final String TWITTER_BUTTON = "[class*='fa-twitter']";
+    private static final String GOOGLE_BUTTON = "[class*='fa-google-plus']";
+    private static final String LINKEDIN_BUTTON = "[class*='fa-linkedin']";
+    private static final String YOUTUBE_BUTTON = "[class*='fa-youtube']";
+    private static final String PINTEREST_BUTTON = "[class*='fa-pinterest']";
+
     private static final String HEALTH_LINK = "[href*='/health']";
     private static final String LANGUAGE_ARTS_LINK = "[href*='/language-arts']";
     private static final String LANGUAGES_LINK = "[href*='/languages']";
@@ -35,13 +42,6 @@ public class FooterPage extends LpUiBasePage {
     private static final String ASSIGN_TO_STUDENTS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
     private static final String MANAGE_MY_RESOURCES_LINK = "[href='/us/videos?autoplay=curriculum_manager']";
     private static final String SHARING_WITH_OTHERS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
-
-    private static final String FACEBOOK_BUTTON = "[class*='fa fa-facebook']";
-    private static final String TWITTER_BUTTON = "[class*='fa fa-twitter']";
-    private static final String GOOGLE_BUTTON = "[class*='fa fa-google-plus']";
-    private static final String LINKEDIN_BUTTON = "[class*='fa fa-linkedin']";
-    private static final String YOUTUBE_BUTTON = "[class*='fa fa-youtube']";
-    private static final String PINTEREST_BUTTON = "[class*='fa fa-pinterest']";
 
     public FooterPage(WebDriver driver) {
         super(driver);
@@ -81,6 +81,30 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnTermsOfUseButton() {
         clickElement(TERMS_OF_USE_LINK);
+    }
+
+    public void clickOnLessonPlanetFacebookButton() {
+        clickElement(FACEBOOK_BUTTON);
+    }
+
+    public void clickOnLessonPlanetTwitterButton() {
+        clickElement(TWITTER_BUTTON);
+    }
+
+    public void clickOnLessonPlanetGoogleButton() {
+        clickElement(GOOGLE_BUTTON);
+    }
+
+    public void clickOnLessonPlanetLinkedInButton() {
+        clickElement(LINKEDIN_BUTTON);
+    }
+
+    public void clickOnLessonPlanetYoutubeButton() {
+        clickElement(YOUTUBE_BUTTON);
+    }
+
+    public void clickOnLessonPlanetPinterestButton() {
+        clickElement(PINTEREST_BUTTON);
     }
 
     private void scrollToElementAndClick(String cssSelector) {
@@ -154,29 +178,5 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnSharingWithOthersLink() {
         clickElement(SHARING_WITH_OTHERS_LINK);
-    }
-
-    public void clickOnLessonPlanetFacebookButton() {
-        clickElement(FACEBOOK_BUTTON);
-    }
-
-    public void clickOnLessonPlanetTwitterButton() {
-        clickElement(TWITTER_BUTTON);
-    }
-
-    public void clickOnLessonPlanetGoogleButton() {
-        clickElement(GOOGLE_BUTTON);
-    }
-
-    public void clickOnLessonPlanetLinkedInButton() {
-        clickElement(LINKEDIN_BUTTON);
-    }
-
-    public void clickOnLessonPlanetYoutubeButton() {
-        clickElement(YOUTUBE_BUTTON);
-    }
-
-    public void clickOnLessonPlanetPinterestButton() {
-        clickElement(PINTEREST_BUTTON);
     }
 }
