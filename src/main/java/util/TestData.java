@@ -207,10 +207,10 @@ public class TestData {
     public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
 
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
     public static final String BROWSE_BY_SUBJECT_FOR_SOCIAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nSocial Health\nConflict Resolution\nPositive Social Behaviors";
-    
+
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES = "Browse by Subject";
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE = "Growth and Development";
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_SOCIAL_HEALTH_TYPE = "Social Health";
@@ -218,6 +218,10 @@ public class TestData {
     public static final String GROWTH_AND_DEVELOPMENT_PAGE_PATH = "lesson-plans/growth-and-development";
     public static final String SOCIAL_HEALTH_PAGE_PATH = "lesson-plans/social-health";
     public static final String SOCIAL_HEALTH_PAGE_TITLE = "Social Health Teacher Resources";
+
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL = "Start Your 10-Day Free Trial";
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Free Trial";
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Full Access";
 
     public static final String PAGINATION_FIRST_PAGE_PATH = "";
     public static final String PAGINATION_SECOND_PAGE_PATH = "/2";

@@ -14,6 +14,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     private static final String OPTION_NAME_SELECTOR = "li a[href*='/lesson-plans/']";
 
+    private static final String GET_FREE_TRIAL_BUTTON = "a[href='/subscription/new']";
+
     public BrowseBySubjectPage(WebDriver driver) {
         super(driver);
     }
@@ -63,6 +65,19 @@ public class BrowseBySubjectPage extends ResourcesPage {
     public void clickSecondCaretFromBrowseBySubjectCategory() {
         findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS).get(1).click();
         waitForPageLoad();
+    }
+
+    public String getStartYourTenDaysFreeTrialContentAsText() {
+        return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL).getText();
+    }
+
+    public void clickGetFreeTrialButton(boolean inANewTab) {
+        WebElement getFreeTrialButton = findElements(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL), GET_FREE_TRIAL_BUTTON).get(0);
+        if (inANewTab) {
+            openInANewTab(getFreeTrialButton);
+        } else {
+            getFreeTrialButton.click();
+        }
     }
 
 

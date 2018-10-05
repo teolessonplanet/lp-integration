@@ -4,15 +4,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class DirectoryCategoriesAndSubcategoriesTest
-        extends BaseTest {
+public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     private LoginPage loginPage;
     private DirectoryPage directoryPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private StepOneModal stepOneModal;
+    private StepOnePage stepOnePage;
+    private StepTwoModal stepTwoModal;
+    private StepTwoPage stepTwoPage;
     private RrpPage rrpPage;
+
 
     @BeforeMethod
     public void beforeMethod() {
@@ -21,6 +24,9 @@ public class DirectoryCategoriesAndSubcategoriesTest
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
+        stepOnePage = new StepOnePage(webDriver);
+        stepTwoModal = new StepTwoModal(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
         rrpPage = new RrpPage(webDriver);
     }
 
@@ -69,6 +75,39 @@ public class DirectoryCategoriesAndSubcategoriesTest
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1023:Browse by Subject")
     public void testLessonp_1023() {
+        testBrowseBySubject();
+    }
+
+    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1204:Browse by Subject")
+    public void testLessonp_1204() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testBrowseBySubject();
+    }
+
+    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1216:Browse by Subject")
+    public void testLessonp_1216() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testBrowseBySubject();
+    }
+
+    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1024:Start your 10 day free trial")
+    public void testLessonp_1024() {
+        reachHealthPage();
+        testStartYourTenDayFreeTrial(TestData.INVALID_EMAIL);
+    }
+
+    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1205:Start your 10 day free trial")
+    public void testLessonp_1205() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testStartYourTenDayFreeTrial(TestData.VALID_EMAIL_FREEMIUM);
+    }
+
+    private void reachHealthPage() {
+        directoryPage.loadPage();
+        directoryPage.clickOnHealthSubjectLink();
+    }
+
+    private void testBrowseBySubject() {
         reachHealthPage();
         Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
@@ -90,12 +129,12 @@ public class DirectoryCategoriesAndSubcategoriesTest
         //Click on the caret icon displayed in front of the subject title link &&
         //Click on the caret icon displayed in front of an expanded subject title link
         browseBySubjectPage.clickFirstCaretFromBrowseBySubjectCategory();
-        Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXANDED_TEXT);
+        Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT);
         browseBySubjectPage.clickFirstCaretFromBrowseBySubjectCategory();
         Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
 
         browseBySubjectPage.clickSecondCaretFromBrowseBySubjectCategory();
-        Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXANDED_TEXT);
+        Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT);
         browseBySubjectPage.clickSecondCaretFromBrowseBySubjectCategory();
         Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
 
@@ -105,11 +144,29 @@ public class DirectoryCategoriesAndSubcategoriesTest
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.SOCIAL_HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.SOCIAL_HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_SOCIAL_HEALTH_CATEGORY_TEXT);
+
     }
 
-    private void reachHealthPage() {
-        directoryPage.loadPage();
-        directoryPage.clickOnHealthSubjectLink();
+    private void testStartYourTenDayFreeTrial(String account) {
+        reachHealthPage();
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertEquals(browseBySubjectPage.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
+        } else {
+            Assert.assertEquals(browseBySubjectPage.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
+        }
+        browseBySubjectPage.clickGetFreeTrialButton(true);
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        } else {
+            Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+        }
+        browseBySubjectPage.closeTab();
+        browseBySubjectPage.waitForPageLoad();
+        browseBySubjectPage.clickGetFreeTrialButton(false);
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        } else {
+            Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+        }
     }
-
 }
