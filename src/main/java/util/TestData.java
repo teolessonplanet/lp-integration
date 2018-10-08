@@ -226,6 +226,11 @@ public class TestData {
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Free Trial";
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Full Access";
 
+    public static final String SIDE_WIDGET_RELATED_TOPICS = "Related Topics";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION = "Methods of Exercise";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH = "search?keywords=methods+of+exercise";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT = "Related Topics\nHealth Lesson Plans\nStress Management\nMental Heath\nCalorie\nWeight Loss\nFood Choices\nFood Systems\nEnvironmental Factors\nTransportation\nHealth Components\nMethods of Exercise";
+
     public static final String PAGINATION_FIRST_PAGE_PATH = "";
     public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
     public static final String PAGINATION_ALL_ITEMS_PATH = "/all";

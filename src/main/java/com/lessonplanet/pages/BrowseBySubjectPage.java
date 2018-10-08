@@ -12,7 +12,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
     private static final String SIDE_WIDGETS = "[class*='side-widget']";
     private static final String BROWSE_BY_SUBJECT_CARETS = "a[class*='fa-caret']";
 
-    private static final String OPTION_NAME_SELECTOR = "li a[href*='/lesson-plans/']";
+    private static final String BROWSE_BY_SUBJECT_OPTIONS_SELECTOR = "li a[href*='/lesson-plans/']";
+    private static final String RELATED_TOPICS_OPTIONS_SELECTOR = "li a[href*='/search?keywords=']";
 
     private static final String GET_FREE_TRIAL_BUTTON = "a[href='/subscription/new']";
 
@@ -46,13 +47,22 @@ public class BrowseBySubjectPage extends ResourcesPage {
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES);
     }
 
-    public void clickOptionFromBrowseBySubject(String optionName, boolean inANewTab) {
-        WebElement option = getOptionFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES, OPTION_NAME_SELECTOR, optionName);
+    private void clickOptionFromWidget(String widgetName, String optionName, boolean inANewTab) {
+        WebElement option;
+        if (widgetName.equals(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES)) {
+            option = getOptionFromLeftSide(SIDE_WIDGETS, widgetName, BROWSE_BY_SUBJECT_OPTIONS_SELECTOR, optionName);
+        } else {
+            option = getOptionFromLeftSide(SIDE_WIDGETS, widgetName, RELATED_TOPICS_OPTIONS_SELECTOR, optionName);
+        }
         if (inANewTab) {
             openInANewTab(option);
         } else {
             option.click();
         }
+    }
+
+    public void clickOptionFromBrowseBySubject(String optionName, boolean inANewTab) {
+        clickOptionFromWidget(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES, optionName, inANewTab);
     }
 
     public String getBrowseBySubjectCategoryContentAsText() {
@@ -88,4 +98,12 @@ public class BrowseBySubjectPage extends ResourcesPage {
         clickElement(SUGGEST_A_CATEGORY_BUTTON);
     }
 
+    public String getRelatedTopicsContentAsText() {
+        waitForPageLoad();
+        return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_RELATED_TOPICS).getText();
+    }
+
+    public void clickOptionFromRelatedTopics(String optionName, boolean inANewTab) {
+        clickOptionFromWidget(TestData.SIDE_WIDGET_RELATED_TOPICS, optionName, inANewTab);
+    }
 }

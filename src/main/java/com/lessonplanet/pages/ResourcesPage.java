@@ -80,17 +80,17 @@ public class ResourcesPage extends LpUiBasePage {
         }
     }
 
-    public WebElement getOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
+    public WebElement getOptionFromLeftSide(String widgetSelector, String widgetName, String optionSelector, String optionName) {
         waitForPageLoad();
-        WebElement category = getCategoryFromLeftSide(widgetCategorySelector, widgetCategoryName);
+        WebElement category = getCategoryFromLeftSide(widgetSelector, widgetName);
         // parse all options and select the option that contains the string facetName
-        List<WebElement> options = findElements(category, optionNameSelector);
+        List<WebElement> options = findElements(category, optionSelector);
         for (WebElement option : options) {
             if (option.getText().contains(optionName)) {
                 return option;
             }
         }
-        logger.error("The option " + optionName + " from category " + widgetCategoryName + " was not found.");
+        logger.error("The option " + optionName + " from category " + widgetName + " was not found.");
         return null;
     }
 

@@ -15,6 +15,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private StepTwoModal stepTwoModal;
     private StepTwoPage stepTwoPage;
     private SuggestACategoryModal suggestACategoryModal;
+    private HeaderPage headerPage;
     private RrpPage rrpPage;
 
     @BeforeMethod
@@ -28,6 +29,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         suggestACategoryModal = new SuggestACategoryModal(webDriver);
+        headerPage = new HeaderPage(webDriver);
         rrpPage = new RrpPage(webDriver);
     }
 
@@ -50,7 +52,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_ALL_ITEMS_PATH);
     }
-
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1022:Resource Tiles")
     public void testLessonp_1022() {
@@ -103,6 +104,23 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testStartYourTenDayFreeTrial(TestData.VALID_EMAIL_FREEMIUM);
     }
 
+    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1025:Related Topics")
+    public void testLessonp_1025() {
+        testRelatedTopics();
+    }
+
+    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1206:Related Topics")
+    public void testLessonp_1206() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testRelatedTopics();
+    }
+
+    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1218:Related Topics")
+    public void testLessonp_1218() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testRelatedTopics();
+    }
+
     private void reachHealthPage() {
         directoryPage.loadPage();
         directoryPage.clickOnHealthSubjectLink();
@@ -128,6 +146,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_PATH);
         browseBySubjectPage.goBackOnePage();
+        browseBySubjectPage.waitForLinkToLoad();
         browseBySubjectPage.waitForPageLoad();
         if (!account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
@@ -198,5 +217,18 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         } else {
             Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
         }
+    }
+
+    private void testRelatedTopics() {
+        reachHealthPage();
+        Assert.assertEquals(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT);
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION, true);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH);
+
+        discoverResourcesPage.closeTab();
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION, false);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH);
     }
 }
