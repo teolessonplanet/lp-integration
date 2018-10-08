@@ -210,6 +210,9 @@ public class TestData {
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
     public static final String BROWSE_BY_SUBJECT_FOR_SOCIAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nSocial Health\nConflict Resolution\nPositive Social Behaviors";
+    public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
+
+    public static final String SUGGEST_A_CATEGORY_MODAL_TITLE = "Suggest a Category";
 
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES = "Browse by Subject";
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE = "Growth and Development";

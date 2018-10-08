@@ -16,6 +16,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     private static final String GET_FREE_TRIAL_BUTTON = "a[href='/subscription/new']";
 
+    private static final String SUGGEST_A_CATEGORY_BUTTON = "[class='suggest-new-directory-term orange']";
+
     public BrowseBySubjectPage(WebDriver driver) {
         super(driver);
     }
@@ -54,10 +56,12 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public String getBrowseBySubjectCategoryContentAsText() {
+        waitForPageLoad();
         return getBrowseBySubjectWidget().getText();
     }
 
     public void clickFirstCaretFromBrowseBySubjectCategory() {
+        waitForPageLoad();
         findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS).get(0).click();
         waitForPageLoad();
     }
@@ -80,5 +84,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
         }
     }
 
+    public void clickOnSuggestACategoryButton() {
+        clickElement(SUGGEST_A_CATEGORY_BUTTON);
+    }
 
 }

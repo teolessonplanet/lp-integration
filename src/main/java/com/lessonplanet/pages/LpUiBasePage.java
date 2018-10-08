@@ -107,6 +107,18 @@ public class LpUiBasePage {
             }
         });
         logger.info("jQuery completed");
+        waitUntilDocumentIsReady();
+    }
+
+    public void waitUntilDocumentIsReady() {
+        logger.info("Waiting for document to be ready");
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (Boolean) javascriptExecutor.executeScript("return document.readyState == 'complete'");
+            }
+        });
+        logger.info("document is ready");
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
