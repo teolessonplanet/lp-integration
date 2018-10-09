@@ -70,7 +70,8 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, optionName);
-        if (findElements(option, UNSELECTED_FACET_OPTIONS).size() >= 0) {
+        //if the facet is already selected, ignore it
+        if (findElements(option, UNSELECTED_FACET_OPTIONS).size() > 0) {
             option.click();
             waitForPageLoad();
             return;

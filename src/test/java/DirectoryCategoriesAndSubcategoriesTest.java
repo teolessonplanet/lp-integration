@@ -121,6 +121,13 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testRelatedTopics();
     }
 
+    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1207:What members say")
+    public void testLessonp_1207() {
+        reachHealthPage();
+        reachHealthPage();
+        browseBySubjectPage.getRelatedTopicsContentAsText();
+    }
+
     private void reachHealthPage() {
         directoryPage.loadPage();
         directoryPage.clickOnHealthSubjectLink();

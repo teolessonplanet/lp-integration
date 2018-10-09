@@ -231,6 +231,8 @@ public class TestData {
     public static final String SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH = "search?keywords=methods+of+exercise";
     public static final String SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT = "Related Topics\nHealth Lesson Plans\nStress Management\nMental Heath\nCalorie\nWeight Loss\nFood Choices\nFood Systems\nEnvironmental Factors\nTransportation\nHealth Components\nMethods of Exercise";
 
+    public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
+
     public static final String PAGINATION_FIRST_PAGE_PATH = "";
     public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
     public static final String PAGINATION_ALL_ITEMS_PATH = "/all";
