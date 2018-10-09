@@ -124,8 +124,30 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1207:What members say")
     public void testLessonp_1207() {
         reachHealthPage();
-        reachHealthPage();
-        browseBySubjectPage.getRelatedTopicsContentAsText();
+        browseBySubjectPage.waitForPageLoad();
+        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
+        Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
+        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(false);
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        browseBySubjectPage.goBackOnePage();
+        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(true);
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        browseBySubjectPage.closeTab();
+
+        browseBySubjectPage.clickOnSubmitYourOwnButton(false);
+        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        loginPage.goBackOnePage();
+
+        browseBySubjectPage.clickOnSubmitYourOwnButton(true);
+        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        loginPage.closeTab();
+
+        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(false);
+        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+        stepOneModal.clickCloseModal();
+
+        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(true);
+        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
     }
 
     private void reachHealthPage() {
@@ -237,5 +259,32 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION, false);
         Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION.toLowerCase());
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH);
+    }
+
+    private void testTestimonials(String account){
+        browseBySubjectPage.waitForPageLoad();
+        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
+        Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
+        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(false);
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        browseBySubjectPage.goBackOnePage();
+        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(true);
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        browseBySubjectPage.closeTab();
+
+        browseBySubjectPage.clickOnSubmitYourOwnButton(false);
+        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        loginPage.goBackOnePage();
+
+        browseBySubjectPage.clickOnSubmitYourOwnButton(true);
+        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        loginPage.closeTab();
+
+        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(false);
+        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+        stepOneModal.clickCloseModal();
+
+        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(true);
+        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
     }
 }
