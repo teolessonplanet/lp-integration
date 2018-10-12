@@ -121,33 +121,21 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testRelatedTopics();
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1207:What members say")
+    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1026:What members say")
+    public void testLessonp_1026() {
+        testTestimonials(TestData.INVALID_EMAIL);
+    }
+
+    @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1207:What members say")
     public void testLessonp_1207() {
-        reachHealthPage();
-        browseBySubjectPage.waitForPageLoad();
-        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
-        Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
-        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(false);
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
-        browseBySubjectPage.goBackOnePage();
-        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(true);
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
-        browseBySubjectPage.closeTab();
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
+    }
 
-        browseBySubjectPage.clickOnSubmitYourOwnButton(false);
-        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
-        loginPage.goBackOnePage();
-
-        browseBySubjectPage.clickOnSubmitYourOwnButton(true);
-        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
-        loginPage.closeTab();
-
-        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(false);
-        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-        stepOneModal.clickCloseModal();
-
-        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(true);
-        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1219:What members say")
+    public void testLessonp_1219() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testTestimonials(TestData.VALID_EMAIL_ADMIN);
     }
 
     private void reachHealthPage() {
@@ -261,10 +249,11 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH);
     }
 
-    private void testTestimonials(String account){
+    private void testTestimonials(String account) {
+        reachHealthPage();
         browseBySubjectPage.waitForPageLoad();
-        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
         Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
+        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
         browseBySubjectPage.clickOnSeeMoreTestimonialsButton(false);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.goBackOnePage();
@@ -273,18 +262,39 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         browseBySubjectPage.closeTab();
 
         browseBySubjectPage.clickOnSubmitYourOwnButton(false);
-        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
-        loginPage.goBackOnePage();
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        } else {
+            Assert.assertEquals(browseBySubjectPage.getPath(), TestData.FEEDBACKS_PAGE_PATH);
+        }
+        browseBySubjectPage.goBackOnePage();
 
         browseBySubjectPage.clickOnSubmitYourOwnButton(true);
-        Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
-        loginPage.closeTab();
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
+        } else {
+            Assert.assertEquals(browseBySubjectPage.getPath(), TestData.FEEDBACKS_PAGE_PATH);
+        }
+        browseBySubjectPage.closeTab();
 
-        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(false);
-        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-        stepOneModal.clickCloseModal();
+        //no Get free trial or Upgrade Me button if active user
+        if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            browseBySubjectPage.clickTestimonialsGreenButton(false);
+            if (account.equals(TestData.INVALID_EMAIL)) {
+                Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+                stepOneModal.clickCloseModal();
+            } else {
+                Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+                stepTwoModal.clickOnCloseModal();
+            }
 
-        browseBySubjectPage.clickTestimonialsGetFreeTrialButton(true);
-        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+            browseBySubjectPage.clickTestimonialsGreenButton(true);
+            if (account.equals(TestData.INVALID_EMAIL)) {
+                Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+            } else {
+                Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+            }
+        }
+
     }
 }

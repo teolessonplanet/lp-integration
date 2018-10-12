@@ -233,6 +233,8 @@ public class TestData {
 
     public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
 
+    public static final String FEEDBACKS_PAGE_PATH = "feedbacks/new";
+
     public static final String PAGINATION_FIRST_PAGE_PATH = "";
     public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
     public static final String PAGINATION_ALL_ITEMS_PATH = "/all";

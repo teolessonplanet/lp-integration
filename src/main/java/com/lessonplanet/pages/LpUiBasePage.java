@@ -225,6 +225,7 @@ public class LpUiBasePage {
     }
 
     public void goBackOnePage() {
+        waitForLinkToLoad();
         waitForPageLoad();
         javascriptExecutor.executeScript("window.history.go(-1)");
         waitForLinkToLoad();

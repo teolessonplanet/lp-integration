@@ -21,9 +21,9 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     private static final String TESTIMONIALS_THUMBNAIL = "[class='img-thumbnail']";
     private static final String TESTIMONIALS_TEXT = "div[class='clearfix']";
-    private static final String SEE_MORE_TESTIMONIALS_BUTTON = "a[href='/us/testimonials']";
-    private static final String SUBMIT_YOUR_OWN_BUTTON = "a[href='/feedbacks/new']";
-    private static final String TESTMINONIALS_GET_FREE_TRIAL_BUTTON = "a[href*='/subscription/new']";
+    private static final String SEE_MORE_TESTIMONIALS_BUTTON = "[class='more'] a[href='/us/testimonials']";
+    private static final String SUBMIT_YOUR_OWN_BUTTON = "[class='more'] a[href='/feedbacks/new']";
+    private static final String TESTIMONIALS_GET_FREE_TRIAL_BUTTON = "a[href*='/subscription/new']";
 
     public BrowseBySubjectPage(WebDriver driver) {
         super(driver);
@@ -122,18 +122,30 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
-        findElementAndOpenInANewTab(SEE_MORE_TESTIMONIALS_BUTTON, inANewTab);
+//        findElementAndOpenInANewTab(SEE_MORE_TESTIMONIALS_BUTTON, inANewTab);
+        if (inANewTab) {
+            openInANewTab(SEE_MORE_TESTIMONIALS_BUTTON);
+        } else {
+            clickElement(SEE_MORE_TESTIMONIALS_BUTTON);
+        }
     }
 
     public void clickOnSubmitYourOwnButton(boolean inANewTab) {
-        findElementAndOpenInANewTab(SUBMIT_YOUR_OWN_BUTTON, inANewTab);
+//        findElementAndOpenInANewTab(SUBMIT_YOUR_OWN_BUTTON, inANewTab);
+        if (inANewTab) {
+            openInANewTab(SUBMIT_YOUR_OWN_BUTTON);
+        } else {
+            clickElement(SUBMIT_YOUR_OWN_BUTTON);
+        }
+//        findElementAndOpenInANewTab(SUBMIT_YOUR_OWN_BUTTON, inANewTab);
     }
 
-    public void clickTestimonialsGetFreeTrialButton(boolean inANewTab) {
-        findElementAndOpenInANewTab(TESTMINONIALS_GET_FREE_TRIAL_BUTTON, inANewTab);
+    public void clickTestimonialsGreenButton(boolean inANewTab) {
+        findElementAndOpenInANewTab(TESTIMONIALS_GET_FREE_TRIAL_BUTTON, inANewTab);
     }
 
     private void findElementAndOpenInANewTab(String webElementSelector, boolean inANewTab) {
+        waitForPageLoad();
         final WebElement seeMoreTestimonialsButton = findElements(getWhatMembersSayWidget(), webElementSelector).get(0);
         if (inANewTab) {
             openInANewTab(seeMoreTestimonialsButton);
