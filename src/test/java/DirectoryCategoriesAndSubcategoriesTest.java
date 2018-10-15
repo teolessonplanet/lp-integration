@@ -33,24 +33,21 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         rrpPage = new RrpPage(webDriver);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1209:Page UI")
+    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1020:Page UI")
+    public void testLessonp_1020() {
+        testPageUi(TestData.INVALID_EMAIL);
+    }
+
+    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1197:Page UI")
+    public void testLessonp_1197() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testPageUi(TestData.VALID_EMAIL_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1209:Page UI")
     public void testLessonp_1209() {
-        reachHealthPage();
-        Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
-
-        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
-        Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
-
-        Assert.assertTrue(browseBySubjectPage.isSeeAllButtonDisplayed());
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_FIRST_PAGE_PATH);
-        browseBySubjectPage.clickOnNextButton();
-        Assert.assertTrue(browseBySubjectPage.isPreviousButtonDisplayed());
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_SECOND_PAGE_PATH);
-        browseBySubjectPage.clickOnSeeAllButton();
-
-        Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_ALL_ITEMS_PATH);
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testPageUi(TestData.VALID_EMAIL_ADMIN);
     }
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1022:Resource Tiles")
@@ -141,6 +138,31 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private void reachHealthPage() {
         directoryPage.loadPage();
         directoryPage.clickOnHealthSubjectLink();
+    }
+
+    private void testPageUi(String account) {
+        reachHealthPage();
+        Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
+
+        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
+        Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
+
+        if(account.equals(TestData.INVALID_EMAIL)){
+            Assert.assertTrue(browseBySubjectPage.isSeeAllButtonDisplayed());
+        }else{
+            Assert.assertFalse(browseBySubjectPage.isSeeAllButtonDisplayed());
+        }
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_FIRST_PAGE_PATH);
+        browseBySubjectPage.clickOnNextButton();
+        Assert.assertTrue(browseBySubjectPage.isPreviousButtonDisplayed());
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_SECOND_PAGE_PATH);
+
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            browseBySubjectPage.clickOnSeeAllButton();
+            Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
+            Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_ALL_ITEMS_PATH);
+        }
     }
 
     private void testBrowseBySubject(String account) {

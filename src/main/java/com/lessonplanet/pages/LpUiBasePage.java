@@ -47,6 +47,8 @@ public class LpUiBasePage {
     }
 
     protected List<WebElement> findElements(WebElement element, String cssSelector) {
+        waitForLinkToLoad();
+        waitForPageLoad();
         try {
             return element.findElements(By.cssSelector(cssSelector));
         } catch (Exception e) {
