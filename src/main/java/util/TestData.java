@@ -123,6 +123,10 @@ public class TestData {
 
     //Discovery page
     public static final int TOTAL_RESOURCES_PER_PAGE = 24;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED = 12;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED = 12;
+    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED = 18;
+    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED = 6;
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";

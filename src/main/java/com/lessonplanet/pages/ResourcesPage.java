@@ -16,9 +16,16 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String FACET_OPTIONS = "li";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
 
-    private static final String RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card']";
-    private static final String RESOURCES_IN_TILED_VIEW = "[class*='tiled-card']";
-    private static final String RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
+    //    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card']";
+    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='trk-show-resource']";
+    private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='locked']";
+
+    //    private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card']";
+    private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='trk-show-resource']";
+    private static final String LOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='locked']";
+//    private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
+    private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='trk-show-resource']";
+    private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
 
     private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [href*='/collections/']";
     protected static final String SEE_REVIEW_BUTTON = "[class*='panel-footer'] [href*='teachers']:not([class*='free-sample'])";
@@ -101,15 +108,15 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public int getCountResourcesInListMode() {
-        return findElements(RESOURCES_IN_LIST_VIEW).size();
+        return findElements(UNLOCKED_RESOURCES_IN_LIST_VIEW).size();
     }
 
     public int getCountResourcesInTiledMode() {
-        return findElements(RESOURCES_IN_TILED_VIEW).size();
+        return findElements(UNLOCKED_RESOURCES_IN_TILED_VIEW).size();
     }
 
     public int getCountResourcesInThumbnailMode() {
-        return findElements(RESOURCES_IN_THUMBNAIL_VIEW).size();
+        return findElements(UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
     public void clickSeeCollection(boolean inANewTab) {

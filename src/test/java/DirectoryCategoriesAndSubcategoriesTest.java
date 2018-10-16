@@ -6,6 +6,7 @@ import util.TestData;
 
 public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
+    private LpHomePage lpHomePage;
     private LoginPage loginPage;
     private DirectoryPage directoryPage;
     private BrowseBySubjectPage browseBySubjectPage;
@@ -20,6 +21,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
+        lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
         directoryPage = new DirectoryPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
@@ -70,6 +72,25 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         browseBySubjectPage.focusDriverToLastTab();
 
         Assert.assertTrue(rrpPage.isTitleDisplayed());
+    }
+
+    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1022:Resource Tiles")
+    public void testLessonp_asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasfd() {
+//        reachHealthPage();
+
+        lpHomePage.loadPage();
+        stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
+
+        //account = freemium
+        testResourceTiles(TestData.VALID_EMAIL_FREEMIUM);
+
+        //upgrade to STARTER
+        headerPage.clickOnUpgradeMeButton();
+        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+
+        testResourceTiles(TestData.VALID_EMAIL_FREEMIUM);
+
+
     }
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1023:Browse by Subject")
@@ -148,9 +169,9 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
 
-        if(account.equals(TestData.INVALID_EMAIL)){
+        if (account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertTrue(browseBySubjectPage.isSeeAllButtonDisplayed());
-        }else{
+        } else {
             Assert.assertFalse(browseBySubjectPage.isSeeAllButtonDisplayed());
         }
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_FIRST_PAGE_PATH);
@@ -163,6 +184,37 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
             Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_ALL_ITEMS_PATH);
         }
+    }
+
+    private void testResourceTiles(String account) {
+        reachHealthPage();
+        discoverResourcesPage.changeToThumbnailView();
+        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertEquals(browseBySubjectPage.getCountResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        }
+
+        discoverResourcesPage.changeToTiledView();
+        Assert.assertEquals(browseBySubjectPage.getCountResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        discoverResourcesPage.changeToListView();
+        Assert.assertEquals(browseBySubjectPage.getCountResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+
+        Assert.assertEquals(browseBySubjectPage.getCountFreeAcessButtons(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertEquals(browseBySubjectPage.getCountSeeReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE);
+
+        browseBySubjectPage.clickGetFreeAccess(false);
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+            stepOneModal.clickCloseModal();
+        }
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+            stepTwoModal.clickOnCloseModal();
+        }
+
+        browseBySubjectPage.clickSeeReview(true);
+        browseBySubjectPage.focusDriverToLastTab();
+
+        Assert.assertTrue(rrpPage.isTitleDisplayed());
     }
 
     private void testBrowseBySubject(String account) {
