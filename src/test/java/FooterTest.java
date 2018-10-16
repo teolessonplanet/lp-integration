@@ -36,7 +36,7 @@ public class FooterTest extends BaseTest {
     }
 
     @Test(description = "Active user - Footer - lessonp-669:Footer structure")
-    public void testLessonp669() {
+    public void testLessonp_669() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testFooterContainer(TestData.VALID_EMAIL_ADMIN);
     }
@@ -108,7 +108,7 @@ public class FooterTest extends BaseTest {
     }
 
     private void testSendEmailNewsletter(String account) {
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        if (!account.equals(TestData.INVALID_EMAIL) ) {
             Assert.assertEquals(footerPage.getTextFromEmailField(), account);
         } else {
             Assert.assertEquals(footerPage.getTextFromEmailField(), TestData.LP_HOME_PAGE_PATH);

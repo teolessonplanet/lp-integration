@@ -14,7 +14,6 @@ public class BaseTest {
         browser = new Browser();
         browser.setName("firefox");
         webDriver = WebDriverFactory.getInstance(browser);
-
     }
 
     @AfterMethod
