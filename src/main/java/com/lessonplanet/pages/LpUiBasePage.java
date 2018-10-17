@@ -82,6 +82,7 @@ public class LpUiBasePage {
         final String url = TestData.SERVER_URL + pagePath;
         logger.info("Accessing: " + url);
         driver.get(url);
+        waitForPageLoad();
     }
 
     public String getPath() {

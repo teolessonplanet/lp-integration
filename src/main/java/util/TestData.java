@@ -21,6 +21,7 @@ public class TestData {
     public static final String SUBSCRIPTION_SUCCESS_PATH = "subscription/success";
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
+    public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
 
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";

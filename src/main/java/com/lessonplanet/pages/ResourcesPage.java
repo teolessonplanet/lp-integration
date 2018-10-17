@@ -17,13 +17,13 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
 
     //    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card']";
-    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='trk-show-resource']";
-    private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='locked']";
+    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
+    private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='locked']";
 
     //    private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card']";
     private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='locked']";
-//    private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
+    //    private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
     private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
 
@@ -36,6 +36,8 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String FREE_FULL_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-sample']";
     private static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
 
+    private static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
+
     private static final String PREVIOUS_BUTTON = "[class='pagination'] [class*='previous_page'] a";
     private static final String NEXT_BUTTON = "[class='pagination'] [class*='next_page'] a";
     private static final String SEE_ALL_BUTTON = "[class='pagination'] #see_all";
@@ -46,19 +48,6 @@ public class ResourcesPage extends LpUiBasePage {
         super(driver);
     }
 
-//    private WebElement selectFacetCategory(String facetCategory) {
-//        //returns the entire category with all options
-//        List<WebElement> categories = findElements(FACETS_CATEGORIES);
-//        for (WebElement category : categories) {
-//            if (category.getText().startsWith(facetCategory)) {
-//                return category;
-//            }
-//        }
-//        logger.error("The facet category " + facetCategory + " was not found");
-//        return null;
-//    }
-
-    //    private WebElement selectWidgetCategory(String widgetSelector, String widgetCategory) {
     protected WebElement getCategoryFromLeftSide(String widgetSelector, String widgetCategory) {
         //returns the entire category with all options
         List<WebElement> categories = findElements(widgetSelector);
@@ -107,16 +96,28 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
     }
 
-    public int getCountResourcesInListMode() {
+    public int getCountUnlockedResourcesInListMode() {
         return findElements(UNLOCKED_RESOURCES_IN_LIST_VIEW).size();
     }
 
-    public int getCountResourcesInTiledMode() {
+    public int getCountUnlockedResourcesInTiledMode() {
         return findElements(UNLOCKED_RESOURCES_IN_TILED_VIEW).size();
     }
 
-    public int getCountResourcesInThumbnailMode() {
+    public int getCountUnlockedResourcesInThumbnailMode() {
         return findElements(UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
+    }
+
+    public int getCountLockedResourcesInListMode() {
+        return findElements(LOCKED_RESOURCES_IN_LIST_VIEW).size();
+    }
+
+    public int getCountLockedResourcesInTiledMode() {
+        return findElements(LOCKED_RESOURCES_IN_TILED_VIEW).size();
+    }
+
+    public int getCountLockedResourcesInThumbnailMode() {
+        return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
     public void clickSeeCollection(boolean inANewTab) {
@@ -167,12 +168,24 @@ public class ResourcesPage extends LpUiBasePage {
         }
     }
 
-    public int getCountFreeAcessButtons() {
+    public int getCountFreeAccessButtons() {
         return findElements(GET_FREE_ACCESS_BUTTON).size();
     }
 
     public int getCountSeeReviewButton() {
         return findElements(SEE_REVIEW_BUTTON).size();
+    }
+
+    public int getCountGoToResourceButtons() {
+        return findElements(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE).size();
+    }
+
+    public int getCountSeeFullReviewButton() {
+        return findElements(SEE_FULL_REVIEW_BUTTON).size();
+    }
+
+    public int getCountUpgradeForAccessButton(){
+        return findElements(UPGRADE_FOR_ACCESS_BUTTON).size();
     }
 
     public void clickOnPreviousButton() {
