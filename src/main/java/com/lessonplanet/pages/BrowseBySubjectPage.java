@@ -49,6 +49,18 @@ public class BrowseBySubjectPage extends ResourcesPage {
         clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
+    public void clickSeeFullReview(boolean inANewTab) {
+        clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
+    }
+
+    public void clickUpgradeForAccess(boolean inANewTab) {
+        clickFirstButtonOfType(UPGRADE_FOR_ACCESS_BUTTON, inANewTab);
+    }
+
+    public void clickGoToResourceForRegularResource(boolean inANewTab){
+        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE,inANewTab);
+    }
+
     public WebElement getBrowseBySubjectWidget() {
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES);
     }

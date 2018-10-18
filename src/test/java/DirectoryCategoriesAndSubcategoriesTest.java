@@ -162,8 +162,9 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void reachHealthPage() {
-        directoryPage.loadPage();
-        directoryPage.clickOnHealthSubjectLink();
+//        directoryPage.loadPage();
+//        directoryPage.clickOnHealthSubjectLink();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
     }
 
     private void testPageUi(String account) {
@@ -216,7 +217,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
         }
-        
+
         discoverResourcesPage.changeToListView();
         if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -237,29 +238,45 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountUpgradeForAccessButton(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
-        }else{
+        } else if (account.equals(TestData.PRIME_OPTION_TEXT)) {
             Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountUpgradeForAccessButton(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
+        } else {
+            Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE);
+            Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE);
         }
 
-        /*
-        browseBySubjectPage.clickGetFreeAccess(false);
-        if (account.equals(TestData.INVALID_EMAIL)) {
-            Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-            stepOneModal.clickCloseModal();
-        }
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-            stepTwoModal.clickOnCloseModal();
-        }
+        /** war zone */
+        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            browseBySubjectPage.clickGetFreeAccess(false);
+            if (account.equals(TestData.INVALID_EMAIL)) {
+                Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+                stepOneModal.clickCloseModal();
+            }
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+                Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+                stepTwoModal.clickOnCloseModal();
+            }
 
-        browseBySubjectPage.clickSeeReview(true);
-        browseBySubjectPage.focusDriverToLastTab();
-
-        Assert.assertTrue(rrpPage.isTitleDisplayed());
-        rrpPage.closeTab();
-        */
+            browseBySubjectPage.clickSeeReview(true);
+            browseBySubjectPage.focusDriverToLastTab();
+            Assert.assertTrue(rrpPage.isTitleDisplayed());
+            Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
+            rrpPage.closeTab();
+        } else {
+            if ((account.equals(TestData.STARTER_OPTION_TEXT) || account.equals(TestData.PRIME_OPTION_TEXT))) {
+                browseBySubjectPage.clickUpgradeForAccess(true);
+                Assert.assertTrue(manageMembershipPage.getPath().startsWith(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
+                manageMembershipPage.closeTab();
+            }
+            browseBySubjectPage.clickGoToResourceForRegularResource(true);
+            Assert.assertTrue(!browseBySubjectPage.getUrl().contains(TestData.SERVER_URL));
+            browseBySubjectPage.closeTab();
+            browseBySubjectPage.clickSeeFullReview(true);
+            Assert.assertTrue(rrpPage.isFullReviewDisplayed());
+            rrpPage.closeTab();
+        }
     }
 
     private void testBrowseBySubject(String account) {
