@@ -9,21 +9,15 @@ import util.TestData;
 import java.util.List;
 
 public class ResourcesPage extends LpUiBasePage {
-
-    private static final String RESOURCE_CARDS = "[class*='list-card']";
-
     private static final String FACETS_CATEGORIES = "[class='panel panel-default mb5']";
     private static final String FACET_OPTIONS = "li";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
 
-    //    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card']";
     private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='locked']";
 
-    //    private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card']";
     private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='locked']";
-    //    private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card']";
     private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
 
@@ -49,6 +43,8 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     protected WebElement getCategoryFromLeftSide(String widgetSelector, String widgetCategory) {
+        waitForLinkToLoad();
+        waitForPageLoad();
         //returns the entire category with all options
         List<WebElement> categories = findElements(widgetSelector);
         for (WebElement category : categories) {
@@ -184,7 +180,7 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(SEE_FULL_REVIEW_BUTTON).size();
     }
 
-    public int getCountUpgradeForAccessButton(){
+    public int getCountUpgradeForAccessButton() {
         return findElements(UPGRADE_FOR_ACCESS_BUTTON).size();
     }
 

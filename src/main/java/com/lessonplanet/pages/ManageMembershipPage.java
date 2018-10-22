@@ -19,7 +19,7 @@ public class ManageMembershipPage extends LpUiBasePage {
         loadUrl(TestData.MANAGE_MEMBERSHIP_PAGE_PATH);
     }
 
-    public void upgradeSubscription(String newSubscription) {
+    private void upgradeSubscription(String newSubscription) {
         List<WebElement> offerContainers = findElements(OFFER_CONTAINERS);
         for (WebElement offer : offerContainers) {
             if (offer.getText().contains(newSubscription)) {
@@ -27,7 +27,6 @@ public class ManageMembershipPage extends LpUiBasePage {
                 waitForPageLoad();
                 break;
             }
-
         }
     }
 

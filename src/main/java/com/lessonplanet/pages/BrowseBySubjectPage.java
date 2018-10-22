@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import util.TestData;
 
 public class BrowseBySubjectPage extends ResourcesPage {
-
     private static final String PAGE_TITLE = "[class='media-heading']";
     private static final String BANNER_IMAGE = "#directory-content [class*='banner']";
 
@@ -57,8 +56,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
         clickFirstButtonOfType(UPGRADE_FOR_ACCESS_BUTTON, inANewTab);
     }
 
-    public void clickGoToResourceForRegularResource(boolean inANewTab){
-        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE,inANewTab);
+    public void clickGoToResourceForRegularResource(boolean inANewTab) {
+        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
     public WebElement getBrowseBySubjectWidget() {
@@ -134,7 +133,6 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
-//        findElementAndOpenInANewTab(SEE_MORE_TESTIMONIALS_BUTTON, inANewTab);
         if (inANewTab) {
             openInANewTab(SEE_MORE_TESTIMONIALS_BUTTON);
         } else {
@@ -143,27 +141,20 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public void clickOnSubmitYourOwnButton(boolean inANewTab) {
-//        findElementAndOpenInANewTab(SUBMIT_YOUR_OWN_BUTTON, inANewTab);
         if (inANewTab) {
             openInANewTab(SUBMIT_YOUR_OWN_BUTTON);
         } else {
             clickElement(SUBMIT_YOUR_OWN_BUTTON);
         }
-//        findElementAndOpenInANewTab(SUBMIT_YOUR_OWN_BUTTON, inANewTab);
     }
 
     public void clickTestimonialsGreenButton(boolean inANewTab) {
-        findElementAndOpenInANewTab(TESTIMONIALS_GET_FREE_TRIAL_BUTTON, inANewTab);
-    }
-
-    private void findElementAndOpenInANewTab(String webElementSelector, boolean inANewTab) {
         waitForPageLoad();
-        final WebElement seeMoreTestimonialsButton = findElements(getWhatMembersSayWidget(), webElementSelector).get(0);
+        final WebElement seeMoreTestimonialsButton = findElements(getWhatMembersSayWidget(), TESTIMONIALS_GET_FREE_TRIAL_BUTTON).get(0);
         if (inANewTab) {
             openInANewTab(seeMoreTestimonialsButton);
         } else {
             seeMoreTestimonialsButton.click();
         }
     }
-
 }

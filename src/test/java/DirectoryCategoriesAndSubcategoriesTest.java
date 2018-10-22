@@ -56,7 +56,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1022:Resource Tiles")
     public void testLessonp_1022() {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.changeToTiledView();
         Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -117,7 +117,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1024:Start your 10 day free trial")
     public void testLessonp_1024() {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testStartYourTenDayFreeTrial(TestData.INVALID_EMAIL);
     }
 
@@ -161,14 +161,8 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testTestimonials(TestData.VALID_EMAIL_ADMIN);
     }
 
-    private void reachHealthPage() {
-//        directoryPage.loadPage();
-//        directoryPage.clickOnHealthSubjectLink();
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-    }
-
     private void testPageUi(String account) {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
 
@@ -193,7 +187,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void testResourceTiles(String account) {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         discoverResourcesPage.changeToThumbnailView();
         if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -247,7 +241,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE);
         }
 
-        /** war zone */
         if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             browseBySubjectPage.clickGetFreeAccess(false);
             if (account.equals(TestData.INVALID_EMAIL)) {
@@ -280,7 +273,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void testBrowseBySubject(String account) {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (!account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
@@ -350,7 +343,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void testStartYourTenDayFreeTrial(String account) {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(browseBySubjectPage.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
         } else {
@@ -373,7 +366,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void testRelatedTopics() {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT);
         browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION, true);
         Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION.toLowerCase());
@@ -386,7 +379,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     }
 
     private void testTestimonials(String account) {
-        reachHealthPage();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         browseBySubjectPage.waitForPageLoad();
         Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
         Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
@@ -431,6 +424,5 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
                 Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             }
         }
-
     }
 }

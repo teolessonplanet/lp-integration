@@ -76,12 +76,10 @@ public class DiscoverResourcesPage extends ResourcesPage {
         loadUrl(currentPath);
     }
 
-
     public void changeToThumbnailView() {
         final String currentPath = getPath();
         loadPage();
         clickThumbnailView();
         loadUrl(currentPath);
     }
-
 }
