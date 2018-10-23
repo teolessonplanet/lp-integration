@@ -65,7 +65,7 @@ public class StepTwoModal extends LpHomePage {
         return findElement(LASTNAME_INPUT + ERROR_SUFFIX).getText();
     }
 
-    public boolean isLastNameErrorDispplayed() {
+    public boolean isLastNameErrorDisplayed() {
         return isElementClickable(LASTNAME_INPUT + ERROR_SUFFIX);
     }
 
@@ -77,7 +77,7 @@ public class StepTwoModal extends LpHomePage {
         clearText(CARD_NUMBER_INPUT);
     }
 
-    public boolean isCardNumberErrorDispplayed() {
+    public boolean isCardNumberErrorDisplayed() {
         return isElementClickable(CARD_NUMBER_INPUT + ERROR_SUFFIX);
     }
 
@@ -180,5 +180,18 @@ public class StepTwoModal extends LpHomePage {
 
     public String getBillingTermsText() {
         return findElement(BILLING_TERMS_TEXT).getText();
+    }
+
+    public void completeStepTwoModalWith(String offer) {
+        waitForModal();
+        typeFirstName(TestData.FIRSTNAME);
+        typeLastName(TestData.LASTNAME);
+        typeCardNumber(TestData.CARD_NUMBER);
+        typeExpiration(TestData.CARD_EXPIRATION);
+        typeCvv(TestData.CARD_CVV);
+        typeZipCode(TestData.ZIP_CODE);
+        selectOffer(offer);
+        waitForPageLoad();
+        clickOnStartMembership();
     }
 }

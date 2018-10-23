@@ -40,6 +40,8 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_HISTORY_BUTTON = "[class='lp-username'] [href='/my/saved_searches']";
     private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
 
+    private static final String SEARCH_INPUT = "#keywords";
+
     public HeaderPage(WebDriver driver) {
         super(driver);
     }
@@ -186,5 +188,10 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnSignOutButton() {
         clickElement(SIGN_OUT_BUTTON);
+    }
+
+    public String getSearchText() {
+        waitForPageLoad();
+        return findElement(SEARCH_INPUT).getAttribute("value");
     }
 }

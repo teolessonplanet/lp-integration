@@ -21,6 +21,7 @@ public class TestData {
     public static final String SUBSCRIPTION_SUCCESS_PATH = "subscription/success";
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
+    public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
 
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
@@ -146,6 +147,10 @@ public class TestData {
 
     //Discovery page
     public static final int TOTAL_RESOURCES_PER_PAGE = 24;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED = 12;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED = 12;
+    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED = 18;
+    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED = 6;
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";
@@ -228,4 +233,37 @@ public class TestData {
     public static final String VISUAL_ARTS_PAGE_TITLE = "Visual Arts Teacher Resources";
     public static final String FILM_STUDIES_PAGE_TITLE = "Film Studies Teacher Resources";
     public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
+
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String BROWSE_BY_SUBJECT_FOR_SOCIAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nSocial Health\nConflict Resolution\nPositive Social Behaviors";
+    public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
+
+    public static final String SUGGEST_A_CATEGORY_MODAL_TITLE = "Suggest a Category";
+
+    public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES = "Browse by Subject";
+    public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE = "Growth and Development";
+    public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_SOCIAL_HEALTH_TYPE = "Social Health";
+
+    public static final String GROWTH_AND_DEVELOPMENT_PAGE_PATH = "lesson-plans/growth-and-development";
+    public static final String SOCIAL_HEALTH_PAGE_PATH = "lesson-plans/social-health";
+    public static final String SOCIAL_HEALTH_PAGE_TITLE = "Social Health Teacher Resources";
+
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL = "Start Your 10-Day Free Trial";
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Free Trial";
+    public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Full Access";
+
+    public static final String SIDE_WIDGET_RELATED_TOPICS = "Related Topics";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_OPTION = "Methods of Exercise";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_METHODS_OF_EXERCISE_REDIRECT_PATH = "search?keywords=methods+of+exercise";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT = "Related Topics\nHealth Lesson Plans\nStress Management\nMental Heath\nCalorie\nWeight Loss\nFood Choices\nFood Systems\nEnvironmental Factors\nTransportation\nHealth Components\nMethods of Exercise";
+
+    public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
+
+    public static final String FEEDBACKS_PAGE_PATH = "feedbacks/new";
+
+    public static final String PAGINATION_FIRST_PAGE_PATH = "";
+    public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
+    public static final String PAGINATION_ALL_ITEMS_PATH = "/all";
 }

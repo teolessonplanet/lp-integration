@@ -55,20 +55,20 @@ public class SearchTest extends BaseTest {
         lpHomePage.clickOnSearch();
         Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
         Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE, discoverResourcesPage.getSearchMessage());
-        Assert.assertEquals(TestData.TOTAL_RESOURCES_PER_PAGE, discoverResourcesPage.getCountResourcesInThumbnailMode());
+        Assert.assertEquals(TestData.TOTAL_RESOURCES_PER_PAGE, discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode());
     }
 
     @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-487:Cards layout")
     public void testLessonp_487() {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
-        Assert.assertEquals(discoverResourcesPage.getCountResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.clickOnTiledView();
-        Assert.assertEquals(discoverResourcesPage.getCountResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.clickOnListView();
-        Assert.assertEquals(discoverResourcesPage.getCountResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.clickThumbnailView();
-        Assert.assertEquals(discoverResourcesPage.getCountResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
     }
 
     @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-489:User clicks result card")

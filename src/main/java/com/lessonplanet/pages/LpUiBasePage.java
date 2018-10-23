@@ -47,6 +47,8 @@ public class LpUiBasePage {
     }
 
     protected List<WebElement> findElements(WebElement element, String cssSelector) {
+        waitForLinkToLoad();
+        waitForPageLoad();
         try {
             return element.findElements(By.cssSelector(cssSelector));
         } catch (Exception e) {
@@ -56,6 +58,8 @@ public class LpUiBasePage {
     }
 
     protected void waitForElement(String cssSelector) {
+        waitForLinkToLoad();
+        waitForPageLoad();
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
@@ -80,6 +84,7 @@ public class LpUiBasePage {
         final String url = TestData.SERVER_URL + pagePath;
         logger.info("Accessing: " + url);
         driver.get(url);
+        waitForPageLoad();
     }
 
     public String getPath() {
@@ -107,6 +112,18 @@ public class LpUiBasePage {
             }
         });
         logger.info("jQuery completed");
+        waitUntilDocumentIsReady();
+    }
+
+    public void waitUntilDocumentIsReady() {
+        logger.info("Waiting for document to be ready");
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (Boolean) javascriptExecutor.executeScript("return document.readyState == 'complete'");
+            }
+        });
+        logger.info("document is ready");
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
@@ -208,6 +225,7 @@ public class LpUiBasePage {
         logger.info("Closing the tab");
         driver.close();
         focusDriverToLastTab();
+        waitForLinkToLoad();
         waitForPageLoad();
     }
 
@@ -217,8 +235,10 @@ public class LpUiBasePage {
     }
 
     public void goBackOnePage() {
+        waitForLinkToLoad();
         waitForPageLoad();
         javascriptExecutor.executeScript("window.history.go(-1)");
+        waitForLinkToLoad();
         waitForPageLoad();
     }
 

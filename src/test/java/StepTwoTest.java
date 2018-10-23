@@ -89,7 +89,7 @@ public class StepTwoTest extends BaseTest {
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
         Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
 
         stepTwoModal.typeCardNumber(TestData.CARD_NUMBER);
         stepTwoModal.clickOnStartMembership();
@@ -98,8 +98,8 @@ public class StepTwoTest extends BaseTest {
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
         Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
+        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
 
         stepTwoModal.typeExpiration(TestData.CARD_EXPIRATION);
         stepTwoModal.clickOnStartMembership();
@@ -107,8 +107,8 @@ public class StepTwoTest extends BaseTest {
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
         Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
+        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
 
         stepTwoModal.typeCvv(TestData.CARD_CVV);
@@ -116,8 +116,8 @@ public class StepTwoTest extends BaseTest {
         //1 error should be displayed - 5 should not be visible
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
         Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
+        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
         Assert.assertFalse(stepTwoModal.isCvvErrorDispplayed());
 
@@ -126,8 +126,8 @@ public class StepTwoTest extends BaseTest {
         stepTwoModal.clickOnStartMembership();
         //1 error should be displayed (for FistName field) - 5 should not be visible
         Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getFirstNameError());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
+        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
         Assert.assertFalse(stepTwoModal.isCvvErrorDispplayed());
         Assert.assertFalse(stepTwoModal.isZipCodeErrorDispplayed());
