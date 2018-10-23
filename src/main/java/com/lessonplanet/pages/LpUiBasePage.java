@@ -60,7 +60,6 @@ public class LpUiBasePage {
     protected void waitForElement(String cssSelector) {
         waitForLinkToLoad();
         waitForPageLoad();
-        waitUntilDocumentIsReady();
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));

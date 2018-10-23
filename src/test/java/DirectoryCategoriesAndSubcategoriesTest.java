@@ -8,7 +8,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
-    private DirectoryPage directoryPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private StepOneModal stepOneModal;
@@ -24,7 +23,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
-        directoryPage = new DirectoryPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
@@ -37,24 +35,24 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         manageMembershipPage = new ManageMembershipPage(webDriver);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1020:Page UI")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020:Page UI")
     public void testLessonp_1020() {
         testPageUi(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1197:Page UI")
+    @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1197:Page UI")
     public void testLessonp_1197() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testPageUi(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1209:Page UI")
+    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1209:Page UI")
     public void testLessonp_1209() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testPageUi(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1022:Resource Tiles")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1022:Resource Tiles")
     public void testLessonp_1022() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -76,7 +74,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertTrue(rrpPage.isTitleDisplayed());
     }
 
-    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1211:Resource Tiles")
+    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1211:Resource Tiles")
     public void testLessonp_1211() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
@@ -98,53 +96,53 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testResourceTiles(TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1023:Browse by Subject")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1023:Browse by Subject")
     public void testLessonp_1023() {
         testBrowseBySubject(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1204:Browse by Subject")
+    @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1204:Browse by Subject")
     public void testLessonp_1204() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testBrowseBySubject(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1216:Browse by Subject")
+    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1216:Browse by Subject")
     public void testLessonp_1216() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testBrowseBySubject(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1024:Start your 10 day free trial")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1024:Start your 10 day free trial")
     public void testLessonp_1024() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testStartYourTenDayFreeTrial(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1205:Start your 10 day free trial")
+    @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1205:Start your 10 day free trial")
     public void testLessonp_1205() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testStartYourTenDayFreeTrial(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1025:Related Topics")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1025:Related Topics")
     public void testLessonp_1025() {
         testRelatedTopics();
     }
 
-    @Test(description = "Freemium - Directory Page - Categories ans subcategories - lessonp-1206:Related Topics")
+    @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1206:Related Topics")
     public void testLessonp_1206() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testRelatedTopics();
     }
 
-    @Test(description = "Active user - Directory Page - Categories ans subcategories - lessonp-1218:Related Topics")
+    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1218:Related Topics")
     public void testLessonp_1218() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testRelatedTopics();
     }
 
-    @Test(description = "Visitor - Directory Page - Categories ans subcategories - lessonp-1026:What members say")
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1026:What members say")
     public void testLessonp_1026() {
         testTestimonials(TestData.INVALID_EMAIL);
     }
