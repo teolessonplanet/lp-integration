@@ -47,8 +47,7 @@ public class LpUiBasePage {
     }
 
     protected List<WebElement> findElements(WebElement element, String cssSelector) {
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForElement(cssSelector);
         try {
             return element.findElements(By.cssSelector(cssSelector));
         } catch (Exception e) {
@@ -58,10 +57,10 @@ public class LpUiBasePage {
     }
 
     protected void waitForElement(String cssSelector) {
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForLoad();
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
         } catch (TimeoutException timeoutException) {
             logger.error("The element " + cssSelector + " cannot be clicked");
@@ -70,25 +69,29 @@ public class LpUiBasePage {
 
     protected void sendKeys(String cssLocator, String text) {
         findElement(cssLocator).sendKeys(text);
+        waitForLoad();
     }
 
     protected void clearText(String cssSelector) {
         findElement(cssSelector).clear();
+        waitForLoad();
     }
 
     protected void clickElement(String cssLocator) {
         findElement(cssLocator).click();
+        waitForLoad();
     }
 
     protected void loadUrl(String pagePath) {
         final String url = TestData.SERVER_URL + pagePath;
         logger.info("Accessing: " + url);
         driver.get(url);
-        waitForPageLoad();
+//        waitForPageLoad();
+        waitForLoad();
     }
 
     public String getPath() {
-        waitForPageLoad();
+        waitForLoad();
         try {
             String path[] = getUrl().split(".com/");
             logger.info("Path: " + path[1]);
@@ -126,7 +129,14 @@ public class LpUiBasePage {
         logger.info("document is ready");
     }
 
+    public void waitForLoad() {
+        waitForLinkToLoad();
+        waitForPageLoad();
+        waitUntilDocumentIsReady();
+    }
+
     public void dragAndDrop(WebElement element, WebElement target) {
+        waitForLoad();
         try {
             (new Actions(driver)).dragAndDrop(element, target).perform();
         } catch (Exception e) {
@@ -134,11 +144,13 @@ public class LpUiBasePage {
             scrollToElement(element);
             (new Actions(driver)).dragAndDrop(element, target).perform();
         }
-        waitForPageLoad();
+        waitForLoad();
     }
 
     protected void hoverOverElement(WebElement element) {
+        waitForLoad();
         (new Actions(driver)).moveToElement(element).build().perform();
+        waitForLoad();
     }
 
     protected void hoverOverElement(String cssSelector) {
@@ -147,12 +159,12 @@ public class LpUiBasePage {
 
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
-        waitForPageLoad();
+        waitForLoad();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
-        waitForPageLoad();
+        waitForLoad();
     }
 
-    protected void scrollToElement(String cssSelector){
+    protected void scrollToElement(String cssSelector) {
         scrollToElement(findElement(cssSelector));
     }
 
