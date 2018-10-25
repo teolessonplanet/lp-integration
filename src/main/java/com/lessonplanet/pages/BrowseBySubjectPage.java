@@ -33,7 +33,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public String getPageTitle() {
-        return findElement(PAGE_TITLE).getText();
+        return getTextForElement(PAGE_TITLE);
     }
 
     public boolean isBannerImageDisplayed() {
@@ -74,7 +74,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
         if (inANewTab) {
             openInANewTab(option);
         } else {
-            option.click();
+            clickElement(option);
         }
     }
 
@@ -83,23 +83,19 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public String getBrowseBySubjectCategoryContentAsText() {
-        waitForPageLoad();
-        return getBrowseBySubjectWidget().getText();
+        return getTextForElement(getBrowseBySubjectWidget());
     }
 
     public void clickFirstCaretFromBrowseBySubjectCategory() {
-        waitForPageLoad();
-        findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS).get(0).click();
-        waitForPageLoad();
+        clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), 0);
     }
 
     public void clickSecondCaretFromBrowseBySubjectCategory() {
-        findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS).get(1).click();
-        waitForPageLoad();
+        clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), 1);
     }
 
     public String getStartYourTenDaysFreeTrialContentAsText() {
-        return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL).getText();
+        return getTextForElement(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL));
     }
 
     public void clickGetFreeTrialButton(boolean inANewTab) {
@@ -107,7 +103,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
         if (inANewTab) {
             openInANewTab(getFreeTrialButton);
         } else {
-            getFreeTrialButton.click();
+            clickElement(getFreeTrialButton);
         }
     }
 
@@ -116,8 +112,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public String getRelatedTopicsContentAsText() {
-        waitForPageLoad();
-        return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_RELATED_TOPICS).getText();
+        return getTextForElement(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_RELATED_TOPICS));
     }
 
     public void clickOptionFromRelatedTopics(String optionName, boolean inANewTab) {
@@ -154,7 +149,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
         if (inANewTab) {
             openInANewTab(seeMoreTestimonialsButton);
         } else {
-            seeMoreTestimonialsButton.click();
+            clickElement(seeMoreTestimonialsButton);
         }
     }
 }
