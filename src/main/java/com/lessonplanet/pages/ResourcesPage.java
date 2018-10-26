@@ -9,8 +9,7 @@ import util.TestData;
 import java.util.List;
 
 public class ResourcesPage extends LpUiBasePage {
-    private static final String FACETS_CATEGORIES = "[class='panel panel-default mb5']";
-    private static final String FACET_OPTIONS = "li";
+
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
 
     private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
@@ -54,9 +53,6 @@ public class ResourcesPage extends LpUiBasePage {
         return null;
     }
 
-    public void selectFacetFilter(String facetCategoryName, String facetName) {
-        clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
-    }
 
     public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, optionName);
@@ -111,33 +107,33 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
-    public void clickSeeCollection(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
+    protected void clickSeeCollection(boolean inANewTab) {
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
 
     public void clickSeeReview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
     public void clickGetFreeAccess(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
     }
 
     public void clickSeePreview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
     }
 
     public void clickGoToResourceForSharedResource(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
     }
 
     public void clickGoToResourceForRegularResource(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
@@ -146,7 +142,7 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeeFullReview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 

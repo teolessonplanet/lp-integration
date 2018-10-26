@@ -39,25 +39,9 @@ public class BrowseBySubjectPage extends ResourcesPage {
     public boolean isBannerImageDisplayed() {
         return isElementClickable(BANNER_IMAGE);
     }
-
-    public void clickGetFreeAccess(boolean inANewTab) {
-        clickFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
-    }
-
-    public void clickSeeReview(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
-    }
-
-    public void clickSeeFullReview(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
-    }
-
+    
     public void clickUpgradeForAccess(boolean inANewTab) {
         clickFirstButtonOfType(UPGRADE_FOR_ACCESS_BUTTON, inANewTab);
-    }
-
-    public void clickGoToResourceForRegularResource(boolean inANewTab) {
-        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
     public WebElement getBrowseBySubjectWidget() {
