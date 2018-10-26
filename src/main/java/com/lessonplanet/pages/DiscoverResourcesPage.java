@@ -25,11 +25,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public String getSearchMessage() {
-        return findElement(SEARCH_MESSAGE).getText();
+        return getTextForElement(SEARCH_MESSAGE);
     }
 
     public String getSuggestionsBlockText() {
-        return findElement(SUGGESTIONS_BLOCK_TEXT).getText();
+        return getTextForElement(SUGGESTIONS_BLOCK_TEXT);
     }
 
     public boolean isSuggestionBlockTextDisplayed() {
@@ -37,7 +37,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public int getTotalResults() {
-        String rawNumber = findElements(RESOURCES_COUNTER_TEXT).get(0).getText();
+        String rawNumber = getTextForElement(RESOURCES_COUNTER_TEXT, 0);
         int number;
         try {
             number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
@@ -49,17 +49,14 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void clickOnListView() {
         clickElement(LIST_VIEW_BUTTON);
-        waitForPageLoad();
     }
 
     public void clickOnTiledView() {
         clickElement(TILED_VIEW_BUTTON);
-        waitForPageLoad();
     }
 
     public void clickThumbnailView() {
         clickElement(THUMBNAIL_VIEW_BUTTON);
-        waitForPageLoad();
     }
 
     public void changeToListView() {

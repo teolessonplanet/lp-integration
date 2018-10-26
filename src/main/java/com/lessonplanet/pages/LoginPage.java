@@ -34,7 +34,7 @@ public class LoginPage extends LpUiBasePage {
     }
 
     public String getContentAlertMessage() {
-        return findElement(CONTENT_ALERT_MESSAGE).getText();
+        return getTextForElement(CONTENT_ALERT_MESSAGE);
     }
 
     /**
@@ -49,7 +49,6 @@ public class LoginPage extends LpUiBasePage {
         typeEmail(email);
         typePassword(password);
         clickOnSignInButton();
-        waitForPageLoad();
         if (headerPage.isUsernameDropDownDisplayed()) {
             logger.info("Successful login");
             loadUrl(path);

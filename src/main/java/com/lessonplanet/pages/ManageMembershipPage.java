@@ -23,8 +23,7 @@ public class ManageMembershipPage extends LpUiBasePage {
         List<WebElement> offerContainers = findElements(OFFER_CONTAINERS);
         for (WebElement offer : offerContainers) {
             if (offer.getText().contains(newSubscription)) {
-                findElements(offer, SELECT_BUTTONS).get(0).click();
-                waitForPageLoad();
+                clickElement(findElements(offer, SELECT_BUTTONS), 0);
                 break;
             }
         }
@@ -35,7 +34,5 @@ public class ManageMembershipPage extends LpUiBasePage {
         loadPage();
         upgradeSubscription(newSubscription);
         loadUrl(currentPath);
-        waitForLinkToLoad();
-        waitForPageLoad();
     }
 }

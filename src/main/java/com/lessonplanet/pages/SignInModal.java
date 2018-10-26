@@ -12,7 +12,8 @@ public class SignInModal extends LpUiBasePage {
     }
 
     public String getModalTitle() {
-        return findElement(MODAL_TITLE).getText();
+        waitUntilAnimationIsDone(MODAL_TITLE);
+        return getTextForElement(MODAL_TITLE);
     }
 
     public void clickOnClose() {

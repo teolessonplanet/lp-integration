@@ -2,6 +2,7 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
@@ -26,7 +27,7 @@ public class CollectionBuilderTest extends BaseTest {
         collectionCreatedModal = new CollectionCreatedModal(webDriver);
     }
 
-    @Test(description = " Steps:" +
+    @Ignore/*(description = " Steps:" +
             "1. Login" +
             "2. Go to Search Page" +
             "3. Click Create New Collection from CB->Dropdown" +
@@ -35,7 +36,7 @@ public class CollectionBuilderTest extends BaseTest {
             "6. Type title, grade, subject & description" +
             "7. Click Publish Collection button" +
             "8. Verify the title when the modal is displayed"+
-            "9. Click on Submit button.")
+            "9. Click on Submit button.")*/
     public void testCreateNewCollectionAndPublish() {
         discoverResourcesPage.loadPage();
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);

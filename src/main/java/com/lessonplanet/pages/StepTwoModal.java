@@ -37,12 +37,11 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getTitleText() {
-        return findElement(TITLE_TEXT).getText();
+        return getTextForElement(TITLE_TEXT);
     }
 
     public void clickOnCloseModal() {
         clickElement(CLOSE_MODAL_BUTTON);
-        waitForPageLoad();
     }
 
     public void typeFirstName(String firstName) {
@@ -50,7 +49,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getFirstNameError() {
-        return findElement(FIRSTNAME_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(FIRSTNAME_INPUT + ERROR_SUFFIX);
     }
 
     public boolean isFirstNameErrorDisplayed() {
@@ -62,7 +61,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getLastNameError() {
-        return findElement(LASTNAME_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(LASTNAME_INPUT + ERROR_SUFFIX);
     }
 
     public boolean isLastNameErrorDisplayed() {
@@ -82,7 +81,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getCardNumberError() {
-        return findElement(CARD_NUMBER_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(CARD_NUMBER_INPUT + ERROR_SUFFIX);
     }
 
     public void typeExpiration(String expiration) {
@@ -98,7 +97,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getExpirationError() {
-        return findElement(EXPIRATION_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(EXPIRATION_INPUT + ERROR_SUFFIX);
     }
 
     public void typeCvv(String cvv) {
@@ -109,12 +108,12 @@ public class StepTwoModal extends LpHomePage {
         clearText(CVV_INPUT);
     }
 
-    public boolean isCvvErrorDispplayed() {
+    public boolean isCvvErrorDisplayed() {
         return isElementClickable(CVV_INPUT + ERROR_SUFFIX);
     }
 
     public String getCvvError() {
-        return findElement(CVV_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(CVV_INPUT + ERROR_SUFFIX);
     }
 
     public void typeZipCode(String zipCode) {
@@ -126,12 +125,11 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getZipCodeError() {
-        return findElement(ZIPCODE_INPUT + ERROR_SUFFIX).getText();
+        return getTextForElement(ZIPCODE_INPUT + ERROR_SUFFIX);
     }
 
     public void clickOnStartMembership() {
         clickElement(START_MEMBERSHIP_BUTTON);
-        waitForPageLoad();
     }
 
     public String getSelectedOption() {
@@ -160,13 +158,13 @@ public class StepTwoModal extends LpHomePage {
         List<WebElement> options = findElements(SELECT_OFFER_BUTTON);
         switch (offer) {
             case TestData.STARTER_OPTION_TEXT:
-                options.get(0).click();
+                clickElement(options, 0);
                 break;
             case TestData.PRIME_OPTION_TEXT:
-                options.get(1).click();
+                clickElement(options, 1);
                 break;
             case TestData.PRO_OPTION_TEXT:
-                options.get(2).click();
+                clickElement(options, 2);
                 break;
             default:
                 logger.error("No option is selected");
@@ -179,7 +177,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getBillingTermsText() {
-        return findElement(BILLING_TERMS_TEXT).getText();
+        return getTextForElement(BILLING_TERMS_TEXT);
     }
 
     public void completeStepTwoModalWith(String offer) {

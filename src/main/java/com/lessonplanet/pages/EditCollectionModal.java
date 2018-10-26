@@ -42,12 +42,11 @@ public class EditCollectionModal extends LpUiBasePage {
         boolean optionWasFound = false;
         waitForPageLoad();
         waitForModalToBeDisplayed();
-        findElement(dropdownCssSelector).click();
-        waitForPageLoad();
+        clickElement(dropdownCssSelector);
         List<WebElement> results = findElements(optionsCssSelector);
         for (WebElement result : results) {
             if (result.getText().equals(option)) {
-                result.click();
+                clickElement(result);
                 optionWasFound = true;
                 break;
             }
@@ -55,7 +54,6 @@ public class EditCollectionModal extends LpUiBasePage {
         if (!optionWasFound) {
             logger.error("The option " + option + " was not found.");
         }
-        waitForPageLoad();
     }
 
     public void typeDescription(String description) {
@@ -63,8 +61,6 @@ public class EditCollectionModal extends LpUiBasePage {
     }
 
     public void clickOnPublishCollection() {
-        waitForPageLoad();
-        findElement(PUBLISH_COLLECTION_BUTTON).click();
-        waitForPageLoad();
+        clickElement(PUBLISH_COLLECTION_BUTTON);
     }
 }

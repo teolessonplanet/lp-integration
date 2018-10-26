@@ -11,7 +11,6 @@ public class CollectionRrpModal extends RrpModal {
     }
 
     public void waitForModal() {
-        waitForPageLoad();
         waitUntilAnimationIsDone(COLLECTION_TITLE_TEXT);
     }
 

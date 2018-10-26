@@ -21,7 +21,6 @@ public class CreateNewCollectionModal extends LpUiBasePage {
     }
 
     public void clickOnCreateCollection() {
-        findElement(CREATE_COLLECTION_BUTTON).click();
-        waitForPageLoad();
+        clickElement(CREATE_COLLECTION_BUTTON);
     }
 }

@@ -119,7 +119,7 @@ public class StepTwoTest extends BaseTest {
         Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCvvErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isCvvErrorDisplayed());
 
         stepTwoModal.deleteFistNameField();
         stepTwoModal.typeZipCode(TestData.CARD_EXPIRATION);
@@ -129,7 +129,7 @@ public class StepTwoTest extends BaseTest {
         Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCvvErrorDispplayed());
+        Assert.assertFalse(stepTwoModal.isCvvErrorDisplayed());
         Assert.assertFalse(stepTwoModal.isZipCodeErrorDispplayed());
 
         stepTwoModal.typeFirstName(TestData.FIRSTNAME);

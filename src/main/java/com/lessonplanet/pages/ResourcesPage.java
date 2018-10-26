@@ -43,8 +43,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     protected WebElement getCategoryFromLeftSide(String widgetSelector, String widgetCategory) {
-        waitForLinkToLoad();
-        waitForPageLoad();
         //returns the entire category with all options
         List<WebElement> categories = findElements(widgetSelector);
         for (WebElement category : categories) {
@@ -64,8 +62,7 @@ public class ResourcesPage extends LpUiBasePage {
         WebElement option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, optionName);
         //if the facet is already selected, ignore it
         if (findElements(option, UNSELECTED_FACET_OPTIONS).size() > 0) {
-            option.click();
-            waitForPageLoad();
+            clickElement(option);
             return;
         } else {
             logger.info("The option " + optionName + " from category " + widgetCategoryName + " is already selected.");
@@ -74,7 +71,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public WebElement getOptionFromLeftSide(String widgetSelector, String widgetName, String optionSelector, String optionName) {
-        waitForPageLoad();
         WebElement category = getCategoryFromLeftSide(widgetSelector, widgetName);
         // parse all options and select the option that contains the string facetName
         List<WebElement> options = findElements(category, optionSelector);
@@ -88,7 +84,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public List<WebElement> getAllResources() {
-        waitForPageLoad();
         return findElements(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
     }
 
@@ -160,7 +155,7 @@ public class ResourcesPage extends LpUiBasePage {
         if (inANewTab) {
             openInANewTab(button);
         } else {
-            button.click();
+            clickElement(button);
         }
     }
 

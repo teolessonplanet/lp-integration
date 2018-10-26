@@ -54,7 +54,7 @@ public class StepOneTest extends BaseTest {
     public void testLessonp_10() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(true);
-        stepOnePage.clickOnAlreayAMember();
+        stepOnePage.clickOnAlreadyAMember();
         Assert.assertEquals(TestData.SIGN_IN_MODAL_TITLE_TEXT, signInModal.getModalTitle());
         Assert.assertEquals(TestData.STEP_ONE_PAGE_PATH, stepOnePage.getPath());
     }

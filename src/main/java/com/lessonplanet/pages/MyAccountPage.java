@@ -16,6 +16,6 @@ public class MyAccountPage extends LpUiBasePage {
     }
 
     public String getPlan() {
-        return findElement(PLAN_TEXT).getText();
+        return getTextForElement(PLAN_TEXT);
     }
 }
