@@ -45,6 +45,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public WebElement getBrowseBySubjectWidget() {
+        waitForLoad();
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES);
     }
 

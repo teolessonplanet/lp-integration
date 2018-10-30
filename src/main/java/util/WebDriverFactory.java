@@ -43,7 +43,7 @@ public class WebDriverFactory {
             webDriver = new FirefoxDriver();
             webDriver.manage().window().maximize();
         }
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
         return webDriver;
     }
 

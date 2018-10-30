@@ -37,6 +37,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public String getTitleText() {
+        waitForModal();
         return getTextForElement(TITLE_TEXT);
     }
 

@@ -118,6 +118,9 @@ public class LpUiBasePage {
     }
 
     protected void loadUrl(String pagePath) {
+        if (getUrl().contains(TestData.SERVER_URL)) {
+            waitForLoad();
+        }
         final String url = TestData.SERVER_URL + pagePath;
         logger.info("Accessing: " + url);
         driver.get(url);
