@@ -34,7 +34,8 @@ public class LpUiBasePage {
         //TODO: change this
         try {
             driver.findElement(By.cssSelector(cssSelector));
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+            WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
+            webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
         } catch (Exception e) {
             return false;
