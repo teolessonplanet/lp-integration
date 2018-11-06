@@ -17,7 +17,7 @@ import java.util.List;
 public class LpUiBasePage {
 
     protected static final Logger logger = LogManager.getRootLogger();
-    private WebDriver driver;
+    protected WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
 
@@ -27,7 +27,7 @@ public class LpUiBasePage {
         webDriverWait = new WebDriverWait(driver, TestData.TIMEOUT);
     }
 
-    protected WebElement findElement(String cssLocator) {
+    public WebElement findElement(String cssLocator) {
         waitForElement(cssLocator);
         return driver.findElement(By.cssSelector(cssLocator));
     }
@@ -38,6 +38,16 @@ public class LpUiBasePage {
             webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected boolean isElementVisible(String cssSelector) {
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+            return true;
+        } catch (TimeoutException timeoutException) {
+            logger.error("The element " + cssSelector + " is not visible");
             return false;
         }
     }
@@ -62,18 +72,18 @@ public class LpUiBasePage {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    public void uploadUsingTextInput (String fileNameSelector, String path )  {
-       try {
-           clickElement(fileNameSelector);
-           driver.switchTo().activeElement().sendKeys(path);
-           Robot robot = new Robot();
-           robot.waitForIdle();
-           robot.keyPress(KeyEvent.VK_ESCAPE);
-           robot.keyRelease(KeyEvent.VK_ESCAPE);
-       }
-       catch (Exception e){
-           logger.info("Cannot upload file");
-       }
+    public void uploadUsingTextInput(String fileNameSelector, String path) {
+        try {
+            clickElement(fileNameSelector);
+            driver.switchTo().activeElement().sendKeys(path);
+            Robot robot = new Robot();
+            robot.waitForIdle();
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+        }
+        catch (Exception e){
+            logger.info("Cannot upload file");
+        }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -155,7 +165,7 @@ public class LpUiBasePage {
         return element.getText();
     }
 
-    protected String getTextForElement(String cssSelector) {
+    public String getTextForElement(String cssSelector) {
         return getTextForElement(findElement(cssSelector));
     }
 
@@ -227,12 +237,12 @@ public class LpUiBasePage {
     //Wait for Angular Load
     public void waitForAngularLoad() {
         String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0];" +
-                "if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') {" +
-                "var ngElem = angular.element(ngAppElement); " +
-                "return ngElem.injector().get('$http').pendingRequests.length == 0" +
-                "} else {" +
-                "return true;" +
-                "}";
+            "if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') {" +
+            "var ngElem = angular.element(ngAppElement); " +
+            "return ngElem.injector().get('$http').pendingRequests.length == 0" +
+            "} else {" +
+            "return true;" +
+            "}";
 
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -249,9 +259,9 @@ public class LpUiBasePage {
 
     public void waitForAxiosRequests() {
         String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){" +
-                "    return window.axios_requests == 0" +
-                "  }else{" +
-                "    return true;}";
+            "    return window.axios_requests == 0" +
+            "  }else{" +
+            "    return true;}";
         //Wait for Axios to load
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -294,18 +304,17 @@ public class LpUiBasePage {
         scrollToElement(findElement(cssSelector));
     }
 
-    protected void waitUntilElementIsHidden(String cssSelector)
-    {
+    protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
     private boolean isOnTop(WebElement element) {
         return (boolean) javascriptExecutor.executeScript(
-                "var elm = arguments[0];" +
-                        "var doc = elm.ownerDocument || document;" +
-                        "var rect = elm.getBoundingClientRect();" +
-                        "return elm === doc.elementFromPoint(rect.left + (rect.width / 2), rect.top + (rect.height / 2));"
-                , element);
+            "var elm = arguments[0];" +
+                "var doc = elm.ownerDocument || document;" +
+                "var rect = elm.getBoundingClientRect();" +
+                "return elm === doc.elementFromPoint(rect.left + (rect.width / 2), rect.top + (rect.height / 2));"
+            , element);
     }
 
     protected void createCaptchaBypassCookie() {
@@ -398,49 +407,49 @@ public class LpUiBasePage {
         waitForLoad();
     }
 
-    public void waitForBootstrapModalToBeVisible (String modalId) {
+    public void waitForBootstrapModalToBeVisible(String modalId) {
         waitForLoad();
         webDriverWait.until(ExpectedConditions.and(
-                new ExpectedCondition<Boolean>() {
-                    @Override
-                    public Boolean apply(WebDriver webDriver) {
-                        return webDriver.findElement(By.cssSelector(modalId))
-                                .getCssValue("opacity").equals("1");
-                    }
-                },
-                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.modal-backdrop"), 0),
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
+            new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver webDriver) {
+                    return webDriver.findElement(By.cssSelector(modalId))
+                        .getCssValue("opacity").equals("1");
+                }
+            },
+            ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.modal-backdrop"), 0),
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
         ));
         waitForLoad();
     }
 
-    public void waitForReactModalToBeVisible () {
+    public void waitForReactModalToBeVisible() {
         waitForLoad();
         webDriverWait.until(ExpectedConditions.and(
-                new ExpectedCondition<Boolean>() {
-                    @Override
-                    public Boolean apply(WebDriver webDriver) {
-                        return webDriver.findElement(By.cssSelector("div.react-modal"))
-                                .getCssValue("opacity").equals("1");
-                    }
-                },
-                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0),
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
+            new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver webDriver) {
+                    return webDriver.findElement(By.cssSelector("div.react-modal"))
+                        .getCssValue("opacity").equals("1");
+                }
+            },
+            ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0),
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
         ));
         waitForLoad();
     }
 
-    public boolean isElementDisplayed(String  cssLocator)  {
+    public boolean isElementDisplayed(String cssLocator) {
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
-            return  true;
+            return true;
         } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
             System.out.println("Element  is  not  displayed");
-            return  false;
+            return false;
         }
     }
 
-    public String getElementId(String cssSelector)  {
+    public String getElementId(String cssSelector) {
         try {
             return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
         } catch( org.openqa.selenium.NoSuchElementException ex) {

@@ -1,6 +1,7 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import util.TestData;
 
 import java.text.NumberFormat;
@@ -18,6 +19,9 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     private static final String FACETS_CATEGORIES = "[class='panel panel-default mb5']";
     private static final String FACET_OPTIONS = "li";
+    private static final String MY_RESOURCE_BUTTON = "[class*='cb-my-resources-btn btn btn-primary']";
+    private static final String SIGN_IN_POPUP = "[class='bold']";
+    private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
 
     public DiscoverResourcesPage(WebDriver driver) {
         super(driver);
@@ -78,7 +82,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickSeePreview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
         super.clickSeePreview(inANewTab);
     }
 
@@ -121,4 +125,17 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickThumbnailView();
         loadUrl(currentPath);
     }
+
+    public void clickOnMyResourceButton() {
+        clickElement(MY_RESOURCE_BUTTON);
+    }
+
+    public boolean isSignInPopupLinkDisplayed() {
+        return isElementClickable(SIGN_IN_POPUP);
+    }
+
+    public boolean isSignUpPopupLinkDisplyed() {
+        return isElementClickable(SIGN_UP_POPUP);
+    }
+
 }

@@ -12,6 +12,10 @@ public class CollectionCreatedModal extends LpUiBasePage {
         super(driver);
     }
 
+    public void waitForModal() {
+        waitForBootstrapModalToBeVisible(COLLECTION_CREATED_MODAL);
+    }
+
     public String getTitle() {
        waitForBootstrapModalToBeVisible(COLLECTION_CREATED_MODAL);
        return getTextForElement(TITLE_TEXT);
@@ -19,6 +23,8 @@ public class CollectionCreatedModal extends LpUiBasePage {
 
     public void clickOnSubmitButton() {
         waitForBootstrapModalToBeVisible(COLLECTION_CREATED_MODAL);
+        findElement(SUBMIT_BUTTON);
         clickElement(SUBMIT_BUTTON);
+        waitForLoad();
     }
 }

@@ -3,8 +3,9 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class CollectionRrpModal extends RrpModal {
-    private static final String RRP_MODAL = "#resource-modal";
+    
     private static final String COLLECTION_TITLE_TEXT = "div h1";
+    private static final String RRP_MODAL = "#resource-modal";
 
     public CollectionRrpModal(WebDriver driver) {
         super(driver);
@@ -16,6 +17,6 @@ public class CollectionRrpModal extends RrpModal {
 
     public boolean isCollectionTitleDisplayed() {
         waitForModal();
-        return isElementClickable(COLLECTION_TITLE_TEXT);
+        return isElementDisplayed(COLLECTION_TITLE_TEXT);
     }
 }

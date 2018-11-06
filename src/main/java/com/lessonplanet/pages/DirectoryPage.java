@@ -68,9 +68,7 @@ public class DirectoryPage extends LpUiBasePage {
         super(driver);
     }
 
-    public void loadPage() {
-        loadUrl(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH);
-    }
+    public void loadPage() { loadUrl(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH); }
 
     public void clickOnHealthSubjectLink() {
         clickElement(HEALTH_SUBJECT_LINK);
@@ -140,9 +138,7 @@ public class DirectoryPage extends LpUiBasePage {
         clickElement(VISUAL_AND_PERFORMING_ARTS_SUBJECT_LINK);
     }
 
-    public void clickOnVisualAndPerformingArtsSubjectThumbnail() {
-        clickElement(VISUAL_AND_PERFORMING_ARTS_SUBJECT_THUMBNAIL);
-    }
+    public void clickOnVisualAndPerformingArtsSubjectThumbnail() { clickElement(VISUAL_AND_PERFORMING_ARTS_SUBJECT_THUMBNAIL); }
 
     public void clickOnWellnessAndSafetyLink() {
         clickElement(WELLNESS_AND_SAFETY_LINK);
@@ -256,9 +252,7 @@ public class DirectoryPage extends LpUiBasePage {
         clickElement(HISTORY_LINK);
     }
 
-    public void clickOnDevelopmentAndBehavioralDisordersLink() {
-        clickElement(DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_LINK);
-    }
+    public void clickOnDevelopmentAndBehavioralDisordersLink() { clickElement(DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_LINK); }
 
     public void clickOnPhysicalDisabilitiesLink() {
         clickElement(PHYSICAL_DISABILITIES_LINK);

@@ -28,63 +28,102 @@ public class TestData {
     public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
     public static final String CUSTOM_MEMBERSHIP_PAGE_PATH = "cancellation/new";
     public static final String THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT = "The membership fee was too expensive for me";
+    public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
+    public static final String CURRICULUM_PLAYER_PATH = "/player";
 
+    //curriculum manager
+    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT  = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
+    public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
+    public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
+    public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
+    public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Collection Player to students or share with colleagues, please enter a case-sensitive access key below";
+    public static final String COLLECTION_CREATED_MESSAGE = "Collection created!";
+    public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "This resource review was added to your collection";
+    public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
+    public static final String CREATED_MESSAGE = "was created";
+    public static final String DELETED_MESSAGE= "was deleted";
+    public static final String EMAIL_SENT_MESSAGE = "Your email was sent successfully.";
+    public static final String ZERO_RESOURCES = "(0)";
+    public static final String ONE_RESOURCES = "(1)";
+    public static final String TWO_RESOURCES = "(2)";
+    public static final String NEW_COLLECTION_NAME = "Test Collection";
+    public static final String EDIT_TITLE = "-edit";
+    public static final String EDIT_COLLECTION_NAME = NEW_COLLECTION_NAME + EDIT_TITLE ;
+    public static final String UPLOAD_RESOURCE_TITLE = "test-upload-file";
+    public static final String UPLOAD_RESOURCE_EDIT_TITLE = UPLOAD_RESOURCE_TITLE + EDIT_TITLE;
+    public static final String[] collectionName = {"Collection 1", "Collection 2", "Collection 3", "Collection 4"};
+    public static final String COPY_TEXT = "Copy of ";
+    public static final String COPIED_COLLECTION_NAME = COPY_TEXT + EDIT_COLLECTION_NAME ;
+    public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
+    public static final String PUBLISH_RESOURCE_TITLE = "test publish resource";
+    public static final String SHARE_LINK_MODAL_TITLE = "Share a Link to this Resource";
+    public static final String EDIT_COLLECTION_GRADE_HIGHER_ED = "Higher Ed";
+    public static final String EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION = "Special Education & Program: Special Education";
+    public static final String UPLOAD_YOUR_FILE_GRADE = "Higher Ed";
+    public static final String UPLOAD_YOUR_FILE_SUBJECT = "Special Education & Program: Special Education";
+    public static final String UPLOAD_YOUR_FILE_RESOURCE_TYPE = "Interactives";
+    public static final String PLAY_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT = "Please add items to play this collection";
+    public static final String PLAY_COLLECTION_WITH_ITEMS_POPOVER_TEXT = "Play Collection";
+    public static final String PUBLISH_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT = "This collection needs additional information in order to publish. Select the Edit button to continue.";
+    public static final String PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT = "Publish to make visible to others";
+    public static final String COPIED_POPOVER_TEXT = "Copied!";
+    public static final String PUBLISHED_STATUS = "Published";
+    public static final String PRIVATE_STATUS = "Private";
+    public static final String FREE_SAMPLE_RESOURCE_STATUS = "LP Free Sample";
+    public static final String REGULAR_RESOURCE_STATUS = "LP Reviewed";
+    public static final String SHARED_RESOURCE_STATUS = "Member Shared";
+    public static final String PUBLISHED_RESOURCE_STATUS = "Shared";
+    public static final String FACEBOOK_URL = "https://www.facebook.com";
+    public static final String TWITTER_URL = "https://twitter.com";
+    public static final String GOOGLE_URL = "https://plus.google.com";
+
+    //footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
     public static final String MANAGE_MY_RESOURCES_PAGE_PATH = "us/videos?autoplay=curriculum_manager";
     public static final String SHARING_WITH_OTHERS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
-
     public static final String OUR_REVIEW_PROCESS_PAGE_PATH = "content/how_it_works";
     public static final String HOW_IT_WORKS_PAGE_PATH = "us/videos?autoplay=review";
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
-
     public static final String FACEBOOK_PAGE_URL = "https://www.facebook.com/LessonPlanet";
     public static final String TWITTER_PAGE_URL = "https://twitter.com/lessonplanet";
     public static final String GOOGLE_PAGE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
     public static final String LINKEDIN_PAGE_URL = "https://www.linkedin.com/company/lesson-planet";
     public static final String YOUTUBE_PAGE_URL = "https://www.youtube.com/user/lessonplanet";
     public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
-
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
     public static final String TERMS_OF_USE_PAGE_PATH = "us/terms_of_use";
-
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
+    //log in
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemium-account@lessonplanet.com";
+    public static final String VALID_STARTER_EMAIL = "starter-account@lessonplanet.com";
+    public static final String VALID_PRIME_EMAIL = "prime-account@lessonplanet.com";
+    public static final String VALID_PRO_EMAIL = "pro-account@lessonplanet.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
-
     public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
 
+    //search facet
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS = "Collections";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
-    public static final String FACET_CATEGORY_RESOURCES_TYPE_ACTIVITIES_AND_PROJECTS = "Activities & Projects";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
-
-    public static final String NEW_COLLECTION_NAME = "testAutomation";
-    public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
-
-    public static final String EDIT_COLLECTION_GRADE_HIGHER_ED = "Higher Ed";
-
-    public static final String EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION = "Special Education & Program: Special Education";
-
-    public static final String COLLECTION_CREATED_MESSAGE = "Collection created!";
 
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
     public static final String SELECT_TEXT = "Select";
-
     public static final String STARTER_OPTION_TEXT = "Starter";
     public static final String PRIME_OPTION_TEXT = "Prime";
     public static final String PRO_OPTION_TEXT = "Pro";
@@ -99,19 +138,9 @@ public class TestData {
     private static final String PRIME_ANNUALLY = "36";
     private static final String PRO_MONTHLY = "6";
     private static final String PRO_ANNUALLY = "72";
-
-    public static String GET_STARTER_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY);
-    }
-
-    public static String GET_PRIME_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY);
-    }
-
-    public static String GET_PRO_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY);
-    }
-
+    public static String GET_STARTER_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY); }
+    public static String GET_PRIME_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY); }
+    public static String GET_PRO_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY); }
     public static final String FREE_MEMBERSHIP_TEXT = "Free Membership";
 
     //Credit card info STAGING
@@ -127,6 +156,7 @@ public class TestData {
 
     //Subscription success page
     public static final String SUBSCRIPTION_SUCCESS_PAGE_TITLE = "Thank you for signing up for Lesson Planet";
+    public static final String MANAGE_MEMBERSHIP_TITLE_MESSAGE = "Manage Membership";
 
     //Sign In Modal
     public static final String SIGN_IN_MODAL_TITLE_TEXT = "Sign in to Lesson Planet";
@@ -302,8 +332,8 @@ public class TestData {
     public static final String SEARCH_BUTTON_TEXT = "Search";
 
     public static final String ALL_STATES_TEXT = "Common Core\nNext Generation Science (NGSS)\nAlabama\nAlaska\nArizona\nArkansas\nCalifornia\nCobb County\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\n" +
-            "Hawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\n" +
-            "Oregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWashington DC\nWest Virginia\nWisconsin\nWyoming";
+        "Hawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\n" +
+        "Oregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWashington DC\nWest Virginia\nWisconsin\nWyoming";
     public static final String SELECT_SUBJECT_TEXT = "Select Subject";
     public static final String ALL_SUBJECTS_TEXT = "Arts Education\nHealth and PE\nLanguage Arts\nMathematics\nScience\nSocial Studies\nWorld Languages\nTechnology Education\nLibrary Media";
     public static final String ALL_GRADES_TEXT = "Kindergarten\n1st\n2nd\n3rd\n4th\n5th\n6th\n7th\n8th\n9th\n10th\n11th\n12th";

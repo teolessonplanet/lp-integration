@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import util.TestData;
 
 public class BrowseBySubjectPage extends ResourcesPage {
+    
     private static final String PAGE_TITLE = "[class='media-heading']";
     private static final String BANNER_IMAGE = "#directory-content [class*='banner']";
 
@@ -42,7 +43,11 @@ public class BrowseBySubjectPage extends ResourcesPage {
         clickFirstButtonOfType(UPGRADE_FOR_ACCESS_BUTTON, inANewTab);
     }
 
-    public WebElement getBrowseBySubjectWidget() {
+    public void clickGoToResourceForRegularResource(boolean inANewTab) {
+        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
+    }
+
+    private WebElement getBrowseBySubjectWidget() {
         waitForLoad();
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES);
     }
@@ -89,7 +94,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
         clickOptionFromWidget(TestData.SIDE_WIDGET_RELATED_TOPICS, optionName, inANewTab);
     }
 
-    public WebElement getWhatMembersSayWidget() {
+    private WebElement getWhatMembersSayWidget() {
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_WHAT_MEMBERS_SAY);
     }
 
