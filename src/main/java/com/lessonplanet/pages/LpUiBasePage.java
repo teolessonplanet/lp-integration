@@ -31,9 +31,8 @@ public class LpUiBasePage {
     }
 
     protected boolean isElementClickable(String cssSelector) {
-        //TODO: change this
         try {
-            driver.findElement(By.cssSelector(cssSelector));
+            findElement(cssSelector);
             WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
             webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
@@ -42,11 +41,8 @@ public class LpUiBasePage {
         }
     }
 
-    private void waitUntilElementIsClickable(String cssSelector) {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
-    }
-
     private void waitUntilElementIsClickable(WebElement webElement) {
+        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
@@ -110,11 +106,11 @@ public class LpUiBasePage {
         return element.getText();
     }
 
-    protected String getTextForElement(String cssSelector){
+    protected String getTextForElement(String cssSelector) {
         return getTextForElement(findElement(cssSelector));
     }
 
-    protected String getTextForElement(String cssSelector,int position){
+    protected String getTextForElement(String cssSelector, int position) {
         return getTextForElement(findElements(cssSelector).get(position));
     }
 
@@ -146,13 +142,17 @@ public class LpUiBasePage {
 
     public void waitForPageLoad() {
         logger.info("Waiting for jQuery to complete");
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
-            }
-        });
-        logger.info("jQuery completed");
+        try {
+            webDriverWait.until(new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver driver) {
+                    return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
+                }
+            });
+            logger.info("jQuery completed");
+        } catch (Exception ex) {
+            logger.error("jQuery is not completed: " + ex.toString());
+        }
         waitUntilDocumentIsReady();
     }
 
