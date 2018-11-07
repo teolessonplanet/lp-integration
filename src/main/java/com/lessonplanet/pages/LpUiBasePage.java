@@ -88,8 +88,18 @@ public class LpUiBasePage {
 
     protected void clickElement(WebElement webElement) {
         waitForLoad();
-        waitUntilElementIsClickable(webElement);
-        webElement.click();
+        boolean elementWasClicked = false;
+        int attempts = TestData.SHORT_TIMEOUT;
+        do {
+            try {
+                waitUntilElementIsClickable(webElement);
+                webElement.click();
+                elementWasClicked = true;
+            } catch (Exception ex) {
+                logger.error("The element " + webElement + " still no clickable");
+                attempts--;
+            }
+        } while (!elementWasClicked || attempts < 0);
         waitForLoad();
     }
 
