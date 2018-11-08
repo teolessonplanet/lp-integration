@@ -32,7 +32,6 @@ public class LpUiBasePage {
 
     protected boolean isElementClickable(String cssSelector) {
         try {
-            findElement(cssSelector);
             WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
             webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
@@ -178,6 +177,11 @@ public class LpUiBasePage {
     }
 
     public void waitForLoad() {
+        waitForLinkToLoad();
+        waitForPageLoad();
+        waitUntilDocumentIsReady();
+        //there is a delay on the staging server and nothing is happening for a short period of time
+        //eg: the test clicks a button, nothing happens for a few ms, when jquery is not active and 'document is ready' is true.
         waitForLinkToLoad();
         waitForPageLoad();
         waitUntilDocumentIsReady();

@@ -108,32 +108,26 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     protected void clickSeeCollection(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
 
     public void clickSeeReview(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
     public void clickGetFreeAccess(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
     }
 
     public void clickSeePreview(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
     }
 
     public void clickGoToResourceForSharedResource(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
     }
 
     public void clickGoToResourceForRegularResource(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
@@ -142,7 +136,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeeFullReview(boolean inANewTab) {
-//        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 
