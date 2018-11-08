@@ -99,7 +99,7 @@ public class LpUiBasePage {
                 logger.error("The element " + webElement + " still no clickable");
                 attempts--;
             }
-        } while (!elementWasClicked || attempts < 0);
+        } while (!elementWasClicked && attempts > 0);
         waitForLoad();
     }
 
