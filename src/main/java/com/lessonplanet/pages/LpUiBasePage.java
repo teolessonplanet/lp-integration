@@ -15,7 +15,7 @@ import java.util.List;
 public class LpUiBasePage {
 
     protected static final Logger logger = LogManager.getRootLogger();
-    private WebDriver driver;
+    private static WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
 
@@ -180,11 +180,57 @@ public class LpUiBasePage {
         waitForLinkToLoad();
         waitForPageLoad();
         waitUntilDocumentIsReady();
-        //there is a delay on the staging server and nothing is happening for a short period of time
-        //eg: the test clicks a button, nothing happens for a few ms, when jquery is not active and 'document is ready' is true.
-        waitForLinkToLoad();
-        waitForPageLoad();
-        waitUntilDocumentIsReady();
+        waitForAngularLoad();
+        waitForAxiosRequests();
+    }
+
+    //Wait for Angular Load
+    public void waitForAngularLoad() {
+        String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0]; if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') { var ngElem = angular.element(ngAppElement); return ngElem.injector().get('$http').pendingRequests.length == 0} else { return true; };";
+
+        //Wait for ANGULAR to load
+        ExpectedCondition<Boolean> angularLoad = driver -> Boolean.valueOf(((JavascriptExecutor) driver)
+                .executeScript(angularReadyScript).toString());
+        try {
+            //Get Angular is Ready
+            boolean angularReady = Boolean.valueOf(javascriptExecutor.executeScript(angularReadyScript).toString());
+
+            //Wait ANGULAR until it is Ready!
+            if (!angularReady) {
+                System.out.println("ANGULAR is NOT Ready!");
+                //Wait for Angular to load
+                webDriverWait.until(angularLoad);
+            } else {
+                System.out.println("ANGULAR is Ready!");
+            }
+        } catch (Exception ex) {
+            logger.info("ANGULAR is not present");
+        }
+    }
+
+    public  void waitForAxiosRequests() {
+        String AxiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){\n" +
+                "    return window.axios_requests == 0 \n" +
+                "  }else{\n" +
+                "    return true;\n" +
+                "  }";
+        //Wait for Axios to load
+        ExpectedCondition<Boolean> axiosLoad = driver -> Boolean.valueOf(((JavascriptExecutor) driver)
+                .executeScript(AxiosReadyScript).toString());
+        try {
+            //Get Axios is Ready
+            boolean axiosReady = Boolean.valueOf(javascriptExecutor.executeScript(AxiosReadyScript).toString());
+
+            //Wait Axios until it is Ready!
+            if (!axiosReady) {
+                System.out.println("Axios is NOT Ready!");
+                webDriverWait.until(axiosLoad);
+            } else {
+                System.out.println("Axios is Ready!");
+            }
+        } catch (Exception ex) {
+            logger.info("Axios is not present");
+        }
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
