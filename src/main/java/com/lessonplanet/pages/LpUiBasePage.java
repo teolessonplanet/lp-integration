@@ -186,51 +186,47 @@ public class LpUiBasePage {
 
     //Wait for Angular Load
     public void waitForAngularLoad() {
-        String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0]; if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') { var ngElem = angular.element(ngAppElement); return ngElem.injector().get('$http').pendingRequests.length == 0} else { return true; };";
+        String hasAngularFinishedScript = "var callback = arguments[arguments.length - 1];\n" +
+                "var el = document.querySelector('html');\n" +
+                "if (!window.angular) {\n" +
+                "    callback('false')\n" +
+                "}\n" +
+                "if (angular.getTestability) {\n" +
+                "    angular.getTestability(el).whenStable(function(){callback('true')});\n" +
+                "} else {\n" +
+                "    if (!angular.element(el).injector()) {\n" +
+                "        callback('false')\n" +
+                "    }\n" +
+                "    var browser = angular.element(el).injector().get('$browser');\n" +
+                "    browser.notifyWhenNoOutstandingRequests(function(){callback('true')});\n" +
+                "}";
 
-        //Wait for ANGULAR to load
-        ExpectedCondition<Boolean> angularLoad = driver -> Boolean.valueOf(((JavascriptExecutor) driver)
-                .executeScript(angularReadyScript).toString());
-        try {
-            //Get Angular is Ready
-            boolean angularReady = Boolean.valueOf(javascriptExecutor.executeScript(angularReadyScript).toString());
-
-            //Wait ANGULAR until it is Ready!
-            if (!angularReady) {
-                System.out.println("ANGULAR is NOT Ready!");
-                //Wait for Angular to load
-                webDriverWait.until(angularLoad);
-            } else {
-                System.out.println("ANGULAR is Ready!");
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                try {
+                    return (Boolean) javascriptExecutor.executeScript(hasAngularFinishedScript);
+                } catch (Exception ex) {
+                    logger.info("Angular is not defined");
+                    return true;
+                }
             }
-        } catch (Exception ex) {
-            logger.info("ANGULAR is not present");
-        }
+        });
     }
 
-    public  void waitForAxiosRequests() {
-        String AxiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){\n" +
+    public void waitForAxiosRequests() {
+        String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){\n" +
                 "    return window.axios_requests == 0 \n" +
                 "  }else{\n" +
                 "    return true;\n" +
                 "  }";
         //Wait for Axios to load
-        ExpectedCondition<Boolean> axiosLoad = driver -> Boolean.valueOf(((JavascriptExecutor) driver)
-                .executeScript(AxiosReadyScript).toString());
-        try {
-            //Get Axios is Ready
-            boolean axiosReady = Boolean.valueOf(javascriptExecutor.executeScript(AxiosReadyScript).toString());
-
-            //Wait Axios until it is Ready!
-            if (!axiosReady) {
-                System.out.println("Axios is NOT Ready!");
-                webDriverWait.until(axiosLoad);
-            } else {
-                System.out.println("Axios is Ready!");
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (Boolean) javascriptExecutor.executeScript(axiosReadyScript);
             }
-        } catch (Exception ex) {
-            logger.info("Axios is not present");
-        }
+        });
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
