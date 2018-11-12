@@ -186,15 +186,13 @@ public class LpUiBasePage {
 
     //Wait for Angular Load
     public void waitForAngularLoad() {
-        String angularReadyScript = "var callback = arguments[arguments.length - 1];\n" +
-                "if (!window.angular) {\n" +
-                " callback('false')\n" +
-                "}\n" +
-                "var el = document.querySelectorAll('[ng-app]')[0];\n" +
-                "angular.element(el).ready(function(){\n" +
-                "  var browser = angular.element(el).injector().get('$browser');\n" +
-                "  browser.notifyWhenNoOutstandingRequests(function(){callback('true')});\n" +
-                "});";
+        String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0];" +
+                "if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') {" +
+                "var ngElem = angular.element(ngAppElement); " +
+                "return ngElem.injector().get('$http').pendingRequests.length == 0" +
+                "} else {" +
+                "return true;" +
+                "}";
 
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -210,11 +208,10 @@ public class LpUiBasePage {
     }
 
     public void waitForAxiosRequests() {
-        String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){\n" +
-                "    return window.axios_requests == 0 \n" +
-                "  }else{\n" +
-                "    return true;\n" +
-                "  }";
+        String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){" +
+                "    return window.axios_requests == 0" +
+                "  }else{" +
+                "    return true;}";
         //Wait for Axios to load
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
