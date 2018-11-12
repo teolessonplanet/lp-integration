@@ -186,26 +186,21 @@ public class LpUiBasePage {
 
     //Wait for Angular Load
     public void waitForAngularLoad() {
-        String hasAngularFinishedScript = "var callback = arguments[arguments.length - 1];\n" +
-                "var el = document.querySelector('html');\n" +
+        String angularReadyScript = "var callback = arguments[arguments.length - 1];\n" +
                 "if (!window.angular) {\n" +
-                "    callback('false')\n" +
+                " callback('false')\n" +
                 "}\n" +
-                "if (angular.getTestability) {\n" +
-                "    angular.getTestability(el).whenStable(function(){callback('true')});\n" +
-                "} else {\n" +
-                "    if (!angular.element(el).injector()) {\n" +
-                "        callback('false')\n" +
-                "    }\n" +
-                "    var browser = angular.element(el).injector().get('$browser');\n" +
-                "    browser.notifyWhenNoOutstandingRequests(function(){callback('true')});\n" +
-                "}";
+                "var el = document.querySelectorAll('[ng-app]')[0];\n" +
+                "angular.element(el).ready(function(){\n" +
+                "  var browser = angular.element(el).injector().get('$browser');\n" +
+                "  browser.notifyWhenNoOutstandingRequests(function(){callback('true')});\n" +
+                "});";
 
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 try {
-                    return (Boolean) javascriptExecutor.executeScript(hasAngularFinishedScript);
+                    return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
                 } catch (Exception ex) {
                     logger.info("Angular is not defined");
                     return true;
