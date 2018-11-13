@@ -213,7 +213,7 @@ public class DirectoryPage extends LpUiBasePage {
     }
 
     public void clickOnDanceFromPyEdLink() {
-        findElements(DANCE_LINKS).get(0).click();
+        clickElement(DANCE_LINKS, 0);
     }
 
     public void clickOnWaterActivitiesLink() {
@@ -277,7 +277,7 @@ public class DirectoryPage extends LpUiBasePage {
     }
 
     public void clickOnDanceFromViPerArtsLink() {
-        findElements(DANCE_LINKS).get(1).click();
+        clickElement(DANCE_LINKS, 1);
     }
 
     public void clickOnVisualArtsLink() {
@@ -289,19 +289,18 @@ public class DirectoryPage extends LpUiBasePage {
     }
 
     public String getHealthCategoryAndSubcategoriesText() {
-        return findElements(CATEGORY_AND_SUBCATEGORY_CARDS).get(0).getText();
+        return getTextForElement(CATEGORY_AND_SUBCATEGORY_CARDS, 0);
     }
 
     public void clickOnFirstCaretFromHealthCategory() {
-        findElements(CARETS).get(0).click();
+        clickElement(CARETS, 0);
     }
 
-    public int countShowAllButtons(){
+    public int countShowAllButtons() {
         return findElements(SHOW_ALL_BUTTONS).size();
     }
 
     public void clickOnShowAllButtonFromHealthCategory() {
-        waitForPageLoad();
-        findElements(SHOW_ALL_BUTTONS).get(0).click();
+        clickElement(SHOW_ALL_BUTTONS, 0);
     }
 }

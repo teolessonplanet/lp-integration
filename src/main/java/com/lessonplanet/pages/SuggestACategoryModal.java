@@ -16,6 +16,6 @@ public class SuggestACategoryModal extends LpUiBasePage {
 
     public String getModalTitle() {
         waitForModal();
-        return findElement(MODAL_TITLE).getText();
+        return getTextForElement(MODAL_TITLE);
     }
 }

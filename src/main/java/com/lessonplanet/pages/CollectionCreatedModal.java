@@ -12,10 +12,11 @@ public class CollectionCreatedModal extends LpUiBasePage {
     }
 
     public String getTitle() {
-        return findElement(TITLE_TEXT).getText();
+        waitUntilAnimationIsDone(TITLE_TEXT);
+        return getTextForElement(TITLE_TEXT);
     }
 
     public void clickOnSubmitButton() {
-        findElement(SUBMIT_BUTTON).click();
+        clickElement(SUBMIT_BUTTON);
     }
 }

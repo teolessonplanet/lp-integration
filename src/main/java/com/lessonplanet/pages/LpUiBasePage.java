@@ -3,7 +3,6 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,12 +32,17 @@ public class LpUiBasePage {
 
     protected boolean isElementClickable(String cssSelector) {
         try {
-            driver.findElement(By.cssSelector(cssSelector));
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+            WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
+            webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             return true;
         } catch (Exception e) {
             return false;
         }
+    }
+
+    private void waitUntilElementIsClickable(WebElement webElement) {
+        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -47,8 +51,7 @@ public class LpUiBasePage {
     }
 
     protected List<WebElement> findElements(WebElement element, String cssSelector) {
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForElement(cssSelector);
         try {
             return element.findElements(By.cssSelector(cssSelector));
         } catch (Exception e) {
@@ -58,10 +61,10 @@ public class LpUiBasePage {
     }
 
     protected void waitForElement(String cssSelector) {
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForLoad();
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
         } catch (TimeoutException timeoutException) {
             logger.error("The element " + cssSelector + " cannot be clicked");
@@ -70,25 +73,68 @@ public class LpUiBasePage {
 
     protected void sendKeys(String cssLocator, String text) {
         findElement(cssLocator).sendKeys(text);
+        waitForLoad();
     }
 
     protected void clearText(String cssSelector) {
         findElement(cssSelector).clear();
+        waitForLoad();
     }
 
     protected void clickElement(String cssLocator) {
-        findElement(cssLocator).click();
+        clickElement(findElement(cssLocator));
+    }
+
+    protected void clickElement(WebElement webElement) {
+        waitForLoad();
+        boolean elementWasClicked = false;
+        int attempts = TestData.SHORT_TIMEOUT;
+        do {
+            try {
+                waitUntilElementIsClickable(webElement);
+                webElement.click();
+                elementWasClicked = true;
+            } catch (Exception ex) {
+                logger.error("The element " + webElement + " still no clickable");
+                attempts--;
+            }
+        } while (!elementWasClicked && attempts > 0);
+        waitForLoad();
+    }
+
+    protected void clickElement(List<WebElement> webElements, int position) {
+        clickElement(webElements.get(position));
+    }
+
+    protected void clickElement(String cssSelector, int position) {
+        clickElement(findElements(cssSelector), position);
+    }
+
+    protected String getTextForElement(WebElement element) {
+        waitForLoad();
+        return element.getText();
+    }
+
+    protected String getTextForElement(String cssSelector) {
+        return getTextForElement(findElement(cssSelector));
+    }
+
+    protected String getTextForElement(String cssSelector, int position) {
+        return getTextForElement(findElements(cssSelector).get(position));
     }
 
     protected void loadUrl(String pagePath) {
+        if (getUrl().contains(TestData.SERVER_URL)) {
+            waitForLoad();
+        }
         final String url = TestData.SERVER_URL + pagePath;
         logger.info("Accessing: " + url);
         driver.get(url);
-        waitForPageLoad();
+        waitForLoad();
     }
 
     public String getPath() {
-        waitForPageLoad();
+        waitForLoad();
         try {
             String path[] = getUrl().split(".com/");
             logger.info("Path: " + path[1]);
@@ -105,13 +151,17 @@ public class LpUiBasePage {
 
     public void waitForPageLoad() {
         logger.info("Waiting for jQuery to complete");
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
-            }
-        });
-        logger.info("jQuery completed");
+        try {
+            webDriverWait.until(new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver driver) {
+                    return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
+                }
+            });
+            logger.info("jQuery completed");
+        } catch (Exception ex) {
+            logger.error("jQuery is not completed: " + ex.toString());
+        }
         waitUntilDocumentIsReady();
     }
 
@@ -126,7 +176,53 @@ public class LpUiBasePage {
         logger.info("document is ready");
     }
 
+    public void waitForLoad() {
+        waitForLinkToLoad();
+        waitForPageLoad();
+        waitUntilDocumentIsReady();
+        waitForAngularLoad();
+        waitForAxiosRequests();
+    }
+
+    //Wait for Angular Load
+    public void waitForAngularLoad() {
+        String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0];" +
+                "if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') {" +
+                "var ngElem = angular.element(ngAppElement); " +
+                "return ngElem.injector().get('$http').pendingRequests.length == 0" +
+                "} else {" +
+                "return true;" +
+                "}";
+
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                try {
+                    return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
+                } catch (Exception ex) {
+                    logger.info("Angular is not defined");
+                    return true;
+                }
+            }
+        });
+    }
+
+    public void waitForAxiosRequests() {
+        String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){" +
+                "    return window.axios_requests == 0" +
+                "  }else{" +
+                "    return true;}";
+        //Wait for Axios to load
+        webDriverWait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return (Boolean) javascriptExecutor.executeScript(axiosReadyScript);
+            }
+        });
+    }
+
     public void dragAndDrop(WebElement element, WebElement target) {
+        waitForLoad();
         try {
             (new Actions(driver)).dragAndDrop(element, target).perform();
         } catch (Exception e) {
@@ -134,11 +230,13 @@ public class LpUiBasePage {
             scrollToElement(element);
             (new Actions(driver)).dragAndDrop(element, target).perform();
         }
-        waitForPageLoad();
+        waitForLoad();
     }
 
     protected void hoverOverElement(WebElement element) {
+        waitForLoad();
         (new Actions(driver)).moveToElement(element).build().perform();
+        waitForLoad();
     }
 
     protected void hoverOverElement(String cssSelector) {
@@ -147,17 +245,19 @@ public class LpUiBasePage {
 
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
-        waitForPageLoad();
+        waitForLoad();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
-        waitForPageLoad();
+        waitForLoad();
     }
 
-    protected void scrollToElement(String cssSelector){
+    protected void scrollToElement(String cssSelector) {
         scrollToElement(findElement(cssSelector));
     }
 
     protected void waitUntilAnimationIsDone(String cssSelector) {
+        waitForLoad();
         webDriverWait.until(steadinessOfElementLocated(cssSelector));
+        waitForLoad();
     }
 
     private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
@@ -209,7 +309,7 @@ public class LpUiBasePage {
     }
 
     protected void openInANewTab(WebElement webElement) {
-        waitForPageLoad();
+        waitForLoad();
         final String url = webElement.getAttribute("href");
         logger.info("Opening a new tab and accessing the url: " + url);
         javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", "");
@@ -217,7 +317,7 @@ public class LpUiBasePage {
         driver.get(url);
         //Go to resource(shared resource) -> XML error on staging -> it will crash the test because of the jQuery wait
         if (!url.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_REDIRECT_URL)) {
-            waitForPageLoad();
+            waitForLoad();
         }
     }
 
@@ -225,8 +325,7 @@ public class LpUiBasePage {
         logger.info("Closing the tab");
         driver.close();
         focusDriverToLastTab();
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForLoad();
     }
 
     public void focusDriverToLastTab() {
@@ -235,11 +334,9 @@ public class LpUiBasePage {
     }
 
     public void goBackOnePage() {
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForLoad();
         javascriptExecutor.executeScript("window.history.go(-1)");
-        waitForLinkToLoad();
-        waitForPageLoad();
+        waitForLoad();
     }
 
     public void waitForLinkToLoad() {

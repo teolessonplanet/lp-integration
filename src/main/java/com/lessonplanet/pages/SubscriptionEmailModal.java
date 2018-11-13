@@ -12,10 +12,10 @@ public class SubscriptionEmailModal extends LpUiBasePage {
     }
 
     public String getSubscriptionModalText() {
-        return findElement(SUBSCRIPTION_MODAL).getText();
+        return getTextForElement(SUBSCRIPTION_MODAL);
     }
 
     public void clickOnCloseButton() {
-        findElements(CLOSE_BUTTON).get(0).click();
+        clickElement(findElements(CLOSE_BUTTON), 0);
     }
 }

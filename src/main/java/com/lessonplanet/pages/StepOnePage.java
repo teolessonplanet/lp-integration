@@ -30,7 +30,6 @@ public class StepOnePage extends LpUiBasePage {
 
     public void clickOnGetFreeTrialButton() {
         clickElement(GET_FREE_TRIAL_BUTTON);
-        waitForPageLoad();
     }
 
     public void completeStepOne(String email, String password) {
@@ -42,7 +41,7 @@ public class StepOnePage extends LpUiBasePage {
         loadUrl(currentPath);
     }
 
-    public void clickOnAlreayAMember() {
+    public void clickOnAlreadyAMember() {
         clickElement(ALREADY_A_MEMBER_BUTTON);
     }
 

@@ -9,8 +9,7 @@ import util.TestData;
 import java.util.List;
 
 public class ResourcesPage extends LpUiBasePage {
-    private static final String FACETS_CATEGORIES = "[class='panel panel-default mb5']";
-    private static final String FACET_OPTIONS = "li";
+
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
 
     private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
@@ -43,8 +42,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     protected WebElement getCategoryFromLeftSide(String widgetSelector, String widgetCategory) {
-        waitForLinkToLoad();
-        waitForPageLoad();
         //returns the entire category with all options
         List<WebElement> categories = findElements(widgetSelector);
         for (WebElement category : categories) {
@@ -56,16 +53,12 @@ public class ResourcesPage extends LpUiBasePage {
         return null;
     }
 
-    public void selectFacetFilter(String facetCategoryName, String facetName) {
-        clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
-    }
 
     public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, optionName);
         //if the facet is already selected, ignore it
         if (findElements(option, UNSELECTED_FACET_OPTIONS).size() > 0) {
-            option.click();
-            waitForPageLoad();
+            clickElement(option);
             return;
         } else {
             logger.info("The option " + optionName + " from category " + widgetCategoryName + " is already selected.");
@@ -74,7 +67,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public WebElement getOptionFromLeftSide(String widgetSelector, String widgetName, String optionSelector, String optionName) {
-        waitForPageLoad();
         WebElement category = getCategoryFromLeftSide(widgetSelector, widgetName);
         // parse all options and select the option that contains the string facetName
         List<WebElement> options = findElements(category, optionSelector);
@@ -88,7 +80,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public List<WebElement> getAllResources() {
-        waitForPageLoad();
         return findElements(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
     }
 
@@ -116,33 +107,27 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
-    public void clickSeeCollection(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
+    protected void clickSeeCollection(boolean inANewTab) {
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
 
     public void clickSeeReview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
     public void clickGetFreeAccess(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
     }
 
     public void clickSeePreview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         clickFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
     }
 
     public void clickGoToResourceForSharedResource(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
     }
 
     public void clickGoToResourceForRegularResource(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
@@ -151,7 +136,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeeFullReview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -160,7 +144,7 @@ public class ResourcesPage extends LpUiBasePage {
         if (inANewTab) {
             openInANewTab(button);
         } else {
-            button.click();
+            clickElement(button);
         }
     }
 

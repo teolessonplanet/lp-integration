@@ -26,11 +26,10 @@ public class StepOneModal extends LpUiBasePage {
 
     public void clickOnGetStartedToday() {
         clickElement(GET_STARTED_TODAY_BUTTON);
-        waitForPageLoad();
     }
 
     public String getErrorMessage() {
-        return findElement(EMAIL_ERROR_MESSAGE).getText();
+        return getTextForElement(EMAIL_ERROR_MESSAGE);
     }
 
     public boolean isTitleTextDisplayed() {

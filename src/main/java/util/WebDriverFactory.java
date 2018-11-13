@@ -6,6 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 /*
  * Factory to instantiate a WebDriver object.
  * It returns an instance of the driver (local invocation) or an instance of RemoteWebDriver
@@ -41,6 +43,7 @@ public class WebDriverFactory {
             webDriver = new FirefoxDriver();
             webDriver.manage().window().maximize();
         }
+        webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
         return webDriver;
     }
 

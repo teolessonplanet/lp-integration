@@ -11,6 +11,6 @@ public class SubscriptionSuccessPage extends LpUiBasePage {
     }
 
     public String getTitle(){
-        return findElement(TITLE_TEXT).getText();
+        return getTextForElement(TITLE_TEXT);
     }
 }

@@ -11,6 +11,6 @@ public class StepTwoPage extends LpUiBasePage {
     }
 
     public String getTitleText() {
-        return findElement(TITLE_TEXT).getText();
+        return getTextForElement(TITLE_TEXT);
     }
 }

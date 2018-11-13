@@ -11,7 +11,7 @@ public class RrpModal extends Rrp {
     }
 
     public void waitForModal() {
-        waitForPageLoad();
+        waitForLoad();
         waitUntilAnimationIsDone(RESOURCE_TITLE_TEXT);
     }
 

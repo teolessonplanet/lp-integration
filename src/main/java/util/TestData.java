@@ -7,6 +7,7 @@ import java.util.Locale;
 public class TestData {
 
     public static final int TIMEOUT = 15;
+    public static final int SHORT_TIMEOUT = 5;
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
     public static final String EMPTY_URL = "about:blank";
     public static final Locale LOCALE = java.util.Locale.US;
@@ -40,11 +41,11 @@ public class TestData {
     public static final String YOUTUBE_PAGE_URL = "https://www.youtube.com/user/lessonplanet";
     public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
 
-    public static final String SITE_MAP_PAGE_PATH ="content/site_map";
-    public static final String PRIVACY_POLICY_PAGE_PATH ="us/privacy_policy";
-    public static final String TERMS_OF_USE_PAGE_PATH ="us/terms_of_use";
+    public static final String SITE_MAP_PAGE_PATH = "content/site_map";
+    public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
+    public static final String TERMS_OF_USE_PAGE_PATH = "us/terms_of_use";
 
-    public static final String SUBSCRIPTION_MODAL_TEXT="Thank you for subscribing to Lesson Planet News.";
+    public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";

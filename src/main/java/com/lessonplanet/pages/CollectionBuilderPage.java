@@ -18,11 +18,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void clickOnDropdown() {
-        findElement(CREATE_OR_OPEN_DROPDOWN).click();
+        clickElement(CREATE_OR_OPEN_DROPDOWN);
     }
 
     public void clickOnCreateNewCollection() {
-        findElement(CREATE_NEW_COLLECTION_OPTION).click();
+        clickElement(CREATE_NEW_COLLECTION_OPTION);
     }
 
     public WebElement getCollectionDroppableZone() {
@@ -30,10 +30,10 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void clickOnMyResources() {
-        findElement(MY_RESOURCES_BUTTON).click();
+        clickElement(MY_RESOURCES_BUTTON);
     }
 
     public void clickOnEditCollection() {
-        findElement(EDIT_COLLECTION_BUTTON).click();
+        clickElement(EDIT_COLLECTION_BUTTON);
     }
 }

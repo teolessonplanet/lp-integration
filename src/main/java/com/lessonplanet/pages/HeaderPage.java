@@ -47,7 +47,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public String getUsernameText() {
-        return findElement(USER_DROPDOWN_BUTTON).getText();
+        return getTextForElement(USER_DROPDOWN_BUTTON);
     }
 
     public boolean isUsernameDropDownDisplayed() {
@@ -191,7 +191,6 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public String getSearchText() {
-        waitForPageLoad();
         return findElement(SEARCH_INPUT).getAttribute("value");
     }
 }

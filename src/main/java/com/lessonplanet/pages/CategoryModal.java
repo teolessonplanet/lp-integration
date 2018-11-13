@@ -14,22 +14,23 @@ public class CategoryModal extends LpUiBasePage {
     }
 
     public String getModalTitle() {
-        return findElement(MODAL_TITLE).getText();
+        waitUntilAnimationIsDone(MODAL_TITLE);
+        return getTextForElement(MODAL_TITLE);
     }
 
     public void clickOnFirstCaret() {
-        findElements(CARETS).get(0).click();
+        clickElement(CARETS, 0);
     }
 
     public void clickOnSecondCaret() {
-        findElements(CARETS).get(1).click();
+        clickElement(CARETS, 1);
     }
 
     public void clickOnCloseModalButton() {
-        findElement(CLOSE_MODAL_BUTTON).click();
+        clickElement(CLOSE_MODAL_BUTTON);
     }
 
     public String getSubcategoriesAsText() {
-        return findElement(SUBCATEGORIES_TEXT).getText();
+        return getTextForElement(SUBCATEGORIES_TEXT);
     }
 }
