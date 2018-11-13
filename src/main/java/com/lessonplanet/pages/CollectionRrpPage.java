@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class CollectionRrpPage extends RrpPage {
 
-    private static final String SAVE_COLLECTION_BUTTON = "[class='save-collection-btn'] a";
+    private static final String SAVE_COLLECTION_BUTTON = "[class='save-collection-btn']";
 
     public CollectionRrpPage(WebDriver driver) {
         super(driver);

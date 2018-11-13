@@ -22,8 +22,8 @@ public class HeaderPage extends LpUiBasePage {
 
     private static final String SOLUTIONS_BUTTON = "[class='lp-solutions']";
     private static final String EDUCATOR_EDITION_BUTTON = "[class='lp-solutions-ee']";
-    private static final String SCHOOL_EDITION_BUTTON = "[class='lp-solutions-se']";
-    private static final String SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_BUTTON = "[class='lp-solutions-se-pd']";
+    private static final String LEARNING_EXPLORER_BUTTON = "[class='lp-solutions-se']";
+    private static final String PD_LEARNING_NETWORK_BUTTON = "[class='lp-solutions-se-pd']";
 
     private static final String ABOUT_BUTTON = "[class='lp-about']";
     private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
@@ -134,12 +134,12 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(EDUCATOR_EDITION_BUTTON);
     }
 
-    public void clickOnSchoolEdition() {
-        clickElement(SCHOOL_EDITION_BUTTON);
+    public void clickOnLearningExplorer() {
+        clickElement(LEARNING_EXPLORER_BUTTON);
     }
 
-    public void clickOnSchoolEditionAndPdLearningNetworkButton() {
-        clickElement(SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_BUTTON);
+    public void clickOnPdLearningNetworkButton() {
+        clickElement(PD_LEARNING_NETWORK_BUTTON);
     }
 
     public void hoverOverAboutButton() {
