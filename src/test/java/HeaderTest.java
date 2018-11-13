@@ -145,13 +145,13 @@ public class HeaderTest extends BaseTest {
 
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
-        headerPage.clickOnSchoolEdition();
-        Assert.assertEquals(headerPage.getUrl(), TestData.SCHOOL_EDITION_URL);
+        headerPage.clickOnLearningExplorer();
+        Assert.assertEquals(headerPage.getUrl(), TestData.LEARNING_EXPLORER_URL);
 
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
-        headerPage.clickOnSchoolEditionAndPdLearningNetworkButton();
-        Assert.assertEquals(headerPage.getUrl(), TestData.SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_URL);
+        headerPage.clickOnPdLearningNetworkButton();
+        Assert.assertEquals(headerPage.getUrl(), TestData.PD_LEARNING_NETWORK_URL);
     }
 
     private void testAboutButton() {

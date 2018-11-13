@@ -159,8 +159,8 @@ public class TestData {
     public static final String LESSON_PLANNING_ARTICLES_PAGE_PATH = "articles";
 
     public static final String EDUCATOR_EDITION_PAGE_PATH = "content/how_it_works";
-    public static final String SCHOOL_EDITION_URL = "https://schooledition.lessonplanet.com/";
-    public static final String SCHOOL_EDITION_AND_PD_LEARNING_NETWORK_URL = "https://schooledition.lessonplanet.com/pdln";
+    public static final String LEARNING_EXPLORER_URL = "https://solutions.lessonplanet.com/";
+    public static final String PD_LEARNING_NETWORK_URL = "https://solutions.lessonplanet.com/pdln/";
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
     public static final String OUR_STORY_PAGE_PATH = "us/about_us";
