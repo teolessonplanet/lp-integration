@@ -140,7 +140,24 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     protected void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {
-        WebElement button = findElements(cssSelector).get(0);
+        //TODO: add here the magic code
+        boolean webElementWasFound = false;
+        int attempts = TestData.SHORT_TIMEOUT;
+        WebElement button = null;
+        do {
+            try {
+                button = findElements(cssSelector).get(0);
+                webElementWasFound = true;
+            } catch (Exception ex) {
+                // element was not found on the current page, click next page
+                clickOnNextButton();
+                attempts--;
+            }
+        } while (!webElementWasFound && attempts > 0);
+        if (attempts == 0) {
+            logger.error("The button " + cssSelector + " was not found on the first " + TestData.SHORT_TIMEOUT + " pages");
+        }
+
         if (inANewTab) {
             openInANewTab(button);
         } else {

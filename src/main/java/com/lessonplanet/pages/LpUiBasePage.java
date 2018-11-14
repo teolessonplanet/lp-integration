@@ -333,6 +333,11 @@ public class LpUiBasePage {
         driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
+    public int getCountOpenedTabs(){
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        return tabs.size();
+    }
+
     public void goBackOnePage() {
         waitForLoad();
         javascriptExecutor.executeScript("window.history.go(-1)");
