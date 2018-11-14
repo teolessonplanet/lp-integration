@@ -272,23 +272,35 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.clickGoToResourceForSharedResource(true);
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL));
         discoverResourcesPage.closeTab();
+        final int tabsOpened = discoverResourcesPage.getCountOpenedTabs();
         discoverResourcesPage.clickGoToResourceForSharedResource(false);
-        discoverResourcesPage.waitForNewTab();
-        discoverResourcesPage.focusDriverToLastTab();
+        // the resource is opened in the same tab or in a new one
+        if (tabsOpened != discoverResourcesPage.getCountOpenedTabs()) {
+            discoverResourcesPage.waitForNewTab();
+            discoverResourcesPage.focusDriverToLastTab();
+        }
         discoverResourcesPage.waitForLinkToLoad();
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL));
-        discoverResourcesPage.closeTab();
+        if (tabsOpened != discoverResourcesPage.getCountOpenedTabs()) {
+            discoverResourcesPage.closeTab();
+        } else {
+            discoverResourcesPage.goBackOnePage();
+        }
     }
 
     private void testGoToResourceButtonForRegularResource() {
         discoverResourcesPage.clickGoToResourceForRegularResource(true);
-        Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+        String currentUrl = discoverResourcesPage.getUrl();
+        boolean assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
+        Assert.assertTrue(assertResult);
         discoverResourcesPage.closeTab();
         discoverResourcesPage.clickGoToResourceForRegularResource(false);
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
-        Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+        currentUrl = discoverResourcesPage.getUrl();
+        assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
+        Assert.assertTrue(assertResult);
     }
 
     private void checkRrpSample(boolean limitedAccess, boolean freeSample, boolean fullReview) {
