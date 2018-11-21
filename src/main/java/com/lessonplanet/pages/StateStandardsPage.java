@@ -1,7 +1,10 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import util.TestData;
+
+import java.util.List;
 
 public class StateStandardsPage extends LpUiBasePage {
 
@@ -11,6 +14,7 @@ public class StateStandardsPage extends LpUiBasePage {
 
     private static final String SEARCH_STANDARDS_WIDGET = "#search-ss-widget";
     private static final String COMMON_CORE_DROPDOWN = "#s2id_js-ss-state";
+    private static final String COMMON_CORE_DROPDOWN_OPTIONS = "[class*='select2-results-dept-1']";
     private static final String SUBJECT_DROPDOWN = "#s2id_subject";
     //    select2-container select2-container-disabled form-control
     private static final String GRADE_DROPDOWN = "#s2id_grade";
@@ -20,6 +24,8 @@ public class StateStandardsPage extends LpUiBasePage {
 
     private static final String MAP = "#us-map-relative";
     private static final String MAP_GEORGIA_STATE = "#georgia";
+
+    private static final String VIDEO_PLAYER_WIDGET = "[class='vid-responsive mb20']";
 
     public StateStandardsPage(WebDriver driver) {
         super(driver);
@@ -41,6 +47,10 @@ public class StateStandardsPage extends LpUiBasePage {
         clickElement(NGSS_BUTTON);
     }
 
+    public String getSearchStandardsWidgetText() {
+        return getTextForElement(SEARCH_STANDARDS_WIDGET);
+    }
+
     private void clickOnCommonCoreDropdown() {
         clickElement(COMMON_CORE_DROPDOWN);
     }
@@ -52,4 +62,11 @@ public class StateStandardsPage extends LpUiBasePage {
     public void typeKeywordSearch(String keyword) {
         sendKeys(KEYWORD_TEXTBOX, keyword);
     }
+
+    public boolean isVideoPlayerDisplayed() {
+        return isElementClickable(VIDEO_PLAYER_WIDGET);
+    }
+
+
+
 }

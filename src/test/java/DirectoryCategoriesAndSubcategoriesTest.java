@@ -9,6 +9,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
     private BrowseBySubjectPage browseBySubjectPage;
+    private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
     private DiscoverResourcesPage discoverResourcesPage;
     private StepOneModal stepOneModal;
     private StepOnePage stepOnePage;
@@ -24,6 +25,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
+        startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         stepOnePage = new StepOnePage(webDriver);
@@ -343,11 +345,11 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private void testStartYourTenDayFreeTrial(String account) {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(browseBySubjectPage.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
+            Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
         } else {
-            Assert.assertEquals(browseBySubjectPage.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
+            Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
         }
-        browseBySubjectPage.clickGetFreeTrialButton(true);
+        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
@@ -355,7 +357,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         }
         browseBySubjectPage.closeTab();
         browseBySubjectPage.waitForPageLoad();
-        browseBySubjectPage.clickGetFreeTrialButton(false);
+        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
