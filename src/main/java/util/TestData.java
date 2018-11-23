@@ -281,4 +281,11 @@ public class TestData {
     public static final String SEARCH_FILTER_EDTECHPD_VIDEOS_AND_COURSES = "EdTechPD Videos & Courses";
     public static final String SEARCH_FILTER_COMMON_CORE_STATE_STANDARDS = "Common Core State Standards";
 
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE ="Common Core";
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_NGSS ="Next Generation Science (NGSS)";
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA ="Louisiana";
+
+    public static final String SEARCH_STANDARD_GRADE_OPTION_2ND ="2nd";
+
+
 }

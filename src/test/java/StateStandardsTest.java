@@ -13,6 +13,8 @@ public class StateStandardsTest extends BaseTest {
     private StepTwoModal stepTwoModal;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
+    private SearchStandardsWidget searchStandardsWidget;
+    private SearchByStandardsPage searchByStandardsPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -24,6 +26,8 @@ public class StateStandardsTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
+        searchStandardsWidget = new SearchStandardsWidget(webDriver);
+        searchByStandardsPage = new SearchByStandardsPage(webDriver);
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1102:Page UI")
@@ -31,7 +35,7 @@ public class StateStandardsTest extends BaseTest {
         stateStandardsPage.loadPage();
         Assert.assertEquals(stateStandardsPage.getPath(), TestData.SEARCH_BY_STANDARD_PAGE_PATH);
 
-        stateStandardsPage.clickOnEngilishLanguageArtsButton();
+        stateStandardsPage.clickOnEnglishLanguageArtsButton();
         Assert.assertEquals(stateStandardsPage.getPath(), TestData.ENGLISH_LANGUAGE_ARTS_PAGE_PATH);
         stateStandardsPage.goBackOnePage();
 
@@ -43,7 +47,7 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertEquals(stateStandardsPage.getPath(), TestData.NGSS_PAGE_PATH);
         stateStandardsPage.goBackOnePage();
 
-        Assert.assertEquals(stateStandardsPage.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
         Assert.assertTrue(stateStandardsPage.isVideoPlayerDisplayed());
     }
 
@@ -67,14 +71,33 @@ public class StateStandardsTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - 1101:Search Standards widget")
     public void testLessonp_1101() {
         stateStandardsPage.loadPage();
-        Assert.assertEquals(stateStandardsPage.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
-
-//        stateStandardsPage.
-        
-
+        Assert.assertEquals(searchStandardsWidget.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
+        searchStandardsWidget.clickOnCommonCoreDropdown();
+        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
+        searchStandardsWidget.clickOnGradeDropdown();
+        searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
+        Assert.assertTrue(searchStandardsWidget.isSubjectDropdownDisabled());
+        searchStandardsWidget.typeKeywordSearch(TestData.VALID_SEARCH_WORD);
+        searchStandardsWidget.clickOnSearchButton();
+        Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.VALID_SEARCH_WORD));
 
         stateStandardsPage.loadPage();
+        searchStandardsWidget.clickOnCommonCoreDropdown();
+        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_NGSS);
+        searchStandardsWidget.clickOnGradeDropdown();
+        searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
+        Assert.assertTrue(searchStandardsWidget.isSubjectDropdownDisabled());
+        searchStandardsWidget.clickOnSearchButton();
+        Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_NGSS));
 
+        stateStandardsPage.loadPage();
+        searchStandardsWidget.clickOnCommonCoreDropdown();
+        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA);
+        searchStandardsWidget.clickOnGradeDropdown();
+        searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
+        Assert.assertTrue(searchStandardsWidget.isSubjectDropdownEnabled());
+        searchStandardsWidget.clickOnSearchButton();
+        Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA));
     }
 
     private void testStartYourTenDaysWidget(String account) {
