@@ -19,10 +19,6 @@ public class StartYourTenDayFreeTrialWidget extends ResourcesPage {
 
     public void clickGetFreeTrialButton(boolean inANewTab) {
         WebElement getFreeTrialButton = findElements(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL), GET_FREE_TRIAL_BUTTON).get(0);
-        if (inANewTab) {
-            openInANewTab(getFreeTrialButton);
-        } else {
-            clickElement(getFreeTrialButton);
-        }
+        openInANewTabOrClick(getFreeTrialButton, inANewTab);
     }
 }

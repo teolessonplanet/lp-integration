@@ -9,8 +9,6 @@ public class StateStandardsTest extends BaseTest {
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
     private StepOnePage stepOnePage;
     private StepOneModal stepOneModal;
-    private StepTwoPage stepTwoPage;
-    private StepTwoModal stepTwoModal;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private SearchStandardsWidget searchStandardsWidget;
@@ -22,8 +20,6 @@ public class StateStandardsTest extends BaseTest {
         startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
         stepOnePage = new StepOnePage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
-        stepTwoPage = new StepTwoPage(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         searchStandardsWidget = new SearchStandardsWidget(webDriver);
@@ -65,7 +61,13 @@ public class StateStandardsTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1076:Start your 10 day free trail")
     public void testLessonp_1076() {
         stateStandardsPage.loadPage();
-        testStartYourTenDaysWidget(TestData.INVALID_EMAIL);
+        Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
+        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
+        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+        stateStandardsPage.closeTab();
+        stateStandardsPage.waitForPageLoad();
+        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
+        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - 1101:Search Standards widget")
@@ -98,27 +100,5 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertTrue(searchStandardsWidget.isSubjectDropdownEnabled());
         searchStandardsWidget.clickOnSearchButton();
         Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA));
-    }
-
-    private void testStartYourTenDaysWidget(String account) {
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
-        } else {
-            Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
-        }
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-        } else {
-            Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
-        }
-        stateStandardsPage.closeTab();
-        stateStandardsPage.waitForPageLoad();
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-        } else {
-            Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-        }
     }
 }

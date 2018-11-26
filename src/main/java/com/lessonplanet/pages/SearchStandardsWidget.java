@@ -58,5 +58,4 @@ public class SearchStandardsWidget extends LpUiBasePage {
     public boolean isSubjectDropdownEnabled() {
         return isElementClickable(SUBJECT_DROPDOWN_ENABLED);
     }
-
 }
