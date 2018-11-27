@@ -106,6 +106,15 @@ public class LpUiBasePage {
         clickElement(webElements.get(position));
     }
 
+    protected void clickElement(List<WebElement> webElements, String textToClick) {
+        for (WebElement webElement : webElements) {
+            if (webElement.getText().equals(textToClick)) {
+                clickElement(webElement);
+                break;
+            }
+        }
+    }
+
     protected void clickElement(String cssSelector, int position) {
         clickElement(findElements(cssSelector), position);
     }
@@ -321,6 +330,14 @@ public class LpUiBasePage {
         }
     }
 
+    protected void openInANewTabOrClick(WebElement webElement, boolean inANewTab) {
+        if (inANewTab) {
+            openInANewTab(webElement);
+        } else {
+            clickElement(webElement);
+        }
+    }
+
     public void closeTab() {
         logger.info("Closing the tab");
         driver.close();
@@ -333,7 +350,7 @@ public class LpUiBasePage {
         driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
-    public int getCountOpenedTabs(){
+    public int getCountOpenedTabs() {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         return tabs.size();
     }

@@ -1,6 +1,9 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class HeaderPage extends LpUiBasePage {
 
@@ -41,6 +44,10 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
 
     private static final String SEARCH_INPUT = "#keywords";
+    private static final String SEARCH_BUTTON = "[class='lp-header-search-button']";
+    private static final String SEARCH_FILTER = "[class='lp-header-search-filter']";
+    private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
+    private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -192,5 +199,31 @@ public class HeaderPage extends LpUiBasePage {
 
     public String getSearchText() {
         return findElement(SEARCH_INPUT).getAttribute("value");
+    }
+
+    public void typeSearchText(String searchText) {
+        sendKeys(SEARCH_INPUT, searchText);
+    }
+
+    public void clickOnSearchButton() {
+        clickElement(SEARCH_BUTTON);
+    }
+
+    public void clickOnSearchFilterButton() {
+        clickElement(SEARCH_FILTER);
+    }
+
+    public void setSearchFilter(String optionToSelect) {
+        List<WebElement> options = findElements(SEARCH_FILTER_DROPDOWN_OPTIONS);
+        for (WebElement option : options) {
+            if (option.getText().equals(optionToSelect)) {
+                clickElement(option);
+                break;
+            }
+        }
+    }
+
+    public String getSearchFilter() {
+        return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
     }
 }

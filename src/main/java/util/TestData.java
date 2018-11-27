@@ -267,4 +267,33 @@ public class TestData {
     public static final String PAGINATION_FIRST_PAGE_PATH = "";
     public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
     public static final String PAGINATION_ALL_ITEMS_PATH = "/all";
+
+    public static final String ENGLISH_LANGUAGE_ARTS_PAGE_PATH = "standards/common-core/english-language-arts";
+    public static final String MATHEMATICS_PAGE_PATH = "standards/common-core/mathematics";
+    public static final String NGSS_PAGE_PATH = "state-standards/nrcdsc";
+
+    public static final String SEARCH_STANDARDS_TITLE_TEXT = "Search Standards";
+    public static final String STATE_LABEL_TEXT = "Common Core, NGSS, or State";
+    public static final String SUBJECT_LABEL_TEXT = "Subject";
+    public static final String GRADE_LABEL_TEXT = "Grade";
+    public static final String KEYWORD_LABEL_TEXT = "Keyword";
+    public static final String SEARCH_BUTTON_TEXT = "Search";
+
+    public static final String ALL_STATES_TEXT = "Common Core\nNext Generation Science (NGSS)\nAlabama\nAlaska\nArizona\nArkansas\nCalifornia\nCobb County\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\n" +
+            "Hawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\n" +
+            "Oregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWashington DC\nWest Virginia\nWisconsin\nWyoming";
+    public static final String SELECT_SUBJECT_TEXT = "Select Subject";
+    public static final String ALL_SUBJECTS_TEXT = "Arts Education\nHealth and PE\nLanguage Arts\nMathematics\nScience\nSocial Studies\nWorld Languages\nTechnology Education\nLibrary Media";
+    public static final String ALL_GRADES_TEXT = "Kindergarten\n1st\n2nd\n3rd\n4th\n5th\n6th\n7th\n8th\n9th\n10th\n11th\n12th";
+    public static final String SELECT_GRADE_TEXT = "Select Grade";
+
+    public static final String SEARCH_FILTER_REVIEWED_RESOURCES = "Reviewed Resources";
+    public static final String SEARCH_FILTER_EDTECHPD_VIDEOS_AND_COURSES = "EdTechPD Videos & Courses";
+    public static final String SEARCH_FILTER_COMMON_CORE_STATE_STANDARDS = "Common Core State Standards";
+
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE = "Common Core";
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_NGSS = "Next Generation Science (NGSS)";
+    public static final String SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA = "Louisiana";
+
+    public static final String SEARCH_STANDARD_GRADE_OPTION_2ND = "2nd";
 }

@@ -14,8 +14,6 @@ public class BrowseBySubjectPage extends ResourcesPage {
     private static final String BROWSE_BY_SUBJECT_OPTIONS_SELECTOR = "li a[href*='/lesson-plans/']";
     private static final String RELATED_TOPICS_OPTIONS_SELECTOR = "li a[href*='/search?keywords=']";
 
-    private static final String GET_FREE_TRIAL_BUTTON = "a[href='/subscription/new']";
-
     private static final String SUGGEST_A_CATEGORY_BUTTON = "[class='suggest-new-directory-term orange']";
 
     private static final String TESTIMONIALS_THUMBNAIL = "[class='img-thumbnail']";
@@ -39,7 +37,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
     public boolean isBannerImageDisplayed() {
         return isElementClickable(BANNER_IMAGE);
     }
-    
+
     public void clickUpgradeForAccess(boolean inANewTab) {
         clickFirstButtonOfType(UPGRADE_FOR_ACCESS_BUTTON, inANewTab);
     }
@@ -77,19 +75,6 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     public void clickSecondCaretFromBrowseBySubjectCategory() {
         clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), 1);
-    }
-
-    public String getStartYourTenDaysFreeTrialContentAsText() {
-        return getTextForElement(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL));
-    }
-
-    public void clickGetFreeTrialButton(boolean inANewTab) {
-        WebElement getFreeTrialButton = findElements(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL), GET_FREE_TRIAL_BUTTON).get(0);
-        if (inANewTab) {
-            openInANewTab(getFreeTrialButton);
-        } else {
-            clickElement(getFreeTrialButton);
-        }
     }
 
     public void clickOnSuggestACategoryButton() {
