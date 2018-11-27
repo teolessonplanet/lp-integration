@@ -43,7 +43,7 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertEquals(stateStandardsPage.getPath(), TestData.NGSS_PAGE_PATH);
         stateStandardsPage.goBackOnePage();
 
-        Assert.assertEquals(searchStandardsWidget.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
+        testStateStandardWidgetDefaultContent();
         Assert.assertTrue(stateStandardsPage.isVideoPlayerDisplayed());
     }
 
@@ -73,9 +73,10 @@ public class StateStandardsTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - 1101:Search Standards widget")
     public void testLessonp_1101() {
         stateStandardsPage.loadPage();
-        Assert.assertEquals(searchStandardsWidget.getSearchStandardsWidgetText(), TestData.SEARCH_STANDARDS_WIDGET_TEXT);
-        searchStandardsWidget.clickOnCommonCoreDropdown();
-        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
+        testStateStandardWidgetDefaultContent();
+
+        searchStandardsWidget.clickOnStateDropdown();
+        searchStandardsWidget.setStateDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
         searchStandardsWidget.clickOnGradeDropdown();
         searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
         Assert.assertTrue(searchStandardsWidget.isSubjectDropdownDisabled());
@@ -84,8 +85,8 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.VALID_SEARCH_WORD));
 
         stateStandardsPage.loadPage();
-        searchStandardsWidget.clickOnCommonCoreDropdown();
-        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_NGSS);
+        searchStandardsWidget.clickOnStateDropdown();
+        searchStandardsWidget.setStateDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_NGSS);
         searchStandardsWidget.clickOnGradeDropdown();
         searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
         Assert.assertTrue(searchStandardsWidget.isSubjectDropdownDisabled());
@@ -93,12 +94,28 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_NGSS));
 
         stateStandardsPage.loadPage();
-        searchStandardsWidget.clickOnCommonCoreDropdown();
-        searchStandardsWidget.setCommonCoreDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA);
+        searchStandardsWidget.clickOnStateDropdown();
+        searchStandardsWidget.setStateDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA);
         searchStandardsWidget.clickOnGradeDropdown();
         searchStandardsWidget.setGradeDropdownOptions(TestData.SEARCH_STANDARD_GRADE_OPTION_2ND);
         Assert.assertTrue(searchStandardsWidget.isSubjectDropdownEnabled());
         searchStandardsWidget.clickOnSearchButton();
         Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA));
+    }
+
+    private void testStateStandardWidgetDefaultContent() {
+        Assert.assertEquals(searchStandardsWidget.getSearchStandardsTitleText(), TestData.SEARCH_STANDARDS_TITLE_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getStateLabelText(), TestData.STATE_LABEL_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getStateDropdownText(), TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
+        Assert.assertEquals(searchStandardsWidget.getAllStates(), TestData.ALL_STATES_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getSubjectLabelText(), TestData.SUBJECT_LABEL_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getSubjectDropdownText(), TestData.SELECT_SUBJECT_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getAllSubjects(), TestData.ALL_SUBJECTS_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getGradeLabelText(), TestData.GRADE_LABEL_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getGradeDropdownText(), TestData.SELECT_GRADE_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getAllGrades(), TestData.ALL_GRADES_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getKeywordLabelText(), TestData.KEYWORD_LABEL_TEXT);
+        Assert.assertEquals(searchStandardsWidget.getKeywordTextboxText(), TestData.LP_HOME_PAGE_PATH);
+        Assert.assertEquals(searchStandardsWidget.getSearchButtonText(), TestData.SEARCH_BUTTON_TEXT);
     }
 }
