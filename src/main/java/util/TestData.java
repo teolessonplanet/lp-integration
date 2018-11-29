@@ -296,4 +296,17 @@ public class TestData {
     public static final String SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA = "Louisiana";
 
     public static final String SEARCH_STANDARD_GRADE_OPTION_2ND = "2nd";
+
+    public static final String COMMON_CORE_BREADCRUMB_PATH = "HomeCommon Core";
+    public static final String COMMON_CORE_ENGLISH_BREADCRUMB_PATH = "English Language Arts";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH = "Science & Technical Subjects";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH = "Grade 11-12";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1 = "RST.11-12.1";
+
+
+    public static final String COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT = "Kindergarten-Grade 5";
+    public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT = "Grades 6-12 ELA";
+    public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_LITERACY_TEXT = "Grades 6-12 Literacy";
+
+
 }
