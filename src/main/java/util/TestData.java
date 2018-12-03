@@ -300,8 +300,11 @@ public class TestData {
     public static final String COMMON_CORE_BREADCRUMB_PATH = "HomeCommon Core";
     public static final String COMMON_CORE_ENGLISH_BREADCRUMB_PATH = "English Language Arts";
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH = "Science & Technical Subjects";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_INTRODUCTION_TEXT = "Introduction";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_DESCRIPTION_TEXT = "The standards below begin at grade 6; standards for K-5 reading in history/social studies, science, and technical subjects are integrated into the K-5 Reading standards. The CCR anchor standards and high school standards in literacy work in tandem to define college and career readiness expectations-the former providing broad standards, the latter providing additional specificity.";
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH = "Grade 11-12";
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1 = "RST.11-12.1";
+    public static final String STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT = "See 61 Resources";
 
 
     public static final String COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT = "Kindergarten-Grade 5";

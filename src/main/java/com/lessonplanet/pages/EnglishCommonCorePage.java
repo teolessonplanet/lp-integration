@@ -16,6 +16,7 @@ public class EnglishCommonCorePage extends CommonCoreStateStandardsPage {
 
     private static final String STANDARD_CATEGORIES = "[class='standard']";
     private static final String STANDARD_SEE_RESOURCES_BUTTON = "[class*='btn-res-count']";
+    private static final String STANDARD_CODE_BUTTONS = "[class='standard-row'] [class*='btn-success']";
 
     public EnglishCommonCorePage(WebDriver driver) {
         super(driver);
@@ -41,14 +42,43 @@ public class EnglishCommonCorePage extends CommonCoreStateStandardsPage {
         clickElement(BACK_BUTTON);
     }
 
-    public boolean isUseFiltersTextDisplayed(){
+    public boolean isUseFiltersTextDisplayed() {
         return isElementClickable(USE_FILTERS_TEXT);
     }
 
     //******************************
 
-//    public String
+    public String getFirstGradeCategory() {
+        return getTextForElement(STANDARD_HEADERS, 0);
+    }
 
+    public String getSecondGradeCategory() {
+        return getTextForElement(STANDARD_HEADERS, 1);
+    }
+
+    public String getThirdGradeCategory() {
+        return getTextForElement(STANDARD_HEADERS, 2);
+    }
+
+    public void clickOnSubject(String subject) {
+        clickElement(findElements(STANDARD_CATEGORIES), subject);
+    }
+
+    public String getStandardDescription() {
+        return getTextForElement(STANDARD_INTRO);
+    }
+
+    public void clickOnStandardCodeButton(String standardCode) {
+        clickElement(findElements(STANDARD_CODE_BUTTONS), standardCode);
+    }
+
+    public String getSeeResourcesButtonText() {
+        return getTextForElement(STANDARD_SEE_RESOURCES_BUTTON);
+    }
+
+    public void clickOnSeeResourcesButton() {
+        clickElement(STANDARD_SEE_RESOURCES_BUTTON);
+    }
 
 }
 
