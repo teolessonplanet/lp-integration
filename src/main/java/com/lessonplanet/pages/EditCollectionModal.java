@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class EditCollectionModal extends LpUiBasePage {
+    private static final String EDIT_COLLECTION_MODAL = "#edit-collection-modal";
     private static final String TITLE_INPUT = "[name='collection[title]']";
     private static final String GRADE_LIST_DROPDOWN = "#s2id_collection_grade_list";
     private static final String GRADE_OPTIONS = "#select2-drop li";
@@ -22,8 +23,8 @@ public class EditCollectionModal extends LpUiBasePage {
         super(driver);
     }
 
-    public void waitForModalToBeDisplayed() {
-        waitUntilAnimationIsDone(TITLE_INPUT);
+    public void waitForModal() {
+        waitForBootstrapModalToBeVisible(EDIT_COLLECTION_MODAL);
     }
 
     public void typeTitle(String title) {
@@ -31,29 +32,13 @@ public class EditCollectionModal extends LpUiBasePage {
     }
 
     public void selectGrade(String grade) {
+        waitForModal();
         selectFromDropdown(GRADE_LIST_DROPDOWN, GRADE_OPTIONS, grade);
     }
 
     public void selectSubject(String subject) {
+        waitForModal();
         selectFromDropdown(SUBJECT_DROPDOWN_INPUT, SUBJECT_OPTIONS, subject);
-    }
-
-    private void selectFromDropdown(String dropdownCssSelector, String optionsCssSelector, String option) {
-        boolean optionWasFound = false;
-        waitForPageLoad();
-        waitForModalToBeDisplayed();
-        clickElement(dropdownCssSelector);
-        List<WebElement> results = findElements(optionsCssSelector);
-        for (WebElement result : results) {
-            if (result.getText().equals(option)) {
-                clickElement(result);
-                optionWasFound = true;
-                break;
-            }
-        }
-        if (!optionWasFound) {
-            logger.error("The option " + option + " was not found.");
-        }
     }
 
     public void typeDescription(String description) {

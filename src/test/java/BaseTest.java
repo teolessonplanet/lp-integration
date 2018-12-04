@@ -13,6 +13,9 @@ public class BaseTest {
     public void init() {
         browser = new Browser();
         browser.setName("firefox");
+        if (!System.getenv("GECKO_EXECUTABLE_PATH").trim().equals("")) {
+            System.setProperty("webdriver.gecko.driver", System.getenv("GECKO_EXECUTABLE_PATH").trim());
+        }
         webDriver = WebDriverFactory.getInstance(browser);
     }
 

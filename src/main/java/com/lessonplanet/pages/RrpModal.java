@@ -3,7 +3,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class RrpModal extends Rrp {
-
+    private static final String RRP_MODAL = "#resource-modal";
     private static final String CLOSE_MODAL_BUTTON = "[class*='resource-modal-close']";
 
     public RrpModal(WebDriver driver) {
@@ -12,7 +12,7 @@ public class RrpModal extends Rrp {
 
     public void waitForModal() {
         waitForLoad();
-        waitUntilAnimationIsDone(RESOURCE_TITLE_TEXT);
+        waitForBootstrapModalToBeVisible(RRP_MODAL);
     }
 
     public void clickCloseModal() {

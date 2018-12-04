@@ -9,7 +9,7 @@ import util.TestData;
 import java.util.List;
 
 public class StepTwoModal extends LpHomePage {
-
+    private static final String STEP_TWO_MODAL = "#step2-modal";
     private static final String TITLE_TEXT = "[class*='modal-header'] h3";
     private static final String CLOSE_MODAL_BUTTON = "[class*='button close']";
 
@@ -33,7 +33,7 @@ public class StepTwoModal extends LpHomePage {
     }
 
     public void waitForModal() {
-        waitUntilAnimationIsDone(FIRSTNAME_INPUT);
+        waitForBootstrapModalToBeVisible(STEP_TWO_MODAL);
     }
 
     public String getTitleText() {

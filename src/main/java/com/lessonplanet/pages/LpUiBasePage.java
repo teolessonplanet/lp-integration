@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
-import java.awt.AWTException;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,15 +61,18 @@ public class LpUiBasePage {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    public void uploadAFile (String fileNameSelector, String path ) throws AWTException {
-        WebElement fileInput = driver.findElement(By.cssSelector(fileNameSelector));
-        fileInput.click();
-        driver.switchTo().activeElement().sendKeys(path);
-        Robot robot = new Robot();
-        robot.setAutoDelay(0);
-        robot.waitForIdle();
-        robot.keyPress(KeyEvent.VK_ESCAPE);
-        robot.keyRelease(KeyEvent.VK_ESCAPE);
+    public void uploadUsingTextInput (String fileNameSelector, String path )  {
+       try {
+           clickElement(fileNameSelector);
+           driver.switchTo().activeElement().sendKeys(path);
+           Robot robot = new Robot();
+           robot.waitForIdle();
+           robot.keyPress(KeyEvent.VK_ESCAPE);
+           robot.keyRelease(KeyEvent.VK_ESCAPE);
+       }
+       catch (Exception e){
+           logger.info("Cannot upload file");
+       }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -291,47 +293,9 @@ public class LpUiBasePage {
         scrollToElement(findElement(cssSelector));
     }
 
-    protected void waitUntilAnimationIsDone(String cssSelector) {
-        waitForLoad();
-        webDriverWait.until(steadinessOfElementLocated(cssSelector));
-        waitForLoad();
-    }
-
     protected void waitUntilElementIsHidden(String cssSelector)
     {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
-    }
-
-    private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
-        return new ExpectedCondition<WebElement>() {
-            private WebElement element = null;
-            private Point location = null;
-
-            @Override
-            public WebElement apply(WebDriver driver) {
-                if (element == null) {
-                    try {
-                        element = driver.findElement(By.cssSelector(cssSelector));
-                    } catch (NoSuchElementException e) {
-                        return null;
-                    }
-                }
-
-                try {
-                    if (element.isDisplayed()) {
-                        Point currentLocation = element.getLocation();
-                        if (currentLocation.equals(location) && isOnTop(element)) {
-                            return element;
-                        }
-                        location = currentLocation;
-                    }
-                } catch (StaleElementReferenceException e) {
-                    element = null;
-                }
-                return null;
-            }
-        };
+        webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
     private boolean isOnTop(WebElement element) {
@@ -414,19 +378,15 @@ public class LpUiBasePage {
         });
     }
 
-    public void selectFromDropdown(String dropdownCssSelector, String optionsCssSelector, String option, String modalId) {
+    public void selectFromDropdown(String dropdownCssSelector, String optionsCssSelector, String option) {
         boolean optionWasFound = false;
-        waitForPageLoad();
-        waitForBootstrapModalToBeVisible(modalId);
-        findElement(dropdownCssSelector).click();
-        findElement(dropdownCssSelector).click();
-        findElement(dropdownCssSelector).click();
-        findElement(dropdownCssSelector).click();
-        waitForPageLoad();
+        waitForLoad();
+        clickElement(dropdownCssSelector);
+        waitForLoad();
         List<WebElement> results = findElements(optionsCssSelector);
         for (WebElement result : results) {
             if (result.getText().equals(option)) {
-                result.click();
+                clickElement(result);
                 optionWasFound = true;
                 break;
             }
@@ -434,10 +394,11 @@ public class LpUiBasePage {
         if (!optionWasFound) {
             logger.error("The option " + option + " was not found.");
         }
-        waitForPageLoad();
+        waitForLoad();
     }
 
     public void waitForBootstrapModalToBeVisible (String modalId) {
+        waitForLoad();
         webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
                     @Override
@@ -446,12 +407,14 @@ public class LpUiBasePage {
                                 .getCssValue("opacity").equals("1");
                     }
                 },
-                ExpectedConditions.numberOfElementsToBe(By.cssSelector("div.modal-backdrop"), 1),
+                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.modal-backdrop"), 0),
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
         ));
+        waitForLoad();
     }
 
     public void waitForReactModalToBeVisible () {
+        waitForLoad();
         webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
                     @Override
@@ -460,8 +423,8 @@ public class LpUiBasePage {
                                 .getCssValue("opacity").equals("1");
                     }
                 },
-                ExpectedConditions.numberOfElementsToBe(By.cssSelector("div.react-modal-overlay"), 1)
+                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0)
         ));
+        waitForLoad();
     }
 }
-

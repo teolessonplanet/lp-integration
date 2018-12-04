@@ -3,6 +3,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class StepOneModal extends LpUiBasePage {
+    private static final String STEP_ONE_MODAL = "#signup-modal";
     private static final String TITLE_TEXT = "[class='title']";
     private static final String EMAIL_INPUT = "#user_email";
     private static final String PASSWORD_INPUT = "#user_password";
@@ -33,7 +34,7 @@ public class StepOneModal extends LpUiBasePage {
     }
 
     public boolean isTitleTextDisplayed() {
-        waitUntilAnimationIsDone(TITLE_TEXT);
+        waitForBootstrapModalToBeVisible(STEP_ONE_MODAL);
         return isElementClickable(TITLE_TEXT);
     }
 
