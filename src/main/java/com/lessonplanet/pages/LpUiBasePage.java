@@ -3,12 +3,14 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import java.awt.Robot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
-
+import java.awt.AWTException;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +42,35 @@ public class LpUiBasePage {
         }
     }
 
+    public WebElement findElementToBeVisible(String cssLocator) {
+        waitForElementToBeVisible(cssLocator);
+        return driver.findElement(By.cssSelector(cssLocator));
+    }
+
+    protected void waitForElementToBeVisible(String cssSelector) {
+        waitForLoad();
+        logger.info("Wait until the webElement is visible: " + cssSelector);
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+        } catch (TimeoutException timeoutException) {
+            logger.error("The element " + cssSelector + " cannot be clicked");
+        }
+    }
+
     private void waitUntilElementIsClickable(WebElement webElement) {
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public void uploadAFile (String fileNameSelector, String path ) throws AWTException {
+        WebElement fileInput = driver.findElement(By.cssSelector(fileNameSelector));
+        fileInput.click();
+        driver.switchTo().activeElement().sendKeys(path);
+        Robot robot = new Robot();
+        robot.setAutoDelay(0);
+        robot.waitForIdle();
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -269,6 +297,12 @@ public class LpUiBasePage {
         waitForLoad();
     }
 
+    protected void waitUntilElementIsHidden(String cssSelector)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
+    }
+
     private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
         return new ExpectedCondition<WebElement>() {
             private WebElement element = null;
@@ -379,4 +413,55 @@ public class LpUiBasePage {
             }
         });
     }
+
+    public void selectFromDropdown(String dropdownCssSelector, String optionsCssSelector, String option, String modalId) {
+        boolean optionWasFound = false;
+        waitForPageLoad();
+        waitForBootstrapModalToBeVisible(modalId);
+        findElement(dropdownCssSelector).click();
+        findElement(dropdownCssSelector).click();
+        findElement(dropdownCssSelector).click();
+        findElement(dropdownCssSelector).click();
+        waitForPageLoad();
+        List<WebElement> results = findElements(optionsCssSelector);
+        for (WebElement result : results) {
+            if (result.getText().equals(option)) {
+                result.click();
+                optionWasFound = true;
+                break;
+            }
+        }
+        if (!optionWasFound) {
+            logger.error("The option " + option + " was not found.");
+        }
+        waitForPageLoad();
+    }
+
+    public void waitForBootstrapModalToBeVisible (String modalId) {
+        webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector(modalId))
+                                .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.numberOfElementsToBe(By.cssSelector("div.modal-backdrop"), 1),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
+        ));
+    }
+
+    public void waitForReactModalToBeVisible () {
+        webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector("div.react-modal"))
+                                .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.numberOfElementsToBe(By.cssSelector("div.react-modal-overlay"), 1)
+        ));
+    }
 }
+
