@@ -49,23 +49,47 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(englishCommonCorePage.getStandardDescription(), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_DESCRIPTION_TEXT);
 
         expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH;
-        englishCommonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH);
+        englishCommonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH);
         Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
 
         expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1;
         englishCommonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1);
         Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
-        Assert.assertEquals(englishCommonCorePage.getSeeResourcesButtonText(),TestData.STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT);
+        Assert.assertEquals(englishCommonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT);
 
-        englishCommonCorePage.clickOnSeeResourcesButton();
-        //TODO: fasfasfasf
+        englishCommonCorePage.clickOnBackButton();
+        expectedPageHeaderPath = expectedPageHeaderPath.replaceAll(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1, "");
+        Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
 
-//        englishCommonCorePage.clicOn
+        englishCommonCorePage.clickOnBackButton();
+        expectedPageHeaderPath = expectedPageHeaderPath.replaceAll(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH, "");
+        Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+    }
 
-//        englishCommonCoreP
+    @Test(description = "LP - Regression Tests - Visitor - State Standards - Standard Types - Common Core State Standards - lessonp-1107:Mathematics page")
+    public void testLessonp_1107() {
+        stateStandardsPage.loadPage();
+        stateStandardsPage.clickOnMathematicsButton();
 
+        String expectedPageHeaderPath = TestData.COMMON_CORE_BREADCRUMB_PATH + TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB_PATH;
+        Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        Assert.assertEquals(englishCommonCorePage.getPageTitle(), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB_PATH);
+        Assert.assertTrue(englishCommonCorePage.isBackButtonDisplayed());
+        Assert.assertTrue(englishCommonCorePage.isUseFiltersTextDisplayed());
 
-//        englishCommonCorePage.loadPage();
-        englishCommonCorePage.loadPage();
+        searchStandardWidgetTest.testSearchStandardWidgetIsDisplayed();
+        startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidgetDisplayed();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
+
+        expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH;
+        englishCommonCorePage.clickOnSubject(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB_PATH);
+//        Assert.assertEquals(englishCommonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+//        Assert.assertEquals(englishCommonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT);
+//        Assert.assertEquals(englishCommonCorePage.getStandardDescription(), TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_DESCRIPTION_TEXT);
+
+        englishCommonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1);
+        englishCommonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1);
+        Assert.assertEquals(englishCommonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT);
+
     }
 }

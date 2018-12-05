@@ -311,5 +311,12 @@ public class TestData {
     public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT = "Grades 6-12 ELA";
     public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_LITERACY_TEXT = "Grades 6-12 Literacy";
 
+    public static final String COMMON_CORE_MATHEMATICS_BREADCRUMB_PATH = "Mathematics";
+    public static final String COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB_PATH = "Standards for Mathematical Practice";
+    public static final String COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT = "Introduction";
+    public static final String COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_DESCRIPTION_TEXT = "The Standards for Mathematical Practice describe varieties of expertise that mathematics educators at all levels should seek to develop in their students. These practices rest on important “processes and proficiencies” with longstanding importance in mathematics education. The first of these are the NCTM process standards of problem solving, reasoning and proof, communication, representation, and connections. The second are the strands of mathematical proficiency specified in the National Research Council’s report Adding It Up: adaptive reasoning, strategic competence, conceptual understanding (comprehension of mathematical concepts, operations and relations), procedural fluency (skill in carrying out procedures flexibly, accurately, efficiently and appropriately), and productive disposition (habitual inclination to see mathematics as sensible, useful, and worthwhile, coupled with a belief in diligence and one’s own efficacy).";
+    public static final String COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1 = "MP1";
+    public static final String STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT = "See 1623 Resources";
+
 
 }
