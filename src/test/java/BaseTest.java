@@ -13,6 +13,7 @@ public class BaseTest {
     public void init() {
         browser = new Browser();
         browser.setName("firefox");
+        System.setProperty("webdriver.gecko.driver", "C://Users//teodora.vermesan//Desktop//geckodriver.exe");
         webDriver = WebDriverFactory.getInstance(browser);
     }
 
