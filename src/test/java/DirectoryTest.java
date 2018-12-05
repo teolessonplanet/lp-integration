@@ -22,7 +22,6 @@ public class DirectoryTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         categoryModal = new CategoryModal(webDriver);
     }
-
     @Test(description = "Visitor - Directory Page - lessonp-1015:Page UI")
     public void testLessonp_1015() {
         lpHomePage.loadPage();

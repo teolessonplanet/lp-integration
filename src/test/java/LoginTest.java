@@ -20,7 +20,6 @@ public class LoginTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
         signInModal = new SignInModal(webDriver);
     }
-
     @Test(description = "Freemium - Login In/Sign in - lessonp-714: 'Sign In' button")
     public void testLessonp_714() {
         testSignInButton();

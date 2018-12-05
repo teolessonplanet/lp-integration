@@ -21,7 +21,6 @@ public class HeaderTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         loginPage = new LoginPage(webDriver);
     }
-
     @Test(description = "Visitor - Header - lessonp-639:Resources")
     public void testLessonp_639() {
         testResourcesButton(false);
@@ -222,5 +221,4 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnSignOutButton();
         Assert.assertTrue(headerPage.isSignInButtonDisplayed());
     }
-
 }

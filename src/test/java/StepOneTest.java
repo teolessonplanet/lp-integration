@@ -44,7 +44,6 @@ public class StepOneTest extends BaseTest {
         stepTwoModal.clickOnCloseModal();
         Assert.assertEquals(email, headerPage.getUsernameText());
     }
-
     @Test(description = "LP - User Visits Step 1 -  lessonp-10:User click 'Already a member' link"
             + "Steps:"
             + "1.Launch Step 1 in  a static page by clicking the Try it free button from the navigation bar"

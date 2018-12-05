@@ -36,7 +36,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         rrpPage = new RrpPage(webDriver);
         manageMembershipPage = new ManageMembershipPage(webDriver);
     }
-
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020:Page UI")
     public void testLessonp_1020() {
         testPageUi(TestData.INVALID_EMAIL);

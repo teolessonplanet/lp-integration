@@ -11,7 +11,6 @@ public class RrpModal extends Rrp {
     }
 
     public void waitForModal() {
-        waitForLoad();
         waitForBootstrapModalToBeVisible(RRP_MODAL);
     }
 

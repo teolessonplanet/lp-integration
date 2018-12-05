@@ -423,7 +423,8 @@ public class LpUiBasePage {
                                 .getCssValue("opacity").equals("1");
                     }
                 },
-                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0)
+                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
         ));
         waitForLoad();
     }
