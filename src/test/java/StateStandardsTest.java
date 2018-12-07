@@ -6,9 +6,6 @@ import util.TestData;
 
 public class StateStandardsTest extends BaseTest {
     private StateStandardsPage stateStandardsPage;
-    private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
-    private StepOnePage stepOnePage;
-    private StepOneModal stepOneModal;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private SearchStandardsWidget searchStandardsWidget;
@@ -21,9 +18,6 @@ public class StateStandardsTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         stateStandardsPage = new StateStandardsPage(webDriver);
-        startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
-        stepOnePage = new StepOnePage(webDriver);
-        stepOneModal = new StepOneModal(webDriver);
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         searchStandardsWidget = new SearchStandardsWidget(webDriver);
@@ -68,7 +62,6 @@ public class StateStandardsTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1076:Start your 10 day free trail")
     public void testLessonp_1076() {
         stateStandardsPage.loadPage();
-        //TODO: mtoe this to proper test class
         startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidget();
     }
 
@@ -76,8 +69,6 @@ public class StateStandardsTest extends BaseTest {
     public void testLessonp_1101() {
         stateStandardsPage.loadPage();
         searchStandardWidgetTest.testStateStandardWidgetDefaultContent();
-
-        //TODO: move this to proper test class
 
         searchStandardsWidget.clickOnStateDropdown();
         searchStandardsWidget.setStateDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);

@@ -30,6 +30,4 @@ public class SearchStandardWidgetTest {
     public void testSearchStandardWidgetIsDisplayed() {
         Assert.assertTrue(searchStandardsWidget.getSearchStandardsTitleText().equals(TestData.SEARCH_STANDARDS_TITLE_TEXT));
     }
-
-
 }
