@@ -27,11 +27,13 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         stateStandardsPage.loadPage();
 
         stateStandardsPage.clickOnEnglishLanguageArtsButton();
-        String expectedPageHeaderPath = TestData.COMMON_CORE_BREADCRUMB_PATH + TestData.COMMON_CORE_ENGLISH_BREADCRUMB_PATH;
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
-        Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_ENGLISH_BREADCRUMB_PATH);
-        Assert.assertTrue(commonCorePage.isBackButtonDisplayed());
-        Assert.assertTrue(commonCorePage.isUseFiltersTextDisplayed());
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+
+        Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertTrue(commonCorePage.isBackButtonClickable());
+        Assert.assertTrue(commonCorePage.isUseFiltersTextClickable());
 
         Assert.assertEquals(commonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT);
         Assert.assertEquals(commonCorePage.getSecondGradeCategory(), TestData.COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT);
@@ -41,28 +43,42 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidgetDisplayed();
         learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
 
-        commonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH);
-        expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB_PATH;
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        commonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_INTRODUCTION_TEXT);
         Assert.assertEquals(commonCorePage.getStandardDescription(), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_DESCRIPTION_TEXT);
 
-        commonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH);
-        expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH;
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        commonCorePage.clickOnSubject(TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
 
-        commonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1);
-        expectedPageHeaderPath += TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1;
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        commonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_STANDARD_CODE_RST_11_12_1);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(5), TestData.COMMON_CORE_STANDARD_CODE_RST_11_12_1);
         Assert.assertEquals(commonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT);
 
         commonCorePage.clickOnBackButton();
-        expectedPageHeaderPath = expectedPageHeaderPath.replaceAll(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_STANDARD_CODE_RST_11_12_1, "");
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
 
         commonCorePage.clickOnBackButton();
-        expectedPageHeaderPath = expectedPageHeaderPath.replaceAll(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_GRADE_11_12_BREADCRUMB_PATH, "");
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Standard Types - Common Core State Standards - lessonp-1107:Mathematics page")
@@ -70,28 +86,42 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         stateStandardsPage.loadPage();
         stateStandardsPage.clickOnMathematicsButton();
 
-        String expectedPageHeaderPath = TestData.COMMON_CORE_BREADCRUMB_PATH + TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB_PATH;
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
-        Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB_PATH);
-        Assert.assertTrue(commonCorePage.isBackButtonDisplayed());
-        Assert.assertTrue(commonCorePage.isUseFiltersTextDisplayed());
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+
+        Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+        Assert.assertTrue(commonCorePage.isBackButtonClickable());
+        Assert.assertTrue(commonCorePage.isUseFiltersTextClickable());
 
         searchStandardWidgetTest.testSearchStandardWidgetIsDisplayed();
         startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidgetDisplayed();
         learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
 
-        expectedPageHeaderPath += TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB_PATH;
-        commonCorePage.clickOnSubject(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB_PATH);
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
-        Assert.assertEquals(commonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT);
+        commonCorePage.clickOnSubject(TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT);
 
-        expectedPageHeaderPath += TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1;
-        commonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1);
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        commonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_STANDARD_CODE_MP_1);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_STANDARD_CODE_MP_1);
         Assert.assertEquals(commonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT);
 
         commonCorePage.clickOnBackButton();
-        expectedPageHeaderPath = expectedPageHeaderPath.replaceAll(TestData.COMMON_CORE_MATHEMATICS_STANDARDS_FOR_MATHEMATICAL_PRACTICE_STANDARD_CODE_MP_1, "");
-        Assert.assertEquals(commonCorePage.getPageHeaderPathText(), expectedPageHeaderPath);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
+
+        commonCorePage.clickOnBackButton();
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(1), TestData.COMMON_CORE_BREADCRUMB);
+        Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
     }
 }

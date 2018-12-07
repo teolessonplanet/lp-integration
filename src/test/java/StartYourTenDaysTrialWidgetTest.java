@@ -25,7 +25,7 @@ public class StartYourTenDaysTrialWidgetTest {
         startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
         Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
         lpHomePage.closeTab();
-        lpHomePage.waitForPageLoad();
+        lpHomePage.waitForLoad();
         startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
         Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
     }

@@ -11,6 +11,6 @@ public class LearnMoreVideoWidgetTest {
     }
 
     public void testLearnMoreVideoWidgetIsDisplayed() {
-        Assert.assertTrue(learnMoreVideoWidget.isVideoPlayerDisplayed());
+        Assert.assertTrue(learnMoreVideoWidget.isVideoPlayerClickable());
     }
 }
