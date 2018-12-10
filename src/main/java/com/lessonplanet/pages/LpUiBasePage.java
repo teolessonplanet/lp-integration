@@ -428,4 +428,22 @@ public class LpUiBasePage {
         ));
         waitForLoad();
     }
+    
+    public boolean isElementDisplayed(String  cssLocator)  {
+        try {
+            driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
+            return  true;
+        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException | java.util.NoSuchElementException ex) {
+            System.out.println("Element  is  not  displayed");
+            return  false;
+        }
+    }
+    
+    public String getElementId(String cssSelector)  {
+        try {
+            return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
+        } catch( org.openqa.selenium.NoSuchElementException | java.util.NoSuchElementException ex) {
+            return null;
+        }
+    }
 }
