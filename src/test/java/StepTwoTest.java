@@ -33,6 +33,7 @@ public class StepTwoTest extends BaseTest {
         headerPage.clickOnUpgradeMeButton();
         stepTwoModal.waitForModal();
     }
+    
     @Test(description = "LP - User Visits Step 2 - lessonp-12:User quits Step 2"
             + "Steps:"
             + "1.Quit Step 2 sign up process"

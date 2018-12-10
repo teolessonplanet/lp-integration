@@ -99,7 +99,6 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void selectFacetFilter(String facetCategoryName, String facetName) {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
-        waitForLoad();
     }
 
     public void changeToListView() {
