@@ -296,4 +296,24 @@ public class TestData {
     public static final String SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA = "Louisiana";
 
     public static final String SEARCH_STANDARD_GRADE_OPTION_2ND = "2nd";
+
+    public static final String STATE_STANDARDS_BREADCRUMB_HOME ="Home";
+    public static final String COMMON_CORE_BREADCRUMB = "Common Core";
+    public static final String COMMON_CORE_ENGLISH_BREADCRUMB = "English Language Arts";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB = "Science & Technical Subjects";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_INTRODUCTION_TEXT = "Introduction";
+    public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_DESCRIPTION_TEXT = "The standards below begin at grade 6; standards for K-5 reading in history/social studies, science, and technical subjects are integrated into the K-5 Reading standards. The CCR anchor standards and high school standards in literacy work in tandem to define college and career readiness expectations-the former providing broad standards, the latter providing additional specificity.";
+    public static final String COMMON_CORE_GRADE_11_12_BREADCRUMB = "Grade 11-12";
+    public static final String COMMON_CORE_STANDARD_CODE_RST_11_12_1 = "RST.11-12.1";
+    public static final String STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT = "See 61 Resources";
+
+    public static final String COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT = "Kindergarten-Grade 5";
+    public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT = "Grades 6-12 ELA";
+    public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_LITERACY_TEXT = "Grades 6-12 Literacy";
+
+    public static final String COMMON_CORE_MATHEMATICS_BREADCRUMB = "Mathematics";
+    public static final String COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB = "Standards for Mathematical Practice";
+    public static final String COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT = "Introduction";
+    public static final String COMMON_CORE_STANDARD_CODE_MP_1 = "MP1";
+    public static final String STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT = "See 1623 Resources";
 }

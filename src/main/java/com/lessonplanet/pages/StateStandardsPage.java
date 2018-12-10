@@ -12,8 +12,6 @@ public class StateStandardsPage extends LpUiBasePage {
     private static final String MAP = "#us-map-relative";
     private static final String MAP_GEORGIA_STATE = "#georgia";
 
-    private static final String VIDEO_PLAYER_WIDGET = "[class='vid-responsive mb20']";
-
     public StateStandardsPage(WebDriver driver) {
         super(driver);
     }
@@ -33,10 +31,4 @@ public class StateStandardsPage extends LpUiBasePage {
     public void clickOnNgssButton() {
         clickElement(NGSS_BUTTON);
     }
-
-    public boolean isVideoPlayerDisplayed() {
-        return isElementClickable(VIDEO_PLAYER_WIDGET);
-    }
-
-
 }

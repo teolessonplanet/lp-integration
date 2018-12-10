@@ -6,26 +6,27 @@ import util.TestData;
 
 public class StateStandardsTest extends BaseTest {
     private StateStandardsPage stateStandardsPage;
-    private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
-    private StepOnePage stepOnePage;
-    private StepOneModal stepOneModal;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private SearchStandardsWidget searchStandardsWidget;
     private SearchByStandardsPage searchByStandardsPage;
 
+    private SearchStandardWidgetTest searchStandardWidgetTest;
+    private StartYourTenDaysTrialWidgetTest startYourTenDaysTrialWidgetTest;
+    private LearnMoreVideoWidgetTest learnMoreVideoWidgetTest;
+
     @BeforeMethod
     public void beforeMethod() {
         stateStandardsPage = new StateStandardsPage(webDriver);
-        startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
-        stepOnePage = new StepOnePage(webDriver);
-        stepOneModal = new StepOneModal(webDriver);
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         searchStandardsWidget = new SearchStandardsWidget(webDriver);
         searchByStandardsPage = new SearchByStandardsPage(webDriver);
+        searchStandardWidgetTest = new SearchStandardWidgetTest(webDriver);
+        startYourTenDaysTrialWidgetTest = new StartYourTenDaysTrialWidgetTest(webDriver);
+        learnMoreVideoWidgetTest = new LearnMoreVideoWidgetTest(webDriver);
     }
-    
+
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1102:Page UI")
     public void testLessonp_1102() {
         stateStandardsPage.loadPage();
@@ -43,8 +44,9 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertEquals(stateStandardsPage.getPath(), TestData.NGSS_PAGE_PATH);
         stateStandardsPage.goBackOnePage();
 
-        testStateStandardWidgetDefaultContent();
-        Assert.assertTrue(stateStandardsPage.isVideoPlayerDisplayed());
+        searchStandardWidgetTest.testStateStandardWidgetDefaultContent();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsClickable();
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1103:Header search bar")
@@ -61,19 +63,13 @@ public class StateStandardsTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1076:Start your 10 day free trail")
     public void testLessonp_1076() {
         stateStandardsPage.loadPage();
-        Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
-        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
-        stateStandardsPage.closeTab();
-        stateStandardsPage.waitForPageLoad();
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
-        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+        startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidget();
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - 1101:Search Standards widget")
     public void testLessonp_1101() {
         stateStandardsPage.loadPage();
-        testStateStandardWidgetDefaultContent();
+        searchStandardWidgetTest.testStateStandardWidgetDefaultContent();
 
         searchStandardsWidget.clickOnStateDropdown();
         searchStandardsWidget.setStateDropdownOption(TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
@@ -101,21 +97,5 @@ public class StateStandardsTest extends BaseTest {
         Assert.assertTrue(searchStandardsWidget.isSubjectDropdownEnabled());
         searchStandardsWidget.clickOnSearchButton();
         Assert.assertTrue(searchByStandardsPage.isResultsForDisplayed(TestData.SEARCH_STANDARDS_STANDARD_OPTION_LOUISIANA));
-    }
-
-    private void testStateStandardWidgetDefaultContent() {
-        Assert.assertEquals(searchStandardsWidget.getSearchStandardsTitleText(), TestData.SEARCH_STANDARDS_TITLE_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getStateLabelText(), TestData.STATE_LABEL_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getStateDropdownText(), TestData.SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE);
-        Assert.assertEquals(searchStandardsWidget.getAllStates(), TestData.ALL_STATES_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getSubjectLabelText(), TestData.SUBJECT_LABEL_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getSubjectDropdownText(), TestData.SELECT_SUBJECT_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getAllSubjects(), TestData.ALL_SUBJECTS_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getGradeLabelText(), TestData.GRADE_LABEL_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getGradeDropdownText(), TestData.SELECT_GRADE_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getAllGrades(), TestData.ALL_GRADES_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getKeywordLabelText(), TestData.KEYWORD_LABEL_TEXT);
-        Assert.assertEquals(searchStandardsWidget.getKeywordTextboxText(), TestData.LP_HOME_PAGE_PATH);
-        Assert.assertEquals(searchStandardsWidget.getSearchButtonText(), TestData.SEARCH_BUTTON_TEXT);
     }
 }
