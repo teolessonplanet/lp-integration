@@ -433,7 +433,7 @@ public class LpUiBasePage {
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return  true;
-        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException | java.util.NoSuchElementException ex) {
+        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
             System.out.println("Element  is  not  displayed");
             return  false;
         }
@@ -442,7 +442,7 @@ public class LpUiBasePage {
     public String getElementId(String cssSelector)  {
         try {
             return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
-        } catch( org.openqa.selenium.NoSuchElementException | java.util.NoSuchElementException ex) {
+        } catch( org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
     }
