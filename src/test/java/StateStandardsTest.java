@@ -26,7 +26,7 @@ public class StateStandardsTest extends BaseTest {
         startYourTenDaysTrialWidgetTest = new StartYourTenDaysTrialWidgetTest(webDriver);
         learnMoreVideoWidgetTest = new LearnMoreVideoWidgetTest(webDriver);
     }
-    
+
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1102:Page UI")
     public void testLessonp_1102() {
         stateStandardsPage.loadPage();
@@ -46,6 +46,7 @@ public class StateStandardsTest extends BaseTest {
 
         searchStandardWidgetTest.testStateStandardWidgetDefaultContent();
         learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsClickable();
     }
 
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1103:Header search bar")

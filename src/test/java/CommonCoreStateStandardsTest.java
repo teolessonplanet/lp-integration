@@ -32,8 +32,9 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
 
         Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_ENGLISH_BREADCRUMB);
+        Assert.assertTrue(commonCorePage.isBackButtonDisplayed());
         Assert.assertTrue(commonCorePage.isBackButtonClickable());
-        Assert.assertTrue(commonCorePage.isUseFiltersTextClickable());
+        Assert.assertTrue(commonCorePage.isUseFiltersTextDisplayed());
 
         Assert.assertEquals(commonCorePage.getFirstGradeCategory(), TestData.COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT);
         Assert.assertEquals(commonCorePage.getSecondGradeCategory(), TestData.COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT);
@@ -42,6 +43,7 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         searchStandardWidgetTest.testSearchStandardWidgetIsDisplayed();
         startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidgetDisplayed();
         learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsClickable();
 
         commonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
@@ -91,12 +93,14 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
 
         Assert.assertEquals(commonCorePage.getPageTitle(), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
+        Assert.assertTrue(commonCorePage.isBackButtonDisplayed());
         Assert.assertTrue(commonCorePage.isBackButtonClickable());
-        Assert.assertTrue(commonCorePage.isUseFiltersTextClickable());
+        Assert.assertTrue(commonCorePage.isUseFiltersTextDisplayed());
 
         searchStandardWidgetTest.testSearchStandardWidgetIsDisplayed();
         startYourTenDaysTrialWidgetTest.testStartYourTenDaysTrialWidgetDisplayed();
         learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsDisplayed();
+        learnMoreVideoWidgetTest.testLearnMoreVideoWidgetIsClickable();
 
         commonCorePage.clickOnSubject(TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);

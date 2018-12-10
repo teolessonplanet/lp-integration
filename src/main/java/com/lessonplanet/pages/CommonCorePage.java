@@ -37,12 +37,16 @@ public class CommonCorePage extends LpUiBasePage {
         return isElementClickable(BACK_BUTTON);
     }
 
+    public boolean isBackButtonDisplayed() {
+        return isElementDisplayed(BACK_BUTTON);
+    }
+
     public void clickOnBackButton() {
         clickElement(BACK_BUTTON);
     }
 
-    public boolean isUseFiltersTextClickable() {
-        return isElementClickable(USE_FILTERS_TEXT);
+    public boolean isUseFiltersTextDisplayed() {
+        return isElementDisplayed(USE_FILTERS_TEXT);
     }
 
     public String getFirstGradeCategory() {
