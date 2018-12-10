@@ -3,12 +3,13 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import java.awt.Robot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
-
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +41,38 @@ public class LpUiBasePage {
         }
     }
 
+    public WebElement findElementToBeVisible(String cssLocator) {
+        waitForElementToBeVisible(cssLocator);
+        return driver.findElement(By.cssSelector(cssLocator));
+    }
+
+    protected void waitForElementToBeVisible(String cssSelector) {
+        waitForLoad();
+        logger.info("Wait until the webElement is visible: " + cssSelector);
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+        } catch (TimeoutException timeoutException) {
+            logger.error("The element " + cssSelector + " cannot be clicked");
+        }
+    }
+
     private void waitUntilElementIsClickable(WebElement webElement) {
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public void uploadUsingTextInput (String fileNameSelector, String path )  {
+       try {
+           clickElement(fileNameSelector);
+           driver.switchTo().activeElement().sendKeys(path);
+           Robot robot = new Robot();
+           robot.waitForIdle();
+           robot.keyPress(KeyEvent.VK_ESCAPE);
+           robot.keyRelease(KeyEvent.VK_ESCAPE);
+       }
+       catch (Exception e){
+           logger.info("Cannot upload file");
+       }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -263,41 +293,9 @@ public class LpUiBasePage {
         scrollToElement(findElement(cssSelector));
     }
 
-    protected void waitUntilAnimationIsDone(String cssSelector) {
-        waitForLoad();
-        webDriverWait.until(steadinessOfElementLocated(cssSelector));
-        waitForLoad();
-    }
-
-    private ExpectedCondition<WebElement> steadinessOfElementLocated(String cssSelector) {
-        return new ExpectedCondition<WebElement>() {
-            private WebElement element = null;
-            private Point location = null;
-
-            @Override
-            public WebElement apply(WebDriver driver) {
-                if (element == null) {
-                    try {
-                        element = driver.findElement(By.cssSelector(cssSelector));
-                    } catch (NoSuchElementException e) {
-                        return null;
-                    }
-                }
-
-                try {
-                    if (element.isDisplayed()) {
-                        Point currentLocation = element.getLocation();
-                        if (currentLocation.equals(location) && isOnTop(element)) {
-                            return element;
-                        }
-                        location = currentLocation;
-                    }
-                } catch (StaleElementReferenceException e) {
-                    element = null;
-                }
-                return null;
-            }
-        };
+    protected void waitUntilElementIsHidden(String cssSelector)
+    {
+        webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
     private boolean isOnTop(WebElement element) {
@@ -378,5 +376,74 @@ public class LpUiBasePage {
                 return (driver.getWindowHandles().size() > 1);
             }
         });
+    }
+
+    public void selectFromDropdown(String dropdownCssSelector, String optionsCssSelector, String option) {
+        boolean optionWasFound = false;
+        waitForLoad();
+        clickElement(dropdownCssSelector);
+        waitForLoad();
+        List<WebElement> results = findElements(optionsCssSelector);
+        for (WebElement result : results) {
+            if (result.getText().equals(option)) {
+                clickElement(result);
+                optionWasFound = true;
+                break;
+            }
+        }
+        if (!optionWasFound) {
+            logger.error("The option " + option + " was not found.");
+        }
+        waitForLoad();
+    }
+
+    public void waitForBootstrapModalToBeVisible (String modalId) {
+        waitForLoad();
+        webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector(modalId))
+                                .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.modal-backdrop"), 0),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
+        ));
+        waitForLoad();
+    }
+
+    public void waitForReactModalToBeVisible () {
+        waitForLoad();
+        webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector("div.react-modal"))
+                                .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
+        ));
+        waitForLoad();
+    }
+    
+    public boolean isElementDisplayed(String  cssLocator)  {
+        try {
+            driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
+            return  true;
+        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
+            System.out.println("Element  is  not  displayed");
+            return  false;
+        }
+    }
+    
+    public String getElementId(String cssSelector)  {
+        try {
+            return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
+        } catch( org.openqa.selenium.NoSuchElementException ex) {
+            return null;
+        }
     }
 }

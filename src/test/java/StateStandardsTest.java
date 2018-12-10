@@ -25,7 +25,7 @@ public class StateStandardsTest extends BaseTest {
         searchStandardsWidget = new SearchStandardsWidget(webDriver);
         searchByStandardsPage = new SearchByStandardsPage(webDriver);
     }
-
+    
     @Test(description = "LP - Regression Tests - Visitor - State Standards - Main Page - lessonp-1102:Page UI")
     public void testLessonp_1102() {
         stateStandardsPage.loadPage();

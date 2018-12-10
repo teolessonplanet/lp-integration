@@ -179,7 +179,6 @@ public class SearchTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         reachSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
-        rrpModal.waitForModal();
         checkRrpSample(false, true, false);
         rrpPage.closeTab();
         discoverResourcesPage.clickFreeFullAccessReview(false);
@@ -192,7 +191,6 @@ public class SearchTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         reachSearchPageInListView();
         discoverResourcesPage.clickSeeFullReview(true);
-        rrpModal.waitForModal();
         checkRrpSample(false, false, true);
         rrpPage.closeTab();
         discoverResourcesPage.clickSeeFullReview(false);
@@ -245,7 +243,6 @@ public class SearchTest extends BaseTest {
     private void testSeeReviewButton() {
         reachSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpModal.waitForModal();
         Assert.assertTrue(rrpPage.isTitleDisplayed());
         checkRrpSample(true, false, false);
         discoverResourcesPage.closeTab();
@@ -258,7 +255,6 @@ public class SearchTest extends BaseTest {
     private void testSeePreviewButton() {
         reachSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
-        rrpModal.waitForModal();
         Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
         discoverResourcesPage.closeTab();
         discoverResourcesPage.clickSeePreview(false);

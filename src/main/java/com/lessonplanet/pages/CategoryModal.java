@@ -4,18 +4,18 @@ import org.openqa.selenium.WebDriver;
 
 public class CategoryModal extends LpUiBasePage {
 
-    private static final String CLOSE_MODAL_BUTTON = "div[class*='close-modal']";
     private static final String MODAL_TITLE = "[class*='panel-container'] h4 a";
     private static final String CARETS = "[class*='panel-container'] a[class*='subcategory']";
     private static final String SUBCATEGORIES_TEXT = "[class*='react-modal'] [class='fa-ul mb0']";
+    private static final String CLOSE_MODAL_BUTTON = "div[class*='close-modal']";
 
     public CategoryModal(WebDriver driver) {
         super(driver);
     }
 
     public String getModalTitle() {
-        waitUntilAnimationIsDone(MODAL_TITLE);
-        return getTextForElement(MODAL_TITLE);
+        waitForReactModalToBeVisible();
+        return getTextForElement(findElementToBeVisible(MODAL_TITLE));
     }
 
     public void clickOnFirstCaret() {
