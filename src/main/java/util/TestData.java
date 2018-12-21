@@ -316,4 +316,6 @@ public class TestData {
     public static final String COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT = "Introduction";
     public static final String COMMON_CORE_STANDARD_CODE_MP_1 = "MP1";
     public static final String STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT = "See 1623 Resources";
+
+    public static final String TRY_IT_FREE_BUTTON_BACKGROUND_COLOR = "#5cb85c";
 }

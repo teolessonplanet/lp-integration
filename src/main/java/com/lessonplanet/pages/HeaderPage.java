@@ -226,4 +226,8 @@ public class HeaderPage extends LpUiBasePage {
     public String getSearchFilter() {
         return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
     }
+
+    public String getTryItFreeButtonBackgroundColor(){
+        return getBackgroundColor(TRY_IT_FREE_BUTTON);
+    }
 }
