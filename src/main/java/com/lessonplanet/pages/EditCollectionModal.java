@@ -14,6 +14,8 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "[class*='btn btn-default btn-text-sm']";
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
+    private static final String UPLOAD_BUTTON = "[class='fa fa-upload mr5']";
+
     public EditCollectionModal(WebDriver driver) {
         super(driver);
     }
@@ -26,6 +28,19 @@ public class EditCollectionModal extends LpUiBasePage {
         sendKeys(TITLE_INPUT, title);
     }
 
+    public void focusOnTitleInput() {
+        findElement(TITLE_INPUT).sendKeys("");
+    }
+    
+    public void typeDescription(String description) {
+        sendKeys(DESCRIPTION_INPUT, description);
+        waitForPageLoad();
+    }
+    
+    public void focusOnDescriptionInput() {
+        findElement(DESCRIPTION_INPUT).sendKeys("");
+    }
+    
     public void selectGrade(String grade) {
         selectFromDropdown(GRADE_LIST_DROPDOWN, GRADE_OPTIONS, grade);
     }
@@ -34,19 +49,20 @@ public class EditCollectionModal extends LpUiBasePage {
         selectFromDropdown(SUBJECT_DROPDOWN_INPUT, SUBJECT_OPTIONS, subject);
     }
 
-    public void typeDescription(String description) {
-        sendKeys(DESCRIPTION_INPUT, description);
-    }
-
     public void clickOnPublishCollection() {
         clickElement(PUBLISH_COLLECTION_BUTTON);
     }
-
+    
     public void clickOnMyResourceButton() {
         clickElement(MY_RESOURCES_BUTTON);
     }
-
+    
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
+    }
+    
+    public void clickOnUploadButton(){
+        waitForElement(UPLOAD_BUTTON);
+        clickElement(UPLOAD_BUTTON);
     }
 }

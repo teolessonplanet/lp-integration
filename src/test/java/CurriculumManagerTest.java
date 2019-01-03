@@ -318,7 +318,7 @@ public class CurriculumManagerTest extends BaseTest {
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewCollectionModal.waitForModal();
         createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-        createNewCollectionModal.clickOnCreateCollection();
+        createNewCollectionModal.clickOnCreateCollectionButton();
     }
 
     public void testCreateCollectionFromCurriculumManager (String collectionName) {
@@ -326,7 +326,7 @@ public class CurriculumManagerTest extends BaseTest {
         createNewCollectionModal.waitForModal();
         createNewCollectionModal.typeName(collectionName);
         createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        createNewCollectionModal.clickOnCreateCollection();
+        createNewCollectionModal.clickOnCreateCollectionButton();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
         Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();

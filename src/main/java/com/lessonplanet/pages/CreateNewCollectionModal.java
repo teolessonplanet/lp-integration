@@ -25,7 +25,7 @@ public class CreateNewCollectionModal extends LpUiBasePage {
         sendKeys(DESCRIPTION_INPUT, description);
     }
 
-    public void clickOnCreateCollection() {
+    public void clickOnCreateCollectionButton() {
         clickElement(CREATE_COLLECTION_BUTTON);
     }
 }

@@ -80,7 +80,7 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public List<WebElement> getAllResources() {
-        return findElements(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
+        return findElements(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE);
     }
 
     public WebElement getFreeAccessResource() {

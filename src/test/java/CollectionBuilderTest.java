@@ -44,7 +44,7 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
         createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        createNewCollectionModal.clickOnCreateCollection();
+        createNewCollectionModal.clickOnCreateCollectionButton();
 
         discoverResourcesPage.loadPage();
         discoverResourcesPage.clickOnListView();
