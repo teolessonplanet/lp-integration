@@ -8,7 +8,6 @@ public class BecomeALessonPlanetFreeMemberModal extends LpUiBasePage {
     private static final String TEN_DAYS_FREE_TRIAL_BUTTON = "a[class='get-free-trial-button']";
     private static final String CLOSE_MODAL_BUTTON = "[class*='modal-body'] button[class='close']";
 
-
     public BecomeALessonPlanetFreeMemberModal(WebDriver driver) {
         super(driver);
     }
@@ -24,5 +23,4 @@ public class BecomeALessonPlanetFreeMemberModal extends LpUiBasePage {
     public void clickOnCloseModalButton() {
         clickElement(CLOSE_MODAL_BUTTON);
     }
-
 }

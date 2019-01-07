@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,7 +15,6 @@ public class StepTwoTest extends BaseTest {
     private MyAccountPage myAccountPage;
     private SubscriptionSuccessPage subscriptionSuccessPage;
 
-
     @BeforeMethod
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
@@ -27,7 +27,12 @@ public class StepTwoTest extends BaseTest {
         reachStepTwoModal();
     }
 
-    private void reachStepTwoModal() {
+    public void initAndReachStepTwoModal(WebDriver webDriver){
+        this.webDriver = webDriver;
+        beforeMethod();
+    }
+
+    public void reachStepTwoModal() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
         headerPage.clickOnUpgradeMeButton();

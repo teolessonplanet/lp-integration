@@ -1,6 +1,7 @@
 package util;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -23,6 +24,8 @@ public class TestData {
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
     public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
+    public static final String CUSTOM_MEMBERSHIP_PAGE_PATH = "cancellation/new";
+    public static final String THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT = "The membership fee was too expensive for me";
 
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
@@ -134,6 +137,23 @@ public class TestData {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         Date date = new Date();
         return formatter.format(date);
+    }
+
+    public static Date GET_CURRENT_DATE() {
+        Date date = new Date();
+        return date;
+    }
+
+    public static Date ADD_DAYS_TO_DATE(Date date, int days) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE, days);
+        date = calendar.getTime();
+        return date;
+    }
+
+    public static boolean COMPARE_EQUAL_DATES(Date date1, Date date2) {
+        return date1.getYear() == date2.getYear() && date1.getMonth() == date2.getMonth() && date1.getDay() == date2.getDay();
     }
 
     //Search data
@@ -297,7 +317,7 @@ public class TestData {
 
     public static final String SEARCH_STANDARD_GRADE_OPTION_2ND = "2nd";
 
-    public static final String STATE_STANDARDS_BREADCRUMB_HOME ="Home";
+    public static final String STATE_STANDARDS_BREADCRUMB_HOME = "Home";
     public static final String COMMON_CORE_BREADCRUMB = "Common Core";
     public static final String COMMON_CORE_ENGLISH_BREADCRUMB = "English Language Arts";
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB = "Science & Technical Subjects";
@@ -318,4 +338,6 @@ public class TestData {
     public static final String STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT = "See 1623 Resources";
 
     public static final String TRY_IT_FREE_BUTTON_BACKGROUND_COLOR = "#5cb85c";
+
+    public static final String THANKS_FOR_JOINING_MODAL_TEXT = "Thanks so much for joining Lesson Planet.\nTo finish signing up, check the email we sent and click the confirmation link to activate your account.";
 }

@@ -9,4 +9,8 @@ public class ThanksForJoiningModal extends LpUiBasePage {
     public ThanksForJoiningModal(WebDriver driver) {
         super(driver);
     }
+
+    public String getModalText(){
+        return getTextForElement(MODAL_TEXT);
+    }
 }
