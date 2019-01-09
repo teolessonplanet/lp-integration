@@ -5,9 +5,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class MyAccountPage extends LpUiBasePage {
 
@@ -41,7 +44,9 @@ public class MyAccountPage extends LpUiBasePage {
         Date statusDate = null;
         String statusDateString = getTextForElement(STATUS_DATE);
         try {
-            statusDate = new SimpleDateFormat("MMMM dd,yyyy").parse(statusDateString);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd,yyyy", Locale.US);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("PST"));
+            statusDate = simpleDateFormat.parse(statusDateString);
         } catch (Exception e) {
             logger.error("Cannot parse the status date: " + statusDateString);
         }

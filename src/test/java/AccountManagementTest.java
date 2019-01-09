@@ -50,7 +50,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.changeToListView();
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-        becomeALessonPlanetFreeMemberModal.clickOnFreeMemberButton();
+        becomeALessonPlanetFreeMemberModal.clickOnFreeMemberLink();
         freeMemberLimitedAccessModal.typeEmailAddress(TestData.GET_NEW_EMAIL());
         freeMemberLimitedAccessModal.typePassword(TestData.VALID_PASSWORD);
         freeMemberLimitedAccessModal.clickOnGetStartedButton();
@@ -77,7 +77,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(myAccountPage.getPlan(), TestData.STARTER_OPTION_TEXT);
 
         customMembershipPage.loadPage();
-        customMembershipPage.clickOnSpecialOffersAndCancelationsButton();
+        customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
         customMembershipPage.clickOnReasonsDropdown();
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueButton();

@@ -5,11 +5,11 @@ import util.TestData;
 
 public class CustomMembershipPage extends LpUiBasePage {
 
-    private static final String SPECIAL_OFFERS_AND_CANCELLATIONS = "[class*='special-offers'] a";
+    private static final String SPECIAL_OFFERS_AND_CANCELLATIONS_LINK = "[class*='special-offers'] a";
     private static final String REASONS_DROPDOWN = "#s2id_cancellation_option_id";
     private static final String REASONS_DROPDOWN_OPTIONS = "[class='select2-result-label']";
     private static final String CONTINUE_BUTTON = "[value='Continue']";
-    private static final String NO_THANKS_CONFIRM_CANCELLATION_BUTTON = "[data-method='delete']";
+    private static final String NO_THANKS_CONFIRM_CANCELLATION_LINK = "#cancel_modal [class*='btn-link']";
 
     public CustomMembershipPage(WebDriver driver) {
         super(driver);
@@ -19,8 +19,8 @@ public class CustomMembershipPage extends LpUiBasePage {
         loadUrl(TestData.CUSTOM_MEMBERSHIP_PAGE_PATH);
     }
 
-    public void clickOnSpecialOffersAndCancelationsButton() {
-        clickElement(SPECIAL_OFFERS_AND_CANCELLATIONS);
+    public void clickOnSpecialOffersAndCancellationsLink() {
+        clickElement(SPECIAL_OFFERS_AND_CANCELLATIONS_LINK);
     }
 
     public void clickOnReasonsDropdown() {
@@ -36,6 +36,6 @@ public class CustomMembershipPage extends LpUiBasePage {
     }
 
     public void clickOnNoThanksConfirmCancellationButton() {
-        clickElement(NO_THANKS_CONFIRM_CANCELLATION_BUTTON);
+        clickElement(NO_THANKS_CONFIRM_CANCELLATION_LINK);
     }
 }

@@ -105,9 +105,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
         final String currentPath = getPath();
         loadPage();
         clickOnListView();
-        if (!getPath().equals(currentPath)) {
-            loadUrl(currentPath);
-        }
+        loadUrl(currentPath);
     }
 
     public void changeToTiledView() {
