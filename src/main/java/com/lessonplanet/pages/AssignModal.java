@@ -52,5 +52,4 @@ public class AssignModal extends LpUiBasePage {
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
     }
-
 }

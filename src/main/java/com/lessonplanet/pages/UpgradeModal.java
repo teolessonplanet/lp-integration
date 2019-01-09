@@ -6,6 +6,7 @@ public class UpgradeModal extends LpUiBasePage {
 
     private static final String UPGRADE_MODAL_FROM_MAX_COLLECTION_LIMIT = "#collection-limit-hit-modal";
     private static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT = "#collection-limit-hit-modal [class='modal-body']";
+    private static final String UPGRADE_MODAL_CLOSE_BUTTON_FROM_MAX_COLLECTION_LIMIT = "#collection-limit-hit-modal [class='close']";
     private static final String UPGRADE_ME_BUTTON_FROM_MAX_COLLECTION_LIMIT = "#collection-limit-hit-modal [href='/subscription/new']";
 
     private static final String UPGRADE_MODAL_FROM_UPLOAD_BUTTON = "#freemium-unauthorized-upload-modal";
@@ -15,12 +16,11 @@ public class UpgradeModal extends LpUiBasePage {
     private static final String UPGRADE_MODAL_FROM_ASSIGN_BUTTON = "#popup-modal";
     private static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "#popup-modal [class='modal-body']";
     private static final String UPGRADE_ME_BUTTON_FROM_ASSIGN_MODAL = "#popup-modal [class='get-now-btn']";
-    private static final String STEP_TWO_BUTTON = "[href='/subscription/new']";
-    private static final String STEP_TWO_BUTTON_COPY = "#collection-limit-hit-modal [href='/subscription/new']";
-    private static final String STEP_TWO_BUTTON_ASSIGN = "#popup-modal [class='get-now-btn']";
 
-    private static final String UPGRADE_MAX_ITEMS_MODAL = "#max-items-limit-hit-modal";
-
+    private static final String UPGRADE_MODAL_CLOSE_BUTTON_FROM_UPLOAD = "#freemium-unauthorized-upload-modal [class='close']";
+    private static final String UPGRADE_MODAL_FROM_EXCEEDED_ITEMS_INSIDE_COLLECTION = "#max-items-limit-hit-modal";
+    private static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_COLLECTION = "#max-items-limit-hit-modal [class='modal-body']";
+    private static final String UPGRADE_ME_BUTTON_FROM_MAX_ITEMS_LIMIT_MODAL = "#max-items-limit-hit-modal [class='get-now-btn']";
 
     public UpgradeModal(WebDriver driver) {
         super(driver);
@@ -66,28 +66,21 @@ public class UpgradeModal extends LpUiBasePage {
         clickElement(UPGRADE_ME_BUTTON_FROM_ASSIGN_MODAL);
     }
 
-    public void waitForUpgradeModalFromMaxItemsLimit(){
-        waitForBootstrapModalToBeVisible(UPGRADE_MAX_ITEMS_MODAL);
+    public void waitForUpgradeModalFromMaxItemsLimit() {
+        waitForBootstrapModalToBeVisible(UPGRADE_MODAL_FROM_EXCEEDED_ITEMS_INSIDE_COLLECTION);
     }
 
-    public void clickOnUpgradeButtonFromAssign(){
-        clickElement(STEP_TWO_BUTTON_ASSIGN);
+    public String getTextFromUpgradeModalFromMaxItemsLimit() {
+        return getTextForElement(UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_COLLECTION);
     }
 
-    public void clickOnUpgradeButton(){
-        clickElement(STEP_TWO_BUTTON);
+    public void clickOnUpgradeMeButtonFromMaxItemsLimitHitModal(){
+        clickElement(UPGRADE_ME_BUTTON_FROM_MAX_ITEMS_LIMIT_MODAL);
     }
 
-
-    public void clickOnUpgradeButtonFromCopy(){
-       // waitForBootstrapModalToBeVisible(UPGRADE_COPY_MODAL);
-        //findElement(STEP_TWO_BUTTON);
-        clickElement(STEP_TWO_BUTTON_COPY);
-      //  waitForLoad();
-       // clickElement(STEP_TWO_BUTTON_COPY);
+    public void clickOnCloseUpgradeModalFromUploadButton() {
+        waitForElement(UPGRADE_MODAL_CLOSE_BUTTON_FROM_UPLOAD);
+        clickElement(UPGRADE_MODAL_CLOSE_BUTTON_FROM_UPLOAD);
     }
 
-   // public void clickOnGetFullAccessNowButton(){
-   //     clickElement(GET_FULL_ACCESS_NOW_BUTTON);
-   // }
 }
