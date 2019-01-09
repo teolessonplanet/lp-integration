@@ -9,7 +9,7 @@ public class HeaderPage extends LpUiBasePage {
 
     private static final String LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
-    private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade']";
+    private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade'] a";
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
     private static final String SIGN_IN_BUTTON = "[class='lp-sign-in'] a";
 
@@ -225,5 +225,13 @@ public class HeaderPage extends LpUiBasePage {
 
     public String getSearchFilter() {
         return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
+    }
+
+    public String getTryItFreeButtonBackgroundColor(){
+        return getBackgroundColor(TRY_IT_FREE_BUTTON);
+    }
+
+    public String getUpgradeMeButtonBackgroundColor(){
+        return getBackgroundColor(UPGRADE_ME_BUTTON);
     }
 }

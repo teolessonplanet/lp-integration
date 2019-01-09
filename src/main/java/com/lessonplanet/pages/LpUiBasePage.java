@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import java.awt.Robot;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -428,7 +429,7 @@ public class LpUiBasePage {
         ));
         waitForLoad();
     }
-    
+
     public boolean isElementDisplayed(String  cssLocator)  {
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
@@ -438,12 +439,17 @@ public class LpUiBasePage {
             return  false;
         }
     }
-    
+
     public String getElementId(String cssSelector)  {
         try {
             return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
         } catch( org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
+    }
+
+    protected String getBackgroundColor(String cssSelector) {
+        waitForLoad();
+        return Color.fromString(findElement(cssSelector).getCssValue("background-color")).asHex();
     }
 }

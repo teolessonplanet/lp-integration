@@ -83,6 +83,10 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
     }
 
+    public List<WebElement> getAllFreeAccessButtons(){
+        return findElements(GET_FREE_ACCESS_BUTTON);
+    }
+
     public int getCountUnlockedResourcesInListMode() {
         return findElements(UNLOCKED_RESOURCES_IN_LIST_VIEW).size();
     }
