@@ -80,7 +80,7 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
         customMembershipPage.clickOnReasonsDropdown();
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
-        customMembershipPage.clickOnContinueButton();
+        customMembershipPage.clickOnContinueInput();
         customMembershipPage.clickOnNoThanksConfirmCancellationButton();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
