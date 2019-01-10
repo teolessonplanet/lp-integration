@@ -11,6 +11,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private LpHomePage lpHomePage;
     private DiscoverResourcesPage discoverResourcesPage;
     private StepTwoPage stepTwoPage;
+    private RrpPage rrpPage;
     private RrpModal rrpModal;
     private UpgradeModal upgradeModal;
     private CollectionBuilderPage collectionBuilderPage;
@@ -27,6 +28,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         lpHomePage = new LpHomePage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
+        rrpPage = new RrpPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         upgradeModal = new UpgradeModal(webDriver);
         upgradeUploadModal = new UpgradeUploadModal(webDriver);
@@ -101,7 +103,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpModal.clickOnUpgradeForFullReviewButton();
+        rrpPage.clickOnUpgradeForFullReviewButton();
         testStepTwoPageUrlAndTitle();
     }
 

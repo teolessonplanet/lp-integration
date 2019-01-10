@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
+
 public class RrpModal extends Rrp {
     private static final String RRP_MODAL = "#resource-modal";
     private static final String CLOSE_MODAL_BUTTON = "[class*='resource-modal-close']";
@@ -22,5 +23,4 @@ public class RrpModal extends Rrp {
         waitForModal();
         return super.isTitleDisplayed();
     }
-
 }
