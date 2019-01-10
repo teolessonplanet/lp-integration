@@ -45,4 +45,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     public void clickOnMyResources() {
         clickElement(MY_RESOURCES);
     }
+
+    public void clickOnUploadButton() {
+    }
 }

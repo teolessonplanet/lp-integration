@@ -22,4 +22,5 @@ public class RrpModal extends Rrp {
         waitForModal();
         return super.isTitleDisplayed();
     }
+
 }

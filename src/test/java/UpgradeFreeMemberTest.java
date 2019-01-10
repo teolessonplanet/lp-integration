@@ -1,17 +1,15 @@
 import com.lessonplanet.pages.*;
-
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
+import java.util.List;
 
 public class UpgradeFreeMemberTest extends BaseTest {
 
     private LpHomePage lpHomePage;
-    private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private StepTwoModal stepTwoModal;
     private StepTwoPage stepTwoPage;
     private RrpModal rrpModal;
     private UpgradeModal upgradeModal;
@@ -20,23 +18,25 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerTest curriculumManagerTest;
     private StepOnePage stepOnePage;
-    private MyAccountPage myAccountPage;
+    private UpgradeUploadModal upgradeUploadModal;
+    private UpgradeAssignModal upgradeAssignModal;
+    private UpgradeMaxCollectionModal upgradeMaxCollectionModal;
 
     @BeforeMethod
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
-        loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         upgradeModal = new UpgradeModal(webDriver);
+        upgradeUploadModal = new UpgradeUploadModal(webDriver);
+        upgradeAssignModal = new UpgradeAssignModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
-        curriculumManagerTest = new CurriculumManagerTest(webDriver);
         stepOnePage = new StepOnePage(webDriver);
-        myAccountPage = new MyAccountPage(webDriver);
+        upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
+        createAFreemiumAccount();
     }
 
     private void createAFreemiumAccount(){
@@ -44,173 +44,142 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "lessonp-687: Freemium member clicks the Get Free Access button on a resource card")
+    @Test(description = "lessonp-687: Free member clicks the <Get Free Access> button on a resource card")
     public void testLessonp_687() {
-        createAFreemiumAccount();
         testUpgradeFreeMemberFromGetFreeAccessButton();
     }
 
-    @Test(description = "lessonp-688: Freemium member clicks the Upgrade for Full Review button on the RRP")
+    @Test(description = "lessonp-688: Free member clicks the <Upgrade for Full Review> button on the RRP")
     public void testLessonp_688() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromUpgradeforFullReviewButton();
+        testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
-    @Test(description = "lessonp-686: Freemium member tries to upload a file")
+    @Test(description = "lessonp-686: Free member tries to upload a file")
     public void testLessonp_686() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromUploadButton();
-    }
-
-    @Test(description = "lessonp-684: Freemium members exceeds the allowed nr of collections created")
-    public void testLessonp_684() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromNumberOfCollectionsExceededCreated();
-    }
-
-    @Test(description = "lessonp-1000:Freemium member tries to save a 4th collection")
-        public void testLessonp_1000() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromNumberOfCollectionsExceededSaved();
-    }
-
-    @Test(description = "lessonp-690:Freemium member tries to Assign a favorited resource or a collection")
-    public void testLessonp_690() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromAssignButton();
-    }
-
-    @Test(description = "lessonp-685:Freemium members exceeds the allowed nr of items inside a collection")
-    public void testLessonp_685() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromNumberOfItemsExceededInsideACreatedCollection();
-    }
-
-    @Test(description = "lessonp-689:Freemium member tries to save a collection containing more than 10 items")
-    public void testLessonp_689() {
-        createAFreemiumAccount();
-        testUpgradeFreeMemberFromNumberOfItemsExceededInsideASavedCollection();
-    }
-
-    private void testUpgradeFreeMemberFromGetFreeAccessButton(){
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnListView();
-        discoverResourcesPage.clickGetFreeAccess(false);
-        testStepTwoModal();
-    }
-
-    private void testStepTwoModal(){
-        Assert.assertTrue(stepTwoModal.isStepTwoModalDisplayed());
-        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoModal.getTitleText());
-        stepTwoModal.clickOnCloseModal();
-    }
-
-    private void testUpgradeFreeMemberFromUpgradeforFullReviewButton(){
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnListView();
-        discoverResourcesPage.clickSeeReview(false);
-        rrpModal.clickOnUpgradeForFullReviewButton();
-        testStepTwoModal();
-    }
-
-    private void testUpgradeFreeMemberFromUploadButton(){
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManager();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
-        discoverResourcesPage.loadPage();
-        collectionBuilderPage.clickOnUploadButton();
-        testDisplayStep2PageFromGetFullAccessButton();
+    @Test(description = "lessonp-684: Free members exceeds the allowed nr of collections created")
+    public void testLessonp_684() {
+        testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManager(){
-        curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
-        curriculumManagerPage.clickOnUploadResourceButton();
-        testDisplayStep2PageFromGetFullAccessButton();
+    @Test(description = "lessonp-1000:Free member tries to save a 4th collection")
+        public void testLessonp_1000() {
+        testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal(){
-        curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
-        curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.collectionName[1]);
-        curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.waitForModal();
-        editCollectionModal.clickOnUploadButton();
-        testDisplayStep2PageFromGetFullAccessButton();
+    @Test(description = "lessonp-690:Free member tries to assign a favorited resource and a collection")
+    public void testLessonp_690() {
+        testUpgradeFreeMemberFromAssignResource();
+        testUpgradeFreeMemberFromAssignCollection();
     }
 
-    private void testDisplayStep2PageFromGetFullAccessButton(){
-        upgradeModal.waitForUpgradeModalFromUploadButton();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromUploadButton(), TestData.UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON);
-        upgradeModal.clickOnGetFullAccessNow();
-        testStepTwoPage();
+    @Test(description = "lessonp-685:Free members exceeds the allowed nr of items inside a collection")
+    public void testLessonp_685() {
+        testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
 
-    private void testStepTwoPage(){
+    @Test(description = "lessonp-689:Free member tries to save a collection containing more than 10 items")
+    public void testLessonp_689() {
+        testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
+    }
+
+    private void testUpgradeFreeMemberFromGetFreeAccessButton(){
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickGetFreeAccess(true);
+        testStepTwoPageUrlAndTitle();
+    }
+
+    private void testStepTwoPageUrlAndTitle(){
         Assert.assertTrue(lpHomePage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
     }
 
-    private void testUpgradeFreeMemberFromNumberOfCollectionsExceededCreated(){
-        curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
-        for(int i=0; i<=2; i++) {
-            curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.collectionName[i]);
-        }
-        curriculumManagerPage.clickOnCreateACollectionButton();
-        upgradeModal.waitForUpgradeModalFromMaxCollectionLimit();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromMaxCollectionLimit(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_NR_OF_COLLECTIONS);
-        upgradeModal.clickOnUpgradeMeButtonFromMaxCollectionLimit();
-        testStepTwoPage();
+    private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeReview(true);
+        rrpModal.clickOnUpgradeForFullReviewButton();
+        testStepTwoPageUrlAndTitle();
     }
 
-    private void testUpgradeFreeMemberFromNumberOfCollectionsExceededSaved(){
-        curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
-        for(int i=0; i<=2; i++) {
-            curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.collectionName[i]);
-        }
+    private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
         discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnListView();
+        collectionBuilderPage.clickOnUploadButton();
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.testUpgradeModalFromUploadButton();
+    }
+
+    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManager(){
+        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
+    }
+
+    private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal(){
+        curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
+        collectionBuilderPage.clickOnEditCollection();
+        editCollectionModal.waitForModal();
+        editCollectionModal.clickOnUploadButton();
+        curriculumManagerTest.testUpgradeModalFromUploadButton();
+    }
+
+    private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated(){
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.testMaxLimitOfCollectionsCreated();
+    }
+
+    private void testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved(){
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.testCreateThreeCollections();
+        discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         rrpModal.clickOnSaveCollectionButton();
-        upgradeModal.waitForUpgradeModalFromMaxItemsLimit();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromMaxItemsLimit(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_NR_OF_COLLECTIONS);
-        upgradeModal.clickOnUpgradeMeButtonFromMaxCollectionLimit();
-        testStepTwoPage();
+        curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
     }
 
-    private void testUpgradeFreeMemberFromAssignButton(){
+    private void testUpgradeFreeMemberFromAssignResource() {
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
         curriculumManagerTest.testFavoriteRegularResource(TestData.FREE_MEMBERSHIP_TEXT);
-        curriculumManagerPage.hoverOverActionsDropdown();
-        curriculumManagerPage.clickOnAssignButton();
-        upgradeModal.waitForUpgradeModalFromAssignButton();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromAssignButton(), TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
-        upgradeModal.clickOnUpgradeButtonFromAssign();
-        testStepTwoPage();
+        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
+    }
 
-        curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
+    private void testUpgradeFreeMemberFromAssignCollection(){
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerPage.loadPage();
         curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         curriculumManagerTest.testAddRequiredInformationToCollection(TestData.FREE_MEMBERSHIP_TEXT);
-        curriculumManagerPage.hoverOverActionsDropdown();
-        curriculumManagerPage.clickOnAssignButton();
-        upgradeModal.waitForUpgradeModalFromAssignButton();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromAssignButton(), TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
-        upgradeModal.clickOnUpgradeButtonFromAssign();
-        testStepTwoPage();
+        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
 
-    private void  testUpgradeFreeMemberFromNumberOfItemsExceededInsideASavedCollection(){
-        discoverResourcesPage.loadPage();
+    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection(){
+        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
+        List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
+        for (int i=0; i<=10; i++){
+            discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
+        }
+     //   testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
+    }
+
+    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection(){
+        discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         rrpModal.clickOnSaveCollectionButton();
-        upgradeModal.waitForUpgradeModalFromMaxItemsLimit();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromMaxItemsLimit(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_COLLECTION);
-        upgradeModal.clickOnUpgradeMeButtonFromMaxItemsLimitHitModal();
-        testStepTwoPage();
+    //    testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
-    private void testUpgradeFreeMemberFromNumberOfItemsExceededInsideACreatedCollection(){
-
+    private void testUpgradeModalFromMaxItemsInsideCollection (String bodyText){
+        upgradeModal.waitForUpgradeModalFromMaxItemsLimit();
+        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromMaxItemsLimit(), bodyText);
+        upgradeModal.clickOnUpgradeMeButton();
+        testStepTwoPageUrlAndTitle();
     }
 }

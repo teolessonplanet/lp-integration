@@ -60,4 +60,10 @@ public class Rrp extends LpUiBasePage {
     public void clickOnAddToCollectionDropdown() {
         clickElement(ADD_TO_COLLECTION_DROPDOWN);
     }
+
+    public void clickOnUpgradeForFullReviewButton() {
+    }
+
+    public void clickOnSaveCollectionButton() {
+    }
 }
