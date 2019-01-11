@@ -1,7 +1,5 @@
 package com.lessonplanet.pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 public class EditCollectionModal extends LpUiBasePage {
@@ -16,8 +14,6 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "[class*='btn btn-default btn-text-sm']";
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
-    private static final Logger logger = LogManager.getRootLogger();
-
     public EditCollectionModal(WebDriver driver) {
         super(driver);
     }
@@ -31,12 +27,10 @@ public class EditCollectionModal extends LpUiBasePage {
     }
 
     public void selectGrade(String grade) {
-        waitForModal();
         selectFromDropdown(GRADE_LIST_DROPDOWN, GRADE_OPTIONS, grade);
     }
 
     public void selectSubject(String subject) {
-        waitForModal();
         selectFromDropdown(SUBJECT_DROPDOWN_INPUT, SUBJECT_OPTIONS, subject);
     }
 

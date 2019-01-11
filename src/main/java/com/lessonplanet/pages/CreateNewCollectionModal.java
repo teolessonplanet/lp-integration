@@ -13,7 +13,8 @@ public class CreateNewCollectionModal extends LpUiBasePage {
     }
 
     public void waitForModal() {
-        waitForBootstrapModalToBeVisible(CREATE_NEW_COLLECTION_MODAL); }
+        waitForBootstrapModalToBeVisible(CREATE_NEW_COLLECTION_MODAL);
+    }
 
     public void typeName(String name) {
         sendKeys(NAME_INPUT, name);

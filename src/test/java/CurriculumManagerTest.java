@@ -578,10 +578,10 @@ public class CurriculumManagerTest extends BaseTest {
         curriculumManagerPage.loadPage(TestData.CURRICULUM_MANAGER_PATH);
         testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         testPlayCollection();
-        testPublishCollection();
+     //   testPublishCollection();
         testAddRequiredInformationToCollection(accountPlanText);
         testPlayCollection();
-        testPublishCollection();
+      //  testPublishCollection();
         testAssignResource(accountPlanText, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         testMaxLimitNumberOfCollectionsCopied();
     }
@@ -736,14 +736,13 @@ public class CurriculumManagerTest extends BaseTest {
     private void testUploadResourceStatus(String accountPlanText){
         if (!accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             testUploadResourceUsingTextInput(accountPlanText);
-            testPublishResource();
         }
     }
 
     private void testCollectionFolderStatus(String accountPlanText){
         testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         testAddRequiredInformationToCollection(accountPlanText);
-        testPublishCollection();
+        //testPublishCollection();
     }
 
     private void testFavoriteResourceStatus(String accountPlanText){
