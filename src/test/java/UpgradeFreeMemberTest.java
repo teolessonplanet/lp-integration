@@ -15,7 +15,6 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private RrpModal rrpModal;
     private UpgradeModal upgradeModal;
     private CollectionBuilderPage collectionBuilderPage;
-    private CurriculumManagerPage curriculumManagerPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerTest curriculumManagerTest;
     private StepOnePage stepOnePage;
@@ -34,10 +33,10 @@ public class UpgradeFreeMemberTest extends BaseTest {
         upgradeUploadModal = new UpgradeUploadModal(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        curriculumManagerPage = new CurriculumManagerPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         stepOnePage = new StepOnePage(webDriver);
         upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
+        curriculumManagerTest = new CurriculumManagerTest();
         createAFreemiumAccount();
     }
 
@@ -56,10 +55,10 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
-    @Test(description = "lessonp-686: Free member tries to upload a file")
+    @Test(description = "lessonp-686: Free member tries to upload a file from Collection Builder, Curriculum Manager and Edit Collection")
     public void testLessonp_686() {
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
-        testUpgradeFreeMemberFromUploadButtonFromCurriculumManager();
+        testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
     }
 
@@ -73,7 +72,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved();
     }
 
-    @Test(description = "lessonp-690:Free member tries to assign a favorited resource and a collection")
+    @Test(description = "lessonp-690:Free member tries to assign a favorite resource and a collection")
     public void testLessonp_690() {
         testUpgradeFreeMemberFromAssignResource();
         testUpgradeFreeMemberFromAssignCollection();
@@ -110,12 +109,11 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnUploadButton();
-        curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManager(){
+    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage(){
         curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
@@ -129,13 +127,12 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated(){
         curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testMaxLimitOfCollectionsCreated();
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved(){
-        curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateThreeCollections();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -144,24 +141,20 @@ public class UpgradeFreeMemberTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromAssignResource() {
-        curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testFavoriteRegularResource(TestData.FREE_MEMBERSHIP_TEXT);
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromAssignCollection(){
-        curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
-        curriculumManagerPage.loadPage();
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         curriculumManagerTest.testAddRequiredInformationToCollection(TestData.FREE_MEMBERSHIP_TEXT);
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection(){
-        curriculumManagerTest = new CurriculumManagerTest();
-        curriculumManagerTest.initAndReachCM(webDriver);
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();

@@ -68,7 +68,7 @@ public class CurriculumManagerTest extends BaseTest {
         shareLinkModal = new ShareLinkModal(webDriver);
     }
 
-    public void initAndReachCM(WebDriver webDriver){
+    public void reachCurriculumManagerPage(WebDriver webDriver){
         this.webDriver = webDriver;
         beforeMethod();
     }
