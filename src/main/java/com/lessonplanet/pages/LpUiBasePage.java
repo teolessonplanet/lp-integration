@@ -17,7 +17,7 @@ import java.util.List;
 public class LpUiBasePage {
 
     protected static final Logger logger = LogManager.getRootLogger();
-    protected WebDriver driver;
+    private WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
 
@@ -27,7 +27,7 @@ public class LpUiBasePage {
         webDriverWait = new WebDriverWait(driver, TestData.TIMEOUT);
     }
 
-    public WebElement findElement(String cssLocator) {
+    protected WebElement findElement(String cssLocator) {
         waitForElement(cssLocator);
         return driver.findElement(By.cssSelector(cssLocator));
     }
@@ -73,17 +73,17 @@ public class LpUiBasePage {
     }
 
     public void uploadUsingTextInput(String fileNameSelector, String path) {
-        try {
-            clickElement(fileNameSelector);
-            driver.switchTo().activeElement().sendKeys(path);
-            Robot robot = new Robot();
-            robot.waitForIdle();
-            robot.keyPress(KeyEvent.VK_ESCAPE);
-            robot.keyRelease(KeyEvent.VK_ESCAPE);
-        }
-        catch (Exception e){
-            logger.info("Cannot upload file");
-        }
+       try {
+           clickElement(fileNameSelector);
+           driver.switchTo().activeElement().sendKeys(path);
+           Robot robot = new Robot();
+           robot.waitForIdle();
+           robot.keyPress(KeyEvent.VK_ESCAPE);
+           robot.keyRelease(KeyEvent.VK_ESCAPE);
+       }
+       catch (Exception e){
+           logger.info("Cannot upload file");
+       }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -165,7 +165,7 @@ public class LpUiBasePage {
         return element.getText();
     }
 
-    public String getTextForElement(String cssSelector) {
+    protected String getTextForElement(String cssSelector) {
         return getTextForElement(findElement(cssSelector));
     }
 

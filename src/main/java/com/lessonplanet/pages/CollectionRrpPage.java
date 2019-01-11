@@ -2,7 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class CollectionRrpPage extends Rrp {
+public class CollectionRrpPage extends RrpPage {
 
     private static final String SAVE_COLLECTION_BUTTON = "[class='save-collection-btn']";
 

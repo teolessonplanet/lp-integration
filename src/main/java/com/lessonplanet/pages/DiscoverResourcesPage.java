@@ -1,7 +1,6 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import util.TestData;
 
 import java.text.NumberFormat;
@@ -19,6 +18,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     private static final String FACETS_CATEGORIES = "[class='panel panel-default mb5']";
     private static final String FACET_OPTIONS = "li";
+
     private static final String MY_RESOURCE_BUTTON = "[class*='cb-my-resources-btn btn btn-primary']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
@@ -137,5 +137,4 @@ public class DiscoverResourcesPage extends ResourcesPage {
     public boolean isSignUpPopupLinkDisplyed() {
         return isElementClickable(SIGN_UP_POPUP);
     }
-
 }

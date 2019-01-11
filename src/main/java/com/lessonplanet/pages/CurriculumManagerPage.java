@@ -189,15 +189,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
                 findElement('#' + getElementId(COLLECTION_ROW) + RESOURCE_TITLE).click();
         }
 
-        public boolean isCollectionFolderDisplayed() {
-                String id = getElementId(COLLECTION_ROW);
-                if (id != null) {
-                        return isElementDisplayed('#' + id);
-                } else {
-                        return false;
-                }
-        }
-
         public boolean isResourceInCollectionDisplayed() {
                 return isElementDisplayed('#' + getElementId(RESOURCE_ROW) + RESOURCE_TITLE);
         }

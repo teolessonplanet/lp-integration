@@ -23,8 +23,6 @@ public class CollectionCreatedModal extends LpUiBasePage {
 
     public void clickOnSubmitButton() {
         waitForBootstrapModalToBeVisible(COLLECTION_CREATED_MODAL);
-        findElement(SUBMIT_BUTTON);
         clickElement(SUBMIT_BUTTON);
-        waitForLoad();
     }
 }

@@ -19,6 +19,7 @@ public class TestData {
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL = "https://s3.amazonaws.com/dev-lessonplanet-files/drive/";
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "https://staging.lessonplanet.com/goto/";
 
+    //URLs
     public static final String LP_HOME_PAGE_PATH = "";
     public static final String STEP_ONE_PAGE_PATH = "subscription/new";
     public static final String LOGIN_PAGE_PATH = "auth/users/sign_in";
@@ -27,11 +28,10 @@ public class TestData {
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
     public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
     public static final String CUSTOM_MEMBERSHIP_PAGE_PATH = "cancellation/new";
-    public static final String THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT = "The membership fee was too expensive for me";
     public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_PLAYER_PATH = "/player";
 
-    //curriculum manager
+    //Curriculum Manager
     public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT  = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
@@ -78,42 +78,43 @@ public class TestData {
     public static final String TWITTER_URL = "https://twitter.com";
     public static final String GOOGLE_URL = "https://plus.google.com";
 
-    //footer
+    //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
     public static final String MANAGE_MY_RESOURCES_PAGE_PATH = "us/videos?autoplay=curriculum_manager";
     public static final String SHARING_WITH_OTHERS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
+
     public static final String OUR_REVIEW_PROCESS_PAGE_PATH = "content/how_it_works";
     public static final String HOW_IT_WORKS_PAGE_PATH = "us/videos?autoplay=review";
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
+
     public static final String FACEBOOK_PAGE_URL = "https://www.facebook.com/LessonPlanet";
     public static final String TWITTER_PAGE_URL = "https://twitter.com/lessonplanet";
     public static final String GOOGLE_PAGE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
     public static final String LINKEDIN_PAGE_URL = "https://www.linkedin.com/company/lesson-planet";
     public static final String YOUTUBE_PAGE_URL = "https://www.youtube.com/user/lessonplanet";
     public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
+
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
     public static final String TERMS_OF_USE_PAGE_PATH = "us/terms_of_use";
+
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
-    //log in
+    //Email and password
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemium-account@lessonplanet.com";
-    public static final String VALID_STARTER_EMAIL = "starter-account@lessonplanet.com";
-    public static final String VALID_PRIME_EMAIL = "prime-account@lessonplanet.com";
-    public static final String VALID_PRO_EMAIL = "pro-account@lessonplanet.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
+
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
-    public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
 
-    //search facet
+    //Search Facet
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS = "Collections";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
@@ -124,6 +125,7 @@ public class TestData {
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
     public static final String SELECT_TEXT = "Select";
+
     public static final String STARTER_OPTION_TEXT = "Starter";
     public static final String PRIME_OPTION_TEXT = "Prime";
     public static final String PRO_OPTION_TEXT = "Pro";
@@ -138,9 +140,20 @@ public class TestData {
     private static final String PRIME_ANNUALLY = "36";
     private static final String PRO_MONTHLY = "6";
     private static final String PRO_ANNUALLY = "72";
-    public static String GET_STARTER_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY); }
-    public static String GET_PRIME_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY); }
-    public static String GET_PRO_BILLING_TERMS_MESSAGE() { return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY); }
+    public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
+
+    public static String GET_STARTER_BILLING_TERMS_MESSAGE() {
+        return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY);
+    }
+
+    public static String GET_PRIME_BILLING_TERMS_MESSAGE() {
+        return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY);
+    }
+
+    public static String GET_PRO_BILLING_TERMS_MESSAGE() {
+        return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY);
+    }
+
     public static final String FREE_MEMBERSHIP_TEXT = "Free Membership";
 
     //Credit card info STAGING
@@ -156,7 +169,10 @@ public class TestData {
 
     //Subscription success page
     public static final String SUBSCRIPTION_SUCCESS_PAGE_TITLE = "Thank you for signing up for Lesson Planet";
+
+    //Subscription edit page
     public static final String MANAGE_MEMBERSHIP_TITLE_MESSAGE = "Manage Membership";
+    public static final String THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT = "The membership fee was too expensive for me";
 
     //Sign In Modal
     public static final String SIGN_IN_MODAL_TITLE_TEXT = "Sign in to Lesson Planet";

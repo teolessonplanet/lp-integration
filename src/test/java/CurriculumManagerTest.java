@@ -269,7 +269,7 @@ public class CurriculumManagerTest extends BaseTest {
         if (!loggedIn) {
             loadSearchPageInListView();
             discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
-            final WebElement resource = discoverResourcesPage.getResource();
+            final WebElement resource = discoverResourcesPage.getFreeAccessResource();
             discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
             becomeALessonPlanetFreeMemberModal.waitForModal();
             becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
@@ -297,7 +297,7 @@ public class CurriculumManagerTest extends BaseTest {
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewCollectionModal.waitForModal();
         createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-        createNewCollectionModal.clickOnCreateCollectionButton();
+        createNewCollectionModal.clickOnCreateCollection();
     }
 
     private void testCreateCollectionFromCurriculumManager (String collectionName) {
@@ -308,7 +308,7 @@ public class CurriculumManagerTest extends BaseTest {
             createNewCollectionModal.waitForModal();
             createNewCollectionModal.typeName(collectionName);
             createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-            createNewCollectionModal.clickOnCreateCollectionButton();
+            createNewCollectionModal.clickOnCreateCollection();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
             Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
             curriculumManagerPage.waitForNotificationToDisappear();
