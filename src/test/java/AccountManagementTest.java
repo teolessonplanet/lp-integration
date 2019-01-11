@@ -20,6 +20,7 @@ public class AccountManagementTest extends BaseTest {
     private StepTwoTest stepTwoTest;
     private MyAccountPage myAccountPage;
     private CustomMembershipPage customMembershipPage;
+    private StepOnePage stepOnePage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,6 +35,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         customMembershipPage = new CustomMembershipPage(webDriver);
+        stepOnePage = new StepOnePage(webDriver);
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717:Try It Free button")
@@ -89,4 +91,26 @@ public class AccountManagementTest extends BaseTest {
         final int expectedDaysToExpire = 11;
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
+
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-681:Downgrade from paid to free membership")
+    public void testLessonp_681() {
+
+    }
+
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-682:Downgrade from Freemium")
+    public void testLessonp_682() {
+        lpHomePage.loadPage();
+        stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.FREE_MEMBERSHIP_TEXT);
+
+
+
+        myAccountPage.loadPage();
+
+    }
+
+
 }
