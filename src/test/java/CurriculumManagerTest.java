@@ -1,6 +1,5 @@
 import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -66,6 +65,11 @@ public class CurriculumManagerTest extends BaseTest {
         assignModal = new AssignModal(webDriver);
         shareEmailModal = new ShareEmailModal(webDriver);
         shareLinkModal = new ShareLinkModal(webDriver);
+    }
+
+    public void reachCurriculumManagerPage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")
@@ -296,8 +300,8 @@ public class CurriculumManagerTest extends BaseTest {
         if (!loggedIn) {
             discoverResourcesPage.loadSearchPageInListView();
             discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
-            final WebElement resource = discoverResourcesPage.getFreeAccessResource();
-            discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
+           // final WebElement resource = discoverResourcesPage.getResource();
+          //  discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
             becomeALessonPlanetFreeMemberModal.waitForModal();
             becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
             discoverResourcesPage.waitForLoad();
@@ -767,7 +771,7 @@ public class CurriculumManagerTest extends BaseTest {
     private void testCollectionFolderStatus(String accountPlanText){
         testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         testAddRequiredInformationToCollection(accountPlanText);
-        //testPublishCollection();
+        testPublishCollection();
     }
 
     private void testFavoriteResourceStatus(String accountPlanText){
@@ -790,6 +794,4 @@ public class CurriculumManagerTest extends BaseTest {
         testFavoriteResource(TestData.FREE_SAMPLE_RESOURCE_STATUS);
     }
 
-    public void reachCurriculumManagerPage(WebDriver webDriver) {
-    }
 }

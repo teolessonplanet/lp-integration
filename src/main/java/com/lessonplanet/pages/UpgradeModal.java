@@ -21,10 +21,6 @@ public class UpgradeModal extends LpUiBasePage {
         return getTextForElement(UPGRADE_MODAL_TEXT_FROM_MAX_ITEMS_INSIDE_COLLECTION_LIMIT);
     }
 
-    public void clickOnUpgradeMeButtonFromMaxItemsLimit(){
-        clickElement(UPGRADE_ME_BUTTON_FROM_MAX_ITEMS_INSIDE_COLLECTION_LIMIT);
-    }
-
     public void clickOnUpgradeMeButton(){
         clickElement(UPGRADE_ME_BUTTON);
     }
