@@ -2,6 +2,8 @@ package util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class TestData {
 
@@ -182,6 +184,23 @@ public class TestData {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         Date date = new Date();
         return formatter.format(date);
+    }
+
+    public static Date GET_CURRENT_DATE() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("PST"));
+        return calendar.getTime();
+    }
+
+    public static Date ADD_DAYS_TO_DATE(Date date, int days) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE, days);
+        return calendar.getTime();
+    }
+
+    public static boolean COMPARE_EQUAL_DATES(Date date1, Date date2) {
+        return date1.getYear() == date2.getYear() && date1.getMonth() == date2.getMonth() && date1.getDay() == date2.getDay() && date1.getTimezoneOffset() == date2.getTimezoneOffset();
     }
 
     //Search data
