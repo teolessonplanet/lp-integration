@@ -3,7 +3,6 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class CreateNewCollectionModal extends LpUiBasePage {
-
     private static final String CREATE_NEW_COLLECTION_MODAL = "#js-create-collection-modal";
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";

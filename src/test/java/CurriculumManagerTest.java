@@ -68,11 +68,6 @@ public class CurriculumManagerTest extends BaseTest {
         shareLinkModal = new ShareLinkModal(webDriver);
     }
 
-    public void reachCurriculumManagerPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        beforeMethod();
-    }
-
     @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")
     public void testLessonp_3258() {
         lpHomePage.loadPage();
@@ -304,7 +299,7 @@ public class CurriculumManagerTest extends BaseTest {
             final WebElement resource = discoverResourcesPage.getFreeAccessResource();
             discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
             becomeALessonPlanetFreeMemberModal.waitForModal();
-            becomeALessonPlanetFreeMemberModal.clickOnCloseButton();
+            becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
             discoverResourcesPage.waitForLoad();
             collectionBuilderPage.clickOnEditCollection();
             Assert.assertTrue(collectionBuilderPage.isSignInPopupLinkDisplayed());
@@ -793,5 +788,8 @@ public class CurriculumManagerTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testFavoriteResource(TestData.FREE_SAMPLE_RESOURCE_STATUS);
+    }
+
+    public void reachCurriculumManagerPage(WebDriver webDriver) {
     }
 }
