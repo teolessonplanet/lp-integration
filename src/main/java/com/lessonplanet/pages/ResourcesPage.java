@@ -88,11 +88,6 @@ public class ResourcesPage extends LpUiBasePage {
         return findElement(GET_FREE_ACCESS_BUTTON);
     }
 
-    public WebElement getFreeAccessResource() {
-        waitForPageLoad();
-        return findElement(GET_FREE_ACCESS_BUTTON);
-    }
-
     public List<WebElement> getAllFreeAccessButtons(){
         return findElements(GET_FREE_ACCESS_BUTTON);
     }
