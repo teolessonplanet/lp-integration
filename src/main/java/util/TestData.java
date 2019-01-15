@@ -1,8 +1,8 @@
 package util;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Calendar;
 import java.util.TimeZone;
 
 public class TestData {
@@ -29,14 +29,14 @@ public class TestData {
     public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_PLAYER_PATH = "/player";
 
-    //curriculum manager
-    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
+    //Curriculum Manager
+
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this collection, but don't let that stop you!\n" + "Upgrade today to create more collections of any size and enjoy the benefits of full membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION = "As a Free Member you can only save collections with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited collections, and enjoy the benefits of a Full Membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT  = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION = "As a Free Member you can only save collections with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited collections, and enjoy the benefits of a Full Membership.";
-
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Collection Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String COLLECTION_CREATED_MESSAGE = "Collection created!";
@@ -78,11 +78,12 @@ public class TestData {
     public static final String TWITTER_URL = "https://twitter.com";
     public static final String GOOGLE_URL = "https://plus.google.com";
 
-    //footer
+    //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
     public static final String MANAGE_MY_RESOURCES_PAGE_PATH = "us/videos?autoplay=curriculum_manager";
     public static final String SHARING_WITH_OTHERS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
+
     public static final String OUR_REVIEW_PROCESS_PAGE_PATH = "content/how_it_works";
     public static final String HOW_IT_WORKS_PAGE_PATH = "us/videos?autoplay=review";
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
@@ -98,19 +99,18 @@ public class TestData {
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
     public static final String TERMS_OF_USE_PAGE_PATH = "us/terms_of_use";
+
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
     //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemium-account@lessonplanet.com";
-    public static final String VALID_STARTER_EMAIL = "starter-account@lessonplanet.com";
-    public static final String VALID_PRIME_EMAIL = "prime-account@lessonplanet.com";
-    public static final String VALID_PRO_EMAIL = "pro-account@lessonplanet.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
+
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -125,6 +125,7 @@ public class TestData {
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
     public static final String SELECT_TEXT = "Select";
+
     public static final String STARTER_OPTION_TEXT = "Starter";
     public static final String PRIME_OPTION_TEXT = "Prime";
     public static final String PRO_OPTION_TEXT = "Pro";
@@ -364,7 +365,7 @@ public class TestData {
 
     public static final String SEARCH_STANDARD_GRADE_OPTION_2ND = "2nd";
 
-    public static final String STATE_STANDARDS_BREADCRUMB_HOME ="Home";
+    public static final String STATE_STANDARDS_BREADCRUMB_HOME = "Home";
     public static final String COMMON_CORE_BREADCRUMB = "Common Core";
     public static final String COMMON_CORE_ENGLISH_BREADCRUMB = "English Language Arts";
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB = "Science & Technical Subjects";
@@ -408,3 +409,4 @@ public class TestData {
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
     public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 }
+
