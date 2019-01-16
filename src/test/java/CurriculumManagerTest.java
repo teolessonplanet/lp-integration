@@ -358,7 +358,8 @@ public class CurriculumManagerTest extends BaseTest {
             testUpgradeModalFromUploadButton();
         } else {
             uploadFileModal.waitForModal();
-            uploadFileModal.uploadUsingTextInput(System.getProperty("user.dir")+ File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"images"+File.separator+"test-upload-file.png");
+            File file = new File(System.getProperty("user.dir")+File.separator +"src"+File.separator+"main"+File.separator+"resources"+File.separator+"images"+File.separator+"test-upload-file.png");
+            uploadFileModal.uploadUsingTextInput(file.getPath());
             uploadFileModal.selectGrade(TestData.UPLOAD_YOUR_FILE_GRADE);
             uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
             uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
