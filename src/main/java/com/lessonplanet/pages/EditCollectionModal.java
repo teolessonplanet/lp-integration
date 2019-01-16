@@ -43,7 +43,6 @@ public class EditCollectionModal extends LpUiBasePage {
     }
     
     public void clickOnMyResourceButton() {
-        waitForElement(MY_RESOURCES_BUTTON);
         clickElement(MY_RESOURCES_BUTTON);
     }
     

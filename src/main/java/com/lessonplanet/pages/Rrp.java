@@ -11,6 +11,11 @@ public class Rrp extends LpUiBasePage {
     protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
 
     private static final String GO_TO_RESOURCE_BUTTON = "[class='panel-heading'] a[class*='goto']";
+    private static final String FAVORITE_BUTTON = "[class='btn btn-default mb0 js-new-user-resource trk-save-resource']";
+    private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class='alert alert-success alert-dismissible mb0'] a[href='/my/curriculum_manager']";
+    private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
+    private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
+    private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -34,5 +39,25 @@ public class Rrp extends LpUiBasePage {
 
     public boolean isFreeSampleDisplayed() {
         return isElementClickable(FREE_SAMPLE);
+    }
+
+    public void clickOnViewFavoritesLink() {
+        clickElement(VIEW_FAVORITE_RESOURCE_LINK);
+    }
+
+    public void clickCollectionFromAddToCollectionDropdown() {
+        clickElement(EXISTING_COLLECTION);
+    }
+
+    public void clickOnFavoriteButton() {
+        clickElement(FAVORITE_BUTTON);
+    }
+
+    public String getNotificationText() {
+        return findElement(NOTIFICATION_TEXT).getText();
+    }
+
+    public void clickOnAddToCollectionDropdown() {
+        clickElement(ADD_TO_COLLECTION_DROPDOWN);
     }
 }

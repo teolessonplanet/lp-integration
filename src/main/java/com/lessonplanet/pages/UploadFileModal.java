@@ -29,7 +29,6 @@ public class UploadFileModal extends LpUiBasePage  {
 
     public void typeDescription(String description) {
         sendKeys(DESCRIPTION_INPUT, description);
-        waitForPageLoad();
     }
 
     public void selectGrade(String grade) {

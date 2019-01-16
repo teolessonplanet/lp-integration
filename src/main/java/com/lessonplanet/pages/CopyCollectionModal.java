@@ -2,7 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class CopyCollectionModal extends Rrp {
+public class CopyCollectionModal extends LpUiBasePage{
 
     public static final String CREATE_COPY_BUTTON = "[class*='btn-primary mr5']";
     private static final String NAME_INPUT = "[name='collectionTitle']";

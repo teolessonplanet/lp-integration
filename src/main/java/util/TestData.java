@@ -1,6 +1,4 @@
 package util;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,7 +17,7 @@ public class TestData {
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL = "https://s3.amazonaws.com/dev-lessonplanet-files/drive/";
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "https://staging.lessonplanet.com/goto/";
 
-    //URLs
+    //Paths
     public static final String LP_HOME_PAGE_PATH = "";
     public static final String STEP_ONE_PAGE_PATH = "subscription/new";
     public static final String LOGIN_PAGE_PATH = "auth/users/sign_in";
@@ -53,8 +51,7 @@ public class TestData {
     public static final String UPLOAD_RESOURCE_TITLE = "test-upload-file";
     public static final String UPLOAD_RESOURCE_EDIT_TITLE = UPLOAD_RESOURCE_TITLE + EDIT_TITLE;
     public static final String[] collectionName = {"Collection 1", "Collection 2", "Collection 3", "Collection 4"};
-    public static final String COPY_TEXT = "Copy of ";
-    public static final String COPIED_COLLECTION_NAME = COPY_TEXT + EDIT_COLLECTION_NAME ;
+    public static final String COPIED_COLLECTION_NAME = "Copy of " + EDIT_COLLECTION_NAME ;
     public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
     public static final String PUBLISH_RESOURCE_TITLE = "test publish resource";
     public static final String SHARE_LINK_MODAL_TITLE = "Share a Link to this Resource";
@@ -89,12 +86,12 @@ public class TestData {
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
 
-    public static final String FACEBOOK_PAGE_URL = "https://www.facebook.com/LessonPlanet";
-    public static final String TWITTER_PAGE_URL = "https://twitter.com/lessonplanet";
-    public static final String GOOGLE_PAGE_URL = "https://plus.google.com/117101455580789057170/?prsrc=3";
-    public static final String LINKEDIN_PAGE_URL = "https://www.linkedin.com/company/lesson-planet";
-    public static final String YOUTUBE_PAGE_URL = "https://www.youtube.com/user/lessonplanet";
-    public static final String PINTEREST_PAGE_URL = "https://www.pinterest.com/lessonplanet/";
+    public static final String FACEBOOK_LP_URL = FACEBOOK_URL + "/LessonPlanet";
+    public static final String TWITTER_LP_URL = TWITTER_URL + "/lessonplanet";
+    public static final String GOOGLE_LP_URL = GOOGLE_URL + "/117101455580789057170/?prsrc=3";
+    public static final String LINKEDIN_LP_URL = "https://www.linkedin.com/company/lesson-planet";
+    public static final String YOUTUBE_LP_URL = "https://www.youtube.com/user/lessonplanet";
+    public static final String PINTEREST_LP_URL = "https://www.pinterest.com/lessonplanet/";
 
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
@@ -102,7 +99,7 @@ public class TestData {
 
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
-    //Email and password
+    //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
@@ -167,10 +164,10 @@ public class TestData {
     public static final String INVALID_CARD_CVV = "22";
     public static final String ZIP_CODE = "578631";
 
-    //Subscription success page
+    //Subscription Success Page
     public static final String SUBSCRIPTION_SUCCESS_PAGE_TITLE = "Thank you for signing up for Lesson Planet";
 
-    //Subscription edit page
+    //Subscription Edit Page
     public static final String MANAGE_MEMBERSHIP_TITLE_MESSAGE = "Manage Membership";
     public static final String THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT = "The membership fee was too expensive for me";
 

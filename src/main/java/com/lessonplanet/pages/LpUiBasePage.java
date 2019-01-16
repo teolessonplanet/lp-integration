@@ -417,10 +417,10 @@ public class LpUiBasePage {
                         .getCssValue("opacity").equals("1");
                 }
             },
-            ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.modal-backdrop"), 0),
             ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
         ));
         waitForLoad();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
     }
 
     public void waitForReactModalToBeVisible() {
@@ -433,10 +433,10 @@ public class LpUiBasePage {
                         .getCssValue("opacity").equals("1");
                 }
             },
-            ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("div.react-modal-overlay"), 0),
             ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
         ));
         waitForLoad();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal-overlay")));
     }
 
     public boolean isElementDisplayed(String cssLocator) {

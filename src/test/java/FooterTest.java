@@ -135,37 +135,37 @@ public class FooterTest extends BaseTest {
         footerPage.clickOnLessonPlanetFacebookButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.FACEBOOK_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.FACEBOOK_LP_URL);
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetTwitterButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.TWITTER_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.TWITTER_LP_URL);
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetGoogleButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.GOOGLE_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.GOOGLE_LP_URL);
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetLinkedInButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.LINKEDIN_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.LINKEDIN_LP_URL);
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetYoutubeButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.YOUTUBE_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.YOUTUBE_LP_URL);
         footerPage.closeTab();
 
         footerPage.clickOnLessonPlanetPinterestButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.PINTEREST_PAGE_URL);
+        Assert.assertEquals(footerPage.getUrl(), TestData.PINTEREST_LP_URL);
         footerPage.closeTab();
     }
 

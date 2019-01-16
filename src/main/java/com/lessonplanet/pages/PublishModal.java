@@ -28,7 +28,7 @@ public class PublishModal extends LpUiBasePage {
         sendKeys(TITLE_INPUT, title);
     }
 
-    public void checkAgreementOption() {
+    public void clickAgreementOption() {
         clickElement(AGREEMENT_CHECKBOX);
     }
 

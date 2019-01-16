@@ -2,6 +2,7 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import util.TestData;
 
 public class CurriculumManagerPage extends LpUiBasePage {
         private static final String ALERT_NOTIFICATION = "[class*='alert']";
@@ -47,8 +48,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
                 super(driver);
         }
 
-        public void loadPage(String subjectPath) {
-                loadUrl(subjectPath);
+        public void loadPage() {
+                loadUrl(TestData.CURRICULUM_MANAGER_PAGE_PATH);
         }
 
         public String getNotificationText(){
