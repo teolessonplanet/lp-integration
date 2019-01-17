@@ -13,7 +13,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private RrpPage rrpPage;
     private RrpModal rrpModal;
-    private UpgradeModal upgradeModal;
+    private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerTest curriculumManagerTest;
@@ -26,6 +26,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private StateStandardsPage stateStandardsPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
+    private CollectionRrpModal collectionRrpModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,10 +35,13 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         rrpPage = new RrpPage(webDriver);
         rrpModal = new RrpModal(webDriver);
-        upgradeModal = new UpgradeModal(webDriver);
         upgradeUploadModal = new UpgradeUploadModal(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
+        upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
+        upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
+
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
+        collectionRrpModal = new CollectionRrpModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         stepOnePage = new StepOnePage(webDriver);
         upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
@@ -152,7 +156,8 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testCreateThreeCollections();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
-        rrpModal.clickOnSaveCollectionButton();
+        collectionRrpModal.waitForModal();
+        collectionRrpModal.clickOnSaveCollectionButton();
         curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
     }
 
@@ -177,25 +182,25 @@ public class UpgradeFreeMemberTest extends BaseTest {
         for (int i=0; i<=10; i++){
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
         }
-     //   testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
+        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
-        while (rrpModal.getItemsCount()<10){
-            rrpModal.clickCloseModal();
+        while (collectionRrpModal.getItemsCount()<10){
+            collectionRrpModal.clickCloseModal();
             discoverResourcesPage.clickOnNextButton();
             discoverResourcesPage.clickSeeCollection(false);
         }
         rrpModal.clickOnSaveCollectionButton();
-    //    testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
+       testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
     private void testUpgradeModalFromMaxItemsInsideCollection (String bodyText){
-        upgradeModal.waitForUpgradeModalFromMaxItemsLimit();
-        Assert.assertEquals(upgradeModal.getTextFromUpgradeModalFromMaxItemsLimit(), bodyText);
-        upgradeModal.clickOnUpgradeMeButton();
+        upgradeMaxItemsCollectionModal.waitForModal();
+        Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
+        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton();
         testStepTwoPageUrlAndTitle();
     }
 

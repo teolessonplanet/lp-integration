@@ -1,5 +1,6 @@
 import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -300,8 +301,8 @@ public class CurriculumManagerTest extends BaseTest {
         if (!loggedIn) {
             discoverResourcesPage.loadSearchPageInListView();
             discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
-           // final WebElement resource = discoverResourcesPage.getResource();
-          //  discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
+            final WebElement resource = discoverResourcesPage.getFreeAccessResource();
+            discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
             becomeALessonPlanetFreeMemberModal.waitForModal();
             becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
             discoverResourcesPage.waitForLoad();

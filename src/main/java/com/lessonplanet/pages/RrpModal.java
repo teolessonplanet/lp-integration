@@ -1,11 +1,6 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
-import util.TestData;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
-
 
 public class RrpModal extends Rrp {
     private static final String RRP_MODAL = "#resource-modal";

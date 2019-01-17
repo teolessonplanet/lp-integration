@@ -36,10 +36,6 @@ public class StepTwoModal extends LpHomePage {
         waitForBootstrapModalToBeVisible(STEP_TWO_MODAL);
     }
 
-    public boolean isStepTwoModalDisplayed(){
-        return isElementDisplayed(STEP_TWO_MODAL);
-    }
-
     public String getTitleText() {
         waitForModal();
         return getTextForElement(TITLE_TEXT);
