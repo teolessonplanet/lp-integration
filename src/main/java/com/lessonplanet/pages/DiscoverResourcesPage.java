@@ -101,6 +101,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
     }
 
+    public void loadSearchPageInListView(){
+        loadPage();
+        clickOnListView();
+    }
+
     public void changeToListView() {
         final String currentPath = getPath();
         loadPage();
