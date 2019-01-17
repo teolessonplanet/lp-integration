@@ -9,7 +9,6 @@ public class CustomMembershipPage extends LpUiBasePage {
     private static final String REASONS_DROPDOWN = "#s2id_cancellation_option_id";
     private static final String REASONS_DROPDOWN_OPTIONS = "[class='select2-result-label']";
     private static final String CONTINUE_INPUT = "input[value='Continue']";
-    private static final String NO_THANKS_CONFIRM_CANCELLATION_LINK = "#cancel_modal [class*='btn-link']";
 
     public CustomMembershipPage(WebDriver driver) {
         super(driver);
@@ -35,7 +34,4 @@ public class CustomMembershipPage extends LpUiBasePage {
         clickElement(CONTINUE_INPUT);
     }
 
-    public void clickOnNoThanksConfirmCancellationButton() {
-        clickElement(NO_THANKS_CONFIRM_CANCELLATION_LINK);
-    }
 }

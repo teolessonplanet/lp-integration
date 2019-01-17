@@ -17,6 +17,7 @@ public class MyAccountPage extends LpUiBasePage {
     private static final String PLAN_TEXT = "h5[class='mt5']";
     private static final String RENEW_NOW_BUTTON = "td [data-track-click='Renew Now']";
     private static final String STATUS_DATE = "td [class='text-success']";
+    private static final String MANAGE_MEMBERSHIP_LINK = "li a[href='/subscription/edit']";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -51,5 +52,13 @@ public class MyAccountPage extends LpUiBasePage {
             logger.error("Cannot parse the status date: " + statusDateString);
         }
         return statusDate;
+    }
+
+    public boolean isManageMembershipLinkDisplayed() {
+        return isElementDisplayed(MANAGE_MEMBERSHIP_LINK);
+    }
+
+    public void clickOnManageMembershipLink() {
+        clickElement(MANAGE_MEMBERSHIP_LINK);
     }
 }
