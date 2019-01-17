@@ -387,8 +387,10 @@ public class CurriculumManagerTest extends BaseTest {
         stepTwoPage.goBackOnePage();
     }
 
-    private void testRemoveUploadResource(){
-        curriculumManagerPage.clickOnMyUploadsFolder();
+    private void testRemoveUploadResource(String accountPlanText){
+        if(!accountPlanText.equals(TestData.PRO_OPTION_TEXT)) {
+            curriculumManagerPage.clickOnMyUploadsFolder();
+        }
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.clickOnRemoveButton();
@@ -402,7 +404,7 @@ public class CurriculumManagerTest extends BaseTest {
         testPlayResource(accountPlanText);
         testShareResource();
         testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
-        testGoToResource();
+        testGoToResource(accountPlanText);
         testRemoveFavoriteResource();
     }
 
@@ -516,11 +518,13 @@ public class CurriculumManagerTest extends BaseTest {
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
         } else {
             testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
-            curriculumManagerPage.clickOnMyFavoritesFolder();
         }
     }
 
-    private void testGoToResource(){
+    private void testGoToResource(String accountPlanText){
+        if(!accountPlanText.equals(TestData.PRO_OPTION_TEXT)){
+            curriculumManagerPage.clickOnMyFavoritesFolder();
+        }
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnGoToResourceButton();
         rrpModal.waitForModal();
@@ -548,7 +552,7 @@ public class CurriculumManagerTest extends BaseTest {
             testPlayResource(accountPlanText);
             testPublishUploadResource();
             testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
-            testRemoveUploadResource();
+            testRemoveUploadResource(accountPlanText);
         }
     }
 
