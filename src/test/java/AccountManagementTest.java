@@ -121,12 +121,27 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Create a Free Member account - lessonp-948:Downgrade from Pro membership")
     public void testLessonp_948() {
+        testDowngrade(TestData.PRO_OPTION_TEXT, TestData.PRIME_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-947:Downgrade from Prime membership")
+    public void testLessonp_947() {
+        testDowngrade(TestData.PRIME_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-683:Downgrade from Starter membership")
+    public void testLessonp_983() {
+        testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+    }
+
+
+    private void testDowngrade(String subscriptionToTest, String lowerSubscrption) {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.PRO_OPTION_TEXT);
+        stepTwoModal.completeStepTwoModalWith(subscriptionToTest);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
         manageMembershipPage.clickOnMoreAccountOptionsButton();
@@ -136,12 +151,20 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
 
+//        Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),);
+        if(subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)){
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+        } else if((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))){
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+        } else{
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
+        }
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscrption);
 
         manageMembershipPage.loadPage();
-        manageMembershipPage.upgradeSubscriptionAndReturn(TestData.PRO_OPTION_TEXT);
+        manageMembershipPage.upgradeSubscriptionAndReturn(subscriptionToTest);
 
         customMembershipPage.loadPage();
 
@@ -150,14 +173,25 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
 
+        if(subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)){
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+        } else if((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))){
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+        } else{
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
+        }
         cancelModal.clickOnNoThanksConfirmCancellationButton();
         myAccountPage.loadPage();
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
-
+ String sdasdsd = "Are you sure you want to cancel your Lesson Planet membership?\n" +
+         "Your current membership\n" +
+         "Individual Membership\n" +
+         "Renewal Amount: $2.00\n" +
+         "Renewal Date: January 29, 2019";
 }
