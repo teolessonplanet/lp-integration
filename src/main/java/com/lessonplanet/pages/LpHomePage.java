@@ -26,7 +26,7 @@ public class LpHomePage extends LpUiBasePage {
         clickElement(SEARCH_BUTTON);
     }
 
-    public void clickOnUpdateMeButton(boolean inANewTab) {
+    public void clickOnUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 }

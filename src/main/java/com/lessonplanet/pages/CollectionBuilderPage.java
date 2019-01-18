@@ -10,7 +10,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
     private static final String EDIT_COLLECTION_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
     private static final String MY_RESOURCES = "[class*='cb-my-resources-btn btn btn-primary']";
-
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
     private static final String UPLOAD_BUTTON = "[class='fa fa-upload']";
