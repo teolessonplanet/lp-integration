@@ -1,10 +1,6 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
-import util.TestData;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
 
 public class Rrp extends LpUiBasePage {
 
@@ -21,7 +17,7 @@ public class Rrp extends LpUiBasePage {
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
-    private static final String ITEMS_COUNT = "[class='rrp-items-count']";
+    private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "a[href='/subscription/new']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -67,22 +63,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(ADD_TO_COLLECTION_DROPDOWN);
     }
 
-    public void clickOnUpgradeForFullReviewButton() {
+    public void clickOnUpgradeForFullReviewButton (boolean inANewTab){
+        openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
-
-    public void clickOnSaveCollectionButton() {
-    }
-
-    public int getItemsCount() {
-        String rawNumber = getTextForElement(ITEMS_COUNT);
-        int number;
-        try {
-            number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
-        } catch (ParseException e) {
-            throw new Error("The number " + rawNumber + " cannot be parsed");
-        }
-        return number;
-    }
-
-
 }

@@ -19,10 +19,6 @@ public class CollectionRrpModal extends CollectionRrp {
         return super.isCollectionTitleDisplayed();
     }
 
-    public void clickOnSaveCollectionButton(){
-        super.clickOnSaveCollectionButton();
-    }
-
     public void clickCloseModal() {
         clickElement(CLOSE_MODAL_BUTTON);
     }

@@ -3,26 +3,18 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class RrpPage extends Rrp {
-    private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "a[href='/subscription/new']";
-    private static final String UPGRADE_ME_START_YOUR_FREE_TRIAL_BUTTON = "[class='panel panel-default'] [class='btn btn-success ']";
-    private static final String UPGRADE_ME_BOTTOM_BUTTON = "[class='btn btn-success btn-lg mb10 mt20']";
+    private static final String START_YOUR_FREE_TRIAL_GREEN_BUTTON = "[class='panel panel-default'] [class='btn btn-success ']";
+    private static final String BOTTOM_GREEN_BUTTON = "[class='btn btn-success btn-lg mb10 mt20']";
+
     public RrpPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickOnUpgradeForFullReviewButton (){
-        openInANewTab(UPGRADE_FOR_FULL_REVIEW_BUTTON);
+    public void clickOnStartYourFreeTrialGreenButton(boolean inANewTab){
+        openInANewTabOrClick(START_YOUR_FREE_TRIAL_GREEN_BUTTON, inANewTab);
     }
 
-    public void clickOnUpgradeMeButtonFromStartYourFreeTrialBox(){
-        scrollToElement(UPGRADE_ME_START_YOUR_FREE_TRIAL_BUTTON);
-        openInANewTab(UPGRADE_ME_START_YOUR_FREE_TRIAL_BUTTON);
+    public void clickOnBottomGreenButton(boolean inANewTab){
+        openInANewTabOrClick(BOTTOM_GREEN_BUTTON, inANewTab);
     }
-
-    public void clickOnUpgradeMeButtonFromRrpBottomPage(){
-        scrollToElement(UPGRADE_ME_BOTTOM_BUTTON);
-        openInANewTab(UPGRADE_ME_BOTTOM_BUTTON);
-    }
-
-
 }

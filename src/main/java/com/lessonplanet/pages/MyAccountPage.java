@@ -63,7 +63,11 @@ public class MyAccountPage extends LpUiBasePage {
         clickElement(MANAGE_MEMBERSHIP_LINK);
     }
 
-    public void clickOnUpgradeMeButton(){
+    public void clickOnUpgradeMeButton() {
         openInANewTab(UPGRADE_ME_BUTTON);
+    }
+    
+    public void clickOnUpgradeMeButton(boolean inANewTab){
+        openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 }
