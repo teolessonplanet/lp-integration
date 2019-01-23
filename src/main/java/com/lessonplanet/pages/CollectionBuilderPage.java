@@ -13,6 +13,9 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
     private static final String EDIT_COLLECTION_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
 
+    private static final String SIGN_IN_POPUP = "[class='bold']";
+    private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
+
     public CollectionBuilderPage(WebDriver driver) {
         super(driver);
     }
@@ -35,5 +38,13 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnEditCollection() {
         clickElement(EDIT_COLLECTION_BUTTON);
+    }
+
+    public boolean isSignInPopupLinkDisplayed() {
+        return isElementClickable(SIGN_IN_POPUP);
+    }
+
+    public boolean isSignUpPopupLinkDisplayed() {
+        return isElementClickable(SIGN_UP_POPUP);
     }
 }

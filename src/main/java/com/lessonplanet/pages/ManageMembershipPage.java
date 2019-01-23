@@ -10,6 +10,7 @@ public class ManageMembershipPage extends LpUiBasePage {
 
     private static final String OFFER_CONTAINERS = "[class='plan-container']";
     private static final String SELECT_BUTTONS = "[name='button']";
+    private static final String TITLE_TEXT = "[class='mt0']";
 
     public ManageMembershipPage(WebDriver driver) {
         super(driver);
@@ -17,6 +18,10 @@ public class ManageMembershipPage extends LpUiBasePage {
 
     public void loadPage() {
         loadUrl(TestData.MANAGE_MEMBERSHIP_PAGE_PATH);
+    }
+
+    public String getTitleText() {
+        return getTextForElement(TITLE_TEXT);
     }
 
     private void upgradeSubscription(String newSubscription) {

@@ -78,7 +78,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickSeePreview(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
         super.clickSeePreview(inANewTab);
     }
 
@@ -99,6 +99,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void selectFacetFilter(String facetCategoryName, String facetName) {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
+    }
+
+    public void loadSearchPageInListView(){
+        loadPage();
+        clickOnListView();
     }
 
     public void changeToListView() {

@@ -72,6 +72,7 @@ public class DirectoryTest extends BaseTest {
     }
 
     @Test(description = "Active user - Directory Page - lessonp-1043:Show All button")
+
     public void testLessonp_1043() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testShowAllButton();

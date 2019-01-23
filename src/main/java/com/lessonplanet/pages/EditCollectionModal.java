@@ -1,11 +1,6 @@
 package com.lessonplanet.pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class EditCollectionModal extends LpUiBasePage {
     private static final String EDIT_COLLECTION_MODAL = "#edit-collection-modal";
@@ -16,8 +11,8 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
     private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
     private static final String PUBLISH_COLLECTION_BUTTON = "[class*='share-collection']";
-
-    private static final Logger logger = LogManager.getRootLogger();
+    private static final String MY_RESOURCES_BUTTON = "[class*='btn btn-default btn-text-sm']";
+    private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
     public EditCollectionModal(WebDriver driver) {
         super(driver);
@@ -32,12 +27,10 @@ public class EditCollectionModal extends LpUiBasePage {
     }
 
     public void selectGrade(String grade) {
-        waitForModal();
         selectFromDropdown(GRADE_LIST_DROPDOWN, GRADE_OPTIONS, grade);
     }
 
     public void selectSubject(String subject) {
-        waitForModal();
         selectFromDropdown(SUBJECT_DROPDOWN_INPUT, SUBJECT_OPTIONS, subject);
     }
 
@@ -47,5 +40,13 @@ public class EditCollectionModal extends LpUiBasePage {
 
     public void clickOnPublishCollection() {
         clickElement(PUBLISH_COLLECTION_BUTTON);
+    }
+    
+    public void clickOnMyResourceButton() {
+        clickElement(MY_RESOURCES_BUTTON);
+    }
+    
+    public void clickOnCloseButton() {
+        clickElement(CLOSE_BUTTON);
     }
 }
