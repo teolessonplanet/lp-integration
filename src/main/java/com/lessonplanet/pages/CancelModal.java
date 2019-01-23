@@ -8,6 +8,7 @@ public class CancelModal extends LpUiBasePage {
     private static final String MODAL_CONTENT_TEXT = "#cancel_modal [class*='modal-body']";
     private static final String YES_SIGN_UP_INPUT = "#cancel_modal input[value='Yes, Sign Up']";
     private static final String NO_THANKS_CONFIRM_CANCELLATION_LINK = "#cancel_modal [class*='btn-link']";
+    private static final String CONFIRM_CANCELLATION_INPUT = "#cancel_modal [class*='btn-action']";
 
     public CancelModal(WebDriver driver) {
         super(driver);
@@ -29,5 +30,10 @@ public class CancelModal extends LpUiBasePage {
     public void clickOnNoThanksConfirmCancellationButton() {
         waitForModal();
         clickElement(NO_THANKS_CONFIRM_CANCELLATION_LINK);
+    }
+
+    public void clickOnConfirmCancellation(){
+        waitForModal();
+        clickElement(CONFIRM_CANCELLATION_INPUT);
     }
 }

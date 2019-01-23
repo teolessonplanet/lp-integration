@@ -386,12 +386,8 @@ public class TestData {
 
     public static final String THANKS_FOR_JOINING_MODAL_TEXT = "Thanks so much for joining Lesson Planet.\nTo finish signing up, check the email we sent and click the confirmation link to activate your account.";
 
-    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT = "Are you sure you want to cancel your Lesson Planet membership?\nYour current membership\nIndividual Membership\nRenewal Amount: $2.00\nRenewal Date: January 29, 2019";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT = "Are you sure you want to cancel your Lesson Planet membership?\nYour current membership\nIndividual Membership\nRenewal Amount: $2.00\nRenewal Date:";
     public static final String CANCEL_MODAL_FROM_STARTER_TEXT = "Want to take it one month at a time?\nContinue with a monthly plan today for just $2/mo.\nGet full access to all the benefits of Lesson Planet, with no annual commitment.\nYou may cancel your monthly membership at any time.\nStart my membership\ntoday for $2/mo.\nNo thanks, Confirm Cancellation";
     public static final String CANCEL_MODAL_FROM_PRIME_TEXT = "Want to try a cheaper plan?\nStarter\n20\nCollections\n10-Day\nFree Trial\n* Billed annually at $24\nNo thanks, Confirm Cancellation";
     public static final String CANCEL_MODAL_FROM_PRO_TEXT = "Want to try a cheaper plan?\nPrime\n50\nCollections\n10-Day\nFree Trial\n* Billed annually at $36\nNo thanks, Confirm Cancellation";
-
-
-//    TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(),11);
 }
-

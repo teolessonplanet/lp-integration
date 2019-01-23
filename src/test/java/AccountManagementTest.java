@@ -99,13 +99,6 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
-
-    @Test(description = "Account management - Create a Free Member account - lessonp-681:Downgrade from paid to free membership")
-    public void testLessonp_681() {
-
-    }
-
-
     @Test(description = "Account management - Create a Free Member account - lessonp-682:Downgrade from Freemium")
     public void testLessonp_682() {
         lpHomePage.loadPage();
@@ -134,8 +127,7 @@ public class AccountManagementTest extends BaseTest {
         testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
     }
 
-
-    private void testDowngrade(String subscriptionToTest, String lowerSubscrption) {
+    private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoModal(webDriver);
         stepTwoModal.completeStepTwoModalWith(subscriptionToTest);
@@ -151,21 +143,21 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
 
-//        Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),);
-        if(subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)){
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRO_TEXT);
-        } else if((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))){
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
-        } else{
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
+        if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+        } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+        } else {
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
         }
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscrption);
+        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscription);
 
-        manageMembershipPage.loadPage();
-        manageMembershipPage.upgradeSubscriptionAndReturn(subscriptionToTest);
-
+        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+            manageMembershipPage.loadPage();
+            manageMembershipPage.upgradeSubscriptionAndReturn(subscriptionToTest);
+        }
         customMembershipPage.loadPage();
 
         customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
@@ -173,14 +165,18 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
 
-        if(subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)){
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRO_TEXT);
-        } else if((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))){
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
-        } else{
-            Assert.assertEquals( ,TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT);
+        if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+        } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
+            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+        } else {
+            Assert.assertTrue(cancelModal.getSuggestedSubscriptionText().contains(TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT));
         }
-        cancelModal.clickOnNoThanksConfirmCancellationButton();
+        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+            cancelModal.clickOnNoThanksConfirmCancellationButton();
+        } else {
+            cancelModal.clickOnConfirmCancellation();
+        }
         myAccountPage.loadPage();
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
