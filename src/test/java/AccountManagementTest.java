@@ -144,11 +144,23 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.clickOnContinueInput();
 
         if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PRIME_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT);
+
         } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.STARTER_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT);
         } else {
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_FROM_STARTER_QUESTION_TEXT);
+            Assert.assertEquals(cancelModal.getModalYourCurrentMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_PLAN_TEXT);
+            Assert.assertEquals(cancelModal.getFullAccessMessageText(), TestData.CANCEL_MODAL_FROM_STARTER_FULL_ACCESS_TEXT);
+            Assert.assertEquals(cancelModal.getRenewalAmountText(), TestData.CANCEL_MODAL_FROM_STARTER_START_MY_MEMBERSHIP_TEXT);
         }
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
@@ -166,11 +178,24 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.clickOnContinueInput();
 
         if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRO_TEXT);
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PRIME_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT);
         } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(), TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.STARTER_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT);
         } else {
-            Assert.assertTrue(cancelModal.getSuggestedSubscriptionText().contains(TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT));
+            Assert.assertEquals(cancelModal.getModalTitleText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TITLE_TEXT);
+            Assert.assertEquals(cancelModal.getCancelQuestionText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_QUESTION_TEXT);
+            Assert.assertEquals(cancelModal.getModalYourCurrentMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_YOUR_CURRENT_MEMBERSHIP_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_INDIVIDUAL_MEMBERSHIP_TEXT);
+            Assert.assertEquals(cancelModal.getRenewalAmountText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_AMOUNT_TEXT);
+            Assert.assertTrue(cancelModal.getRenewalDateText().contains(TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_DATE_TEXT));
         }
         if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
             cancelModal.clickOnNoThanksConfirmCancellationButton();
