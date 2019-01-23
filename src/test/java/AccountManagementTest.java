@@ -178,7 +178,7 @@ public class AccountManagementTest extends BaseTest {
         } else if((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))){
             Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_PRIME_TEXT);
         } else{
-            Assert.assertEquals(cancelModal.getSuggestedSubscriptionText(),TestData.CANCEL_MODAL_FROM_STARTER_TEXT);
+            Assert.assertEquals( ,TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TEXT);
         }
         cancelModal.clickOnNoThanksConfirmCancellationButton();
         myAccountPage.loadPage();
@@ -188,10 +188,4 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
-
- String sdasdsd = "Are you sure you want to cancel your Lesson Planet membership?\n" +
-         "Your current membership\n" +
-         "Individual Membership\n" +
-         "Renewal Amount: $2.00\n" +
-         "Renewal Date: January 29, 2019";
 }
