@@ -7,7 +7,7 @@ public class LpHomePage extends LpUiBasePage {
 
     private static final String SEARCH_INPUT = "#keywords";
     private static final String SEARCH_BUTTON = "#Search";
-    private static final String UPGRADE_ME_BUTTON = "[class='btn btn-success btn-lg btn-action mt20']";
+    private static final String UPGRADE_ME_BUTTON = "[class*='btn btn-success btn-lg btn-action']";
 
     public LpHomePage(WebDriver driver) {
         super(driver);
