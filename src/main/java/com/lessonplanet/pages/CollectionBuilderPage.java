@@ -7,8 +7,10 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class='dropdown']";
     private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
+
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
     private static final String EDIT_COLLECTION_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
+
     private static final String MY_RESOURCES = "[class*='cb-my-resources-btn btn btn-primary']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
