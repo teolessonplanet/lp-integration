@@ -207,7 +207,7 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(collectionRrpModal.isCollectionTitleDisplayed());
     }
 
-    public void reachSearchPageInListView() {
+    private void reachSearchPageInListView() {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
         discoverResourcesPage.clickOnListView();

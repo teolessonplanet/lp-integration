@@ -23,6 +23,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private BrowseBySubjectPage browseBySubjectPage;
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
     private CurriculumManagerTest curriculumManagerTest;
+    private RrpModal rrpModal;
+    private ArticlesPage articlesPage;
+    private TestimonialsPage testimonialsPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -41,6 +44,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         stateStandardsPage = new StateStandardsPage(webDriver);
         curriculumManagerTest = new CurriculumManagerTest();
+        rrpModal = new RrpModal(webDriver);
+        articlesPage = new ArticlesPage(webDriver);
+        testimonialsPage = new TestimonialsPage(webDriver);
         createAFreeMemberAccount();
     }
 
@@ -94,26 +100,27 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     @Test(description = "lessonp-3884: Freemium member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
     public void testLessonp_3884() {
-        testUpgradeFreeMemberFromUpgradeMeButtons();
-        testUpgradeFreeMemberFromGetFullAccessButtons();
+        testUpgradeFreeMemberFromUpgradeMeButton();
+        testUpgradeFreeMemberFromGetFullAccessButton();
     }
 
     private void testUpgradeFreeMemberFromGetFreeAccessButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
-    private void testStepTwoPageUrlAndTitle(){
-        Assert.assertTrue(lpHomePage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+    private void checkPageTitleAndPageUrl(){
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertTrue(lpHomePage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
     }
 
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickOnUpgradeForFullReviewButton(true);
-        testStepTwoPageUrlAndTitle();
+        discoverResourcesPage.clickSeeReview(false);
+        rrpModal.waitForModal();
+        rrpModal.clickOnUpgradeForFullReviewButton(true);
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
@@ -191,70 +198,91 @@ public class UpgradeFreeMemberTest extends BaseTest {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton();
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtons(){
+    private void testUpgradeFreeMemberFromUpgradeMeButton(){
         testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
         testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayDirectoryPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayArticlesPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtons(){
+    private void testUpgradeFreeMemberFromGetFullAccessButton(){
         testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialStandardsPage();
         testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialDirectoryPage();
+        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialArticlesPage();
+        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialTestimonialsPage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickOnStartYourFreeTrialGreenButton(true);
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickOnBottomGreenButton(true);
-        testStepTwoPageUrlAndTitle();
+        rrpPage.clickOnGreenButtonFromBottomPage(true);
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayDirectoryPage(){
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-     //   browseBySubjectPage.clickWhatMembersSayGreenButton(true);
-        testStepTwoPageUrlAndTitle();
+//        browseBySubjectPage.clickWhatMembersSayGreenButton(true);
+        checkPageTitleAndPageUrl();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayArticlesPage(){
+        articlesPage.loadPage();
+     //   articlesPage.clickWhatMembersSayGreenButton(true);
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
-        testStepTwoPageUrlAndTitle();
+        checkPageTitleAndPageUrl();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialDirectoryPage(){
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPageUrlAndTitle();
+   //     testStepTwoPageUrlAndTitle();
         }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialStandardsPage(){
         stateStandardsPage.loadPage();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPageUrlAndTitle();
+     //   testStepTwoPageUrlAndTitle();
+    }
+
+    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialArticlesPage(){
+        articlesPage.loadPage();
+    //    startYourTenDayFreeTrialWidget.clickStartYourTenDaysFreeTrialGreenButton(true);
+        checkPageTitleAndPageUrl();
+    }
+
+    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialTestimonialsPage(){
+        testimonialsPage.loadPage();
+    //    startYourTenDayFreeTrialWidget.clickStartYourTenDaysFreeTrialGreenButton(true);
+        checkPageTitleAndPageUrl();
     }
 }

@@ -9,11 +9,13 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
+
+    private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
     private static final String EDIT_COLLECTION_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
 
-    private static final String MY_RESOURCES = "[class*='cb-my-resources-btn btn btn-primary']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
+
     private static final String UPLOAD_BUTTON = "[class='fa fa-upload']";
 
     public CollectionBuilderPage(WebDriver driver) {
@@ -32,6 +34,10 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return findElement(COLLECTION_DROPPABLE_ZONE);
     }
 
+    public void clickOnMyResources() {
+        clickElement(MY_RESOURCES_BUTTON);
+    }
+
     public void clickOnEditCollection() {
         clickElement(EDIT_COLLECTION_BUTTON);
     }
@@ -42,10 +48,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public boolean isSignUpPopupLinkDisplayed() {
         return isElementClickable(SIGN_UP_POPUP);
-    }
-
-    public void clickOnMyResources() {
-        clickElement(MY_RESOURCES);
     }
 
     public void clickOnUploadButton(){

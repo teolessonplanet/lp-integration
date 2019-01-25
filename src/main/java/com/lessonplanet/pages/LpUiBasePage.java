@@ -424,8 +424,8 @@ public class LpUiBasePage {
                     return webDriver.findElement(By.cssSelector(modalId))
                         .getCssValue("opacity").equals("1");
                 }
-            }//,
-          //  ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
+            },
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
         ));
         waitForLoad();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));

@@ -54,11 +54,6 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickElement(LIST_VIEW_BUTTON);
     }
 
-    public void loadSearchPageInListView() {
-        loadPage();
-        clickOnListView();
-    }
-
     public void clickOnTiledView() {
         clickElement(TILED_VIEW_BUTTON);
     }
@@ -104,6 +99,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void selectFacetFilter(String facetCategoryName, String facetName) {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
+    }
+
+    public void loadSearchPageInListView(){
+        loadPage();
+        clickOnListView();
     }
 
     public void changeToListView() {

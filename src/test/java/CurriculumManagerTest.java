@@ -772,7 +772,7 @@ public class CurriculumManagerTest extends BaseTest {
     private void testCollectionFolderStatus(String accountPlanText){
         testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         testAddRequiredInformationToCollection(accountPlanText);
-        testPublishCollection();
+        //testPublishCollection();
     }
 
     private void testFavoriteResourceStatus(String accountPlanText){
@@ -794,5 +794,4 @@ public class CurriculumManagerTest extends BaseTest {
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testFavoriteResource(TestData.FREE_SAMPLE_RESOURCE_STATUS);
     }
-
 }
