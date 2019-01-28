@@ -27,7 +27,7 @@ public class CollectionRrp extends LpUiBasePage {
         clickElement(SAVE_COLLECTION_BUTTON);
     }
 
-    public int getItemsCount() {
+    public int getCollectionItemsCount() {
         String rawNumber = getTextForElement(ITEMS_COUNT);
         int number;
         try {
