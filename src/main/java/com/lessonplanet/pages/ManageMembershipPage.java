@@ -11,6 +11,7 @@ public class ManageMembershipPage extends LpUiBasePage {
     private static final String OFFER_CONTAINERS = "[class='plan-container']";
     private static final String SELECT_BUTTONS = "[name='button']";
     private static final String TITLE_TEXT = "[class='mt0']";
+    private static final String MORE_ACCOUNT_OPTIONS_BUTTON = "[class*='more-options-button'] [href='/cancellation/new']";
 
     public ManageMembershipPage(WebDriver driver) {
         super(driver);
@@ -39,5 +40,9 @@ public class ManageMembershipPage extends LpUiBasePage {
         loadPage();
         upgradeSubscription(newSubscription);
         loadUrl(currentPath);
+    }
+
+    public void clickOnMoreAccountOptionsButton() {
+        clickElement(MORE_ACCOUNT_OPTIONS_BUTTON);
     }
 }

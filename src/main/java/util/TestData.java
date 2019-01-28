@@ -385,4 +385,24 @@ public class TestData {
     public static final String TRY_IT_FREE_BUTTON_BACKGROUND_COLOR = "#5cb85c";
 
     public static final String THANKS_FOR_JOINING_MODAL_TEXT = "Thanks so much for joining Lesson Planet.\nTo finish signing up, check the email we sent and click the confirmation link to activate your account.";
+
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_TITLE_TEXT = "Confirm Cancellation";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_QUESTION_TEXT = "Are you sure you want to cancel your Lesson Planet membership?";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_YOUR_CURRENT_MEMBERSHIP_TEXT = "Your current membership";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_INDIVIDUAL_MEMBERSHIP_TEXT = "Individual Membership";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_AMOUNT_TEXT = "Renewal Amount: $2.00";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_DATE_TEXT = "Renewal Date:";
+
+    public static final String CANCEL_MODAL_FROM_STARTER_QUESTION_TEXT = "Want to take it one month at a time?";
+    public static final String CANCEL_MODAL_FROM_STARTER_MONTHLY_PLAN_TEXT = "Continue with a monthly plan today for just $2/mo.";
+    public static final String CANCEL_MODAL_FROM_STARTER_FULL_ACCESS_TEXT = "Get full access to all the benefits of Lesson Planet, with no annual commitment.\nYou may cancel your monthly membership at any time.";
+    public static final String CANCEL_MODAL_FROM_STARTER_START_MY_MEMBERSHIP_TEXT = "Start my membership\ntoday for $2/mo.";
+
+    public static final String CANCEL_MODAL_CHEAPER_TEXT = "Want to try a cheaper plan?";
+    public static final String CANCEL_MODAL_TRIAL_TIME_TEXT = "10-Day\nFree Trial";
+    public static final String CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT = "20\nCollections";
+    public static final String CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT = "* Billed annually at $24";
+
+    public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
+    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 }

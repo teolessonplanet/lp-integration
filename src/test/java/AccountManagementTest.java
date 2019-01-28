@@ -20,6 +20,12 @@ public class AccountManagementTest extends BaseTest {
     private StepTwoTest stepTwoTest;
     private MyAccountPage myAccountPage;
     private CustomMembershipPage customMembershipPage;
+    private StepOnePage stepOnePage;
+    private ManageMembershipPage manageMembershipPage;
+    private StepTwoPage stepTwoPage;
+    private CancelModal cancelModal;
+
+    private static final int expectedDaysToExpire = 11;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,6 +40,10 @@ public class AccountManagementTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         customMembershipPage = new CustomMembershipPage(webDriver);
+        stepOnePage = new StepOnePage(webDriver);
+        manageMembershipPage = new ManageMembershipPage(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
+        cancelModal = new CancelModal(webDriver);
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717:Try It Free button")
@@ -81,12 +91,116 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.clickOnReasonsDropdown();
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
-        customMembershipPage.clickOnNoThanksConfirmCancellationButton();
+        cancelModal.clickOnNoThanksConfirmCancellationButton();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
         Assert.assertEquals(myAccountPage.getPlan(), TestData.STARTER_OPTION_TEXT);
 
-        final int expectedDaysToExpire = 11;
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-682:Downgrade from Freemium")
+    public void testLessonp_682() {
+        lpHomePage.loadPage();
+        stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.FREE_MEMBERSHIP_TEXT);
+        Assert.assertFalse(myAccountPage.isManageMembershipLinkDisplayed());
+        manageMembershipPage.loadPage();
+        Assert.assertFalse(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
+        Assert.assertTrue(stepTwoPage.getPath().equals(TestData.STEP_ONE_PAGE_PATH));
+        Assert.assertTrue(stepTwoPage.getTitleText().equals(TestData.STEP_TWO_TITLE_MESSAGE));
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-948:Downgrade from Pro membership")
+    public void testLessonp_948() {
+        testDowngrade(TestData.PRO_OPTION_TEXT, TestData.PRIME_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-947:Downgrade from Prime membership")
+    public void testLessonp_947() {
+        testDowngrade(TestData.PRIME_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Create a Free Member account - lessonp-683:Downgrade from Starter membership")
+    public void testLessonp_983() {
+        testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+    }
+
+    private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(subscriptionToTest);
+
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        myAccountPage.clickOnManageMembershipLink();
+        Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
+        manageMembershipPage.clickOnMoreAccountOptionsButton();
+
+        customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
+        customMembershipPage.clickOnReasonsDropdown();
+        customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
+        customMembershipPage.clickOnContinueInput();
+
+        checkCancelModalTexts(subscriptionToTest);
+        cancelModal.clickOnYesSignUpInput();
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscription);
+
+        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+            manageMembershipPage.loadPage();
+            manageMembershipPage.upgradeSubscriptionAndReturn(subscriptionToTest);
+        }
+        customMembershipPage.loadPage();
+
+        customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
+        customMembershipPage.clickOnReasonsDropdown();
+        customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
+        customMembershipPage.clickOnContinueInput();
+
+        if (subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+            Assert.assertEquals(cancelModal.getModalTitleText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TITLE_TEXT);
+            Assert.assertEquals(cancelModal.getCancelQuestionText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_QUESTION_TEXT);
+            Assert.assertEquals(cancelModal.getModalYourCurrentMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_YOUR_CURRENT_MEMBERSHIP_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_INDIVIDUAL_MEMBERSHIP_TEXT);
+            Assert.assertEquals(cancelModal.getRenewalAmountText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_AMOUNT_TEXT);
+            Assert.assertTrue(cancelModal.getRenewalDateText().contains(TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_RENEWAL_DATE_TEXT));
+        } else {
+            checkCancelModalTexts(subscriptionToTest);
+        }
+        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+            cancelModal.clickOnNoThanksConfirmCancellationButton();
+        } else {
+            cancelModal.clickOnConfirmCancellation();
+        }
+        myAccountPage.loadPage();
+
+        Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
+        Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
+        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
+    }
+
+    private void checkCancelModalTexts(String subscriptionToTest) {
+        if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PRIME_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT);
+
+        } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
+            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.STARTER_OPTION_TEXT);
+            Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT);
+            Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
+            Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT);
+        } else {
+            Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_FROM_STARTER_QUESTION_TEXT);
+            Assert.assertEquals(cancelModal.getModalYourCurrentMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_PLAN_TEXT);
+            Assert.assertEquals(cancelModal.getFullAccessMessageText(), TestData.CANCEL_MODAL_FROM_STARTER_FULL_ACCESS_TEXT);
+            Assert.assertEquals(cancelModal.getRenewalAmountText(), TestData.CANCEL_MODAL_FROM_STARTER_START_MY_MEMBERSHIP_TEXT);
+        }
     }
 }
