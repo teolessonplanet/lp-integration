@@ -64,12 +64,16 @@ public class MyAccountPage extends LpUiBasePage {
         clickElement(MANAGE_MEMBERSHIP_LINK);
     }
 
-    public boolean isUpgradeYourPlanButtonDisplayed(){
+    public boolean isUpgradeYourPlanButtonDisplayed() {
         return isElementDisplayed(UPGRADE_YOUR_PLAN_BUTTON);
     }
 
     public void clickOnUpgradeMeButton(boolean inANewTab) {
         waitForElementToBeVisible(UPGRADE_ME_BUTTON);
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
+    }
+
+    public void clickOnUpgradeYourPlanButton() {
+        clickElement(UPGRADE_YOUR_PLAN_BUTTON);
     }
 }
