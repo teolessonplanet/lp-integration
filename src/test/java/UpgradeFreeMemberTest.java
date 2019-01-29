@@ -70,8 +70,8 @@ public class UpgradeFreeMemberTest extends BaseTest {
     @Test(description = "lessonp-686: Free member tries to upload a file from Collection Builder, Curriculum Manager and Edit Collection Modal")
     public void testLessonp_686() {
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
-        testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
+        testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
     }
 
     @Test(description = "lessonp-684: Free members exceeds the allowed nr of collections created")
@@ -133,16 +133,16 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage(){
-        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
-    }
-
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal(){
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderPage.clickOnEditCollection();
         editCollectionModal.waitForModal();
         editCollectionModal.clickOnUploadAFileButton();
         curriculumManagerTest.testUpgradeModalFromUploadButton();
+    }
+
+    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage(){
+        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated(){
@@ -208,8 +208,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
         testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialWidgetRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
     }

@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
-import org.openqa.selenium.WebDriver;
+
 public class StepTwoTest extends BaseTest {
 
     private LpHomePage lpHomePage;
