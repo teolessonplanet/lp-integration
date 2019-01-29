@@ -19,6 +19,7 @@ public class MyAccountPage extends LpUiBasePage {
     private static final String STATUS_DATE = "td [class='text-success']";
     private static final String MANAGE_MEMBERSHIP_LINK = "li a[href='/subscription/edit']";
     private static final String UPGRADE_ME_BUTTON = "a[data-track-click='Upgrade Me'][data-track-label='Account Profile']";
+    private static final String UPGRADE_YOUR_PLAN_BUTTON = "a[class*='btn'][href='/subscription/edit']";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -63,7 +64,11 @@ public class MyAccountPage extends LpUiBasePage {
         clickElement(MANAGE_MEMBERSHIP_LINK);
     }
 
-    public void clickOnUpgradeMeButton(boolean inANewTab){
+    public boolean isUpgradeYourPlanButtonDisplayed(){
+        return isElementDisplayed(UPGRADE_YOUR_PLAN_BUTTON);
+    }
+
+    public void clickOnUpgradeMeButton(boolean inANewTab) {
         waitForElementToBeVisible(UPGRADE_ME_BUTTON);
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }

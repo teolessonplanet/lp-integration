@@ -128,7 +128,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-682:Downgrade from Freemium")
+    @Test(description = "Account management - Downgrade - lessonp-682:Downgrade from Freemium")
     public void testLessonp_682() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
@@ -141,17 +141,17 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(stepTwoPage.getTitleText().equals(TestData.STEP_TWO_TITLE_MESSAGE));
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-948:Downgrade from Pro membership")
+    @Test(description = "Account management - Downgrade - lessonp-948:Downgrade from Pro membership")
     public void testLessonp_948() {
         testDowngrade(TestData.PRO_OPTION_TEXT, TestData.PRIME_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-947:Downgrade from Prime membership")
+    @Test(description = "Account management - Downgrade - lessonp-947:Downgrade from Prime membership")
     public void testLessonp_947() {
         testDowngrade(TestData.PRIME_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-683:Downgrade from Starter membership")
+    @Test(description = "Account management - Downgrade - lessonp-683:Downgrade from Starter membership")
     public void testLessonp_983() {
         testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
     }
@@ -212,6 +212,21 @@ public class AccountManagementTest extends BaseTest {
         createAFreeMemberAccount();
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
+    }
+
+    @Test(description = "Account management - Upgrade a Pro - lessonp-673:No upgrade possible (Pro $72)")
+    public void testLessonp_673() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.PRO_OPTION_TEXT);
+
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        Assert.assertFalse(myAccountPage.isUpgradeYourPlanButtonDisplayed());
+        myAccountPage.clickOnManageMembershipLink();
+        Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
+        //Only PRO available
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRO_OPTION_TEXT);
     }
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
