@@ -76,6 +76,7 @@ public class AccountManagementTest extends BaseTest {
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
+        rrpModal = new RrpModal(webDriver);
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717:Try It Free button")
@@ -274,6 +275,9 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.clickSeeFullReview(false);
         rrpModal.waitForModal();
         rrpModal.clickOnFavoriteButton();
+
+        curriculumManagerPage.loadPage();
+        curriculumManagerPage.clickOnMyFavoritesFolder();
 
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
