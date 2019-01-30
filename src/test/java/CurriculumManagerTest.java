@@ -136,7 +136,7 @@ public class CurriculumManagerTest extends BaseTest {
         createAnActiveAccount(TestData.PRO_OPTION_TEXT);
         testUploadResourceUsingTextInput(TestData.PRO_OPTION_TEXT);
     }
-    
+
     @Test(description = "Freemium - Curriculum Manager - lessonp-3969: Default Folders: My Uploads - Actions Dropdown")
     public void testLessonp_3969(){
         createAFreeMemberAccount();
