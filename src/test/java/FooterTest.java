@@ -102,6 +102,7 @@ public class FooterTest extends BaseTest {
 
     private void testSendButton(String account) {
         footerPage.clickSendButton();
+        subscriptionEmailModal.waitForModal();
         Assert.assertEquals(subscriptionEmailModal.getSubscriptionModalText(), TestData.SUBSCRIPTION_MODAL_TEXT);
         subscriptionEmailModal.clickOnCloseButton();
         Assert.assertEquals(footerPage.getTextFromEmailField(), account);
@@ -210,32 +211,39 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.OUR_REVIEW_PROCESS_PAGE_PATH);
 
         footerPage.clickOnHowItWorksLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_IT_WORKS_PAGE_PATH);
 
         footerPage.clickOnHowToSearchLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_TO_SEARCH_PAGE_PATH);
 
         footerPage.clickOnCreateACollectionLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.CREATE_A_COLLECTION_PAGE_PATH);
     }
 
     private void testManageCurriculumSection() {
         footerPage.clickOnEditACollectionLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.EDIT_A_COLLECTION_PAGE_PATH);
 
         footerPage.clickOnAssignToStudentsLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.ASSIGN_TO_STUDENTS_PAGE_PATH);
 
         footerPage.clickOnManageMyResourcesLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.MANAGE_MY_RESOURCES_PAGE_PATH);
 
         footerPage.clickOnSharingWithOthersLink();
+        videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);
     }

@@ -66,11 +66,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void clickOnTryItFree(boolean openInANewTab) {
-        if (openInANewTab) {
-            openInANewTab(TRY_IT_FREE_BUTTON);
-        } else {
-            clickElement(TRY_IT_FREE_BUTTON);
-        }
+        openInANewTabOrClick(TRY_IT_FREE_BUTTON, openInANewTab);
     }
 
     public void clickOnUpgradeMeButton(boolean inANewTab) {
@@ -82,11 +78,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void clickOnSignInButton(boolean openInANewTab) {
-        if (openInANewTab) {
-            openInANewTab(SIGN_IN_BUTTON);
-        } else {
-            clickElement(SIGN_IN_BUTTON);
-        }
+        openInANewTabOrClick(SIGN_IN_BUTTON, openInANewTab);
     }
 
     public boolean isSignInButtonDisplayed() {

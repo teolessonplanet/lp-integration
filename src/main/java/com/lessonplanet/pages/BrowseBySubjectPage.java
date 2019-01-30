@@ -54,11 +54,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
         } else {
             option = getOptionFromLeftSide(SIDE_WIDGETS, widgetName, RELATED_TOPICS_OPTIONS_SELECTOR, optionName);
         }
-        if (inANewTab) {
-            openInANewTab(option);
-        } else {
-            clickElement(option);
-        }
+        openInANewTabOrClick(option, inANewTab);
     }
 
     public void clickOptionFromBrowseBySubject(String optionName, boolean inANewTab) {
@@ -98,28 +94,16 @@ public class BrowseBySubjectPage extends ResourcesPage {
     }
 
     public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
-        if (inANewTab) {
-            openInANewTab(SEE_MORE_TESTIMONIALS_LINK);
-        } else {
-            clickElement(SEE_MORE_TESTIMONIALS_LINK);
-        }
+        openInANewTabOrClick(SEE_MORE_TESTIMONIALS_LINK, inANewTab);
     }
 
     public void clickOnSubmitYourOwnButton(boolean inANewTab) {
-        if (inANewTab) {
-            openInANewTab(SUBMIT_YOUR_OWN_LINK);
-        } else {
-            clickElement(SUBMIT_YOUR_OWN_LINK);
-        }
+        openInANewTabOrClick(SUBMIT_YOUR_OWN_LINK, inANewTab);
     }
 
     public void clickOnWhatMembersSaySubscriptionButton(boolean inANewTab) {
         waitForPageLoad();
         final WebElement subscriptionButton = findElements(getWhatMembersSayWidget(), WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON).get(0);
-        if (inANewTab) {
-            openInANewTab(subscriptionButton);
-        } else {
-            clickElement(subscriptionButton);
-        }
+        openInANewTabOrClick(subscriptionButton, inANewTab);
     }
 }

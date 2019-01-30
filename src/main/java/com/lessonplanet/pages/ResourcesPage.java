@@ -166,12 +166,7 @@ public class ResourcesPage extends LpUiBasePage {
         if (attempts == 0) {
             logger.error("The button " + cssSelector + " was not found on the first " + TestData.SHORT_TIMEOUT + " pages");
         }
-
-        if (inANewTab) {
-            openInANewTab(button);
-        } else {
-            clickElement(button);
-        }
+        openInANewTabOrClick(button, inANewTab);
     }
 
     public int getCountFreeAccessButtons() {
