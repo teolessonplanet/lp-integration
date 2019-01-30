@@ -4,10 +4,15 @@ import org.openqa.selenium.WebDriver;
 
 public class VideoContentModal extends LpUiBasePage {
 
+    private static final String VIDEO_MODAL = "#vimeo-modal-video";
     private static final String X_BUTTON = "[class='modal-header'] [class='close']";
 
     public VideoContentModal(WebDriver driver) {
         super(driver);
+    }
+
+    public void waitForModal(){
+        waitForBootstrapModalToBeVisible(VIDEO_MODAL);
     }
 
     public void clickOnXButton() {
