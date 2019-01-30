@@ -36,7 +36,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         rrpPage = new RrpPage(webDriver);
         manageMembershipPage = new ManageMembershipPage(webDriver);
     }
-    
+
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020:Page UI")
     public void testLessonp_1020() {
         testPageUi(TestData.INVALID_EMAIL);
@@ -85,7 +85,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         testResourceTiles(TestData.VALID_EMAIL_FREEMIUM);
 
         //upgrade to STARTER
-        headerPage.clickOnUpgradeMeButton();
+        headerPage.clickOnUpgradeMeButton(false);
         stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
         testResourceTiles(TestData.STARTER_OPTION_TEXT);
 
@@ -349,7 +349,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         } else {
             Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
         }
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
@@ -357,7 +357,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         }
         browseBySubjectPage.closeTab();
         browseBySubjectPage.waitForPageLoad();
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
@@ -408,7 +408,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
         //no Get free trial or Upgrade Me button if active user
         if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
-            browseBySubjectPage.clickTestimonialsGreenButton(false);
+            browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(false);
             if (account.equals(TestData.INVALID_EMAIL)) {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
                 stepOneModal.clickCloseModal();
@@ -417,7 +417,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
                 stepTwoModal.clickOnCloseModal();
             }
 
-            browseBySubjectPage.clickTestimonialsGreenButton(true);
+            browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(true);
             if (account.equals(TestData.INVALID_EMAIL)) {
                 Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
             } else {

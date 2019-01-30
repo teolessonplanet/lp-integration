@@ -21,7 +21,7 @@ public class HeaderTest extends BaseTest {
         stepTwoModal = new StepTwoModal(webDriver);
         loginPage = new LoginPage(webDriver);
     }
-    
+
     @Test(description = "Visitor - Header - lessonp-639:Resources")
     public void testLessonp_639() {
         testResourcesButton(false);
@@ -195,7 +195,7 @@ public class HeaderTest extends BaseTest {
             Assert.assertTrue(headerPage.isUsernameDropDownDisplayed());
 
             if (emailAddress.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                headerPage.clickOnUpgradeMeButton();
+                headerPage.clickOnUpgradeMeButton(false);
                 Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             }
         }

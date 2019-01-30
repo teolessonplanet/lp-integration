@@ -22,11 +22,11 @@ public class StartYourTenDaysTrialWidgetTest {
 
     public void testStartYourTenDaysTrialWidget() {
         Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT);
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(true);
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
         Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
         lpHomePage.closeTab();
         lpHomePage.waitForLoad();
-        startYourTenDayFreeTrialWidget.clickGetFreeTrialButton(false);
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
         Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
     }
 

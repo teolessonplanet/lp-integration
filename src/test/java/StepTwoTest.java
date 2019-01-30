@@ -35,10 +35,10 @@ public class StepTwoTest extends BaseTest {
     public void reachStepTwoModal() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
-        headerPage.clickOnUpgradeMeButton();
+        headerPage.clickOnUpgradeMeButton(false);
         stepTwoModal.waitForModal();
     }
-    
+
     @Test(description = "LP - User Visits Step 2 - lessonp-12:User quits Step 2"
             + "Steps:"
             + "1.Quit Step 2 sign up process"

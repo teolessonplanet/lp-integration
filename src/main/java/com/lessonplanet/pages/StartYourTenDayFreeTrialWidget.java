@@ -7,7 +7,7 @@ import util.TestData;
 public class StartYourTenDayFreeTrialWidget extends ResourcesPage {
 
     private static final String SIDE_WIDGETS = "[class*='side-widget']";
-    private static final String GET_FREE_TRIAL_BUTTON = "a[href='/subscription/new']";
+    private static final String START_YOUR_TEN_DAYS_FREE_TRIAL_SUBSCRIPTION_BUTTON = "a[href='/subscription/new']";
 
     public StartYourTenDayFreeTrialWidget(WebDriver driver) {
         super(driver);
@@ -17,8 +17,8 @@ public class StartYourTenDayFreeTrialWidget extends ResourcesPage {
         return getTextForElement(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL));
     }
 
-    public void clickGetFreeTrialButton(boolean inANewTab) {
-        WebElement getFreeTrialButton = findElements(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL), GET_FREE_TRIAL_BUTTON).get(0);
-        openInANewTabOrClick(getFreeTrialButton, inANewTab);
+    public void clickOnSubscriptionButton(boolean inANewTab) {
+        WebElement subscriptionButton = findElements(getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL), START_YOUR_TEN_DAYS_FREE_TRIAL_SUBSCRIPTION_BUTTON).get(0);
+        openInANewTabOrClick(subscriptionButton, inANewTab);
     }
 }

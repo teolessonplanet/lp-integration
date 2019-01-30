@@ -73,8 +73,8 @@ public class HeaderPage extends LpUiBasePage {
         }
     }
 
-    public void clickOnUpgradeMeButton() {
-        clickElement(UPGRADE_ME_BUTTON);
+    public void clickOnUpgradeMeButton(boolean inANewTab) {
+        openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 
     public boolean isLogoClicable() {
