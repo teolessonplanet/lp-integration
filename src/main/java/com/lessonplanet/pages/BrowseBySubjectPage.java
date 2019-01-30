@@ -18,9 +18,9 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     private static final String TESTIMONIALS_THUMBNAIL = "[class='img-thumbnail']";
     private static final String TESTIMONIALS_TEXT = "div[class='clearfix']";
-    private static final String SEE_MORE_TESTIMONIALS_BUTTON = "[class='more'] a[href='/us/testimonials']";
-    private static final String SUBMIT_YOUR_OWN_BUTTON = "[class='more'] a[href='/feedbacks/new']";
-    private static final String TESTIMONIALS_GET_FREE_TRIAL_BUTTON = "a[href*='/subscription/new']";
+    private static final String SEE_MORE_TESTIMONIALS_LINK = "[class='more'] a[href='/us/testimonials']";
+    private static final String SUBMIT_YOUR_OWN_LINK = "[class='more'] a[href='/feedbacks/new']";
+    private static final String WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON = "a[href*='/subscription/new']";
 
     public BrowseBySubjectPage(WebDriver driver) {
         super(driver);
@@ -99,27 +99,27 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
         if (inANewTab) {
-            openInANewTab(SEE_MORE_TESTIMONIALS_BUTTON);
+            openInANewTab(SEE_MORE_TESTIMONIALS_LINK);
         } else {
-            clickElement(SEE_MORE_TESTIMONIALS_BUTTON);
+            clickElement(SEE_MORE_TESTIMONIALS_LINK);
         }
     }
 
     public void clickOnSubmitYourOwnButton(boolean inANewTab) {
         if (inANewTab) {
-            openInANewTab(SUBMIT_YOUR_OWN_BUTTON);
+            openInANewTab(SUBMIT_YOUR_OWN_LINK);
         } else {
-            clickElement(SUBMIT_YOUR_OWN_BUTTON);
+            clickElement(SUBMIT_YOUR_OWN_LINK);
         }
     }
 
-    public void clickTestimonialsGreenButton(boolean inANewTab) {
+    public void clickOnWhatMembersSaySubscriptionButton(boolean inANewTab) {
         waitForPageLoad();
-        final WebElement seeMoreTestimonialsButton = findElements(getWhatMembersSayWidget(), TESTIMONIALS_GET_FREE_TRIAL_BUTTON).get(0);
+        final WebElement subscriptionButton = findElements(getWhatMembersSayWidget(), WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON).get(0);
         if (inANewTab) {
-            openInANewTab(seeMoreTestimonialsButton);
+            openInANewTab(subscriptionButton);
         } else {
-            clickElement(seeMoreTestimonialsButton);
+            clickElement(subscriptionButton);
         }
     }
 }

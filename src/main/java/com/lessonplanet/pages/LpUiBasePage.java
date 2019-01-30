@@ -346,6 +346,14 @@ public class LpUiBasePage {
         }
     }
 
+    protected void openInANewTabOrClick(String  cssSelector, boolean inANewTab) {
+        if (inANewTab) {
+            openInANewTab(cssSelector);
+        } else {
+            clickElement(cssSelector);
+        }
+    }
+
     public void closeTab() {
         logger.info("Closing the tab");
         driver.close();

@@ -41,11 +41,11 @@ public class EditCollectionModal extends LpUiBasePage {
     public void clickOnPublishCollection() {
         clickElement(PUBLISH_COLLECTION_BUTTON);
     }
-    
+
     public void clickOnMyResourceButton() {
         clickElement(MY_RESOURCES_BUTTON);
     }
-    
+
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
     }
