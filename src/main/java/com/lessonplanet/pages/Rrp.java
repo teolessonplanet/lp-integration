@@ -63,7 +63,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(ADD_TO_COLLECTION_DROPDOWN);
     }
 
-    public void clickOnUpgradeForFullReviewButton (boolean inANewTab){
+    public void clickUpgradeForFullReviewButton (boolean inANewTab){
         openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 }

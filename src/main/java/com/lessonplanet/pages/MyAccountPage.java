@@ -64,6 +64,7 @@ public class MyAccountPage extends LpUiBasePage {
     }
 
     public void clickOnUpgradeMeButton(boolean inANewTab){
+        waitForElementToBeVisible(UPGRADE_ME_BUTTON);
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 }

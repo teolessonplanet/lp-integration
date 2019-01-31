@@ -23,7 +23,7 @@ public class CollectionRrp extends LpUiBasePage {
         return isElementClickable(SAVE_COLLECTION_BUTTON);
     }
 
-    public void clickOnSaveCollectionButton() {
+    public void clickSaveCollectionButton() {
         clickElement(SAVE_COLLECTION_BUTTON);
     }
 

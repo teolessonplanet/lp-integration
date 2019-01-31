@@ -50,7 +50,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
-    public void clickOnUploadButton(){
+    public void clickUploadButton(){
         clickElement(UPLOAD_BUTTON);
     }
 }

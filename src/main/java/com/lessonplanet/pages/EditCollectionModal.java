@@ -52,7 +52,7 @@ public class EditCollectionModal extends LpUiBasePage {
         clickElement(CLOSE_BUTTON);
     }
 
-    public void clickOnUploadAFileButton(){
+    public void clickUploadAFileButton(){
         waitForElement(UPLOAD_A_FILE_BUTTON);
         clickElement(UPLOAD_A_FILE_BUTTON);
     }

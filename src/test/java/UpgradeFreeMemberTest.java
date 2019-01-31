@@ -20,6 +20,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private EditCollectionModal editCollectionModal;
     private HeaderPage headerPage;
     private MyAccountPage myAccountPage;
+    private WhatMembersSayWidget whatMembersSayWidget;
     private StateStandardsPage stateStandardsPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
@@ -49,6 +50,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stateStandardsPage = new StateStandardsPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
+        whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         createAFreeMemberAccount();
     }
 
@@ -109,26 +111,36 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromGetFreeAccessButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        testStepTwoPage();
         discoverResourcesPage.closeTab();
         discoverResourcesPage.clickGetFreeAccess(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        testStepTwoModal();
     }
 
+    private void testStepTwoModal(){
+        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        stepTwoModal.clickOnCloseModal();
+    }
+
+    private void testStepTwoPage(){
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+
+    }
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
-        rrpModal.clickOnUpgradeForFullReviewButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        rrpModal.clickUpgradeForFullReviewButton(true);
+        testStepTwoPage();
         discoverResourcesPage.closeTab();
-        rrpModal.clickOnUpgradeForFullReviewButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        rrpModal.clickUpgradeForFullReviewButton(false);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
         discoverResourcesPage.loadPage();
-        collectionBuilderPage.clickOnUploadButton();
+        collectionBuilderPage.clickUploadButton();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
@@ -137,7 +149,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderPage.clickOnEditCollection();
         editCollectionModal.waitForModal();
-        editCollectionModal.clickOnUploadAFileButton();
+        editCollectionModal.clickUploadAFileButton();
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
@@ -157,7 +169,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
-        collectionRrpModal.clickOnSaveCollectionButton();
+        collectionRrpModal.clickSaveCollectionButton();
         curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
     }
 
@@ -194,7 +206,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
             discoverResourcesPage.clickOnNextButton();
             discoverResourcesPage.clickSeeCollection(false);
         }
-        collectionRrpModal.clickOnSaveCollectionButton();
+        collectionRrpModal.clickSaveCollectionButton();
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
@@ -202,15 +214,15 @@ public class UpgradeFreeMemberTest extends BaseTest {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton();
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        testStepTwoPage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
         testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
+      //  testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
-      //  testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
     }
 
@@ -225,103 +237,93 @@ public class UpgradeFreeMemberTest extends BaseTest {
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        testStepTwoPage();
         headerPage.closeTab();
         headerPage.clickOnUpgradeMeButton(false);
         Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialWidgetRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickOnStartYourFreeTrialSubscriptionButton(true);
+        rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
         discoverResourcesPage.closeTab();
-    }
-
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayDirectoryPage(){
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-      //  browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(false);
-        browseBySubjectPage.waitForLoad();
-      //  browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(true);
-        browseBySubjectPage.closeTab();
-    }
-
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMemberSayArticlesPage(){
-        articlesPage.loadPage();
-     //   articlesPage.clickOnWhatMembersSaySubscriptionButton(false);
-        articlesPage.waitForLoad();
-      //  articlesPage.clickOnWhatMembersSaySubscriptionButton(true);
-        articlesPage.closeTab();
-    }
-
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
-        myAccountPage.loadPage();
-        myAccountPage.clickOnUpgradeMeButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
-        myAccountPage.closeTab();
-        myAccountPage.clickOnUpgradeMeButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        testStepTwoPage();
         lpHomePage.closeTab();
         lpHomePage.clickOnUpgradeMeButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickOnStartYourFreeTrialSubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
+        testStepTwoPage();
         discoverResourcesPage.closeTab();
-        rrpPage.clickOnBottomPageSubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        rrpPage.clickBottomPageSubscriptionButton(true);
+        testStepTwoPage();
         discoverResourcesPage.closeTab();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage(){
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+        whatMembersSayWidget.clickSubscriptionButton(true);
+        testStepTwoPage();
+        browseBySubjectPage.closeTab();
+        whatMembersSayWidget.clickSubscriptionButton(false);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage(){
         articlesPage.loadPage();
-    //    articlesPage.clickOnWhatMembersSaySubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        whatMembersSayWidget.clickSubscriptionButton(true);
+        testStepTwoPage();
         articlesPage.closeTab();
-     //   articlesPage.clickOnWhatMembersSaySubscriptionButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+        whatMembersSayWidget.clickSubscriptionButton(false);
+        testStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage(){
+    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testSubscriptionButtonFromStartYourFreeTrialWidget();
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
+        testStepTwoPage();
         browseBySubjectPage.closeTab();
-        }
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
+        testStepTwoModal();
+    }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetStandardsPage(){
         stateStandardsPage.loadPage();
-        testSubscriptionButtonFromStartYourFreeTrialWidget();
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
+        testStepTwoPage();
         stateStandardsPage.closeTab();
-
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetArticlesPage(){
         articlesPage.loadPage();
-        testSubscriptionButtonFromStartYourFreeTrialWidget();
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
+        testStepTwoPage();
         articlesPage.closeTab();
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
+        testStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage(){
         testimonialsPage.loadPage();
-        testSubscriptionButtonFromStartYourFreeTrialWidget();
-        testimonialsPage.closeTab();
-    }
-
-    private void testSubscriptionButtonFromStartYourFreeTrialWidget(){
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-        stepTwoModal.clickOnCloseModal();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        testStepTwoPage();
+        testimonialsPage.closeTab();
+        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
+        testStepTwoModal();
     }
 }
