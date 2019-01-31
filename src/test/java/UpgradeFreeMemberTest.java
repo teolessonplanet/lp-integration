@@ -112,9 +112,14 @@ public class UpgradeFreeMemberTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
         testStepTwoPage();
-        discoverResourcesPage.closeTab();
         discoverResourcesPage.clickGetFreeAccess(false);
         testStepTwoModal();
+    }
+
+    private void testStepTwoPage(){
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+        stepTwoPage.closeTab();
     }
 
     private void testStepTwoModal(){
@@ -122,18 +127,12 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stepTwoModal.clickOnCloseModal();
     }
 
-    private void testStepTwoPage(){
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
-        Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
-
-    }
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
         rrpModal.clickUpgradeForFullReviewButton(true);
         testStepTwoPage();
-        discoverResourcesPage.closeTab();
         rrpModal.clickUpgradeForFullReviewButton(false);
         testStepTwoModal();
     }
@@ -158,7 +157,6 @@ public class UpgradeFreeMemberTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated(){
-        curriculumManagerTest = new CurriculumManagerTest();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testMaxLimitOfCollectionsCreated();
     }
@@ -210,7 +208,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
-    private void testUpgradeModalFromMaxItemsInsideCollection (String bodyText){
+    private void testUpgradeModalFromMaxItemsInsideCollection(String bodyText){
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton();
@@ -219,7 +217,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
         testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
-      //  testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
@@ -236,28 +234,33 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
         testStepTwoPage();
-        headerPage.closeTab();
         headerPage.clickOnUpgradeMeButton(false);
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         testStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialWidgetRrpPage(){
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialWidgetRrpPage() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         discoverResourcesPage.closeTab();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
+        myAccountPage.loadPage();
+        myAccountPage.clickOnUpgradeMeButton(true);
+        testStepTwoPage();
+        myAccountPage.clickOnUpgradeMeButton(false);
+        testStepTwoModal();
+
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
         testStepTwoPage();
-        lpHomePage.closeTab();
         lpHomePage.clickOnUpgradeMeButton(false);
         testStepTwoModal();
     }
@@ -267,63 +270,52 @@ public class UpgradeFreeMemberTest extends BaseTest {
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
         testStepTwoPage();
-        discoverResourcesPage.closeTab();
         rrpPage.clickBottomPageSubscriptionButton(true);
         testStepTwoPage();
-        discoverResourcesPage.closeTab();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage(){
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        whatMembersSayWidget.clickSubscriptionButton(true);
-        testStepTwoPage();
-        browseBySubjectPage.closeTab();
-        whatMembersSayWidget.clickSubscriptionButton(false);
-        testStepTwoModal();
+        testClickSubscriptionButtonFromWhatMembersSayWidget();
+
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage(){
         articlesPage.loadPage();
-        whatMembersSayWidget.clickSubscriptionButton(true);
-        testStepTwoPage();
-        articlesPage.closeTab();
-        whatMembersSayWidget.clickSubscriptionButton(false);
-        testStepTwoModal();
+        testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPage();
-        browseBySubjectPage.closeTab();
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        testStepTwoModal();
+        testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetStandardsPage(){
         stateStandardsPage.loadPage();
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPage();
-        stateStandardsPage.closeTab();
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        testStepTwoModal();
+        testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetArticlesPage(){
         articlesPage.loadPage();
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPage();
-        articlesPage.closeTab();
-        startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        testStepTwoModal();
+        testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage(){
         testimonialsPage.loadPage();
+        testClickSubscriptionButtonFromStartYourFreeTrialWidget();
+    }
+
+    private void testClickSubscriptionButtonFromStartYourFreeTrialWidget(){
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
         testStepTwoPage();
-        testimonialsPage.closeTab();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
+        testStepTwoModal();
+    }
+
+    private void testClickSubscriptionButtonFromWhatMembersSayWidget(){
+        whatMembersSayWidget.clickSubscriptionButton(true);
+        testStepTwoPage();
+        whatMembersSayWidget.clickSubscriptionButton(false);
         testStepTwoModal();
     }
 }
