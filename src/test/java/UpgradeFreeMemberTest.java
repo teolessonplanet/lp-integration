@@ -28,6 +28,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private RrpModal rrpModal;
     private ArticlesPage articlesPage;
     private TestimonialsPage testimonialsPage;
+    private WhatMembersSaySubscriptionWidget whatMembersSaySubscriptionWidget;
+    private ContactUsPage contactUsPage;
+    private FAQPage faqPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -50,7 +53,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stateStandardsPage = new StateStandardsPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
-        whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
+        whatMembersSaySubscriptionWidget = new WhatMembersSaySubscriptionWidget(webDriver);
+        contactUsPage = new ContactUsPage(webDriver);
+        faqPage = new FAQPage(webDriver);
         createAFreeMemberAccount();
     }
 
@@ -222,6 +227,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetTestimonialsPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetFAQPage();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtons(){
@@ -282,6 +290,21 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage(){
         articlesPage.loadPage();
+        testClickSubscriptionButtonFromWhatMembersSayWidget();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage(){
+        contactUsPage.loadPage();
+        testClickSubscriptionButtonFromWhatMembersSayWidget();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetTestimonialsPage(){
+        testimonialsPage.loadPage();
+        testClickSubscriptionButtonFromWhatMembersSayWidget();
+    }
+
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetFAQPage(){
+        faqPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
