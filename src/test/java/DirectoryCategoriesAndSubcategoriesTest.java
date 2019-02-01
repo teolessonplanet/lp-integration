@@ -10,6 +10,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private LoginPage loginPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
+    private WhatMembersSayWidget whatMembersSayWidget;
     private DiscoverResourcesPage discoverResourcesPage;
     private StepOneModal stepOneModal;
     private StepOnePage stepOnePage;
@@ -26,6 +27,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
+        whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         stepOnePage = new StepOnePage(webDriver);
@@ -381,16 +383,16 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private void testTestimonials(String account) {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         browseBySubjectPage.waitForPageLoad();
-        Assert.assertTrue(browseBySubjectPage.isTestimonialTextDisplayed());
+        Assert.assertTrue(whatMembersSayWidget.isTestimonialTextDisplayed());
         Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
-        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(false);
+        whatMembersSayWidget.clickOnSeeMoreTestimonialsButton(false);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.goBackOnePage();
-        browseBySubjectPage.clickOnSeeMoreTestimonialsButton(true);
+        whatMembersSayWidget.clickOnSeeMoreTestimonialsButton(true);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.closeTab();
 
-        browseBySubjectPage.clickOnSubmitYourOwnButton(false);
+        whatMembersSayWidget.clickOnSubmitYourOwnButton(false);
         if (account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
         } else {
@@ -398,7 +400,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         }
         browseBySubjectPage.goBackOnePage();
 
-        browseBySubjectPage.clickOnSubmitYourOwnButton(true);
+        whatMembersSayWidget.clickOnSubmitYourOwnButton(true);
         if (account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
         } else {
@@ -408,7 +410,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
         //no Get free trial or Upgrade Me button if active user
         if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
-            browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(false);
+            whatMembersSayWidget.clickSubscriptionButton(false);
             if (account.equals(TestData.INVALID_EMAIL)) {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
                 stepOneModal.clickCloseModal();
@@ -417,7 +419,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
                 stepTwoModal.clickOnCloseModal();
             }
 
-            browseBySubjectPage.clickOnWhatMembersSaySubscriptionButton(true);
+            whatMembersSayWidget.clickSubscriptionButton(true);
             if (account.equals(TestData.INVALID_EMAIL)) {
                 Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
             } else {

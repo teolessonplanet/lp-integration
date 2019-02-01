@@ -16,12 +16,6 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     private static final String SUGGEST_A_CATEGORY_BUTTON = "[class='suggest-new-directory-term orange']";
 
-    private static final String TESTIMONIALS_THUMBNAIL = "[class='img-thumbnail']";
-    private static final String TESTIMONIALS_TEXT = "div[class='clearfix']";
-    private static final String SEE_MORE_TESTIMONIALS_LINK = "[class='more'] a[href='/us/testimonials']";
-    private static final String SUBMIT_YOUR_OWN_LINK = "[class='more'] a[href='/feedbacks/new']";
-    private static final String WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON = "a[href*='/subscription/new']";
-
     public BrowseBySubjectPage(WebDriver driver) {
         super(driver);
     }
@@ -87,23 +81,5 @@ public class BrowseBySubjectPage extends ResourcesPage {
 
     public WebElement getWhatMembersSayWidget() {
         return getCategoryFromLeftSide(SIDE_WIDGETS, TestData.SIDE_WIDGET_WHAT_MEMBERS_SAY);
-    }
-
-    public boolean isTestimonialTextDisplayed() {
-        return findElements(getWhatMembersSayWidget(), TESTIMONIALS_TEXT).get(0).getText().length() > TestData.ZERO_RESOURCES_FOUND;
-    }
-
-    public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
-        openInANewTabOrClick(SEE_MORE_TESTIMONIALS_LINK, inANewTab);
-    }
-
-    public void clickOnSubmitYourOwnButton(boolean inANewTab) {
-        openInANewTabOrClick(SUBMIT_YOUR_OWN_LINK, inANewTab);
-    }
-
-    public void clickOnWhatMembersSaySubscriptionButton(boolean inANewTab) {
-        waitForPageLoad();
-        final WebElement subscriptionButton = findElements(getWhatMembersSayWidget(), WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON).get(0);
-        openInANewTabOrClick(subscriptionButton, inANewTab);
     }
 }
