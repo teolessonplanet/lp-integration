@@ -28,7 +28,6 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private RrpModal rrpModal;
     private ArticlesPage articlesPage;
     private TestimonialsPage testimonialsPage;
-    private WhatMembersSaySubscriptionWidget whatMembersSaySubscriptionWidget;
     private ContactUsPage contactUsPage;
     private FAQPage faqPage;
 
@@ -53,7 +52,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         stateStandardsPage = new StateStandardsPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
-        whatMembersSaySubscriptionWidget = new WhatMembersSaySubscriptionWidget(webDriver);
+        whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         contactUsPage = new ContactUsPage(webDriver);
         faqPage = new FAQPage(webDriver);
         createAFreeMemberAccount();
@@ -253,7 +252,6 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testStepTwoPage();
         myAccountPage.clickOnUpgradeMeButton(false);
         testStepTwoModal();
-
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonHomePage(){
@@ -276,7 +274,6 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage(){
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testClickSubscriptionButtonFromWhatMembersSayWidget();
-
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage(){
