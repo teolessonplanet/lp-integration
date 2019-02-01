@@ -20,8 +20,8 @@ public class UpgradeMaxItemsCollectionModal extends LpUiBasePage {
         return getTextForElement(UPGRADE_MODAL_TEXT);
     }
 
-    public void clickOnUpgradeMeButton(){
-        clickElement(UPGRADE_ME_BUTTON);
+    public void clickOnUpgradeMeButton(boolean inANewTab){
+        openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 
 }

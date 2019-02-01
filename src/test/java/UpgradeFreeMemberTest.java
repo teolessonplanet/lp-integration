@@ -216,15 +216,15 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeModalFromMaxItemsInsideCollection(String bodyText){
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
-        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton();
+        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(true);
         testStepTwoPage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
-        testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonHeader();
+        testUpgradeFreeMemberFromUpgradeMeButtonMyAccountPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonHomePage();
+        testUpgradeFreeMemberFromUpgradeMeButtonRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage();
@@ -239,7 +239,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHeader(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
         testStepTwoPage();
@@ -247,16 +247,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testStepTwoModal();
     }
 
-
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromStartYourFreeTrialWidgetRrpPage() {
-        discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-        discoverResourcesPage.closeTab();
-    }
-
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonMyAccountPage(){
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
         testStepTwoPage();
@@ -265,7 +256,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
         testStepTwoPage();
@@ -273,7 +264,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
