@@ -105,7 +105,7 @@ public class TestData {
     //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemium@mailinator.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemember@mailinator.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";

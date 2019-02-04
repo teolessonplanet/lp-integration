@@ -23,5 +23,4 @@ public class UpgradeMaxItemsCollectionModal extends LpUiBasePage {
     public void clickOnUpgradeMeButton(boolean inANewTab){
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
-
 }

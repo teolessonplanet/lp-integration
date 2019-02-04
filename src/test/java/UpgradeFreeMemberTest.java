@@ -73,30 +73,30 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
-    @Test(description = "lessonp-686: Free member tries to upload a file from Collection Builder, Curriculum Manager and Edit Collection Modal")
+    @Test(description = "lessonp-686: Free member tries to upload a file from Collection Builder, Edit Collection Modal and Curriculum Manager")
     public void testLessonp_686() {
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
     }
 
-    @Test(description = "lessonp-684: Free members exceeds the allowed nr of collections created")
+    @Test(description = "lessonp-684: Free members exceeds the allowed number of collections created")
     public void testLessonp_684() {
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
     @Test(description = "lessonp-1000:Free member tries to save a 4th collection")
         public void testLessonp_1000() {
-        testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved();
+        testUpgradeFreeMemberFromSaving4thCollection();
     }
 
     @Test(description = "lessonp-690:Free member tries to assign a favorite resource and a collection")
     public void testLessonp_690() {
-        testUpgradeFreeMemberFromAssignResource();
-        testUpgradeFreeMemberFromAssignCollection();
+        testUpgradeFreeMemberFromAssignResourceButton();
+        testUpgradeFreeMemberFromAssignCollectionButton();
     }
 
-    @Test(description = "lessonp-685:Free members exceeds the allowed nr of items inside a created collection")
+    @Test(description = "lessonp-685:Free member exceeds the allowed number of items inside a created collection")
     public void testLessonp_685() {
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
@@ -106,7 +106,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
 
-    @Test(description = "lessonp-3884: Freemium member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
+    @Test(description = "lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
     public void testLessonp_3884() {
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
@@ -115,18 +115,18 @@ public class UpgradeFreeMemberTest extends BaseTest {
     private void testUpgradeFreeMemberFromGetFreeAccessButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         discoverResourcesPage.clickGetFreeAccess(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 
-    private void testStepTwoPage(){
+    private void checkStepTwoPage(){
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
         Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
         stepTwoPage.closeTab();
     }
 
-    private void testStepTwoModal(){
+    private void checkStepTwoModal(){
         Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         stepTwoModal.clickOnCloseModal();
     }
@@ -136,9 +136,9 @@ public class UpgradeFreeMemberTest extends BaseTest {
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
         rrpModal.clickUpgradeForFullReviewButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         rrpModal.clickUpgradeForFullReviewButton(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
@@ -165,7 +165,7 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testMaxLimitOfCollectionsCreated();
     }
 
-    private void testUpgradeFreeMemberFromExceededNumberOfCollectionsSaved(){
+    private void testUpgradeFreeMemberFromSaving4thCollection(){
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateThreeCollections();
         discoverResourcesPage.loadSearchPageInListView();
@@ -175,13 +175,13 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
     }
 
-    private void testUpgradeFreeMemberFromAssignResource() {
+    private void testUpgradeFreeMemberFromAssignResourceButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testFavoriteRegularResource(TestData.FREE_MEMBERSHIP_TEXT);
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
-    private void testUpgradeFreeMemberFromAssignCollection(){
+    private void testUpgradeFreeMemberFromAssignCollectionButton(){
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         curriculumManagerTest.testAddRegularResourceToCollection(TestData.FREE_MEMBERSHIP_TEXT);
@@ -194,19 +194,21 @@ public class UpgradeFreeMemberTest extends BaseTest {
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
-        for (int i=0; i<=10; i++){
+        for (int i=0; i<=10; i++) {
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
         }
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
     }
 
-    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection(){
+    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
-        while (collectionRrpModal.getCollectionItemsCount()<=10){
-            collectionRrpModal.clickCloseModal();
-            discoverResourcesPage.clickOnNextButton();
-            discoverResourcesPage.clickSeeCollection(false);
+        List<WebElement> getCollectionResources = discoverResourcesPage.getAllSeeCollectionsButtons();
+        for (int i=1; i<24; i++) {
+            if (collectionRrpModal.getCollectionItemsCount() <= 10) {
+                collectionRrpModal.clickCloseModal();
+                discoverResourcesPage.openInANewTabOrClick(getCollectionResources.get(i), false);
+            }
         }
         collectionRrpModal.clickSaveCollectionButton();
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
@@ -216,14 +218,14 @@ public class UpgradeFreeMemberTest extends BaseTest {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
-        testUpgradeFreeMemberFromUpgradeMeButtonHeader();
-        testUpgradeFreeMemberFromUpgradeMeButtonMyAccountPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonHomePage();
-        testUpgradeFreeMemberFromUpgradeMeButtonRrpPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
+        testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
         testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage();
@@ -238,37 +240,37 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonHeader(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         headerPage.clickOnUpgradeMeButton(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonMyAccountPage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         myAccountPage.clickOnUpgradeMeButton(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonHomePage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         lpHomePage.clickOnUpgradeMeButton(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonRrpPage(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         rrpPage.clickBottomPageSubscriptionButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage(){
@@ -296,6 +298,13 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
+    private void testClickSubscriptionButtonFromWhatMembersSayWidget(){
+        whatMembersSayWidget.clickSubscriptionButton(true);
+        checkStepTwoPage();
+        whatMembersSayWidget.clickSubscriptionButton(false);
+        checkStepTwoModal();
+    }
+
     private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
@@ -318,15 +327,8 @@ public class UpgradeFreeMemberTest extends BaseTest {
 
     private void testClickSubscriptionButtonFromStartYourFreeTrialWidget(){
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        testStepTwoPage();
+        checkStepTwoPage();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        testStepTwoModal();
-    }
-
-    private void testClickSubscriptionButtonFromWhatMembersSayWidget(){
-        whatMembersSayWidget.clickSubscriptionButton(true);
-        testStepTwoPage();
-        whatMembersSayWidget.clickSubscriptionButton(false);
-        testStepTwoModal();
+        checkStepTwoModal();
     }
 }
