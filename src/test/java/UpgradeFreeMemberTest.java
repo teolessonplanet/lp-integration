@@ -85,23 +85,23 @@ public class UpgradeFreeMemberTest extends BaseTest {
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
-    @Test(description = "lessonp-1000:Free member tries to save a 4th collection")
+    @Test(description = "lessonp-1000: Free member tries to save a 4th collection")
         public void testLessonp_1000() {
         testUpgradeFreeMemberFromSaving4thCollection();
     }
 
-    @Test(description = "lessonp-690:Free member tries to assign a favorite resource and a collection")
+    @Test(description = "lessonp-690: Free member tries to assign a favorite resource and a collection")
     public void testLessonp_690() {
         testUpgradeFreeMemberFromAssignResourceButton();
         testUpgradeFreeMemberFromAssignCollectionButton();
     }
 
-    @Test(description = "lessonp-685:Free member exceeds the allowed number of items inside a created collection")
+    @Test(description = "lessonp-685: Free member exceeds the allowed number of items inside a created collection")
     public void testLessonp_685() {
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
 
-    @Test(description = "lessonp-689:Free member tries to save a collection containing more than 10 items")
+    @Test(description = "lessonp-689: Free member tries to save a collection containing more than 10 items")
     public void testLessonp_689() {
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
