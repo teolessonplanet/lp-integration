@@ -279,7 +279,7 @@ public class AccountManagementTest extends BaseTest {
 
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
-        
+
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
 
