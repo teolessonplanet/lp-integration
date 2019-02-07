@@ -17,6 +17,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
 
     private static final String UPLOAD_BUTTON = "[class='fa fa-upload']";
+
     public CollectionBuilderPage(WebDriver driver) {
         super(driver);
     }

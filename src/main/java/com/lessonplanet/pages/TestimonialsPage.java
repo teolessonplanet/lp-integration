@@ -8,6 +8,7 @@ public class TestimonialsPage extends LpUiBasePage {
     public TestimonialsPage (WebDriver driver){
         super(driver);
     }
+
     public void loadPage() {
         loadUrl(TestData.TESTIMONIALS_PAGE_PATH);
     }

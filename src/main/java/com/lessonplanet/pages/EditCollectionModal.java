@@ -15,6 +15,7 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
     private static final String UPLOAD_A_FILE_BUTTON = "#upload-file-button [class*='upload-files btn']";
+
     public EditCollectionModal(WebDriver driver) {
         super(driver);
     }

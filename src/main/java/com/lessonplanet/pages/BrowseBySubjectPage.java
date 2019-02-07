@@ -8,7 +8,7 @@ public class BrowseBySubjectPage extends ResourcesPage {
     private static final String PAGE_TITLE = "[class='media-heading']";
     private static final String BANNER_IMAGE = "#directory-content [class*='banner']";
 
-    public static final String SIDE_WIDGETS = "[class*='side-widget']";
+    private static final String SIDE_WIDGETS = "[class*='side-widget']";
     private static final String BROWSE_BY_SUBJECT_CARETS = "a[class*='fa-caret']";
 
     private static final String BROWSE_BY_SUBJECT_OPTIONS_SELECTOR = "li a[href*='/lesson-plans/']";
