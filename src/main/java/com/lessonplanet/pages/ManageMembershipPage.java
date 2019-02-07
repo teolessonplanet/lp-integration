@@ -55,6 +55,7 @@ public class ManageMembershipPage extends LpUiBasePage {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public int getNumberOfDisplayedOffers() {
         List<WebElement> allOffers = findElements(SELECT_BUTTONS);
         return allOffers.size();
@@ -82,6 +83,22 @@ public class ManageMembershipPage extends LpUiBasePage {
         }
         return "No plan found!";
     }
+=======
+//    public String getCurrentPlan() {
+//        List<WebElement> allOffers = findElements(SELECT_BUTTONS);
+//        if (allOffers.get(0).getText().equals(CURRENT_PLAN_TEXT)) {
+//            switch (allOffers.size()) {
+//                case 1:
+//                    return TestData.PRO_OPTION_TEXT;
+//                case 2:
+//                    return TestData.PRIME_OPTION_TEXT;
+//                case 3:
+//                    return TestData.STARTER_OPTION_TEXT;
+//            }
+//        }
+//        return "No plan found!";
+//    }
+>>>>>>> upgrade a started
 
     public int getNumberOfDisplayedOffers() {
         List<WebElement> allOffers = findElements(SELECT_BUTTONS);
