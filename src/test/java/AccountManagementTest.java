@@ -406,25 +406,25 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
-        testUpgradeFreeMemberFromUpgradeMeButtonFromHeader();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetTestimonialsPage();
-        testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetFAQPage();
+        testUpgradeFromHeader();
+        testUpgradeFromMyAccountPage();
+        testUpgradeFromHomePage();
+        testUpgradeFromRrpPage();
+        testUpgradeFromWhatMembersSayWidgetDirectoryPage();
+        testUpgradeFromWhatMembersSayWidgetArticlesPage();
+        testUpgradeFromWhatMembersSayWidgetContactUsPage();
+        testUpgradeFromWhatMembersSayWidgetTestimonialsPage();
+        testUpgradeFromWhatMembersSayWidgetFAQPage();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtons(){
-        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage();
-        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetStandardsPage();
-        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetArticlesPage();
-        testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage();
+        testUpgradeFromStartYourFreeTrialWidgetDirectoryPage();
+        testUpgradeFromStartYourFreeTrialWidgetStandardsPage();
+        testUpgradeFromStartYourFreeTrialWidgetArticlesPage();
+        testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHeader(){
+    private void testUpgradeFromHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
         checkStepTwoPage();
@@ -432,7 +432,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromMyAccountPage(){
+    private void testUpgradeFromMyAccountPage(){
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
         checkStepTwoPage();
@@ -440,7 +440,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromHomePage(){
+    private void testUpgradeFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
         checkStepTwoPage();
@@ -448,7 +448,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromRrpPage(){
+    private void testUpgradeFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
@@ -457,27 +457,27 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPage();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetDirectoryPage(){
+    private void testUpgradeFromWhatMembersSayWidgetDirectoryPage(){
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetArticlesPage(){
+    private void testUpgradeFromWhatMembersSayWidgetArticlesPage(){
         articlesPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetContactUsPage(){
+    private void testUpgradeFromWhatMembersSayWidgetContactUsPage(){
         contactUsPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetTestimonialsPage(){
+    private void testUpgradeFromWhatMembersSayWidgetTestimonialsPage(){
         testimonialsPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtonFromWhatMembersSayWidgetFAQPage(){
+    private void testUpgradeFromWhatMembersSayWidgetFAQPage(){
         faqPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
@@ -489,22 +489,22 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoModal();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetDirectoryPage() {
+    private void testUpgradeFromStartYourFreeTrialWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetStandardsPage(){
+    private void testUpgradeFromStartYourFreeTrialWidgetStandardsPage(){
         stateStandardsPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetArticlesPage(){
+    private void testUpgradeFromStartYourFreeTrialWidgetArticlesPage(){
         articlesPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtonFromStartYourFreeTrialWidgetTestimonialsPage(){
+    private void testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage(){
         testimonialsPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
