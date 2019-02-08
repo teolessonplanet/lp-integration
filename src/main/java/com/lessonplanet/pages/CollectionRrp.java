@@ -8,7 +8,7 @@ import java.text.ParseException;
 public class CollectionRrp extends LpUiBasePage {
 
     private static final String COLLECTION_TITLE_TEXT = "div h1";
-    private static final String SAVE_COLLECTION_BUTTON = "[class='save-collection-btn'] [class='btn btn-default']";
+    private static final String SAVE_COLLECTION_BUTTON = "span[class='save-collection-btn'] button[type='submit']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
 
     protected CollectionRrp(WebDriver driver){
