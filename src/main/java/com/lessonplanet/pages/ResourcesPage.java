@@ -35,7 +35,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String NEXT_BUTTON = "[class='pagination'] [class*='next_page'] a";
     private static final String SEE_ALL_BUTTON = "[class='pagination'] #see_all";
 
-    private static final String UPGRADE_ME_NOW_BUTTON = "div[class*='vertical-align'] [class*='btn-success']";
+    private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
     private static final Logger logger = LogManager.getRootLogger();
 

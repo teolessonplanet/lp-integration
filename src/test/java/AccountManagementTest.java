@@ -239,8 +239,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoTest.initAndReachStepTwoModal(webDriver);
         stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
 
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.changeToListView();
+        discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
@@ -268,8 +267,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoTest.initAndReachStepTwoModal(webDriver);
         stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
 
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.changeToListView();
+        discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeFullReview(false);
         rrpModal.waitForModal();
         rrpModal.clickOnFavoriteButton();
@@ -294,8 +292,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoTest.initAndReachStepTwoModal(webDriver);
         stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
 
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.changeToListView();
+        discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
