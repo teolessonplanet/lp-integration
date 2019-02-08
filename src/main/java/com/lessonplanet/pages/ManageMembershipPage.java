@@ -17,10 +17,13 @@ public class ManageMembershipPage extends LpUiBasePage {
     private static final String DISPLAYED_OFFERS_TEXT = "[class*='panel-offer'] [class*='panel-title']";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private static final String CURRENT_PLAN_TEXT = "Current Plan";
 
 >>>>>>> WIP
+=======
+>>>>>>> upgrade a starter
     public ManageMembershipPage(WebDriver driver) {
         super(driver);
     }
@@ -54,6 +57,7 @@ public class ManageMembershipPage extends LpUiBasePage {
         clickElement(MORE_ACCOUNT_OPTIONS_BUTTON);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public int getNumberOfDisplayedOffers() {
@@ -100,6 +104,8 @@ public class ManageMembershipPage extends LpUiBasePage {
 //    }
 >>>>>>> upgrade a started
 
+=======
+>>>>>>> upgrade a starter
     public int getNumberOfDisplayedOffers() {
         List<WebElement> allOffers = findElements(SELECT_BUTTONS);
         return allOffers.size();
