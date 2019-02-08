@@ -33,13 +33,14 @@ public class AccountManagementTest extends BaseTest {
     private WhatMembersSayWidget whatMembersSayWidget;
     private ContactUsPage contactUsPage;
     private FAQPage faqPage;
-    private CurriculumManagerTest curriculumManagerTest;
     private EditCollectionModal  editCollectionModal;
     private CollectionRrpModal collectionRrpModal;
     private RrpPage rrpPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
     private UpgradeAssignModal upgradeAssignModal;
+
+    private CurriculumManagerTest curriculumManagerTest;
 
     private static final int expectedDaysToExpire = 11;
 
@@ -69,15 +70,13 @@ public class AccountManagementTest extends BaseTest {
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         contactUsPage = new ContactUsPage(webDriver);
         faqPage = new FAQPage(webDriver);
-        curriculumManagerTest = new CurriculumManagerTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
-        rrpModal = new RrpModal(webDriver);
-        upgradeAssignModal = new UpgradeAssignModal(webDriver);
+        curriculumManagerTest = new CurriculumManagerTest();
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717:Try It Free button")
@@ -231,7 +230,7 @@ public class AccountManagementTest extends BaseTest {
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
         //Only PRO available
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Prime - lessonp-675:Upgrade from the search page")
@@ -244,10 +243,9 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.changeToListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
 
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Prime - lessonp-676:Upgrade from My Account")
@@ -259,10 +257,9 @@ public class AccountManagementTest extends BaseTest {
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
 
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Prime - lessonp-677:Upgrade via the Assign modal")
@@ -286,10 +283,9 @@ public class AccountManagementTest extends BaseTest {
         upgradeAssignModal.waitForModal();
         upgradeAssignModal.clickOnUpgradeMeButton();
 
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Starter - lessonp-678:Upgrade from the search page")
@@ -301,15 +297,11 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
-//
-//        Assert.assertEquals(manageMembershipPage.getCurrentPlan(), TestData.STARTER_OPTION_TEXT);
-//        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
 
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Starter - lessonp-679:Upgrade from My Account")
@@ -321,11 +313,10 @@ public class AccountManagementTest extends BaseTest {
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
 
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2),TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Starter - lessonp-680:Upgrade via the Assign modal")
@@ -350,14 +341,9 @@ public class AccountManagementTest extends BaseTest {
         upgradeAssignModal.clickOnUpgradeMeButton();
 
         Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
-
-        //TODO: check options in LISTc
-
-        //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
-
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
