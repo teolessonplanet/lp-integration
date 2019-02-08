@@ -280,9 +280,6 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
 
-        curriculumManagerPage.loadPage();
-        curriculumManagerPage.clickOnMyFavoritesFolder();
-
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
 
@@ -304,75 +301,9 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
-
-        //Only PRO available for upgrade
-        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2),TestData.PRO_OPTION_TEXT);
-    }
-
-    @Test(description = "Account management - Upgrade a Starter - lessonp-679:Upgrade from My Account")
-    public void testLessonp_679() {
-        stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
-
-        myAccountPage.loadPage();
-        myAccountPage.clickOnUpgradeYourPlanButton();
-
-        //Only PRO available for upgrade
-        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2),TestData.PRO_OPTION_TEXT);
-    }
-
-    @Test(description = "Account management - Upgrade a Starter - lessonp-680:Upgrade via the Assign modal")
-    public void testLessonp_680() {
-        stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
-
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.changeToListView();
-        discoverResourcesPage.clickSeeFullReview(false);
-        rrpModal.waitForModal();
-        rrpModal.clickOnFavoriteButton();
-
-        curriculumManagerPage.loadPage();
-        curriculumManagerPage.clickOnMyFavoritesFolder();
-
-
-        curriculumManagerPage.hoverOverActionsDropdown();
-        curriculumManagerPage.clickOnAssignButton();
-
-        upgradeAssignModal.waitForModal();
-        upgradeAssignModal.clickOnUpgradeMeButton();
-
-        Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
-
-        //Only PRO available for upgrade
-        Assert.assertEquals(manageMembershipPage.getCurrentPlan(), TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
-
-        //Only PRO available for upgrade
-        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0),TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1),TestData.PRO_OPTION_TEXT);
-    }
-
-    @Test(description = "Account management - Upgrade a Starter - lessonp-678:Upgrade from the search page")
-    public void testLessonp_678() {
-        stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
-
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.changeToListView();
-        discoverResourcesPage.clickOnUpgradeMeNowButton();
+//
+//        Assert.assertEquals(manageMembershipPage.getCurrentPlan(), TestData.STARTER_OPTION_TEXT);
+//        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
 
         //Only PRO available for upgrade
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
