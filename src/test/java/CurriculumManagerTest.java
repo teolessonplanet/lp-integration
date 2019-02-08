@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -65,6 +66,11 @@ public class CurriculumManagerTest extends BaseTest {
         assignModal = new AssignModal(webDriver);
         shareEmailModal = new ShareEmailModal(webDriver);
         shareLinkModal = new ShareLinkModal(webDriver);
+    }
+
+    public void reachCurriculumManagerPage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")

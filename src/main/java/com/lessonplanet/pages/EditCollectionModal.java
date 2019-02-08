@@ -14,6 +14,8 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "[class*='btn btn-default btn-text-sm']";
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
+    private static final String UPLOAD_A_FILE_BUTTON = "#upload-file-button";
+
     public EditCollectionModal(WebDriver driver) {
         super(driver);
     }
@@ -48,5 +50,10 @@ public class EditCollectionModal extends LpUiBasePage {
 
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
+    }
+
+    public void clickUploadAFileButton(){
+        waitForModal();
+        clickElement(UPLOAD_A_FILE_BUTTON);
     }
 }

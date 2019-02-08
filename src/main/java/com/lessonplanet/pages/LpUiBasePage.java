@@ -338,7 +338,7 @@ public class LpUiBasePage {
         }
     }
 
-    protected void openInANewTabOrClick(WebElement webElement, boolean inANewTab) {
+    public void openInANewTabOrClick(WebElement webElement, boolean inANewTab) {
         if (inANewTab) {
             openInANewTab(webElement);
         } else {

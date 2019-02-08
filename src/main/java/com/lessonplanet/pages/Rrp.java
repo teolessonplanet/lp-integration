@@ -17,6 +17,8 @@ public class Rrp extends LpUiBasePage {
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
+    private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "a[href='/subscription/new']";
+
     protected Rrp(WebDriver driver) {
         super(driver);
     }
@@ -59,5 +61,9 @@ public class Rrp extends LpUiBasePage {
 
     public void clickOnAddToCollectionDropdown() {
         clickElement(ADD_TO_COLLECTION_DROPDOWN);
+    }
+
+    public void clickUpgradeForFullReviewButton (boolean inANewTab){
+        openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 }
