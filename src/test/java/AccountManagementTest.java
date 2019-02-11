@@ -33,12 +33,14 @@ public class AccountManagementTest extends BaseTest {
     private WhatMembersSayWidget whatMembersSayWidget;
     private ContactUsPage contactUsPage;
     private FAQPage faqPage;
-    private CurriculumManagerTest curriculumManagerTest;
     private EditCollectionModal  editCollectionModal;
     private CollectionRrpModal collectionRrpModal;
     private RrpPage rrpPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
+    private CurriculumManagerPage curriculumManagerPage;
+    private UpgradeAssignModal upgradeAssignModal;
 
+    private CurriculumManagerTest curriculumManagerTest;
 
     private static final int expectedDaysToExpire = 11;
 
@@ -68,11 +70,13 @@ public class AccountManagementTest extends BaseTest {
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         contactUsPage = new ContactUsPage(webDriver);
         faqPage = new FAQPage(webDriver);
-        curriculumManagerTest = new CurriculumManagerTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
+        curriculumManagerPage = new CurriculumManagerPage(webDriver);
+        upgradeAssignModal = new UpgradeAssignModal(webDriver);
+        curriculumManagerTest = new CurriculumManagerTest();
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717:Try It Free button")
@@ -128,7 +132,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-682:Downgrade from Freemium")
+    @Test(description = "Account management - Downgrade - lessonp-682:Downgrade from Freemium")
     public void testLessonp_682() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
@@ -141,17 +145,17 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(stepTwoPage.getTitleText().equals(TestData.STEP_TWO_TITLE_MESSAGE));
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-948:Downgrade from Pro membership")
+    @Test(description = "Account management - Downgrade - lessonp-948:Downgrade from Pro membership")
     public void testLessonp_948() {
         testDowngrade(TestData.PRO_OPTION_TEXT, TestData.PRIME_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-947:Downgrade from Prime membership")
+    @Test(description = "Account management - Downgrade - lessonp-947:Downgrade from Prime membership")
     public void testLessonp_947() {
         testDowngrade(TestData.PRIME_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-683:Downgrade from Starter membership")
+    @Test(description = "Account management - Downgrade - lessonp-683:Downgrade from Starter membership")
     public void testLessonp_983() {
         testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
     }
@@ -212,6 +216,131 @@ public class AccountManagementTest extends BaseTest {
         createAFreeMemberAccount();
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
+    }
+
+    @Test(description = "Account management - Upgrade a Pro - lessonp-673:No upgrade possible (Pro $72)")
+    public void testLessonp_673() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.PRO_OPTION_TEXT);
+
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        Assert.assertFalse(myAccountPage.isUpgradeYourPlanButtonDisplayed());
+        myAccountPage.clickOnManageMembershipLink();
+        Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
+        //Only PRO available
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Prime - lessonp-675:Upgrade from the search page")
+    public void testLessonp_675() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickOnUpgradeMeNowButton();
+
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Prime - lessonp-676:Upgrade from My Account")
+    public void testLessonp_676() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+
+        myAccountPage.loadPage();
+        myAccountPage.clickOnUpgradeYourPlanButton();
+
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Prime - lessonp-677:Upgrade via the Assign modal")
+    public void testLessonp_677() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeFullReview(false);
+        rrpModal.waitForModal();
+        rrpModal.clickOnFavoriteButton();
+
+        curriculumManagerPage.loadPage();
+        curriculumManagerPage.clickOnMyFavoritesFolder();
+
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnAssignButton();
+
+        upgradeAssignModal.waitForModal();
+        upgradeAssignModal.clickOnUpgradeMeButton();
+
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Starter - lessonp-678:Upgrade from the search page")
+    public void testLessonp_678() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickOnUpgradeMeNowButton();
+
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Starter - lessonp-679:Upgrade from My Account")
+    public void testLessonp_679() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+
+        myAccountPage.loadPage();
+        myAccountPage.clickOnUpgradeYourPlanButton();
+
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
+    }
+
+    @Test(description = "Account management - Upgrade a Starter - lessonp-680:Upgrade via the Assign modal")
+    public void testLessonp_680() {
+        stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoModal(webDriver);
+        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.changeToListView();
+        discoverResourcesPage.clickSeeFullReview(false);
+        rrpModal.waitForModal();
+        rrpModal.clickOnFavoriteButton();
+
+        curriculumManagerPage.loadPage();
+        curriculumManagerPage.clickOnMyFavoritesFolder();
+
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnAssignButton();
+
+        upgradeAssignModal.waitForModal();
+        upgradeAssignModal.clickOnUpgradeMeButton();
+
+        Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
+        Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
