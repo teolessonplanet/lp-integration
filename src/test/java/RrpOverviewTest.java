@@ -54,7 +54,7 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertFalse(rrpModal.isReturnToSearchResultsLinkDisplayed());
     }
 
-    @Test(description = "Visitor - RRP Modal - lessonp-1282: Shared Resource Modal Overview")
+    @Test(description = "Visitor : [RRP Modal - RRP Overview] - lessonp-1282: Shared Resource Modal Overview")
     public void testLessonp_1282() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
@@ -80,7 +80,7 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertFalse(rrpModal.isReturnToSearchResultsLinkDisplayed());
     }
 
-    @Test(description = "Visitor - RRP Modal - lessonp-468: Collection Modal Overview")
+    @Test(description = "Visitor : [RRP Modal - RRP Overview] - lessonp-468: Collection Modal Overview")
     public void testLessonp_468() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
