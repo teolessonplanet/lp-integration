@@ -31,21 +31,21 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";
-    private static final String ITEM_VIEWER_RRP = "[class='expanded-item-rrps'] div.panel-rrp.panel-body.selected-arrow div.rrp-container ul[class='rrp-list'] li.rrp-content";
+    private static final String EXPANDED_RRP = "[class='expanded-item-rrps'] div.panel-rrp.panel-body.selected-arrow div.rrp-container ul[class='rrp-list'] li.rrp-content";
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
-    private static final String X_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] [class='close-item-rrp-view text-muted fa-3x']";
+    private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class='close-item-rrp-view text-muted fa-3x']";
 
     protected CollectionRrp(WebDriver driver){
         super(driver);
     }
 
     public boolean isCollectionTitleDisplayed() {
-        return isElementDisplayed(COLLECTION_TITLE_TEXT);
+        return isElementClickable(COLLECTION_TITLE_TEXT);
     }
 
     public boolean isSaveCollectionButtonDisplayed() {
-        return isElementDisplayed(SAVE_COLLECTION_BUTTON);
+        return isElementClickable(SAVE_COLLECTION_BUTTON);
     }
 
     public void clickSaveCollectionButton() {
@@ -57,7 +57,7 @@ public class CollectionRrp extends LpUiBasePage {
         int number;
         try {
             number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
-        } catch (ParseException e) {
+            } catch (ParseException e) {
             throw new Error("The number " + rawNumber + " cannot be parsed");
         }
         return number;
@@ -161,14 +161,10 @@ public class CollectionRrp extends LpUiBasePage {
     }
 
     public void clickCloseExpandedRrp(){
-        clickElement(X_BUTTON_ITEM_VIEWER);
-    }
-
-    public void clickPanelItem(int position){
-        clickElement(PANEL_ITEM, position);
+        clickElement(X_BUTTON_EXPANDED_RRP);
     }
 
     public String getExpandedRrpDataId(int position) {
-        return getElementDataId(ITEM_VIEWER_RRP, position);
+        return getElementDataId(EXPANDED_RRP, position);
     }
 }

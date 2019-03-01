@@ -24,61 +24,61 @@ public class RrpPage extends Rrp {
         super(driver);
     }
 
-    public void clickStartYourFreeTrialUpgradeMeButton(boolean inANewTab){
+    public void clickStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(START_YOUR_FREE_TRIAL_UPGRADE_ME_BUTTON, inANewTab);
     }
 
-    public void clickBottomPageUpgradeMeButton (boolean inANewTab){
+    public void clickBottomPageUpgradeMeButton(boolean inANewTab){
         openInANewTabOrClick(BOTTOM_PAGE_UPGRADE_ME_BUTTON, inANewTab);
     }
 
-    public boolean isStartYourFreeTrialWidgetDisplayed(){
-        return isElementDisplayed(START_YOUR_FREE_TRIAL_WIDGET);
-    }
-
-    public String getStartYourFreeTrialText(){
-        return getTextForElement(START_YOUR_FREE_TRIAL_TEXT);
-    }
-
-    public boolean isStartYourFreeTrialTryItFreeButtonDisplayed(){
+    public boolean isStartYourFreeTrialTryItFreeButtonDisplayed() {
         return isElementDisplayed(START_YOUR_FREE_TRIAL_TRY_IT_FREE_BUTTON);
     }
 
-    public boolean isBottomPageTryItFreeButtonDisplayed (){
+    public boolean isBottomPageTryItFreeButtonDisplayed() {
         return isElementDisplayed(BOTTOM_PAGE_TRY_IT_FREE_BUTTON);
+    }
+
+    public boolean isStartYourFreeTrialWidgetDisplayed() {
+        return isElementDisplayed(START_YOUR_FREE_TRIAL_WIDGET);
+    }
+
+    public String getStartYourFreeTrialText() {
+        return getTextForElement(START_YOUR_FREE_TRIAL_TEXT);
     }
 
     public boolean isGoToResourceButtonDisplayed() {
         return isElementClickable(GO_TO_RESOURCE_BUTTON);
     }
 
-    public boolean isSimilarResourcesSectionDisplayed(){
+    public boolean isSimilarResourcesSectionDisplayed() {
         return isElementDisplayed(SIMILAR_RESOURCES_SECTION);
     }
 
-    public boolean isSimilarResourcesHeaderDisplayed(){
+    public boolean isSimilarResourcesHeaderDisplayed() {
         return isElementDisplayed(SIMILAR_RESOURCES_HEADER);
     }
 
-    public boolean isAllResourceTypesDropdownDisplayed(){
+    public boolean isAllResourceTypesDropdownDisplayed() {
         return isElementDisplayed(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public void clickAllResourceTypesDropdown(){
+    public void clickAllResourceTypesDropdown() {
         scrollToElement(ALL_RESOURCE_TYPES_DROPDOWN);
         clickElement(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public String getAllResourceTypesFromDropdown(){
+    public String getAllResourceTypesFromDropdown() {
         return getTextForElement(ALL_RESOURCE_TYPES_OPTIONS);
     }
 
-    public void selectHomeLettersResourceType(){
+    public void selectHomeLettersResourceType() {
         clickAllResourceTypesDropdown();
         clickElement(HOME_LETTERS_RESOURCE_TYPE);
     }
 
-    public void selectWorksheetsResourceType(){
+    public void selectWorksheetsResourceType() {
         clickAllResourceTypesDropdown();
         clickElement(WORKSHEETS_RESOURCE_TYPE);
     }
@@ -87,11 +87,11 @@ public class RrpPage extends Rrp {
         return getTextForElement(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public String getResourceTypeTextFromResourceCard(){
+    public String getResourceTypeTextFromResourceCard() {
         return getPseudoElement(SIMILAR_RESOURCE_CARD);
     }
 
-    public String getTextFromSimilarResourcesList(){
+    public String getTextFromSimilarResourcesList() {
         return getTextForElement(SIMILAR_RESOURCES_LIST);
     }
 }

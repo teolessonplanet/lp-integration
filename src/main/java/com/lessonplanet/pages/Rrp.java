@@ -39,7 +39,7 @@ public class Rrp extends LpUiBasePage {
     private static final String SHARED_RESOURCE_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(3) dd";
     private static final String NEXT_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-right'] a";
     private static final String PREVIOUS_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-left'] a";
-    private static final String SEARCH_RESULTS_POSITION = "[class='lead lead-md mb0 text-center']";
+    private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
     private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='panel-footer hidden-xs'] a[href*='/search']";
 
     protected Rrp(WebDriver driver) {
@@ -47,19 +47,19 @@ public class Rrp extends LpUiBasePage {
     }
 
     public boolean isTitleDisplayed() {
-        return isElementDisplayed(RESOURCE_TITLE_TEXT);
+        return isElementClickable(RESOURCE_TITLE_TEXT);
     }
 
     public boolean isLimitedAccessReviewDisplayed() {
-        return isElementDisplayed(LIMITED_ACCESS_REVIEW);
+        return isElementClickable(LIMITED_ACCESS_REVIEW);
     }
 
     public boolean isFullReviewDisplayed() {
-        return isElementDisplayed(FULL_REVIEW);
+        return isElementClickable(FULL_REVIEW);
     }
 
     public boolean isFreeSampleDisplayed() {
-        return isElementDisplayed(FREE_SAMPLE);
+        return isElementClickable(FREE_SAMPLE);
     }
 
     public void clickOnViewFavoritesLink() {
@@ -135,7 +135,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public boolean isSearchResultsPositionDisplayed() {
-        return isElementDisplayed(SEARCH_RESULTS_POSITION);
+        return isElementDisplayed(SEARCH_RESULTS_POSITION_TEXT);
     }
 
     public boolean isReturnToSearchResultsLinkDisplayed() {

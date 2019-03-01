@@ -36,11 +36,11 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(rrpModal.isConceptsTagsListDisplayed());
         Assert.assertTrue(rrpModal.isReviewerRatingDisplayed());
         Assert.assertTrue(rrpModal.isRegularResourceGradeDisplayed());
-        Assert.assertTrue(Arrays.asList(TestData.ALL_SUBJECTS).contains(rrpModal.getRegularResourceSubjectText().get(0)));
+        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getRegularResourceSubjectText().get(0)));
         if(rrpModal.getRegularResourceSubjectsNumber()>1){
             Assert.assertTrue((rrpModal.getRegularResourceSubjectText().get(1)).contains(TestData.DISABLED_TEXT));
         }
-        Assert.assertTrue(Arrays.asList(TestData.ALL_RESOURCE_TYPES).contains(rrpModal.getRegularResourceResourceTypeText().get(0)));
+        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getRegularResourceResourceTypeText().get(0)));
         if(rrpModal.getRegularResourceResourceTypeNumber()>1){
             Assert.assertTrue((rrpModal.getRegularResourceResourceTypeText().get(1)).contains(TestData.DISABLED_TEXT));
         }
@@ -49,7 +49,6 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
         Assert.assertTrue(rrpModal.isShareButtonDisplayed());
         Assert.assertTrue(rrpModal.isThumbnailDisplayed());
-        //Assert.assertFalse(rrpModal.isPreviousButtonDisplayed());
         Assert.assertTrue(rrpModal.isNextButtonDisplayed());
         Assert.assertTrue(rrpModal.isSearchResultsPositionDisplayed());
         Assert.assertFalse(rrpModal.isReturnToSearchResultsLinkDisplayed());
@@ -67,16 +66,15 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(rrpModal.isNumberOfViewsDisplayed());
         Assert.assertTrue(rrpModal.isSharedResourceGradeDisplayed());
         for(int i=0; i<rrpModal.getSharedResourceSubjectsNumber(); i++){
-            Assert.assertTrue(Arrays.asList(TestData.ALL_SUBJECTS).contains(rrpModal.getSharedResourceSubjectText().get(i)));
+            Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getSharedResourceSubjectText().get(i)));
         }
         for(int i=1; i<rrpModal.getSharedResourceResourceTypeNumber(); i++){
-            Assert.assertTrue(Arrays.asList(TestData.ALL_RESOURCE_TYPES).contains(rrpModal.getSharedResourceResourceTypeText().get(i)));
+            Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getSharedResourceResourceTypeText().get(i)));
         }
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
         Assert.assertTrue(rrpModal.isShareButtonDisplayed());
         Assert.assertTrue(rrpModal.isThumbnailDisplayed());
-       // Assert.assertTrue(rrpModal.isPreviousButtonDisplayed());
         Assert.assertTrue(rrpModal.isNextButtonDisplayed());
         Assert.assertTrue(rrpModal.isSearchResultsPositionDisplayed());
         Assert.assertFalse(rrpModal.isReturnToSearchResultsLinkDisplayed());
@@ -101,7 +99,6 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonDisplayed());
         Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
         Assert.assertFalse(collectionRrpModal.isLimitedAccessReviewDisplayed());
-        Assert.assertFalse(collectionRrpModal.isPreviousButtonRrpDisplayed());
         Assert.assertTrue(collectionRrpModal.isNextButtonRrpDisplayed());
         Assert.assertTrue(collectionRrpModal.isSearchResultsPositionDisplayed());
         Assert.assertEquals(collectionRrpModal.getCollectionItemsCount(), collectionRrpModal.getPanelItemsCount());
@@ -124,20 +121,9 @@ public class RrpOverviewTest extends BaseTest{
             Assert.assertTrue(collectionRrpModal.isNextButtonPanelItemsDisplayed());
         }
 
-        collectionRrpModal.getPanelItemDataId(0);
-        collectionRrpModal.getPanelItemDataId(1);
         Assert.assertTrue(collectionRrpModal.isSeeFullReviewsLinkVisible());
         collectionRrpModal.clickSeeFullReviewsLink();
-
-        Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
-        Assert.assertFalse(collectionRrpModal.isSeeFullReviewsLinkVisible());
-        Assert.assertFalse(collectionRrpModal.isPreviousButtonItemViewerDisplayed());
-        Assert.assertTrue(collectionRrpModal.isNextButtonItemViewerDisplayed());
-        collectionRrpModal.clickCloseExpandedRrp();
-        Assert.assertTrue(collectionRrpModal.isSeeFullReviewsLinkVisible());
-
-        collectionRrpModal.clickPanelItem(0);
-        Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
+        Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(0), collectionRrpModal.getPanelItemDataId(0));
         Assert.assertFalse(collectionRrpModal.isSeeFullReviewsLinkVisible());
         Assert.assertFalse(collectionRrpModal.isPreviousButtonItemViewerDisplayed());
         Assert.assertTrue(collectionRrpModal.isNextButtonItemViewerDisplayed());
@@ -166,11 +152,11 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(rrpPage.isReviewerRatingDisplayed());
         Assert.assertTrue(rrpPage.isRegularResourceGradeDisplayed());
         Assert.assertEquals(rrpPage.getRegularResourceGradeNumber(), 1);
-        Assert.assertTrue(Arrays.asList(TestData.ALL_SUBJECTS).contains(rrpPage.getRegularResourceSubjectText().get(0)));
+        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getRegularResourceSubjectText().get(0)));
         if(rrpPage.getRegularResourceSubjectsNumber()>1){
             Assert.assertTrue((rrpPage.getRegularResourceSubjectText().get(1)).contains(TestData.DISABLED_TEXT));
         }
-        Assert.assertTrue(Arrays.asList(TestData.ALL_RESOURCE_TYPES).contains(rrpPage.getRegularResourceResourceTypeText().get(0)));
+        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getRegularResourceResourceTypeText().get(0)));
         if(rrpPage.getRegularResourceResourceTypeNumber()>1){
             Assert.assertTrue((rrpPage.getRegularResourceResourceTypeText().get(1)).contains(TestData.DISABLED_TEXT));
         }
@@ -221,10 +207,10 @@ public class RrpOverviewTest extends BaseTest{
         Assert.assertTrue(rrpPage.isSharedResourceGradeDisplayed());
         Assert.assertEquals( rrpPage.getSharedResourceGradeNumber(), 1);
         for(int i=0; i<rrpPage.getSharedResourceSubjectsNumber(); i++){
-            Assert.assertTrue(Arrays.asList(TestData.ALL_SUBJECTS).contains(rrpPage.getSharedResourceSubjectText().get(i)));
+            Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getSharedResourceSubjectText().get(i)));
         }
         for(int i=0; i<rrpPage.getSharedResourceResourceTypeNumber(); i++){
-            Assert.assertTrue(Arrays.asList(TestData.ALL_RESOURCE_TYPES).contains(rrpPage.getSharedResourceResourceTypeText().get(i)));
+            Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getSharedResourceResourceTypeText().get(i)));
         }
         Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrpPage.isVisitorFavoriteButtonDisplayed());
@@ -304,11 +290,8 @@ public class RrpOverviewTest extends BaseTest{
             Assert.assertTrue(collectionRrpPage.isPreviousButtonPanelItemsDisplayed());
             Assert.assertTrue(collectionRrpPage.isNextButtonPanelItemsDisplayed());
         }
-        collectionRrpPage.getPanelItemDataId(0);
-        collectionRrpPage.getPanelItemDataId(1);
         Assert.assertTrue(collectionRrpPage.isSeeFullReviewsLinkVisible());
         collectionRrpPage.clickSeeFullReviewsLink();
-
         Assert.assertEquals(collectionRrpPage.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
         Assert.assertFalse(collectionRrpPage.isSeeFullReviewsLinkVisible());
         Assert.assertFalse(collectionRrpPage.isPreviousButtonItemViewerDisplayed());
@@ -316,14 +299,6 @@ public class RrpOverviewTest extends BaseTest{
         collectionRrpPage.clickCloseExpandedRrp();
         Assert.assertTrue(collectionRrpPage.isSeeFullReviewsLinkVisible());
         Assert.assertTrue(collectionRrpPage.isReturnToSearchResultsLinkDisplayed());
-
-        collectionRrpPage.clickPanelItem(0);
-        Assert.assertEquals(collectionRrpPage.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
-        Assert.assertFalse(collectionRrpPage.isSeeFullReviewsLinkVisible());
-        Assert.assertFalse(collectionRrpPage.isPreviousButtonItemViewerDisplayed());
-        Assert.assertTrue(collectionRrpPage.isNextButtonItemViewerDisplayed());
-        collectionRrpPage.clickCloseExpandedRrp();
-        Assert.assertTrue(collectionRrpPage.isSeeFullReviewsLinkVisible());
     }
 
     private void testSimilarResourcesSection(){
@@ -336,10 +311,10 @@ public class RrpOverviewTest extends BaseTest{
         rrpPage.clickAllResourceTypesDropdown();
         rrpPage.selectWorksheetsResourceType();
         Assert.assertEquals(rrpPage.getTextFromAllResourceTypesDropdown(), TestData.WORKSHEETS_RESOURCE_TYPE);
-        Assert.assertEquals(rrpPage.getResourceTypeTextFromResourceCard(), '"' + TestData.WORKSHEET_RESOURCE_TYPE + '"');
+        Assert.assertEquals(rrpPage.getResourceTypeTextFromResourceCard(), '"' + TestData.WORKSHEET_RESOURCE_TYPE_CARD + '"');
         rrpPage.selectHomeLettersResourceType();
         Assert.assertEquals(rrpPage.getTextFromAllResourceTypesDropdown(), TestData.HOME_LETTERS_RESOURCE_TYPE);
-        Assert.assertEquals(rrpPage.getTextFromSimilarResourcesList(), TestData.NO_RESOURCES_FOUND);
+        Assert.assertEquals(rrpPage.getTextFromSimilarResourcesList(), TestData.NO_RESOURCES_FOUND_TEXT);
     }
 
     private void testStartYourFreeTrialWidget(String widgetText){
