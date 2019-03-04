@@ -7,7 +7,8 @@ import java.util.List;
 
 public class HeaderPage extends LpUiBasePage {
 
-    private static final String LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo";
+    private static final String LP_LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/lp-logo-02d7']";
+    private static final String REGULAR_SL_LOGO_IMAGE = "[class*='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/learning-explorer-logo-54e2']";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
     private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade'] a";
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
@@ -73,8 +74,20 @@ public class HeaderPage extends LpUiBasePage {
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 
-    public boolean isLogoClicable() {
-        return isElementClickable(LOGO_IMAGE);
+    public boolean isLpLogoClickable() {
+        return isElementClickable(LP_LOGO_IMAGE);
+    }
+
+    public void clickOnLpLogo(boolean inANewTab) {
+        openInANewTabOrClick(LP_LOGO_IMAGE, inANewTab);
+    }
+
+    public boolean isRegularSlLogoClickable() {
+        return isElementClickable(REGULAR_SL_LOGO_IMAGE);
+    }
+
+    public void clickOnRegularSlLogo(boolean inANewTab) {
+        openInANewTabOrClick(REGULAR_SL_LOGO_IMAGE, inANewTab);
     }
 
     public void clickOnSignInButton(boolean openInANewTab) {
@@ -99,10 +112,6 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnSearchByStandardButton() {
         clickElement(SEARCH_BY_STANDARD_BUTTON);
-    }
-
-    public void clickOnCurriculumManagerButton() {
-        clickElement(CURRICULUM_MANAGER_BUTTON);
     }
 
     public void hoverOverCurriculumManagerButton() {
@@ -219,11 +228,45 @@ public class HeaderPage extends LpUiBasePage {
         return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
     }
 
-    public String getTryItFreeButtonBackgroundColor(){
+    public String getTryItFreeButtonBackgroundColor() {
         return getBackgroundColor(TRY_IT_FREE_BUTTON);
     }
 
-    public String getUpgradeMeButtonBackgroundColor(){
+    public String getUpgradeMeButtonBackgroundColor() {
         return getBackgroundColor(UPGRADE_ME_BUTTON);
+    }
+
+    public boolean isSearchBarDisplayed() {
+        return isElementDisplayed(SEARCH_INPUT) &&
+            isElementDisplayed(SEARCH_BUTTON) &&
+            isElementDisplayed(SEARCH_FILTER);
+    }
+
+    public boolean isResourcesDropdownDisplayed() {
+        return isElementDisplayed(RESOURCES_BUTTON);
+    }
+
+    public boolean isSolutionDropdownDisplayed() {
+        return isElementDisplayed(SOLUTIONS_BUTTON);
+    }
+
+    public boolean isAboutDropdownDisplayed() {
+        return isElementDisplayed(ABOUT_BUTTON);
+    }
+
+    public boolean isPricingButtonDisplayed() {
+        return isElementDisplayed(PRICING_BUTTON);
+    }
+
+    public boolean isTryItFreeButtonDisplayed() {
+        return isElementDisplayed(TRY_IT_FREE_BUTTON);
+    }
+
+    public boolean isMyAccountDropdownDisplayed() {
+        return isElementDisplayed(MY_ACCOUNT_BUTTON);
+    }
+
+    public String getSearchBoxPlaceholder() {
+        return findElement(SEARCH_INPUT).getAttribute("placeholder");
     }
 }

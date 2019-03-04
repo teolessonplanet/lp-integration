@@ -327,7 +327,11 @@ public class LpUiBasePage {
 
     protected void openInANewTab(WebElement webElement) {
         waitForLoad();
-        final String url = webElement.getAttribute("href");
+        String url;
+        if ((url = webElement.getAttribute("href")) == null) {
+            //try to get the href for parent element, eg: Header - Logo
+            url = webElement.findElement(By.xpath("..")).getAttribute("href");
+        }
         logger.info("Opening a new tab and accessing the url: " + url);
         javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", "");
         focusDriverToLastTab();

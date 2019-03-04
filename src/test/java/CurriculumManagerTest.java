@@ -277,7 +277,7 @@ public class CurriculumManagerTest extends BaseTest {
 
     private void testAccessCurriculumManagerPageFromHeader(boolean loggedIn) {
         headerPage.hoverOverResourcesButton();
-        headerPage.clickOnCurriculumManagerButton();
+        headerPage.hoverOverCurriculumManagerButton();
         if (!loggedIn) {
             Assert.assertTrue(headerPage.isSignInPopupLinkDisplayed());
             Assert.assertTrue(headerPage.isSignUpPopupLinkDisplyed());
