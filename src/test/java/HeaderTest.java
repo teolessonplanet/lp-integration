@@ -23,26 +23,26 @@ public class HeaderTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
 
-    public void init(WebDriver webDriver) {
+    public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
     }
 
     @Test(description = "Visitor - Header - lessonp-3970:LP Logo")
     public void testLessonp_3970() {
-        testLogo(false);
+        testLogo();
     }
 
     @Test(description = "Freemium - Header - lessonp-4104:LP Logo")
     public void testLessonp_4104() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testLogo(false);
+        testLogo();
     }
 
     @Test(description = "Visitor - Header - lessonp-4108:LP Logo")
     public void testLessonp_4108() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testLogo(false);
+        testLogo();
     }
 
     @Test(description = "Visitor - Header - lessonp-643:Header structure")
@@ -86,21 +86,14 @@ public class HeaderTest extends BaseTest {
         testSearchBox();
     }
 
-    public void testLogo(boolean regularSiteLicence) {
+    public void testLogo() {
         lpHomePage.loadPage();
-        if (!regularSiteLicence) {
-            Assert.assertTrue(headerPage.isLpLogoClickable());
-            headerPage.clickOnLpLogo(false);
-        } else {
-            Assert.assertTrue(headerPage.isRegularSlLogoClickable());
-            headerPage.clickOnRegularSlLogo(false);
-        }
+        Assert.assertTrue(headerPage.isLpLogoClickable());
+        headerPage.clickOnLpLogo(false);
+
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
-        if (!regularSiteLicence) {
-            headerPage.clickOnLpLogo(true);
-        } else {
-            headerPage.clickOnRegularSlLogo(true);
-        }
+        headerPage.clickOnLpLogo(true);
+
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
     }
 

@@ -28,8 +28,14 @@ public class RSL_SearchPageTest extends BaseTest {
     @Test(description = "Admin Manager - Regular SL - Search Page - Header - lessonp-4141:Logo")
     public void testLessonp_4141() {
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        headerTest.init(webDriver);
-        headerTest.testLogo(true);
+
+        lpHomePage.loadPage();
+        Assert.assertTrue(headerPage.isRegularSlLogoClickable());
+        headerPage.clickOnRegularSlLogo(false);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+
+        headerPage.clickOnRegularSlLogo(true);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
     }
 
     @Test(description = "Admin Manager - Regular SL - Search Page - Header - lessonp-4147:Header structure")
@@ -53,7 +59,7 @@ public class RSL_SearchPageTest extends BaseTest {
 
     @Test(description = "Admin Manager - Regular SL - Search Page - Header - lessonp-4142:Search box (UI)")
     public void testLessonp_4142() {
-        headerTest.init(webDriver);
+        headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         headerTest.testSearchBox();
     }

@@ -237,7 +237,9 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public boolean isSearchBarDisplayed() {
-        return isElementDisplayed(SEARCH_INPUT) && isElementDisplayed(SEARCH_BUTTON) && isElementDisplayed(SEARCH_FILTER);
+        return isElementDisplayed(SEARCH_INPUT) &&
+            isElementDisplayed(SEARCH_BUTTON) &&
+            isElementDisplayed(SEARCH_FILTER);
     }
 
     public boolean isResourcesDropdownDisplayed() {
