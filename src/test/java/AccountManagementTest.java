@@ -580,9 +580,9 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickStartYourFreeTrialUpgradeMeButton(true);
+        rrpPage.clickStartYourFreeTrialSubscriptionButton(true);
         checkStepTwoPage();
-        rrpPage.clickBottomPageUpgradeMeButton(true);
+        rrpPage.clickBottomPageSubscriptionButton(true);
         checkStepTwoPage();
     }
 
