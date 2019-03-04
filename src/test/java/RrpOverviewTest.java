@@ -28,7 +28,7 @@ public class RrpOverviewTest extends BaseTest{
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
-        Assert.assertTrue(rrpModal.isRegularResourceRrpDetailsDisplayed());
+        Assert.assertTrue(rrpModal.isResourceRrpDetailsDisplayed());
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         Assert.assertTrue(rrpModal.isDescriptionDisplayed());
         Assert.assertTrue(rrpModal.isNumberOfViewsDisplayed());
@@ -59,7 +59,7 @@ public class RrpOverviewTest extends BaseTest{
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         rrpModal.waitForModal();
-        Assert.assertTrue(rrpModal.isSharedResourceRrpDetailsDisplayed());
+        Assert.assertTrue(rrpModal.isResourceRrpDetailsDisplayed());
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         Assert.assertTrue(rrpModal.isDescriptionDisplayed());
         Assert.assertTrue(rrpModal.isNumberOfDownloadsDisplayed());
@@ -135,7 +135,7 @@ public class RrpOverviewTest extends BaseTest{
     public void testLessonp_475() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        Assert.assertTrue(rrpPage.isRegularResourceRrpDetailsDisplayed());
+        Assert.assertTrue(rrpPage.isResourceRrpDetailsDisplayed());
         Assert.assertTrue(rrpPage.isStartYourFreeTrialWidgetDisplayed());
         Assert.assertTrue(rrpPage.isSimilarResourcesSectionDisplayed());
     }
@@ -190,7 +190,7 @@ public class RrpOverviewTest extends BaseTest{
     public void testLessonp_944() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
-        Assert.assertTrue(rrpPage.isSharedResourceRrpDetailsDisplayed());
+        Assert.assertTrue(rrpPage.isResourceRrpDetailsDisplayed());
         Assert.assertTrue(rrpPage.isStartYourFreeTrialWidgetDisplayed());
         Assert.assertTrue(whatMembersSayWidget.isWidgetDisplayed());
         Assert.assertTrue(rrpPage.isSimilarResourcesSectionDisplayed());

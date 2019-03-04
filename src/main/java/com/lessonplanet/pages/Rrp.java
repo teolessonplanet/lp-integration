@@ -13,27 +13,26 @@ public class Rrp extends LpUiBasePage {
 
     protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
 
-    private static final String FAVORITE_BUTTON = "[class='btn btn-default mb0 js-new-user-resource trk-save-resource']";
-    private static final String VISITOR_FAVORITE_BUTTON = "[class='btn btn-default favorite-join']";
-    private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class='alert alert-success alert-dismissible mb0'] a[href='/my/curriculum_manager']";
+    private static final String FAVORITE_BUTTON = "form[action^=/user_resources?'] button[type='submit'][class*='js-new-user-resource trk-save-resource']";
+    private static final String VISITOR_FAVORITE_BUTTON = "[class*='favorite-join'][data-title='Get Full Access']";
+    private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
     private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
-    private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
+    private static final String ADD_TO_COLLECTION_DROPDOWN = "button[type='button'][data-toggle='dropdown']:has(> span:contains('Add to Collection'))";
 
     private static final String SUBSCRIPTION_BUTTON = "a[href='/subscription/new']";
 
     private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
-    private static final String REGULAR_RESOURCE_RRP_DETAILS = "[class*='panel-review new-rrp relative']";
-    private static final String SHARED_RESOURCE_RRP_DETAILS = "[class*='panel-default panel-review new-rrp']";
+    private static final String RESOURCE_RRP_DETAILS = "[class*='panel-default panel-review new-rrp']";
     private static final String DESCRIPTION = "[class='panel-body'] [class*='js-help-rpp-description'] + p";
-    private static final String THUMBNAIL = "[class='resource-img img-thumbnail img-responsive']";
+    private static final String THUMBNAIL = "[class*='resource-img img-thumbnail']";
     private static final String NUMBER_OF_VIEWS = "[class*='detail-views']";
     private static final String NUMBER_OF_DOWNLOADS = "[class*='detail-downloads']";
     private static final String CONCEPTS_TAGS_LIST = "[class='details-list concepts']";
     private static final String RATING = "[itemprop='reviewRating']";
-    private static final String REGULAR_RESOURCE_GRADE = "[class*='panel-review new-rrp relative'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(2) dd";
-    private static final String REGULAR_RESOURCE_SUBJECTS = "[class*='panel-review new-rrp relative'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(3) dd";
-    private static final String REGULAR_RESOURCE_RESOURCE_TYPES = "[class*='panel-review new-rrp relative'] [class='left-resource-details mt15'] div.row:nth-child(4) div.col-sm-12.pt5.pb5:nth-child(1) dd";
+    private static final String REGULAR_RESOURCE_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(2) dd";
+    private static final String REGULAR_RESOURCE_SUBJECTS = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(3) dd";
+    private static final String REGULAR_RESOURCE_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(4) div.col-sm-12.pt5.pb5:nth-child(1) dd";
     private static final String SHARED_RESOURCE_GRADE = "[class*='panel-default panel-review new-rrp'] [class='panel-body'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) dd";
     private static final String SHARED_RESOURCE_SUBJECTS = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(2) dd";
     private static final String SHARED_RESOURCE_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(3) dd";
@@ -142,12 +141,8 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(RETURN_TO_SEARCH_RESULTS_LINK);
     }
 
-    public boolean isSharedResourceRrpDetailsDisplayed() {
-        return isElementDisplayed(SHARED_RESOURCE_RRP_DETAILS);
-    }
-
-    public boolean isRegularResourceRrpDetailsDisplayed() {
-        return isElementDisplayed(REGULAR_RESOURCE_RRP_DETAILS);
+    public boolean isResourceRrpDetailsDisplayed() {
+        return isElementDisplayed(RESOURCE_RRP_DETAILS);
     }
 
     public boolean isSharedResourceGradeDisplayed() {

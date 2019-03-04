@@ -12,29 +12,29 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String COLLECTION_TITLE_TEXT = "div h1";
     private static final String SAVE_COLLECTION_BUTTON = "span[class='save-collection-btn'] button[type='submit']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
-    private static final String COLLECTION_RRP_DETAILS = "[class*='panel-default panel-review']";
+    private static final String COLLECTION_RRP_DETAILS = "div.shared_collection [class*='panel-default panel-review']";
     private static final String JOIN_FOR_FULL_REVIEW_BUTTON = "a[href='/subscription/new']";
     private static final String SHARE_BUTTON = "[class='btn btn-default hidden-xs dropdown-toggle']";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
-    private static final String DESCRIPTION = "[class*='panel-default panel-review'] [class='col-md-12'] p";
-    private static final String GRADES = "[class='detail-grades text-muted mr15']";
-    private static final String SUBJECTS = "[class*='panel-default panel-review'] [class='text-muted mr15']";
+    private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
+    private static final String GRADES = "div.shared_collection span[class*='detail-grades'][title='Grades']";
+    private static final String SUBJECTS = "div.shared_collection span[title='Subject']";
     private static final String NUMBER_OF_VIEWS = "[class='col-xs-9 col-sm-10']" + " div.resource-details.small span:nth-child(3)";
     private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-9 col-sm-10']" + " div.resource-details.small span:last-child";
     private static final String CONCEPTS_TAGS_LIST = "[class='col-sm-11 details-list concepts']";
-    private static final String NEXT_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-right'] a";
-    private static final String PREVIOUS_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-left'] a";
+    private static final String NEXT_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='right']";
+    private static final String PREVIOUS_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='left']";
     private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
     private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='link-as-text']";
     private static final String PANEL_ITEMS_LIST = "[class='panel-items'] [class='item-list'] li";
-    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.panel.shared-collection-item.mb0 div.panel-flip div.front a.item-rrp-link";
+    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.shared-collection-item a.item-rrp-link[data-type='resource']";
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";
-    private static final String EXPANDED_RRP = "[class='expanded-item-rrps'] div.panel-rrp.panel-body.selected-arrow div.rrp-container ul[class='rrp-list'] li.rrp-content";
+    private static final String EXPANDED_RRP = "[class='expanded-item-rrps'] ul[class='rrp-list'] li[data-type='resource']";
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
-    private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class='close-item-rrp-view text-muted fa-3x']";
+    private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view text-muted']";
 
     protected CollectionRrp(WebDriver driver){
         super(driver);
@@ -113,7 +113,7 @@ public class CollectionRrp extends LpUiBasePage {
     }
 
     public String getPanelItemDataId(int position){
-        return getElementDataId(PANEL_ITEM, position);
+        return getElementDataId(PANEL_ITEM,"data-id", position);
     }
 
     public boolean isPreviousButtonRrpDisplayed(){
@@ -165,6 +165,6 @@ public class CollectionRrp extends LpUiBasePage {
     }
 
     public String getExpandedRrpDataId(int position) {
-        return getElementDataId(EXPANDED_RRP, position);
+        return getElementDataId(EXPANDED_RRP, "data-id", position);
     }
 }
