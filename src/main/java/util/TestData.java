@@ -110,6 +110,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+83+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -213,6 +214,7 @@ public class TestData {
     public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
     public static final String SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE = "Showing all reviewed resources";
+    public static final String SEARCH_BOX_PLACEHOLDER_TEXT = "Search 350K+ Teacher Reviewed Resources Including Lesson Plans, Worksheets, Apps, & More";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";

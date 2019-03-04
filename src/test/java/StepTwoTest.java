@@ -163,7 +163,7 @@ public class StepTwoTest extends BaseTest {
     public void testLessonp_20() {
         stepTwoModal.goBackOnePage();
         stepTwoModal.waitForPageLoad();
-        Assert.assertFalse(headerPage.isLogoClicable());
+        Assert.assertFalse(headerPage.isLpLogoClickable());
         stepOnePage.loadPage();
         // The Step1 is changed with Step2
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
