@@ -302,19 +302,17 @@ public class RrpOverviewTest extends BaseTest{
     }
 
     private void testSimilarResourcesSection(){
-        Assert.assertTrue(rrpPage.isSimilarResourcesSectionDisplayed());
-        Assert.assertTrue(rrpPage.isSimilarResourcesHeaderDisplayed());
-        Assert.assertTrue(rrpPage.isAllResourceTypesDropdownDisplayed());
-        Assert.assertTrue(rrpPage.isBottomPageTryItFreeButtonDisplayed());
-        rrpPage.clickAllResourceTypesDropdown();
-        Assert.assertEquals(rrpPage.getAllResourceTypesFromDropdown(), TestData.ALL_RESOURCE_TYPES_DROPDOWN);
-        rrpPage.clickAllResourceTypesDropdown();
-        rrpPage.selectWorksheetsResourceType();
-        Assert.assertEquals(rrpPage.getTextFromAllResourceTypesDropdown(), TestData.WORKSHEETS_RESOURCE_TYPE);
-        Assert.assertEquals(rrpPage.getResourceTypeTextFromResourceCard(), '"' + TestData.WORKSHEET_RESOURCE_TYPE_CARD + '"');
-        rrpPage.selectHomeLettersResourceType();
-        Assert.assertEquals(rrpPage.getTextFromAllResourceTypesDropdown(), TestData.HOME_LETTERS_RESOURCE_TYPE);
-        Assert.assertEquals(rrpPage.getTextFromSimilarResourcesList(), TestData.NO_RESOURCES_FOUND_TEXT);
+        if(rrpPage.isSimilarResourcesSectionDisplayed()) {
+            Assert.assertTrue(rrpPage.isSimilarResourcesHeaderDisplayed());
+            Assert.assertTrue(rrpPage.isSimilarResourcesListDisplayed());
+            Assert.assertTrue(rrpPage.isAllResourceTypesDropdownDisplayed());
+            Assert.assertTrue(rrpPage.isBottomPageTryItFreeButtonDisplayed());
+            rrpPage.clickAllResourceTypesDropdown();
+            Assert.assertEquals(rrpPage.getAllResourceTypesFromDropdown(), TestData.ALL_RESOURCE_TYPES_DROPDOWN);
+        }
+        else {
+            Assert.assertTrue(rrpPage.isBottomPageTryItFreeButtonDisplayed());
+        }
     }
 
     private void testStartYourFreeTrialWidget(String widgetText){

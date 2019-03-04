@@ -13,12 +13,9 @@ public class RrpPage extends Rrp {
     private static final String START_YOUR_FREE_TRIAL_TEXT = "[class='col-md-4 col-sm-12'] [class='panel-body'] p";
     private static final String SIMILAR_RESOURCES_SECTION = "#related-container";
     private static final String SIMILAR_RESOURCES_HEADER = "#related-options";
+    private static final String SIMILAR_RESOURCES_LIST = "#related-resources";
     private static final String ALL_RESOURCE_TYPES_DROPDOWN = "#related-dropdown";
     private static final String ALL_RESOURCE_TYPES_OPTIONS = "[class='dropdown-menu']";
-    private static final String SIMILAR_RESOURCES_LIST = "#related-resources";
-    private static final String HOME_LETTERS_RESOURCE_TYPE = "a[href*='id=1104321']";
-    private static final String WORKSHEETS_RESOURCE_TYPE = "a[href*='id=357918']";
-    private static final String SIMILAR_RESOURCE_CARD = "[class*='panel-resource'] [class='panel-body'] [class='trk-show-resource'] [class='resource-icon'] [class*='type-resource']";
 
     public RrpPage(WebDriver driver) {
         super(driver);
@@ -60,6 +57,10 @@ public class RrpPage extends Rrp {
         return isElementDisplayed(SIMILAR_RESOURCES_HEADER);
     }
 
+    public boolean isSimilarResourcesListDisplayed() {
+        return isElementDisplayed(SIMILAR_RESOURCES_LIST);
+    }
+
     public boolean isAllResourceTypesDropdownDisplayed() {
         return isElementDisplayed(ALL_RESOURCE_TYPES_DROPDOWN);
     }
@@ -71,27 +72,5 @@ public class RrpPage extends Rrp {
 
     public String getAllResourceTypesFromDropdown() {
         return getTextForElement(ALL_RESOURCE_TYPES_OPTIONS);
-    }
-
-    public void selectHomeLettersResourceType() {
-        clickAllResourceTypesDropdown();
-        clickElement(HOME_LETTERS_RESOURCE_TYPE);
-    }
-
-    public void selectWorksheetsResourceType() {
-        clickAllResourceTypesDropdown();
-        clickElement(WORKSHEETS_RESOURCE_TYPE);
-    }
-
-    public String getTextFromAllResourceTypesDropdown(){
-        return getTextForElement(ALL_RESOURCE_TYPES_DROPDOWN);
-    }
-
-    public String getResourceTypeTextFromResourceCard() {
-        return getPseudoElement(SIMILAR_RESOURCE_CARD);
-    }
-
-    public String getTextFromSimilarResourcesList() {
-        return getTextForElement(SIMILAR_RESOURCES_LIST);
     }
 }

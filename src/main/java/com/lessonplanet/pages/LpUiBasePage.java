@@ -477,11 +477,4 @@ public class LpUiBasePage {
             return null;
         }
     }
-
-    public String getPseudoElement(String cssSelector){
-        WebElement div = findElement(cssSelector);
-        String content = ((JavascriptExecutor)driver)
-            .executeScript("return window.getComputedStyle(arguments[0], ':after').getPropertyValue('content');",div).toString();
-        return content;
-    }
 }
