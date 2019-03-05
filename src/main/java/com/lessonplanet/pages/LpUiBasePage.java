@@ -474,9 +474,9 @@ public class LpUiBasePage {
         return Color.fromString(findElement(cssSelector).getCssValue("background-color")).asHex();
     }
 
-    public String getElementDataId(String cssSelector, int position) {
+    public String getElementDataId(String cssSelector, String attributeName,  int position) {
         try {
-            return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute("data-id");
+            return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
         } catch( org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
