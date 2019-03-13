@@ -123,6 +123,10 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
 
+    //step 1
+    public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
+    public static final String STEP_ONE_MODAL_TITLE= "Discover 350k+ Teacher Reviewed Resources";
+
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
     public static final String SELECT_TEXT = "Select";
@@ -215,6 +219,8 @@ public class TestData {
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
     public static final String SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE = "Showing all reviewed resources";
     public static final String SEARCH_BOX_PLACEHOLDER_TEXT = "Search 350K+ Teacher Reviewed Resources Including Lesson Plans, Worksheets, Apps, & More";
+    public static final String REGULAR_RESOURCE_TYPE = "Resource";
+    public static final String SHARED_RESOURCE_TYPE = "Drive::Document";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";

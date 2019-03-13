@@ -11,6 +11,7 @@ public class StepOnePage extends LpUiBasePage {
     private static final String GET_FREE_TRIAL_BUTTON = "#qa";
     private static final String ALREADY_A_MEMBER_BUTTON = "#login-link-no-underline";
     private static final String EMAIL_ERROR = "#user_email-error";
+    private static final String TITLE_TEXT = "h4[class='panel-title']";
 
     public StepOnePage(WebDriver driver) {
         super(driver);
@@ -47,5 +48,9 @@ public class StepOnePage extends LpUiBasePage {
 
     public boolean isAlreadyAMemberButtonDisplayed() {
         return isElementClickable(ALREADY_A_MEMBER_BUTTON);
+    }
+
+    public String getTitleText(){
+        return getTextForElement(TITLE_TEXT);
     }
 }

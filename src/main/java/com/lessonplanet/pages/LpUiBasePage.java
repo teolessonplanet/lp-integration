@@ -474,11 +474,28 @@ public class LpUiBasePage {
         return Color.fromString(findElement(cssSelector).getCssValue("background-color")).asHex();
     }
 
-    public String getElementDataId(String cssSelector, String attributeName,  int position) {
+    public String getElementAttribute(String cssSelector, String attributeName,  int position) {
         try {
             return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
         } catch( org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
+    }
+
+    public boolean isElementDisplayed(String cssLocator, int position) {
+        try {
+            driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
+            return true;
+        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
+            System.out.println("Element  is  not  displayed");
+            return false;
+        }
+    }
+
+    public String getAfterPseudoElement(String cssSelector){
+        WebElement div = findElement(cssSelector);
+        String content = ((JavascriptExecutor)driver)
+            .executeScript("return window.getComputedStyle(arguments[0], ':after').getPropertyValue('content');",div).toString();
+        return content;
     }
 }

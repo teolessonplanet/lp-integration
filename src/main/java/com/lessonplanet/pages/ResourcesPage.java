@@ -37,6 +37,11 @@ public class ResourcesPage extends LpUiBasePage {
 
     private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
+    private static final String RESOURCE_CARDS = "#search-results [class*='search-result-item']";
+    private static final String RESOURCE_CARD_TITLE = "#search-results h4.resource-title";
+    private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
+    private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
+
     private static final Logger logger = LogManager.getRootLogger();
 
     public ResourcesPage(WebDriver driver) {
@@ -217,5 +222,21 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickOnUpgradeMeNowButton() {
         clickElement(UPGRADE_ME_NOW_BUTTON);
+    }
+
+    public String getCollectionCardTitle( int position){
+        return getTextForElement(RESOURCE_CARD_TITLE, position);
+    }
+
+    public String getRegularResourceCardDataId(int position){
+        return getElementAttribute(REGULAR_RESOURCE_CARD,"data-id", position);
+    }
+
+    public String getSharedResourceCardDataId(int position){
+        return getElementAttribute(SHARED_RESOURCE_CARD,"data-id", position);
+    }
+
+    public String getResourceCardDataType(int position){
+        return getElementAttribute(RESOURCE_CARDS, "data-type", position);
     }
 }
