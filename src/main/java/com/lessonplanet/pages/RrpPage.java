@@ -98,7 +98,7 @@ public class RrpPage extends Rrp {
     }
 
     public String getResourceCardResourceTypeText(){
-        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD);
+        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD,"after","content");
     }
 
     public boolean isSimilarResourceCardDisplayed(){

@@ -492,10 +492,13 @@ public class LpUiBasePage {
         }
     }
 
-    public String getAfterPseudoElement(String cssSelector){
+    public String getAfterPseudoElement(String cssSelector, String position, String cssPropertyName){
         WebElement div = findElement(cssSelector);
-        String content = ((JavascriptExecutor)driver)
-            .executeScript("return window.getComputedStyle(arguments[0], ':after').getPropertyValue('content');",div).toString();
-        return content;
+        try{
+            return ((JavascriptExecutor)driver)
+                .executeScript("return window.getComputedStyle(arguments[0], ':"+position+"').getPropertyValue('"+cssPropertyName+"');",div).toString();
+        } catch( org.openqa.selenium.NoSuchElementException ex) {
+            return null;
+        }
     }
 }
