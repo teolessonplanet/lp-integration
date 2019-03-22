@@ -54,7 +54,7 @@ public class SearchTest extends BaseTest {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
         Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
-        Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE, discoverResourcesPage.getSearchMessage());
+        Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         Assert.assertEquals(TestData.TOTAL_RESOURCES_PER_PAGE, discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode());
     }
 
