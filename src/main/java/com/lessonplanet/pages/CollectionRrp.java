@@ -27,7 +27,7 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
     private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='link-as-text']";
     private static final String PANEL_ITEMS_LIST = "[class='panel-items'] [class='item-list'] li";
-    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.shared-collection-item a.item-rrp-link[data-type='resource']";
+    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.panel.shared-collection-item div.panel-flip .item-rrp-link[data-type='resource']";
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";
@@ -35,6 +35,8 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
     private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view text-muted']";
+    private static final String SIGN_IN_POPUP = "[class='bold']";
+    private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
 
     protected CollectionRrp(WebDriver driver){
         super(driver);
@@ -113,7 +115,7 @@ public class CollectionRrp extends LpUiBasePage {
     }
 
     public String getPanelItemDataId(int position){
-        return getElementDataId(PANEL_ITEM,"data-id", position);
+        return getElementAttribute(PANEL_ITEM,"data-id", position);
     }
 
     public boolean isPreviousButtonRrpDisplayed(){
@@ -165,6 +167,50 @@ public class CollectionRrp extends LpUiBasePage {
     }
 
     public String getExpandedRrpDataId(int position) {
-        return getElementDataId(EXPANDED_RRP, "data-id", position);
+        return getElementAttribute(EXPANDED_RRP, "data-id", position);
+    }
+
+    public void clickJoinForFullReviewButton(boolean inANewTab){
+        openInANewTabOrClick(JOIN_FOR_FULL_REVIEW_BUTTON, inANewTab);
+    }
+
+    public boolean isSignInPopupLinkDisplayed() {
+        return isElementDisplayed(SIGN_IN_POPUP);
+    }
+
+    public void clickSignInPopupLink(){
+        clickElement(SIGN_IN_POPUP);
+    }
+
+    public boolean isJoinNowPopupLinkDisplayed() {
+        return isElementDisplayed(JOIN_NOW_POPUP);
+    }
+
+    public void clickJoinNowPopupLink(){
+        clickElement(JOIN_NOW_POPUP);
+    }
+
+    public String getCollectionTitleText(){
+        return getTextForElement(COLLECTION_TITLE_TEXT);
+    }
+
+    public void clickNextButtonItemViewer(){
+        clickElement(NEXT_BUTTON_ITEM_VIEWER);
+    }
+
+    public void clickPreviousButtonItemViewer(){
+        clickElement(PREVIOUS_BUTTON_ITEM_VIEWER);
+    }
+
+    public void clickPanelItem(int position){
+        clickElement(PANEL_ITEMS_LIST, position);
+    }
+
+    public void clickNextButtonRrp(){
+        clickElement(NEXT_BUTTON_RRP);
+    }
+
+    public void clickPreviousButtonRrp(){
+        clickElement(PREVIOUS_BUTTON_RRP);
     }
 }

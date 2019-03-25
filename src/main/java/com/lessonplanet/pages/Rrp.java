@@ -13,12 +13,12 @@ public class Rrp extends LpUiBasePage {
 
     protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
 
-    private static final String FAVORITE_BUTTON = "form[action^=/user_resources?'] button[type='submit'][class*='js-new-user-resource trk-save-resource']";
+    private static final String FAVORITE_BUTTON = "[class='btn btn-default mb0 js-new-user-resource trk-save-resource']";
     private static final String VISITOR_FAVORITE_BUTTON = "[class*='favorite-join'][data-title='Get Full Access']";
     private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
     private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
-    private static final String ADD_TO_COLLECTION_DROPDOWN = "button[type='button'][data-toggle='dropdown']:has(> span:contains('Add to Collection'))";
+    private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
     private static final String SUBSCRIPTION_BUTTON = "a[href='/subscription/new']";
 
@@ -40,6 +40,8 @@ public class Rrp extends LpUiBasePage {
     private static final String PREVIOUS_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-left'] a";
     private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
     private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='panel-footer hidden-xs'] a[href*='/search']";
+    private static final String SIGN_IN_POPUP = "[class='bold']";
+    private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -217,5 +219,41 @@ public class Rrp extends LpUiBasePage {
             displayResourceType.add(getTextForElement(resourceType));
         }
         return displayResourceType;
+    }
+
+    public void clickJoinToSeeThisResourceButton(boolean inANewTab){
+        openInANewTabOrClick(SUBSCRIPTION_BUTTON, inANewTab);
+    }
+
+    public void clickOnThumbnail(){
+        clickElement(THUMBNAIL);
+    }
+
+    public void clickVisitorFavoriteButton(){
+        clickElement(VISITOR_FAVORITE_BUTTON);
+    }
+
+    public boolean isSignInPopupLinkDisplayed() {
+        return isElementDisplayed(SIGN_IN_POPUP);
+    }
+
+    public void clickSignInPopupLink(){
+        clickElement(SIGN_IN_POPUP);
+    }
+
+    public boolean isJoinNowPopupLinkDisplayed() {
+        return isElementDisplayed(JOIN_NOW_POPUP);
+    }
+
+    public void clickJoinNowPopupLink(){
+        clickElement(JOIN_NOW_POPUP);
+    }
+
+    public void clickNextButton(){
+        clickElement(NEXT_BUTTON_RRP);
+    }
+
+    public void clickPreviousButton() {
+        clickElement(PREVIOUS_BUTTON_RRP);
     }
 }
