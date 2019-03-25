@@ -7,9 +7,10 @@ import util.TestData;
 public class FooterPage extends LpUiBasePage {
 
     private static final String LP_LOGO_IMAGE = "[class*='img-responsive']";
+    private static final String REGULAR_SL_LOGO_IMAGE = "[class='lp-footer-logo'] [src*='/assets/logos/learning-explorer-logo-long-light']";
     private static final String COPY_RIGHT_TEXT = "[class='copyright-text']";
 
-    private static final String EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
+    private static final String SUBSCRIPTION_EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
     private static final String SEND_BUTTON = "[class*='lp-newsletter-email-submit']";
 
     private static final String CONTACT_US_BUTTON = "[class*='footer-container'] [href='/us/contact']";
@@ -19,7 +20,6 @@ public class FooterPage extends LpUiBasePage {
 
     private static final String FACEBOOK_BUTTON = "[class*='fa-facebook']";
     private static final String TWITTER_BUTTON = "[class*='fa-twitter']";
-    private static final String GOOGLE_BUTTON = "[class*='fa-google-plus']";
     private static final String LINKEDIN_BUTTON = "[class*='fa-linkedin']";
     private static final String YOUTUBE_BUTTON = "[class*='fa-youtube']";
     private static final String PINTEREST_BUTTON = "[class*='fa-pinterest']";
@@ -44,6 +44,13 @@ public class FooterPage extends LpUiBasePage {
     private static final String MANAGE_MY_RESOURCES_LINK = "[href='/us/videos?autoplay=curriculum_manager']";
     private static final String SHARING_WITH_OTHERS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
 
+    private static final String OPEN_EDUCATIONAL_RESOURCES_CATEGORY = "[class='lp-footer-top'] [class*='lp-oer-col'] [class='footer-col-title']";
+    private static final String DISCOVER_RESOURCES_CATEGORY = "[class='lp-footer-top'] [class*='lp-resources-col'] [class='footer-col-title']";
+    private static final String MANAGE_CURRICULUM_CATEGORY = "[class='lp-footer-top'] [class*='lp-curriculum-col'] [class='footer-col-title']";
+
+    private static final String SIGN_UP_HINT_TEXT = "[class='lp-footer-top'] [class='newsletter-box'] [class='text']";
+    private static final String SIGN_UP_ERROR_TEXT = "#email_subscription_email-error";
+
     public FooterPage(WebDriver driver) {
         super(driver);
     }
@@ -52,20 +59,20 @@ public class FooterPage extends LpUiBasePage {
         loadUrl(TestData.LP_HOME_PAGE_PATH);
     }
 
-    public void clickOnLessonPlanetLogo() {
-        clickElement(LP_LOGO_IMAGE);
+    public void clickOnLessonPlanetLogo(boolean inANewTab) {
+        openInANewTabOrClick(LP_LOGO_IMAGE, inANewTab);
     }
 
     public void clickOnCopyRightText() {
         clickElement(COPY_RIGHT_TEXT);
     }
 
-    public String getTextFromEmailField() {
-        return findElement(EMAIL_INPUT).getAttribute("value");
+    public String getTextFromSubscriptionEmailField() {
+        return findElement(SUBSCRIPTION_EMAIL_INPUT).getAttribute("value");
     }
 
     public void typeEmail(String email) {
-        sendKeys(EMAIL_INPUT, email);
+        sendKeys(SUBSCRIPTION_EMAIL_INPUT, email);
     }
 
     public void clickSendButton() {
@@ -94,10 +101,6 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnLessonPlanetTwitterButton() {
         clickElement(TWITTER_BUTTON);
-    }
-
-    public void clickOnLessonPlanetGoogleButton() {
-        clickElement(GOOGLE_BUTTON);
     }
 
     public void clickOnLessonPlanetLinkedInButton() {
@@ -183,5 +186,89 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnSharingWithOthersLink() {
         clickElement(SHARING_WITH_OTHERS_LINK);
+    }
+
+    public boolean isSubscriptionEmailInputDisplayed() {
+        return isElementDisplayed(SUBSCRIPTION_EMAIL_INPUT);
+    }
+
+    public void clearSubscriptionEmail(){
+        clearText(SUBSCRIPTION_EMAIL_INPUT);
+    }
+
+    public boolean isLpLogoDisplayed() {
+        return isElementDisplayed(LP_LOGO_IMAGE);
+    }
+
+    public boolean isRegularSlLogoDisplayed() {
+        return isElementDisplayed(REGULAR_SL_LOGO_IMAGE);
+    }
+
+    public void clickOnRegularSlLogo(boolean inANewTab) {
+        openInANewTabOrClick(REGULAR_SL_LOGO_IMAGE, inANewTab);
+    }
+
+    public String getCopyrightText(){
+        return getTextForElement(COPY_RIGHT_TEXT);
+    }
+
+    public boolean isSignUpTextDisplayed() {
+        return isElementDisplayed(SIGN_UP_HINT_TEXT);
+    }
+
+    public String getSignUpHintText(){
+        return getTextForElement(SIGN_UP_HINT_TEXT);
+    }
+
+    public String getSignUpErrorText(){
+        return getTextForElement(SIGN_UP_ERROR_TEXT);
+    }
+
+    public boolean isOpenEducationalResourcesSectionDisplayed() {
+        return isElementDisplayed(OPEN_EDUCATIONAL_RESOURCES_CATEGORY);
+    }
+
+    public boolean isDiscoverResourcesSectionDisplayed() {
+        return isElementDisplayed(DISCOVER_RESOURCES_CATEGORY);
+    }
+
+    public boolean isManageCurriculumSectionDisplayed() {
+        return isElementDisplayed(MANAGE_CURRICULUM_CATEGORY);
+    }
+
+    public boolean isContactUsButtonDisplayed() {
+        return isElementDisplayed(CONTACT_US_BUTTON);
+    }
+
+    public boolean isSiteMapButtonDisplayed() {
+        return isElementDisplayed(SITE_MAP_BUTTON);
+    }
+
+    public boolean isPrivacyPolicyLinkDisplayed() {
+        return isElementDisplayed(PRIVACY_POLICY_LINK);
+    }
+
+    public boolean isTermsOfUseLinkDisplayed() {
+        return isElementDisplayed(TERMS_OF_USE_LINK);
+    }
+
+    public boolean isFacebookButtonDisplayed() {
+        return isElementDisplayed(FACEBOOK_BUTTON);
+    }
+
+    public boolean isTwitterButtonDisplayed() {
+        return isElementDisplayed(TWITTER_BUTTON);
+    }
+
+    public boolean isLinkedinButtonDisplayed() {
+        return isElementDisplayed(LINKEDIN_BUTTON);
+    }
+
+    public boolean isYoutubeButtonDisplayed() {
+        return isElementDisplayed(YOUTUBE_BUTTON);
+    }
+
+    public boolean isPinterestButtonDisplayed() {
+        return isElementDisplayed(PINTEREST_BUTTON);
     }
 }

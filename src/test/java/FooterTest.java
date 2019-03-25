@@ -41,6 +41,12 @@ public class FooterTest extends BaseTest {
         testFooterContainer(TestData.VALID_EMAIL_ADMIN);
     }
 
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4150:Footer structure")
+    public void testLessonp_4150() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testFooterContainer(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+    }
+
     @Test(description = "Visitor - Footer - lessonp-659:Open Educational Resources")
     public void testLessonp_659() {
         lpHomePage.loadPage();
@@ -56,6 +62,12 @@ public class FooterTest extends BaseTest {
     @Test(description = "Active user - Footer - lessonp-671:Open Educational Resources")
     public void testLessonp_671() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testOpenEducationalResourcesSection();
+    }
+
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4151:Open Educational Resources")
+    public void testLessonp_4151() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         testOpenEducationalResourcesSection();
     }
 
@@ -77,6 +89,12 @@ public class FooterTest extends BaseTest {
         testDiscoverResourcesSection();
     }
 
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp4152:Discover Resources")
+    public void testLessonp_4152() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testDiscoverResourcesSection();
+    }
+
     @Test(description = "Visitor - Footer - lessonp-658:Manage Curriculum")
     public void testLessonp_658() {
         lpHomePage.loadPage();
@@ -95,86 +113,125 @@ public class FooterTest extends BaseTest {
         testManageCurriculumSection();
     }
 
-    private void testClickOnLessonPlanetLogo() {
-        footerPage.clickOnLessonPlanetLogo();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4153:Manage Curriculum")
+    public void testLessonp_4153() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testManageCurriculumSection();
     }
 
-    private void testSendButton(String account) {
-        footerPage.clickSendButton();
-        subscriptionEmailModal.waitForModal();
-        Assert.assertEquals(subscriptionEmailModal.getSubscriptionModalText(), TestData.SUBSCRIPTION_MODAL_TEXT);
-        subscriptionEmailModal.clickOnCloseButton();
-        Assert.assertEquals(footerPage.getTextFromEmailField(), account);
+    @Test(description = "Visitor - Footer - lessonp-4033:Bottom footer links")
+    public void testLessonp_4033() {
+        lpHomePage.loadPage();
+        testBottomFooterLinks();
     }
 
-    private void testSendEmailNewsletter(String account) {
-        if (!account.equals(TestData.INVALID_EMAIL) ) {
-            Assert.assertEquals(footerPage.getTextFromEmailField(), account);
-        } else {
-            Assert.assertEquals(footerPage.getTextFromEmailField(), TestData.LP_HOME_PAGE_PATH);
-            footerPage.typeEmail(account);
-        }
-        testSendButton(account);
+    @Test(description = "Freemium - Footer - lessonp-4112:Bottom footer links")
+    public void testLessonp_4112() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testBottomFooterLinks();
     }
 
-    private void testHelpInformationLinks() {
-        footerPage.clickOnContactUsButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
-
-        footerPage.clickOnSiteMapButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
-
-        footerPage.clickOnPrivacyPolicyButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PAGE_PATH);
-
-        footerPage.clickOnTermsOfUseButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
+    @Test(description = "Active user - Footer - lessonp-4117:Bottom footer links")
+    public void testLessonp_4117() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testBottomFooterLinks();
     }
 
-    private void testLessonPlanetSocialLinks() {
-        footerPage.clickOnLessonPlanetFacebookButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.FACEBOOK_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4154:Bottom footer links")
+    public void testLessonp_4154() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testBottomFooterLinks();
+    }
 
-        footerPage.clickOnLessonPlanetTwitterButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.TWITTER_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Visitor - Footer - lessonp-4034:Social links")
+    public void testLessonp_4034() {
+        lpHomePage.loadPage();
+        testLessonPlanetSocialLinks();
+    }
 
-        footerPage.clickOnLessonPlanetGoogleButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.GOOGLE_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Freemium - Footer - lessonp-4114:Social links")
+    public void testLessonp_4114() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testLessonPlanetSocialLinks();
+    }
 
-        footerPage.clickOnLessonPlanetLinkedInButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.LINKEDIN_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Active user - Footer - lessonp-4118:Social links")
+    public void testLessonp_4118() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testLessonPlanetSocialLinks();
+    }
 
-        footerPage.clickOnLessonPlanetYoutubeButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.YOUTUBE_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4155:Social links")
+    public void testLessonp_4155() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testLessonPlanetSocialLinks();
+    }
 
-        footerPage.clickOnLessonPlanetPinterestButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.PINTEREST_LP_URL);
-        footerPage.closeTab();
+    @Test(description = "Visitor - Footer - lessonp-4035:LP logo")
+    public void testLessonp_4035() {
+        lpHomePage.loadPage();
+        testLpLogo();
+    }
+
+    @Test(description = "Freemium - Footer - lessonp-4115:LP logo")
+    public void testLessonp_4115() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testLpLogo();
+    }
+
+    @Test(description = "Active user - Footer - lessonp-4119:LP logo")
+    public void testLessonp_4119() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testLpLogo();
+    }
+
+    @Test(description = "Admin Manager - Regular SL - Footer -  lessonp-4156:LE Logo")
+    public void testLessonp_4156() {
+        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        testRegularSlLogo();
+    }
+
+    @Test(description = "Visitor - Footer - lessonp-4036:Newsletter")
+    public void testLessonp_4036() {
+        lpHomePage.loadPage();
+        testSendEmailNewsletter(TestData.INVALID_EMAIL);
+    }
+
+    @Test(description = "Freemium - Footer - lessonp-4116:Newsletter")
+    public void testLessonp_4116() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testSendEmailNewsletter(TestData.VALID_EMAIL_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Footer - lessonp-4120:Newsletter")
+    public void testLessonp_4120() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testSendEmailNewsletter(TestData.VALID_EMAIL_ADMIN);
     }
 
     private void testFooterContainer(String account) {
-        testClickOnLessonPlanetLogo();
-        testSendEmailNewsletter(account);
-        testHelpInformationLinks();
-        testLessonPlanetSocialLinks();
+        if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
+            Assert.assertTrue(footerPage.isLpLogoDisplayed());
+            Assert.assertTrue(footerPage.isSignUpTextDisplayed());
+            Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+        }
+        else {
+            Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
+            Assert.assertFalse(footerPage.isSignUpTextDisplayed());
+            Assert.assertFalse(footerPage.isSubscriptionEmailInputDisplayed());
+        }
+        Assert.assertTrue(footerPage.isOpenEducationalResourcesSectionDisplayed());
+        Assert.assertTrue(footerPage.isDiscoverResourcesSectionDisplayed());
+        Assert.assertTrue(footerPage.isManageCurriculumSectionDisplayed());
+        Assert.assertTrue(footerPage.isContactUsButtonDisplayed());
+        Assert.assertTrue(footerPage.isSiteMapButtonDisplayed());
+        Assert.assertTrue(footerPage.isPrivacyPolicyLinkDisplayed());
+        Assert.assertTrue(footerPage.isTermsOfUseLinkDisplayed());
+        Assert.assertTrue(footerPage.isFacebookButtonDisplayed());
+        Assert.assertTrue(footerPage.isTwitterButtonDisplayed());
+        Assert.assertTrue(footerPage.isLinkedinButtonDisplayed());
+        Assert.assertTrue(footerPage.isYoutubeButtonDisplayed());
+        Assert.assertTrue(footerPage.isPinterestButtonDisplayed());
     }
 
     private void testOpenEducationalResourcesSection() {
@@ -246,5 +303,97 @@ public class FooterTest extends BaseTest {
         videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);
+    }
+
+    private void testBottomFooterLinks() {
+        footerPage.clickOnContactUsButton();
+        Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
+
+        footerPage.clickOnSiteMapButton();
+        Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
+
+        footerPage.clickOnPrivacyPolicyButton();
+        Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PAGE_PATH);
+
+        footerPage.clickOnTermsOfUseButton();
+        Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
+    }
+
+    private void testLessonPlanetSocialLinks() {
+        footerPage.clickOnLessonPlanetFacebookButton();
+        footerPage.focusDriverToLastTab();
+        footerPage.waitForLinkToLoad();
+        Assert.assertEquals(footerPage.getUrl(), TestData.FACEBOOK_LP_URL);
+        footerPage.closeTab();
+
+        footerPage.clickOnLessonPlanetTwitterButton();
+        footerPage.focusDriverToLastTab();
+        footerPage.waitForLinkToLoad();
+        Assert.assertEquals(footerPage.getUrl(), TestData.TWITTER_LP_URL);
+        footerPage.closeTab();
+
+        footerPage.clickOnLessonPlanetLinkedInButton();
+        footerPage.focusDriverToLastTab();
+        footerPage.waitForLinkToLoad();
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.LINKEDIN_URL) && footerPage.getUrl().contains(TestData.LESSON_PLANET_TEXT));
+        footerPage.closeTab();
+
+        footerPage.clickOnLessonPlanetYoutubeButton();
+        footerPage.focusDriverToLastTab();
+        footerPage.waitForLinkToLoad();
+        Assert.assertEquals(footerPage.getUrl(), TestData.YOUTUBE_LP_URL);
+        footerPage.closeTab();
+
+        footerPage.clickOnLessonPlanetPinterestButton();
+        footerPage.focusDriverToLastTab();
+        footerPage.waitForLinkToLoad();
+        Assert.assertEquals(footerPage.getUrl(), TestData.PINTEREST_LP_URL);
+        footerPage.closeTab();
+    }
+
+    private void testLpLogo() {
+        Assert.assertTrue(footerPage.isLpLogoDisplayed());
+        Assert.assertEquals(footerPage.getCopyrightText(), TestData.COPYRIGHT_TEXT);
+        footerPage.clickOnLessonPlanetLogo(false);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+        footerPage.clickOnLessonPlanetLogo(true);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+        }
+
+    private void testRegularSlLogo() {
+        Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
+        Assert.assertEquals(footerPage.getCopyrightText(), TestData.COPYRIGHT_TEXT);
+        footerPage.clickOnRegularSlLogo(false);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+        footerPage.clickOnRegularSlLogo(true);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+    }
+
+    private void testSendEmailNewsletter(String account) {
+            Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+            Assert.assertTrue(footerPage.isSignUpTextDisplayed());
+            Assert.assertEquals(footerPage.getSignUpHintText(), TestData.SIGN_UP_HINT_TEXT);
+            if (!account.equals(TestData.INVALID_EMAIL) ) {
+                Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
+            } else {
+                Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
+                footerPage.typeEmail(account);
+            }
+            testSendButton(account);
+
+            footerPage.clearSubscriptionEmail();
+            footerPage.clickSendButton();
+            Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.REQUIRED_EMAIL_ERROR_TEXT);
+
+            footerPage.typeEmail(TestData.NEW_COLLECTION_NAME);
+            Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.VALID_EMAIL_ERROR_TEXT);
+    }
+
+    private void testSendButton(String account) {
+        footerPage.clickSendButton();
+        subscriptionEmailModal.waitForModal();
+        Assert.assertEquals(subscriptionEmailModal.getSubscriptionModalText(), TestData.SUBSCRIPTION_MODAL_TEXT);
+        subscriptionEmailModal.clickOnCloseButton();
+        Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
     }
 }

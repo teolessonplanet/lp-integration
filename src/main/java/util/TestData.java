@@ -91,8 +91,8 @@ public class TestData {
 
     public static final String FACEBOOK_LP_URL = FACEBOOK_URL + "/LessonPlanet";
     public static final String TWITTER_LP_URL = TWITTER_URL + "/lessonplanet";
-    public static final String GOOGLE_LP_URL = GOOGLE_URL + "/117101455580789057170/?prsrc=3";
-    public static final String LINKEDIN_LP_URL = "https://www.linkedin.com/company/lesson-planet";
+    public static final String LINKEDIN_URL = "https://www.linkedin.com";
+    public static final String LESSON_PLANET_TEXT = "lesson-planet";
     public static final String YOUTUBE_LP_URL = "https://www.youtube.com/user/lessonplanet";
     public static final String PINTEREST_LP_URL = "https://www.pinterest.com/lessonplanet/";
 
@@ -226,6 +226,12 @@ public class TestData {
 
     public static final String SEARCH_BOX_PLACEHOLDER_ED_TECH_PD_TEXT = "EdTech PD Videos & Courses: What would you like to learn today?";
     public static final String SEARCH_BOX_PLACEHOLDER_COMMON_CORE_STATE_STANDARDS_TEXT = "What concept or skill would you like to find?";
+
+    //Footer
+    public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
+    public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
+    public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
+    public static final String COPYRIGHT_TEXT = "© 1999-2019 Education Planet, Inc.\nAll rights reserved.";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
