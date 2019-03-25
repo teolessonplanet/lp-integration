@@ -110,7 +110,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+83+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+92+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -217,10 +217,15 @@ public class TestData {
     public static final int ZERO_RESOURCES_FOUND = 0;
     public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
-    public static final String SHOWING_ALL_REVIEWED_RESROUCES_MESSAGE = "Showing all reviewed resources";
+    public static final String SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE = "Showing all reviewed resources";
+    public static final String SHOWING_ALL_RESOURCES_MESSAGE = "Showing all resources";
     public static final String SEARCH_BOX_PLACEHOLDER_TEXT = "Search 350K+ Teacher Reviewed Resources Including Lesson Plans, Worksheets, Apps, & More";
+
     public static final String REGULAR_RESOURCE_TYPE = "Resource";
     public static final String SHARED_RESOURCE_TYPE = "Drive::Document";
+
+    public static final String SEARCH_BOX_PLACEHOLDER_ED_TECH_PD_TEXT = "EdTech PD Videos & Courses: What would you like to learn today?";
+    public static final String SEARCH_BOX_PLACEHOLDER_COMMON_CORE_STATE_STANDARDS_TEXT = "What concept or skill would you like to find?";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
@@ -260,6 +265,7 @@ public class TestData {
 
     public static final String MEMBER_PROFILE_PAGE_PATH = "profile";
     public static final String SEARCH_HISTORY_PAGE_PATH = "my/saved_searches";
+    public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/organization";
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
@@ -428,4 +434,10 @@ public class TestData {
 
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
     public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
+
+    public static final String SEARCH_STANDARDS_PAGE_PATH = "standards/search?utf8=%E2%9C%93&keywords=";
+    public static final String SEARCH_EDTECH_PAGE_PATH = "professional-development/courses/search?utf8=%E2%9C%93&keywords=";
+
+    public static final String YOU_ARE_NOT_ALLOWED_TO_USE_FEATURE_TEXT = "Sorry, you are not allowed to access that feature.";
+    public static final String PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT = "Please login to access this page.";
 }

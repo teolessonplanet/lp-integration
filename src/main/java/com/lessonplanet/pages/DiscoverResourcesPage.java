@@ -31,6 +31,10 @@ public class DiscoverResourcesPage extends ResourcesPage {
         return getTextForElement(SEARCH_MESSAGE);
     }
 
+    public void clickOnSearchMessage() {
+        clickElement(SEARCH_MESSAGE);
+    }
+
     public String getSuggestionsBlockText() {
         return getTextForElement(SUGGESTIONS_BLOCK_TEXT);
     }
@@ -101,7 +105,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
     }
 
-    public void loadSearchPageInListView(){
+    public void loadSearchPageInListView() {
         loadPage();
         clickOnListView();
     }

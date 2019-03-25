@@ -17,7 +17,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String RESOURCES_BUTTON = "[class='lp-resources']";
     private static final String DISCOVER_RESOURCES_BUTTON = "[class='lp-resources'] [href='/search']";
     private static final String BROWSE_RESOURCE_DIRECTORY = "[class='lp-resources'] [href='/lesson-plans']";
-    private static final String SEARCH_BY_STANDARD_BUTTON = "[class='lp-resources'] [href='/state-standards']";
+    private static final String SEARCH_BY_STANDARD_BUTTON = "[class='lp-resources'] [href*='/state-standards']";
     private static final String CURRICULUM_MANAGER_BUTTON = "#curriculum-manager-menu-item";
     private static final String SIGN_IN_POPUP = "[class='lp-sign-in-popup-link']";
     private static final String SIGN_UP_POPUP = "[class='lp-sign-up-popup-link']";
@@ -42,6 +42,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String MY_MEMBER_PROFILE_BUTTON = "[class='lp-username'] [href='/profile']";
     private static final String MY_RESOURCES_BUTTON = "[class='lp-username'] [href='/my/curriculum_manager']";
     private static final String SEARCH_HISTORY_BUTTON = "[class='lp-username'] [href='/my/saved_searches']";
+    private static final String ADMIN_MANAGER_BUTTON = "[class='lp-username'] [href='/my/organization']";
     private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
 
     private static final String SEARCH_INPUT = "#keywords";
@@ -49,6 +50,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER = "[class='lp-header-search-filter']";
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
+    private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class='lp-header-clear-search active']";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -63,7 +65,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void hoverOverUserDropDownButton() {
-        hoverOverElement(USER_DROPDOWN_BUTTON);
+        hoverOverElement(USER_DROPDOWN_BUTTON, true);
     }
 
     public void clickOnTryItFree(boolean openInANewTab) {
@@ -99,7 +101,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void hoverOverResourcesButton() {
-        hoverOverElement(RESOURCES_BUTTON);
+        hoverOverElement(RESOURCES_BUTTON, true);
     }
 
     public void clickOnDiscoverResourcesButton() {
@@ -116,6 +118,10 @@ public class HeaderPage extends LpUiBasePage {
 
     public void hoverOverCurriculumManagerButton() {
         hoverOverElement(CURRICULUM_MANAGER_BUTTON);
+    }
+
+    public void clickOnCurriculumManagerButton() {
+        clickElement(CURRICULUM_MANAGER_BUTTON);
     }
 
     public boolean isSignInPopupLinkDisplayed() {
@@ -135,7 +141,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void hoverOverSolutionsButton() {
-        hoverOverElement(SOLUTIONS_BUTTON);
+        hoverOverElement(SOLUTIONS_BUTTON, true);
     }
 
     public void clickOnEducatorEditionButton() {
@@ -151,7 +157,7 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public void hoverOverAboutButton() {
-        hoverOverElement(ABOUT_BUTTON);
+        hoverOverElement(ABOUT_BUTTON, true);
     }
 
     public void clickOnContactUsButton() {
@@ -192,6 +198,10 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnSearchHistoryButton() {
         clickElement(SEARCH_HISTORY_BUTTON);
+    }
+
+    public void clickOnAdminManagerButton() {
+        clickElement(ADMIN_MANAGER_BUTTON);
     }
 
     public void clickOnSignOutButton() {
@@ -268,5 +278,21 @@ public class HeaderPage extends LpUiBasePage {
 
     public String getSearchBoxPlaceholder() {
         return findElement(SEARCH_INPUT).getAttribute("placeholder");
+    }
+
+    public void clickOnSearchInput() {
+        clickElement(SEARCH_INPUT);
+    }
+
+    public String getSearchButtonText() {
+        return getTextForElement(SEARCH_BUTTON);
+    }
+
+    public boolean isClearSearchButtonDisplayed() {
+        return isElementDisplayed(SEARCH_CLEAR_SEARCH_BUTTON);
+    }
+
+    public void clickOnClearSearchButton() {
+        clickElement(SEARCH_CLEAR_SEARCH_BUTTON);
     }
 }

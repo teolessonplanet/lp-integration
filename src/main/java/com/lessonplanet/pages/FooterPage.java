@@ -7,6 +7,7 @@ import util.TestData;
 public class FooterPage extends LpUiBasePage {
 
     private static final String LP_LOGO_IMAGE = "[class*='img-responsive']";
+    private static final String COPY_RIGHT_TEXT = "[class='copyright-text']";
 
     private static final String EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
     private static final String SEND_BUTTON = "[class*='lp-newsletter-email-submit']";
@@ -53,6 +54,10 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnLessonPlanetLogo() {
         clickElement(LP_LOGO_IMAGE);
+    }
+
+    public void clickOnCopyRightText() {
+        clickElement(COPY_RIGHT_TEXT);
     }
 
     public String getTextFromEmailField() {

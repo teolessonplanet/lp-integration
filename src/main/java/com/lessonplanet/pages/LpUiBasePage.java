@@ -3,13 +3,16 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+
 import java.awt.Robot;
+
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,17 +76,16 @@ public class LpUiBasePage {
     }
 
     public void uploadUsingTextInput(String fileNameSelector, String path) {
-       try {
-           clickElement(fileNameSelector);
-           driver.switchTo().activeElement().sendKeys(path);
-           Robot robot = new Robot();
-           robot.waitForIdle();
-           robot.keyPress(KeyEvent.VK_ESCAPE);
-           robot.keyRelease(KeyEvent.VK_ESCAPE);
-       }
-       catch (Exception e){
-           logger.info("Cannot upload file");
-       }
+        try {
+            clickElement(fileNameSelector);
+            driver.switchTo().activeElement().sendKeys(path);
+            Robot robot = new Robot();
+            robot.waitForIdle();
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+        } catch (Exception e) {
+            logger.info("Cannot upload file");
+        }
     }
 
     protected List<WebElement> findElements(String cssLocator) {
@@ -293,6 +295,17 @@ public class LpUiBasePage {
         hoverOverElement(findElement(cssSelector));
     }
 
+    protected void hoverOverElement(WebElement webElement, boolean resetPosition) {
+        if (resetPosition) {
+            hoverOverElement("#logo");
+        }
+        hoverOverElement(webElement);
+    }
+
+    protected void hoverOverElement(String cssSelector, boolean resetPosition) {
+        hoverOverElement(findElement(cssSelector), resetPosition);
+    }
+
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForLoad();
@@ -350,7 +363,7 @@ public class LpUiBasePage {
         }
     }
 
-    protected void openInANewTabOrClick(String  cssSelector, boolean inANewTab) {
+    protected void openInANewTabOrClick(String cssSelector, boolean inANewTab) {
         if (inANewTab) {
             openInANewTab(cssSelector);
         } else {
@@ -455,7 +468,7 @@ public class LpUiBasePage {
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
-        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
+        } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
             System.out.println("Element  is  not  displayed");
             return false;
         }
@@ -464,7 +477,7 @@ public class LpUiBasePage {
     public String getElementId(String cssSelector) {
         try {
             return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
-        } catch( org.openqa.selenium.NoSuchElementException ex) {
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
     }
@@ -477,7 +490,7 @@ public class LpUiBasePage {
     public String getElementAttribute(String cssSelector, String attributeName,  int position) {
         try {
             return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
-        } catch( org.openqa.selenium.NoSuchElementException ex) {
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
     }
