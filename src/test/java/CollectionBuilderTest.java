@@ -2,67 +2,122 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
-
 import java.util.List;
 
 public class CollectionBuilderTest extends BaseTest {
 
-    private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
-    private CreateNewCollectionModal createNewCollectionModal;
-    private EditCollectionModal editCollectionModal;
-    private CollectionCreatedModal collectionCreatedModal;
+    private DeleteCollectionBuilderResourceModal deleteCollectionBuilderResourceModal;
+    private CollectionBuilderVideoModal collectionBuilderVideoModal;
+    private BecomeALessonPlanetFreeMemberModal becomeALessonPlanetFreeMemberModal;
+    private RrpModal rrpModal;
+    private RrpPage rrpPage;
+    private BrowseBySubjectPage browseBySubjectPage;
 
     @BeforeMethod
     public void beforeMethod() {
-        loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        createNewCollectionModal = new CreateNewCollectionModal(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
-        collectionCreatedModal = new CollectionCreatedModal(webDriver);
+        rrpModal = new RrpModal(webDriver);
+        rrpPage = new RrpPage(webDriver);
+        deleteCollectionBuilderResourceModal = new DeleteCollectionBuilderResourceModal(webDriver);
+        collectionBuilderVideoModal = new CollectionBuilderVideoModal(webDriver);
+        becomeALessonPlanetFreeMemberModal = new BecomeALessonPlanetFreeMemberModal(webDriver);
+        browseBySubjectPage = new BrowseBySubjectPage(webDriver);
     }
 
-    @Ignore/*(description = " Steps:" +
-            "1. Login" +
-            "2. Go to Search Page" +
-            "3. Click Create New Collection from CB->Dropdown" +
-            "4. Drag&drop all resources from 1st page in the CB" +
-            "5. Click Edit Collection" +
-            "6. Type title, grade, subject & description" +
-            "7. Click Publish Collection button" +
-            "8. Verify the title when the modal is displayed"+
-            "9. Click on Submit button.")*/
-    public void testCreateNewCollectionAndPublish() {
+    @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
+    public void testLessonp_431() {
         discoverResourcesPage.loadPage();
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        collectionBuilderPage.clickOnDropdown();
-        collectionBuilderPage.clickOnCreateNewCollection();
-        createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-        createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        createNewCollectionModal.clickOnCreateCollection();
+        testCollectionBuilderButtons();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+        testCollectionBuilderButtons();
+    }
 
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnListView();
+    @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
+    public void testLessonp_4378() {
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+        testDragAndDropMaxItemsInsideCollection();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
+        testDragAndDropItem();
+        dismissBecomeALessonPlanetFreeMemberModal();
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
+        testCollectionBuilderItem();
+    }
 
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
-        //put all 24 resources in the created collection
-        final List<WebElement> allResources = discoverResourcesPage.getAllResources();
-        for (WebElement resource : allResources) {
-            discoverResourcesPage.dragAndDrop(resource, collectionBuilderPage.getCollectionDroppableZone());
+    private void testDragAndDropItem(){
+        List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
+        browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+    }
+
+    private void testDragAndDropMaxItemsInsideCollection(){
+        List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
+        discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+        dismissBecomeALessonPlanetFreeMemberModal();
+        discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.ALERT_TEXT);
+        for(int i=1; i<=3; i++){
+            discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
+            if(becomeALessonPlanetFreeMemberModal.isModalDisplayed()){
+                dismissBecomeALessonPlanetFreeMemberModal();
+            }
         }
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
+    }
 
+    private void dismissBecomeALessonPlanetFreeMemberModal(){
+        becomeALessonPlanetFreeMemberModal.waitForModal();
+        becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
+    }
+
+    private void testCollectionBuilderButtons() {
+        collectionBuilderPage.isMyResourcesButtonDisplayed();
+        collectionBuilderPage.isMyCollectionDropdownDisplayed();
+        collectionBuilderPage.isEditCollectionButtonDisplayed();
+        collectionBuilderPage.isUploadButtonDisplayed();
+        collectionBuilderPage.isAddALinkButtonDisplayed();
+        collectionBuilderPage.isCollectionVideoBannerDisplayed();
+        collectionBuilderPage.clickOnMyResources();
+        testSignInOrJoinNowModal();
+        collectionBuilderPage.clickOnDropdown();
+        testSignInOrJoinNowModal();
         collectionBuilderPage.clickOnEditCollection();
-        editCollectionModal.selectGrade(TestData.EDIT_COLLECTION_GRADE_HIGHER_ED);
-        editCollectionModal.selectSubject(TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION);
-        editCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        editCollectionModal.clickOnPublishCollection();
+        testSignInOrJoinNowModal();
+        collectionBuilderPage.clickUploadButton();
+        testSignInOrJoinNowModal();
+        collectionBuilderPage.clickAddALinkButton();
+        testSignInOrJoinNowModal();
+        collectionBuilderPage.clickOnCollectionBuilderVideoBanner();
+        collectionBuilderVideoModal.waitForModal();
+        collectionBuilderVideoModal.clickOnXButton();
+    }
 
-        Assert.assertEquals(TestData.COLLECTION_CREATED_MESSAGE, collectionCreatedModal.getTitle());
-        collectionCreatedModal.clickOnSubmitButton();
+    private void testCollectionBuilderItem() {
+        String collectionBuilderItemTitle = collectionBuilderPage.getCollectionBuilderItemTitle(0);
+        int collectionBuilderItemsNumber = collectionBuilderPage.getCollectionBuilderItemsNumber();
+        collectionBuilderPage.clickOnCollectionBuilderItem(0);
+        rrpModal.waitForModal();
+        Assert.assertEquals(rrpModal.getTitleText(), collectionBuilderItemTitle);
+        rrpModal.clickCloseModal();
+        collectionBuilderPage.openResourceInANewTab(0);
+        browseBySubjectPage.waitForNewTab();
+        browseBySubjectPage.focusDriverToLastTab();
+        browseBySubjectPage.waitForLinkToLoad();
+        Assert.assertEquals(rrpPage.getTitleText(), collectionBuilderItemTitle);
+        browseBySubjectPage.closeTab();
+        collectionBuilderPage.hoverOverCollectionBuilderItem(0);
+        collectionBuilderPage.clickOnXButton(0);
+        deleteCollectionBuilderResourceModal.clickOnDeleteResourceButton();
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), collectionBuilderItemsNumber - 1);
+    }
+
+    private void testSignInOrJoinNowModal() {
+        Assert.assertTrue(collectionBuilderPage.isSignInPopupLinkDisplayed());
+        Assert.assertTrue(collectionBuilderPage.isSignUpPopupLinkDisplayed());
     }
 }

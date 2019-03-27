@@ -29,4 +29,8 @@ public class BecomeALessonPlanetFreeMemberModal extends LpUiBasePage {
     public void clickOnCloseModalButton() {
         clickElement(CLOSE_MODAL_BUTTON);
     }
+
+    public boolean isModalDisplayed(){
+        return isElementDisplayed(BECOME_A_LESSON_PLANET_FREE_MEMBER_MODAL);
+    }
 }

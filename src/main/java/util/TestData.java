@@ -29,6 +29,9 @@ public class TestData {
     public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_PLAYER_PATH = "/player";
 
+    //Collection Builder
+    public static final String ALERT_TEXT = "Resource already in collection";
+
     //Curriculum Manager
 
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this collection, but don't let that stop you!\n" + "Upgrade today to create more collections of any size and enjoy the benefits of full membership.";

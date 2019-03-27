@@ -295,6 +295,10 @@ public class LpUiBasePage {
         hoverOverElement(findElement(cssSelector));
     }
 
+    protected void hoverOverElement(String cssSelector, int position) {
+        hoverOverElement(findElements(cssSelector).get(position));
+    }
+
     protected void hoverOverElement(WebElement webElement, boolean resetPosition) {
         if (resetPosition) {
             hoverOverElement("#logo");
@@ -336,6 +340,10 @@ public class LpUiBasePage {
 
     protected void openInANewTab(String cssSelector) {
         openInANewTab(findElement(cssSelector));
+    }
+
+    protected void openInANewTab(String cssSelector, int position) {
+        openInANewTab(findElements(cssSelector).get(position));
     }
 
     protected void openInANewTab(WebElement webElement) {

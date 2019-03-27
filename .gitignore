@@ -1,3 +1,4 @@
 .idea/
 target/
 lp-integration.iml
+hs_err*.log
