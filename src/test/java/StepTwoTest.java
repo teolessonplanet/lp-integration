@@ -24,19 +24,18 @@ public class StepTwoTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         subscriptionSuccessPage = new SubscriptionSuccessPage(webDriver);
-        reachStepTwoModal();
+        reachStepTwoPage();
     }
 
-    public void initAndReachStepTwoModal(WebDriver webDriver){
+    public void initAndReachStepTwoPage(WebDriver webDriver){
         this.webDriver = webDriver;
         beforeMethod();
     }
 
-    public void reachStepTwoModal() {
+    public void reachStepTwoPage() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
         headerPage.clickOnUpgradeMeButton(false);
-        stepTwoModal.waitForModal();
     }
 
     @Test(description = "LP - User Visits Step 2 - lessonp-12:User quits Step 2"

@@ -265,8 +265,8 @@ public class CurriculumManagerTest extends BaseTest {
 
     private void createAnActiveAccount(String accountPlanText){
         StepTwoTest stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(accountPlanText);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(accountPlanText);
         getAccountPlan();
     }
 
