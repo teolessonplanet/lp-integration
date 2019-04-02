@@ -14,7 +14,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
         private static final String LINK_OPTION = "[class*='fa-link']";
         private static final String FACEBOOK_OPTION = "[class*='fa-facebook-square']";
         private static final String TWITTER_OPTION = "[class*='fa-twitter-square']";
-        private static final String GOOGLE_OPTION = "[class*='fa-google-plus-square']";
         private static final String PUBLISH_BUTTON = "[class='fa fa-book']";
         private static final String POPOVER_TEXT = "[class*='popuptext show']";
         private static final String DELETE_BUTTON = "[class*='fa-trash']";
@@ -69,11 +68,11 @@ public class CurriculumManagerPage extends LpUiBasePage {
         }
 
         public void hoverOverActionsDropdown() {
-                hoverOverElement(ACTIONS_DROPDOWN);
+                hoverOverElement(ACTIONS_DROPDOWN, true);
         }
 
         public void hoverOverPlayButton() {
-                hoverOverElement(PLAY_BUTTON);
+                hoverOverElement(PLAY_BUTTON, true);
         }
 
         public void clickOnPlayButton() {
@@ -81,15 +80,11 @@ public class CurriculumManagerPage extends LpUiBasePage {
         }
 
         public void hoverOverShareButton() {
-                hoverOverElement(SHARE_BUTTON);
+                hoverOverElement(SHARE_BUTTON, true);
         }
 
         public void clickOnFacebookOption() {
                 clickElement(FACEBOOK_OPTION);
-        }
-
-        public void clickOnGoogleOption() {
-                clickElement(GOOGLE_OPTION);
         }
 
         public void clickOnEmailOption() {
@@ -105,7 +100,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
         }
 
         public void hoverOverPublishButton() {
-                hoverOverElement(PUBLISH_BUTTON);
+                hoverOverElement(PUBLISH_BUTTON, true);
         }
 
         public void clickOnPublishButton() {

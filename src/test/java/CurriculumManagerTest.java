@@ -310,6 +310,7 @@ public class CurriculumManagerTest extends BaseTest {
             Assert.assertTrue(collectionBuilderPage.isSignInPopupLinkDisplayed());
             Assert.assertTrue(collectionBuilderPage.isSignUpPopupLinkDisplayed());
         } else{
+            discoverResourcesPage.loadPage();
             testCreateCollectionFromCollectionBuilder();
             collectionBuilderPage.clickOnEditCollection();
             editCollectionModal.waitForModal();
@@ -319,7 +320,6 @@ public class CurriculumManagerTest extends BaseTest {
     }
 
     public void testCreateCollectionFromCollectionBuilder(){
-        discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewCollectionModal.waitForModal();
@@ -381,19 +381,23 @@ public class CurriculumManagerTest extends BaseTest {
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             testUpgradeModalFromUploadButton();
         } else {
-            uploadFileModal.waitForModal();
-            File file = new File(System.getProperty("user.dir")+File.separator +"src"+File.separator+"main"+File.separator+"resources"+File.separator+"images"+File.separator+"test-upload-file.png");
-            uploadFileModal.uploadUsingTextInput(file.getPath());
-            uploadFileModal.selectGrade(TestData.UPLOAD_YOUR_FILE_GRADE);
-            uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
-            uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
-            uploadFileModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-            uploadFileModal.clickOnUploadButton();
-            uploadFileModal.clickOnDoneButton();
+            testUpload();
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
             testIsUploadResourceDisplayed();
         }
+    }
+
+    public void testUpload(){
+        uploadFileModal.waitForModal();
+        File file = new File(System.getProperty("user.dir")+File.separator +"src"+File.separator+"main"+File.separator+"resources"+File.separator+"images"+File.separator+"test-upload-file.png");
+        uploadFileModal.uploadUsingTextInput(file.getPath());
+        uploadFileModal.selectGrade(TestData.UPLOAD_YOUR_FILE_GRADE);
+        uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
+        uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
+        uploadFileModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
+        uploadFileModal.clickOnUploadButton();
+        uploadFileModal.clickOnDoneButton();
     }
 
     private void testIsUploadResourceDisplayed(){
@@ -505,10 +509,6 @@ public class CurriculumManagerTest extends BaseTest {
         curriculumManagerPage.hoverOverShareButton();
         curriculumManagerPage.clickOnTwitterOption();
         testNewTabURL(TestData.TWITTER_URL);
-
-        curriculumManagerPage.hoverOverShareButton();
-        curriculumManagerPage.clickOnGoogleOption();
-        testNewTabURL(TestData.GOOGLE_URL);
 
         curriculumManagerPage.hoverOverShareButton();
         curriculumManagerPage.clickOnEmailOption();

@@ -462,6 +462,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal(){
+        discoverResourcesPage.loadPage();
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderPage.clickOnEditCollection();
         editCollectionModal.waitForModal();
@@ -503,6 +504,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection(){
+        discoverResourcesPage.loadPage();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
