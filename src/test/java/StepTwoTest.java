@@ -2,9 +2,12 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
+@Ignore
+@Deprecated
 public class StepTwoTest extends BaseTest {
 
     private LpHomePage lpHomePage;
