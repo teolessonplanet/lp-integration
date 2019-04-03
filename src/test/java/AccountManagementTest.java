@@ -16,7 +16,6 @@ public class AccountManagementTest extends BaseTest {
     private BecomeALessonPlanetFreeMemberModal becomeALessonPlanetFreeMemberModal;
     private FreeMemberLimitedAccessModal freeMemberLimitedAccessModal;
     private ThanksForJoiningModal thanksForJoiningModal;
-    private StepTwoModal stepTwoModal;
     private StepTwoTest stepTwoTest;
     private MyAccountPage myAccountPage;
     private CustomMembershipPage customMembershipPage;
@@ -54,7 +53,6 @@ public class AccountManagementTest extends BaseTest {
         becomeALessonPlanetFreeMemberModal = new BecomeALessonPlanetFreeMemberModal(webDriver);
         freeMemberLimitedAccessModal = new FreeMemberLimitedAccessModal(webDriver);
         thanksForJoiningModal = new ThanksForJoiningModal(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         customMembershipPage = new CustomMembershipPage(webDriver);
         stepOnePage = new StepOnePage(webDriver);
@@ -93,6 +91,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.changeToListView();
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+        becomeALessonPlanetFreeMemberModal.waitForModal();
         becomeALessonPlanetFreeMemberModal.clickOnFreeMemberLink();
         freeMemberLimitedAccessModal.typeEmailAddress(TestData.GET_NEW_EMAIL());
         freeMemberLimitedAccessModal.typePassword(TestData.VALID_PASSWORD);
@@ -103,8 +102,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Create a Free Member account - lessonp-693:Quitting Step 2 registration process")
     public void testLessonp_693() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.clickOnCloseModal();
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.goBackOnePage();
         Assert.assertEquals(headerPage.getUpgradeMeButtonBackgroundColor(), TestData.TRY_IT_FREE_BUTTON_BACKGROUND_COLOR);
         myAccountPage.loadPage();
         Assert.assertEquals(myAccountPage.getPlan(), TestData.FREE_MEMBERSHIP_TEXT);
@@ -113,8 +112,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Create a Free Member account - lessonp-694:After membership is canceled")
     public void testLessonp_694() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
 
         myAccountPage.loadPage();
         Assert.assertEquals(myAccountPage.getPlan(), TestData.STARTER_OPTION_TEXT);
@@ -221,8 +220,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Pro - lessonp-673:No upgrade possible (Pro $72)")
     public void testLessonp_673() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.PRO_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.PRO_OPTION_TEXT);
 
         myAccountPage.loadPage();
         Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
@@ -236,8 +235,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Prime - lessonp-675:Upgrade from the search page")
     public void testLessonp_675() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
@@ -250,8 +249,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Prime - lessonp-676:Upgrade from My Account")
     public void testLessonp_676() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
 
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
@@ -264,8 +263,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Prime - lessonp-677:Upgrade via the Assign modal")
     public void testLessonp_677() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeFullReview(false);
@@ -289,8 +288,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Starter - lessonp-678:Upgrade from the search page")
     public void testLessonp_678() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
@@ -304,8 +303,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Starter - lessonp-679:Upgrade from My Account")
     public void testLessonp_679() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
 
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
@@ -319,8 +318,8 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Starter - lessonp-680:Upgrade via the Assign modal")
     public void testLessonp_680() {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
 
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
@@ -345,8 +344,8 @@ public class AccountManagementTest extends BaseTest {
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
         stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoModal(webDriver);
-        stepTwoModal.completeStepTwoModalWith(subscriptionToTest);
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(subscriptionToTest);
 
         myAccountPage.loadPage();
         Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
@@ -428,20 +427,24 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromGetFreeAccessButton(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         discoverResourcesPage.clickGetFreeAccess(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
-    private void checkStepTwoPage(){
+    private void checkStepTwoPageNewTab(){
+        discoverResourcesPage.waitForNewTab();
+        discoverResourcesPage.focusDriverToLastTab();
+        discoverResourcesPage.waitForLinkToLoad();
         Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
         Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
         stepTwoPage.closeTab();
     }
 
-    private void checkStepTwoModal(){
-        Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-        stepTwoModal.clickOnCloseModal();
+    private void checkStepTwoPageSameTab(){
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+        stepTwoPage.goBackOnePage();
     }
 
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
@@ -449,9 +452,9 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
         rrpModal.clickUpgradeForFullReviewButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         rrpModal.clickUpgradeForFullReviewButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
@@ -533,7 +536,7 @@ public class AccountManagementTest extends BaseTest {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons(){
@@ -558,34 +561,34 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFromHeader(){
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         headerPage.clickOnUpgradeMeButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFromMyAccountPage(){
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         myAccountPage.clickOnUpgradeMeButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFromHomePage(){
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         lpHomePage.clickOnUpgradeMeButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFromRrpPage(){
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         rrpPage.clickBottomPageUpgradeMeButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
     }
 
     private void testUpgradeFromWhatMembersSayWidgetDirectoryPage(){
@@ -615,9 +618,9 @@ public class AccountManagementTest extends BaseTest {
 
     private void testClickSubscriptionButtonFromWhatMembersSayWidget(){
         whatMembersSayWidget.clickSubscriptionButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         whatMembersSayWidget.clickSubscriptionButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFromStartYourFreeTrialWidgetDirectoryPage() {
@@ -642,8 +645,8 @@ public class AccountManagementTest extends BaseTest {
 
     private void testClickSubscriptionButtonFromStartYourFreeTrialWidget(){
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
-        checkStepTwoPage();
+        checkStepTwoPageNewTab();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
-        checkStepTwoModal();
+        checkStepTwoPageSameTab();
     }
 }

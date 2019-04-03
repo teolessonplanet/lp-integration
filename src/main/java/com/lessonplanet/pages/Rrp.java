@@ -21,6 +21,7 @@ public class Rrp extends LpUiBasePage {
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
     private static final String SUBSCRIPTION_BUTTON = "a[href='/subscription/new']";
+    private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
 
     private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
     private static final String RESOURCE_RRP_DETAILS = "[class*='panel-default panel-review new-rrp']";
@@ -84,7 +85,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public void clickUpgradeForFullReviewButton (boolean inANewTab){
-        openInANewTabOrClick(SUBSCRIPTION_BUTTON, inANewTab);
+        openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
     public boolean isJoinToSeeThisResourceButtonDisplayed() {
