@@ -9,11 +9,10 @@ import java.util.List;
 
 public class CollectionRrp extends LpUiBasePage {
 
-    private static final String COLLECTION_TITLE_TEXT = "div h1";
+    private static final String COLLECTION_TITLE_TEXT = "[class*='panel-default panel-review'] div h1";
     private static final String SAVE_COLLECTION_BUTTON = "span[class='save-collection-btn'] button[type='submit']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
-    private static final String COLLECTION_RRP_DETAILS = "div.shared_collection [class*='panel-default panel-review']";
-    private static final String JOIN_FOR_FULL_REVIEW_BUTTON = "a[href='/subscription/new']";
+    private static final String JOIN_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] a[href='/subscription/new']";
     private static final String SHARE_BUTTON = "[class='btn btn-default hidden-xs dropdown-toggle']";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
@@ -23,9 +22,7 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-9 col-sm-10']" + " div.resource-details.small span:last-child";
     private static final String CONCEPTS_TAGS_LIST = "[class='col-sm-11 details-list concepts']";
     private static final String NEXT_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='right']";
-    private static final String PREVIOUS_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='left']";
-    private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
-    private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='link-as-text']";
+    private static final String PREVIOUS_BUTTON_RRP = "[class*='panel-default panel-review'] div.panel-footer a[data-transition='left']";
     private static final String PANEL_ITEMS_LIST = "[class='panel-items'] [class='item-list'] li";
     private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.panel.shared-collection-item div.panel-flip .item-rrp-link[data-type='resource']";
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
@@ -63,10 +60,6 @@ public class CollectionRrp extends LpUiBasePage {
             throw new Error("The number " + rawNumber + " cannot be parsed");
         }
         return number;
-    }
-
-    public boolean isCollectionRrpDetailsDisplayed(){
-        return isElementDisplayed(COLLECTION_RRP_DETAILS);
     }
 
     public boolean isJoinForFullReviewButtonDisplayed(){
@@ -118,22 +111,6 @@ public class CollectionRrp extends LpUiBasePage {
         return getElementAttribute(PANEL_ITEM,"data-id", position);
     }
 
-    public boolean isPreviousButtonRrpDisplayed(){
-        return isElementDisplayed(PREVIOUS_BUTTON_RRP);
-    }
-
-    public boolean isNextButtonRrpDisplayed(){
-        return isElementDisplayed(NEXT_BUTTON_RRP);
-    }
-
-    public boolean isSearchResultsPositionDisplayed(){
-        return isElementDisplayed(SEARCH_RESULTS_POSITION_TEXT);
-    }
-
-    public boolean isReturnToSearchResultsLinkDisplayed(){
-        return isElementDisplayed(RETURN_TO_SEARCH_RESULTS_LINK);
-    }
-
     public boolean isPreviousButtonPanelItemsDisplayed(){
         return isElementDisplayed(PREVIOUS_BUTTON_PANEL_ITEMS);
     }
@@ -178,8 +155,8 @@ public class CollectionRrp extends LpUiBasePage {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(){
-        clickElement(SIGN_IN_POPUP);
+    public void clickSignInPopupLink(boolean inANewTab){
+        openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
     public boolean isJoinNowPopupLinkDisplayed() {

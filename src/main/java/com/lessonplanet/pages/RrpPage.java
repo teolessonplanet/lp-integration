@@ -1,6 +1,9 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class RrpPage extends Rrp {
 
@@ -97,12 +100,13 @@ public class RrpPage extends Rrp {
         return getTextForElement(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public String getResourceCardResourceTypeText(){
-        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD,"after","content");
+    public String getSimilarResourceCardResourceTypeText(int index){
+        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD,"after","content", index);
     }
 
-    public boolean isSimilarResourceCardDisplayed(){
-        return isElementDisplayed(SIMILAR_RESOURCE_CARD);
+    public int getAllSimilarResourceCardsNumber() {
+        final List<WebElement> relatedResources = findElements(SIMILAR_RESOURCE_CARD);
+        return relatedResources.size();
     }
 
     public String getSimilarResourcesListText(){

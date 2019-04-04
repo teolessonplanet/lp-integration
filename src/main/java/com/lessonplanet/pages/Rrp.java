@@ -20,29 +20,27 @@ public class Rrp extends LpUiBasePage {
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
 
-    private static final String SUBSCRIPTION_BUTTON = "a[href='/subscription/new']";
+    private static final String JOIN_TO_SEE_THIS_RESOURCE_BUTTON = "[class='panel panel-default panel-review new-rrp relative'] a[href='/subscription/new']";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
 
     private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
-    private static final String RESOURCE_RRP_DETAILS = "[class*='panel-default panel-review new-rrp']";
     private static final String DESCRIPTION = "[class='panel-body'] [class*='js-help-rpp-description'] + p";
     private static final String THUMBNAIL = "[class*='resource-img img-thumbnail']";
     private static final String NUMBER_OF_VIEWS = "[class*='detail-views']";
     private static final String NUMBER_OF_DOWNLOADS = "[class*='detail-downloads']";
-    private static final String CONCEPTS_TAGS_LIST = "[class='details-list concepts']";
+    private static final String CONCEPTS_TAGS_LIST = "[class*='concepts']";
     private static final String RATING = "[itemprop='reviewRating']";
-    private static final String REGULAR_RESOURCE_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(2) dd";
-    private static final String REGULAR_RESOURCE_SUBJECTS = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(3) dd";
-    private static final String REGULAR_RESOURCE_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(4) div.col-sm-12.pt5.pb5:nth-child(1) dd";
-    private static final String SHARED_RESOURCE_GRADE = "[class*='panel-default panel-review new-rrp'] [class='panel-body'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) dd";
-    private static final String SHARED_RESOURCE_SUBJECTS = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(2) dd";
-    private static final String SHARED_RESOURCE_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(3) dd";
+    private static final String FULL_RRP_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(2) dd";
+    private static final String FULL_RRP_SUBJECTS = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(3) dd";
+    private static final String FULL_RRP_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(4) div.col-sm-12.pt5.pb5:nth-child(1) dd";
+    private static final String LIGHT_RRP_GRADE = "[class*='panel-default panel-review new-rrp'] [class='panel-body'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) dd";
+    private static final String LIGHT_RRP_SUBJECTS = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(2) dd";
+    private static final String LIGHT_RRP_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(3) dd";
     private static final String NEXT_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-right'] a";
     private static final String PREVIOUS_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-left'] a";
-    private static final String SEARCH_RESULTS_POSITION_TEXT = "[class='lead lead-md mb0 text-center']";
-    private static final String RETURN_TO_SEARCH_RESULTS_LINK = "[class='panel-footer hidden-xs'] a[href*='/search']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
+    private static final String BLANK_LEFT_SECTION = "[class='panel-body'] [class=row] [class='col-sm-3 hidden-xs'] [class='blank-rrp-left-resource-details mt15']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -89,7 +87,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public boolean isJoinToSeeThisResourceButtonDisplayed() {
-        return isElementDisplayed(SUBSCRIPTION_BUTTON);
+        return isElementDisplayed(JOIN_TO_SEE_THIS_RESOURCE_BUTTON);
     }
 
     public boolean isDescriptionDisplayed() {
@@ -136,58 +134,46 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(NEXT_BUTTON_RRP);
     }
 
-    public boolean isSearchResultsPositionDisplayed() {
-        return isElementDisplayed(SEARCH_RESULTS_POSITION_TEXT);
+    public boolean isLightRrpGradeDisplayed() {
+        return isElementDisplayed(LIGHT_RRP_GRADE);
     }
 
-    public boolean isReturnToSearchResultsLinkDisplayed() {
-        return isElementDisplayed(RETURN_TO_SEARCH_RESULTS_LINK);
+    public boolean isFullRrpGradeDisplayed() {
+        return isElementDisplayed(FULL_RRP_GRADE);
     }
 
-    public boolean isResourceRrpDetailsDisplayed() {
-        return isElementDisplayed(RESOURCE_RRP_DETAILS);
-    }
-
-    public boolean isSharedResourceGradeDisplayed() {
-        return isElementDisplayed(SHARED_RESOURCE_GRADE);
-    }
-
-    public boolean isRegularResourceGradeDisplayed() {
-        return isElementDisplayed(REGULAR_RESOURCE_GRADE);
-    }
-
-    public int getRegularResourceResourceTypeNumber() {
-        final List<WebElement> resourceType = findElements(REGULAR_RESOURCE_RESOURCE_TYPES);
+    public int getFullRrpResourceTypeNumber() {
+        final List<WebElement> resourceType = findElements(FULL_RRP_RESOURCE_TYPES);
         return resourceType.size();
     }
 
-    public int getSharedResourceResourceTypeNumber() {
-        final List<WebElement> resourceType = findElements(SHARED_RESOURCE_RESOURCE_TYPES);
+    public int getLightRrpResourceTypeNumber() {
+        final List<WebElement> resourceType = findElements(LIGHT_RRP_RESOURCE_TYPES);
         return resourceType.size();
     }
 
-    public int getSharedResourceSubjectsNumber() {
-        final List<WebElement> subjects = findElements(SHARED_RESOURCE_SUBJECTS);
+    public int getLightRrpSubjectsNumber() {
+        final List<WebElement> subjects = findElements(LIGHT_RRP_SUBJECTS);
         return subjects.size();
     }
 
-    public int getRegularResourceSubjectsNumber() {
-        final List<WebElement> subjects = findElements(REGULAR_RESOURCE_SUBJECTS);
+    public int getFullRrpSubjectsNumber() {
+        final List<WebElement> subjects = findElements(FULL_RRP_SUBJECTS);
         return subjects.size();
     }
 
-    public int getRegularResourceGradeNumber() {
-        final List<WebElement> grade = findElements(REGULAR_RESOURCE_GRADE);
+    public int getFullRrpGradeNumber() {
+        final List<WebElement> grade = findElements(FULL_RRP_GRADE);
         return grade.size();
     }
 
-    public int getSharedResourceGradeNumber() {
-        final List<WebElement> grade = findElements(SHARED_RESOURCE_GRADE);
+    public int getLightRrpGradeNumber() {
+        final List<WebElement> grade = findElements(LIGHT_RRP_GRADE);
         return grade.size();
     }
 
-    public List<String> getSharedResourceSubjectText() {
-        List<WebElement> subjects= findElements(SHARED_RESOURCE_SUBJECTS);
+    public List<String> getLightRrpSubjectText() {
+        List<WebElement> subjects= findElements(LIGHT_RRP_SUBJECTS);
         List<String> displaySubjects = new ArrayList<>();
         for (WebElement subject : subjects) {
             displaySubjects.add(getTextForElement(subject));
@@ -195,8 +181,8 @@ public class Rrp extends LpUiBasePage {
         return displaySubjects;
     }
 
-    public List<String> getRegularResourceSubjectText() {
-        List<WebElement> subjects = findElements(REGULAR_RESOURCE_SUBJECTS);
+    public List<String> getFullRrpSubjectText() {
+        List<WebElement> subjects = findElements(FULL_RRP_SUBJECTS);
         List<String> displaySubjects = new ArrayList<>();
         for (WebElement subject : subjects) {
             displaySubjects.add(getTextForElement(subject));
@@ -204,8 +190,8 @@ public class Rrp extends LpUiBasePage {
         return displaySubjects;
     }
 
-    public List<String> getRegularResourceResourceTypeText(){
-        List<WebElement> resourceTypes= findElements(REGULAR_RESOURCE_RESOURCE_TYPES);
+    public List<String> getFullRrpResourceTypeText(){
+        List<WebElement> resourceTypes= findElements(FULL_RRP_RESOURCE_TYPES);
         List<String> displayResourceType = new ArrayList<>();
         for (WebElement resourceType : resourceTypes) {
             displayResourceType.add(getTextForElement(resourceType));
@@ -213,8 +199,8 @@ public class Rrp extends LpUiBasePage {
         return displayResourceType;
     }
 
-    public List<String> getSharedResourceResourceTypeText(){
-        List<WebElement> resourceTypes = findElements(SHARED_RESOURCE_RESOURCE_TYPES);
+    public List<String> getLightRrpResourceTypeText(){
+        List<WebElement> resourceTypes = findElements(LIGHT_RRP_RESOURCE_TYPES);
         List<String> displayResourceType = new ArrayList<>();
         for (WebElement resourceType : resourceTypes) {
             displayResourceType.add(getTextForElement(resourceType));
@@ -223,7 +209,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public void clickJoinToSeeThisResourceButton(boolean inANewTab){
-        openInANewTabOrClick(SUBSCRIPTION_BUTTON, inANewTab);
+        openInANewTabOrClick(JOIN_TO_SEE_THIS_RESOURCE_BUTTON, inANewTab);
     }
 
     public void clickOnThumbnail(){
@@ -238,8 +224,8 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(){
-        clickElement(SIGN_IN_POPUP);
+    public void clickSignInPopupLink(boolean inANewTab){
+        openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
     public boolean isJoinNowPopupLinkDisplayed() {
@@ -256,5 +242,9 @@ public class Rrp extends LpUiBasePage {
 
     public void clickPreviousButton() {
         clickElement(PREVIOUS_BUTTON_RRP);
+    }
+
+    public boolean isLeftSectionBlankDisplayed(){
+        return isElementDisplayed(BLANK_LEFT_SECTION);
     }
 }

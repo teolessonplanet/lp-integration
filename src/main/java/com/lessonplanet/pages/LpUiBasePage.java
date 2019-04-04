@@ -495,6 +495,14 @@ public class LpUiBasePage {
         }
     }
 
+    public String getElementAttribute(String cssSelector, String attributeName) {
+        try {
+            return driver.findElement(By.cssSelector(cssSelector)).getAttribute(attributeName);
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
+            return null;
+        }
+    }
+
     public boolean isElementDisplayed(String cssLocator, int position) {
         try {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
@@ -505,8 +513,8 @@ public class LpUiBasePage {
         }
     }
 
-    public String getAfterPseudoElement(String cssSelector, String position, String cssPropertyName){
-        WebElement div = findElement(cssSelector);
+    public String getAfterPseudoElement(String cssSelector, String position, String cssPropertyName, int index){
+        WebElement div = findElements(cssSelector).get(index);
         try{
             return ((JavascriptExecutor)driver)
                 .executeScript("return window.getComputedStyle(arguments[0], ':"+position+"').getPropertyValue('"+cssPropertyName+"');",div).toString();
