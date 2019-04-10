@@ -235,7 +235,7 @@ public class TestData {
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
-    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Collections\n"+"Activities & Projects\n"+"Assessments\n"+"Graphics & Images\n"+"Handouts & References\n"+"Interactives\n"+"Lab Resources\n"+"Learning Games\n"+"Lesson Plans\n"+"Presentations\n"+"Primary Sources\n"+"Printables & Templates\n"+"Professional Documents\n"+"PD Courses\n"+"Study Guides\n"+"Units\n"+"Videos\n"+"Performance Tasks\n"+"Websites\n"+"Graphic Organizers\n"+"Worksheets\n"+"Workbooks\n"+"Writing Prompts\n"+"Constructed Response Items\n"+"Apps\n"+"AP Test Preps\n"+"Articles\n"+"Lesson Planet Articles\n"+"Audios\n"+"Courses\n"+"eBooks\n"+"Interactive Whiteboards\n"+"Home Letters\n"+"Rubrics\n"+"Syllabis\n" + "All Resource Types";
+    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Curriculum Sets\n"+"Chapters\n"+"Lessons\n"+"Collections\n"+"Assessment Sets\n"+"Activities & Projects\n"+"Unit Modules\n"+"Assessments\n"+"Graphics & Images\n"+"Handouts & References\n"+"Interactives\n"+"Lab Resources\n"+"Learning Games\n"+"Lesson Plans\n"+"Presentations\n"+"Primary Sources\n"+"Printables & Templates\n"+"Professional Documents\n"+"PD Courses\n"+"Study Guides\n"+"Units\n"+"Videos\n"+"Performance Tasks\n"+"Websites\n"+"Graphic Organizers\n"+"Worksheets\n"+"Workbooks\n"+"Writing Prompts\n"+"Constructed Response Items\n"+"Apps\n"+"AP Test Preps\n"+"Articles\n"+"Lesson Planet Articles\n"+"Audios\n"+"Courses\n"+"eBooks\n"+"Interactive Whiteboards\n"+"Home Letters\n"+"Rubrics\n"+"Syllabis\n" + "All Resource Types";
     public static final String WORKSHEETS_RESOURCE_TYPE = "Worksheets";
     public static final String HOME_LETTERS_RESOURCE_TYPE = "Home Letters";
     public static final String WORKSHEET_RESOURCE_TYPE_CARD = "Worksheet";
@@ -275,6 +275,7 @@ public class TestData {
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
+    public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";
     public static final String PHYSICAL_EDUCATION_PAGE_PATH = "lesson-plans/physical-education";

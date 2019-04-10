@@ -38,7 +38,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
     private static final String RESOURCE_CARDS = "#search-results [class*='search-result-item']";
-    private static final String RESOURCE_CARD_TITLE = "#search-results div h4";
+    private static final String COLLECTION_CARD_TITLE = "#search-results [class='col-xs-12 list-card'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
     private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
 
@@ -127,7 +127,7 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
-    protected void clickSeeCollection(boolean inANewTab) {
+    public void clickSeeCollection(boolean inANewTab) {
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
 
@@ -225,7 +225,7 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public String getCollectionCardTitle( int position){
-        return getTextForElement(RESOURCE_CARD_TITLE, position);
+        return getTextForElement(COLLECTION_CARD_TITLE, position);
     }
 
     public String getRegularResourceCardDataId(int position){
