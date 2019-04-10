@@ -118,6 +118,7 @@ public class HeaderPage extends LpUiBasePage {
 
     public void hoverOverCurriculumManagerButton() {
         hoverOverElement(CURRICULUM_MANAGER_BUTTON);
+        waitForLoad();
     }
 
     public void clickOnCurriculumManagerButton() {
@@ -128,7 +129,7 @@ public class HeaderPage extends LpUiBasePage {
         return isElementClickable(SIGN_IN_POPUP);
     }
 
-    public boolean isSignUpPopupLinkDisplyed() {
+    public boolean isSignUpPopupLinkDisplayed() {
         return isElementClickable(SIGN_UP_POPUP);
     }
 

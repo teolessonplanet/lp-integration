@@ -11,6 +11,7 @@ public class HeaderTest extends BaseTest {
     private FooterPage footerPage;
     private SignInModal signInModal;
     private StepOneModal stepOneModal;
+    private StepTwoPage stepTwoPage;
     private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
 
@@ -21,6 +22,7 @@ public class HeaderTest extends BaseTest {
         footerPage = new FooterPage(webDriver);
         signInModal = new SignInModal(webDriver);
         stepOneModal = new StepOneModal(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
         loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
@@ -30,175 +32,87 @@ public class HeaderTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Header - lessonp-3970:LP Logo")
-    public void testLessonp_3970() {
-        testLogo();
+    @Test(description = "Automation Test Suite - Visitor - Header - lessonp-4565:Header buttons")
+    public void testLessonp_4565() {
+        testHeaderButtons(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Header - lessonp-4104:LP Logo")
-    public void testLessonp_4104() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testLogo();
+    @Test(description = "Automation Test Suite - Freemium - Header - lessonp-4602:Header buttons")
+    public void testLessonp_4602() {
+        testHeaderButtons(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Visitor - Header - lessonp-4108:LP Logo")
-    public void testLessonp_4108() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testLogo();
+
+    @Test(description = "Automation Test Suite - Active user - Header - lessonp-4617:Header buttons")
+    public void testLessonp_4617() {
+        testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Header - lessonp-639:Resources")
-    public void testLessonp_639() {
-        testResourcesButton(TestData.INVALID_EMAIL);
-    }
-
-    @Test(description = "Freemium - Header - lessonp-644:Resources")
-    public void testLessonp_644() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testResourcesButton(TestData.VALID_EMAIL_FREEMIUM);
-    }
-
-    @Test(description = "Active user - Header - lessonp-649:Resources")
-    public void testLessonp_649() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testResourcesButton(TestData.VALID_EMAIL_ADMIN);
-    }
-
-    @Test(description = "Visitor - Header - lessonp-641:Solutions")
-    public void testLessonp_641() {
-        testSolutionsButton();
-    }
-
-    @Test(description = "Freemium - Header - lessonp-645:Solutions")
-    public void testLessonp_645() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testSolutionsButton();
-    }
-
-    @Test(description = "Active user - Header - lessonp-650:Solutions")
-    public void testLessonp_650() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testSolutionsButton();
-    }
-
-    @Test(description = "Visitor - Header - lessonp-642:About")
-    public void testLessonp_642() {
-        testAboutButton();
-    }
-
-    @Test(description = "Freemium - Header - lessonp-646:About")
-    public void testLessonp_646() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testAboutButton();
-    }
-
-    @Test(description = "Active user - Header - lessonp-651:About")
-    public void testLessonp_651() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testAboutButton();
-    }
-
-    @Test(description = "Freemium - Header - lessonp-648:Your_Account")
-    public void testLessonp_648() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testYourAccountButton(false);
-    }
-
-    @Test(description = "Active user - Header - lessonp-653:Your_Account")
-    public void testLessonp_653() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testYourAccountButton(false);
-    }
-
-    @Test(description = "Visitor - Header - lessonp-4004:Search box (keyword functionality)")
+    @Test(description = "Automation Test Suite - Visitor - Header - lessonp-4004:Search box (keyword functionality)")
     public void testLessonp_4004() {
         testSearchBoxKeywordFunctionality(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Header - lessonp-4107:Search box (keyword functionality)")
+    @Test(description = "Automation Test Suite - Freemium - Header - lessonp-4107:Search box (keyword functionality)")
     public void testLessonp_4107() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Active user - Header - lessonp-4111:Search box (keyword functionality)")
+    @Test(description = "Automation Test Suite - Active user - Header - lessonp-4111:Search box (keyword functionality)")
     public void testLessonp_4144() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Header - lessonp-643:Header structure")
-    public void testLessonp_643() {
-        discoverResourcesPage.loadPage();
-        Assert.assertTrue(headerPage.isSearchBarDisplayed());
-        testButtonsVisitor();
+    protected void testHeaderButtons(String account) {
+        if (!account.equals(TestData.INVALID_EMAIL)) {
+            loginPage.performLogin(account, TestData.VALID_PASSWORD);
+        }
 
+        testLogo(account);
+
+        testResourcesButton(account);
+
+        testSolutionsButton();
+
+        testAboutButton();
+
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            headerPage.clickOnPricingButton();
+            Assert.assertEquals(lpHomePage.getPath(), TestData.PRICING_PAGE_PATH);
+
+            headerPage.clickOnSignInButton(false);
+            Assert.assertEquals(signInModal.getModalTitle(), TestData.SIGN_IN_MODAL_TITLE_TEXT);
+            signInModal.clickOnClose();
+
+            headerPage.clickOnTryItFree(false);
+            Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
+        } else if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            headerPage.clickOnUpgradeMeButton(false);
+            Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+            stepTwoPage.goBackOnePage();
+            testYourAccountButton(false);
+        } else if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            testYourAccountButton(false);
+        } else if (account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
+            testYourAccountButton(true);
+        }
+    }
+
+    private void testLogo(String account) {
         lpHomePage.loadPage();
-        Assert.assertFalse(headerPage.isSearchBarDisplayed());
-        testDropdowns();
-        Assert.assertTrue(headerPage.isPricingButtonDisplayed());
-        Assert.assertTrue(headerPage.isSignInButtonDisplayed());
-        Assert.assertTrue(headerPage.isTryItFreeButtonDisplayed());
-
-        headerPage.clickOnPricingButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.PRICING_PAGE_PATH);
-
-        headerPage.clickOnSignInButton(false);
-        Assert.assertEquals(signInModal.getModalTitle(), TestData.SIGN_IN_MODAL_TITLE_TEXT);
-        signInModal.clickOnClose();
-
-        headerPage.clickOnTryItFree(false);
-        Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-    }
-
-    @Test(description = "Visitor - Header - lessonp-3966:Search box (UI)")
-    public void testLessonp_3966() {
-        testSearchBox();
-    }
-
-    @Test(description = "Visitor - Header - lessonp-4105:Search box (UI)")
-    public void testLessonp_4105() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testSearchBox();
-    }
-
-    @Test(description = "Active user - Header - lessonp-4109:Search box (UI)")
-    public void testLessonp_4109() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testSearchBox();
-    }
-
-    public void testLogo() {
-        lpHomePage.loadPage();
-        Assert.assertTrue(headerPage.isLpLogoClickable());
-        headerPage.clickOnLpLogo(false);
-
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
-        headerPage.clickOnLpLogo(true);
-
+        if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
+            Assert.assertTrue(headerPage.isLpLogoClickable());
+            headerPage.clickOnLpLogo(false);
+        } else {
+            Assert.assertTrue(headerPage.isRegularSlLogoClickable());
+            headerPage.clickOnRegularSlLogo(false);
+        }
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
     }
 
-    private void testButtonsVisitor() {
-        Assert.assertTrue(headerPage.isPricingButtonDisplayed());
-        Assert.assertTrue(headerPage.isSignInButtonDisplayed());
-        Assert.assertTrue(headerPage.isTryItFreeButtonDisplayed());
-        testDropdowns();
-    }
-
-    private void testDropdowns() {
-        Assert.assertTrue(headerPage.isResourcesDropdownDisplayed());
-        Assert.assertTrue(headerPage.isSolutionDropdownDisplayed());
-        Assert.assertTrue(headerPage.isAboutDropdownDisplayed());
-    }
-
-    public void testSearchBox() {
-        discoverResourcesPage.loadPage();
-        Assert.assertTrue(headerPage.isSearchBarDisplayed());
-        Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
-    }
-
-    public void testResourcesButton(String account) {
+    private void testResourcesButton(String account) {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
         headerPage.clickOnDiscoverResourcesButton();
@@ -220,7 +134,7 @@ public class HeaderTest extends BaseTest {
             headerPage.hoverOverResourcesButton();
             headerPage.hoverOverCurriculumManagerButton();
             Assert.assertTrue(headerPage.isSignInPopupLinkDisplayed());
-            Assert.assertTrue(headerPage.isSignUpPopupLinkDisplyed());
+            Assert.assertTrue(headerPage.isSignUpPopupLinkDisplayed());
             lpHomePage.loadPage();
         } else {
             headerPage.hoverOverResourcesButton();
@@ -239,7 +153,7 @@ public class HeaderTest extends BaseTest {
         }
     }
 
-    public void testSolutionsButton() {
+    private void testSolutionsButton() {
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
         headerPage.clickOnEducatorEditionButton();
@@ -256,7 +170,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getUrl(), TestData.PD_LEARNING_NETWORK_URL);
     }
 
-    public void testAboutButton() {
+    private void testAboutButton() {
         lpHomePage.loadPage();
         headerPage.hoverOverAboutButton();
         headerPage.clickOnContactUsButton();
@@ -279,7 +193,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
     }
 
-    public void testYourAccountButton(boolean adminManager) {
+    private void testYourAccountButton(boolean adminManager) {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyAccountButton();
         Assert.assertEquals(headerPage.getPath(), TestData.MY_ACCOUNT_PAGE_PATH);
@@ -305,9 +219,10 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnSignOutButton();
         Assert.assertTrue(headerPage.isSignInButtonDisplayed());
+        Assert.assertTrue(headerPage.isLpLogoClickable());
     }
 
-    public void testSearchBoxKeywordFunctionality(String account) {
+    protected void testSearchBoxKeywordFunctionality(String account) {
         discoverResourcesPage.loadPage();
         headerPage.clickOnSearchInput();
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.SEARCH_BUTTON_TEXT);

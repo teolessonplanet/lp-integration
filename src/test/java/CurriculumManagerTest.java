@@ -280,7 +280,7 @@ public class CurriculumManagerTest extends BaseTest {
         headerPage.clickOnCurriculumManagerButton();
         if (!loggedIn) {
             Assert.assertTrue(headerPage.isSignInPopupLinkDisplayed());
-            Assert.assertTrue(headerPage.isSignUpPopupLinkDisplyed());
+            Assert.assertTrue(headerPage.isSignUpPopupLinkDisplayed());
         } else {
             Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
         }
