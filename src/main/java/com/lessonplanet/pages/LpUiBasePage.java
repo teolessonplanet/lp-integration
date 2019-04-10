@@ -495,14 +495,6 @@ public class LpUiBasePage {
         }
     }
 
-    public String getElementAttribute(String cssSelector, String attributeName) {
-        try {
-            return driver.findElement(By.cssSelector(cssSelector)).getAttribute(attributeName);
-        } catch (org.openqa.selenium.NoSuchElementException ex) {
-            return null;
-        }
-    }
-
     public boolean isElementDisplayed(String cssLocator, int position) {
         try {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();

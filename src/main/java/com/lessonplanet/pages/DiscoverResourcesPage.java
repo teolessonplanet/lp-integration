@@ -146,8 +146,4 @@ public class DiscoverResourcesPage extends ResourcesPage {
     public String getResourceCardDataType(int position){
         return super.getResourceCardDataType(position);
     }
-
-    public String getResourceCardDataType(){
-        return super.getResourceCardDataType();
-    }
 }

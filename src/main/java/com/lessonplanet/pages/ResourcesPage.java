@@ -239,8 +239,4 @@ public class ResourcesPage extends LpUiBasePage {
     public String getResourceCardDataType(int position){
         return getElementAttribute(RESOURCE_CARDS, "data-type", position);
     }
-
-    public String getResourceCardDataType(){
-        return getElementAttribute(RESOURCE_CARDS, "data-type");
-    }
 }
