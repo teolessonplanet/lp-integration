@@ -41,8 +41,7 @@ public class HeaderTest extends BaseTest {
     public void testLessonp_4602() {
         testHeaderButtons(TestData.VALID_EMAIL_FREEMIUM);
     }
-
-
+    
     @Test(description = "Automation Test Suite - Active user - Header - lessonp-4617:Header buttons")
     public void testLessonp_4617() {
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
