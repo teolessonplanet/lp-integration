@@ -60,7 +60,7 @@ public class HeaderTest extends BaseTest {
     }
 
     @Test(description = "Automation Test Suite - Active user - Header - lessonp-4111:Search box (keyword functionality)")
-    public void testLessonp_4144() {
+    public void testLessonp_4111() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ADMIN);
     }
