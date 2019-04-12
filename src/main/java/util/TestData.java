@@ -406,7 +406,6 @@ public class TestData {
     public static final String COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_DESCRIPTION_TEXT = "The standards below begin at grade 6; standards for K-5 reading in history/social studies, science, and technical subjects are integrated into the K-5 Reading standards. The CCR anchor standards and high school standards in literacy work in tandem to define college and career readiness expectations-the former providing broad standards, the latter providing additional specificity.";
     public static final String COMMON_CORE_GRADE_11_12_BREADCRUMB = "Grade 11-12";
     public static final String COMMON_CORE_STANDARD_CODE_RST_11_12_1 = "RST.11-12.1";
-    public static final String STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT = "See 61 Resources";
 
     public static final String COMMON_CORE_ENGLISH_STANDARD_KINDERGARTEN_GRADE_5_TEXT = "Kindergarten-Grade 5";
     public static final String COMMON_CORE_ENGLISH_STANDARD_GRADES_6_12_ELA_TEXT = "Grades 6-12 ELA";
@@ -416,7 +415,8 @@ public class TestData {
     public static final String COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB = "Standards for Mathematical Practice";
     public static final String COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_INTRODUCTION_TEXT = "Introduction";
     public static final String COMMON_CORE_STANDARD_CODE_MP_1 = "MP1";
-    public static final String STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT = "See 1623 Resources";
+    public static final String SEE_TEXT = "See";
+    public static final String RESOURCES_TEXT = "Resources";
 
     public static final String TRY_IT_FREE_BUTTON_BACKGROUND_COLOR = "#5cb85c";
 

@@ -67,7 +67,9 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(5), TestData.COMMON_CORE_STANDARD_CODE_RST_11_12_1);
-        Assert.assertEquals(commonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_RST_11_12_1_SEE_RESOURCES_BUTTON_TEXT);
+        Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.SEE_TEXT));
+        Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.RESOURCES_TEXT));
+        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems()>TestData.ZERO_RESOURCES_FOUND);
 
         commonCorePage.clickOnBackButton();
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
@@ -115,7 +117,9 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(2), TestData.COMMON_CORE_MATHEMATICS_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(3), TestData.COMMON_CORE_STANDARDS_FOR_MATHEMATICAL_PRACTICE_BREADCRUMB);
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_STANDARD_CODE_MP_1);
-        Assert.assertEquals(commonCorePage.getSeeResourcesButtonText(), TestData.STANDARD_CODE_MP_1_SEE_RESOURCES_BUTTON_TEXT);
+        Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.SEE_TEXT));
+        Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.RESOURCES_TEXT));
+        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems()>TestData.ZERO_RESOURCES_FOUND);
 
         commonCorePage.clickOnBackButton();
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
