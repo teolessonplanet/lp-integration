@@ -32,7 +32,6 @@ public class CurriculumManagerTest extends BaseTest {
     private ShareLinkModal shareLinkModal;
     private BecomeALessonPlanetFreeMemberModal becomeALessonPlanetFreeMemberModal;
     private StepOnePage stepOnePage;
-    private StepTwoModal stepTwoModal;
     private StepTwoPage stepTwoPage;
     private MyAccountPage myAccountPage;
     private ManageMembershipPage manageMembershipPage;
@@ -41,7 +40,6 @@ public class CurriculumManagerTest extends BaseTest {
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         stepOnePage = new StepOnePage(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         manageMembershipPage = new ManageMembershipPage(webDriver);

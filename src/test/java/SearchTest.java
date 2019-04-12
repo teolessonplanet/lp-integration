@@ -13,7 +13,6 @@ public class SearchTest extends BaseTest {
     private StepOnePage stepOnePage;
     private StepOneModal stepOneModal;
     private StepTwoPage stepTwoPage;
-    private StepTwoModal stepTwoModal;
     private CollectionRrpPage collectionRrpPage;
     private CollectionRrpModal collectionRrpModal;
     private LoginPage loginPage;
@@ -27,7 +26,6 @@ public class SearchTest extends BaseTest {
         stepOnePage = new StepOnePage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         collectionRrpPage = new CollectionRrpPage(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         loginPage = new LoginPage(webDriver);
@@ -71,8 +69,8 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-489:User clicks result card")
-    public void testLessonp_489() {
+    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-4747:User clicks result card")
+    public void testLessonp_4747() {
         testUserClicksResultCard(TestData.INVALID_EMAIL);
     }
 
@@ -118,7 +116,7 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
         discoverResourcesPage.closeTab();
         discoverResourcesPage.clickGetFreeAccess(false);
-        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoModal.getTitleText());
+        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
     }
 
     @Test(description = "LP - Regression Tests - Visitor - Search Page - 996:User clicks 'See Preview' footer button (Shared resource)")
