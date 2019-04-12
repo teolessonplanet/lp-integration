@@ -14,7 +14,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private StepOneModal stepOneModal;
     private StepOnePage stepOnePage;
-    private StepTwoModal stepTwoModal;
     private StepTwoPage stepTwoPage;
     private SuggestACategoryModal suggestACategoryModal;
     private HeaderPage headerPage;
@@ -31,7 +30,6 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         stepOnePage = new StepOnePage(webDriver);
-        stepTwoModal = new StepTwoModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         suggestACategoryModal = new SuggestACategoryModal(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -88,7 +86,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
         //upgrade to STARTER
         headerPage.clickOnUpgradeMeButton(false);
-        stepTwoModal.completeStepTwoModalWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
         testResourceTiles(TestData.STARTER_OPTION_TEXT);
 
         //upgrade to PRIME
@@ -250,8 +248,8 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
                 stepOneModal.clickCloseModal();
             }
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-                stepTwoModal.clickOnCloseModal();
+                Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+                stepTwoPage.goBackOnePage();
             }
 
             browseBySubjectPage.clickSeeReview(true);
@@ -361,7 +359,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         browseBySubjectPage.waitForPageLoad();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-            Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+            Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
             Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
         }
@@ -415,8 +413,8 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
                 stepOneModal.clickCloseModal();
             } else {
-                Assert.assertEquals(stepTwoModal.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
-                stepTwoModal.clickOnCloseModal();
+                Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
+                stepTwoPage.goBackOnePage();
             }
 
             whatMembersSayWidget.clickSubscriptionButton(true);
