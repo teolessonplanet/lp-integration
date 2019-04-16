@@ -7,6 +7,10 @@ public class CorrelatedResourcesPage extends ResourcesPage {
         super(driver);
     }
 
+    public void loadPage(String correlatedResourcesPath) {
+        loadUrl(correlatedResourcesPath);
+    }
+
     public void clickSeeReview(boolean inANewTab) {
         super.clickSeeReview(inANewTab);
     }

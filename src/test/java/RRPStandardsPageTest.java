@@ -5,28 +5,19 @@ import util.TestData;
 
 public class RRPStandardsPageTest extends BaseTest{
     private RRPSearchPageTest rrpSearchPageTest;
-    private StateStandardsPage stateStandardsPage;
-    private CommonCorePage commonCorePage;
     private CorrelatedResourcesPage correlatedResourcesPage;
     private DiscoverResourcesPage discoverResourcesPage;
 
     @BeforeMethod
     public void beforeMethod() {
         rrpSearchPageTest = new RRPSearchPageTest();
-        stateStandardsPage = new StateStandardsPage(webDriver);
-        commonCorePage = new CommonCorePage(webDriver);
         correlatedResourcesPage = new CorrelatedResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
 
     private void reachCorrelatedResourcePage(){
         discoverResourcesPage.loadSearchPageInListView();
-        stateStandardsPage.loadPage();
-        stateStandardsPage.clickOnEnglishLanguageArtsButton();
-        commonCorePage.clickOnSubject(TestData.COMMON_CORE_ENGLISH_SCIENCE_AND_TECHNICAL_SUBJECTS_BREADCRUMB);
-        commonCorePage.clickOnSubject(TestData.COMMON_CORE_GRADE_11_12_BREADCRUMB);
-        commonCorePage.clickOnStandardCodeButton(TestData.COMMON_CORE_STANDARD_CODE_RST_11_12_1);
-        commonCorePage.clickOnSeeResourcesButton();
+        correlatedResourcesPage.loadPage(TestData.COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH);
     }
 
     @Test(description = "Visitor: [Standards: RRP Modal - RRP Overview]: lessonp-3411: Resource Modal Overview")
