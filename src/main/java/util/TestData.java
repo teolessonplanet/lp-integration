@@ -372,6 +372,7 @@ public class TestData {
     public static final String ENGLISH_LANGUAGE_ARTS_PAGE_PATH = "standards/common-core/english-language-arts";
     public static final String MATHEMATICS_PAGE_PATH = "standards/common-core/mathematics";
     public static final String NGSS_PAGE_PATH = "state-standards/nrcdsc";
+    public static final String COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH= "standards/resources/14310";
 
     public static final String SEARCH_STANDARDS_TITLE_TEXT = "Search Standards";
     public static final String STATE_LABEL_TEXT = "Common Core, NGSS, or State";

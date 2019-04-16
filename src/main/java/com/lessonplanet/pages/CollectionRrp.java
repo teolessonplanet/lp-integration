@@ -13,7 +13,7 @@ public class CollectionRrp extends LpUiBasePage {
     private static final String SAVE_COLLECTION_BUTTON = "span[class='save-collection-btn'] button[type='submit']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
     private static final String JOIN_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] a[href='/subscription/new']";
-    private static final String SHARE_BUTTON = "[class='btn btn-default hidden-xs dropdown-toggle']";
+    private static final String SHARE_BUTTON = "[class*='panel-default panel-review'] div[class='btn-group pull-right ml3'] button";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
     private static final String GRADES = "div.shared_collection span[class*='detail-grades'][title='Grades']";
