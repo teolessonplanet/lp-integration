@@ -367,7 +367,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     private void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertEquals(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT);
+        Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT);
         browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION, true);
         Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION.toLowerCase());
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH);
@@ -425,4 +425,15 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             }
         }
     }
+
+    private boolean verifyRelatedTopics(String actual, String expected) {
+        String[] actualWords = actual.split("\n");
+        for (String actualWord : actualWords) {
+            if (!expected.contains(actualWord)) {
+                return false;
+            }
+        }
+        return actual.length() == expected.length();
+    }
+
 }
