@@ -4,6 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
+import java.util.Arrays;
+
 public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     private LpHomePage lpHomePage;
@@ -367,7 +369,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     private void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertEquals(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT);
+        Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT));
         browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION, true);
         Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION.toLowerCase());
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH);
@@ -425,4 +427,26 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             }
         }
     }
+
+    private boolean verifyRelatedTopics(String actual, String expected) {
+        String[] actualWords = actual.split("\n");
+        String[] expectedWords = expected.split("\n");
+
+        if(actual.length() == expected.length()){
+            for (String actualWord : actualWords) {
+                boolean wordIsFound = false;
+                for(String expectedWord: expectedWords){
+                    if (actualWord.equals(expectedWord)){
+                        wordIsFound=true;
+                    }
+                }
+                if(!wordIsFound){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
 }
