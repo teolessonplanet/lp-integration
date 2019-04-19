@@ -2,7 +2,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class UploadFileModal extends LpUiBasePage  {
-    
+
     private static final String UPLOAD_MODAL = "#upload-file-modal";
     private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
     private static final String GRADE_OPTIONS = "#select2-drop li";
