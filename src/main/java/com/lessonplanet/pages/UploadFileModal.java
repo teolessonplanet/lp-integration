@@ -6,11 +6,11 @@ public class UploadFileModal extends LpUiBasePage  {
     private static final String UPLOAD_MODAL = "#upload-file-modal";
     private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
     private static final String GRADE_OPTIONS = "#select2-drop li";
-    private static final String GRADE_LIST_DROPDOWN = "#s2id_autogen1";
+    private static final String GRADE_LIST_DROPDOWN = "[class='form-group select document_grade_list required'] [class='select2-container select2-container-multi select form-control']";
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
-    private static final String SUBJECT_DROPDOWN_INPUT = "[class='select2-container select2-container-multi tag_hierarchy form-control']";
+    private static final String SUBJECT_DROPDOWN_INPUT = "[class='form-group tag_hierarchy document_subject_list required'] [class='select2-container select2-container-multi tag_hierarchy form-control']";
     private static final String RESOURCE_OPTIONS = "#select2-drop [class='select2-result-label']";
-    private static final String RESOURCE_DROPDOWN_INPUT = "#s2id_autogen5";
+    private static final String RESOURCE_DROPDOWN_INPUT = "[class='form-group tag_hierarchy document_resource_type_list required'] [class='select2-container select2-container-multi tag_hierarchy form-control']";
     private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
     private static final String UPLOAD_BUTTON = "[class*='fa-upload mr5']";
     private static final String DONE_BUTTON = "[class*='btn-primary done']";

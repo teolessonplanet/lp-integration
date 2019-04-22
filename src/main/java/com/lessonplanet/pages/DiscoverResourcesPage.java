@@ -101,6 +101,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
         super.clickSeeFullReview(inANewTab);
     }
 
+    public void clickFreeFullAccessReview(boolean inANewTab) {
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+        super.clickFreeFullAccessReview(inANewTab);
+    }
+
     public void selectFacetFilter(String facetCategoryName, String facetName) {
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
     }
