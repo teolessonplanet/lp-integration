@@ -90,7 +90,7 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.clickSeeReview(false);
         testFavoriteButton(true);
         discoverResourcesPage.closeTab();
-        testJoinToSeeThisResourceButton(true);
+        testResourceGetFreeAccessForTenDaysButton(true);
         discoverResourcesPage.closeTab();
         testThumbnail(true, true);
         testRegularResourceRRPNavigationButtonsSearchPage();
@@ -113,7 +113,7 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.clickSeeCollection(false);
         testSaveCollectionButton(true);
         discoverResourcesPage.closeTab();
-        testJoinForFullReviewButton(true);
+        testCollectionGetFreeAccessForTenDaysButton(true);
         discoverResourcesPage.closeTab();
         testCollectionRRPNavigationButtonsSearchPage();
         collectionRrpModal.clickPanelItem(0);
@@ -128,7 +128,7 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.clickSeeReview(true);
         testFavoriteButton(false);
         discoverResourcesPage.closeTab();
-        testJoinToSeeThisResourceButton(false);
+        testResourceGetFreeAccessForTenDaysButton(false);
         discoverResourcesPage.closeTab();
         testThumbnail(false, true);
         testStartYourFreeTrialTryItFreeButton();
@@ -159,7 +159,7 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.clickSeeCollection(true);
         testSaveCollectionButton(false);
         discoverResourcesPage.closeTab();
-        testJoinForFullReviewButton(false);
+        testCollectionGetFreeAccessForTenDaysButton(false);
         discoverResourcesPage.closeTab();
         collectionRrpPage.clickPanelItem(0);
         testItemViewerSection(false);
@@ -176,7 +176,7 @@ public class RRPSearchPageTest extends BaseTest{
             Assert.assertTrue(rrpModal.isNumberOfDownloadsDisplayed());
             Assert.assertTrue(rrpModal.isConceptsTagsListDisplayed());
             Assert.assertTrue(rrpModal.isReviewerRatingDisplayed());
-            Assert.assertTrue(rrpModal.isJoinToSeeThisResourceButtonDisplayed());
+            Assert.assertTrue(rrpModal.isGetFreeAccessForTenDaysButtonDisplayed());
             Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
             Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
             Assert.assertTrue(rrpModal.isShareButtonDisplayed());
@@ -210,7 +210,7 @@ public class RRPSearchPageTest extends BaseTest{
             Assert.assertTrue(rrpPage.isNumberOfDownloadsDisplayed());
             Assert.assertTrue(rrpPage.isConceptsTagsListDisplayed());
             Assert.assertTrue(rrpPage.isReviewerRatingDisplayed());
-            Assert.assertTrue(rrpPage.isJoinToSeeThisResourceButtonDisplayed());
+            Assert.assertTrue(rrpPage.isGetFreeAccessForTenDaysButtonDisplayed());
             Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
             Assert.assertTrue(rrpPage.isVisitorFavoriteButtonDisplayed());
             Assert.assertTrue(rrpPage.isShareButtonDisplayed());
@@ -340,7 +340,7 @@ public class RRPSearchPageTest extends BaseTest{
             Assert.assertTrue(collectionRrpModal.isConceptsTagsListDisplayed());
             Assert.assertTrue(collectionRrpModal.isGradeDisplayed());
             Assert.assertTrue(collectionRrpModal.isSubjectDisplayed());
-            Assert.assertTrue(collectionRrpModal.isJoinForFullReviewButtonDisplayed());
+            Assert.assertTrue(collectionRrpModal.isGetFreeAccessForTenDaysButtonDisplayed());
             Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonDisplayed());
             Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
             Assert.assertFalse(collectionRrpModal.isLimitedAccessReviewDisplayed());
@@ -355,7 +355,7 @@ public class RRPSearchPageTest extends BaseTest{
             Assert.assertTrue(collectionRrpPage.isConceptsTagsListDisplayed());
             Assert.assertTrue(collectionRrpPage.isGradeDisplayed());
             Assert.assertTrue(collectionRrpPage.isSubjectDisplayed());
-            Assert.assertTrue(collectionRrpPage.isJoinForFullReviewButtonDisplayed());
+            Assert.assertTrue(collectionRrpPage.isGetFreeAccessForTenDaysButtonDisplayed());
             Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonDisplayed());
             Assert.assertTrue(collectionRrpPage.isShareButtonDisplayed());
             Assert.assertFalse(collectionRrpPage.isLimitedAccessReviewDisplayed());
@@ -430,17 +430,17 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.closeTab();
     }
 
-    public void testJoinToSeeThisResourceButton(boolean modal) {
+    public void testResourceGetFreeAccessForTenDaysButton(boolean modal) {
         if(modal){
             rrpModal.waitForModal();
-            rrpModal.clickJoinToSeeThisResourceButton(false);
+            rrpModal.clickGetFreeAccessForTenDaysButton(false);
             testStepOneModal();
-            rrpModal.clickJoinToSeeThisResourceButton(true);
+            rrpModal.clickGetFreeAccessForTenDaysButton(true);
             testStepOnePage();
         } else{
-            rrpPage.clickJoinToSeeThisResourceButton(false);
+            rrpPage.clickGetFreeAccessForTenDaysButton(false);
             testStepOneModal();
-            rrpPage.clickJoinToSeeThisResourceButton(true);
+            rrpPage.clickGetFreeAccessForTenDaysButton(true);
             testStepOnePage();
         }
     }
@@ -523,17 +523,17 @@ public class RRPSearchPageTest extends BaseTest{
         Assert.assertTrue(rrpModal.getModalId().contains(discoverResourcesPage.getSharedResourceCardDataId(0)));
     }
 
-    public void testJoinForFullReviewButton(boolean modal) {
+    public void testCollectionGetFreeAccessForTenDaysButton(boolean modal) {
         if(modal){
             collectionRrpModal.waitForModal();
-            collectionRrpModal.clickJoinForFullReviewButton(false);
+            collectionRrpModal.clickGetFreeAccessForTenDaysButton(false);
             testStepOneModal();
-            collectionRrpModal.clickJoinForFullReviewButton(true);
+            collectionRrpModal.clickGetFreeAccessForTenDaysButton(true);
             testStepOnePage();
         } else{
-            collectionRrpPage.clickJoinForFullReviewButton(false);
+            collectionRrpPage.clickGetFreeAccessForTenDaysButton(false);
             testStepOneModal();
-            collectionRrpPage.clickJoinForFullReviewButton(true);
+            collectionRrpPage.clickGetFreeAccessForTenDaysButton(true);
             testStepOnePage();
         }
     }

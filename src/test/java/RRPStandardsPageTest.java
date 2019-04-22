@@ -45,7 +45,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinToSeeThisResourceButton(true);
+        rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
         discoverResourcesPage.closeTab();
         rrpSearchPageTest.testThumbnail(true, true);
     }
@@ -57,7 +57,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinToSeeThisResourceButton(false);
+        rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
         discoverResourcesPage.closeTab();
         rrpSearchPageTest.testThumbnail(false, true);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
