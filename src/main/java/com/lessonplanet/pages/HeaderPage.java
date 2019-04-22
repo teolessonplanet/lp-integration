@@ -126,11 +126,11 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public boolean isSignInPopupLinkDisplayed() {
-        return isElementClickable(SIGN_IN_POPUP);
+        return isElementDisplayed(SIGN_IN_POPUP);
     }
 
     public boolean isSignUpPopupLinkDisplayed() {
-        return isElementClickable(SIGN_UP_POPUP);
+        return isElementDisplayed(SIGN_UP_POPUP);
     }
 
     public void clickOnCurriculumCalendarButton() {

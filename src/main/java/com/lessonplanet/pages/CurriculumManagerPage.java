@@ -14,6 +14,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
         private static final String LINK_OPTION = "[class*='fa-link']";
         private static final String FACEBOOK_OPTION = "[class*='fa-facebook-square']";
         private static final String TWITTER_OPTION = "[class*='fa-twitter-square']";
+        private static final String PINTEREST_OPTION = "[class*='fa-pinterest-square']";
         private static final String PUBLISH_BUTTON = "[class='fa fa-book']";
         private static final String POPOVER_TEXT = "[class*='popuptext show']";
         private static final String DELETE_BUTTON = "[class*='fa-trash']";
@@ -72,7 +73,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
         }
 
         public void hoverOverPlayButton() {
-                hoverOverElement(PLAY_BUTTON, true);
+                hoverOverElement(PLAY_BUTTON, false);
         }
 
         public void clickOnPlayButton() {
@@ -83,24 +84,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
                 hoverOverElement(SHARE_BUTTON, true);
         }
 
-        public void clickOnFacebookOption() {
-                clickElement(FACEBOOK_OPTION);
-        }
-
-        public void clickOnEmailOption() {
-                clickElement(EMAIL_OPTION);
-        }
-
-        public void clickOnLinkOption() {
-                clickElement(LINK_OPTION);
-        }
-
-        public void clickOnTwitterOption() {
-                clickElement(TWITTER_OPTION);
-        }
-
         public void hoverOverPublishButton() {
-                hoverOverElement(PUBLISH_BUTTON, true);
+                hoverOverElement(PUBLISH_BUTTON, false);
         }
 
         public void clickOnPublishButton() {
@@ -242,4 +227,24 @@ public class CurriculumManagerPage extends LpUiBasePage {
         public boolean isMyOrderOptionDisplayed() {
                 return isElementDisplayed(MY_ORDER_SORT_BY_OPTION);
         }
-    }
+
+        public boolean isFacebookOptionDisplayed() {
+            return isElementDisplayed(FACEBOOK_OPTION);
+        }
+
+        public boolean isTwitterOptionDisplayed() {
+            return isElementDisplayed(TWITTER_OPTION);
+        }
+
+        public boolean isPinterestOptionDisplayed() {
+            return isElementDisplayed(PINTEREST_OPTION);
+        }
+
+        public boolean isEmailOptionDisplayed() {
+            return isElementDisplayed(EMAIL_OPTION);
+        }
+
+        public boolean isLinkOptionDisplayed() {
+            return isElementDisplayed(LINK_OPTION);
+        }
+}
