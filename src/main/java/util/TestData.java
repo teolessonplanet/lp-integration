@@ -32,7 +32,8 @@ public class TestData {
     public static final String CURRICULUM_PLAYER_PATH = "/player";
 
     //Collection Builder
-    public static final String ALERT_TEXT = "Resource already in collection";
+    public static final String EXISTING_RESOURCE_COLLECTION_ERROR_TEXT = "Resource already in collection";
+    public static final String COLLECTION_BUILDER_LINK = "https://en.wikipedia.org/wiki/World_War_I";
 
     //Curriculum Calendar Page
     public static final String SEARCH_PAGE_PATH = "search?keywords=";

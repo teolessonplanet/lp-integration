@@ -21,11 +21,17 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String UPLOAD_BUTTON = "div[class*='upload'] [class*='fa-upload']";
 
     private static final String ADD_A_LINK_BUTON = "[class*='add-link']";
+    private static final String URL_FIELD = "[name='collection_item[url]']";
+    private static final String NAME_FIELD = "[name='collection_item[title]']";
+    private static final String ADD_TO_COLLECTION_BUTTON = "#js-create-item [class='modal-footer'] [class*='btn-warning']";
+
     private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
     private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class*='cb-item panel']";
     private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel panel'] [class='cb-item-info text-primary']";
     private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "#collection-items-list [class='cb-remove-item']";
     private static final String COLLECTION_BUILDER_ALERT_TEXT = "[class='contents'] [class*='alert alert-danger']";
+    
+    private static final String LOADING_ICON = "[class*='cb-item panel'] [class*='panel-body'] [class*='spinner'] i";
 
     public CollectionBuilderPage(WebDriver driver) {
         super(driver);
@@ -100,7 +106,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void hoverOverCollectionBuilderItem(int position) {
-        hoverOverElement(COLLECTION_BUILDER_ITEMS, true, position);
+        hoverOverElement(COLLECTION_BUILDER_ITEMS, false, position);
     }
 
     public void clickOnXButton(int position) {
@@ -122,5 +128,27 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public String getCollectionBuilderAlertText() {
         return getTextForElement(COLLECTION_BUILDER_ALERT_TEXT);
+    }
+
+    public void clickAddToCollectionButton() {
+        clickElement(ADD_TO_COLLECTION_BUTTON);
+    }
+
+    public void typeUrl(String Url) {
+        clearText(URL_FIELD);
+        sendKeys(URL_FIELD, Url);
+    }
+
+    public void typeName(String name) {
+        clearText(NAME_FIELD);
+        sendKeys(NAME_FIELD, name);
+    }
+
+    public void waitForLoadingIconToDisappear() {
+        waitUntilElementIsHidden(LOADING_ICON);
+    }
+
+    public boolean isCollectionBuilderDisplayed(){
+        return isElementDisplayed(COLLECTION_DROPPABLE_ZONE);
     }
 }
