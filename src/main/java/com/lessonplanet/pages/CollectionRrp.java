@@ -7,12 +7,11 @@ import java.text.ParseException;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-public class CollectionRrp extends LpUiBasePage {
+public class CollectionRrp extends Rrp {
 
     private static final String COLLECTION_TITLE_TEXT = "[class*='panel-default panel-review'] div h1";
-    private static final String SAVE_COLLECTION_BUTTON = "span[class='save-collection-btn'] button[type='submit']";
+    private static final String SAVE_COLLECTION_BUTTON = "[class*='panel-default panel-review'] span[class='save-collection-btn']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
-    private static final String JOIN_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] a[href='/subscription/new']";
     private static final String SHARE_BUTTON = "[class*='panel-default panel-review'] div[class='btn-group pull-right ml3'] button";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
@@ -62,8 +61,8 @@ public class CollectionRrp extends LpUiBasePage {
         return number;
     }
 
-    public boolean isJoinForFullReviewButtonDisplayed(){
-        return isElementDisplayed(JOIN_FOR_FULL_REVIEW_BUTTON);
+    public boolean isGetFreeAccessForTenDaysButtonDisplayed(){
+        return isElementDisplayed(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON);
     }
 
     public boolean isLimitedAccessReviewDisplayed() {
@@ -147,8 +146,8 @@ public class CollectionRrp extends LpUiBasePage {
         return getElementAttribute(EXPANDED_RRP, "data-id", position);
     }
 
-    public void clickJoinForFullReviewButton(boolean inANewTab){
-        openInANewTabOrClick(JOIN_FOR_FULL_REVIEW_BUTTON, inANewTab);
+    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab){
+        openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
     public boolean isSignInPopupLinkDisplayed() {

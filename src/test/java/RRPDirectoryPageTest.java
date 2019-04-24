@@ -72,7 +72,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinToSeeThisResourceButton(true);
+        rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
         discoverResourcesPage.closeTab();
         rrpSearchPageTest.testThumbnail(true, true);
     }
@@ -87,7 +87,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testSaveCollectionButton(true);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinForFullReviewButton(true);
+        rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
         discoverResourcesPage.closeTab();
         collectionRrpModal.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(true);
@@ -102,7 +102,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinToSeeThisResourceButton(false);
+        rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
         discoverResourcesPage.closeTab();
         rrpSearchPageTest.testThumbnail(false, true);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
@@ -118,7 +118,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testSaveCollectionButton(false);
         discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testJoinForFullReviewButton(false);
+        rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
         discoverResourcesPage.closeTab();
         collectionRrpPage.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(false);

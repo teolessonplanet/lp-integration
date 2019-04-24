@@ -19,8 +19,7 @@ public class Rrp extends LpUiBasePage {
     private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
-
-    private static final String JOIN_TO_SEE_THIS_RESOURCE_BUTTON = "[class='panel panel-default panel-review new-rrp relative'] a[href='/subscription/new']";
+    protected static final String GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON = "[class*='panel-default panel-review'] a[class*='btn btn-success']";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
 
     private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
@@ -86,8 +85,8 @@ public class Rrp extends LpUiBasePage {
         openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
-    public boolean isJoinToSeeThisResourceButtonDisplayed() {
-        return isElementDisplayed(JOIN_TO_SEE_THIS_RESOURCE_BUTTON);
+    public boolean isGetFreeAccessForTenDaysButtonDisplayed() {
+        return isElementDisplayed(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON);
     }
 
     public boolean isDescriptionDisplayed() {
@@ -208,8 +207,8 @@ public class Rrp extends LpUiBasePage {
         return displayResourceType;
     }
 
-    public void clickJoinToSeeThisResourceButton(boolean inANewTab){
-        openInANewTabOrClick(JOIN_TO_SEE_THIS_RESOURCE_BUTTON, inANewTab);
+    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab){
+        openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
     public void clickOnThumbnail(){
