@@ -246,17 +246,21 @@ public class LpUiBasePage {
             "return true;" +
             "}";
 
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                try {
-                    return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
-                } catch (Exception ex) {
-                    logger.info("Angular is not defined");
-                    return true;
+        try {
+            webDriverWait.until(new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver driver) {
+                    try {
+                        return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
+                    } catch (Exception ex) {
+                        logger.info("Angular is not defined");
+                        return true;
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception ex) {
+            logger.info("The Angular modal is not found " + ex.toString());
+        }
     }
 
     public void waitForAxiosRequests() {
@@ -265,12 +269,17 @@ public class LpUiBasePage {
             "  }else{" +
             "    return true;}";
         //Wait for Axios to load
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return (Boolean) javascriptExecutor.executeScript(axiosReadyScript);
-            }
-        });
+        try {
+            webDriverWait.until(new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(WebDriver driver) {
+                    return (Boolean) javascriptExecutor.executeScript(axiosReadyScript);
+                }
+            });
+        } catch (Exception ex) {
+            logger.info("The Axios modal is not found " + ex.toString());
+        }
+
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
@@ -442,34 +451,42 @@ public class LpUiBasePage {
 
     public void waitForBootstrapModalToBeVisible(String modalId) {
         waitForLoad();
-        webDriverWait.until(ExpectedConditions.and(
-            new ExpectedCondition<Boolean>() {
-                @Override
-                public Boolean apply(WebDriver webDriver) {
-                    return webDriver.findElement(By.cssSelector(modalId))
-                        .getCssValue("opacity").equals("1");
-                }
-            },
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
-        ));
-        waitForLoad();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
+        try {
+            webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector(modalId))
+                            .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
+            ));
+            waitForLoad();
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
+        } catch (Exception ex) {
+            logger.info("The Bootstrap modal is not visible " + ex.toString());
+        }
     }
 
     public void waitForReactModalToBeVisible() {
         waitForLoad();
-        webDriverWait.until(ExpectedConditions.and(
-            new ExpectedCondition<Boolean>() {
-                @Override
-                public Boolean apply(WebDriver webDriver) {
-                    return webDriver.findElement(By.cssSelector("div.react-modal"))
-                        .getCssValue("opacity").equals("1");
-                }
-            },
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
-        ));
-        waitForLoad();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal-overlay")));
+        try {
+            webDriverWait.until(ExpectedConditions.and(
+                new ExpectedCondition<Boolean>() {
+                    @Override
+                    public Boolean apply(WebDriver webDriver) {
+                        return webDriver.findElement(By.cssSelector("div.react-modal"))
+                            .getCssValue("opacity").equals("1");
+                    }
+                },
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
+            ));
+            waitForLoad();
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal-overlay")));
+        } catch (Exception ex) {
+            logger.info("The React modal is not visible " + ex.toString());
+        }
     }
 
     public boolean isElementDisplayed(String cssLocator) {
@@ -495,7 +512,7 @@ public class LpUiBasePage {
         return Color.fromString(findElement(cssSelector).getCssValue("background-color")).asHex();
     }
 
-    public String getElementAttribute(String cssSelector, String attributeName,  int position) {
+    public String getElementAttribute(String cssSelector, String attributeName, int position) {
         try {
             return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
         } catch (org.openqa.selenium.NoSuchElementException ex) {
@@ -507,18 +524,18 @@ public class LpUiBasePage {
         try {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
             return true;
-        } catch(StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
+        } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
             System.out.println("Element  is  not  displayed");
             return false;
         }
     }
 
-    public String getAfterPseudoElement(String cssSelector, String position, String cssPropertyName, int index){
+    public String getAfterPseudoElement(String cssSelector, String position, String cssPropertyName, int index) {
         WebElement div = findElements(cssSelector).get(index);
-        try{
-            return ((JavascriptExecutor)driver)
-                .executeScript("return window.getComputedStyle(arguments[0], ':"+position+"').getPropertyValue('"+cssPropertyName+"');",div).toString();
-        } catch( org.openqa.selenium.NoSuchElementException ex) {
+        try {
+            return ((JavascriptExecutor) driver)
+                .executeScript("return window.getComputedStyle(arguments[0], ':" + position + "').getPropertyValue('" + cssPropertyName + "');", div).toString();
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
     }
