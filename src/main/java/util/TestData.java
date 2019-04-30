@@ -32,6 +32,13 @@ public class TestData {
     //Collection Builder
     public static final String ALERT_TEXT = "Resource already in collection";
 
+    //Curriculum Calendar Page
+    public static final String SEARCH_PAGE_PATH = "search?keywords=";
+    public static final String CALENDAR_TITLE = " Curriculum Calendar - Lesson Plan Ideas by Date";
+    public static final String CALENDAR_DECRIPTION = "Enhance your current curriculum with this fun reference calendar. Whether you want to highlight historic events, honor birthdays of significant people, or celebrate holidays, this is a valuable tool for every teacher. Click on any event to find a breadth of related teaching resources that will spark new ideas to spice up your daily lessons. There's something worth celebrating every day!";
+    public static final String[] MONTH = {"January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" , "December"};
+    public static final String[] KEYWORD = {"Creativity" , "Black History" , "Women's History" , "Poetry" , "Mental Health" , "Dairy" , "Watermelon" , "Immunization","Hispanic Heritage" , "Bullying" , "Native Americans" , "Human Rights"};
+
     //Curriculum Manager
 
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this collection, but don't let that stop you!\n" + "Upgrade today to create more collections of any size and enjoy the benefits of full membership.";
@@ -218,6 +225,7 @@ public class TestData {
 
     public static final String INVALID_SEARCH_MESSAGE = "We found 0 reviewed resources for " + INVALID_SEARCH_WORD;
     public static final int ZERO_RESOURCES_FOUND = 0;
+    public static final String SEARCH_MESSAGE = "reviewed resources for ";
     public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
     public static final String SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE = "Showing all reviewed resources";

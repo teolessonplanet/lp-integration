@@ -17,6 +17,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Calendar;
+
 public class LpUiBasePage {
 
     protected static final Logger logger = LogManager.getRootLogger();
@@ -538,5 +540,15 @@ public class LpUiBasePage {
         } catch (org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
+    }
+
+    public int getCurrentMonth(){
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.MONTH);
+    }
+
+    public int getCurrentYear() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.YEAR);
     }
 }
