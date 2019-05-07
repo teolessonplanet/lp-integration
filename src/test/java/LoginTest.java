@@ -21,58 +21,31 @@ public class LoginTest extends BaseTest {
         signInModal = new SignInModal(webDriver);
     }
 
-    @Test(description = "Freemium - Login In/Sign in - lessonp-714: 'Sign In' button")
-    public void testLessonp_714() {
-        testSignInButton();
+    @Test(description = "Automation Test Suite - Freemium - Login In/Sign in - lessonp-5033:Sing in button and functionality")
+    public void testLessonp_5033() {
+        testLoginFlow(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium - Login In/Sign in - lessonp-716 - User supplies invalid form data")
-    public void testLessonp_716() {
-        testInvalidData();
+    @Test(description = "Automation Test Suite - Login In/Sign in - lessonp-5034:Sign in button and functionality")
+    public void testLessonp_5034() {
+        testLoginFlow(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Freemium - Login In/Sign in - lessonp-715 - User supplies valid form data")
-    public void testLessonp_715() {
-        testValidData(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-    }
-
-    @Test(description = "Active user - Login In/Sign in - lessonp-735: 'Sign In' button")
-    public void testLessonp_735() {
-        testSignInButton();
-    }
-
-    @Test(description = "Active user - Login In/Sign in - lessonp-736 - User supplies invalid form data")
-    public void testLessonp_736() {
-        testInvalidData();
-    }
-
-    @Test(description = "Active user - Login In/Sign in - lessonp-737 - User supplies valid form data")
-    public void testLessonp_737() {
-        testValidData(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-    }
-
-    private void testSignInButton() {
+    private void testLoginFlow(String email) {
         lpHomePage.loadPage();
         headerPage.clickOnSignInButton(false);
         Assert.assertEquals(TestData.SIGN_IN_MODAL_TITLE_TEXT, signInModal.getModalTitle());
-    }
 
-    private void testInvalidData() {
-        fillDataAndClickSubmit(TestData.INVALID_EMAIL, TestData.INVALID_PASSWORD);
-        final String errorMessage = loginPage.getContentAlertMessage();
-        Assert.assertEquals(TestData.INVALID_LOGIN_OR_PASSWORD_MESSAGE, errorMessage);
-    }
+        signInModal.typeEmail(email);
+        signInModal.typePassword(TestData.INVALID_PASSWORD);
+        signInModal.clickOnSignInButton();
 
-    private void testValidData(String username, String password) {
-        fillDataAndClickSubmit(username, password);
-        final String path = lpHomePage.getPath();
-        Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, path);
-    }
-
-    private void fillDataAndClickSubmit(String username, String password) {
-        loginPage.loadPage();
-        loginPage.typeEmail(username);
-        loginPage.typePassword(password);
+        Assert.assertEquals(loginPage.getContentAlertMessage(), TestData.INVALID_LOGIN_OR_PASSWORD_MESSAGE);
+        loginPage.typeEmail(email);
+        loginPage.typePassword(TestData.VALID_PASSWORD);
         loginPage.clickOnSignInButton();
+
+        Assert.assertTrue(headerPage.isUsernameDropDownDisplayed());
+        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
     }
 }
