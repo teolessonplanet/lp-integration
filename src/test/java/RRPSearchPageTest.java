@@ -23,6 +23,7 @@ public class RRPSearchPageTest extends BaseTest{
     private DirectoryCategoriesAndSubcategoriesTest directoryCategoriesAndSubcategoriesTest;
     private LpHomePage lpHomePage;
     private CurriculumManagerTest curriculumManagerTest;
+    private StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -42,6 +43,7 @@ public class RRPSearchPageTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesTest();
         lpHomePage = new LpHomePage(webDriver);
         curriculumManagerTest = new CurriculumManagerTest();
+        stepTwoPage = new StepTwoPage(webDriver);
     }
 
     public void reachRRP(WebDriver webDriver) {
@@ -49,21 +51,21 @@ public class RRPSearchPageTest extends BaseTest{
         beforeMethod();
     }
 
-    @Test(description = "Visitor: [RRP Modal - RRP Overview]: lessonp-467: Resource Modal Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview]: lessonp-467: Resource Modal Overview")
     public void testLessonp_467() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor : [RRP Modal - RRP Overview] - lessonp-1282: Shared Resource Modal Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview] - lessonp-1282: Shared Resource Modal Overview")
     public void testLessonp_1282() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor : [RRP Modal - RRP Overview] - lessonp-468: Collection Modal Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview] - lessonp-468: Collection Modal Overview")
     public void testLessonp_468() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -71,7 +73,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(true);
     }
 
-    @Test(description = "Visitor: [RRP Static - RRP Overview]: lessonp-475: Resource Static Page Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Overview]: lessonp-475: Resource Static Page Overview")
     public void testLessonp_475() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
@@ -80,7 +82,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor - RRP Static  - RRP Overview ]: lessonp-944: Shared Resource Static Page Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static  - RRP Overview]: lessonp-944: Shared Resource Static Page Overview")
     public void testLessonp_944() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
@@ -90,7 +92,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor - RRP Static  - RRP Overview ]: lessonp-476: Collection Static Page Overview")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static  - RRP Overview]: lessonp-476: Collection Static Page Overview")
     public void testLessonp_476() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -98,27 +100,27 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(false);
     }
 
-    @Test(description = "Visitor: [RRP Modal - RRP Buttons - LP Resources]: lessonp-469: Main buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-469: Main buttons")
     public void testLessonp_469() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testFavoriteButton(true);
         testResourceGetFreeAccessForTenDaysButton(true);
-        testThumbnail(true, true, TestData.INVALID_EMAIL);
+        testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
         testRegularResourceRRPNavigationButtonsSearchPage();
     }
 
-    @Test(description = "Visitor: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-1254: Main buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-1254: Main buttons")
     public void testLessonp_1254() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testFavoriteButton(true);
-        testGoToResourceButton(true, TestData.INVALID_EMAIL);
-        testThumbnail(true, false, TestData.INVALID_EMAIL);
+        testGoToResourceButtonForSharedResource(true);
+        testThumbnailForSharedResource(true);
         testSharedResourceRRPNavigationButtonsSearchPage();
     }
 
-    @Test(description = "Visitor: [RRP Modal - RRP Buttons - Collections]: lessonp-473: Main buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-473: Main buttons")
     public void testLessonp_473() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -131,24 +133,24 @@ public class RRPSearchPageTest extends BaseTest{
         testItemViewerSection(true);
     }
 
-    @Test(description = "Visitor: [RRP Static - RRP Buttons - LP Resources]: lessonp-4603: Main buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4603: Main buttons")
     public void testLessonp_4603() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testFavoriteButton(false);
         testResourceGetFreeAccessForTenDaysButton(false);
-        testThumbnail(false, true, TestData.INVALID_EMAIL);
+        testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);
         testStartYourFreeTrialTryItFreeButton();
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Visitor: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4608: Main Buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4608: Main Buttons")
     public void testLessonp_4608() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
-        testGoToResourceButton(false, TestData.INVALID_EMAIL);
-        testThumbnail(false, false, TestData.INVALID_EMAIL);
+        testGoToResourceButtonForSharedResource(false);
+        testThumbnailForSharedResource(false);
         testStartYourFreeTrialTryItFreeButton();
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.INVALID_EMAIL);
@@ -157,7 +159,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Visitor: [RRP Static - RRP Buttons - Collections]: lessonp-4609: Main buttons")
+    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4609: Main buttons")
     public void testLessonp_4609() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -169,7 +171,7 @@ public class RRPSearchPageTest extends BaseTest{
         testItemViewerSection(false);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Overview]: lessonp-523: Resource Modal Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview]: lessonp-523: Resource Modal Overview")
     public void testLessonp_523() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -177,7 +179,7 @@ public class RRPSearchPageTest extends BaseTest{
         testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Overview]: lessonp-535: Free Sample Modal Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview]: lessonp-535: Free Sample Modal Overview")
     public void testLessonp_535() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -185,7 +187,7 @@ public class RRPSearchPageTest extends BaseTest{
         testFreeSampleResourceRRPOverview(true);
     }
 
-    @Test(description = "Freemium : [RRP Modal - RRP Overview] - lessonp-952: Shared Resource Modal Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview] - lessonp-952: Shared Resource Modal Overview")
     public void testLessonp_952() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -193,7 +195,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium : [RRP Modal - RRP Overview] - lessonp-524: Collection Modal Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview] - lessonp-524: Collection Modal Overview")
     public void testLessonp_524() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadSearchPageInListView();
@@ -202,7 +204,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(true);
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Overview]: lessonp-515: Resource Static Page Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Overview]: lessonp-515: Resource Static Page Overview")
     public void testLessonp_515() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -212,7 +214,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Overview]: lessonp-531: Free Sample Static Page Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page:  [RRP Static - RRP Overview]: lessonp-531: Free Sample Static Page Overview")
     public void testLessonp_531() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -223,7 +225,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium - RRP Static  - RRP Overview ]: lessonp-950: Shared Resource Static Page Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static  - RRP Overview]: lessonp-950: Shared Resource Static Page Overview")
     public void testLessonp_950() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -234,7 +236,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium - RRP Static  - RRP Overview ]: lessonp-516: Collection Static Page Overview")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Overview]: lessonp-516: Collection Static Page Overview")
     public void testLessonp_516() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadSearchPageInListView();
@@ -243,7 +245,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(false);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Buttons - LP Resources]: lessonp-4664: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-4664: Main buttons")
     public void testLessonp_4664() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -251,32 +253,32 @@ public class RRPSearchPageTest extends BaseTest{
         testResourceUpgradeForFullReviewButton(true);
         testRegularResourceRRPNavigationButtonsSearchPage();
         testAddToCollectionDropdown(true);
-        testThumbnail(true, true, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForRegularResource(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Buttons - FreeSample Resources]: lessonp-4663: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - FreeSample Resources]: lessonp-4663: Main buttons")
     public void testLessonp_4663() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
-        testThumbnail(true, false, TestData.VALID_EMAIL_FREEMIUM);
-        testGoToResourceButton(true, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForFreeSampleResource(true);
+        testGoToResourceButtonForFreeSampleResource(true);
         testFreeResourceRRPNavigationButtonsSearchPage();
         testAddToCollectionDropdown(true);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-4666: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-4666: Main buttons")
     public void testLessonp_4666() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
-        testThumbnail(true, false, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForSharedResource(true);
         testSharedResourceRRPNavigationButtonsSearchPage();
         testAddToCollectionDropdown(true);
-        testGoToResourceButton(true, TestData.VALID_EMAIL_FREEMIUM);
+        testGoToResourceButtonForSharedResource(true);
     }
 
-    @Test(description = "Freemium: [RRP Modal - RRP Buttons - Collections]: lessonp-4667: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-4667: Main buttons")
     public void testLessonp_4667() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -293,12 +295,12 @@ public class RRPSearchPageTest extends BaseTest{
         testSaveCollectionButton(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Buttons - LP Resources]: lessonp-4670: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4670: Main buttons")
     public void testLessonp_4670() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        testThumbnail(false, true, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForRegularResource(false, TestData.VALID_EMAIL_FREEMIUM);
         testAddToCollectionDropdown(false);
         testResourceUpgradeForFullReviewButton(false);
         testSeeSimilarResourcesDropdown();
@@ -306,13 +308,13 @@ public class RRPSearchPageTest extends BaseTest{
         testStartYourFreeTrialUpgradeMeButton();
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Buttons - FreeSample Resources]: lessonp-4669: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - FreeSample Resources]: lessonp-4669: Main buttons")
     public void testLessonp_4669() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
-        testThumbnail(false, false, TestData.VALID_EMAIL_FREEMIUM);
-        testGoToResourceButton(false, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForFreeSampleResource(false);
+        testGoToResourceButtonForFreeSampleResource(false);
         testAddToCollectionDropdown(false);
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
@@ -321,14 +323,14 @@ public class RRPSearchPageTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4671: Main Buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4671: Main Buttons")
     public void testLessonp_4671() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
-        testThumbnail(false, false, TestData.VALID_EMAIL_FREEMIUM);
+        testThumbnailForSharedResource(false);
         testAddToCollectionDropdown(false);
-        testGoToResourceButton(false,  TestData.VALID_EMAIL_FREEMIUM);
+        testGoToResourceButtonForSharedResource(false);
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
         testStartYourFreeTrialUpgradeMeButton();
@@ -336,7 +338,7 @@ public class RRPSearchPageTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Freemium: [RRP Static - RRP Buttons - Collections]: lessonp-4668: Main buttons")
+    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4668: Main buttons")
     public void testLessonp_4668() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -350,6 +352,145 @@ public class RRPSearchPageTest extends BaseTest{
         curriculumManagerTest.testCurriculumPlayerURL();
         testCollectionUpgradeForFullReviewButton(false);
         testSaveCollectionButton(false, TestData.VALID_EMAIL_FREEMIUM);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview]: lessonp-586: Resource Modal Overview")
+    public void testLessonp_586() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeReview(false);
+        testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview] - lessonp-954: Shared Resource Modal Overview")
+    public void testLessonp_954() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeePreview(false);
+        testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview] - lessonp-587: Collection Modal Overview")
+    public void testLessonp_587() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeCollection(false);
+        testCollectionRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+        testPanelItemsOverview(true);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Overview]: lessonp-4795: Resource Static Page Overview")
+    public void testLessonp_4795() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeReview(true);
+        testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
+        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ADMIN);
+        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static  - RRP Overview ]: lessonp-4796: Shared Resource Static Page Overview")
+    public void testLessonp_4796() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeePreview(true);
+        testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
+        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ADMIN);
+        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static  - RRP Overview ]: lessonp-4797: Collection Static Page Overview")
+    public void testLessonp_4797() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeCollection(true);
+        testCollectionRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
+        testPanelItemsOverview(false);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-4792: Main buttons")
+    public void testLessonp_4792() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeReview(false);
+        testThumbnailForRegularResource(true, TestData.VALID_EMAIL_ADMIN);
+        testRegularResourceRRPNavigationButtonsSearchPage();
+        testAddToCollectionDropdown(true);
+        testGoToResourceButtonForRegularResource(true);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-4794: Main buttons")
+    public void testLessonp_4794() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeePreview(false);
+        testThumbnailForSharedResource(true);
+        testSharedResourceRRPNavigationButtonsSearchPage();
+        testAddToCollectionDropdown(true);
+        testGoToResourceButtonForSharedResource(true);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-473: Main buttons")
+    public void testLessonp_4793() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeCollection(false);
+        testCollectionRRPNavigationButtonsSearchPage();
+        collectionRrpModal.clickPanelItem(0);
+        testItemViewerSection(true);
+        collectionRrpModal.clickSeeFullReviewsLink();
+        testItemViewerSection(true);
+        collectionRrpModal.clickPlayCollectionButton();
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.testCurriculumPlayerURL();
+        testSaveCollectionButton(true, TestData.VALID_EMAIL_ADMIN);
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4805: Main buttons")
+    public void testLessonp_4805() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeReview(true);
+        testThumbnailForRegularResource(false, TestData.VALID_EMAIL_ADMIN);
+        testAddToCollectionDropdown(false);
+        testGoToResourceButtonForRegularResource(false);
+        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ADMIN);
+        testSeeSimilarResourcesDropdown();
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4811: Main Buttons")
+    public void testLessonp_4811() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeePreview(true);
+        testThumbnailForSharedResource(false);
+        testAddToCollectionDropdown(false);
+        testGoToResourceButtonForSharedResource(false);
+        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ADMIN);
+        testSeeSimilarResourcesDropdown();
+    }
+
+    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4817: Main buttons")
+    public void testLessonp_4817() {
+        createAnActiveAccount();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeCollection(true);
+        collectionRrpModal.clickPlayCollectionButton();
+        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.testCurriculumPlayerURL();
+        collectionRrpModal.clickPanelItem(0);
+        testItemViewerSection(false);
+        collectionRrpModal.clickSeeFullReviewsLink();
+        testItemViewerSection(false);
+        testSaveCollectionButton(false, TestData.VALID_EMAIL_ADMIN);
+    }
+
+    private void createAnActiveAccount() {
+        StepTwoTest stepTwoTest = new StepTwoTest();
+        stepTwoTest.initAndReachStepTwoPage(webDriver);
+        stepTwoPage.completeStepTwoPageWith(TestData.PRO_OPTION_TEXT);
     }
 
     public void createAFreeMemberAccount() {
@@ -374,6 +515,12 @@ public class RRPSearchPageTest extends BaseTest{
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpModal.isUpgradeForFullReviewButtonDisplayed());
                 Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
+            }
+            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
+                Assert.assertTrue(rrpModal.isFullReviewDisplayed());
+            }
+            if(account.equals(TestData.VALID_EMAIL_ADMIN )|| account.equals(TestData.VALID_EMAIL_FREEMIUM)){
                 Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
                 Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
                 Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
@@ -396,6 +543,14 @@ public class RRPSearchPageTest extends BaseTest{
                         Assert.assertTrue(rrpModal.getLightRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                     }
                 }
+                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                    for (int i = 0; i < rrpModal.getLightRrpSubjectsNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getLightRrpSubjectText().get(i)));
+                    }
+                    for (int i = 1; i < rrpModal.getLightRrpResourceTypeNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getLightRrpResourceTypeText().get(i)));
+                    }
+                }
             } else {
                 Assert.assertTrue(rrpModal.isFullRrpGradeDisplayed());
                 if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
@@ -406,6 +561,14 @@ public class RRPSearchPageTest extends BaseTest{
                     Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getFullRrpResourceTypeText().get(0)));
                     if (rrpModal.getFullRrpResourceTypeNumber() > 1) {
                         Assert.assertTrue(rrpModal.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
+                    }
+                }
+                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                    for (int i = 0; i < rrpModal.getFullRrpSubjectsNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getFullRrpSubjectText().get(i)));
+                    }
+                    for (int i = 1; i < rrpModal.getFullRrpResourceTypeNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getFullRrpResourceTypeText().get(i)));
                     }
                 }
             }
@@ -424,6 +587,12 @@ public class RRPSearchPageTest extends BaseTest{
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpPage.isUpgradeForFullReviewButtonDisplayed());
                 Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
+            }
+            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
+                Assert.assertTrue(rrpPage.isFullReviewDisplayed());
+            }
+            if(account.equals(TestData.VALID_EMAIL_ADMIN )|| account.equals(TestData.VALID_EMAIL_FREEMIUM)){
                 Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
                 Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
                 Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
@@ -447,6 +616,14 @@ public class RRPSearchPageTest extends BaseTest{
                         Assert.assertTrue((rrpPage.getLightRrpResourceTypeText().get(1)).contains(TestData.DISABLED_TEXT));
                     }
                 }
+                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                    for (int i = 0; i < rrpPage.getLightRrpSubjectsNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getLightRrpSubjectText().get(i)));
+                    }
+                    for (int i = 1; i < rrpPage.getLightRrpResourceTypeNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getLightRrpResourceTypeText().get(i)));
+                    }
+                }
             } else {
                 Assert.assertTrue(rrpPage.isFullRrpGradeDisplayed());
                 Assert.assertEquals(rrpPage.getFullRrpGradeNumber(), 1);
@@ -458,6 +635,13 @@ public class RRPSearchPageTest extends BaseTest{
                     Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getFullRrpResourceTypeText().get(0)));
                     if (rrpPage.getFullRrpResourceTypeNumber() > 1) {
                         Assert.assertTrue(rrpPage.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
+                    } }
+                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                    for (int i = 0; i < rrpPage.getFullRrpSubjectsNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getFullRrpSubjectText().get(i)));
+                    }
+                    for (int i = 1; i < rrpPage.getFullRrpResourceTypeNumber(); i++) {
+                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getFullRrpResourceTypeText().get(i)));
                     }
                 }
             }
@@ -525,6 +709,7 @@ public class RRPSearchPageTest extends BaseTest{
                 Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
             } else {
                 Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
+                Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
             }
         } else{
             Assert.assertTrue(rrpPage.isTitleDisplayed());
@@ -549,6 +734,7 @@ public class RRPSearchPageTest extends BaseTest{
                 Assert.assertTrue(rrpPage.isVisitorFavoriteButtonDisplayed());
             } else {
                 Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
+                Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
             }
         }
     }
@@ -571,6 +757,8 @@ public class RRPSearchPageTest extends BaseTest{
             }
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(collectionRrpModal.isUpgradeForFullReviewButtonDisplayed());
+            }
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
                 Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed());
             }
@@ -593,6 +781,8 @@ public class RRPSearchPageTest extends BaseTest{
             }
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(collectionRrpPage.isUpgradeForFullReviewButtonDisplayed());
+            }
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
                 Assert.assertTrue(collectionRrpPage.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonActiveUserDisplayed());
             }
@@ -661,6 +851,14 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.closeTab();
     }
 
+    public void testNewTabRegularResourceUrl(){
+        discoverResourcesPage.waitForNewTab();
+        discoverResourcesPage.focusDriverToLastTab();
+        discoverResourcesPage.waitForLinkToLoad();
+        Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
+        discoverResourcesPage.closeTab();
+    }
+
     public void testPageUrl(String url){
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(url));
         discoverResourcesPage.goBackOnePage();
@@ -716,75 +914,71 @@ public class RRPSearchPageTest extends BaseTest{
         Assert.assertTrue((rrpModal.getModalId().contains(discoverResourcesPage.getRegularResourceCardDataId(0))));
     }
 
-    public void testThumbnail(boolean modal, boolean regularResource, String account) {
+    public void testThumbnailForRegularResource(boolean modal, String account) {
         if(modal){
             rrpModal.waitForModal();
             rrpModal.clickOnThumbnail();
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                if (regularResource) {
-                    testPageUrl(TestData.STEP_ONE_PAGE_PATH);
-                } else {
-                    if (rrpModal.isFreeSampleDisplayed()) {
-                        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
-                    } else {
-                        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-                    }
-                }
-            }
         } else {
             rrpPage.clickOnThumbnail();
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                if (regularResource) {
-                    testPageUrl(TestData.STEP_ONE_PAGE_PATH);
-                } else {
-                    if (rrpPage.isFreeSampleDisplayed()) {
-                        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
-                    } else {
-                        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-                    }
-                }
-            }
         }
         if (account.equals(TestData.INVALID_EMAIL)) {
-            if(regularResource){
-                testStepOneModal();
-            }else{
-                testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-            }
+            testStepOneModal();
+        }
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            testPageUrl(TestData.STEP_ONE_PAGE_PATH);
+        }
+        if(account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            testNewTabRegularResourceUrl();
         }
     }
 
-    public void testGoToResourceButton(boolean modal, String account) {
+    public void testGoToResourceButtonForRegularResource(boolean modal) {
+        if(modal){
+            rrpModal.clickGoToResourceButton(true);
+        } else{
+            rrpPage.clickGoToResourceButton(true);
+        }
+        testNewTabRegularResourceUrl();
+    }
+
+    public void testThumbnailForSharedResource(boolean modal) {
         if(modal){
             rrpModal.waitForModal();
-            if (account.equals(TestData.INVALID_EMAIL)) {
-                rrpModal.clickGoToResourceButton(true);
-                testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-            }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                if (rrpModal.isFreeSampleDisplayed()) {
-                    rrpModal.clickGoToResourceButton(true);
-                    testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
-                } else {
-                    rrpModal.clickGoToResourceButton(true);
-                    testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-                }
-            }
-        } else {
-            if (account.equals(TestData.INVALID_EMAIL)) {
-                rrpPage.clickGoToResourceButton(true);
-                testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-            }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                if (rrpPage.isFreeSampleDisplayed()) {
-                    rrpPage.clickGoToResourceButton(true);
-                    testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
-                } else {
-                    rrpPage.clickGoToResourceButton(true);
-                    testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
-                }
-            }
+            rrpModal.clickOnThumbnail();
+        }else{
+            rrpPage.clickOnThumbnail();
         }
+        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
+    }
+
+    public void testGoToResourceButtonForSharedResource(boolean modal) {
+        if(modal){
+            rrpModal.waitForModal();
+            rrpModal.clickGoToResourceButton(true);
+        } else {
+            rrpPage.clickGoToResourceButton(true);
+        }
+        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
+    }
+
+    public void testThumbnailForFreeSampleResource(boolean modal) {
+        if(modal){
+            rrpModal.waitForModal();
+            rrpModal.clickOnThumbnail();
+        }else{
+            rrpPage.clickOnThumbnail();
+        }
+        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
+    }
+
+    public void testGoToResourceButtonForFreeSampleResource(boolean modal) {
+        if (modal) {
+            rrpModal.waitForModal();
+            rrpModal.clickGoToResourceButton(true);
+        } else {
+            rrpPage.clickGoToResourceButton(true);
+        }
+        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
     public void testSharedResourceRRPNavigationButtonsSearchPage() {
@@ -850,6 +1044,10 @@ public class RRPSearchPageTest extends BaseTest{
                     Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
                 }
             }
+            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                collectionRrpModal.clickSaveCollectionButtonActiveUser();
+                Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
+            }
         } else{
             if (account.equals(TestData.INVALID_EMAIL)) {
                 collectionRrpPage.clickSaveCollectionButton();
@@ -868,6 +1066,10 @@ public class RRPSearchPageTest extends BaseTest{
                 if (collectionRrpPage.getCollectionItemsCount() < 10) {
                     Assert.assertTrue(collectionRrpPage.isSavedCollectionNotificationDisplayed());
                 }
+            }
+            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                collectionRrpPage.clickSaveCollectionButtonActiveUser();
+                Assert.assertTrue(collectionRrpPage.isSavedCollectionNotificationDisplayed());
             }
         }
     }

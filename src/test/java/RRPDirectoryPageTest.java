@@ -71,7 +71,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
-        rrpSearchPageTest.testThumbnail(true, true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Directory: RRP Modal - RRP Buttons - Collections]: lessonp-4611: Main Buttons")
@@ -97,7 +97,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
-        rrpSearchPageTest.testThumbnail(false, true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
         rrpSearchPageTest.testSeeSimilarResourcesDropdown();
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
