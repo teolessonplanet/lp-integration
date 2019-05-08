@@ -11,7 +11,6 @@ public class RrpPage extends Rrp {
     private static final String START_YOUR_FREE_TRIAL_TRY_IT_FREE_BUTTON = "a[data-track-click='Try It Free'][data-track-label='review_page_button']";
     private static final String BOTTOM_PAGE_UPGRADE_ME_BUTTON = "a[data-track-click='Upgrade Me'][data-track-label='side_widget_button']";
     private static final String BOTTOM_PAGE_TRY_IT_FREE_BUTTON = "a[data-track-click='Try It Free'][data-track-label='side_widget_button']";
-    private static final String GO_TO_RESOURCE_BUTTON = "[class*='trk-goto-resource'][href^='/drive/documents/']";
     private static final String START_YOUR_FREE_TRIAL_WIDGET = "[class='col-md-4 col-sm-12'] [class='panel panel-default']";
     private static final String START_YOUR_FREE_TRIAL_TEXT = "[class='col-md-4 col-sm-12'] [class='panel-body'] p";
     private static final String SIMILAR_RESOURCES_SECTION = "#related-container";
@@ -22,6 +21,9 @@ public class RrpPage extends Rrp {
 
     private static final String WORKSHEETS_RESOURCE_TYPE = "a[href*='id=357918']";
     private static final String SIMILAR_RESOURCE_CARD = "[class*='panel-resource'] [class='panel-body'] [class='trk-show-resource'] [class='resource-icon'] [class*='type-resource']";
+    private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET = "[class='panel panel-default']";
+    private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET_TEXT = "[class='panel panel-default'] p";
+    private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON = "[class='panel panel-default'] a[data-track-click='Upgrade Me']";;
 
     public RrpPage(WebDriver driver) {
         super(driver);
@@ -49,10 +51,6 @@ public class RrpPage extends Rrp {
 
     public String getStartYourFreeTrialText() {
         return getTextForElement(START_YOUR_FREE_TRIAL_TEXT);
-    }
-
-    public boolean isGoToResourceButtonDisplayed() {
-        return isElementClickable(GO_TO_RESOURCE_BUTTON);
     }
 
     public boolean isSimilarResourcesSectionDisplayed() {
@@ -88,10 +86,6 @@ public class RrpPage extends Rrp {
         openInANewTabOrClick(BOTTOM_PAGE_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickGoToResourceButton(boolean inANewTab){
-        openInANewTabOrClick(GO_TO_RESOURCE_BUTTON, inANewTab);
-    }
-
     public void clickWorksheetsResourceType(){
         clickElement(WORKSHEETS_RESOURCE_TYPE);
     }
@@ -111,5 +105,29 @@ public class RrpPage extends Rrp {
 
     public String getSimilarResourcesListText(){
         return getTextForElement(SIMILAR_RESOURCES_LIST);
+    }
+
+    public boolean isBottomPageUpgradeMeButtonDisplayed() {
+        return  isElementDisplayed(BOTTOM_PAGE_UPGRADE_ME_BUTTON);
+    }
+
+    public boolean isStartYourFreeTrialUpgradeMeButtonDisplayed() {
+        return isElementDisplayed(START_YOUR_FREE_TRIAL_UPGRADE_ME_BUTTON);
+    }
+
+    public String getFreeSampleResourceStartYourFreeTrialText() {
+        return getTextForElement(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET_TEXT);
+    }
+
+    public boolean isFreeSampleResourceStartYourFreeTrialWidgetDisplayed() {
+        return isElementDisplayed(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET);
+    }
+
+    public boolean isFreeSampleResourceStartYourFreeTrialUpgradeMeButtonDisplayed() {
+        return isElementDisplayed(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON);
+    }
+
+    public void clickFreeSampleStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
+        openInANewTabOrClick(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON, inANewTab);
     }
 }

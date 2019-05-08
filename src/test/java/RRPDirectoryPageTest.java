@@ -27,13 +27,12 @@ public class RRPDirectoryPageTest extends BaseTest {
         browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEARCH_PATH);
     }
 
-
     @Test(description = "Visitor: [Directory: RRP Modal - RRP Overview]: lessonp-3284: Resource Modal Overview")
     public void testLessonp_3284() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(true);
+        rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Directory: RRP Modal - RRP Overview]: lessonp-3285: Collection Modal Overview")
@@ -41,7 +40,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(false);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(true);
+        rrpSearchPageTest.testCollectionRRPOverview(true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testPanelItemsOverview(true);
     }
 
@@ -50,9 +49,9 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(false);
-        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE);
-        rrpSearchPageTest.testSimilarResourcesSectionOverview();
+        rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Directory: RRP Static - RRP Overview]: lessonp-3309: Collection Static Page Overview")
@@ -60,7 +59,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(false);
+        rrpSearchPageTest.testCollectionRRPOverview(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testPanelItemsOverview(false);
     }
 
@@ -71,10 +70,8 @@ public class RRPDirectoryPageTest extends BaseTest {
         testRegularResourceRRPNavigationButtonsDirectoryPage();
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
-        discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testThumbnail(true, true);
+        rrpSearchPageTest.testThumbnail(true, true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Directory: RRP Modal - RRP Buttons - Collections]: lessonp-4611: Main Buttons")
@@ -85,10 +82,8 @@ public class RRPDirectoryPageTest extends BaseTest {
         browseBySubjectPage.clickSeeCollection(false);
         testCollectionRRPNavigationButtonsDirectoryPage(firstCollectionCardTitle, secondCollectionCardTitle);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(true);
-        discoverResourcesPage.closeTab();
+        rrpSearchPageTest.testSaveCollectionButton(true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
-        discoverResourcesPage.closeTab();
         collectionRrpModal.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(true);
         collectionRrpModal.clickSeeFullReviewsLink();
@@ -101,12 +96,9 @@ public class RRPDirectoryPageTest extends BaseTest {
         browseBySubjectPage.clickSeeReview(true);
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
-        discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testThumbnail(false, true);
+        rrpSearchPageTest.testThumbnail(false, true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testSeeSimilarResourcesDropdown();
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
     }
@@ -116,10 +108,8 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(false);
-        discoverResourcesPage.closeTab();
+        rrpSearchPageTest.testSaveCollectionButton(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
-        discoverResourcesPage.closeTab();
         collectionRrpPage.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(false);
         collectionRrpPage.clickSeeFullReviewsLink();

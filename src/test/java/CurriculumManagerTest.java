@@ -406,7 +406,7 @@ public class CurriculumManagerTest extends BaseTest {
         }
     }
 
-    private void testCurriculumPlayerURL(){
+    public void testCurriculumPlayerURL(){
         curriculumManagerPage.focusDriverToLastTab();
         curriculumManagerPage.waitForLinkToLoad();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_PLAYER_PATH));

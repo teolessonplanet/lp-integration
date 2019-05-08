@@ -51,7 +51,7 @@ public class WhatMembersSayWidget extends BrowseBySubjectPage{
         return isElementDisplayed(MEMBER_PHOTO);
     }
 
-    public boolean isGetFreeTrialButtonDisplayed(){
+    public boolean isSubscriptionButtonDisplayed(){
         return isElementDisplayed(WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON);
     }
 }

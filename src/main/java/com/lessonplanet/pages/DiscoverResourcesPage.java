@@ -151,4 +151,12 @@ public class DiscoverResourcesPage extends ResourcesPage {
     public String getResourceCardDataType(int position){
         return super.getResourceCardDataType(position);
     }
+
+    public String getFreeSampleResourceCardTitle(int position){
+        return super.getFreeSampleResourceCardTitle(position);
+    }
+
+    public int getFreeSampleResourcePosition() {
+        return super.getFreeSampleResourcePosition();
+    }
 }

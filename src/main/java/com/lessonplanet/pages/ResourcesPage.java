@@ -42,6 +42,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String COLLECTION_CARD_TITLE = "#search-results [class='col-xs-12 list-card'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
     private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
+    private static final String FREE_SAMPLE_RESOURCE_CARD = "#search-results [data-type='Resource'] [class='panel panel-default panel-resource free-sample'] h4";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -239,5 +240,20 @@ public class ResourcesPage extends LpUiBasePage {
 
     public String getResourceCardDataType(int position){
         return getElementAttribute(RESOURCE_CARDS, "data-type", position);
+    }
+
+    public String getFreeSampleResourceCardTitle(int position) {
+        return getElementAttribute(FREE_SAMPLE_RESOURCE_CARD, "title", position);
+    }
+
+    public int getFreeSampleResourcePosition() {
+        final List<WebElement> resourceCards = findElements(REGULAR_RESOURCE_CARD);
+        int freeSamplePosition = 0;
+        for (int i = 0; i < resourceCards.size(); i++) {
+            if (findElements(("#search-results [class*='panel-footer'] a:nth-child(1)")).get(i).getText().equals("Free: Full Access Review")) {
+                freeSamplePosition = i;
+            }
+        }
+        return freeSamplePosition;
     }
 }

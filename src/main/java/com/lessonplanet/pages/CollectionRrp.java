@@ -34,6 +34,9 @@ public class CollectionRrp extends Rrp {
     private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view text-muted']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
+    private static final String SAVED_COLLECTION_NOTIFICATION =  "[class='alert alert-success alert-dismissible mb0']";
+    private static final String COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='join-btn']";
+    private static final String PLAY_COLLECTION_BUTTON = "[class*='panel-default panel-review'] [class='play-collection-btn']";
 
     protected CollectionRrp(WebDriver driver){
         super(driver);
@@ -193,5 +196,29 @@ public class CollectionRrp extends Rrp {
 
     public void clickPreviousButtonRrp(){
         clickElement(PREVIOUS_BUTTON_RRP);
+    }
+
+    public boolean isSaveCollectionButtonActiveUserDisplayed() {
+        return isElementClickable(SAVE_COLLECTION_BUTTON_ACTIVE_USER);
+    }
+
+    public boolean isSavedCollectionNotificationDisplayed() {
+        return isElementDisplayed(SAVED_COLLECTION_NOTIFICATION);
+    }
+
+    public boolean isUpgradeForFullReviewButtonDisplayed() {
+        return isElementDisplayed(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON);
+    }
+
+    public void clickCollectionUpgradeForFullReviewButton (boolean inANewTab){
+        openInANewTabOrClick(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
+    }
+
+    public boolean isPlayCollectionButtonDisplayed() {
+        return isElementDisplayed(PLAY_COLLECTION_BUTTON);
+    }
+
+    public void clickPlayCollectionButton(){
+        clickElement(PLAY_COLLECTION_BUTTON);
     }
 }
