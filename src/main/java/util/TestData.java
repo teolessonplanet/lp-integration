@@ -219,6 +219,16 @@ public class TestData {
         return date1.getYear() == date2.getYear() && date1.getMonth() == date2.getMonth() && date1.getDay() == date2.getDay() && date1.getTimezoneOffset() == date2.getTimezoneOffset();
     }
 
+    public static int getCurrentMonth() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.MONTH);
+    }
+
+    public static int getCurrentYear() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.YEAR);
+    }
+
     //Search data
     public static final String VALID_SEARCH_WORD = "math";
     public static final String INVALID_SEARCH_WORD = "maeybdhth";

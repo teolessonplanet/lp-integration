@@ -10,7 +10,6 @@ public class CalendarPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private LpHomePage lpHomePage;
 
-
     @BeforeMethod
     public void beforeMethod() {
         calendarPage = new CalendarPage(webDriver);
@@ -20,26 +19,26 @@ public class CalendarPageTest extends BaseTest {
     }
 
     @Test(description = "Visitor - Calendar Page -  lessonp-4196: Curriculum Calendar Page Buttons/Links")
-    public void testLessonp_4196(){
+    public void testLessonp_4196() {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
         headerPage.clickOnCurriculumCalendarButton();
-        testMonthPage(calendarPage.getCurrentMonth());
-        for(int i=calendarPage.getCurrentMonth()+1; i<12; i++){
+        testMonthPage(TestData.getCurrentMonth());
+        for (int i = TestData.getCurrentMonth() + 1; i < 12; i++) {
             calendarPage.clickNextArrowLink();
             testMonthPage(i);
         }
         calendarPage.loadPage();
-        for(int i=calendarPage.getCurrentMonth()-1; i>=0; i--){
+        for (int i = TestData.getCurrentMonth() - 1; i >= 0; i--) {
             calendarPage.clickPreviousArrowLink();
             testMonthPage(i);
         }
     }
 
-    private void testMonthPage(int index){
-        if(index != calendarPage.getCurrentMonth()){
+    private void testMonthPage(int index) {
+        if (index != TestData.getCurrentMonth()) {
             Assert.assertEquals(calendarPage.getPath(), TestData.CURRICULUM_CALENDAR_PAGE_PATH + "/" + (TestData.MONTH[index]).toLowerCase());
-        } else{
+        } else {
             Assert.assertEquals(calendarPage.getPath(), TestData.CURRICULUM_CALENDAR_PAGE_PATH);
         }
         Assert.assertTrue(calendarPage.isCalendarTitleDisplayed());
@@ -48,7 +47,7 @@ public class CalendarPageTest extends BaseTest {
         Assert.assertEquals(calendarPage.getCalendarDescription(), TestData.CALENDAR_DECRIPTION);
         Assert.assertTrue(calendarPage.isCalendarDisplayed());
         Assert.assertTrue(calendarPage.isMonthLinkDisplayed());
-        Assert.assertEquals(calendarPage.getMonthLinkText(), TestData.MONTH[index] + " " + calendarPage.getCurrentYear());
+        Assert.assertEquals(calendarPage.getMonthLinkText(), TestData.MONTH[index] + " " + TestData.getCurrentYear());
         calendarPage.clickOnMonthLink();
         calendarPage.waitForPageLoad();
         Assert.assertEquals(calendarPage.getPath(), TestData.SEARCH_PAGE_PATH + TestData.KEYWORD[index].replace(" ", "+").replace("'", "%27"));
