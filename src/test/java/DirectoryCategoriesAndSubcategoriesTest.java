@@ -290,12 +290,11 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         browseBySubjectPage.closeTab();
 
         //Click on a subject title link
+        final String pagePath = browseBySubjectPage.getPath();
         browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE, false);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_PATH);
-        browseBySubjectPage.goBackOnePage();
-        browseBySubjectPage.waitForLinkToLoad();
-        browseBySubjectPage.waitForPageLoad();
+        browseBySubjectPage.loadPage(pagePath);
         if (!account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
@@ -432,15 +431,15 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         String[] actualWords = actual.split("\n");
         String[] expectedWords = expected.split("\n");
 
-        if(actual.length() == expected.length()){
+        if (actual.length() == expected.length()) {
             for (String actualWord : actualWords) {
                 boolean wordIsFound = false;
-                for(String expectedWord: expectedWords){
-                    if (actualWord.equals(expectedWord)){
-                        wordIsFound=true;
+                for (String expectedWord : expectedWords) {
+                    if (actualWord.equals(expectedWord)) {
+                        wordIsFound = true;
                     }
                 }
-                if(!wordIsFound){
+                if (!wordIsFound) {
                     return false;
                 }
             }
