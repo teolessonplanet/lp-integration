@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
@@ -76,7 +77,7 @@ public class ResourcesPage extends LpUiBasePage {
     public WebElement getOptionFromLeftSide(String widgetSelector, String widgetName, String optionSelector, String optionName) {
         WebElement category = getCategoryFromLeftSide(widgetSelector, widgetName);
         // parse all options and select the option that contains the string facetName
-        List<WebElement> options = findElements(category, optionSelector);
+        List<WebElement> options = category.findElements(By.cssSelector(optionSelector));
         for (WebElement option : options) {
             if (option.getText().contains(optionName)) {
                 return option;
