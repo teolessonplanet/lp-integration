@@ -24,7 +24,7 @@ public class RRPDirectoryPageTest extends BaseTest {
 
     public void reachDirectoryPage(){
         discoverResourcesPage.loadSearchPageInListView();
-        browseBySubjectPage.loadPage(TestData.LITERATURE_PAGE_PATH);
+        browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEARCH_PATH);
     }
 
 

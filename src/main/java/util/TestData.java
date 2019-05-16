@@ -101,10 +101,10 @@ public class TestData {
 
     public static final String FACEBOOK_LP_URL = FACEBOOK_URL + "/LessonPlanet";
     public static final String TWITTER_LP_URL = TWITTER_URL + "/lessonplanet";
-    public static final String LINKEDIN_URL = "https://www.linkedin.com";
+    public static final String LINKEDIN_URL = "linkedin.com";
     public static final String LESSON_PLANET_TEXT = "lesson-planet";
     public static final String YOUTUBE_LP_URL = "https://www.youtube.com/user/lessonplanet";
-    public static final String PINTEREST_LP_URL = "https://www.pinterest.com/lessonplanet/";
+    public static final String PINTEREST_LP_URL = "pinterest.com/lessonplanet/";
 
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
@@ -120,7 +120,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+60+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+98+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -296,6 +296,7 @@ public class TestData {
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
+    public static final String LANGUAGE_ARTS_RESEARCH_PATH ="lesson-plans/research";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";

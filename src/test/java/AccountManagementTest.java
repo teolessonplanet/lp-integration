@@ -488,7 +488,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
-        collectionRrpModal.clickSaveCollectionButton();
+        collectionRrpModal.clickSaveCollectionButtonActiveUser();
         curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
     }
 
@@ -528,7 +528,7 @@ public class AccountManagementTest extends BaseTest {
                 discoverResourcesPage.openInANewTabOrClick(getCollectionResources.get(i), false);
             }
         }
-        collectionRrpModal.clickSaveCollectionButton();
+        collectionRrpModal.clickSaveCollectionButtonActiveUser();
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
