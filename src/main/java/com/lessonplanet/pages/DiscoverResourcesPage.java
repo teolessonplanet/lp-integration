@@ -87,7 +87,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickGoToResourceForSharedResource(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
         super.clickGoToResourceForSharedResource(inANewTab);
     }
 

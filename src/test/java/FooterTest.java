@@ -347,7 +347,7 @@ public class FooterTest extends BaseTest {
         footerPage.clickOnLessonPlanetPinterestButton();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.PINTEREST_LP_URL);
+        Assert.assertTrue(footerPage.getUrl().contains(TestData.PINTEREST_LP_URL));
         footerPage.closeTab();
     }
 
