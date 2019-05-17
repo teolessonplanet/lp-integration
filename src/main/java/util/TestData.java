@@ -49,12 +49,10 @@ public class TestData {
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Collection Player to students or share with colleagues, please enter a case-sensitive access key below";
-    public static final String COLLECTION_CREATED_MESSAGE = "Collection created!";
     public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "This resource review was added to your collection";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
-    public static final String CREATED_MESSAGE = "was created";
+    public static final String CREATED_MESSAGE = "was created.";
     public static final String DELETED_MESSAGE= "was deleted";
-    public static final String EMAIL_SENT_MESSAGE = "Your email was sent successfully.";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
@@ -67,7 +65,6 @@ public class TestData {
     public static final String COPIED_COLLECTION_NAME = "Copy of " + EDIT_COLLECTION_NAME ;
     public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
     public static final String PUBLISH_RESOURCE_TITLE = "test publish resource";
-    public static final String SHARE_LINK_MODAL_TITLE = "Share a Link to this Resource";
     public static final String EDIT_COLLECTION_GRADE_HIGHER_ED = "Higher Ed";
     public static final String EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION = "Special Education & Program: Special Education";
     public static final String UPLOAD_YOUR_FILE_GRADE = "Higher Ed";
@@ -86,7 +83,9 @@ public class TestData {
     public static final String PUBLISHED_RESOURCE_STATUS = "Shared";
     public static final String FACEBOOK_URL = "https://www.facebook.com";
     public static final String TWITTER_URL = "https://twitter.com";
-    public static final String GOOGLE_URL = "https://plus.google.com";
+    public static final String RATING = "5.0";
+    public static final String AUDIENCE = "For Teacher Use";
+    public static final String CONCEPT = "Articles";
 
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
