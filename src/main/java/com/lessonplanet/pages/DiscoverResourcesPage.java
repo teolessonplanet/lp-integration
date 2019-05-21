@@ -16,7 +16,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     private static final String TILED_VIEW_BUTTON = "#tiled";
     private static final String THUMBNAIL_VIEW_BUTTON = "#thumbnail";
 
-    private static final String FACETS_CATEGORIES = "[class='lp-filter-group ']";
+    private static final String FACETS_CATEGORIES = "[class='lp-filter-group parent-type_ids']";
     private static final String FACET_OPTIONS = "li";
 
     public DiscoverResourcesPage(WebDriver driver) {
