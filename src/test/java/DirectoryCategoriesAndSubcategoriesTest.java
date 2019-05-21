@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,6 +38,11 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
         rrpPage = new RrpPage(webDriver);
         manageMembershipPage = new ManageMembershipPage(webDriver);
+    }
+
+    public void reachDirectoryCategoriesAndSubcategoriesPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020:Page UI")
@@ -126,6 +132,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
     @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1205:Start your 10 day free trial")
     public void testLessonp_1205() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testStartYourTenDayFreeTrial(TestData.VALID_EMAIL_FREEMIUM);
     }
 
@@ -343,8 +350,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         }
     }
 
-    private void testStartYourTenDayFreeTrial(String account) {
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+    public void testStartYourTenDayFreeTrial(String account) {
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             Assert.assertEquals(startYourTenDayFreeTrialWidget.getStartYourTenDaysFreeTrialContentAsText(), TestData.SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT);
         } else {
@@ -363,6 +369,7 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
             Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
+            stepOneModal.clickCloseModal();
         }
     }
 
