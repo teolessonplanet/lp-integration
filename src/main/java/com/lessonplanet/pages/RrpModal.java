@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 public class RrpModal extends Rrp {
     private static final String RRP_MODAL = "#resource-modal";
     private static final String CLOSE_MODAL_BUTTON = "[class*='resource-modal-close']";
-
-    private static final String GO_TO_RESOURCE_BUTTON = "#resource-modal [class*='trk-goto-resource'][href^='/drive/documents/']";
-
     private static final String RRP_MODAL_ID = "#resource-modal div";
 
     public RrpModal(WebDriver driver) {
@@ -27,16 +24,8 @@ public class RrpModal extends Rrp {
         return super.isTitleDisplayed();
     }
 
-    public boolean isGoToResourceButtonDisplayed() {
-        return isElementClickable(GO_TO_RESOURCE_BUTTON);
-    }
-
     public String getModalId(){
         waitForModal();
         return getElementId(RRP_MODAL_ID);
-    }
-
-    public void clickGoToResourceButton(boolean inANewTab){
-        openInANewTabOrClick(GO_TO_RESOURCE_BUTTON, inANewTab);
     }
 }

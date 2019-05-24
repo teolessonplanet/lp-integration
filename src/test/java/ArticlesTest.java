@@ -34,8 +34,9 @@ public class ArticlesTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
         directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(TestData.INVALID_EMAIL);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testWhatMembersSayWidgetOverview();
-        rrpSearchPageTest.testWhatMembersSayWidgetButtons();
+        rrpSearchPageTest.testWhatMembersSayWidgetOverview(TestData.INVALID_EMAIL);
+        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.INVALID_EMAIL);
         articlesPage.closeTab();
         articlesPage.clickOnArticleTopicLink();
         Assert.assertEquals(articlesPage.getArticleTopics(), TestData.ARTICLE_TOPICS);

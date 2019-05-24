@@ -7,6 +7,7 @@ public class UpgradeMaxCollectionModal extends LpUiBasePage {
     private static final String UPGRADE_MODAL = "#collection-limit-hit-modal";
     private static final String UPGRADE_MODAL_TEXT= "#collection-limit-hit-modal [class='modal-body']";
     private static final String UPGRADE_ME_BUTTON = "#collection-limit-hit-modal [href='/subscription/new']";
+    private static final String CLOSE_BUTTON = "[class='modal-dialog'] [class='close']";
 
     public UpgradeMaxCollectionModal(WebDriver driver) {
         super(driver);
@@ -26,5 +27,9 @@ public class UpgradeMaxCollectionModal extends LpUiBasePage {
 
     public void clickOnUpgradeMeButton(){
         clickElement(UPGRADE_ME_BUTTON);
+    }
+
+    public void clickOnCloseButton() {
+        clickElement(CLOSE_BUTTON);
     }
 }

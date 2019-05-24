@@ -155,18 +155,21 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1026:What members say")
     public void testLessonp_1026() {
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Freemium - Directory Page - Categories and subcategories - lessonp-1207:What members say")
     public void testLessonp_1207() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1219:What members say")
     public void testLessonp_1219() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.VALID_EMAIL_ADMIN);
     }
 
@@ -386,11 +389,8 @@ public class DirectoryCategoriesAndSubcategoriesTest extends BaseTest {
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH);
     }
 
-    private void testTestimonials(String account) {
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        browseBySubjectPage.waitForPageLoad();
+    public void testTestimonials(String account) {
         Assert.assertTrue(whatMembersSayWidget.isTestimonialTextDisplayed());
-        Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
         whatMembersSayWidget.clickOnSeeMoreTestimonialsButton(false);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.goBackOnePage();

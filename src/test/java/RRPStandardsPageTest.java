@@ -25,7 +25,7 @@ public class RRPStandardsPageTest extends BaseTest{
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(false);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(true);
+        rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Standards: RRP Static - RRP Overview]: lessonp-3428: Resource Static Page Overview)")
@@ -33,9 +33,9 @@ public class RRPStandardsPageTest extends BaseTest{
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(true);
         rrpSearchPageTest.reachRRP(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(false);
-        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE);
-        rrpSearchPageTest.testSimilarResourcesSectionOverview();
+        rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Standards: RRP Modal - RRP Buttons]: lessonp-4614: Main Buttons")
@@ -44,10 +44,8 @@ public class RRPStandardsPageTest extends BaseTest{
         correlatedResourcesPage.clickSeeReview(false);
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
-        discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testThumbnail(true, true);
+        rrpSearchPageTest.testThumbnail(true, true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Standards: RRP Static - RRP Buttons]: lessonp-4615: Main Buttons")
@@ -56,12 +54,9 @@ public class RRPStandardsPageTest extends BaseTest{
         correlatedResourcesPage.clickSeeReview(true);
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
-        discoverResourcesPage.closeTab();
-        rrpSearchPageTest.testThumbnail(false, true);
+        rrpSearchPageTest.testThumbnail(false, true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
-        discoverResourcesPage.closeTab();
         rrpSearchPageTest.testSeeSimilarResourcesDropdown();
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
     }
