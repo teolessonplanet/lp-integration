@@ -167,6 +167,11 @@ public class LpUiBasePage {
         return element.getText();
     }
 
+    protected String getTextForElement(WebElement element, String cssLocator) {
+        waitForLoad();
+        return findElements(element, cssLocator).get(0).getText();
+    }
+
     protected String getTextForElement(String cssSelector) {
         return getTextForElement(findElement(cssSelector));
     }
@@ -294,7 +299,7 @@ public class LpUiBasePage {
         waitForLoad();
     }
 
-    protected void hoverOverElement(WebElement element) {
+    public void hoverOverElement(WebElement element) {
         waitForLoad();
         (new Actions(driver)).moveToElement(element).build().perform();
         waitForLoad();
@@ -492,6 +497,16 @@ public class LpUiBasePage {
     public boolean isElementDisplayed(String cssLocator) {
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
+            return true;
+        } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
+            System.out.println("Element  is  not  displayed");
+            return false;
+        }
+    }
+
+    public boolean isElementDisplayed(WebElement webElement,String cssLocator){
+        try {
+            webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
             System.out.println("Element  is  not  displayed");

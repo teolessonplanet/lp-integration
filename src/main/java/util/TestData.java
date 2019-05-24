@@ -477,4 +477,7 @@ public class TestData {
 
     public static final String YOU_ARE_NOT_ALLOWED_TO_USE_FEATURE_TEXT = "Sorry, you are not allowed to access that feature.";
     public static final String PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT = "Please login to access this page.";
+
+    public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
+    public static final String SEE_REVIEW__BUTTON_TEXT = "See Review";
 }
