@@ -126,7 +126,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+74+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+38+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -262,7 +262,7 @@ public class TestData {
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
-    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Curriculum Sets\n"+"Chapters\n"+"Lessons\n"+"Collections\n"+"Assessment Sets\n"+"Activities & Projects\n"+"Unit Modules\n"+"Assessments\n"+"Graphics & Images\n"+"Handouts & References\n"+"Interactives\n"+"Lab Resources\n"+"Learning Games\n"+"Lesson Plans\n"+"Presentations\n"+"Primary Sources\n"+"Printables & Templates\n"+"Professional Documents\n"+"PD Courses\n"+"Study Guides\n"+"Units\n"+"Videos\n"+"Performance Tasks\n"+"Websites\n"+"Graphic Organizers\n"+"Worksheets\n"+"Workbooks\n"+"Writing Prompts\n"+"Constructed Response Items\n"+"Apps\n"+"AP Test Preps\n"+"Articles\n"+"Lesson Planet Articles\n"+"Audios\n"+"Courses\n"+"eBooks\n"+"Interactive Whiteboards\n"+"Home Letters\n"+"Rubrics\n"+"Syllabis\n" + "All Resource Types";
+    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Curriculum Sets\n"+"Chapters\n"+"Lessons\n"+"Collections\n"+"Assessment Sets\n"+"Activities & Projects\n"+"Unit Modules\n"+"Assessments\n"+"Graphics & Images\n"+"Handouts & References\n"+"Interactives\n"+"Lab Resources\n"+"Learning Games\n"+"Lesson Plans\n"+"Presentations\n"+"Primary Sources\n"+"Printables & Templates\n"+"Professional Documents\n"+"PD Courses\n"+"Study Guides\n"+"Units\n"+"Videos\n"+"Performance Tasks\n"+"Websites\n"+"Graphic Organizers\n"+"Worksheets\n"+"Workbooks\n"+"Writing Prompts\n"+"Constructed Response Items\n"+"Apps\n"+"AP Test Preps\n"+"Articles\n"+"Lesson Planet Articles\n"+"Audios\n"+"Courses\n"+"eBooks\n"+"Interactive Whiteboards\n"+"Home Letters\n"+"Rubrics\n"+"Syllabis\n" + "Unknown Types\n" + "All Resource Types";
     public static final String WORKSHEETS_RESOURCE_TYPE = "Worksheets";
     public static final String HOME_LETTERS_RESOURCE_TYPE = "Home Letters";
     public static final String WORKSHEET_RESOURCE_TYPE_CARD = "Worksheet";
