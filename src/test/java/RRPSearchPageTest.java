@@ -934,12 +934,12 @@ public class RRPSearchPageTest extends BaseTest{
     public void testSeeSimilarResourcesDropdown() {
         if (rrpPage.isSimilarResourcesHeaderDisplayed()) {
             rrpPage.clickAllResourceTypesDropdown();
-            rrpPage.clickWorksheetsResourceType();
-            Assert.assertEquals(rrpPage.getAllResourceTypesDropdownText(), TestData.WORKSHEETS_RESOURCE_TYPE);
+            rrpPage.clickLessonPlansResourceType();
+            Assert.assertEquals(rrpPage.getAllResourceTypesDropdownText(), TestData.LESSON_PLANS_RESOURCE_TYPE);
             if(rrpPage.getAllSimilarResourceCardsNumber()>0){
                 int count = 0;
                 for (int i = 0; i < rrpPage.getAllSimilarResourceCardsNumber(); i++) {
-                    if (rrpPage.getSimilarResourceCardResourceTypeText(i).equals('"' + TestData.WORKSHEET_RESOURCE_TYPE_CARD + '"')) {
+                    if (rrpPage.getSimilarResourceCardResourceTypeText(i).equals('"' + TestData.LESSON_RESOURCE_TYPE_CARD + '"')) {
                         count++;
                     }
                 }

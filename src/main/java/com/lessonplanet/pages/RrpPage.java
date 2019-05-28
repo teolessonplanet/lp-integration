@@ -19,7 +19,7 @@ public class RrpPage extends Rrp {
     private static final String ALL_RESOURCE_TYPES_DROPDOWN = "#related-dropdown";
     private static final String ALL_RESOURCE_TYPES_OPTIONS = "[class='dropdown-menu']";
 
-    private static final String WORKSHEETS_RESOURCE_TYPE = "a[href*='id=357918']";
+    private static final String LESSON_PLANS_RESOURCE_TYPE = "a[href*='id=357917']";
     private static final String SIMILAR_RESOURCE_CARD = "[class*='panel-resource'] [class='panel-body'] [class='trk-show-resource'] [class='resource-icon'] [class*='type-resource']";
     private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET = "[class='panel panel-default']";
     private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET_TEXT = "[class='panel panel-default'] p";
@@ -86,8 +86,8 @@ public class RrpPage extends Rrp {
         openInANewTabOrClick(BOTTOM_PAGE_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickWorksheetsResourceType(){
-        clickElement(WORKSHEETS_RESOURCE_TYPE);
+    public void clickLessonPlansResourceType(){
+        clickElement(LESSON_PLANS_RESOURCE_TYPE);
     }
 
     public String getAllResourceTypesDropdownText(){
