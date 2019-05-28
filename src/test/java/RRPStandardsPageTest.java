@@ -45,7 +45,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
-        rrpSearchPageTest.testThumbnail(true, true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor: [Standards: RRP Static - RRP Buttons]: lessonp-4615: Main Buttons")
@@ -55,7 +55,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
-        rrpSearchPageTest.testThumbnail(false, true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
         rrpSearchPageTest.testSeeSimilarResourcesDropdown();
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
