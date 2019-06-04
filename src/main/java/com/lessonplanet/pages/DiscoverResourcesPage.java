@@ -62,7 +62,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
         clickElement(TILED_VIEW_BUTTON);
     }
 
-    public void clickThumbnailView() {
+    public void clickOnThumbnailView() {
         clickElement(THUMBNAIL_VIEW_BUTTON);
     }
 
@@ -132,7 +132,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     public void changeToThumbnailView() {
         final String currentPath = getPath();
         loadPage();
-        clickThumbnailView();
+        clickOnThumbnailView();
         loadUrl(currentPath);
     }
 

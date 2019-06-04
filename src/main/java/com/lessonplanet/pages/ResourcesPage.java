@@ -3,7 +3,6 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
@@ -49,13 +48,16 @@ public class ResourcesPage extends LpUiBasePage {
 
     private static final String ALL_RESOURCES_CARDS = "#search-results [class*='panel-resource']";
     private static final String CARD_ICON = "[class*='file-icon']";
-    private static final String CARD_RESOURCE_TYPE = "div[class='resource-icon']";
+    private static final String CARD_RESOURCE_TYPE = "div[class*='resource-icon']";
     private static final String CARD_TITLE_TEXT = "h4[class='resource-title']";
     private static final String CARD_STAR_RATING = "span[class='star-rating']";
     private static final String CARD_FA_GRADUATION = "span[class*='detail-grades']";
     private static final String CARD_CSS_OPTIONAL = "span[class*='details-ccss']";
     private static final String CARD_DESCRIPTION_TEXT = "div[class='resource-description']";
     private static final String CARD_UNIVERSITY_TEXT = "span[class*='detail-subject']";
+    private static final String CARD_SHARED_RESOURCE_TAG = "span[class*='shared-resource-tag']";
+    private static final String CARD_SHARED_RESOURCE_TAG_LIST_OR_TILED_VIEW = "[class*='star-rating'] [class*='label-info']";
+    private static final String CARD_FREE_SAMPLE_STAMP_ICON = "div[class*='free-sample-stamp']";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -293,7 +295,7 @@ public class ResourcesPage extends LpUiBasePage {
             try {
                 card.findElement(By.cssSelector(buttonCssSelector));
                 lpResources.add(card);
-            } catch ( org.openqa.selenium.NoSuchElementException ex) {
+            } catch (org.openqa.selenium.NoSuchElementException ex) {
                 logger.info("Card does not contain the required item ");
             }
         }
@@ -303,7 +305,7 @@ public class ResourcesPage extends LpUiBasePage {
     private List<WebElement> getAllResources() {
         try {
             return findElements(ALL_RESOURCES_CARDS);
-        } catch ( org.openqa.selenium.NoSuchElementException ex) {
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
             logger.error("Elements were not found! ");
             return null;
         }
@@ -329,16 +331,48 @@ public class ResourcesPage extends LpUiBasePage {
         return card.findElement(By.cssSelector(SEE_COLLECTION_BUTTON));
     }
 
+    public String getSeeCollectionButtonTextForCard(WebElement card) {
+        return getTextForButton(getSeeCollectionButtonForCard(card));
+    }
+
     public WebElement getGoToResourceButtonForSharedCard(WebElement card) {
         return card.findElement(By.cssSelector(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE));
+    }
+
+    public String getGoToResourceButtonTextForSharedCard(WebElement card) {
+        return getTextForButton(getGoToResourceButtonForSharedCard(card));
+    }
+
+    public WebElement getSeePreviewButtonForSharedCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_PREVIEW_BUTTON));
+    }
+
+    public String getSeePreviewButtonTextForSharedCard(WebElement card) {
+        return getTextForButton(getSeePreviewButtonForSharedCard(card));
     }
 
     public WebElement getGoToResourceButtonForRegularCard(WebElement card) {
         return card.findElement(By.cssSelector(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE));
     }
 
+    public String getGoToResourceButtonTextForRegularCard(WebElement card) {
+        return getTextForButton(getGoToResourceButtonForRegularCard(card));
+    }
+
+    public WebElement getSeeFullReviewButtonForRegularCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_FULL_REVIEW_BUTTON));
+    }
+
+    public String getSeeFullReviewButtonTextForRegularCard(WebElement card) {
+        return getTextForButton(getSeeFullReviewButtonForRegularCard(card));
+    }
+
     public WebElement getFreeFullAccessButtonForCard(WebElement card) {
         return card.findElement(By.cssSelector(FREE_FULL_ACCESS_BUTTON));
+    }
+
+    public String getFreeFullAccessButtonTextForCard(WebElement card) {
+        return getTextForButton(getFreeFullAccessButtonForCard(card));
     }
 
     private String getTextForButton(WebElement button) {
@@ -375,5 +409,17 @@ public class ResourcesPage extends LpUiBasePage {
 
     public boolean isCardUniversityDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_UNIVERSITY_TEXT);
+    }
+
+    public boolean isCardSharedResourceTagInThumbnailViewDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_SHARED_RESOURCE_TAG);
+    }
+
+    public boolean isCardSharedResourceTagInListOrTiledViewDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_SHARED_RESOURCE_TAG_LIST_OR_TILED_VIEW) && getTextForElement(card, CARD_SHARED_RESOURCE_TAG_LIST_OR_TILED_VIEW).equals("Shared Resource");
+    }
+
+    public boolean isFreeSampleStampIconDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_FREE_SAMPLE_STAMP_ICON);
     }
 }

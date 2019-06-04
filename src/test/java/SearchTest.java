@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -30,6 +31,11 @@ public class SearchTest extends BaseTest {
         collectionRrpPage = new CollectionRrpPage(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         loginPage = new LoginPage(webDriver);
+    }
+
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-494:Keyword search")
@@ -66,7 +72,7 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.clickOnListView();
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
-        discoverResourcesPage.clickThumbnailView();
+        discoverResourcesPage.clickOnThumbnailView();
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
     }
 
@@ -197,43 +203,61 @@ public class SearchTest extends BaseTest {
         checkRrpSample(false, false, true);
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-3956:Cards details - LP resource")
+    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3956:Cards details - LP resource")
     public void testLessonp_3956() {
-        discoverResourcesPage.loadPage();
-        WebElement limitedLpResourceCard = discoverResourcesPage.getLimitedLpResourcesCards().get(0);
+        testLpResource(TestData.INVALID_EMAIL, false);
+    }
 
-        testCommonItems(limitedLpResourceCard);
-        Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(limitedLpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
-        Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(limitedLpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
-        Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(limitedLpResourceCard));
-        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3957:Cards details - Collection")
+    public void testLessonp_3957() {
+        testCollectionResource();
+    }
 
-        discoverResourcesPage.hoverOverElement(limitedLpResourceCard);
-        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3958:Cards details - Shared resource")
+    public void testLessonp_3958() {
+        testSharedResource();
+    }
 
-        testCommonItems(limitedLpResourceCard);
-        Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(limitedLpResourceCard).equals(TestData.GET_FREE_ACCESS_BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(limitedLpResourceCard).equals(TestData.SEE_REVIEW__BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(limitedLpResourceCard));
-        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3993:Cards details - LP resource")
+    public void testLessonp_3993() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testLpResource(TestData.VALID_EMAIL_FREEMIUM, false);
+    }
 
-        discoverResourcesPage.clickOnTiledView();
-        limitedLpResourceCard = discoverResourcesPage.getLimitedLpResourcesCards().get(0);
-        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-4002:Cards details - Sample resource")
+    public void testLessonp_4002() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testLpResource(TestData.VALID_EMAIL_FREEMIUM, true);
+    }
 
-        testCommonItems(limitedLpResourceCard);
-        Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(limitedLpResourceCard).equals(TestData.GET_FREE_ACCESS_BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(limitedLpResourceCard).equals(TestData.SEE_REVIEW__BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3994:Cards details - Collection")
+    public void testLessonp_3994() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testCollectionResource();
+    }
 
-        discoverResourcesPage.clickOnListView();
-        limitedLpResourceCard = discoverResourcesPage.getLimitedLpResourcesCards().get(0);
-        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3995:Cards details - Shared resource")
+    public void testLessonp_3995() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testSharedResource();
+    }
 
-        testCommonItems(limitedLpResourceCard);
-        Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(limitedLpResourceCard).equals(TestData.GET_FREE_ACCESS_BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(limitedLpResourceCard).equals(TestData.SEE_REVIEW__BUTTON_TEXT));
-        Assert.assertTrue(discoverResourcesPage.isCardUniversityDisplayed(limitedLpResourceCard));
+    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4007:Cards details - LP resource")
+    public void testLessonp_4007() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testLpResource(TestData.VALID_EMAIL_ADMIN, false);
+    }
+
+    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4008:Cards details - Collection")
+    public void testLessonp_4008() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testCollectionResource();
+    }
+
+    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4009:Cards details - Shared resource")
+    public void testLessonp_4009() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        testSharedResource();
     }
 
     private void testSeeCollection() {
@@ -355,10 +379,158 @@ public class SearchTest extends BaseTest {
         }
     }
 
-    private void testCommonItems(WebElement limitedLpResourceCard) {
-        Assert.assertTrue(discoverResourcesPage.isCardIconDisplayed(limitedLpResourceCard));
-        Assert.assertTrue(discoverResourcesPage.isCardTitleDisplayed(limitedLpResourceCard));
-        Assert.assertTrue(discoverResourcesPage.isCardGraduationDisplayed(limitedLpResourceCard));
-        Assert.assertTrue(discoverResourcesPage.isCardCssDisplayed(limitedLpResourceCard));
+    private void testCommonItems(WebElement card) {
+        Assert.assertTrue(discoverResourcesPage.isCardIconDisplayed(card));
+        Assert.assertTrue(discoverResourcesPage.isCardTitleDisplayed(card));
+        Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(card));
+        Assert.assertTrue(discoverResourcesPage.isCardGraduationDisplayed(card));
+    }
+
+    protected void testLpResource(String account, boolean freeSample) {
+        WebElement lpResourceCard;
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.clickOnThumbnailView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
+
+        lpResourceCard = getLpResourceCard(account, freeSample);
+
+        testCommonItems(lpResourceCard);
+        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+            if (freeSample) {
+                Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+                Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
+            } else {
+                Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+                Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+            }
+        } else {
+            Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForRegularCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+            Assert.assertTrue(discoverResourcesPage.getSeeFullReviewButtonTextForRegularCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+        }
+
+        Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(lpResourceCard));
+        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(lpResourceCard));
+
+        discoverResourcesPage.hoverOverElement(lpResourceCard);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
+
+        testCommonItems(lpResourceCard);
+        verifyLpResourceButtons(account, freeSample, lpResourceCard);
+
+        Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(lpResourceCard));
+        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(lpResourceCard));
+
+        discoverResourcesPage.clickOnTiledView();
+        lpResourceCard = getLpResourceCard(account, freeSample);
+
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
+        testCommonItems(lpResourceCard);
+        verifyLpResourceButtons(account, freeSample, lpResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(lpResourceCard));
+
+        discoverResourcesPage.clickOnListView();
+        lpResourceCard = getLpResourceCard(account, freeSample);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
+
+        testCommonItems(lpResourceCard);
+        verifyLpResourceButtons(account, freeSample, lpResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardUniversityDisplayed(lpResourceCard));
+    }
+
+    protected void testCollectionResource() {
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.clickOnThumbnailView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
+
+        WebElement collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
+
+        Assert.assertTrue(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+        testCommonItems(collectionResourceCard);
+
+        discoverResourcesPage.hoverOverElement(collectionResourceCard);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
+        testCommonItems(collectionResourceCard);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+
+        discoverResourcesPage.clickOnTiledView();
+        collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
+        testCommonItems(collectionResourceCard);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+
+        discoverResourcesPage.clickOnListView();
+        collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
+        testCommonItems(collectionResourceCard);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+    }
+
+    protected void testSharedResource() {
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.clickOnThumbnailView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
+
+        WebElement sharedResourceCard = discoverResourcesPage.getSharedResourcesCards().get(0);
+
+        Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForSharedCard(sharedResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+        Assert.assertTrue(discoverResourcesPage.getSeePreviewButtonTextForSharedCard(sharedResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
+
+        testCommonItems(sharedResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardSharedResourceTagInThumbnailViewDisplayed(sharedResourceCard));
+
+        discoverResourcesPage.hoverOverElement(sharedResourceCard);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(sharedResourceCard));
+
+        testCommonItems(sharedResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardSharedResourceTagInThumbnailViewDisplayed(sharedResourceCard));
+        Assert.assertEquals(discoverResourcesPage.getGoToResourceButtonTextForSharedCard(sharedResourceCard), TestData.GO_TO_RESOURCE_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeePreviewButtonTextForSharedCard(sharedResourceCard), TestData.SEE_PREVIEW_BUTTON_TEXT);
+
+        discoverResourcesPage.clickOnTiledView();
+        sharedResourceCard = discoverResourcesPage.getSharedResourcesCards().get(0);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(sharedResourceCard));
+
+        testCommonItems(sharedResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardSharedResourceTagInListOrTiledViewDisplayed(sharedResourceCard));
+        Assert.assertEquals(discoverResourcesPage.getGoToResourceButtonTextForSharedCard(sharedResourceCard), TestData.GO_TO_RESOURCE_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeePreviewButtonTextForSharedCard(sharedResourceCard), TestData.SEE_PREVIEW_BUTTON_TEXT);
+
+        discoverResourcesPage.clickOnListView();
+        sharedResourceCard = discoverResourcesPage.getSharedResourcesCards().get(0);
+        Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(sharedResourceCard));
+
+        testCommonItems(sharedResourceCard);
+        Assert.assertTrue(discoverResourcesPage.isCardSharedResourceTagInListOrTiledViewDisplayed(sharedResourceCard));
+        Assert.assertEquals(discoverResourcesPage.getGoToResourceButtonTextForSharedCard(sharedResourceCard), TestData.GO_TO_RESOURCE_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeePreviewButtonTextForSharedCard(sharedResourceCard), TestData.SEE_PREVIEW_BUTTON_TEXT);
+    }
+
+    private WebElement getLpResourceCard(String account, boolean freeSample) {
+        WebElement lpResourceCard;
+        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+            if (freeSample) {
+                lpResourceCard = discoverResourcesPage.getSampleResourceCards().get(0);
+            } else {
+                lpResourceCard = discoverResourcesPage.getLimitedLpResourcesCards().get(0);
+            }
+        } else {
+            lpResourceCard = discoverResourcesPage.getFullLpResourcesCards().get(0);
+        }
+        return lpResourceCard;
+    }
+
+    private void verifyLpResourceButtons(String account, boolean freeSample, WebElement lpResourceCard) {
+        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+            if (freeSample) {
+                Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
+                Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
+            } else {
+                Assert.assertTrue(discoverResourcesPage.getFreeAccessButtonText(lpResourceCard).equals(TestData.GET_FREE_ACCESS_BUTTON_TEXT));
+                Assert.assertTrue(discoverResourcesPage.getSeeReviewButtonText(lpResourceCard).equals(TestData.SEE_REVIEW_BUTTON_TEXT));
+            }
+        } else {
+            Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForRegularCard(lpResourceCard).equals(TestData.GO_TO_RESOURCE_BUTTON_TEXT));
+            Assert.assertTrue(discoverResourcesPage.getSeeFullReviewButtonTextForRegularCard(lpResourceCard).equals(TestData.SEE_FULL_REVIEW_BUTTON_TEXT));
+        }
     }
 }

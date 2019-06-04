@@ -126,7 +126,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+38+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+13+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
@@ -478,5 +478,10 @@ public class TestData {
     public static final String PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT = "Please login to access this page.";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
-    public static final String SEE_REVIEW__BUTTON_TEXT = "See Review";
+    public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";
+    public static final String SEE_COLLECTION_BUTTON_TEXT = "See Collection";
+    public static final String GO_TO_RESOURCE_BUTTON_TEXT = "Go to Resource";
+    public static final String SEE_PREVIEW_BUTTON_TEXT = "See Preview";
+    public static final String SEE_FULL_REVIEW_BUTTON_TEXT = "See Full Review";
+    public static final String FREE_SAMPLE_BUTTON_TEXT = "Free: Full Access Review";
 }
