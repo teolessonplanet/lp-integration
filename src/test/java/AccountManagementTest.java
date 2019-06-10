@@ -26,7 +26,6 @@ public class AccountManagementTest extends BaseTest {
     private RrpModal rrpModal;
     private StartYourTenDayFreeTrialWidget startYourTenDayFreeTrialWidget;
     private BrowseBySubjectPage browseBySubjectPage;
-    private StateStandardsPage stateStandardsPage;
     private ArticlesPage articlesPage;
     private TestimonialsPage testimonialsPage;
     private WhatMembersSayWidget whatMembersSayWidget;
@@ -62,7 +61,6 @@ public class AccountManagementTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         startYourTenDayFreeTrialWidget = new StartYourTenDayFreeTrialWidget(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        stateStandardsPage = new StateStandardsPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
@@ -553,7 +551,6 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromGetFullAccessButtons(){
         testUpgradeFromStartYourFreeTrialWidgetDirectoryPage();
-        testUpgradeFromStartYourFreeTrialWidgetStandardsPage();
         testUpgradeFromStartYourFreeTrialWidgetArticlesPage();
         testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage();
     }
@@ -625,11 +622,6 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFromStartYourFreeTrialWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testClickSubscriptionButtonFromStartYourFreeTrialWidget();
-    }
-
-    private void testUpgradeFromStartYourFreeTrialWidgetStandardsPage(){
-        stateStandardsPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 

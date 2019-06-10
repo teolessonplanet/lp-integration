@@ -2,9 +2,11 @@ import com.lessonplanet.pages.CommonCorePage;
 import com.lessonplanet.pages.StateStandardsPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
-
+@Ignore
+@Deprecated
 public class CommonCoreStateStandardsTest extends BaseTest {
 
     private StateStandardsPage stateStandardsPage;

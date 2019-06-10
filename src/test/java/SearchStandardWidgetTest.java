@@ -1,8 +1,10 @@
 import com.lessonplanet.pages.SearchStandardsWidget;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import util.TestData;
-
+@Ignore
+@Deprecated
 public class SearchStandardWidgetTest {
 
     private SearchStandardsWidget searchStandardsWidget;
