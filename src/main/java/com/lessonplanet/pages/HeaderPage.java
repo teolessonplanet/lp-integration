@@ -17,7 +17,6 @@ public class HeaderPage extends LpUiBasePage {
     private static final String RESOURCES_BUTTON = "[class='lp-resources']";
     private static final String DISCOVER_RESOURCES_BUTTON = "[class='lp-resources'] [href='/search']";
     private static final String BROWSE_RESOURCE_DIRECTORY = "[class='lp-resources'] [href='/lesson-plans']";
-    private static final String SEARCH_BY_STANDARD_BUTTON = "[class='lp-resources'] [href*='/state-standards']";
     private static final String CURRICULUM_MANAGER_BUTTON = "#curriculum-manager-menu-item";
     private static final String SIGN_IN_POPUP = "[class='lp-sign-in-popup-link']";
     private static final String SIGN_UP_POPUP = "[class='lp-sign-up-popup-link']";
@@ -110,10 +109,6 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnBrowseResourceDirectoryButton() {
         clickElement(BROWSE_RESOURCE_DIRECTORY);
-    }
-
-    public void clickOnSearchByStandardButton() {
-        clickElement(SEARCH_BY_STANDARD_BUTTON);
     }
 
     public void hoverOverCurriculumManagerButton() {

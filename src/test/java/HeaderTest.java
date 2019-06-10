@@ -41,7 +41,7 @@ public class HeaderTest extends BaseTest {
     public void testLessonp_4602() {
         testHeaderButtons(TestData.VALID_EMAIL_FREEMIUM);
     }
-    
+
     @Test(description = "Automation Test Suite - Active user - Header - lessonp-4617:Header buttons")
     public void testLessonp_4617() {
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
@@ -121,14 +121,6 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnBrowseResourceDirectoryButton();
         Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH, headerPage.getPath());
 
-        headerPage.hoverOverResourcesButton();
-        headerPage.clickOnSearchByStandardButton();
-        if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
-            Assert.assertEquals(TestData.SEARCH_BY_STANDARD_PAGE_PATH, headerPage.getPath());
-        } else {
-            Assert.assertEquals(TestData.SEARCH_BY_STANDARD_PAGE_PATH + "/ca", headerPage.getPath());
-        }
-
         if (account.equals(TestData.INVALID_EMAIL)) {
             headerPage.hoverOverResourcesButton();
             headerPage.hoverOverCurriculumManagerButton();
@@ -197,9 +189,11 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnMyAccountButton();
         Assert.assertEquals(headerPage.getPath(), TestData.MY_ACCOUNT_PAGE_PATH);
 
-        headerPage.hoverOverUserDropDownButton();
-        headerPage.clickOnMyMemberProfileButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.MEMBER_PROFILE_PAGE_PATH);
+        if(!adminManager){
+            headerPage.hoverOverUserDropDownButton();
+            headerPage.clickOnMyMemberProfileButton();
+            Assert.assertEquals(headerPage.getPath(), TestData.MEMBER_PROFILE_PAGE_PATH);
+        }
 
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyResourcesButton();
