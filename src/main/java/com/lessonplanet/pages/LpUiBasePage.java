@@ -339,6 +339,10 @@ public class LpUiBasePage {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
+    protected void waitUntilTextIsDisplayed(String cssSelector, String text) {
+        webDriverWait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(cssSelector), text));
+    }
+
     private boolean isOnTop(WebElement element) {
         return (boolean) javascriptExecutor.executeScript(
             "var elm = arguments[0];" +
