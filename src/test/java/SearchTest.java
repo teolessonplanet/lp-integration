@@ -194,13 +194,7 @@ public class SearchTest extends BaseTest {
     @Test(description = "LP - Regression Tests - Active user - Search Page - 604:User clicks 'See Full Review' footer button")
     public void testLessonp_604() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        reachSearchPageInListView();
-        discoverResourcesPage.clickSeeFullReview(true);
-        checkRrpSample(false, false, true);
-        rrpPage.closeTab();
-        discoverResourcesPage.clickSeeFullReview(false);
-        rrpModal.waitForModal();
-        checkRrpSample(false, false, true);
+        testSeeFullReviewButton();
     }
 
     @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3956:Cards details - LP resource")
@@ -260,7 +254,7 @@ public class SearchTest extends BaseTest {
         testSharedResource();
     }
 
-    private void testSeeCollection() {
+    protected void testSeeCollection() {
         reachSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonDisplayed());
@@ -269,7 +263,7 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(collectionRrpModal.isCollectionTitleDisplayed());
     }
 
-    private void reachSearchPageInListView() {
+    protected void reachSearchPageInListView() {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
         discoverResourcesPage.clickOnListView();
@@ -346,7 +340,7 @@ public class SearchTest extends BaseTest {
         }
     }
 
-    private void testGoToResourceButtonForRegularResource() {
+    protected void testGoToResourceButtonForRegularResource() {
         discoverResourcesPage.clickGoToResourceForRegularResource(true);
         String currentUrl = discoverResourcesPage.getUrl();
         boolean assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
@@ -532,5 +526,15 @@ public class SearchTest extends BaseTest {
             Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForRegularCard(lpResourceCard).equals(TestData.GO_TO_RESOURCE_BUTTON_TEXT));
             Assert.assertTrue(discoverResourcesPage.getSeeFullReviewButtonTextForRegularCard(lpResourceCard).equals(TestData.SEE_FULL_REVIEW_BUTTON_TEXT));
         }
+    }
+
+    protected void testSeeFullReviewButton() {
+        reachSearchPageInListView();
+        discoverResourcesPage.clickSeeFullReview(true);
+        checkRrpSample(false, false, true);
+        rrpPage.closeTab();
+        discoverResourcesPage.clickSeeFullReview(false);
+        rrpModal.waitForModal();
+        checkRrpSample(false, false, true);
     }
 }
