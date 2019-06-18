@@ -121,12 +121,12 @@ public class TestData {
     //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemember@mailinator.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemember@lp.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+41+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+28+959321@lessonplanet.com";
 
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
