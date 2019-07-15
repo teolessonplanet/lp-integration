@@ -52,16 +52,20 @@ public class DistrictPage extends LpUiBasePage {
         super(driver);
     }
 
+    public void loadPage() {
+        loadUrl(TestData.ACCOUNT_MANAGER_PAGE_PATH);
+    }
+
     public boolean isSchoolListDisplayed() {
         return isElementDisplayed(SCHOOLS_LIST);
     }
 
     public String getSchoolName(int position) {
-        return findElements(SCHOOL_NAME_TEXT).get(position).getText();
+        return getTextForElement(SCHOOL_NAME_TEXT, position);
     }
 
     public void clickOnSchool(int position) {
-        findElements(SCHOOL_NAME_TEXT).get(position).click();
+        clickElement(SCHOOL_NAME_TEXT, position);
     }
 
     public void clickOnExistingSchool() {
@@ -150,11 +154,11 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public boolean isSeeSchoolReportingActionButtonDisplayed(int index) {
-        return findElements(SEE_SCHOOL_REPORTING_BUTTON).get(index).isDisplayed();
+        return isElementDisplayed(SEE_SCHOOL_REPORTING_BUTTON, index);
     }
 
     public boolean isEditActionButtonDisplayed(int position) {
-        return findElements(EDIT_ACTION_BUTTON).get(position).isDisplayed();
+        return isElementDisplayed(EDIT_ACTION_BUTTON, position);
     }
 
     public void hoverOverEditButton(int position) {
@@ -162,11 +166,11 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public String getEditButtonPopoverText() {
-        return findElement(EDIT_ACTION_BUTTON_POPOVER_TEXT).getText();
+        return getTextForElement(EDIT_ACTION_BUTTON_POPOVER_TEXT);
     }
 
     public boolean isRemoveActionButtonDisplayed(int position) {
-        return findElements(REMOVE_ACTION_BUTTON).get(position).isDisplayed();
+        return isElementDisplayed(REMOVE_ACTION_BUTTON, position);
     }
 
     public void hoverOverRemoveButton(int i) {
@@ -182,11 +186,11 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public void clickEditActionButton(int position) {
-        findElements(EDIT_ACTION_BUTTON).get(position).click();
+        clickElement(EDIT_ACTION_BUTTON, position);
     }
 
     public void clickRemoveActionButton(int position) {
-        findElements(REMOVE_ACTION_BUTTON).get(position).click();
+        clickElement(REMOVE_ACTION_BUTTON, position);
     }
 
     public String getNotificationText() {
@@ -207,15 +211,15 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public boolean isAddLinkRemoveButtonDisplayed(int position) {
-        return findElements(ADD_LINK_REMOVE_BUTTON).get(position).isDisplayed();
+        return isElementDisplayed(ADD_LINK_REMOVE_BUTTON, position);
     }
 
     public boolean isAddLinkEditButtonDisplayed(int position) {
-        return findElements(ADD_LINK_EDIT_BUTTON).get(position).isDisplayed();
+        return isElementDisplayed(ADD_LINK_EDIT_BUTTON, position);
     }
 
     public boolean isAddLinkSeeSchoolReportingButtonDisplayed(int position) {
-        return findElements(ADD_LINK_SEE_REPORTING_BUTTON).get(position).isDisplayed();
+        return isElementDisplayed(ADD_LINK_SEE_REPORTING_BUTTON, position);
     }
 
     public void typeText(String text) {
@@ -244,30 +248,30 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public boolean isTeacherEmailDisplayed(int position) {
-        return findElements(TEACHER_EMAIL_TEXT).get(position).isDisplayed();
+        return isElementDisplayed(TEACHER_EMAIL_TEXT, position);
     }
 
     public String getTeacherEmail(int position) {
-        return findElements(TEACHER_EMAIL_TEXT).get(position).getText();
+        return getTextForElement(TEACHER_EMAIL_TEXT, position);
     }
 
     public boolean isTeacherSchoolDisplayed(int position) {
-        return findElements(TEACHER_SCHOOL_TEXT).get(position).isDisplayed();
+        return isElementDisplayed(TEACHER_SCHOOL_TEXT, position);
     }
 
     public String getTeacherFirstName(int position) {
-        return findElements(TEACHER_FIRST_NAME_TEXT).get(position).getText();
+        return getTextForElement(TEACHER_FIRST_NAME_TEXT, position);
     }
 
     public String getTeacherLastName(int position) {
-        return findElements(TEACHER_LAST_NAME_TEXT).get(position).getText();
+        return getTextForElement(TEACHER_LAST_NAME_TEXT, position);
     }
 
     public String getTeacherRole(int position) {
-        return findElements(TEACHER_ROLE_TEXT).get(position).getText();
+        return getTextForElement(TEACHER_ROLE_TEXT, position);
     }
 
     public String getTeacherJoinedDate(int position) {
-        return findElements(TEACHER_JOINED_DATE_TEXT).get(position).getText();
+        return getTextForElement(TEACHER_JOINED_DATE_TEXT, position);
     }
 }

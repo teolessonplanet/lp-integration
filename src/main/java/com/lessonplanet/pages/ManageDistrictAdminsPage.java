@@ -38,19 +38,19 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     }
 
     public boolean isAdminEmailDisplayed(int index) {
-        return findElements(ADMIN_EMAIL_TEXT).get(index).isDisplayed();
+        return isElementDisplayed(ADMIN_EMAIL_TEXT, index);
     }
 
     public String getAdminEmail(int adminPosition) {
-        return findElements(ADMIN_EMAIL_TEXT).get(adminPosition).getText();
+        return getTextForElement(ADMIN_EMAIL_TEXT, adminPosition);
     }
 
     public boolean isRemoveButtonDisplayed(int index) {
-        return findElements(REMOVE_BUTTON).get(index).isDisplayed();
+        return isElementDisplayed(REMOVE_BUTTON, index);
     }
 
     public void clickOnRemoveButton(int adminPosition) {
-        findElements(REMOVE_BUTTON).get(adminPosition).click();
+        clickElement(REMOVE_BUTTON, adminPosition);
     }
 
     public void hoverOverRemoveButton(int i) {
@@ -71,6 +71,6 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     }
 
     public boolean isAddAdminLinkRemoveButtonDisplayed(int i) {
-        return findElements(ADD_ADMIN_LINK_REMOVE_BUTTON).get(i).isDisplayed();
+        return isElementDisplayed(ADD_ADMIN_LINK_REMOVE_BUTTON, i);
     }
 }

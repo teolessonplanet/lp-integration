@@ -44,7 +44,7 @@ public class AccountManagerTest extends BaseTest {
         removeTeacherModal = new RemoveTeacherModal(webDriver);
     }
 
-    @Test(description = "District Page - lessonp-918: District Page: Add School, Remove School")
+    @Test(description = "District Page - lessonp-918: District Page, Add School, Remove School")
     public void testLessonp_918() {
         reachAccountManagerPage();
         Assert.assertTrue(districtPage.isOrganizationNameDisplayed());
@@ -85,7 +85,7 @@ public class AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "District Page - lessonp-901: Edit District")
+    @Test(description = "District Page - lessonp-901: Edit District, Search in district")
     public void testLessonp_901() {
         reachAccountManagerPage();
         districtPage.clickOnEditOrganizationButton();
@@ -100,9 +100,14 @@ public class AccountManagerTest extends BaseTest {
         Assert.assertEquals(editDistrictModal.getDistrictShortName(), TestData.CONCEPT);
         editDistrictModal.clickXButton();
         Assert.assertEquals(districtPage.getOrganizationName(), TestData.DISTRICT_NAME);
+
+        testSearchButtonFromDistrictPage(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+        testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL);
+        testSearchButtonFromDistrictPage(TestData.OWNER_FIRST_NAME);
+        testSearchButtonFromDistrictPage(TestData.OWNER_FIRST_NAME + " " + TestData.OWNER_LAST_NAME);
     }
 
-    @Test(description = "District Page - lessonp-904: Manage District Admins Page: Add District Admin, Remove District Admin")
+    @Test(description = "District Page - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
     public void testLessonp_904() {
         reachAccountManagerPage();
         districtPage.clickOnManageAdminsButton();
@@ -113,16 +118,7 @@ public class AccountManagerTest extends BaseTest {
         Assert.assertEquals(districtPage.getOrganizationName(), TestData.DISTRICT_NAME);
     }
 
-    @Test(description = "District Page - lessonp-4165: Search by name and email from District Page")
-    public void testLessonp_4165() {
-        reachAccountManagerPage();
-        testSearchButtonFromDistrictPage(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
-        testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL);
-        testSearchButtonFromDistrictPage(TestData.OWNER_FIRST_NAME);
-        testSearchButtonFromDistrictPage(TestData.OWNER_FIRST_NAME + " " + TestData.OWNER_LAST_NAME);
-    }
-
-    @Test(description = "School Page - lessonp-920: School Page: Add Teacher, Edit Teacher, Remove Teacher")
+    @Test(description = "School Page - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher")
     public void testLessonp_920() {
         reachAccountManagerPage();
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME());
@@ -142,7 +138,7 @@ public class AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "School Page - lessonp-895: Edit School")
+    @Test(description = "School Page - lessonp-895: Edit School, Search in School")
     public void testLessonp_895() {
         reachAccountManagerPage();
         testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME());
@@ -150,9 +146,15 @@ public class AccountManagerTest extends BaseTest {
         testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME());
         schoolPage.clickOnDistrictBreadcrumbs();
         testRemoveSchool();
+
+        districtPage.clickOnExistingSchool();
+        testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL);
+        testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL);
+        testSearchButtonFromSchoolPage(TestData.TEACHER_LAST_NAME);
+        testSearchButtonFromSchoolPage(TestData.TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME);
     }
 
-    @Test(description = "School Page - lessonp-924: Manage School Admins Page: Add School Admin, Remove School Admin")
+    @Test(description = "School Page - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
     public void testLessonp_924() {
         reachAccountManagerPage();
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME());
@@ -171,21 +173,9 @@ public class AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "School Page - lessonp-4166: Search by name or email from School Page")
-    public void testLessonp_4166() {
-        reachAccountManagerPage();
-        districtPage.clickOnExistingSchool();
-        testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL);
-        testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL);
-        testSearchButtonFromSchoolPage(TestData.TEACHER_LAST_NAME);
-        testSearchButtonFromSchoolPage(TestData.TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME);
-    }
-
     public void reachAccountManagerPage() {
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        headerPage.hoverOverUserDropDownButton();
-        headerPage.clickOnAdminManagerButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.ACCOUNT_MANAGER_PAGE_PATH);
+        districtPage.loadPage();
     }
 
     private void testManageDistrictAdminsPage() {
