@@ -123,6 +123,7 @@ public class TestData {
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_FREEMIUM = "freemember@lp.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
+    public static final String VALID_EMAIL_ACTIVE = "active-user@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
@@ -138,6 +139,66 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
+
+    //Account Manager
+    public static final String DISTRICT_NAME_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
+    public static final String SCHOOL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your school's initials or a shorter version of your school's name. 20 characters max.";
+    public static final String DISTRICT_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your district's initials or a shorter version of your district's name. 20 characters max.";
+    public static final String MANAGE_DISTRICT_ADMINS_POPOVER_TEXT = "Manage District Admins";
+    public static final String MANAGE_SCHOOL_ADMINS_POPOVER_TEXT = "Manage School Admins";
+    public static final String EDIT_DISTRICT_BUTTON_POPOVER_TEXT = "Edit District";
+    public static final String EDIT_SCHOOL_BUTTON_POPOVER_TEXT = "Edit School";
+    public static final String SEARCH_BUTTON_POPOVER_TEXT = "Search";
+    public static final String EDIT_UNREGISTERED_TEACHER_POPOVER_TEXT = "Edit Teacher";
+    public static final String EDIT_UNREGISTERED_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
+    public static final String EDIT_UNREGISTERED_DISTRICT_ADMIN_POPOVER_TEXT = "Edit District Admin";
+    public static final String EDIT_REGISTERED_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
+    public static final String EDIT_REGISTERED_SCHOOL_ADMIN_POPOVER_TEXT = "School Admin has already joined, and information cannot be edited.";
+    public static final String EDIT_REGISTERED_DISTRICT_ADMIN_POPOVER_TEXT = "District Admin has already joined, and information cannot be edited.";
+    public static final String EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
+    public static final String REMOVE_TEACHER_POPOVER_TEXT = "Remove Teacher";
+    public static final String REMOVE_SCHOOL_ADMIN_POPOVER_TEXT = "Remove School Admin";
+    public static final String REMOVE_DISTRICT_ADMIN_POPOVER_TEXT = "Remove District Admin";
+    public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
+    public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
+    public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
+
+    public static final String DISTRICT_NAME = "SBCEO";
+    public static final String TEACHER_ROLE = "Teacher";
+    public static final String ADMIN_ROLE = "Admin";
+    public static final String OWNER_ROLE = "Owner";
+    public static final String MANAGE_DISTRICT_ADMINS_TITLE = "Manage District Admins";
+    public static final String MANAGE_SCHOOL_ADMINS_TITLE = "Manage School Admins";
+    public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
+    public static final String EXISTING_SCHOOL_NAME = "All SBCEO";
+    public static final String EXISTING_TEACHER_EMAIL = "820@lessonplanet.com";
+    public static final String OWNER_FIRST_NAME = "Homer";
+    public static final String OWNER_LAST_NAME = "Morro";
+    public static final String TEACHER_FIRST_NAME = "Ana";
+    public static final String TEACHER_LAST_NAME = "Mathis";
+
+    public static final String NO_SEARCH_RESULTS_TEXT = "There were no results found";
+    public static final String SEARCH_RESULTS_TEXT = "results were found for";
+
+    public static final String REMOVE_DISTRICT_ADMIN_MODAL_TEXT = "If this District Admin is also a Teacher, their account will remain active with the Teacher role. If this District Admin did not have another role, their account will be removed from this Site License.";
+    public static final String REMOVE_SCHOOL_ADMIN_MODAL_TEXT = "Are you sure you want to remove this School Admin? They will remain in a Teacher role at this school.";
+    public static final String REMOVE_TEACHER_MODAL_TEXT = "If this Teacher is also registered as a Teacher at another school, their School Edition account will remain active at that school.";
+    public static final String REMOVE_SCHOOL_MODAL_TEXT = "Are you sure you want to remove this school? If there are any teachers registered with this school, their accounts may be removed as well.";
+
+    public static final String REQUIRED_FIELD_ERROR_TEXT = "This field is required";
+    public static final String EXISTING_SCHOOL_ERROR_TEXT  = "Already exists in this district";
+    public static final String EXISTING_EMAIL_ERROR_TEXT  = "Already present in an organization";
+    public static final String VALID_EMAIL_FORMAT_ERROR_TEXT = "Please enter a valid email";
+    public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
+    public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
+    public static final String CREATED_SCHOOL_NOTIFICATION_TEXT = "has been added to your district.";
+    public static final String REMOVED_SCHOOL_NOTIFICATION_TEXT = "was removed from your district";
+    public static final String CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "has been added as a District Admin";
+    public static final String REMOVED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "is no longer a District Admin";
+    public static final String CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "has been added as a School Admin";
+    public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is now a Teacher in your school";
+    public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
+    public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
 
     //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
@@ -200,6 +261,10 @@ public class TestData {
 
     public static String GET_NEW_EMAIL() {
         return NEW_EMAIL_PREFIX + GET_CURRENT_TIME() + NEW_EMAIL_SUFFIX;
+    }
+
+    public static String GET_NEW_SCHOOL_NAME() {
+        return PRIME_OPTION_TEXT + GET_CURRENT_TIME();
     }
 
     private static String GET_CURRENT_TIME() {
