@@ -128,7 +128,7 @@ public class TestData {
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
     public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+59+959321@lessonplanet.com";
-
+    public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+14+2316026@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -149,33 +149,44 @@ public class TestData {
     public static final String EDIT_DISTRICT_BUTTON_POPOVER_TEXT = "Edit District";
     public static final String EDIT_SCHOOL_BUTTON_POPOVER_TEXT = "Edit School";
     public static final String SEARCH_BUTTON_POPOVER_TEXT = "Search";
-    public static final String EDIT_UNREGISTERED_TEACHER_POPOVER_TEXT = "Edit Teacher";
-    public static final String EDIT_UNREGISTERED_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
-    public static final String EDIT_UNREGISTERED_DISTRICT_ADMIN_POPOVER_TEXT = "Edit District Admin";
-    public static final String EDIT_REGISTERED_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
-    public static final String EDIT_REGISTERED_SCHOOL_ADMIN_POPOVER_TEXT = "School Admin has already joined, and information cannot be edited.";
-    public static final String EDIT_REGISTERED_DISTRICT_ADMIN_POPOVER_TEXT = "District Admin has already joined, and information cannot be edited.";
-    public static final String EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
+    public static final String ENABLED_EDIT_TEACHER_POPOVER_TEXT = "Edit Teacher";
+    public static final String DISABLED_EDIT_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
+    public static final String ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
+    public static final String DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "School Admin has already joined, and information cannot be edited.";
+    public static final String ENABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT = "Edit District Admin";
+    public static final String DISABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT = "District Admin has already joined, and information cannot be edited.";
+    public static final String ENABLED_EDIT_OWNER_POPOVER_TEXT = "Edit Owner";
+    public static final String DISABLED_EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
     public static final String REMOVE_TEACHER_POPOVER_TEXT = "Remove Teacher";
     public static final String REMOVE_SCHOOL_ADMIN_POPOVER_TEXT = "Remove School Admin";
     public static final String REMOVE_DISTRICT_ADMIN_POPOVER_TEXT = "Remove District Admin";
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
+    public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
+    public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
 
-    public static final String DISTRICT_NAME = "SBCEO";
+    public static final String RSL_DISTRICT_NAME = "SBCEO";
+    public static final String HENRY_SL_DISTRICT_NAME = "Henry County Schools";
     public static final String TEACHER_ROLE = "Teacher";
     public static final String ADMIN_ROLE = "Admin";
     public static final String OWNER_ROLE = "Owner";
+    public static final String PUBLISHER_ROLE = "Publisher";
     public static final String MANAGE_DISTRICT_ADMINS_TITLE = "Manage District Admins";
     public static final String MANAGE_SCHOOL_ADMINS_TITLE = "Manage School Admins";
     public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
-    public static final String EXISTING_SCHOOL_NAME = "All SBCEO";
-    public static final String EXISTING_TEACHER_EMAIL = "820@lessonplanet.com";
-    public static final String OWNER_FIRST_NAME = "Homer";
-    public static final String OWNER_LAST_NAME = "Morro";
-    public static final String TEACHER_FIRST_NAME = "Ana";
-    public static final String TEACHER_LAST_NAME = "Mathis";
+    public static final String EXISTING_RSL_SCHOOL_NAME = "All SBCEO";
+    public static final String EXISTING_HENRY_SL_SCHOOL_NAME = "LP Elementary";
+    public static final String EXISTING_RSL_TEACHER_EMAIL = "testuser+59+958820@lessonplanet.com";
+    public static final String EXISTING_HENRY_SL_TEACHER_EMAIL = "testuser+53+2320809@lessonplanet.com";
+    public static final String RSL_OWNER_FIRST_NAME = "Homer";
+    public static final String RSL_OWNER_LAST_NAME = "Morro";
+    public static final String RSL_TEACHER_FIRST_NAME = "Ana";
+    public static final String RSL_TEACHER_LAST_NAME = "Mathis";
+    public static final String HENRY_SL_OWNER_FIRST_NAME = "LuAnne";
+    public static final String HENRY_SL_OWNER_LAST_NAME = "Abercrombie";
+    public static final String HENRY_SL_TEACHER_FIRST_NAME = "Allen";
+    public static final String HENRY_SL_TEACHER_LAST_NAME = "Burgtorf";
 
     public static final String NO_SEARCH_RESULTS_TEXT = "There were no results found";
     public static final String SEARCH_RESULTS_TEXT = "results were found for";
@@ -199,6 +210,13 @@ public class TestData {
     public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is now a Teacher in your school";
     public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
     public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
+    public static final String ADMIN_PUBLISH_SCHOOL_OPTION_TEXT = "All admins at this school have the ability to publish";
+    public static final String TEACHER_PUBLISH_SCHOOL_OPTION_TEXT = "All teachers at this school have the ability to publish";
+    public static final String ADMIN_PUBLISH_DISTRICT_OPTION_TEXT = "All admins in this district have the ability to publish";
+    public static final String TEACHER_PUBLISH_DISTRICT_OPTION_TEXT = "All teachers in this district have the ability to publish";
+    public static final String OWNER_PUBLISH_OPTION_TEXT = "This owner may publish collections to the learning object repository";
+    public static final String DISTRICT_ADMIN_PUBLISH_OPTION_TEXT = "This district admin may publish collections to the learning object repository";
+    public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
 
     //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";

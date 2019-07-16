@@ -11,6 +11,12 @@ public class EditDistrictModal extends AddADistrictAdminModal {
     private static final String ORGANIZATION_SHORT_NAME_INFO_ICON = "div.form-group:nth-child(2) [class*='popup']";
     private static final String ORGANIZATION_SHORT_NAME_INFO_ICON_POPOVER_TEXT = "div.form-group:nth-child(2) [class*='popuptext']";
     private static final String X_BUTTON = "[class='close']";
+    private static final String SHARING_PRIVILEGES_INFO_ICON = "div.form-group:nth-child(3) [class='form-group-label'] [class*='popup']";
+    private static final String SHARING_PRIVILEGES_INFO_ICON_POPOVER_TEXT = "div.form-group:nth-child(3) [class='form-group-label'] [class*='popuptext']";
+    private static final String ADMIN_PUBLISH_CHECKBOX = "[name='allow_all_admins_to_publish']";
+    private static final String ADMIN_PUBLISH_OPTION_TEXT = "[class='form-group-inner']:nth-child(2)";
+    private static final String TEACHER_PUBLISH_CHECKBOX = "[name='allow_all_teachers_to_publish']";
+    private static final String TEACHER_PUBLISH_OPTION_TEXT = "[class='form-group-inner']:nth-child(3)";
 
     public EditDistrictModal(WebDriver driver) {
         super(driver);
@@ -51,5 +57,57 @@ public class EditDistrictModal extends AddADistrictAdminModal {
 
     public void clickOnSaveButton() {
         clickElement(CONFIRMATION_BUTTON);
+    }
+
+    public void hoverOverSharingPrivilegesInfoIcon() {
+        hoverOverElement(SHARING_PRIVILEGES_INFO_ICON);
+    }
+
+    public String getSharingPrivilegesInfoIconPopoverText() {
+        return getTextForElement(SHARING_PRIVILEGES_INFO_ICON_POPOVER_TEXT);
+    }
+
+    public boolean isAdminPublishCheckboxDisplayed() {
+        return isElementDisplayed(ADMIN_PUBLISH_CHECKBOX);
+    }
+
+    public String getAdminPublishOptionText() {
+        return getTextForElement(ADMIN_PUBLISH_OPTION_TEXT);
+    }
+
+    public boolean isTeacherPublishCheckboxDisplayed() {
+        return isElementDisplayed(TEACHER_PUBLISH_CHECKBOX);
+    }
+
+    public String getTeacherPublishOptionText() {
+        return getTextForElement(TEACHER_PUBLISH_OPTION_TEXT);
+    }
+
+    public void clickAdminPublishCheckbox() {
+        clickElement(ADMIN_PUBLISH_CHECKBOX);
+    }
+
+    public void clickTeacherPublishCheckbox() {
+        clickElement(TEACHER_PUBLISH_CHECKBOX);
+    }
+
+    public boolean isAdminPublishCheckboxDisabled() {
+        String emailAttribute = getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "disabled", 0);
+        return emailAttribute.equals("true");
+    }
+
+    public boolean isTeacherPublishCheckboxDisabled() {
+        String emailAttribute = getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "disabled", 0);
+        return emailAttribute.equals("true");
+    }
+
+    public boolean isAdminPublishCheckboxChecked() {
+        String emailAttribute = getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "checked", 0);
+        return emailAttribute.equals("true");
+    }
+
+    public boolean isTeacherPublishCheckboxChecked() {
+        String emailAttribute = getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "checked", 0);
+        return emailAttribute.equals("true");
     }
 }
