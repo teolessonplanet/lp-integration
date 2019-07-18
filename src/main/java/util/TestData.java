@@ -1,4 +1,5 @@
 package util;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,8 +37,8 @@ public class TestData {
     public static final String SEARCH_PAGE_PATH = "search?keywords=";
     public static final String CALENDAR_TITLE = " Curriculum Calendar - Lesson Plan Ideas by Date";
     public static final String CALENDAR_DECRIPTION = "Enhance your current curriculum with this fun reference calendar. Whether you want to highlight historic events, honor birthdays of significant people, or celebrate holidays, this is a valuable tool for every teacher. Click on any event to find a breadth of related teaching resources that will spark new ideas to spice up your daily lessons. There's something worth celebrating every day!";
-    public static final String[] MONTH = {"January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" , "December"};
-    public static final String[] KEYWORD = {"Creativity" , "Black History" , "Women's History" , "Poetry" , "Mental Health" , "Dairy" , "Watermelon" , "Immunization","Hispanic Heritage" , "Bullying" , "Native Americans" , "Human Rights"};
+    public static final String[] MONTH = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    public static final String[] KEYWORD = {"Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
     //Articles Page
     public static final String LESSON_PLANNING_ARTICLES_TITLE = "Lesson Planning Articles";
@@ -50,7 +51,7 @@ public class TestData {
 
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this collection, but don't let that stop you!\n" + "Upgrade today to create more collections of any size and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION = "As a Free Member you can only save collections with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited collections, and enjoy the benefits of a Full Membership.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT  = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT = "You've reached your 3-collection limit, but don't let that stop you!\n" + "Upgrade today to create more collections and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
@@ -59,17 +60,17 @@ public class TestData {
     public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "This resource review was added to your collection";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
     public static final String CREATED_MESSAGE = "was created.";
-    public static final String DELETED_MESSAGE= "was deleted";
+    public static final String DELETED_MESSAGE = "was deleted";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
     public static final String NEW_COLLECTION_NAME = "Test Collection";
     public static final String EDIT_TITLE = "-edit";
-    public static final String EDIT_COLLECTION_NAME = NEW_COLLECTION_NAME + EDIT_TITLE ;
+    public static final String EDIT_COLLECTION_NAME = NEW_COLLECTION_NAME + EDIT_TITLE;
     public static final String UPLOAD_RESOURCE_TITLE = "test-upload-file";
     public static final String UPLOAD_RESOURCE_EDIT_TITLE = UPLOAD_RESOURCE_TITLE + EDIT_TITLE;
     public static final String[] collectionName = {"Collection 1", "Collection 2", "Collection 3", "Collection 4"};
-    public static final String COPIED_COLLECTION_NAME = "Copy of " + EDIT_COLLECTION_NAME ;
+    public static final String COPIED_COLLECTION_NAME = "Copy of " + EDIT_COLLECTION_NAME;
     public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
     public static final String PUBLISH_RESOURCE_TITLE = "test publish resource";
     public static final String EDIT_COLLECTION_GRADE_HIGHER_ED = "Higher Ed";
@@ -186,8 +187,8 @@ public class TestData {
     public static final String REMOVE_SCHOOL_MODAL_TEXT = "Are you sure you want to remove this school? If there are any teachers registered with this school, their accounts may be removed as well.";
 
     public static final String REQUIRED_FIELD_ERROR_TEXT = "This field is required";
-    public static final String EXISTING_SCHOOL_ERROR_TEXT  = "Already exists in this district";
-    public static final String EXISTING_EMAIL_ERROR_TEXT  = "Already present in an organization";
+    public static final String EXISTING_SCHOOL_ERROR_TEXT = "Already exists in this district";
+    public static final String EXISTING_EMAIL_ERROR_TEXT = "Already present in an organization";
     public static final String VALID_EMAIL_FORMAT_ERROR_TEXT = "Please enter a valid email";
     public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
     public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
@@ -202,7 +203,7 @@ public class TestData {
 
     //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
-    public static final String STEP_ONE_MODAL_TITLE= "Discover 350k+ Teacher Reviewed Resources";
+    public static final String STEP_ONE_MODAL_TITLE = "Discover 350k+ Teacher Reviewed Resources";
 
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
@@ -327,12 +328,12 @@ public class TestData {
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
-    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Curriculum Sets\n"+"Chapters\n"+"Lessons\n"+"Collections\n"+"Assessment Sets\n"+"Activities & Projects\n"+"Unit Modules\n"+"Assessments\n"+ "Root Folders\n" + "Graphics & Images\n"+"Handouts & References\n"+"Interactives\n"+"Lab Resources\n"+"Learning Games\n"+"Lesson Plans\n"+"Presentations\n"+"Primary Sources\n"+"Printables & Templates\n"+"Professional Documents\n"+"PD Courses\n"+"Study Guides\n"+"Units\n"+"Videos\n"+"Performance Tasks\n"+"Websites\n"+"Graphic Organizers\n"+"Worksheets\n"+"Workbooks\n"+"Writing Prompts\n"+"Constructed Response Items\n"+"Apps\n"+"AP Test Preps\n"+"Articles\n"+"Lesson Planet Articles\n"+"Audios\n"+"Courses\n"+"eBooks\n"+"Interactive Whiteboards\n"+"Home Letters\n"+"Rubrics\n"+"Syllabis\n" + "Unknown Types\n" + "All Resource Types";
+    public static final String ALL_RESOURCE_TYPES_DROPDOWN = "Curriculum Sets\n" + "Chapters\n" + "Lessons\n" + "Collections\n" + "Assessment Sets\n" + "Activities & Projects\n" + "Unit Modules\n" + "Assessments\n" + "Root Folders\n" + "Graphics & Images\n" + "Handouts & References\n" + "Interactives\n" + "Lab Resources\n" + "Learning Games\n" + "Lesson Plans\n" + "Presentations\n" + "Primary Sources\n" + "Printables & Templates\n" + "Professional Documents\n" + "PD Courses\n" + "Study Guides\n" + "Units\n" + "Videos\n" + "Performance Tasks\n" + "Websites\n" + "Graphic Organizers\n" + "Worksheets\n" + "Workbooks\n" + "Writing Prompts\n" + "Constructed Response Items\n" + "Apps\n" + "AP Test Preps\n" + "Articles\n" + "Lesson Planet Articles\n" + "Audios\n" + "Courses\n" + "eBooks\n" + "Interactive Whiteboards\n" + "Home Letters\n" + "Rubrics\n" + "Syllabis\n" + "Unknown Types\n" + "All Resource Types";
     public static final String LESSON_PLANS_RESOURCE_TYPE = "Lesson Plans";
     public static final String LESSON_RESOURCE_TYPE_CARD = "Lesson";
-    public static final String NO_RESOURCES_FOUND_TEXT =  "No resources found.";
-    public static final String [] SUBJECTS = {"Math","Arithmetic & Pre-Algebra","Algebra I","Algebra II","Geometry","Trigonometry","Pre-Calculus","Calculus","Statistics & Probability","Consumer Math & Personal Finance","General Math","Science" ,"Agriculture","Biology","Chemistry","Earth Science","Environment","Life Science","Physical Science","Physics","Science Principles","Space Science & Astronomy","General Science","English Language Arts" ,"Grammar","Spelling & Vocabulary","Speaking & Listening","Reading: Foundational Skills","Reading: Informational Text","Reading: Literature", "Narative Writing","Expository Writing","Persuasive Writing","Poetry","Fine Motor Skills","ESL & ELD", "General Writing","Reading & Visual Literacy","General English Language Arts", "Social Studies & History" , "Cultural & Social Studies","Economics & Business","Geography","Government","Holidays","Philosophy","Psychology","World History","General History","Religion","United States History","World History","Physical Education" ,"Activities & Sports","Motor Skills & Movement","Outdoor Education","Physical Fitness","Health" ,"Growth & Development","Nutrition","Sex Education","Substance Abuse", "Wellness & Safety", "Visual & Performing Arts","Art History","Arts & Crafts","Drama","Dance","Music","Visual Arts", "Languages" ,"American Sign Language","Arabic","Chinese","French","German","Italian","Japanese","Latin", "Portuguese","Russian","Spanish","Hindi","Other Languages","STEM","Computer Programming","Engineering", "21st Century Skills", "Social & Emotional Learning", "Family & Consumer Sciences", "Career & Education & Skills", "Computer Skills","Media Literacy","Researcg Process","Study Skills","Digital Citizenship","Classroom Support","Classroom Management","Learning Displays","Classroom Tools","Professional Development","Special Education & Programs","Special Education"};
-    public static final String [] RESOURCE_TYPES = {"Collections","Activities & Projects","Standardized Tests","Presentations","Assessments","Graphics & Images","Handouts & References","Interactives","Lab Resources","Learning Games","Lesson Plans","Presentations","Primary Sources","Printables & Templates","Professional Documents","PD Courses","Study Guides","Units","Videos","Performance Tasks","Websites","Graphic Organizers","Worksheets","Workbooks","Writing Prompts","Constructed Response Items","Apps","AP Test Preps","Articles","Lesson Planet Articles","Audios","Courses","eBooks","Interactive Whiteboards","Home Letters","Rubrics","Syllabis"};
+    public static final String NO_RESOURCES_FOUND_TEXT = "No resources found.";
+    public static final String[] SUBJECTS = {"Math", "Arithmetic & Pre-Algebra", "Algebra I", "Algebra II", "Geometry", "Trigonometry", "Pre-Calculus", "Calculus", "Statistics & Probability", "Consumer Math & Personal Finance", "General Math", "Science", "Agriculture", "Biology", "Chemistry", "Earth Science", "Environment", "Life Science", "Physical Science", "Physics", "Science Principles", "Space Science & Astronomy", "General Science", "English Language Arts", "Grammar", "Spelling & Vocabulary", "Speaking & Listening", "Reading: Foundational Skills", "Reading: Informational Text", "Reading: Literature", "Narative Writing", "Expository Writing", "Persuasive Writing", "Poetry", "Fine Motor Skills", "ESL & ELD", "General Writing", "Reading & Visual Literacy", "General English Language Arts", "Social Studies & History", "Cultural & Social Studies", "Economics & Business", "Geography", "Government", "Holidays", "Philosophy", "Psychology", "World History", "General History", "Religion", "United States History", "World History", "Physical Education", "Activities & Sports", "Motor Skills & Movement", "Outdoor Education", "Physical Fitness", "Health", "Growth & Development", "Nutrition", "Sex Education", "Substance Abuse", "Wellness & Safety", "Visual & Performing Arts", "Art History", "Arts & Crafts", "Drama", "Dance", "Music", "Visual Arts", "Languages", "American Sign Language", "Arabic", "Chinese", "French", "German", "Italian", "Japanese", "Latin", "Portuguese", "Russian", "Spanish", "Hindi", "Other Languages", "STEM", "Computer Programming", "Engineering", "21st Century Skills", "Social & Emotional Learning", "Family & Consumer Sciences", "Career & Education & Skills", "Computer Skills", "Media Literacy", "Researcg Process", "Study Skills", "Digital Citizenship", "Classroom Support", "Classroom Management", "Learning Displays", "Classroom Tools", "Professional Development", "Special Education & Programs", "Special Education"};
+    public static final String[] RESOURCE_TYPES = {"Collections", "Activities & Projects", "Standardized Tests", "Presentations", "Assessments", "Graphics & Images", "Handouts & References", "Interactives", "Lab Resources", "Learning Games", "Lesson Plans", "Presentations", "Primary Sources", "Printables & Templates", "Professional Documents", "PD Courses", "Study Guides", "Units", "Videos", "Performance Tasks", "Websites", "Graphic Organizers", "Worksheets", "Workbooks", "Writing Prompts", "Constructed Response Items", "Apps", "AP Test Preps", "Articles", "Lesson Planet Articles", "Audios", "Courses", "eBooks", "Interactive Whiteboards", "Home Letters", "Rubrics", "Syllabis"};
     public static final String START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE = "Save time and discover engaging curriculum for your classroom. Reviewed and rated by trusted, credentialed teachers.";
     public static final String START_YOUR_FREE_TRIAL_TEXT_SHARED_RESOURCE = "Save time and discover engaging curriculum for your classroom. Quickly find resources you need — reviewed and rated by trusted, credentialed teachers.";
     public static final String ADD_A_COMMENT_PANEL_TEXT = "Start the Conversation";
@@ -367,7 +368,7 @@ public class TestData {
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
-    public static final String LANGUAGE_ARTS_RESEARCH_PATH ="lesson-plans/research";
+    public static final String LANGUAGE_ARTS_RESEARCH_PATH = "lesson-plans/research";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";
@@ -465,7 +466,7 @@ public class TestData {
     public static final String ENGLISH_LANGUAGE_ARTS_PAGE_PATH = "standards/common-core/english-language-arts";
     public static final String MATHEMATICS_PAGE_PATH = "standards/common-core/mathematics";
     public static final String NGSS_PAGE_PATH = "state-standards/nrcdsc";
-    public static final String COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH= "standards/resources/14310";
+    public static final String COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH = "standards/resources/14310";
 
     public static final String SEARCH_STANDARDS_TITLE_TEXT = "Search Standards";
     public static final String STATE_LABEL_TEXT = "Common Core, NGSS, or State";
@@ -549,4 +550,13 @@ public class TestData {
     public static final String SEE_PREVIEW_BUTTON_TEXT = "See Preview";
     public static final String SEE_FULL_REVIEW_BUTTON_TEXT = "See Full Review";
     public static final String FREE_SAMPLE_BUTTON_TEXT = "Free: Full Access Review";
+
+    public static final String CONTENT_MANAGER_PAGE_TITLE_TEXT = "Content Manager";
+    public static final String CONTENT_MANAGER_PAGE_SUBTITLE_TEXT = "View and manage your learning object repository";
+    public static final String CONTENT_MANAGER_SORT_BY_DEFAULT_TEXT = "Sort By: Newest";
+
+    public static final String CONTENT_MANAGER_RESOURCE_REDIRECT_PATH = "teachers/";
+    public static final String CONTENT_MANAGER_CONCEPT_REDIRECT_PATH = "/content-tool?concept_ids=";
+    public static final String CONTENT_MANAGER_STANDARD_REDIRECT_PATH = "standards/resources/";
+    public static final String CONTENT_MANAGER_RESOURCES_FOR_TEXT = " resources found for ";
 }

@@ -20,7 +20,7 @@ import java.util.List;
 public class LpUiBasePage {
 
     protected static final Logger logger = LogManager.getRootLogger();
-    private WebDriver driver;
+    protected WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
 
@@ -36,6 +36,7 @@ public class LpUiBasePage {
     }
 
     protected boolean isElementClickable(String cssSelector) {
+        waitForLoad();
         try {
             WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
             webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
