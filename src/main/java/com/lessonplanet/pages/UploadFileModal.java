@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 public class UploadFileModal extends LpUiBasePage  {
 
     private static final String UPLOAD_MODAL = "#upload-file-modal";
-    private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
+//    private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
+    private static final String CHOOSE_FILE_ATTACHMENT_INPUT = "#document_attachment";
+
     private static final String GRADE_OPTIONS = "#select2-drop li";
     private static final String GRADE_LIST_DROPDOWN = "[class='form-group select document_grade_list required'] [class='select2-container select2-container-multi select form-control']";
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
@@ -24,7 +26,7 @@ public class UploadFileModal extends LpUiBasePage  {
     }
 
     public void uploadUsingTextInput (String path)  {
-        uploadUsingTextInput(CHOOSE_FILE_BUTTON, path);
+        uploadUsingTextInput(CHOOSE_FILE_ATTACHMENT_INPUT, path);
     }
 
     public void typeDescription(String description) {
