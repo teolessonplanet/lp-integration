@@ -855,7 +855,6 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
-        Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
         discoverResourcesPage.closeTab();
     }
 
