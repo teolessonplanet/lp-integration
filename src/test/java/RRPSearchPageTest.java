@@ -24,6 +24,7 @@ public class RRPSearchPageTest extends BaseTest{
     private LpHomePage lpHomePage;
     private CurriculumManagerTest curriculumManagerTest;
     private StepTwoPage stepTwoPage;
+    private ResourcePreviewPage resourcePreviewPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -44,6 +45,7 @@ public class RRPSearchPageTest extends BaseTest{
         lpHomePage = new LpHomePage(webDriver);
         curriculumManagerTest = new CurriculumManagerTest();
         stepTwoPage = new StepTwoPage(webDriver);
+        resourcePreviewPage = new ResourcePreviewPage(webDriver);
     }
 
     public void reachRRP(WebDriver webDriver) {
@@ -855,6 +857,16 @@ public class RRPSearchPageTest extends BaseTest{
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
+//        Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
+        //TODO: above line was removed by mistake in PR 76?  https://github.com/LessonPlanet/lp-integration/pull/76
+        //TODO: check if stable in all tests and then remove the comments
+        if (discoverResourcesPage.getUrl().contains(TestData.SERVER_URL)) {
+            Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+            Assert.assertTrue(resourcePreviewPage.isDownloadResourceButtonDisplayed());
+            Assert.assertTrue(resourcePreviewPage.isIframeResourceDisplayed());
+        } else {
+            Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+        }
         discoverResourcesPage.closeTab();
     }
 
