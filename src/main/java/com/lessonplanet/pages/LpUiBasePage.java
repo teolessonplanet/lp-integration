@@ -79,13 +79,6 @@ public class LpUiBasePage {
     public void uploadUsingTextInput(String fileNameSelector, String path) {
         try {
             sendKeys(fileNameSelector, path);
-            //TODO: remove this if upload is stable
-//            clickElement(fileNameSelector);
-//            driver.switchTo().activeElement().sendKeys(path);
-//            Robot robot = new Robot();
-//            robot.waitForIdle();
-//            robot.keyPress(KeyEvent.VK_ESCAPE);
-//            robot.keyRelease(KeyEvent.VK_ESCAPE);
         } catch (Exception e) {
             logger.info("Cannot upload file");
         }

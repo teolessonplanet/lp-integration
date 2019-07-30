@@ -106,12 +106,10 @@ public class TestData {
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
 
-    public static final String FACEBOOK_LP_URL = FACEBOOK_URL + "/LessonPlanet";
-    public static final String TWITTER_LP_URL = TWITTER_URL + "/lessonplanet";
     public static final String LINKEDIN_URL = "linkedin.com";
-    public static final String LESSON_PLANET_TEXT = "lesson-planet";
-    public static final String YOUTUBE_LP_URL = "https://www.youtube.com/user/lessonplanet";
-    public static final String PINTEREST_LP_URL = "pinterest.com/lessonplanet/";
+    public static final String[] LESSON_PLANET_TEXT = {"lessonplanet", "lesson-planet", "LessonPlanet"};
+    public static final String YOUTUBE_URL = "youtube.com";
+    public static final String PINTEREST_URL = "pinterest.com";
 
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
     public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
@@ -122,7 +120,7 @@ public class TestData {
     //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
-    public static final String VALID_EMAIL_FREEMIUM = "freemember@lp.com";
+    public static final String VALID_EMAIL_FREEMIUM = "free-member@lp.com";
     public static final String VALID_EMAIL_ADMIN = "genericuser+admin@lessonplanet.com";
     public static final String VALID_EMAIL_ACTIVE = "active-user@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
@@ -393,6 +391,7 @@ public class TestData {
     public static final String SOCIAL_STUDIES_PAGE_TITLE = "Social Studies Teacher Resources";
     public static final String SPECIAL_EDUCATION_PAGE_TITLE = "Special Education Teacher Resources";
     public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE = "Visual and Performing Arts Teacher Resources";
+    public static final String FREE_LESSON_PLANS_PAGE_URL = "https://www.lessonplanet.com/free-resources";
 
     public static final String WELLNESS_AND_SAFETY_PAGE_TITLE = "Wellness & Safety Teacher Resources";
     public static final String NUTRITION_PAGE_TITLE = "Nutrition Teacher Resources";
