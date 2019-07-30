@@ -214,7 +214,8 @@ public class FooterTest extends BaseTest {
             Assert.assertTrue(footerPage.isLpLogoDisplayed());
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
             Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
-        } else {
+        }
+        else {
             Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
             Assert.assertFalse(footerPage.isSignUpTextDisplayed());
             Assert.assertFalse(footerPage.isSubscriptionEmailInputDisplayed());
@@ -353,7 +354,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
         footerPage.clickOnLessonPlanetLogo(true);
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
-    }
+        }
 
     private void testRegularSlLogo() {
         Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
@@ -365,23 +366,23 @@ public class FooterTest extends BaseTest {
     }
 
     private void testSendEmailNewsletter(String account) {
-        Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
-        Assert.assertTrue(footerPage.isSignUpTextDisplayed());
-        Assert.assertEquals(footerPage.getSignUpHintText(), TestData.SIGN_UP_HINT_TEXT);
-        if (!account.equals(TestData.INVALID_EMAIL)) {
-            Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
-        } else {
-            Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
-            footerPage.typeEmail(account);
-        }
-        testSendButton(account);
+            Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+            Assert.assertTrue(footerPage.isSignUpTextDisplayed());
+            Assert.assertEquals(footerPage.getSignUpHintText(), TestData.SIGN_UP_HINT_TEXT);
+            if (!account.equals(TestData.INVALID_EMAIL) ) {
+                Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
+            } else {
+                Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
+                footerPage.typeEmail(account);
+            }
+            testSendButton(account);
 
-        footerPage.clearSubscriptionEmail();
-        footerPage.clickSendButton();
-        Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.REQUIRED_EMAIL_ERROR_TEXT);
+            footerPage.clearSubscriptionEmail();
+            footerPage.clickSendButton();
+            Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.REQUIRED_EMAIL_ERROR_TEXT);
 
-        footerPage.typeEmail(TestData.NEW_COLLECTION_NAME);
-        Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.VALID_EMAIL_ERROR_TEXT);
+            footerPage.typeEmail(TestData.NEW_COLLECTION_NAME);
+            Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.VALID_EMAIL_ERROR_TEXT);
     }
 
     private void testSendButton(String account) {
