@@ -261,6 +261,9 @@ public class FooterTest extends BaseTest {
 
         footerPage.clickOnVisualAndPerformingArtsLink();
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE);
+
+        footerPage.clickOnFreeLessonPlansLink();
+        Assert.assertEquals(browseBySubjectPage.getUrl(), TestData.FREE_LESSON_PLANS_PAGE_URL);
     }
 
     private void testDiscoverResourcesSection() {
@@ -321,33 +324,26 @@ public class FooterTest extends BaseTest {
 
     private void testLessonPlanetSocialLinks() {
         footerPage.clickOnLessonPlanetFacebookButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.FACEBOOK_LP_URL);
-        footerPage.closeTab();
+        testNewTabUrl(TestData.FACEBOOK_URL, TestData.LESSON_PLANET_TEXT[2]);
 
         footerPage.clickOnLessonPlanetTwitterButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.TWITTER_LP_URL);
-        footerPage.closeTab();
+        testNewTabUrl(TestData.TWITTER_URL, TestData.LESSON_PLANET_TEXT[0]);
 
         footerPage.clickOnLessonPlanetLinkedInButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.LINKEDIN_URL) && footerPage.getUrl().contains(TestData.LESSON_PLANET_TEXT));
-        footerPage.closeTab();
+        testNewTabUrl(TestData.LINKEDIN_URL, TestData.LESSON_PLANET_TEXT[1]);
 
         footerPage.clickOnLessonPlanetYoutubeButton();
-        footerPage.focusDriverToLastTab();
-        footerPage.waitForLinkToLoad();
-        Assert.assertEquals(footerPage.getUrl(), TestData.YOUTUBE_LP_URL);
-        footerPage.closeTab();
+        testNewTabUrl(TestData.YOUTUBE_URL, TestData.LESSON_PLANET_TEXT[0]);
 
         footerPage.clickOnLessonPlanetPinterestButton();
+        testNewTabUrl(TestData.PINTEREST_URL, TestData.LESSON_PLANET_TEXT[0]);
+    }
+
+    private void testNewTabUrl(String url, String lpText) {
+        footerPage.waitForNewTab();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(TestData.PINTEREST_LP_URL));
+        Assert.assertTrue(footerPage.getUrl().contains(url) && footerPage.getUrl().contains(lpText));
         footerPage.closeTab();
     }
 

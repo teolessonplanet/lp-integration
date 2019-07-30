@@ -33,6 +33,7 @@ public class FooterPage extends LpUiBasePage {
     private static final String SOCIAL_STUDIES_LINK = "[href*='/social-studies']";
     private static final String SPECIAL_EDUCATION_LINK = "[href*='/special-education']";
     private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[href*='/visual-and-performing-arts']";
+    private static final String FREE_LESSON_PLANS_LINK = "[href*='/free-resources']";
 
     private static final String OUR_REVIEW_PROCESS_LINK = "[class*='footer-col-content'] [href='/content/how_it_works']";
     private static final String HOW_IT_WORKS_LINK = "[class*='footer-col-content'] [href='/us/videos?autoplay=review']";
@@ -154,6 +155,10 @@ public class FooterPage extends LpUiBasePage {
 
     public void clickOnVisualAndPerformingArtsLink() {
         scrollToElementAndClick(VISUAL_AND_PERFORMING_ARTS_LINK);
+    }
+
+    public void clickOnFreeLessonPlansLink(){
+        scrollToElementAndClick(FREE_LESSON_PLANS_LINK);
     }
 
     public void clickOnOurReviewProcessLink() {
