@@ -1,5 +1,7 @@
 package com.lessonplanet.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
@@ -18,6 +20,8 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     private static final String FACETS_CATEGORIES = "[class='lp-filter-group parent-type_ids']";
     private static final String FACET_OPTIONS = "li";
+
+    private static final Logger logger = LogManager.getRootLogger();
 
     public DiscoverResourcesPage(WebDriver driver) {
         super(driver);
@@ -55,15 +59,23 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickOnListView() {
-        clickElement(LIST_VIEW_BUTTON);
+        clickViewModeButton(LIST_VIEW_BUTTON);
     }
 
     public void clickOnTiledView() {
-        clickElement(TILED_VIEW_BUTTON);
+        clickViewModeButton(TILED_VIEW_BUTTON);
     }
 
     public void clickOnThumbnailView() {
-        clickElement(THUMBNAIL_VIEW_BUTTON);
+        clickViewModeButton(THUMBNAIL_VIEW_BUTTON);
+    }
+
+    private void clickViewModeButton(String cssSelector) {
+        try {
+            clickElement(cssSelector);
+        } catch (Exception ex) {
+            logger.info("The desired view mode is already selected " + ex.toString());
+        }
     }
 
     public void clickSeeCollection(boolean inANewTab) {
