@@ -38,7 +38,7 @@ public class SearchTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-494:Keyword search")
+    @Test(description = "Visitor - Search Page - lessonp-494: Keyword search")
     public void testLessonp_494() {
         lpHomePage.loadPage();
         lpHomePage.typeSearchText(TestData.INVALID_SEARCH_WORD);
@@ -54,7 +54,7 @@ public class SearchTest extends BaseTest {
         Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-493:Keywordless search")
+    @Test(description = "Visitor - Search Page - lessonp-493: Keywordless search")
     public void testLessonp_493() {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
@@ -63,7 +63,7 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(TestData.TOTAL_RESOURCES_PER_PAGE, discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode());
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-487:Cards layout")
+    @Test(description = "Visitor - Search Page - lessonp-487: Cards layout")
     public void testLessonp_487() {
         lpHomePage.loadPage();
         lpHomePage.clickOnSearch();
@@ -76,35 +76,35 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-4747:User clicks result card")
+    @Test(description = "Visitor - Search Page - lessonp-4747: User clicks result card")
     public void testLessonp_4747() {
         testUserClicksResultCard(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-503:User clicks result card")
+    @Test(description = "Free member - Search Page - lessonp-503: User clicks result card")
     public void testLessonp_503() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testUserClicksResultCard(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-601:User clicks result card")
+    @Test(description = "Active user - Search Page - lessonp-601: User clicks result card")
     public void testLessonp_601() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testUserClicksResultCard(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-491:User clicks 'See Review' footer button (LP resource)")
+    @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)")
     public void testLessonp_491() {
         testSeeReviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-505:User clicks 'See Review' footer button (LP resource)")
+    @Test(description = "Free member - Search Page - lessonp-505: User clicks 'See Review' footer button (LP resource)")
     public void testLessonp_505() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSeeReviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-490:User clicks 'Get Free Access' footer button")
+    @Test(description = "Visitor - Search Page - lessonp-490: User clicks 'Get Free Access' footer button")
     public void testLessonp_490() {
         reachSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
@@ -115,7 +115,7 @@ public class SearchTest extends BaseTest {
         stepOneModal.clickCloseModal();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-504:User clicks 'Get Free Access' footer button")
+    @Test(description = "Free member - Search Page - lessonp-504: User clicks 'Get Free Access' footer button")
     public void testLessonp_504() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         reachSearchPageInListView();
@@ -126,60 +126,60 @@ public class SearchTest extends BaseTest {
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - 996:User clicks 'See Preview' footer button (Shared resource)")
+    @Test(description = "Visitor - Search Page - lessonp-996: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_996() {
         reachSearchPageInListView();
         testSeePreviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - 998:User clicks 'See Preview' footer button (Shared resource)")
+    @Test(description = "Free member - Search Page - lessonp-998: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_998() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSeePreviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - 603:User clicks 'See Preview' footer button (Shared resource)")
+    @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_603() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSeePreviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - 997:User clicks 'Go to Resource' footer button (Shared resource)")
+    @Test(description = "Visitor - Search Page - lessonp-997: User clicks 'Go to Resource' footer button (Shared resource)")
     public void testLessonp_997() {
         testGoToResourceButtonForSharedResource();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - 999:User clicks 'Go to Resource' footer button (Shared resource)")
+    @Test(description = "Free member - Search Page - lessonp-999: User clicks 'Go to Resource' footer button (Shared resource)")
     public void testLessonp_999() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testGoToResourceButtonForSharedResource();
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - 602:User clicks 'Go to Resource' footer button (Shared/regular resource)")
+    @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)")
     public void testLessonp_602() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testGoToResourceButtonForSharedResource();
         testGoToResourceButtonForRegularResource();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - 492:User clicks 'See Collection' footer button (Collection)")
+    @Test(description = "Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_492() {
         testSeeCollection();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - 507:User clicks 'See Collection' footer button (Collection)")
+    @Test(description = "Freemium - Search Page - lessonp-507: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_507() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSeeCollection();
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - 605:User clicks 'See Collection' footer button (Collection)")
+    @Test(description = "Active user - Search Page - lessonp-605: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_605() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSeeCollection();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - 506:User clicks 'Free: Full Access Review' footer button")
+    @Test(description = "Free member - Search Page - lessonp-506: User clicks 'Free: Full Access Review' footer button")
     public void testLessonp_506() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         reachSearchPageInListView();
@@ -191,64 +191,64 @@ public class SearchTest extends BaseTest {
         checkRrpSample(false, true, false);
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - 604:User clicks 'See Full Review' footer button")
+    @Test(description = "Active user - Search Page - lessonp-604: User clicks 'See Full Review' footer button")
     public void testLessonp_604() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSeeFullReviewButton();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3956:Cards details - LP resource")
+    @Test(description = "Visitor - Search Page - lessonp-3956: Cards details - LP resource")
     public void testLessonp_3956() {
         testLpResource(TestData.INVALID_EMAIL, false);
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3957:Cards details - Collection")
+    @Test(description = "Visitor - Search Page - lessonp-3957: Cards details - Collection")
     public void testLessonp_3957() {
         testCollectionResource();
     }
 
-    @Test(description = "LP - Regression Tests - Visitor - Search Page - lessonp-3958:Cards details - Shared resource")
+    @Test(description = "Visitor - Search Page - lessonp-3958: Cards details - Shared resource")
     public void testLessonp_3958() {
         testSharedResource();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3993:Cards details - LP resource")
+    @Test(description = "Free member - Search Page - lessonp-3993: Cards details - LP resource")
     public void testLessonp_3993() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testLpResource(TestData.VALID_EMAIL_FREEMIUM, false);
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-4002:Cards details - Sample resource")
+    @Test(description = "Free member - Search Page - lessonp-4002:Cards details - Sample resource")
     public void testLessonp_4002() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testLpResource(TestData.VALID_EMAIL_FREEMIUM, true);
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3994:Cards details - Collection")
+    @Test(description = "Free member - Search Page - lessonp-3994: Cards details - Collection")
     public void testLessonp_3994() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testCollectionResource();
     }
 
-    @Test(description = "LP - Regression Tests - Freemium - Search Page - lessonp-3995:Cards details - Shared resource")
+    @Test(description = "Free member - Search Page - lessonp-3995: Cards details - Shared resource")
     public void testLessonp_3995() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSharedResource();
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4007:Cards details - LP resource")
+    @Test(description = "Active user - Search Page - lessonp-4007:Cards details - LP resource")
     public void testLessonp_4007() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testLpResource(TestData.VALID_EMAIL_ADMIN, false);
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4008:Cards details - Collection")
+    @Test(description = "Active user - Search Page - lessonp-4008: Cards details - Collection")
     public void testLessonp_4008() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testCollectionResource();
     }
 
-    @Test(description = "LP - Regression Tests - Active user - Search Page - lessonp-4009:Cards details - Shared resource")
+    @Test(description = "Active user - Search Page - lessonp-4009: Cards details - Shared resource")
     public void testLessonp_4009() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSharedResource();

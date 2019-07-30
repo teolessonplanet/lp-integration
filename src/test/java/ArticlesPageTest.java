@@ -4,23 +4,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class ArticlesTest extends BaseTest{
+public class ArticlesPageTest extends BaseTest{
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private ArticlesPage articlesPage;
-    private DirectoryCategoriesAndSubcategoriesTest directoryCategoriesAndSubcategoriesTest ;
+    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest ;
     private RRPSearchPageTest rrpSearchPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         headerPage = new HeaderPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
-        directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesTest();
+        directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
         rrpSearchPageTest = new RRPSearchPageTest();
     }
 
-    @Test(description = "Automation Test Suite - Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
+    @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
     public void testLessonp_3331() {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
@@ -58,7 +58,7 @@ public class ArticlesTest extends BaseTest{
         Assert.assertTrue(articlesPage.isArticleCardDateDisplayed());
     }
 
-    @Test(description = "Automation Test Suite - Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
+    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
     public void testLessonp_3398() {
         articlesPage.loadPage();
         String articleCardTitle = articlesPage.getArticleCardTitle(0);

@@ -22,8 +22,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         rsl_contentManagerPage = new RSL_ContentManagerPage(webDriver);
         rrpPage = new RrpPage(webDriver);
     }
-
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4016:Cards details - LP resource")
+    @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
     public void testLessonp_4016() {
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
@@ -51,7 +50,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.isResourceStandardDisplayed(firstResource));
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-1271:Cards list")
+    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
     public void testLessonp_1271() {
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
@@ -84,7 +83,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rrpPage.isTitleDisplayed());
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-5076:Search")
+    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search")
     public void testLessonp_5076() {
 
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
@@ -102,7 +101,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.getTotalResourcesFound() > TestData.ZERO_RESOURCES_FOUND);
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-5078:Sort By")
+    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By")
     public void testLessonp_5078() {
 
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);

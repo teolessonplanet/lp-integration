@@ -20,9 +20,9 @@ public class RRPSearchPageTest extends BaseTest{
     private LoginPage loginPage;
     private CreateNewCollectionModal createNewCollectionModal;
     private UpgradeMaxCollectionModal upgradeMaxCollectionModal;
-    private DirectoryCategoriesAndSubcategoriesTest directoryCategoriesAndSubcategoriesTest;
+    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
     private LpHomePage lpHomePage;
-    private CurriculumManagerTest curriculumManagerTest;
+    private CurriculumManagerPageTest curriculumManagerTest;
     private StepTwoPage stepTwoPage;
     private ResourcePreviewPage resourcePreviewPage;
 
@@ -41,9 +41,9 @@ public class RRPSearchPageTest extends BaseTest{
         loginPage = new LoginPage(webDriver);
         createNewCollectionModal = new CreateNewCollectionModal(webDriver);
         upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
-        directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesTest();
+        directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
-        curriculumManagerTest = new CurriculumManagerTest();
+        curriculumManagerTest = new CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
         resourcePreviewPage = new ResourcePreviewPage(webDriver);
     }
@@ -53,21 +53,21 @@ public class RRPSearchPageTest extends BaseTest{
         beforeMethod();
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview]: lessonp-467: Resource Modal Overview")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-467: Resource Modal Overview")
     public void testLessonp_467() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview] - lessonp-1282: Shared Resource Modal Overview")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-1282: Shared Resource Modal Overview")
     public void testLessonp_1282() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Overview] - lessonp-468: Collection Modal Overview")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-468: Collection Modal Overview")
     public void testLessonp_468() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -75,7 +75,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(true);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Overview]: lessonp-475: Resource Static Page Overview")
+    @Test(description = "Visitor - Search Page - RRP Static - RRP Overview - lessonp-475: Resource Static Page Overview")
     public void testLessonp_475() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
@@ -84,7 +84,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static  - RRP Overview]: lessonp-944: Shared Resource Static Page Overview")
+    @Test(description = "Visitor - Search Page - RRP Static  - RRP Overview - lessonp-944: Shared Resource Static Page Overview")
     public void testLessonp_944() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
@@ -94,7 +94,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static  - RRP Overview]: lessonp-476: Collection Static Page Overview")
+    @Test(description = "Visitor - Search Page - RRP Static  - RRP Overview - lessonp-476: Collection Static Page Overview")
     public void testLessonp_476() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -102,7 +102,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(false);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-469: Main buttons")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-469: LP Resource Main buttons")
     public void testLessonp_469() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
@@ -112,7 +112,7 @@ public class RRPSearchPageTest extends BaseTest{
         testRegularResourceRRPNavigationButtonsSearchPage();
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-1254: Main buttons")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-1254: Shared Resource Main buttons")
     public void testLessonp_1254() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
@@ -122,7 +122,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSharedResourceRRPNavigationButtonsSearchPage();
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-473: Main buttons")
+    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons")
     public void testLessonp_473() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -135,7 +135,7 @@ public class RRPSearchPageTest extends BaseTest{
         testItemViewerSection(true);
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4603: Main buttons")
+    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4603: LP Resource Main buttons")
     public void testLessonp_4603() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
@@ -147,7 +147,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4608: Main Buttons")
+    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4608: Shared Resource Main Buttons")
     public void testLessonp_4608() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
@@ -161,7 +161,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Automation Test Suite: Visitor: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4609: Main buttons")
+    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4609: Collection Main buttons")
     public void testLessonp_4609() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -173,7 +173,7 @@ public class RRPSearchPageTest extends BaseTest{
         testItemViewerSection(false);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview]: lessonp-523: Resource Modal Overview")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-523: Resource Modal Overview")
     public void testLessonp_523() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -181,7 +181,7 @@ public class RRPSearchPageTest extends BaseTest{
         testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview]: lessonp-535: Free Sample Modal Overview")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-535: Free Sample Modal Overview")
     public void testLessonp_535() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -189,7 +189,7 @@ public class RRPSearchPageTest extends BaseTest{
         testFreeSampleResourceRRPOverview(true);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview] - lessonp-952: Shared Resource Modal Overview")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-952: Shared Resource Modal Overview")
     public void testLessonp_952() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -197,7 +197,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Overview] - lessonp-524: Collection Modal Overview")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-524: Collection Modal Overview")
     public void testLessonp_524() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadSearchPageInListView();
@@ -206,7 +206,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(true);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Overview]: lessonp-515: Resource Static Page Overview")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-515: Resource Static Page Overview")
     public void testLessonp_515() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -216,7 +216,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page:  [RRP Static - RRP Overview]: lessonp-531: Free Sample Static Page Overview")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-531: Free Sample Static Page Overview")
     public void testLessonp_531() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -227,7 +227,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static  - RRP Overview]: lessonp-950: Shared Resource Static Page Overview")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-950: Shared Resource Static Page Overview")
     public void testLessonp_950() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -238,7 +238,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Overview]: lessonp-516: Collection Static Page Overview")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-516: Collection Static Page Overview")
     public void testLessonp_516() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadSearchPageInListView();
@@ -247,7 +247,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(false);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-4664: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4664: LP Resource Main buttons")
     public void testLessonp_4664() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -258,7 +258,7 @@ public class RRPSearchPageTest extends BaseTest{
         testThumbnailForRegularResource(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - FreeSample Resources]: lessonp-4663: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4663: FreeSample Resource Main buttons")
     public void testLessonp_4663() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -269,7 +269,7 @@ public class RRPSearchPageTest extends BaseTest{
         testAddToCollectionDropdown(true);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-4666: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4666: Shared Resource Main buttons")
     public void testLessonp_4666() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -280,7 +280,7 @@ public class RRPSearchPageTest extends BaseTest{
         testGoToResourceButtonForSharedResource(true);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-4667: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4667: Collection  Main buttons")
     public void testLessonp_4667() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -297,7 +297,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSaveCollectionButton(true, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4670: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4670: LP Resource Main buttons")
     public void testLessonp_4670() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -310,7 +310,7 @@ public class RRPSearchPageTest extends BaseTest{
         testStartYourFreeTrialUpgradeMeButton();
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - FreeSample Resources]: lessonp-4669: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4669: FreeSample Resource Main buttons")
     public void testLessonp_4669() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -325,7 +325,7 @@ public class RRPSearchPageTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4671: Main Buttons")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons  - lessonp-4671: Shared Resource Main Buttons")
     public void testLessonp_4671() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -340,7 +340,7 @@ public class RRPSearchPageTest extends BaseTest{
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Freemium: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4668: Main buttons")
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4668: Collection Main buttons")
     public void testLessonp_4668() {
         createAFreeMemberAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -356,7 +356,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSaveCollectionButton(false, TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview]: lessonp-586: Resource Modal Overview")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-586: Resource Modal Overview")
     public void testLessonp_586() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -364,7 +364,7 @@ public class RRPSearchPageTest extends BaseTest{
         testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview] - lessonp-954: Shared Resource Modal Overview")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-954: Shared Resource Modal Overview")
     public void testLessonp_954() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -372,7 +372,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Overview] - lessonp-587: Collection Modal Overview")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-587: Collection Modal Overview")
     public void testLessonp_587() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -381,7 +381,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(true);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Overview]: lessonp-4795: Resource Static Page Overview")
+    @Test(description = "Active user - Search Page - RRP Static - RRP Overview - lessonp-4795: Resource Static Page Overview")
     public void testLessonp_4795() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -391,7 +391,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static  - RRP Overview ]: lessonp-4796: Shared Resource Static Page Overview")
+    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview")
     public void testLessonp_4796() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -401,7 +401,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static  - RRP Overview ]: lessonp-4797: Collection Static Page Overview")
+    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4797: Collection Static Page Overview")
     public void testLessonp_4797() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -410,7 +410,7 @@ public class RRPSearchPageTest extends BaseTest{
         testPanelItemsOverview(false);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - LP Resources]: lessonp-4792: Main buttons")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4792: LP Resource Main buttons")
     public void testLessonp_4792() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -421,7 +421,7 @@ public class RRPSearchPageTest extends BaseTest{
         testGoToResourceButtonForRegularResource(true);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - Shared Resources]: lessonp-4794: Main buttons")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4794: Shared Resource Main buttons")
     public void testLessonp_4794() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -432,7 +432,7 @@ public class RRPSearchPageTest extends BaseTest{
         testGoToResourceButtonForSharedResource(true);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Modal - RRP Buttons - Collections]: lessonp-473: Main buttons")
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons")
     public void testLessonp_4793() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -448,7 +448,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSaveCollectionButton(true, TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - LP Resources]: lessonp-4805: Main buttons")
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4805: LP Resource Main buttons")
     public void testLessonp_4805() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -461,7 +461,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSeeSimilarResourcesDropdown();
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - Shared Resources]: lessonp-4811: Main Buttons")
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4811: Shared Resource Main Buttons")
     public void testLessonp_4811() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();
@@ -474,7 +474,7 @@ public class RRPSearchPageTest extends BaseTest{
         testSeeSimilarResourcesDropdown();
     }
 
-    @Test(description = "Automation Test Suite: Active: Search Page: [RRP Static - RRP Buttons - Collections]: lessonp-4817: Main buttons")
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4817: Collection Main buttons")
     public void testLessonp_4817() {
         createAnActiveAccount();
         discoverResourcesPage.loadSearchPageInListView();

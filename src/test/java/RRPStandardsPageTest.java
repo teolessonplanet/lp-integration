@@ -20,7 +20,7 @@ public class RRPStandardsPageTest extends BaseTest{
         correlatedResourcesPage.loadPage(TestData.COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH);
     }
 
-    @Test(description = "Visitor: [Standards: RRP Modal - RRP Overview]: lessonp-3411: Resource Modal Overview")
+    @Test(description = "Visitor - State Standards Page - RRP Modal - lessonp-3411: Resource Modal Overview")
     public void testLessonp_3411() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(false);
@@ -28,7 +28,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Standards: RRP Static - RRP Overview]: lessonp-3428: Resource Static Page Overview)")
+    @Test(description = "Visitor - State Standards Page - RRP Static - lessonp-3428: Resource Static Page Overview)")
     public void testLessonp_3428() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(true);
@@ -38,7 +38,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Standards: RRP Modal - RRP Buttons]: lessonp-4614: Main Buttons")
+    @Test(description = "Visitor - State Standards Page - RRP Modal - lessonp-4614: Main Buttons")
     public void testLessonp_4614() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(false);
@@ -48,7 +48,7 @@ public class RRPStandardsPageTest extends BaseTest{
         rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Standards: RRP Static - RRP Buttons]: lessonp-4615: Main Buttons")
+    @Test(description = "Visitor - State Standards Page - RRP Static - lessonp-4615: Main Buttons")
     public void testLessonp_4615() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(true);

@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class DirectoryTest extends BaseTest {
+public class DirectoryMainPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
@@ -23,73 +23,73 @@ public class DirectoryTest extends BaseTest {
         categoryModal = new CategoryModal(webDriver);
     }
 
-    @Test(description = "Visitor - Directory Page - lessonp-1015:Page UI")
+    @Test(description = "Visitor - Directory Page - Main Page - lessonp-1015: Page UI")
     public void testLessonp_1015() {
         lpHomePage.loadPage();
         testPageUi();
     }
 
-    @Test(description = "Freemium - Directory Page - lessonp-1035:Page UI")
+    @Test(description = "Free member - Directory Page - Main Page - lessonp-1035: Page UI")
     public void testLessonp_1035() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testPageUi();
     }
 
-    @Test(description = "Active user - Directory Page - lessonp-1040:Page UI")
+    @Test(description = "Active user - Directory Page - Main Page - lessonp-1040: Page UI")
     public void testLessonp_1040() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testPageUi();
     }
 
-    @Test(description = "Freemium - Directory Page - lessonp-1330:Tumbnails")
+    @Test(description = "Free member - Directory Page - Main Page - lessonp-1330: Tumbnails")
     public void testLessonp_1030() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testThumbnails();
     }
 
-    @Test(description = "Active user - Directory Page - lessonp-1041:Tumbnails")
+    @Test(description = "Active user - Directory Page - Main Page - lessonp-1041: Tumbnails")
     public void testLessonp_1041() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testThumbnails();
     }
 
-    @Test(description = "Freemium - Directory Page - lessonp-1331:Links")
+    @Test(description = "Free member - Directory Page - Main Page - lessonp-1331: Links")
     public void testLessonp_1331() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testLinks();
     }
 
-    @Test(description = "Active user - Directory Page - lessonp-1042:Links")
+    @Test(description = "Active user - Directory Page - Main Page - lessonp-1042: Links")
     public void testLessonp_1042() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testLinks();
     }
 
-    @Test(description = "Freemium - Directory Page - lessonp-1332:Show All button")
+    @Test(description = "Free member - Directory Page - Main Page - lessonp-1332: Show All button")
     public void testLessonp_1332() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testShowAllButton();
     }
 
-    @Test(description = "Active user - Directory Page - lessonp-1043:Show All button")
+    @Test(description = "Active user - Directory Page - Main Page - lessonp-1043: Show All button")
 
     public void testLessonp_1043() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testShowAllButton();
     }
 
-    @Test(description = "Visitor - Directory Page - lessonp-1018:Categories modal")
+    @Test(description = "Visitor - Directory Page - Main Page - lessonp-1018: Categories modal")
     public void testLessonp_1018() {
         testCategoriesModal();
     }
 
-    @Test(description = "Freemium - Directory Page - lessonp-1039:Categories modal")
+    @Test(description = "Free member - Directory Page - Main Page - lessonp-1039: Categories modal")
     public void testLessonp_1039() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testCategoriesModal();
     }
 
-    @Test(description = "Active user - Directory Page - lessonp-1044:Categories modal")
+    @Test(description = "Active user - Directory Page - Main Page - lessonp-1044: Categories modal")
     public void testLessonp_1044() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testCategoriesModal();

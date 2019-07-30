@@ -4,8 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class AccountManagerTest extends BaseTest {
-    private HeaderPage headerPage;
+public class RSL_AccountManagerTest extends BaseTest {
     private LoginPage loginPage;
     private SchoolPage schoolPage;
     private DistrictPage districtPage;
@@ -25,7 +24,6 @@ public class AccountManagerTest extends BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        headerPage = new HeaderPage(webDriver);
         loginPage = new LoginPage(webDriver);
         schoolPage = new SchoolPage(webDriver);
         districtPage = new DistrictPage(webDriver);
@@ -44,7 +42,7 @@ public class AccountManagerTest extends BaseTest {
         removeTeacherModal = new RemoveTeacherModal(webDriver);
     }
 
-    @Test(description = "District Page - lessonp-918: District Page, Add School, Remove School")
+    @Test(description = "Regular SL - Account Manager - lessonp-918: District Page, Add School, Remove School")
     public void testLessonp_918() {
         reachAccountManagerPage();
         Assert.assertTrue(districtPage.isOrganizationNameDisplayed());
@@ -85,7 +83,7 @@ public class AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "District Page - lessonp-901: Edit District, Search in district")
+    @Test(description = "Regular SL - Account Manager - lessonp-901: Edit District, Search in district")
     public void testLessonp_901() {
         reachAccountManagerPage();
         districtPage.clickOnEditOrganizationButton();
@@ -107,7 +105,7 @@ public class AccountManagerTest extends BaseTest {
         testSearchButtonFromDistrictPage(TestData.OWNER_FIRST_NAME + " " + TestData.OWNER_LAST_NAME);
     }
 
-    @Test(description = "District Page - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
+    @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
     public void testLessonp_904() {
         reachAccountManagerPage();
         districtPage.clickOnManageAdminsButton();
@@ -118,7 +116,7 @@ public class AccountManagerTest extends BaseTest {
         Assert.assertEquals(districtPage.getOrganizationName(), TestData.DISTRICT_NAME);
     }
 
-    @Test(description = "School Page - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher")
+    @Test(description = "Regular SL - Account Manager - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher")
     public void testLessonp_920() {
         reachAccountManagerPage();
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME());
@@ -138,7 +136,7 @@ public class AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "School Page - lessonp-895: Edit School, Search in School")
+    @Test(description = "Regular SL - Account Manager - lessonp-895: Edit School, Search in School")
     public void testLessonp_895() {
         reachAccountManagerPage();
         testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME());
@@ -154,7 +152,7 @@ public class AccountManagerTest extends BaseTest {
         testSearchButtonFromSchoolPage(TestData.TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME);
     }
 
-    @Test(description = "School Page - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
+    @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
     public void testLessonp_924() {
         reachAccountManagerPage();
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME());
@@ -211,9 +209,9 @@ public class AccountManagerTest extends BaseTest {
         addADistrictAdminModal.typeEmail(TestData.NEW_COLLECTION_NAME);
         addADistrictAdminModal.waitForNotificationToBeDisplayed(TestData.VALID_EMAIL_FORMAT_ERROR_TEXT);
         addADistrictAdminModal.clearEmail();
-        addADistrictAdminModal.typeEmail(TestData.VALID_EMAIL_FREEMIUM);
+        addADistrictAdminModal.typeEmail(TestData.VALID_EMAIL_ACTIVE);
         addADistrictAdminModal.clickOnAddButton();
-        Assert.assertEquals(manageDistrictAdminsPage.getAdminEmail(1), TestData.VALID_EMAIL_FREEMIUM);
+        Assert.assertEquals(manageDistrictAdminsPage.getAdminEmail(1), TestData.VALID_EMAIL_ACTIVE);
         Assert.assertTrue(districtPage.getNotificationText().contains(TestData.CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT));
         districtPage.dismissNotification();
     }
@@ -453,11 +451,11 @@ public class AccountManagerTest extends BaseTest {
         addASchoolAdminModal.typeEmail(TestData.NEW_COLLECTION_NAME);
         addASchoolAdminModal.waitForNotificationToBeDisplayed(TestData.VALID_EMAIL_FORMAT_ERROR_TEXT);
         addASchoolAdminModal.clearEmail();
-        addASchoolAdminModal.typeEmail(TestData.VALID_EMAIL_FREEMIUM);
+        addASchoolAdminModal.typeEmail(TestData.VALID_EMAIL_ACTIVE);
         addASchoolAdminModal.clickOnAddButton();
         Assert.assertTrue(schoolPage.getNotificationText().contains(TestData.CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT));
         districtPage.dismissNotification();
-        Assert.assertEquals(manageSchoolAdminsPage.getAdminEmail(0), TestData.VALID_EMAIL_FREEMIUM);
+        Assert.assertEquals(manageSchoolAdminsPage.getAdminEmail(0), TestData.VALID_EMAIL_ACTIVE);
     }
 
     private void testRemoveSchoolAdmin() {

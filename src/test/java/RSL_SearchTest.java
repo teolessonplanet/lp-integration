@@ -14,21 +14,21 @@ public class RSL_SearchTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4016:Cards details - LP resource")
+    @Test(description = "Regular SL - Search Page - lessonp-4016: Cards details - LP resource")
     public void testLessonp_4016() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         searchTest.testLpResource(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE,false);
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4017:Cards details - Collection")
+    @Test(description = "Regular SL - Search Page - lessonp-4017: Cards details - Collection")
     public void testLessonp_4017() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         searchTest.testCollectionResource();
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4038:User clicks See Collection footer button")
+    @Test(description = "Regular SL - Search Page - lessonp-4038: User clicks See Collection footer button")
     public void testLessonp_4038() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
@@ -36,7 +36,7 @@ public class RSL_SearchTest extends BaseTest {
         searchTest.testSeeCollection();
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4039:User clicks 'Go to Resource' footer button")
+    @Test(description = "Regular SL - Search Page - lessonp-4039: User clicks 'Go to Resource' footer button")
     public void testLessonp_4039() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
@@ -44,7 +44,7 @@ public class RSL_SearchTest extends BaseTest {
         searchTest.testGoToResourceButtonForRegularResource();
     }
 
-    @Test(description = "LP - Regression Tests - Admin Manager - Search Page - lessonp-4040:User clicks 'See Full Review' footer button")
+    @Test(description = "Regular SL - Search Page - lessonp-4040: User clicks 'See Full Review' footer button")
     public void testLessonp_4040() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);

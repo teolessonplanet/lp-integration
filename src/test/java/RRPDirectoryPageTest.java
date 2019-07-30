@@ -27,7 +27,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEARCH_PATH);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Modal - RRP Overview]: lessonp-3284: Resource Modal Overview")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3284: Resource Modal Overview")
     public void testLessonp_3284() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
@@ -35,7 +35,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Modal - RRP Overview]: lessonp-3285: Collection Modal Overview")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3285: Collection Modal Overview")
     public void testLessonp_3285() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(false);
@@ -44,7 +44,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testPanelItemsOverview(true);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Static - RRP Overview]: lessonp-3308: Resource Static Page Overview)")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Overview: lessonp-3308: Resource Static Page Overview)")
     public void testLessonp_3308() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
@@ -54,7 +54,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Static - RRP Overview]: lessonp-3309: Collection Static Page Overview")
+    @Test(description = "Visitor - Directory Page  - RRP Static - RRP Overview: lessonp-3309: Collection Static Page Overview")
     public void testLessonp_3309() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
@@ -63,7 +63,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testPanelItemsOverview(false);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Modal - RRP Buttons -LP Resources]: lessonp-4612: Main Buttons")
+    @Test(description = " Visitor - Directory Page - RRP Modal - RRP Buttons: lessonp-4612: LP Resource Main Buttons")
     public void testLessonp_4612() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
@@ -74,7 +74,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Modal - RRP Buttons - Collections]: lessonp-4611: Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons")
     public void testLessonp_4611() {
         reachDirectoryPage();
         String firstCollectionCardTitle = browseBySubjectPage.getCollectionCardTitle(0);
@@ -90,7 +90,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testItemViewerSection(true);
     }
 
-    @Test(description = "Visitor: [Directory: RRP Static - RRP Buttons - LP Resources]: lessonp-4610: Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4610: LP Resource Main Buttons")
     public void testLessonp_4610() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
@@ -103,7 +103,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Visitor: [Directory: RRP Static - RRP Buttons - Collections]: lessonp-4613: Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons")
     public void testLessonp_4613() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
