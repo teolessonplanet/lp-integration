@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -41,12 +42,6 @@ public class FooterTest extends BaseTest {
         testFooterContainer(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4150:Footer structure")
-    public void testLessonp_4150() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        testFooterContainer(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
-    }
-
     @Test(description = "Visitor - Footer - lessonp-659:Open Educational Resources")
     public void testLessonp_659() {
         lpHomePage.loadPage();
@@ -62,12 +57,6 @@ public class FooterTest extends BaseTest {
     @Test(description = "Active user - Footer - lessonp-671:Open Educational Resources")
     public void testLessonp_671() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testOpenEducationalResourcesSection();
-    }
-
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4151:Open Educational Resources")
-    public void testLessonp_4151() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         testOpenEducationalResourcesSection();
     }
 
@@ -89,12 +78,6 @@ public class FooterTest extends BaseTest {
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp4152:Discover Resources")
-    public void testLessonp_4152() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        testDiscoverResourcesSection();
-    }
-
     @Test(description = "Visitor - Footer - lessonp-658:Manage Curriculum")
     public void testLessonp_658() {
         lpHomePage.loadPage();
@@ -110,12 +93,6 @@ public class FooterTest extends BaseTest {
     @Test(description = "Active user - Footer - lessonp-670:Manage Curriculum")
     public void testLessonp_670() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testManageCurriculumSection();
-    }
-
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4153:Manage Curriculum")
-    public void testLessonp_4153() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         testManageCurriculumSection();
     }
 
@@ -137,12 +114,6 @@ public class FooterTest extends BaseTest {
         testBottomFooterLinks();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4154:Bottom footer links")
-    public void testLessonp_4154() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        testBottomFooterLinks();
-    }
-
     @Test(description = "Visitor - Footer - lessonp-4034:Social links")
     public void testLessonp_4034() {
         lpHomePage.loadPage();
@@ -158,12 +129,6 @@ public class FooterTest extends BaseTest {
     @Test(description = "Active user - Footer - lessonp-4118:Social links")
     public void testLessonp_4118() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testLessonPlanetSocialLinks();
-    }
-
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4155:Social links")
-    public void testLessonp_4155() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         testLessonPlanetSocialLinks();
     }
 
@@ -185,12 +150,6 @@ public class FooterTest extends BaseTest {
         testLpLogo();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer -  lessonp-4156:LE Logo")
-    public void testLessonp_4156() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        testRegularSlLogo();
-    }
-
     @Test(description = "Visitor - Footer - lessonp-4036:Newsletter")
     public void testLessonp_4036() {
         lpHomePage.loadPage();
@@ -209,7 +168,12 @@ public class FooterTest extends BaseTest {
         testSendEmailNewsletter(TestData.VALID_EMAIL_ADMIN);
     }
 
-    private void testFooterContainer(String account) {
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
+    }
+
+    public void testFooterContainer(String account) {
         if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
             Assert.assertTrue(footerPage.isLpLogoDisplayed());
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
@@ -234,7 +198,7 @@ public class FooterTest extends BaseTest {
         Assert.assertTrue(footerPage.isPinterestButtonDisplayed());
     }
 
-    private void testOpenEducationalResourcesSection() {
+    public void testOpenEducationalResourcesSection() {
         footerPage.clickOnHealthLink();
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
 
@@ -266,7 +230,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(browseBySubjectPage.getUrl(), TestData.FREE_LESSON_PLANS_PAGE_URL);
     }
 
-    private void testDiscoverResourcesSection() {
+    public void testDiscoverResourcesSection() {
         footerPage.clickOnOurReviewProcessLink();
         Assert.assertEquals(lpHomePage.getPath(), TestData.OUR_REVIEW_PROCESS_PAGE_PATH);
 
@@ -286,7 +250,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.CREATE_A_COLLECTION_PAGE_PATH);
     }
 
-    private void testManageCurriculumSection() {
+    public void testManageCurriculumSection() {
         footerPage.clickOnEditACollectionLink();
         videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
@@ -308,7 +272,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);
     }
 
-    private void testBottomFooterLinks() {
+    public void testBottomFooterLinks() {
         footerPage.clickOnContactUsButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
 
@@ -322,7 +286,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
     }
 
-    private void testLessonPlanetSocialLinks() {
+    public void testLessonPlanetSocialLinks() {
         footerPage.clickOnLessonPlanetFacebookButton();
         testNewTabUrl(TestData.FACEBOOK_URL, TestData.LESSON_PLANET_TEXT[2]);
 
@@ -339,7 +303,7 @@ public class FooterTest extends BaseTest {
         testNewTabUrl(TestData.PINTEREST_URL, TestData.LESSON_PLANET_TEXT[0]);
     }
 
-    private void testNewTabUrl(String url, String lpText) {
+    public void testNewTabUrl(String url, String lpText) {
         footerPage.waitForNewTab();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
@@ -347,7 +311,7 @@ public class FooterTest extends BaseTest {
         footerPage.closeTab();
     }
 
-    private void testLpLogo() {
+    public void testLpLogo() {
         Assert.assertTrue(footerPage.isLpLogoDisplayed());
         Assert.assertEquals(footerPage.getCopyrightText(), TestData.COPYRIGHT_TEXT);
         footerPage.clickOnLessonPlanetLogo(false);
@@ -356,7 +320,7 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
         }
 
-    private void testRegularSlLogo() {
+    public void testRegularSlLogo() {
         Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
         Assert.assertEquals(footerPage.getCopyrightText(), TestData.COPYRIGHT_TEXT);
         footerPage.clickOnRegularSlLogo(false);
