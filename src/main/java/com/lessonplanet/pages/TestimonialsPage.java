@@ -5,7 +5,7 @@ import util.TestData;
 
 public class TestimonialsPage extends LpUiBasePage {
 
-    public TestimonialsPage (WebDriver driver){
+    public TestimonialsPage(WebDriver driver) {
         super(driver);
     }
 

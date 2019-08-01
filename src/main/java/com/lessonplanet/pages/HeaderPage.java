@@ -220,6 +220,10 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(SEARCH_FILTER);
     }
 
+    public String getSearchFilter() {
+        return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
+    }
+
     public void setSearchFilter(String optionToSelect) {
         List<WebElement> options = findElements(SEARCH_FILTER_DROPDOWN_OPTIONS);
         for (WebElement option : options) {
@@ -228,10 +232,6 @@ public class HeaderPage extends LpUiBasePage {
                 break;
             }
         }
-    }
-
-    public String getSearchFilter() {
-        return getTextForElement(SEARCH_FILTER_DROPDOWN_SELECTED_OPTION);
     }
 
     public String getTryItFreeButtonBackgroundColor() {

@@ -8,6 +8,7 @@ import util.TestData;
 import java.util.List;
 
 public class AccountManagementTest extends BaseTest {
+    private static final int expectedDaysToExpire = 11;
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private StepOneModal stepOneModal;
@@ -37,10 +38,7 @@ public class AccountManagementTest extends BaseTest {
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
     private UpgradeAssignModal upgradeAssignModal;
-
     private CurriculumManagerPageTest curriculumManagerTest;
-
-    private static final int expectedDaysToExpire = 11;
 
     @BeforeMethod
     public void beforeMethod() {

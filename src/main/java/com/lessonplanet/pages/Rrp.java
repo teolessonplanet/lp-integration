@@ -8,19 +8,17 @@ import java.util.List;
 
 public class Rrp extends LpUiBasePage {
 
+    protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
+    protected static final String GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON = "[class*='panel-default panel-review'] a[class*='btn btn-success']";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
     private static final String FULL_REVIEW = "[class='rrp-banner'] [src*='rrp-banner-fullreview']";
     private static final String FREE_SAMPLE = "[class*='rrp-banner'] [src*='/assets/rrp/lp_badge']";
-
-    protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
-
     private static final String FAVORITE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-save-resource']";
     private static final String VISITOR_FAVORITE_BUTTON = "[class*='favorite-join'][data-title='Get Full Access']";
     private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
     private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
-    protected static final String GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON = "[class*='panel-default panel-review'] a[class*='btn btn-success']";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
 
     private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
