@@ -50,7 +50,7 @@ public class StepOnePage extends LpUiBasePage {
         return isElementClickable(ALREADY_A_MEMBER_BUTTON);
     }
 
-    public String getTitleText(){
+    public String getTitleText() {
         return getTextForElement(TITLE_TEXT);
     }
 }

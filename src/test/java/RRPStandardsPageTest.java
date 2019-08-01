@@ -3,7 +3,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class RRPStandardsPageTest extends BaseTest{
+public class RRPStandardsPageTest extends BaseTest {
     private RRPSearchPageTest rrpSearchPageTest;
     private CorrelatedResourcesPage correlatedResourcesPage;
     private DiscoverResourcesPage discoverResourcesPage;
@@ -15,7 +15,7 @@ public class RRPStandardsPageTest extends BaseTest{
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
 
-    private void reachCorrelatedResourcePage(){
+    private void reachCorrelatedResourcePage() {
         discoverResourcesPage.loadSearchPageInListView();
         correlatedResourcesPage.loadPage(TestData.COMMON_CORE_CORRELATED_RESOURCES_PAGE_PATH);
     }

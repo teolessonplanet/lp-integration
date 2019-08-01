@@ -1,4 +1,5 @@
 package com.lessonplanet.pages;
+
 import org.openqa.selenium.WebDriver;
 
 public class SignInPage extends LpUiBasePage {
@@ -8,7 +9,7 @@ public class SignInPage extends LpUiBasePage {
         super(driver);
     }
 
-    public String getTitleText(){
+    public String getTitleText() {
         return getTextForElement(TITLE_TEXT);
     }
 }

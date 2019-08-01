@@ -35,7 +35,7 @@ public class ArticlesPage extends LpUiBasePage {
     private static final String GUIDE_SECTION_CONTRIBUTOR_PHOTO = "#contributor-block [class='media-object pull-left']";
     private static final String GUIDE_SECTION_CONTRIBUTOR_NAME = "#contributor-block [class='media-body']";
 
-    public ArticlesPage (WebDriver driver) {
+    public ArticlesPage(WebDriver driver) {
         super(driver);
     }
 
@@ -47,19 +47,19 @@ public class ArticlesPage extends LpUiBasePage {
         return getTextForElement(LESSON_PLANNING_ARTICLES_TITLE);
     }
 
-    public boolean isLessonPlanningArticlesDescriptionDisplayed(){
+    public boolean isLessonPlanningArticlesDescriptionDisplayed() {
         return isElementDisplayed(LESSON_PLANNING_ARTICLES_DESCRIPTION);
     }
 
-    public String getArticleTopicPageTitle(){
+    public String getArticleTopicPageTitle() {
         return getTextForElement(LESSON_PLANNING_ARTICLES_TITLE);
     }
 
     public String getArticleTopics() {
-        return  getTextForElement(ARTICLE_TOPICS_SECTION_TEXT);
+        return getTextForElement(ARTICLE_TOPICS_SECTION_TEXT);
     }
 
-    public void clickOnArticleTopicLink(){
+    public void clickOnArticleTopicLink() {
         clickElement(ART_AND_MUSIC_TOPIC_LINK);
     }
 
@@ -84,31 +84,31 @@ public class ArticlesPage extends LpUiBasePage {
         return relatedArticles.size();
     }
 
-    public void clickOnArticleCard(int position){
+    public void clickOnArticleCard(int position) {
         clickElement(ARTICLE_CARD_TITLE, position);
     }
 
-    public String getArticleCardTitle(int position){
+    public String getArticleCardTitle(int position) {
         return getTextForElement(ARTICLE_CARD_TITLE, position);
     }
 
-    public boolean isArticleCardTitleDisplayed(){
+    public boolean isArticleCardTitleDisplayed() {
         return isElementDisplayed(ARTICLE_CARD_TITLE);
     }
 
-    public boolean isArticleCardPhotoDisplayed(){
+    public boolean isArticleCardPhotoDisplayed() {
         return isElementDisplayed(ARTICLE_CARD_PHOTO);
     }
 
-    public boolean isArticleCardDateDisplayed(){
+    public boolean isArticleCardDateDisplayed() {
         return isElementDisplayed(ARTICLE_CARD_DATE);
     }
 
-    public boolean isArticleCardDescriptionDisplayed(){
+    public boolean isArticleCardDescriptionDisplayed() {
         return isElementDisplayed(ARTICLE_CARD_DESCRIPTION);
     }
 
-    public int  getRecentArticlesNumber() {
+    public int getRecentArticlesNumber() {
         final List<WebElement> recentArticles = findElements(RECENT_ARTICLE);
         return recentArticles.size();
     }
@@ -117,11 +117,11 @@ public class ArticlesPage extends LpUiBasePage {
         return isElementDisplayed(RECENT_ARTICLES_SECTION);
     }
 
-    public void clickOnRecentArticle(int position){
+    public void clickOnRecentArticle(int position) {
         clickElement(RECENT_ARTICLE, position);
     }
 
-    public String getRecentArticleTitle(int position){
+    public String getRecentArticleTitle(int position) {
         return getTextForElement(RECENT_ARTICLE, position);
     }
 
@@ -153,7 +153,7 @@ public class ArticlesPage extends LpUiBasePage {
         return isElementDisplayed(GUIDE_SECTION_CONTRIBUTOR_PHOTO);
     }
 
-    public boolean isGuideSectionContributorNameDisplayed(){
+    public boolean isGuideSectionContributorNameDisplayed() {
         return isElementDisplayed(GUIDE_SECTION_CONTRIBUTOR_NAME);
     }
 }

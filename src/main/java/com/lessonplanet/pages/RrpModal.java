@@ -24,7 +24,7 @@ public class RrpModal extends Rrp {
         return super.isTitleDisplayed();
     }
 
-    public String getModalId(){
+    public String getModalId() {
         waitForModal();
         return getElementId(RRP_MODAL_ID);
     }

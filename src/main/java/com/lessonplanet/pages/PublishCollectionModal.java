@@ -29,11 +29,11 @@ public class PublishCollectionModal extends LpUiBasePage {
         clickElement(CLOSE_BUTTON);
     }
 
-    public void typeRating(){
+    public void typeRating() {
         findElement(RATING_FIELD).sendKeys(TestData.RATING);
     }
 
-    public void typeAudience(){
+    public void typeAudience() {
         findElement(AUDIENCE_FIELD).sendKeys(TestData.AUDIENCE);
     }
 

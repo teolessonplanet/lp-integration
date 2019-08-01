@@ -59,11 +59,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
-    public void clickUploadButton(){
+    public void clickUploadButton() {
         clickElement(UPLOAD_BUTTON);
     }
 
-    public void clickAddALinkButton(){
+    public void clickAddALinkButton() {
         clickElement(ADD_A_LINK_BUTON);
     }
 
@@ -95,11 +95,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementDisplayed(ADD_A_LINK_BUTON);
     }
 
-    public String getCollectionBuilderItemTitle(int position){
+    public String getCollectionBuilderItemTitle(int position) {
         return getTextForElement(COLLECTION_BUILDER_ITEM_TITLE, position);
     }
 
-    public void hoverOverCollectionBuilderItem(int position){
+    public void hoverOverCollectionBuilderItem(int position) {
         hoverOverElement(COLLECTION_BUILDER_ITEMS, position);
     }
 
@@ -107,11 +107,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(COLLECTION_BUILDER_ITEM_X_BUTTON, position);
     }
 
-    public void clickOnCollectionBuilderItem(int position){
+    public void clickOnCollectionBuilderItem(int position) {
         clickElement(COLLECTION_BUILDER_ITEMS, position);
     }
 
-    public void openResourceInANewTab(int position){
+    public void openResourceInANewTab(int position) {
         openInANewTab(COLLECTION_BUILDER_ITEMS + ' ' + 'a', position);
     }
 

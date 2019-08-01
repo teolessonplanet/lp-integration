@@ -12,7 +12,7 @@ public class SubscriptionEmailModal extends LpUiBasePage {
         super(driver);
     }
 
-    public void waitForModal(){
+    public void waitForModal() {
         waitForBootstrapModalToBeVisible(SUBSCRIPTION_MODAL);
     }
 

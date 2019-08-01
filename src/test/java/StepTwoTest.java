@@ -30,7 +30,7 @@ public class StepTwoTest extends BaseTest {
         reachStepTwoPage();
     }
 
-    public void initAndReachStepTwoPage(WebDriver webDriver){
+    public void initAndReachStepTwoPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
     }
@@ -42,9 +42,9 @@ public class StepTwoTest extends BaseTest {
     }
 
     @Test(description = "LP - User Visits Step 2 - lessonp-12:User quits Step 2"
-            + "Steps:"
-            + "1.Quit Step 2 sign up process"
-            + "2.Verify if the user has Freemium subscription")
+        + "Steps:"
+        + "1.Quit Step 2 sign up process"
+        + "2.Verify if the user has Freemium subscription")
     public void testLessonp_12() {
         stepTwoModal.clickOnCloseModal();
         myAccountPage.loadPage();
@@ -52,10 +52,10 @@ public class StepTwoTest extends BaseTest {
     }
 
     @Test(description = "LP - User Visits Step 2 - lessonp-14:User supplies invalid form data"
-            + "Steps:"
-            + "1.Insert invalid data and submit"
-            + "2.Verify if the errors are displayed"
-            + "3.Repeat steps 1&2 until all the errors are checked")
+        + "Steps:"
+        + "1.Insert invalid data and submit"
+        + "2.Verify if the errors are displayed"
+        + "3.Repeat steps 1&2 until all the errors are checked")
     public void testLessonp_14() {
         //check errors for invalid Card number, Expiration date and Cvv error
         stepTwoModal.typeCardNumber(TestData.INVALID_CARD_NUMBER);
@@ -172,13 +172,13 @@ public class StepTwoTest extends BaseTest {
     }
 
     @Test(description = "LP - User Visits Step 2 - lessonp-17:User changes Default membership plan"
-            + "Steps:"
-            + "1. Reach Step2 modal"
-            + "2. Check billing text for PRIME plan"
-            + "3. Select STARTER plan"
-            + "4. Check billing text for STARTER plan"
-            + "4. Select PRO plan"
-            + "6. Check billing text for PRO plan")
+        + "Steps:"
+        + "1. Reach Step2 modal"
+        + "2. Check billing text for PRIME plan"
+        + "3. Select STARTER plan"
+        + "4. Check billing text for STARTER plan"
+        + "4. Select PRO plan"
+        + "6. Check billing text for PRO plan")
     public void testLessonp_17() {
         Assert.assertEquals(TestData.GET_PRIME_BILLING_TERMS_MESSAGE(), stepTwoModal.getBillingTermsText());
         stepTwoModal.selectOffer(TestData.STARTER_OPTION_TEXT);

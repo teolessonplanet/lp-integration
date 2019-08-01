@@ -11,7 +11,7 @@ public class VideoContentModal extends LpUiBasePage {
         super(driver);
     }
 
-    public void waitForModal(){
+    public void waitForModal() {
         waitForBootstrapModalToBeVisible(VIDEO_MODAL);
     }
 

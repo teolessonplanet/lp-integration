@@ -1,10 +1,11 @@
 package com.lessonplanet.pages;
+
 import org.openqa.selenium.WebDriver;
 
-public class UploadFileModal extends LpUiBasePage  {
+public class UploadFileModal extends LpUiBasePage {
 
     private static final String UPLOAD_MODAL = "#upload-file-modal";
-//    private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
+    //    private static final String CHOOSE_FILE_BUTTON = "[class*='input-group-btn']";
     private static final String CHOOSE_FILE_ATTACHMENT_INPUT = "#document_attachment";
 
     private static final String GRADE_OPTIONS = "#select2-drop li";
@@ -25,7 +26,7 @@ public class UploadFileModal extends LpUiBasePage  {
         waitForBootstrapModalToBeVisible(UPLOAD_MODAL);
     }
 
-    public void uploadUsingTextInput (String path)  {
+    public void uploadUsingTextInput(String path) {
         uploadUsingTextInput(CHOOSE_FILE_ATTACHMENT_INPUT, path);
     }
 
@@ -45,7 +46,7 @@ public class UploadFileModal extends LpUiBasePage  {
         selectFromDropdown(RESOURCE_DROPDOWN_INPUT, RESOURCE_OPTIONS, resourceType);
     }
 
-    public void clickOnUploadButton(){
+    public void clickOnUploadButton() {
         clickElement(UPLOAD_BUTTON);
     }
 

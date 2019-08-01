@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
+
 import java.util.List;
 
 public class CollectionBuilderTest extends BaseTest {
@@ -50,27 +51,27 @@ public class CollectionBuilderTest extends BaseTest {
         testCollectionBuilderItem();
     }
 
-    private void testDragAndDropItem(){
+    private void testDragAndDropItem() {
         List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
         browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
     }
 
-    private void testDragAndDropMaxItemsInsideCollection(){
+    private void testDragAndDropMaxItemsInsideCollection() {
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
         dismissBecomeALessonPlanetFreeMemberModal();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.ALERT_TEXT);
-        for(int i=1; i<=3; i++){
+        for (int i = 1; i <= 3; i++) {
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
-            if(becomeALessonPlanetFreeMemberModal.isModalDisplayed()){
+            if (becomeALessonPlanetFreeMemberModal.isModalDisplayed()) {
                 dismissBecomeALessonPlanetFreeMemberModal();
             }
         }
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
     }
 
-    private void dismissBecomeALessonPlanetFreeMemberModal(){
+    private void dismissBecomeALessonPlanetFreeMemberModal() {
         becomeALessonPlanetFreeMemberModal.waitForModal();
         becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
     }

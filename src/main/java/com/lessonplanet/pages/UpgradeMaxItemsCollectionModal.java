@@ -12,15 +12,15 @@ public class UpgradeMaxItemsCollectionModal extends LpUiBasePage {
         super(driver);
     }
 
-    public void waitForModal(){
+    public void waitForModal() {
         waitForBootstrapModalToBeVisible(UPGRADE_MODAL);
     }
 
-    public String getUpgradeModalText(){
+    public String getUpgradeModalText() {
         return getTextForElement(UPGRADE_MODAL_TEXT);
     }
 
-    public void clickOnUpgradeMeButton(boolean inANewTab){
+    public void clickOnUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
     }
 }

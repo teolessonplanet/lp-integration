@@ -1,4 +1,5 @@
 package com.lessonplanet.pages;
+
 import org.openqa.selenium.WebDriver;
 
 public class UpgradeAssignModal extends LpUiBasePage {
@@ -18,7 +19,7 @@ public class UpgradeAssignModal extends LpUiBasePage {
         return getTextForElement(UPGRADE_MODAL_TEXT);
     }
 
-    public void clickOnUpgradeMeButton(){
+    public void clickOnUpgradeMeButton() {
         clickElement(UPGRADE_ME_BUTTON);
     }
 }

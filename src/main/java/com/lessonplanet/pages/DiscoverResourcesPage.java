@@ -148,23 +148,23 @@ public class DiscoverResourcesPage extends ResourcesPage {
         loadUrl(currentPath);
     }
 
-    public String getRegularResourceCardDataId(int position){
+    public String getRegularResourceCardDataId(int position) {
         return super.getRegularResourceCardDataId(position);
     }
 
-    public String getSharedResourceCardDataId(int position){
+    public String getSharedResourceCardDataId(int position) {
         return super.getSharedResourceCardDataId(position);
     }
 
-    public String getCollectionCardTitle(int position){
+    public String getCollectionCardTitle(int position) {
         return super.getCollectionCardTitle(position);
     }
 
-    public String getResourceCardDataType(int position){
+    public String getResourceCardDataType(int position) {
         return super.getResourceCardDataType(position);
     }
 
-    public String getFreeSampleResourceCardTitle(int position){
+    public String getFreeSampleResourceCardTitle(int position) {
         return super.getFreeSampleResourceCardTitle(position);
     }
 

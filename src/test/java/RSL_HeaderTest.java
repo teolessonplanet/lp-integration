@@ -1,7 +1,7 @@
 import com.lessonplanet.pages.LoginPage;
-    import org.testng.annotations.BeforeMethod;
-    import org.testng.annotations.Test;
-    import util.TestData;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import util.TestData;
 
 public class RSL_HeaderTest extends BaseTest {
     private LoginPage loginPage;
