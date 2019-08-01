@@ -32,33 +32,33 @@ public class HeaderTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Automation Test Suite - Visitor - Header - lessonp-4565:Header buttons")
+    @Test(description = "Visitor - Header - lessonp-4565: Header buttons")
     public void testLessonp_4565() {
         testHeaderButtons(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Header - lessonp-4602:Header buttons")
+    @Test(description = "Free member - Header - lessonp-4602: Header buttons")
     public void testLessonp_4602() {
         testHeaderButtons(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite - Active user - Header - lessonp-4617:Header buttons")
+    @Test(description = "Active user - Header - lessonp-4617: Header buttons")
     public void testLessonp_4617() {
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Automation Test Suite - Visitor - Header - lessonp-4004:Search box (keyword functionality)")
+    @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
     public void testLessonp_4004() {
         testSearchBoxKeywordFunctionality(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Header - lessonp-4107:Search box (keyword functionality)")
+    @Test(description = "Free member - Header - lessonp-4107: Search box (keyword functionality)")
     public void testLessonp_4107() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite - Active user - Header - lessonp-4111:Search box (keyword functionality)")
+    @Test(description = "Active user - Header - lessonp-4111: Search box (keyword functionality)")
     public void testLessonp_4111() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ADMIN);

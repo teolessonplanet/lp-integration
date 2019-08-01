@@ -19,37 +19,37 @@ public class RSL_FooterTest extends BaseTest {
         footerTest.initTest(webDriver);
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4150:Footer structure")
+    @Test(description = "Regular SL - Footer - lessonp-4150:Footer structure")
     public void testLessonp_4150() {
         footerTest.testFooterContainer(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4151:Open Educational Resources")
+    @Test(description = "Regular SL - Footer - lessonp-4151:Open Educational Resources")
     public void testLessonp_4151() {
         footerTest.testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp4152:Discover Resources")
+    @Test(description = "Regular SL - Footer - lessonp4152:Discover Resources")
     public void testLessonp_4152() {
         footerTest.testDiscoverResourcesSection();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4153:Manage Curriculum")
+    @Test(description = "Regular SL - Footer - lessonp-4153:Manage Curriculum")
     public void testLessonp_4153() {
         footerTest.testManageCurriculumSection();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4154:Bottom footer links")
+    @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links")
     public void testLessonp_4154() {
         footerTest.testBottomFooterLinks();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer - lessonp-4155:Social links")
+    @Test(description = "Regular SL - Footer - lessonp-4155:Social links")
     public void testLessonp_4155() {
         footerTest.testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Admin Manager - Regular SL - Footer -  lessonp-4156:LE Logo")
+    @Test(description = "Regular SL - Footer -  lessonp-4156:LE Logo")
     public void testLessonp_4156() {
         footerTest.testRegularSlLogo();
     }

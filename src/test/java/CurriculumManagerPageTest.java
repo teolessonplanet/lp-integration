@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import util.TestData;
 import java.io.File;
 
-public class CurriculumManagerTest extends BaseTest {
+public class CurriculumManagerPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
@@ -65,7 +65,7 @@ public class CurriculumManagerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Automation Test Suite - Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")
+    @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")
     public void testLessonp_3258() {
         lpHomePage.loadPage();
         testAccessCurriculumManagerPageFromHeader(false);
@@ -73,7 +73,7 @@ public class CurriculumManagerTest extends BaseTest {
         testAccessCurriculumManagerPageFromEditCollectionModal(false);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Curriculum Manager - lessonp-3270: Access Curriculum Manager Page")
+    @Test(description = "Free memeber - Curriculum Manager - lessonp-3270: Access Curriculum Manager Page")
     public void testLessonp_3270() {
         createAFreeMemberAccount();
         testAccessCurriculumManagerPageFromHeader(true);
@@ -83,7 +83,7 @@ public class CurriculumManagerTest extends BaseTest {
         testListView();
     }
 
-    @Test(description = "Automation Test Suite - All Active Users - Curriculum Manager - lessonp-3283: Access Curriculum Manager Page")
+    @Test(description = "All Active Users - Curriculum Manager - lessonp-3283: Access Curriculum Manager Page")
     public void testLessonp_3283() {
         createAnActiveAccount(TestData.PRIME_OPTION_TEXT);
         testAccessCurriculumManagerPageFromHeader(true);
@@ -93,93 +93,93 @@ public class CurriculumManagerTest extends BaseTest {
         testListView();
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Curriculum Manager - lessonp-3250: Create Collections")
+    @Test(description = "Free memeber - Curriculum Manager - lessonp-3250: Create Collections")
     public void testLessonp_3250() {
         createAFreeMemberAccount();
         testMaxLimitOfCollectionsCreated();
     }
 
-    @Test(description = "Automation Test Suite - All Active Users - Curriculum Manager - lessonp-3259: Create Collections")
+    @Test(description = "All Active Users - Curriculum Manager - lessonp-3259: Create Collections")
     public void testLessonp_3259() {
         createAnActiveAccount(TestData.STARTER_OPTION_TEXT);
         testMaxLimitOfCollectionsCreated();
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Curriculum Manager - lessonp-3251: Upload Resource & My Uploads Folder")
+    @Test(description = "Free memeber - Curriculum Manager - lessonp-3251: Upload Resource & My Uploads Folder")
     public void testLessonp_3251()  {
         createAFreeMemberAccount();
         testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
         testMyUploadsFolderActions(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    @Test(description = "Starter - Curriculum Manager - lessonp- 3972: Upload Resource & My Uploads Folder")
+    @Test(description = "Starte membership - Curriculum Manager - lessonp- 3972: Upload Resource & My Uploads Folder")
     public void testLessonp_3972(){
         createAnActiveAccount(TestData.STARTER_OPTION_TEXT);
         testUploadResourceUsingTextInput(TestData.STARTER_OPTION_TEXT);
         testMyUploadsFolderActions(TestData.STARTER_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Prime - Curriculum Manager - lessonp- 3973: Upload Resource & My Uploads Folder")
+    @Test(description = "Prime membership - Curriculum Manager - lessonp- 3973: Upload Resource & My Uploads Folder")
     public void testLessonp_3973(){
         createAnActiveAccount(TestData.PRIME_OPTION_TEXT);
         testUploadResourceUsingTextInput(TestData.PRIME_OPTION_TEXT);
         testMyUploadsFolderActions(TestData.PRIME_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Pro - Curriculum Manager - lessonp- 3974: Upload Resource & My Uploads Folder")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp- 3974: Upload Resource & My Uploads Folder")
     public void testLessonp_3974(){
         createAnActiveAccount(TestData.PRO_OPTION_TEXT);
         testUploadResourceUsingTextInput(TestData.PRO_OPTION_TEXT);
         testMyUploadsFolderActions(TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Curriculum Manager - lessonp-3939: Favorite Resource & My Favorites Folder")
+    @Test(description = "Free memeber - Curriculum Manager - lessonp-3939: Favorite Resource & My Favorites Folder")
     public void testLessonp_3939(){
         createAFreeMemberAccount();
         testFavoriteResources(TestData.FREE_MEMBERSHIP_TEXT);
         testMyFavoritesFolderActions(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Starter - Curriculum Manager - lessonp- 3933: Favorite Resource & My Favorites Folder")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp- 3933: Favorite Resource & My Favorites Folder")
     public void testLessonp_3933(){
         createAnActiveAccount(TestData.STARTER_OPTION_TEXT);
         testFavoriteResources(TestData.STARTER_OPTION_TEXT);
         testMyFavoritesFolderActions(TestData.STARTER_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Prime - Curriculum Manager - lessonp- 3934: Favorite Resource & My Favorites Folder")
+    @Test(description = "Prime membership - Curriculum Manager - lessonp- 3934: Favorite Resource & My Favorites Folder")
     public void testLessonp_3934(){
         createAnActiveAccount(TestData.PRIME_OPTION_TEXT);
         testFavoriteResources(TestData.PRIME_OPTION_TEXT);
         testMyFavoritesFolderActions(TestData.PRIME_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Pro - Curriculum Manager - lessonp- 3935: Favorite Resource & My Favorites Folder")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp- 3935: Favorite Resource & My Favorites Folder")
     public void testLessonp_3935(){
         createAnActiveAccount(TestData.PRO_OPTION_TEXT);
         testFavoriteResources(TestData.PRO_OPTION_TEXT);
         testMyFavoritesFolderActions(TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Curriculum Manager - lessonp-3254: Collection: Actions Dropdown")
+    @Test(description = "Free memeber - Curriculum Manager - lessonp-3254: Collection: Actions Dropdown")
     public void testLessonp_3254(){
         createAFreeMemberAccount();
         testCollectionFolderActions(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Starter - Curriculum Manager - lessonp-3869: Collection: Actions Dropdown")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp-3869: Collection: Actions Dropdown")
     public void testLessonp_3869(){
         createAnActiveAccount(TestData.STARTER_OPTION_TEXT);
         testCollectionFolderActions(TestData.STARTER_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Prime - Curriculum Manager - lessonp-3871: Collection: Actions Dropdown")
+    @Test(description = "Prime membership - Curriculum Manager - lessonp-3871: Collection: Actions Dropdown")
     public void testLessonp_3871(){
         createAnActiveAccount(TestData.PRIME_OPTION_TEXT);
         testCollectionFolderActions(TestData.PRIME_OPTION_TEXT);
     }
 
-    @Test(description = "Automation Test Suite - Pro - Curriculum Manager - lessonp-3270: Collection: Actions Dropdown")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp-3270: Collection: Actions Dropdown")
     public void testLessonp_3870(){
         createAnActiveAccount(TestData.PRO_OPTION_TEXT);
         testCollectionFolderActions(TestData.PRO_OPTION_TEXT);

@@ -24,145 +24,145 @@ public class FooterTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-656:Footer structure")
+    @Test(description = "Visitor - Footer - lessonp-656: Footer structure")
     public void testLessonp_656() {
         lpHomePage.loadPage();
         testFooterContainer(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Footer - lessonp-665:Footer structure")
+    @Test(description = "Free member - Footer - lessonp-665: Footer structure")
     public void testLessonp_665() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testFooterContainer(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-669:Footer structure")
+    @Test(description = "Active user - Footer - lessonp-669: Footer structure")
     public void testLessonp_669() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testFooterContainer(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-659:Open Educational Resources")
+    @Test(description = "Visitor - Footer - lessonp-659: Open Educational Resources")
     public void testLessonp_659() {
         lpHomePage.loadPage();
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-667:Open Educational Resources")
+    @Test(description = "Free member - Footer - lessonp-667: Open Educational Resources")
     public void testLessonp_667() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-671:Open Educational Resources")
+    @Test(description = "Active user - Footer - lessonp-671: Open Educational Resources")
     public void testLessonp_671() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-660:Discover Resources")
+    @Test(description = "Visitor - Footer - lessonp-660: Discover Resources")
     public void testLessonp_660() {
         lpHomePage.loadPage();
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-668:Discover Resources")
+    @Test(description = "Free member - Footer - lessonp-668: Discover Resources")
     public void testLessonp_668() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp672:Discover Resources")
+    @Test(description = "Active user - Footer - lessonp672: Discover Resources")
     public void testLessonp_672() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-658:Manage Curriculum")
+    @Test(description = "Visitor - Footer - lessonp-658: Manage Curriculum")
     public void testLessonp_658() {
         lpHomePage.loadPage();
         testManageCurriculumSection();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-666:Manage Curriculum")
+    @Test(description = "Free member - Footer - lessonp-666: Manage Curriculum")
     public void testLessonp_666() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-670:Manage Curriculum")
+    @Test(description = "Active user - Footer - lessonp-670: Manage Curriculum")
     public void testLessonp_670() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4033:Bottom footer links")
+    @Test(description = "Visitor - Footer - lessonp-4033: Bottom footer links")
     public void testLessonp_4033() {
         lpHomePage.loadPage();
         testBottomFooterLinks();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-4112:Bottom footer links")
+    @Test(description = "Free member - Footer - lessonp-4112: Bottom footer links")
     public void testLessonp_4112() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testBottomFooterLinks();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4117:Bottom footer links")
+    @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links")
     public void testLessonp_4117() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testBottomFooterLinks();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4034:Social links")
+    @Test(description = "Visitor - Footer - lessonp-4034: Social links")
     public void testLessonp_4034() {
         lpHomePage.loadPage();
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-4114:Social links")
+    @Test(description = "Free member - Footer - lessonp-4114: Social links")
     public void testLessonp_4114() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4118:Social links")
+    @Test(description = "Active user - Footer - lessonp-4118: Social links")
     public void testLessonp_4118() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4035:LP logo")
+    @Test(description = "Visitor - Footer - lessonp-4035: LP logo")
     public void testLessonp_4035() {
         lpHomePage.loadPage();
         testLpLogo();
     }
 
-    @Test(description = "Freemium - Footer - lessonp-4115:LP logo")
+    @Test(description = "Free member - Footer - lessonp-4115: LP logo")
     public void testLessonp_4115() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testLpLogo();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4119:LP logo")
+    @Test(description = "Active user - Footer - lessonp-4119: LP logo")
     public void testLessonp_4119() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testLpLogo();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4036:Newsletter")
+    @Test(description = "Visitor - Footer - lessonp-4036: Newsletter")
     public void testLessonp_4036() {
         lpHomePage.loadPage();
         testSendEmailNewsletter(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Freemium - Footer - lessonp-4116:Newsletter")
+    @Test(description = "Free member - Footer - lessonp-4116: Newsletter")
     public void testLessonp_4116() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
         testSendEmailNewsletter(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-4120:Newsletter")
+    @Test(description = "Active user - Footer - lessonp-4120: Newsletter")
     public void testLessonp_4120() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testSendEmailNewsletter(TestData.VALID_EMAIL_ADMIN);

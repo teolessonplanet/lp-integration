@@ -21,12 +21,12 @@ public class LoginTest extends BaseTest {
         signInModal = new SignInModal(webDriver);
     }
 
-    @Test(description = "Automation Test Suite - Freemium - Login In/Sign in - lessonp-5033:Sing in button and functionality")
+    @Test(description = "Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality")
     public void testLessonp_5033() {
         testLoginFlow(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Automation Test Suite - Login In/Sign in - lessonp-5034:Sign in button and functionality")
+    @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality")
     public void testLessonp_5034() {
         testLoginFlow(TestData.VALID_EMAIL_ADMIN);
     }

@@ -29,7 +29,7 @@ public class CollectionBuilderTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
     }
 
-    @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
+    @Test(description = "Visitor - Collection Builder - lessonp-431: Collection Builder Buttons")
     public void testLessonp_431() {
         discoverResourcesPage.loadPage();
         testCollectionBuilderButtons();
@@ -37,7 +37,7 @@ public class CollectionBuilderTest extends BaseTest {
         testCollectionBuilderButtons();
     }
 
-    @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
+    @Test(description = "Visitor - Collection Builder - lessonp-4378: Collection Builder Items")
     public void testLessonp_4378() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
