@@ -23,7 +23,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         rrpPage = new RrpPage(webDriver);
     }
     @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
-    public void testLessonp_4016() {
+    public void testLessonp_1270() {
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
