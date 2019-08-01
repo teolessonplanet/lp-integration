@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
+
 @Ignore
 @Deprecated
 public class CommonCoreStateStandardsTest extends BaseTest {
@@ -71,7 +72,7 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(5), TestData.COMMON_CORE_STANDARD_CODE_RST_11_12_1);
         Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.SEE_TEXT));
         Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.RESOURCES_TEXT));
-        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems()>TestData.ZERO_RESOURCES_FOUND);
+        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems() > TestData.ZERO_RESOURCES_FOUND);
 
         commonCorePage.clickOnBackButton();
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);
@@ -121,7 +122,7 @@ public class CommonCoreStateStandardsTest extends BaseTest {
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(4), TestData.COMMON_CORE_STANDARD_CODE_MP_1);
         Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.SEE_TEXT));
         Assert.assertTrue(commonCorePage.getSeeResourcesButtonText().contains(TestData.RESOURCES_TEXT));
-        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems()>TestData.ZERO_RESOURCES_FOUND);
+        Assert.assertTrue(commonCorePage.getSeeResourcesNoOfItems() > TestData.ZERO_RESOURCES_FOUND);
 
         commonCorePage.clickOnBackButton();
         Assert.assertEquals(commonCorePage.getPageBreadcrumbText(0), TestData.STATE_STANDARDS_BREADCRUMB_HOME);

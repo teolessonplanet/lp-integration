@@ -21,7 +21,7 @@ public class SchoolPage extends DistrictPage {
         super(driver);
     }
 
-    public boolean isDistrictBreadcrumbsDisplayed(){
+    public boolean isDistrictBreadcrumbsDisplayed() {
         return isElementDisplayed(DISTRICT_BREADCRUMBS);
     }
 

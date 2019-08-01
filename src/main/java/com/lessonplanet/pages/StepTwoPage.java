@@ -3,6 +3,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class StepTwoPage extends LpUiBasePage {

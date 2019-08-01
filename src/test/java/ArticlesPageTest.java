@@ -4,11 +4,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class ArticlesPageTest extends BaseTest{
+public class ArticlesPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private ArticlesPage articlesPage;
-    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest ;
+    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
     private RRPSearchPageTest rrpSearchPageTest;
 
     @BeforeMethod
@@ -44,7 +44,7 @@ public class ArticlesPageTest extends BaseTest{
         Assert.assertEquals(articlesPage.getArticleTopicPageTitle(), TestData.ART_AND_MUSIC_TOPIC_TITLE);
         Assert.assertTrue(articlesPage.getArticlesCardNumber() > 1);
         testArticleCard();
-        if(articlesPage.isGuideSectionDisplayed()){
+        if (articlesPage.isGuideSectionDisplayed()) {
             Assert.assertEquals(articlesPage.getGuideSectionTitle(), TestData.ART_AND_MUSIC_ARTICLE_GUIDE_SECTION_TITLE);
             Assert.assertTrue(articlesPage.isGuideSectionContributorNameDisplayed());
             Assert.assertTrue(articlesPage.isGuideSectionContributorPhotoDisplayed());
@@ -71,7 +71,7 @@ public class ArticlesPageTest extends BaseTest{
         Assert.assertTrue(articlesPage.isTwitterShareButtonDisplayed());
         Assert.assertTrue(articlesPage.isPinterestShareButtonDisplayed());
         Assert.assertTrue(articlesPage.isLinkShareButtonDisplayed());
-        if(articlesPage.isRecentArticlesSectionDisplayed()){
+        if (articlesPage.isRecentArticlesSectionDisplayed()) {
             Assert.assertTrue(articlesPage.getRecentArticlesNumber() > 1);
             String recentArticleTitle = articlesPage.getRecentArticleTitle(0);
             articlesPage.clickOnRecentArticle(0);

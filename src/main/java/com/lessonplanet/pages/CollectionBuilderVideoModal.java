@@ -1,4 +1,5 @@
 package com.lessonplanet.pages;
+
 import org.openqa.selenium.WebDriver;
 
 public class CollectionBuilderVideoModal extends LpUiBasePage {
@@ -10,7 +11,7 @@ public class CollectionBuilderVideoModal extends LpUiBasePage {
         super(driver);
     }
 
-    public void waitForModal(){
+    public void waitForModal() {
         waitForBootstrapModalToBeVisible(COLLECTION_BUILDER_VIDEO_MODAL);
     }
 

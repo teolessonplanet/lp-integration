@@ -31,7 +31,7 @@ public class AccountManagementTest extends BaseTest {
     private WhatMembersSayWidget whatMembersSayWidget;
     private ContactUsPage contactUsPage;
     private FAQPage faqPage;
-    private EditCollectionModal  editCollectionModal;
+    private EditCollectionModal editCollectionModal;
     private CollectionRrpModal collectionRrpModal;
     private RrpPage rrpPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
@@ -417,12 +417,12 @@ public class AccountManagementTest extends BaseTest {
         }
     }
 
-    private void createAFreeMemberAccount(){
+    private void createAFreeMemberAccount() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
     }
 
-    private void testUpgradeFreeMemberFromGetFreeAccessButton(){
+    private void testUpgradeFreeMemberFromGetFreeAccessButton() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
         checkStepTwoPageNewTab();
@@ -430,22 +430,22 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void checkStepTwoPageNewTab(){
+    private void checkStepTwoPageNewTab() {
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
         stepTwoPage.closeTab();
     }
 
-    private void checkStepTwoPageSameTab(){
-        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE );
+    private void checkStepTwoPageSameTab() {
+        Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         Assert.assertTrue(stepTwoPage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
         stepTwoPage.goBackOnePage();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeForFullReviewButton(){
+    private void testUpgradeFreeMemberFromUpgradeForFullReviewButton() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
@@ -455,14 +455,14 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder(){
+    private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder() {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickUploadButton();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal(){
+    private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderPage.clickOnEditCollection();
@@ -471,16 +471,16 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage(){
+    private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage() {
         curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated(){
+    private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testMaxLimitOfCollectionsCreated();
     }
 
-    private void testUpgradeFreeMemberFromSaving4thCollection(){
+    private void testUpgradeFreeMemberFromSaving4thCollection() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateThreeCollections();
         discoverResourcesPage.loadSearchPageInListView();
@@ -496,7 +496,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
-    private void testUpgradeFreeMemberFromAssignCollectionButton(){
+    private void testUpgradeFreeMemberFromAssignCollectionButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
         curriculumManagerTest.testAddRegularResourceToCollection(TestData.FREE_MEMBERSHIP_TEXT);
@@ -504,13 +504,13 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
 
-    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection(){
+    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
-        for (int i=0; i<=10; i++) {
+        for (int i = 0; i <= 10; i++) {
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
         }
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
@@ -520,7 +520,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         List<WebElement> getCollectionResources = discoverResourcesPage.getAllSeeCollectionsButtons();
-        for (int i=1; i<24; i++) {
+        for (int i = 1; i < 24; i++) {
             if (collectionRrpModal.getCollectionItemsCount() <= 10) {
                 collectionRrpModal.clickCloseModal();
                 discoverResourcesPage.openInANewTabOrClick(getCollectionResources.get(i), false);
@@ -530,14 +530,14 @@ public class AccountManagementTest extends BaseTest {
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
-    private void testUpgradeModalFromMaxItemsInsideCollection(String bodyText){
+    private void testUpgradeModalFromMaxItemsInsideCollection(String bodyText) {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
         upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(true);
         checkStepTwoPageNewTab();
     }
 
-    private void testUpgradeFreeMemberFromUpgradeMeButtons(){
+    private void testUpgradeFreeMemberFromUpgradeMeButtons() {
         testUpgradeFromHeader();
         testUpgradeFromMyAccountPage();
         testUpgradeFromHomePage();
@@ -549,13 +549,13 @@ public class AccountManagementTest extends BaseTest {
         testUpgradeFromWhatMembersSayWidgetFAQPage();
     }
 
-    private void testUpgradeFreeMemberFromGetFullAccessButtons(){
+    private void testUpgradeFreeMemberFromGetFullAccessButtons() {
         testUpgradeFromStartYourFreeTrialWidgetDirectoryPage();
         testUpgradeFromStartYourFreeTrialWidgetArticlesPage();
         testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage();
     }
 
-    private void testUpgradeFromHeader(){
+    private void testUpgradeFromHeader() {
         lpHomePage.loadPage();
         headerPage.clickOnUpgradeMeButton(true);
         checkStepTwoPageNewTab();
@@ -563,7 +563,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void testUpgradeFromMyAccountPage(){
+    private void testUpgradeFromMyAccountPage() {
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeMeButton(true);
         checkStepTwoPageNewTab();
@@ -571,7 +571,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void testUpgradeFromHomePage(){
+    private void testUpgradeFromHomePage() {
         lpHomePage.loadPage();
         lpHomePage.clickOnUpgradeMeButton(true);
         checkStepTwoPageNewTab();
@@ -579,7 +579,7 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void testUpgradeFromRrpPage(){
+    private void testUpgradeFromRrpPage() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         rrpPage.clickStartYourFreeTrialUpgradeMeButton(true);
@@ -588,32 +588,32 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageNewTab();
     }
 
-    private void testUpgradeFromWhatMembersSayWidgetDirectoryPage(){
+    private void testUpgradeFromWhatMembersSayWidgetDirectoryPage() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFromWhatMembersSayWidgetArticlesPage(){
+    private void testUpgradeFromWhatMembersSayWidgetArticlesPage() {
         articlesPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFromWhatMembersSayWidgetContactUsPage(){
+    private void testUpgradeFromWhatMembersSayWidgetContactUsPage() {
         contactUsPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFromWhatMembersSayWidgetTestimonialsPage(){
+    private void testUpgradeFromWhatMembersSayWidgetTestimonialsPage() {
         testimonialsPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testUpgradeFromWhatMembersSayWidgetFAQPage(){
+    private void testUpgradeFromWhatMembersSayWidgetFAQPage() {
         faqPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
-    private void testClickSubscriptionButtonFromWhatMembersSayWidget(){
+    private void testClickSubscriptionButtonFromWhatMembersSayWidget() {
         whatMembersSayWidget.clickSubscriptionButton(true);
         checkStepTwoPageNewTab();
         whatMembersSayWidget.clickSubscriptionButton(false);
@@ -625,17 +625,17 @@ public class AccountManagementTest extends BaseTest {
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testUpgradeFromStartYourFreeTrialWidgetArticlesPage(){
+    private void testUpgradeFromStartYourFreeTrialWidgetArticlesPage() {
         articlesPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage(){
+    private void testUpgradeFromStartYourFreeTrialWidgetTestimonialsPage() {
         testimonialsPage.loadPage();
         testClickSubscriptionButtonFromStartYourFreeTrialWidget();
     }
 
-    private void testClickSubscriptionButtonFromStartYourFreeTrialWidget(){
+    private void testClickSubscriptionButtonFromStartYourFreeTrialWidget() {
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(true);
         checkStepTwoPageNewTab();
         startYourTenDayFreeTrialWidget.clickOnSubscriptionButton(false);

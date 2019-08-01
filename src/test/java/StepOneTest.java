@@ -47,13 +47,13 @@ public class StepOneTest extends BaseTest {
         stepTwoModal.clickOnCloseModal();
         Assert.assertEquals(email, headerPage.getUsernameText());
     }
-    
+
     @Test(description = "LP - User Visits Step 1 -  lessonp-10:User click 'Already a member' link"
-            + "Steps:"
-            + "1.Launch Step 1 in  a static page by clicking the Try it free button from the navigation bar"
-            + "2.Click on the 'Already a member?' link (ONLY on the Step 1 static page)"
-            + "3.Check if Login/Sign Up modal is displayed"
-            + "4.Check if the user is not taken away from Step1(check URL)")
+        + "Steps:"
+        + "1.Launch Step 1 in  a static page by clicking the Try it free button from the navigation bar"
+        + "2.Click on the 'Already a member?' link (ONLY on the Step 1 static page)"
+        + "3.Check if Login/Sign Up modal is displayed"
+        + "4.Check if the user is not taken away from Step1(check URL)")
     public void testLessonp_10() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(true);

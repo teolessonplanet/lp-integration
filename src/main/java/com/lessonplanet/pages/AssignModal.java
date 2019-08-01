@@ -22,18 +22,18 @@ public class AssignModal extends LpUiBasePage {
     }
 
     public String getAssignModalText() {
-        return getTextForElement(ASSIGN_MODAL_TEXT );
+        return getTextForElement(ASSIGN_MODAL_TEXT);
     }
 
     public void typeAccessKey(String key) {
         sendKeys(ACCESS_KEY_FIELD, key);
     }
 
-    public void clickOnSaveButton(){
+    public void clickOnSaveButton() {
         clickElement(SAVE_BUTTON);
     }
 
-    public void clickOnCopyButton(){
+    public void clickOnCopyButton() {
         clickElement(COPY_BUTTON);
     }
 

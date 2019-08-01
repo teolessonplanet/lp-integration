@@ -1,7 +1,6 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import util.TestData;
 
 public class FooterPage extends LpUiBasePage {
@@ -157,7 +156,7 @@ public class FooterPage extends LpUiBasePage {
         scrollToElementAndClick(VISUAL_AND_PERFORMING_ARTS_LINK);
     }
 
-    public void clickOnFreeLessonPlansLink(){
+    public void clickOnFreeLessonPlansLink() {
         scrollToElementAndClick(FREE_LESSON_PLANS_LINK);
     }
 
@@ -197,7 +196,7 @@ public class FooterPage extends LpUiBasePage {
         return isElementDisplayed(SUBSCRIPTION_EMAIL_INPUT);
     }
 
-    public void clearSubscriptionEmail(){
+    public void clearSubscriptionEmail() {
         clearText(SUBSCRIPTION_EMAIL_INPUT);
     }
 
@@ -213,7 +212,7 @@ public class FooterPage extends LpUiBasePage {
         openInANewTabOrClick(REGULAR_SL_LOGO_IMAGE, inANewTab);
     }
 
-    public String getCopyrightText(){
+    public String getCopyrightText() {
         return getTextForElement(COPY_RIGHT_TEXT);
     }
 
@@ -221,11 +220,11 @@ public class FooterPage extends LpUiBasePage {
         return isElementDisplayed(SIGN_UP_HINT_TEXT);
     }
 
-    public String getSignUpHintText(){
+    public String getSignUpHintText() {
         return getTextForElement(SIGN_UP_HINT_TEXT);
     }
 
-    public String getSignUpErrorText(){
+    public String getSignUpErrorText() {
         return getTextForElement(SIGN_UP_ERROR_TEXT);
     }
 

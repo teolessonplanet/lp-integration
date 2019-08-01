@@ -10,7 +10,7 @@ public class SubscriptionSuccessPage extends LpUiBasePage {
         super(driver);
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return getTextForElement(TITLE_TEXT);
     }
 }

@@ -46,7 +46,7 @@ public class StepOneModal extends LpUiBasePage {
         waitForBootstrapModalToBeVisible(STEP_ONE_MODAL);
     }
 
-    public String getTitleText(){
+    public String getTitleText() {
         return getTextForElement(TITLE_TEXT);
     }
 }

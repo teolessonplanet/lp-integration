@@ -23,7 +23,7 @@ public class RrpPage extends Rrp {
     private static final String SIMILAR_RESOURCE_CARD = "[class*='panel-resource'] [class='panel-body'] [class='trk-show-resource'] [class='resource-icon'] [class*='type-resource']";
     private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET = "[class='panel panel-default']";
     private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_WIDGET_TEXT = "[class='panel panel-default'] p";
-    private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON = "[class='panel panel-default'] a[data-track-click='Upgrade Me']";;
+    private static final String FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON = "[class='panel panel-default'] a[data-track-click='Upgrade Me']";
 
     public RrpPage(WebDriver driver) {
         super(driver);
@@ -33,7 +33,7 @@ public class RrpPage extends Rrp {
         openInANewTabOrClick(START_YOUR_FREE_TRIAL_UPGRADE_ME_BUTTON, inANewTab);
     }
 
-    public void clickBottomPageUpgradeMeButton(boolean inANewTab){
+    public void clickBottomPageUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(BOTTOM_PAGE_UPGRADE_ME_BUTTON, inANewTab);
     }
 
@@ -82,20 +82,20 @@ public class RrpPage extends Rrp {
         openInANewTabOrClick(START_YOUR_FREE_TRIAL_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickBottomPageTryItFreeButton (boolean inANewTab){
+    public void clickBottomPageTryItFreeButton(boolean inANewTab) {
         openInANewTabOrClick(BOTTOM_PAGE_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickLessonPlansResourceType(){
+    public void clickLessonPlansResourceType() {
         clickElement(LESSON_PLANS_RESOURCE_TYPE);
     }
 
-    public String getAllResourceTypesDropdownText(){
+    public String getAllResourceTypesDropdownText() {
         return getTextForElement(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public String getSimilarResourceCardResourceTypeText(int index){
-        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD,"after","content", index);
+    public String getSimilarResourceCardResourceTypeText(int index) {
+        return getAfterPseudoElement(SIMILAR_RESOURCE_CARD, "after", "content", index);
     }
 
     public int getAllSimilarResourceCardsNumber() {
@@ -103,12 +103,12 @@ public class RrpPage extends Rrp {
         return relatedResources.size();
     }
 
-    public String getSimilarResourcesListText(){
+    public String getSimilarResourcesListText() {
         return getTextForElement(SIMILAR_RESOURCES_LIST);
     }
 
     public boolean isBottomPageUpgradeMeButtonDisplayed() {
-        return  isElementDisplayed(BOTTOM_PAGE_UPGRADE_ME_BUTTON);
+        return isElementDisplayed(BOTTOM_PAGE_UPGRADE_ME_BUTTON);
     }
 
     public boolean isStartYourFreeTrialUpgradeMeButtonDisplayed() {

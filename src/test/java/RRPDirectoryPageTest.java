@@ -22,7 +22,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest = new RRPSearchPageTest();
     }
 
-    public void reachDirectoryPage(){
+    public void reachDirectoryPage() {
         discoverResourcesPage.loadSearchPageInListView();
         browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEARCH_PATH);
     }
@@ -116,7 +116,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testItemViewerSection(false);
     }
 
-    private void testRegularResourceRRPNavigationButtonsDirectoryPage(){
+    private void testRegularResourceRRPNavigationButtonsDirectoryPage() {
         Assert.assertTrue(rrpModal.getModalId().contains(browseBySubjectPage.getRegularResourceCardDataId(0)));
         Assert.assertTrue(rrpModal.isNextButtonDisplayed());
         rrpModal.clickNextButton();
@@ -125,12 +125,12 @@ public class RRPDirectoryPageTest extends BaseTest {
         Assert.assertTrue((rrpModal.getModalId().contains(browseBySubjectPage.getRegularResourceCardDataId(0))));
     }
 
-    private void testCollectionRRPNavigationButtonsDirectoryPage(String firstCollectionCardTitle, String secondCollectionCardTitle){
+    private void testCollectionRRPNavigationButtonsDirectoryPage(String firstCollectionCardTitle, String secondCollectionCardTitle) {
         Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), firstCollectionCardTitle);
         collectionRrpModal.clickNextButtonRrp();
-        if(rrpModal.getModalId().contains("collection")) {
+        if (rrpModal.getModalId().contains("collection")) {
             Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), secondCollectionCardTitle);
-        } else{
+        } else {
             Assert.assertTrue(rrpModal.isTitleDisplayed());
         }
         collectionRrpModal.clickPreviousButtonRrp();

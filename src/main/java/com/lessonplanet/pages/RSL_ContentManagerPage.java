@@ -201,8 +201,8 @@ public class RSL_ContentManagerPage extends LpUiBasePage {
         return isElementDisplayed(SEARCH_ALERT_WARNING);
     }
 
-   public void selectPrimarySourcesFromResourceTypes(){
-       resourcesPage.clickOptionFromLeftSide("[class*='lp-filter-group']","Resource Types", "li", "Primary Sources");
+    public void selectPrimarySourcesFromResourceTypes() {
+        resourcesPage.clickOptionFromLeftSide("[class*='lp-filter-group']", "Resource Types", "li", "Primary Sources");
         waitForLoad();
     }
 }

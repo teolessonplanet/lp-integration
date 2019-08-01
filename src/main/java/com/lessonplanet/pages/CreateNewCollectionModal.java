@@ -30,7 +30,7 @@ public class CreateNewCollectionModal extends LpUiBasePage {
         clickElement(CREATE_COLLECTION_BUTTON);
     }
 
-    public void clickOnCreateCollectionRrp(){
+    public void clickOnCreateCollectionRrp() {
         clickElement(CREATE_COLLECTION_BUTTON_RRP);
     }
 }

@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +87,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(ADD_TO_COLLECTION_DROPDOWN);
     }
 
-    public void clickUpgradeForFullReviewButton (boolean inANewTab){
+    public void clickUpgradeForFullReviewButton(boolean inANewTab) {
         openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -177,7 +178,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public List<String> getLightRrpSubjectText() {
-        List<WebElement> subjects= findElements(LIGHT_RRP_SUBJECTS);
+        List<WebElement> subjects = findElements(LIGHT_RRP_SUBJECTS);
         List<String> displaySubjects = new ArrayList<>();
         for (WebElement subject : subjects) {
             displaySubjects.add(getTextForElement(subject));
@@ -194,8 +195,8 @@ public class Rrp extends LpUiBasePage {
         return displaySubjects;
     }
 
-    public List<String> getFullRrpResourceTypeText(){
-        List<WebElement> resourceTypes= findElements(FULL_RRP_RESOURCE_TYPES);
+    public List<String> getFullRrpResourceTypeText() {
+        List<WebElement> resourceTypes = findElements(FULL_RRP_RESOURCE_TYPES);
         List<String> displayResourceType = new ArrayList<>();
         for (WebElement resourceType : resourceTypes) {
             displayResourceType.add(getTextForElement(resourceType));
@@ -203,7 +204,7 @@ public class Rrp extends LpUiBasePage {
         return displayResourceType;
     }
 
-    public List<String> getLightRrpResourceTypeText(){
+    public List<String> getLightRrpResourceTypeText() {
         List<WebElement> resourceTypes = findElements(LIGHT_RRP_RESOURCE_TYPES);
         List<String> displayResourceType = new ArrayList<>();
         for (WebElement resourceType : resourceTypes) {
@@ -212,15 +213,15 @@ public class Rrp extends LpUiBasePage {
         return displayResourceType;
     }
 
-    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab){
+    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab) {
         openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
-    public void clickOnThumbnail(){
+    public void clickOnThumbnail() {
         clickElement(THUMBNAIL);
     }
 
-    public void clickVisitorFavoriteButton(){
+    public void clickVisitorFavoriteButton() {
         clickElement(VISITOR_FAVORITE_BUTTON);
     }
 
@@ -228,7 +229,7 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(boolean inANewTab){
+    public void clickSignInPopupLink(boolean inANewTab) {
         openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
@@ -236,11 +237,11 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(JOIN_NOW_POPUP);
     }
 
-    public void clickJoinNowPopupLink(){
+    public void clickJoinNowPopupLink() {
         clickElement(JOIN_NOW_POPUP);
     }
 
-    public void clickNextButton(){
+    public void clickNextButton() {
         clickElement(NEXT_BUTTON_RRP);
     }
 
@@ -248,7 +249,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(PREVIOUS_BUTTON_RRP);
     }
 
-    public boolean isLeftSectionBlankDisplayed(){
+    public boolean isLeftSectionBlankDisplayed() {
         return isElementDisplayed(BLANK_LEFT_SECTION);
     }
 
@@ -276,7 +277,7 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(ADD_A_COMMENT_LINK);
     }
 
-    public void clickAddACommentLink(){
+    public void clickAddACommentLink() {
         clickElement(ADD_A_COMMENT_LINK);
     }
 

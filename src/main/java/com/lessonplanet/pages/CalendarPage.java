@@ -1,8 +1,9 @@
 package com.lessonplanet.pages;
+
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
-public class CalendarPage  extends  LpUiBasePage{
+public class CalendarPage extends LpUiBasePage {
 
     private static final String CALENDAR_TITLE = "#content-main h1";
     private static final String CALENDAR_DESCRIPTION = "#content-main p";
@@ -19,39 +20,39 @@ public class CalendarPage  extends  LpUiBasePage{
         loadUrl(TestData.CURRICULUM_CALENDAR_PAGE_PATH);
     }
 
-    public boolean isCalendarTitleDisplayed(){
+    public boolean isCalendarTitleDisplayed() {
         return isElementDisplayed(CALENDAR_TITLE);
     }
 
-    public String getCalendarTitle(){
+    public String getCalendarTitle() {
         return getTextForElement(CALENDAR_TITLE);
     }
 
-    public boolean isCalendarDescriptionDisplayed(){
+    public boolean isCalendarDescriptionDisplayed() {
         return isElementDisplayed(CALENDAR_DESCRIPTION);
     }
 
-    public String getCalendarDescription(){
+    public String getCalendarDescription() {
         return getTextForElement(CALENDAR_DESCRIPTION);
     }
 
-    public boolean isCalendarDisplayed(){
+    public boolean isCalendarDisplayed() {
         return isElementDisplayed(CALENDAR);
     }
 
-    public void clickNextArrowLink(){
+    public void clickNextArrowLink() {
         clickElement(NEXT_ARROW_LINK);
     }
 
-    public void clickPreviousArrowLink(){
+    public void clickPreviousArrowLink() {
         clickElement(PREVIOUS_ARROW_LINK);
     }
 
-    public boolean isMonthLinkDisplayed(){
+    public boolean isMonthLinkDisplayed() {
         return isElementDisplayed(MONTH_LINK);
     }
 
-    public void clickOnMonthLink(){
+    public void clickOnMonthLink() {
         clickElement(MONTH_LINK);
     }
 

@@ -511,7 +511,7 @@ public class LpUiBasePage {
         }
     }
 
-    public boolean isElementDisplayed(WebElement webElement,String cssLocator){
+    public boolean isElementDisplayed(WebElement webElement, String cssLocator) {
         try {
             webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;

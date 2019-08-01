@@ -189,7 +189,7 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnMyAccountButton();
         Assert.assertEquals(headerPage.getPath(), TestData.MY_ACCOUNT_PAGE_PATH);
 
-        if(!adminManager){
+        if (!adminManager) {
             headerPage.hoverOverUserDropDownButton();
             headerPage.clickOnMyMemberProfileButton();
             Assert.assertEquals(headerPage.getPath(), TestData.MEMBER_PROFILE_PAGE_PATH);

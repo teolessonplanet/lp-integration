@@ -18,7 +18,7 @@ public class RSL_SearchTest extends BaseTest {
     public void testLessonp_4016() {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        searchTest.testLpResource(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE,false);
+        searchTest.testLpResource(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, false);
     }
 
     @Test(description = "Regular SL - Search Page - lessonp-4017: Cards details - Collection")

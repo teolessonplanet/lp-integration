@@ -2,9 +2,12 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 import util.TestData;
+
 import java.text.NumberFormat;
 import java.text.ParseException;
+
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class CollectionRrp extends Rrp {
@@ -28,17 +31,17 @@ public class CollectionRrp extends Rrp {
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";
-    private static final String EXPANDED_RRP =  "[class='rrp-list'] li[class='rrp-content']";
+    private static final String EXPANDED_RRP = "[class='rrp-list'] li[class='rrp-content']";
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
     private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view text-muted']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
-    private static final String SAVED_COLLECTION_NOTIFICATION =  "[class='alert alert-success alert-dismissible mb0']";
+    private static final String SAVED_COLLECTION_NOTIFICATION = "[class='alert alert-success alert-dismissible mb0']";
     private static final String COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='join-btn']";
     private static final String PLAY_COLLECTION_BUTTON = "[class*='panel-default panel-review'] [class='play-collection-btn']";
 
-    protected CollectionRrp(WebDriver driver){
+    protected CollectionRrp(WebDriver driver) {
         super(driver);
     }
 
@@ -63,13 +66,13 @@ public class CollectionRrp extends Rrp {
         int number;
         try {
             number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
-            } catch (ParseException e) {
+        } catch (ParseException e) {
             throw new Error("The number " + rawNumber + " cannot be parsed");
         }
         return number;
     }
 
-    public boolean isGetFreeAccessForTenDaysButtonDisplayed(){
+    public boolean isGetFreeAccessForTenDaysButtonDisplayed() {
         return isElementDisplayed(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON);
     }
 
@@ -77,35 +80,35 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(LIMITED_ACCESS_REVIEW);
     }
 
-    public boolean isShareButtonDisplayed(){
+    public boolean isShareButtonDisplayed() {
         return isElementDisplayed(SHARE_BUTTON);
     }
 
-    public boolean isDescriptionDisplayed(){
+    public boolean isDescriptionDisplayed() {
         return isElementDisplayed(DESCRIPTION);
     }
 
-    public boolean isNumberOfDownloadsDisplayed(){
+    public boolean isNumberOfDownloadsDisplayed() {
         return isElementDisplayed(NUMBER_OF_DOWNLOADS);
     }
 
-    public boolean isGradeDisplayed(){
+    public boolean isGradeDisplayed() {
         return isElementDisplayed(GRADES);
     }
 
-    public boolean isSubjectDisplayed(){
+    public boolean isSubjectDisplayed() {
         return isElementDisplayed(SUBJECTS);
     }
 
-    public boolean isConceptsTagsListDisplayed(){
+    public boolean isConceptsTagsListDisplayed() {
         return isElementDisplayed(CONCEPTS_TAGS_LIST);
     }
 
-    public boolean isNumberOfViewsDisplayed(){
+    public boolean isNumberOfViewsDisplayed() {
         return isElementDisplayed(NUMBER_OF_VIEWS);
     }
 
-    public boolean isCollectionItemsCountDisplayed(){
+    public boolean isCollectionItemsCountDisplayed() {
         return isElementDisplayed(ITEMS_COUNT);
     }
 
@@ -114,39 +117,39 @@ public class CollectionRrp extends Rrp {
         return panelItems.size();
     }
 
-    public String getPanelItemDataId(int position){
-        return getElementAttribute(PANEL_ITEM,"data-id", position);
+    public String getPanelItemDataId(int position) {
+        return getElementAttribute(PANEL_ITEM, "data-id", position);
     }
 
-    public boolean isPreviousButtonPanelItemsDisplayed(){
+    public boolean isPreviousButtonPanelItemsDisplayed() {
         return isElementDisplayed(PREVIOUS_BUTTON_PANEL_ITEMS);
     }
 
-    public boolean isNextButtonPanelItemsDisplayed(){
+    public boolean isNextButtonPanelItemsDisplayed() {
         return isElementDisplayed(NEXT_BUTTON_PANEL_ITEMS);
     }
 
-    public void clickNextButtonPanelItems(){
+    public void clickNextButtonPanelItems() {
         clickElement(NEXT_BUTTON_PANEL_ITEMS);
     }
 
-    public boolean isSeeFullReviewsLinkVisible(){
+    public boolean isSeeFullReviewsLinkVisible() {
         return isElementVisible(SEE_FULL_REVIEWS_LINK);
     }
 
-    public void clickSeeFullReviewsLink(){
+    public void clickSeeFullReviewsLink() {
         clickElement(SEE_FULL_REVIEWS_LINK);
     }
 
-    public boolean isNextButtonItemViewerDisplayed(){
+    public boolean isNextButtonItemViewerDisplayed() {
         return isElementDisplayed(NEXT_BUTTON_ITEM_VIEWER);
     }
 
-    public boolean isPreviousButtonItemViewerDisplayed(){
+    public boolean isPreviousButtonItemViewerDisplayed() {
         return isElementDisplayed(PREVIOUS_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickCloseExpandedRrp(){
+    public void clickCloseExpandedRrp() {
         clickElement(X_BUTTON_EXPANDED_RRP);
     }
 
@@ -154,7 +157,7 @@ public class CollectionRrp extends Rrp {
         return getElementAttribute(EXPANDED_RRP, "data-id", position);
     }
 
-    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab){
+    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab) {
         openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
@@ -162,7 +165,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(boolean inANewTab){
+    public void clickSignInPopupLink(boolean inANewTab) {
         openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
@@ -170,31 +173,31 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(JOIN_NOW_POPUP);
     }
 
-    public void clickJoinNowPopupLink(){
+    public void clickJoinNowPopupLink() {
         clickElement(JOIN_NOW_POPUP);
     }
 
-    public String getCollectionTitleText(){
+    public String getCollectionTitleText() {
         return getTextForElement(COLLECTION_TITLE_TEXT);
     }
 
-    public void clickNextButtonItemViewer(){
+    public void clickNextButtonItemViewer() {
         clickElement(NEXT_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickPreviousButtonItemViewer(){
+    public void clickPreviousButtonItemViewer() {
         clickElement(PREVIOUS_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickPanelItem(int position){
+    public void clickPanelItem(int position) {
         clickElement(PANEL_ITEMS_LIST, position);
     }
 
-    public void clickNextButtonRrp(){
+    public void clickNextButtonRrp() {
         clickElement(NEXT_BUTTON_RRP);
     }
 
-    public void clickPreviousButtonRrp(){
+    public void clickPreviousButtonRrp() {
         clickElement(PREVIOUS_BUTTON_RRP);
     }
 
@@ -210,7 +213,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON);
     }
 
-    public void clickCollectionUpgradeForFullReviewButton (boolean inANewTab){
+    public void clickCollectionUpgradeForFullReviewButton(boolean inANewTab) {
         openInANewTabOrClick(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -218,7 +221,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(PLAY_COLLECTION_BUTTON);
     }
 
-    public void clickPlayCollectionButton(){
+    public void clickPlayCollectionButton() {
         clickElement(PLAY_COLLECTION_BUTTON);
     }
 }

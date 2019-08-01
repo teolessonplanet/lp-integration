@@ -44,12 +44,12 @@ public class CancelModal extends LpUiBasePage {
         return getTextForElement(MODAL_INDIVIDUAL_MEMBERSHIP_TEXT);
     }
 
-    public String getCancelQuestionText(){
-        return getTextForElement(MODAL_CONTENT_ITEMS_TEXT,0);
+    public String getCancelQuestionText() {
+        return getTextForElement(MODAL_CONTENT_ITEMS_TEXT, 0);
     }
 
-    public String getFullAccessMessageText(){
-        return getTextForElement(MODAL_CONTENT_ITEMS_TEXT,1);
+    public String getFullAccessMessageText() {
+        return getTextForElement(MODAL_CONTENT_ITEMS_TEXT, 1);
     }
 
     public String getRenewalAmountText() {
