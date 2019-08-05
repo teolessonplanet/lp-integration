@@ -438,18 +438,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         String[] actualWords = actual.split("\n");
         String[] expectedWords = expected.split("\n");
 
-        if (actual.length() == expected.length()) {
-            for (String actualWord : actualWords) {
-                boolean wordIsFound = false;
-                for (String expectedWord : expectedWords) {
-                    if (actualWord.equals(expectedWord)) {
-                        wordIsFound = true;
-                    }
-                }
-                if (!wordIsFound) {
-                    return false;
-                }
-            }
+        if (actualWords.length == expectedWords.length && actualWords.length == TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED) {
             return true;
         }
         return false;
