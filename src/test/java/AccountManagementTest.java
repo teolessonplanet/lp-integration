@@ -157,19 +157,19 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-687: From <Get Free Access> button on a resource card")
     public void testLessonp_687() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromGetFreeAccessButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-688: From <Upgrade for Full Review> button on the RRP")
     public void testLessonp_688() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager")
     public void testLessonp_686() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
@@ -177,38 +177,38 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-684: Free members exceeds the allowed number of collections created")
     public void testLessonp_684() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-1000: Free member tries to save a 4th collection")
     public void testLessonp_1000() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromSaving4thCollection();
     }
 
     @Test(description = "AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection")
     public void testLessonp_690() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromAssignResourceButton();
         testUpgradeFreeMemberFromAssignCollectionButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection")
     public void testLessonp_685() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-689: Free member tries to save a collection containing more than 10 items")
     public void testLessonp_689() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
     public void testLessonp_3884() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
     }
@@ -413,11 +413,6 @@ public class AccountManagementTest extends BaseTest {
             Assert.assertEquals(cancelModal.getFullAccessMessageText(), TestData.CANCEL_MODAL_FROM_STARTER_FULL_ACCESS_TEXT);
             Assert.assertEquals(cancelModal.getRenewalAmountText(), TestData.CANCEL_MODAL_FROM_STARTER_START_MY_MEMBERSHIP_TEXT);
         }
-    }
-
-    private void createAFreeMemberAccount() {
-        lpHomePage.loadPage();
-        stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
     }
 
     private void testUpgradeFreeMemberFromGetFreeAccessButton() {
