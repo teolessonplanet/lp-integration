@@ -18,8 +18,14 @@ public class StepTwoPage extends LpUiBasePage {
     private static final String START_MEMBERSHIP_BUTTON = "input#js-submit-btn.btn.btn-success.btn-lg.pt15.pb15";
     private static final String SELECT_OFFER_BUTTON = "[class*='btn-offer']";
 
+    private StepOnePage stepOnePage = new StepOnePage(driver);
+
     public StepTwoPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void loadPage() {
+        loadUrl(TestData.STEP_TWO_PAGE_PATH);
     }
 
     public String getTitleText() {
@@ -83,5 +89,17 @@ public class StepTwoPage extends LpUiBasePage {
         waitForPageLoad();
         clickOnStartMembership();
         waitForPageLoad();
+    }
+
+    public String createNewAccount(String accountType) {
+        final String email = TestData.GET_NEW_EMAIL();
+        stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
+        if (accountType.equals(TestData.STARTER_OPTION_TEXT) || accountType.equals(TestData.PRIME_OPTION_TEXT) || accountType.equals(TestData.PRO_OPTION_TEXT)) {
+            final String currentPath = getPath();
+            loadPage();
+            completeStepTwoPageWith(accountType);
+            loadUrl(currentPath);
+        }
+        return email;
     }
 }

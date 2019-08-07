@@ -21,6 +21,7 @@ public class TestData {
     //Paths
     public static final String LP_HOME_PAGE_PATH = "";
     public static final String STEP_ONE_PAGE_PATH = "subscription/new";
+    public static final String STEP_TWO_PAGE_PATH = "subscription/new";
     public static final String LOGIN_PAGE_PATH = "auth/users/sign_in";
     public static final String SUBSCRIPTION_SUCCESS_PATH = "subscription/success";
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
