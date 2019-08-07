@@ -19,6 +19,7 @@ public class StepTwoPage extends LpUiBasePage {
     private static final String SELECT_OFFER_BUTTON = "[class*='btn-offer']";
 
     private StepOnePage stepOnePage = new StepOnePage(driver);
+    private LpHomePage lpHomePage = new LpHomePage(driver);
 
     public StepTwoPage(WebDriver driver) {
         super(driver);
@@ -93,6 +94,9 @@ public class StepTwoPage extends LpUiBasePage {
 
     public String createNewAccount(String accountType) {
         final String email = TestData.GET_NEW_EMAIL();
+        if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
+            lpHomePage.loadPage();
+        }
         stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
         if (accountType.equals(TestData.STARTER_OPTION_TEXT) || accountType.equals(TestData.PRIME_OPTION_TEXT) || accountType.equals(TestData.PRO_OPTION_TEXT)) {
             final String currentPath = getPath();
