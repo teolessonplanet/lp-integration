@@ -17,13 +17,11 @@ public class RRPSearchPageTest extends BaseTest {
     private WhatMembersSayWidget whatMembersSayWidget;
     private StepOneModal stepOneModal;
     private SignInPage signInPage;
-    private StepOnePage stepOnePage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private LoginPage loginPage;
     private CreateNewCollectionModal createNewCollectionModal;
     private UpgradeMaxCollectionModal upgradeMaxCollectionModal;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
-    private LpHomePage lpHomePage;
     private CurriculumManagerPageTest curriculumManagerTest;
     private StepTwoPage stepTwoPage;
     private ResourcePreviewPage resourcePreviewPage;
@@ -38,13 +36,11 @@ public class RRPSearchPageTest extends BaseTest {
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         signInPage = new SignInPage(webDriver);
-        stepOnePage = new StepOnePage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         loginPage = new LoginPage(webDriver);
         createNewCollectionModal = new CreateNewCollectionModal(webDriver);
         upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
-        lpHomePage = new LpHomePage(webDriver);
         curriculumManagerTest = new CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
         resourcePreviewPage = new ResourcePreviewPage(webDriver);
@@ -177,7 +173,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-523: Resource Modal Overview")
     public void testLessonp_523() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
@@ -185,7 +181,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-535: Free Sample Modal Overview")
     public void testLessonp_535() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testFreeSampleResourceRRPOverview(true);
@@ -193,7 +189,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-952: Shared Resource Modal Overview")
     public void testLessonp_952() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_FREEMIUM);
@@ -210,7 +206,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-515: Resource Static Page Overview")
     public void testLessonp_515() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_FREEMIUM);
@@ -220,7 +216,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-531: Free Sample Static Page Overview")
     public void testLessonp_531() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
         testFreeSampleResourceRRPOverview(false);
@@ -231,7 +227,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-950: Shared Resource Static Page Overview")
     public void testLessonp_950() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
         testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_FREEMIUM);
@@ -251,7 +247,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4664: LP Resource Main buttons")
     public void testLessonp_4664() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testResourceUpgradeForFullReviewButton(true);
@@ -262,7 +258,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4663: FreeSample Resource Main buttons")
     public void testLessonp_4663() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testThumbnailForFreeSampleResource(true);
@@ -273,7 +269,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4666: Shared Resource Main buttons")
     public void testLessonp_4666() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testThumbnailForSharedResource(true);
@@ -284,7 +280,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4667: Collection  Main buttons")
     public void testLessonp_4667() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.clickPanelItem(0);
@@ -301,7 +297,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4670: LP Resource Main buttons")
     public void testLessonp_4670() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testThumbnailForRegularResource(false, TestData.VALID_EMAIL_FREEMIUM);
@@ -314,7 +310,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4669: FreeSample Resource Main buttons")
     public void testLessonp_4669() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
         testThumbnailForFreeSampleResource(false);
@@ -329,7 +325,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons  - lessonp-4671: Shared Resource Main Buttons")
     public void testLessonp_4671() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
         testThumbnailForSharedResource(false);
@@ -344,7 +340,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4668: Collection Main buttons")
     public void testLessonp_4668() {
-        createAFreeMemberAccount();
+        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         collectionRrpPage.clickPanelItem(0);
@@ -360,7 +356,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-586: Resource Modal Overview")
     public void testLessonp_586() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
@@ -368,7 +364,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-954: Shared Resource Modal Overview")
     public void testLessonp_954() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
@@ -376,7 +372,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-587: Collection Modal Overview")
     public void testLessonp_587() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         testCollectionRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
@@ -385,7 +381,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Overview - lessonp-4795: Resource Static Page Overview")
     public void testLessonp_4795() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
@@ -395,7 +391,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview")
     public void testLessonp_4796() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
         testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
@@ -405,7 +401,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4797: Collection Static Page Overview")
     public void testLessonp_4797() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         testCollectionRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
@@ -414,7 +410,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4792: LP Resource Main buttons")
     public void testLessonp_4792() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testThumbnailForRegularResource(true, TestData.VALID_EMAIL_ADMIN);
@@ -425,7 +421,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4794: Shared Resource Main buttons")
     public void testLessonp_4794() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testThumbnailForSharedResource(true);
@@ -436,7 +432,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons")
     public void testLessonp_4793() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         testCollectionRRPNavigationButtonsSearchPage();
@@ -452,7 +448,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4805: LP Resource Main buttons")
     public void testLessonp_4805() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testThumbnailForRegularResource(false, TestData.VALID_EMAIL_ADMIN);
@@ -465,7 +461,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4811: Shared Resource Main Buttons")
     public void testLessonp_4811() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
         testThumbnailForSharedResource(false);
@@ -478,7 +474,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4817: Collection Main buttons")
     public void testLessonp_4817() {
-        createAnActiveAccount();
+        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         collectionRrpModal.clickPlayCollectionButton();
@@ -489,17 +485,6 @@ public class RRPSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection(false);
         testSaveCollectionButton(false, TestData.VALID_EMAIL_ADMIN);
-    }
-
-    private void createAnActiveAccount() {
-        StepTwoTest stepTwoTest = new StepTwoTest();
-        stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.PRO_OPTION_TEXT);
-    }
-
-    public void createAFreeMemberAccount() {
-        lpHomePage.loadPage();
-        stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
     }
 
     public void testRegularResourceRRPOverview(boolean modal, String account) {
