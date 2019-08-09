@@ -129,6 +129,7 @@ public class TestData {
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
     public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+76+959321@lessonplanet.com";
     public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+46+2316026@lessonplanet.com";
+    public static final String VALID_EMAIL_QA_CUSTOM_SITE_LICENCE = "testuser+78+2471812@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -160,16 +161,21 @@ public class TestData {
     public static final String ENABLED_EDIT_OWNER_POPOVER_TEXT = "Edit Owner";
     public static final String DISABLED_EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
     public static final String REMOVE_TEACHER_POPOVER_TEXT = "Remove Teacher";
+    public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed when Automated Rostering is enabled";
     public static final String REMOVE_SCHOOL_ADMIN_POPOVER_TEXT = "Remove School Admin";
     public static final String REMOVE_DISTRICT_ADMIN_POPOVER_TEXT = "Remove District Admin";
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
+    public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT= "Owner cannot be removed when Automated Rostering is enabled";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
     public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
     public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
+    public static final String ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school.";
+    public static final String ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new teacher.";
 
     public static final String RSL_DISTRICT_NAME = "SBCEO";
     public static final String HENRY_SL_DISTRICT_NAME = "Henry County Schools";
+    public static final String QA_CUSTOM_SL_DISTRICT_NAME = "QA Custom SL Test";
     public static final String TEACHER_ROLE = "Teacher";
     public static final String ADMIN_ROLE = "Admin";
     public static final String OWNER_ROLE = "Owner";
@@ -179,8 +185,10 @@ public class TestData {
     public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
     public static final String EXISTING_RSL_SCHOOL_NAME = "All SBCEO";
     public static final String EXISTING_HENRY_SL_SCHOOL_NAME = "LP Elementary";
+    public static final String EXISTING_QA_CUSTOM_SL_SCHOOL_NAME = "Rita";
     public static final String EXISTING_RSL_TEACHER_EMAIL = "testuser+94+958202@lessonplanet.com";
     public static final String EXISTING_HENRY_SL_TEACHER_EMAIL = "testuser+22+2320809@lessonplanet.com";
+    public static final String EXISTING_QA_CUSTOM_SL_TEACHER_EMAIL = "testuser+86+2544858@lessonplanet.com";
     public static final String RSL_OWNER_FIRST_NAME = "Homer";
     public static final String RSL_OWNER_LAST_NAME = "Morro";
     public static final String RSL_TEACHER_FIRST_NAME = "Terry";
@@ -189,6 +197,10 @@ public class TestData {
     public static final String HENRY_SL_OWNER_LAST_NAME = "Abercrombie";
     public static final String HENRY_SL_TEACHER_FIRST_NAME = "Allen";
     public static final String HENRY_SL_TEACHER_LAST_NAME = "Burgtorf";
+    public static final String QA_CUSTOM_SL_OWNER_FIRST_NAME = "qa";
+    public static final String QA_CUSTOM_SL_OWNER_LAST_NAME = "team";
+    public static final String QA_CUSTOM_SL_TEACHER_FIRST_NAME = "Montesquieu";
+    public static final String QA_CUSTOM_SL_TEACHER_LAST_NAME = "Lola";
 
     public static final String NO_SEARCH_RESULTS_TEXT = "There were no results found";
     public static final String SEARCH_RESULTS_TEXT = "results were found for";
@@ -219,6 +231,8 @@ public class TestData {
     public static final String OWNER_PUBLISH_OPTION_TEXT = "This owner may publish collections to the learning object repository";
     public static final String DISTRICT_ADMIN_PUBLISH_OPTION_TEXT = "This district admin may publish collections to the learning object repository";
     public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
+    public static final String ADD_DISTRICT_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT = "You cannot add admins that do not have an active subscription";
+    public static final String ADD_SCHOOL_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT = "You cannot add admins to an organization with Automated Rostering enabled if they're not a teacher first";
 
     //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
