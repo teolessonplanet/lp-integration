@@ -15,6 +15,9 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     private static final String REMOVE_BUTTON_POPOVER_TEXT = "[class='group-table admins'] [class='popuptext show']";
     private static final String ADD_ADMIN_LINK = "[class='group-table admins'] [class*='placeholder'] a";
     private static final String ADD_ADMIN_LINK_REMOVE_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-danger disabled']";
+    private static final String EDIT_BUTTON = "[class='group-table admins'] [class='group-row member member'] [class*='btn-success']";
+    private static final String EDIT_BUTTON_POPOVER_TEXT = "[class='group-table admins'] [class*='btn-success'] [class='popuptext show']";
+    private static final String ADD_ADMIN_LINK_EDIT_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-success disabled']";
 
     public ManageDistrictAdminsPage(WebDriver driver) {
         super(driver);
@@ -72,5 +75,25 @@ public class ManageDistrictAdminsPage extends DistrictPage {
 
     public boolean isAddAdminLinkRemoveButtonDisplayed(int i) {
         return isElementDisplayed(ADD_ADMIN_LINK_REMOVE_BUTTON, i);
+    }
+
+    public boolean isEditButtonDisplayed(int index) {
+        return isElementDisplayed(EDIT_BUTTON, index);
+    }
+
+    public void clickOnEditButton(int adminPosition) {
+        clickElement(EDIT_BUTTON, adminPosition);
+    }
+
+    public void hoverOverEditButton(int i) {
+        hoverOverElement(EDIT_BUTTON, i);
+    }
+
+    public String getEditButtonPopoverText() {
+        return getTextForElement(EDIT_BUTTON_POPOVER_TEXT);
+    }
+
+    public boolean isAddAdminLinkEditButtonDisplayed(int i) {
+        return isElementDisplayed(ADD_ADMIN_LINK_EDIT_BUTTON, i);
     }
 }

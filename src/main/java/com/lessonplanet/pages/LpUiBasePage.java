@@ -327,6 +327,10 @@ public class LpUiBasePage {
         hoverOverElement(findElement(cssSelector), resetPosition);
     }
 
+    protected void hoverOverElement(String cssSelector, boolean resetPosition, int position) {
+        hoverOverElement(findElements(cssSelector).get(position), resetPosition);
+    }
+
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForLoad();

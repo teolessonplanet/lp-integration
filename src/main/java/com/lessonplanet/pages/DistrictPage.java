@@ -30,7 +30,7 @@ public class DistrictPage extends LpUiBasePage {
     private static final String EDIT_ACTION_BUTTON = "[class='group-table children']  [class*='btn-success']";
     private static final String EDIT_ACTION_BUTTON_POPOVER_TEXT = "[class='group-table children'] [class*='btn-success'] [class='popuptext show']";
     private static final String REMOVE_ACTION_BUTTON = "[class='group-table children']  [class*='btn-danger']";
-    private static final String REMOVE_ACTION_BUTTON_POPOVER_TEXT = "[class='group-table children'] [class='group-row org member'] [class*='btn-danger'] [class='popuptext show']";
+    private static final String REMOVE_ACTION_BUTTON_POPOVER_TEXT = "[class='group-table children'] [class*='btn-danger'] [class*='popuptext']";
 
     private static final String NOTIFICATION_TEXT = "#notification";
     private static final String NOTIFICATION_X_BUTTON = "#notification [class='close']";
@@ -68,10 +68,10 @@ public class DistrictPage extends LpUiBasePage {
         clickElement(SCHOOL_NAME_TEXT, position);
     }
 
-    public void clickOnExistingSchool() {
+    public void clickOnExistingSchool(String schoolName) {
         for (int i = 0; i < getSchoolsNumber(); i++) {
-            if (findElements(SCHOOL_NAME_TEXT).get(i).getText().equals(TestData.EXISTING_SCHOOL_NAME)) {
-                findElements(SCHOOL_NAME_TEXT).get(i).click();
+            if (getTextForElement(SCHOOL_NAME_TEXT, i).equals(schoolName)) {
+                clickElement(SCHOOL_NAME_TEXT, i);
             }
         }
     }
@@ -162,7 +162,7 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public void hoverOverEditButton(int position) {
-        hoverOverElement(EDIT_ACTION_BUTTON, position);
+        hoverOverElement(EDIT_ACTION_BUTTON, true, position);
     }
 
     public String getEditButtonPopoverText() {
@@ -174,7 +174,7 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public void hoverOverRemoveButton(int i) {
-        hoverOverElement(REMOVE_ACTION_BUTTON, i);
+        hoverOverElement(REMOVE_ACTION_BUTTON, true, i);
     }
 
     public String getRemoveButtonPopoverText() {

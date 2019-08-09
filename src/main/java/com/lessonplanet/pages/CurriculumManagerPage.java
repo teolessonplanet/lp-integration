@@ -246,4 +246,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
     public boolean isLinkOptionDisplayed() {
         return isElementDisplayed(LINK_OPTION);
     }
+
+    public boolean isPublishButtonDisplayed() {
+        return isElementDisplayed(PUBLISH_BUTTON);
+    }
 }
