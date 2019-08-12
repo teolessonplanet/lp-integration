@@ -127,8 +127,8 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "integration_";
     private static final String NEW_EMAIL_SUFFIX = "@lessonplanet.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+59+959321@lessonplanet.com";
-    public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+14+2316026@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+58+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+0+2316026@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -177,8 +177,8 @@ public class TestData {
     public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
     public static final String EXISTING_RSL_SCHOOL_NAME = "All SBCEO";
     public static final String EXISTING_HENRY_SL_SCHOOL_NAME = "LP Elementary";
-    public static final String EXISTING_RSL_TEACHER_EMAIL = "testuser+59+958820@lessonplanet.com";
-    public static final String EXISTING_HENRY_SL_TEACHER_EMAIL = "testuser+53+2320809@lessonplanet.com";
+    public static final String EXISTING_RSL_TEACHER_EMAIL = "testuser+58+958820@lessonplanet.com";
+    public static final String EXISTING_HENRY_SL_TEACHER_EMAIL = "testuser+78+2320809@lessonplanet.com";
     public static final String RSL_OWNER_FIRST_NAME = "Homer";
     public static final String RSL_OWNER_LAST_NAME = "Morro";
     public static final String RSL_TEACHER_FIRST_NAME = "Ana";
