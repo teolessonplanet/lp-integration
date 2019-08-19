@@ -59,8 +59,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         testEditDistrict(TestData.RSL_DISTRICT_NAME, false);
         testSearchButtonFromDistrictPage(TestData.EXISTING_RSL_TEACHER_EMAIL, false);
         testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false);
-        testSearchButtonFromDistrictPage(TestData.RSL_OWNER_FIRST_NAME, false);
-        testSearchButtonFromDistrictPage(TestData.RSL_OWNER_FIRST_NAME + " " + TestData.RSL_OWNER_LAST_NAME, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_TEACHER_FIRST_NAME, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_TEACHER_FIRST_NAME + " " + TestData.RSL_TEACHER_LAST_NAME, false);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")

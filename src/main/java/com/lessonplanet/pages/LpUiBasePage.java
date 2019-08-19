@@ -342,6 +342,10 @@ public class LpUiBasePage {
         scrollToElement(findElement(cssSelector));
     }
 
+    protected void scrollToElement(String cssSelector, int index) {
+        scrollToElement(findElements(cssSelector).get(index));
+    }
+
     protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
