@@ -41,22 +41,27 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     }
 
     public boolean isAdminEmailDisplayed(int index) {
+        scrollToElement(ADMIN_EMAIL_TEXT, index);
         return isElementDisplayed(ADMIN_EMAIL_TEXT, index);
     }
 
     public String getAdminEmail(int adminPosition) {
+        scrollToElement(ADMIN_EMAIL_TEXT, adminPosition);
         return getTextForElement(ADMIN_EMAIL_TEXT, adminPosition);
     }
 
     public boolean isRemoveButtonDisplayed(int index) {
+        scrollToElement(REMOVE_BUTTON, index);
         return isElementDisplayed(REMOVE_BUTTON, index);
     }
 
     public void clickOnRemoveButton(int adminPosition) {
+        scrollToElement(REMOVE_BUTTON, adminPosition);
         clickElement(REMOVE_BUTTON, adminPosition);
     }
 
     public void hoverOverRemoveButton(int i) {
+        scrollToElement(REMOVE_BUTTON, i);
         hoverOverElement(REMOVE_BUTTON, i);
     }
 
@@ -74,10 +79,12 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     }
 
     public boolean isAddAdminLinkRemoveButtonDisplayed(int i) {
+        scrollToElement(ADD_ADMIN_LINK_REMOVE_BUTTON, i);
         return isElementDisplayed(ADD_ADMIN_LINK_REMOVE_BUTTON, i);
     }
 
     public boolean isEditButtonDisplayed(int index) {
+        scrollToElement(EDIT_BUTTON, index);
         return isElementDisplayed(EDIT_BUTTON, index);
     }
 
@@ -86,6 +93,7 @@ public class ManageDistrictAdminsPage extends DistrictPage {
     }
 
     public void hoverOverEditButton(int i) {
+        scrollToElement(EDIT_BUTTON, i);
         hoverOverElement(EDIT_BUTTON, i);
     }
 

@@ -47,26 +47,32 @@ public class SchoolPage extends DistrictPage {
     }
 
     public boolean isTeacherEmailDisplayed(int position) {
+        scrollToElement(TEACHER_EMAIL_TEXT, position);
         return isElementDisplayed(TEACHER_EMAIL_TEXT, position);
     }
 
     public String getTeacherEmail(int position) {
+        scrollToElement(TEACHER_EMAIL_TEXT, position);
         return getTextForElement(TEACHER_EMAIL_TEXT, position);
     }
 
     public String getTeacherFirstName(int position) {
+        scrollToElement(TEACHER_FIRST_NAME_TEXT, position);
         return getTextForElement(TEACHER_FIRST_NAME_TEXT, position);
     }
 
     public String getTeacherLastName(int position) {
+        scrollToElement(TEACHER_LAST_NAME_TEXT, position);
         return getTextForElement(TEACHER_LAST_NAME_TEXT, position);
     }
 
     public String getTeacherRole(int position) {
+        scrollToElement(TEACHER_ROLE_TEXT, position);
         return getTextForElement(TEACHER_ROLE_TEXT, position);
     }
 
     public String getTeacherJoinedDate(int position) {
+        scrollToElement(TEACHER_JOINED_DATE_TEXT, position);
         return getTextForElement(TEACHER_JOINED_DATE_TEXT, position);
     }
 }
