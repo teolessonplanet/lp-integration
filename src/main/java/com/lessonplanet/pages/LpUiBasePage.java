@@ -172,6 +172,7 @@ public class LpUiBasePage {
 
     protected String getTextForElement(WebElement element, String cssLocator) {
         waitForLoad();
+        findElement(cssLocator);
         return findElements(element, cssLocator).get(0).getText();
     }
 
@@ -316,7 +317,7 @@ public class LpUiBasePage {
         hoverOverElement(findElements(cssSelector).get(position));
     }
 
-    protected void hoverOverElement(WebElement webElement, boolean resetPosition) {
+    public void hoverOverElement(WebElement webElement, boolean resetPosition) {
         if (resetPosition) {
             hoverOverElement("#logo");
         }
@@ -348,6 +349,14 @@ public class LpUiBasePage {
 
     protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
+    }
+
+    protected void waitUntilElementIsDisplayed(WebElement webElement){
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+        }catch (Exception ex){
+            logger.info("Element is not visible");
+        }
     }
 
     protected void waitUntilTextIsDisplayed(String cssSelector, String text) {
@@ -520,7 +529,9 @@ public class LpUiBasePage {
     }
 
     public boolean isElementDisplayed(WebElement webElement, String cssLocator) {
+        waitForLoad();
         try {
+            waitForElement(cssLocator);
             webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {

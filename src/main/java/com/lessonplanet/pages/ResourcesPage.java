@@ -371,6 +371,8 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     private String getTextForButton(WebElement button) {
+        waitForLoad();
+        waitUntilElementIsDisplayed(button);
         return button.getText();
     }
 

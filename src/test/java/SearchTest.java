@@ -405,7 +405,7 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(lpResourceCard));
         Assert.assertTrue(discoverResourcesPage.isCardStarRatingDisplayed(lpResourceCard));
 
-        discoverResourcesPage.hoverOverElement(lpResourceCard);
+        discoverResourcesPage.hoverOverElement(lpResourceCard, true);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
 
         testCommonItems(lpResourceCard);
@@ -441,7 +441,7 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
         testCommonItems(collectionResourceCard);
 
-        discoverResourcesPage.hoverOverElement(collectionResourceCard);
+        discoverResourcesPage.hoverOverElement(collectionResourceCard, true);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
         testCommonItems(collectionResourceCard);
         Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
@@ -463,6 +463,7 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY);
 
         WebElement sharedResourceCard = discoverResourcesPage.getSharedResourcesCards().get(0);
 
@@ -472,7 +473,7 @@ public class SearchTest extends BaseTest {
         testCommonItems(sharedResourceCard);
         Assert.assertTrue(discoverResourcesPage.isCardSharedResourceTagInThumbnailViewDisplayed(sharedResourceCard));
 
-        discoverResourcesPage.hoverOverElement(sharedResourceCard);
+        discoverResourcesPage.hoverOverElement(sharedResourceCard, true);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(sharedResourceCard));
 
         testCommonItems(sharedResourceCard);
@@ -500,6 +501,7 @@ public class SearchTest extends BaseTest {
     }
 
     private WebElement getLpResourceCard(String account, boolean freeSample) {
+        discoverResourcesPage.waitForLoad();
         WebElement lpResourceCard;
         if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
             if (freeSample) {

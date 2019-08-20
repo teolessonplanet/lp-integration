@@ -139,6 +139,8 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
+    public static final String FACET_CATEGORY_SUBJECTS = "Subjects";
+    public static final String FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY = "Social Studies & History";
 
     //Account Manager
     public static final String DISTRICT_NAME_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";

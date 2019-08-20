@@ -18,7 +18,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     private static final String TILED_VIEW_BUTTON = "#tiled";
     private static final String THUMBNAIL_VIEW_BUTTON = "#thumbnail";
 
-    private static final String FACETS_CATEGORIES = "[class='lp-filter-group parent-type_ids']";
+    private static final String FACETS_CATEGORIES = "[class*='lp-filter-group']";
     private static final String FACET_OPTIONS = "li";
 
     private static final Logger logger = LogManager.getRootLogger();
@@ -71,11 +71,13 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     private void clickViewModeButton(String cssSelector) {
+        waitForLoad();
         try {
             clickElement(cssSelector);
         } catch (Exception ex) {
             logger.info("The desired view mode is already selected " + ex.toString());
         }
+        waitForLoad();
     }
 
     public void clickSeeCollection(boolean inANewTab) {
