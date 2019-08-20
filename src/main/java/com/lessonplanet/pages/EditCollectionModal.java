@@ -15,6 +15,7 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
 
     private static final String UPLOAD_A_FILE_BUTTON = "#upload-file-button";
+    private static final String COLLECTION_ACTIONS_DROPDOWN = "[class='btn btn-default dropdown-toggle collection-actions']";
 
     public EditCollectionModal(WebDriver driver) {
         super(driver);
@@ -50,6 +51,10 @@ public class EditCollectionModal extends LpUiBasePage {
 
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
+    }
+
+    public void clickOnCollectionActionsDropdown(){
+        clickElement(COLLECTION_ACTIONS_DROPDOWN);
     }
 
     public void clickUploadAFileButton() {
