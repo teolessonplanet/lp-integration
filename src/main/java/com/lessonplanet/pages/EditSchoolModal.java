@@ -15,4 +15,8 @@ public class EditSchoolModal extends EditDistrictModal {
     public void clearSchoolName() {
         clearText(ORGANIZATION_NAME_INPUT);
     }
+
+    public String getSchoolName() {
+        return getElementAttribute(ORGANIZATION_NAME_INPUT, "value", 0);
+    }
 }

@@ -47,6 +47,7 @@ public class DistrictPage extends LpUiBasePage {
     private static final String TEACHER_SCHOOL_TEXT = "[class='group-table children'] [class='group-row org member'] div[class*='school-name']";
     private static final String TEACHER_ROLE_TEXT = "[class='group-table children'] [class='group-row org member'] div[class*='role']";
     private static final String TEACHER_JOINED_DATE_TEXT = "[class='group-table children'] [class='group-row org member'] div[class*='joined-on ']";
+    private static final String ADD_BUTTON_POPOVER_TEXT = "[class*='se-add-school'] [class*='popuptext']";
 
     public DistrictPage(WebDriver driver) {
         super(driver);
@@ -281,5 +282,17 @@ public class DistrictPage extends LpUiBasePage {
     public String getTeacherJoinedDate(int position) {
         scrollToElement(TEACHER_JOINED_DATE_TEXT, position);
         return getTextForElement(TEACHER_JOINED_DATE_TEXT, position);
+    }
+
+    public boolean isAddLinkDisplayed() {
+        return isElementDisplayed(ADD_LINK);
+    }
+
+    public void hoverOverAddButton() {
+        hoverOverElement(ADD_BUTTON);
+    }
+
+    public String getAddButtonPopoverText() {
+        return getTextForElement(ADD_BUTTON_POPOVER_TEXT);
     }
 }
