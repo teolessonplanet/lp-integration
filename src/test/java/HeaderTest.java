@@ -75,7 +75,7 @@ public class HeaderTest extends BaseTest {
 
         testSolutionsButton();
 
-        testAboutButton();
+        testAboutButton(account);
 
         if (account.equals(TestData.INVALID_EMAIL)) {
             headerPage.clickOnPricingButton();
@@ -161,7 +161,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getUrl(), TestData.PD_LEARNING_NETWORK_URL);
     }
 
-    private void testAboutButton() {
+    private void testAboutButton(String account) {
         lpHomePage.loadPage();
         headerPage.hoverOverAboutButton();
         headerPage.clickOnContactUsButton();
@@ -179,9 +179,11 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnFaqButton();
         Assert.assertEquals(headerPage.getPath(), TestData.FAQ_PAGE_PATH);
 
-        headerPage.hoverOverAboutButton();
-        headerPage.clickOnTestimonialsButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
+            headerPage.hoverOverAboutButton();
+            headerPage.clickOnTestimonialsButton();
+            Assert.assertEquals(headerPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
+        }
     }
 
     private void testYourAccountButton(boolean adminManager) {
