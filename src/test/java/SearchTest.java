@@ -428,7 +428,7 @@ public class SearchTest extends BaseTest {
 
         testCommonItems(lpResourceCard);
         verifyLpResourceButtons(account, freeSample, lpResourceCard);
-        Assert.assertTrue(discoverResourcesPage.isCardUniversityDisplayed(lpResourceCard));
+//        Assert.assertTrue(discoverResourcesPage.isCardUniversityDisplayed(lpResourceCard));
     }
 
     protected void testCollectionResource() {
