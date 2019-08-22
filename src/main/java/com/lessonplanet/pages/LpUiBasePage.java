@@ -118,6 +118,7 @@ public class LpUiBasePage {
     }
 
     protected void sendKeys(String cssLocator, String text) {
+        waitForLoad();
         findElement(cssLocator).sendKeys(text);
         waitForLoad();
     }
@@ -351,10 +352,10 @@ public class LpUiBasePage {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
-    protected void waitUntilElementIsDisplayed(WebElement webElement){
+    protected void waitUntilElementIsDisplayed(WebElement webElement) {
         try {
             webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
-        }catch (Exception ex){
+        } catch (Exception ex) {
             logger.info("Element is not visible");
         }
     }
