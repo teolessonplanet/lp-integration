@@ -100,7 +100,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void hoverOverCollectionBuilderItem(int position) {
-        hoverOverElement(COLLECTION_BUILDER_ITEMS, position);
+        hoverOverElement(COLLECTION_BUILDER_ITEMS, true, position);
     }
 
     public void clickOnXButton(int position) {
