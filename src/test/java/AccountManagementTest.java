@@ -1,9 +1,11 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
+import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
@@ -71,6 +73,11 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
         curriculumManagerTest = new CurriculumManagerPageTest();
+    }
+
+    public void reachAccountManagementPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717: Try It Free button")
@@ -524,11 +531,11 @@ public class AccountManagementTest extends BaseTest {
         testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
     }
 
-    private void testUpgradeModalFromMaxItemsInsideCollection(String bodyText) {
+    public void testUpgradeModalFromMaxItemsInsideCollection(String bodyText) {
         upgradeMaxItemsCollectionModal.waitForModal();
         Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
-        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(true);
-        checkStepTwoPageNewTab();
+        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(false);
+        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons() {

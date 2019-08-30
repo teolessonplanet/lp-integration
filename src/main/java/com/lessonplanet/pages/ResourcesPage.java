@@ -111,6 +111,10 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(SEE_COLLECTION_BUTTON);
     }
 
+    public List<WebElement> getAllSeeFullReviewButtons(){
+        return findElements(SEE_FULL_REVIEW_BUTTON);
+    }
+
     public int getCountUnlockedResourcesInListMode() {
         return findElements(UNLOCKED_RESOURCES_IN_LIST_VIEW).size();
     }

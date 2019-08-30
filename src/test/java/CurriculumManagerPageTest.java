@@ -290,14 +290,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             testUpgradeModalFromUploadButton();
         } else {
-            testUpload();
+            testUpload(false);
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
             testIsUploadResourceDisplayed();
         }
     }
 
-    public void testUpload() {
+    public void testUpload(boolean existingCollection) {
         uploadFileModal.waitForModal();
         File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + "test-upload-file.png");
         uploadFileModal.uploadUsingTextInput(file.getPath());
@@ -305,6 +305,9 @@ public class CurriculumManagerPageTest extends BaseTest {
         uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
         uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
         uploadFileModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
+        if (existingCollection) {
+            uploadFileModal.selectCollection();
+        }
         uploadFileModal.clickOnUploadButton();
         uploadFileModal.clickOnDoneButton();
     }
