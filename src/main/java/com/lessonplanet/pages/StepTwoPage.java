@@ -18,8 +18,11 @@ public class StepTwoPage extends LpUiBasePage {
     private static final String START_MEMBERSHIP_BUTTON = "input#js-submit-btn.btn.btn-success.btn-lg.pt15.pb15";
     private static final String SELECT_OFFER_BUTTON = "[class*='btn-offer']";
 
+    private static final String STAGING_CREATE_USER_URL = "https://staging.lessonplanet.com/users/auto/create?user_type=%s&user_email=%s";
+
     private StepOnePage stepOnePage = new StepOnePage(driver);
     private LpHomePage lpHomePage = new LpHomePage(driver);
+    private HeaderPage headerPage = new HeaderPage(driver);
 
     public StepTwoPage(WebDriver driver) {
         super(driver);
@@ -94,15 +97,42 @@ public class StepTwoPage extends LpUiBasePage {
 
     public String createNewAccount(String accountType) {
         final String email = TestData.GET_NEW_EMAIL();
-        if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
-            lpHomePage.loadPage();
+        boolean accountCreated = false;
+
+        if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
+            switch (accountType) {
+                case TestData.STARTER_OPTION_TEXT:
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "starter_24", email));
+                    break;
+                case TestData.PRIME_OPTION_TEXT:
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "prime_36", email));
+                    break;
+                case TestData.PRO_OPTION_TEXT:
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "pro_72_yr", email));
+                    break;
+                default:
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "freemium", email));
+                    lpHomePage.loadPage();
+                    break;
+            }
+            if (headerPage.isUsernameDropDownDisplayed()) {
+                logger.info("Account created via endpoint");
+                accountCreated = true;
+            }
         }
-        stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
-        if (accountType.equals(TestData.STARTER_OPTION_TEXT) || accountType.equals(TestData.PRIME_OPTION_TEXT) || accountType.equals(TestData.PRO_OPTION_TEXT)) {
-            final String currentPath = getPath();
-            loadPage();
-            completeStepTwoPageWith(accountType);
-            loadUrl(currentPath);
+
+        if (!accountCreated || !STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
+            if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
+                lpHomePage.loadPage();
+            }
+            stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
+            if (accountType.equals(TestData.STARTER_OPTION_TEXT) || accountType.equals(TestData.PRIME_OPTION_TEXT) || accountType.equals(TestData.PRO_OPTION_TEXT)) {
+                final String currentPath = getPath();
+                loadPage();
+                completeStepTwoPageWith(accountType);
+                loadUrl(currentPath);
+            }
+            logger.info("Account created via UI");
         }
         return email;
     }

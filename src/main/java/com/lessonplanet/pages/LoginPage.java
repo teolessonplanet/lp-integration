@@ -10,6 +10,8 @@ public class LoginPage extends LpUiBasePage {
     private static final String SIGN_IN_BUTTON = "input[class='btn btn-action']";
     private static final String CONTENT_ALERT_MESSAGE = "[class*='alert-dismissable']";
 
+    private static final String STAGING_LOGIN_URL = "https://staging.lessonplanet.com/users/auto/login?user_email=";
+
     private HeaderPage headerPage;
 
     public LoginPage(WebDriver driver) {
@@ -44,16 +46,28 @@ public class LoginPage extends LpUiBasePage {
         if (getUrl().equals(TestData.EMPTY_URL)) {
             loadUrl(TestData.LP_HOME_PAGE_PATH);
         }
-        final String path = getPath();
-        loadPage();
-        typeEmail(email);
-        typePassword(password);
-        clickOnSignInButton();
-        if (headerPage.isUsernameDropDownDisplayed()) {
-            logger.info("Successful login");
-            loadUrl(path);
-        } else {
-            throw new Error("Invalid login error with: " + email + ":" + password);
+        boolean loggedIn = false;
+
+        if (STAGING_LOGIN_URL.startsWith(TestData.SERVER_URL)) {
+            driver.get(STAGING_LOGIN_URL + email);
+            if (headerPage.isUsernameDropDownDisplayed()) {
+                logger.info("Successful login via endpoint");
+                loggedIn = true;
+            }
+        }
+
+        if (!loggedIn || !STAGING_LOGIN_URL.startsWith(TestData.SERVER_URL)) {
+            final String path = getPath();
+            loadPage();
+            typeEmail(email);
+            typePassword(password);
+            clickOnSignInButton();
+            if (headerPage.isUsernameDropDownDisplayed()) {
+                logger.info("Successful login via UI");
+                loadUrl(path);
+            } else {
+                throw new Error("Invalid login error with: " + email + ":" + password);
+            }
         }
     }
 }
