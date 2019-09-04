@@ -17,6 +17,7 @@ public class StepTwoPage extends LpUiBasePage {
     private static final String ZIPCODE_INPUT = "#postal_code";
     private static final String START_MEMBERSHIP_BUTTON = "input#js-submit-btn.btn.btn-success.btn-lg.pt15.pb15";
     private static final String SELECT_OFFER_BUTTON = "[class*='btn-offer']";
+    private static final String ERROR_SUFFIX = "-error";
 
     private static final String STAGING_CREATE_USER_URL = "https://staging.lessonplanet.com/users/auto/create?user_type=%s&user_email=%s";
 
@@ -40,24 +41,60 @@ public class StepTwoPage extends LpUiBasePage {
         sendKeys(FIRSTNAME_INPUT, firstName);
     }
 
+    public String getFirstNameError() {
+        return getTextForElement(FIRSTNAME_INPUT + ERROR_SUFFIX);
+    }
+
     public void typeLastName(String lastName) {
         sendKeys(LASTNAME_INPUT, lastName);
+    }
+
+    public String getLastNameError() {
+        return getTextForElement(LASTNAME_INPUT + ERROR_SUFFIX);
     }
 
     public void typeCardNumber(String cardNumber) {
         sendKeys(CARD_NUMBER_INPUT, cardNumber);
     }
 
+    public void clearCardNumber() {
+        clearText(CARD_NUMBER_INPUT);
+    }
+
+    public String getCardNumberError() {
+        return getTextForElement(CARD_NUMBER_INPUT + ERROR_SUFFIX);
+    }
+
     public void typeExpiration(String expiration) {
         sendKeys(EXPIRATION_INPUT, expiration);
+    }
+
+    public void clearExpiration() {
+        clearText(EXPIRATION_INPUT);
+    }
+
+    public String getExpirationError() {
+        return getTextForElement(EXPIRATION_INPUT + ERROR_SUFFIX);
     }
 
     public void typeCvv(String cvv) {
         sendKeys(CVV_INPUT, cvv);
     }
 
+    public void clearCvv() {
+        clearText(CVV_INPUT);
+    }
+
+    public String getCvvError() {
+        return getTextForElement(CVV_INPUT + ERROR_SUFFIX);
+    }
+
     public void typeZipCode(String zipCode) {
         sendKeys(ZIPCODE_INPUT, zipCode);
+    }
+
+    public String getZipCodeError() {
+        return getTextForElement(ZIPCODE_INPUT + ERROR_SUFFIX);
     }
 
     public void selectOffer(String offer) {
