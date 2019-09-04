@@ -2,12 +2,11 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
-@Ignore
-@Deprecated
+import java.util.Random;
+
 public class StepTwoTest extends BaseTest {
 
     private LpHomePage lpHomePage;
@@ -17,6 +16,7 @@ public class StepTwoTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private MyAccountPage myAccountPage;
     private SubscriptionSuccessPage subscriptionSuccessPage;
+    private StepOneModal stepOneModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -27,12 +27,13 @@ public class StepTwoTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         myAccountPage = new MyAccountPage(webDriver);
         subscriptionSuccessPage = new SubscriptionSuccessPage(webDriver);
-        reachStepTwoPage();
+        stepOneModal = new StepOneModal(webDriver);
     }
 
     public void initAndReachStepTwoPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
+        reachStepTwoPage();
     }
 
     public void reachStepTwoPage() {
@@ -40,152 +41,103 @@ public class StepTwoTest extends BaseTest {
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
         headerPage.clickOnUpgradeMeButton(false);
     }
+    
+    @Test(description = "Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data")
+    public void testLessonp_5252() {
+        lpHomePage.loadPage();
+        headerPage.clickOnTryItFree(false);
+        stepOneModal.typeEmail(TestData.GET_NEW_EMAIL());
+        stepOneModal.typePassword(TestData.VALID_PASSWORD);
+        stepOneModal.clickOnGetStartedToday();
 
-    @Test(description = "LP - User Visits Step 2 - lessonp-12:User quits Step 2"
-        + "Steps:"
-        + "1.Quit Step 2 sign up process"
-        + "2.Verify if the user has Freemium subscription")
-    public void testLessonp_12() {
-        stepTwoModal.clickOnCloseModal();
-        myAccountPage.loadPage();
-        Assert.assertEquals(TestData.FREE_MEMBERSHIP_TEXT, myAccountPage.getPlan());
-    }
-
-    @Test(description = "LP - User Visits Step 2 - lessonp-14:User supplies invalid form data"
-        + "Steps:"
-        + "1.Insert invalid data and submit"
-        + "2.Verify if the errors are displayed"
-        + "3.Repeat steps 1&2 until all the errors are checked")
-    public void testLessonp_14() {
         //check errors for invalid Card number, Expiration date and Cvv error
         stepTwoModal.typeCardNumber(TestData.INVALID_CARD_NUMBER);
         stepTwoModal.typeExpiration(TestData.INVALID_CARD_EXPIRATION);
         stepTwoModal.typeCvv(TestData.INVALID_CARD_CVV);
         stepTwoModal.clickOnStartMembership();
-        Assert.assertEquals(TestData.INVALID_CARD_NUMBER_ERROR_MESSAGE, stepTwoModal.getCardNumberError());
-        Assert.assertEquals(TestData.INVALID_CARD_EXPIRATION_ERROR_MESSAGE, stepTwoModal.getExpirationError());
-        Assert.assertEquals(TestData.INVALID_CARD_CVV_ERROR_MESSAGE, stepTwoModal.getCvvError());
+        Assert.assertEquals(stepTwoModal.getCardNumberError(), TestData.INVALID_CARD_NUMBER_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getExpirationError(), TestData.INVALID_CARD_EXPIRATION_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getCvvError(), TestData.INVALID_CARD_CVV_ERROR_MESSAGE);
         stepTwoModal.clearCardNumber();
         stepTwoModal.clearExpiration();
         stepTwoModal.clearCvv();
 
         stepTwoModal.clickOnStartMembership();
         // All 6 errors should be displayed
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getFirstNameError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getLastNameError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCardNumberError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getExpirationError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
+        Assert.assertEquals(stepTwoModal.getFirstNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getLastNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getCardNumberError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getExpirationError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getCvvError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoModal.getZipCodeError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
 
-        stepTwoModal.typeFirstName(TestData.FIRSTNAME);
-        stepTwoModal.clickOnStartMembership();
-        // 5 errors should be displayed - 1 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getLastNameError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCardNumberError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getExpirationError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
-        Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-
-        stepTwoModal.typeLastName(TestData.LASTNAME);
-        stepTwoModal.clickOnStartMembership();
-        // 4 errors should be displayed - 2 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCardNumberError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getExpirationError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
-        Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
-
-        stepTwoModal.typeCardNumber(TestData.CARD_NUMBER);
-        stepTwoModal.clickOnStartMembership();
-        // 3 errors should be displayed - 3 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getExpirationError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
-        Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
-
-        stepTwoModal.typeExpiration(TestData.CARD_EXPIRATION);
-        stepTwoModal.clickOnStartMembership();
-        //2 errors should be displayed - 4 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getCvvError());
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
-        Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
-
-        stepTwoModal.typeCvv(TestData.CARD_CVV);
-        stepTwoModal.clickOnStartMembership();
-        //1 error should be displayed - 5 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getZipCodeError());
-        Assert.assertFalse(stepTwoModal.isFirstNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCvvErrorDisplayed());
-
-        stepTwoModal.deleteFistNameField();
-        stepTwoModal.typeZipCode(TestData.CARD_EXPIRATION);
-        stepTwoModal.clickOnStartMembership();
-        //1 error should be displayed (for FistName field) - 5 should not be visible
-        Assert.assertEquals(TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE, stepTwoModal.getFirstNameError());
-        Assert.assertFalse(stepTwoModal.isLastNameErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isCardNumberErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isExpirationErrorDispplayed());
-        Assert.assertFalse(stepTwoModal.isCvvErrorDisplayed());
-        Assert.assertFalse(stepTwoModal.isZipCodeErrorDispplayed());
-
-        stepTwoModal.typeFirstName(TestData.FIRSTNAME);
-        stepTwoModal.clickOnStartMembership();
-        //the user should be redirected to Subscription Successfully page
-        Assert.assertEquals(TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE, subscriptionSuccessPage.getTitle());
-    }
-
-    @Test(description = "LP - User Visits Step 2 - lessonp-13:User supplies valid form data")
-    public void testLessonp_13() {
-        Assert.assertEquals(TestData.PRIME_OPTION_TEXT, stepTwoModal.getSelectedOption());
         stepTwoModal.typeFirstName(TestData.FIRSTNAME);
         stepTwoModal.typeLastName(TestData.LASTNAME);
         stepTwoModal.typeCardNumber(TestData.CARD_NUMBER);
         stepTwoModal.typeExpiration(TestData.CARD_EXPIRATION);
         stepTwoModal.typeCvv(TestData.CARD_CVV);
         stepTwoModal.typeZipCode(TestData.ZIP_CODE);
+
+        final String offerToSelect = getRandomOffer();
+        stepTwoModal.selectOffer(offerToSelect);
+
         stepTwoModal.clickOnStartMembership();
-        Assert.assertEquals(TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE, subscriptionSuccessPage.getTitle());
-        Assert.assertEquals(TestData.SUBSCRIPTION_SUCCESS_PATH, subscriptionSuccessPage.getPath());
+        Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
+        // check if selected subscription is met
         myAccountPage.loadPage();
-        Assert.assertEquals(TestData.PRIME_OPTION_TEXT, myAccountPage.getPlan());
+        Assert.assertEquals(myAccountPage.getPlan(), offerToSelect);
     }
 
-    @Test(description = "LP - User Visits Step 2 - lessonp-20:User tries to go back to Step 1 via the browser back button")
-    public void testLessonp_20() {
-        stepTwoModal.goBackOnePage();
-        stepTwoModal.waitForPageLoad();
-        Assert.assertFalse(headerPage.isLpLogoClickable());
-        stepOnePage.loadPage();
-        // The Step1 is changed with Step2
-        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
+    @Test(description = "Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data")
+    public void testLessonp_5253() {
+        lpHomePage.loadPage();
+        headerPage.clickOnTryItFree(true);
+        stepOnePage.typeEmail(TestData.GET_NEW_EMAIL());
+        stepOnePage.typePassword(TestData.VALID_PASSWORD);
+        stepOnePage.clickOnGetFreeTrialButton();
+
+        //check errors for invalid Card number, Expiration date and Cvv error
+        stepTwoPage.typeCardNumber(TestData.INVALID_CARD_NUMBER);
+        stepTwoPage.typeExpiration(TestData.INVALID_CARD_EXPIRATION);
+        stepTwoPage.typeCvv(TestData.INVALID_CARD_CVV);
+        stepTwoPage.clickOnStartMembership();
+        Assert.assertEquals(TestData.INVALID_CARD_NUMBER_ERROR_MESSAGE, stepTwoPage.getCardNumberError());
+        Assert.assertEquals(TestData.INVALID_CARD_EXPIRATION_ERROR_MESSAGE, stepTwoPage.getExpirationError());
+        Assert.assertEquals(TestData.INVALID_CARD_CVV_ERROR_MESSAGE, stepTwoPage.getCvvError());
+        stepTwoPage.clearCardNumber();
+        stepTwoPage.clearExpiration();
+        stepTwoPage.clearCvv();
+
+        stepTwoModal.clickOnStartMembership();
+        // All 6 errors should be displayed
+        Assert.assertEquals(stepTwoPage.getFirstNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoPage.getLastNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoPage.getCardNumberError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoPage.getExpirationError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoPage.getCvvError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+        Assert.assertEquals(stepTwoPage.getZipCodeError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
+
+        stepTwoPage.typeFirstName(TestData.FIRSTNAME);
+        stepTwoPage.typeLastName(TestData.LASTNAME);
+        stepTwoPage.typeCardNumber(TestData.CARD_NUMBER);
+        stepTwoPage.typeExpiration(TestData.CARD_EXPIRATION);
+        stepTwoPage.typeCvv(TestData.CARD_CVV);
+        stepTwoPage.typeZipCode(TestData.ZIP_CODE);
+
+        final String offerToSelect = getRandomOffer();
+        stepTwoPage.selectOffer(offerToSelect);
+
+        stepTwoPage.clickOnStartMembership();
+        Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
+        // check if selected subscription is met
+        myAccountPage.loadPage();
+        Assert.assertEquals(myAccountPage.getPlan(), offerToSelect);
     }
 
-    @Test(description = "LP - User Visits Step 2 - lessonp-17:User changes Default membership plan"
-        + "Steps:"
-        + "1. Reach Step2 modal"
-        + "2. Check billing text for PRIME plan"
-        + "3. Select STARTER plan"
-        + "4. Check billing text for STARTER plan"
-        + "4. Select PRO plan"
-        + "6. Check billing text for PRO plan")
-    public void testLessonp_17() {
-        Assert.assertEquals(TestData.GET_PRIME_BILLING_TERMS_MESSAGE(), stepTwoModal.getBillingTermsText());
-        stepTwoModal.selectOffer(TestData.STARTER_OPTION_TEXT);
-        stepTwoModal.waitForPageLoad();
-        Assert.assertEquals(TestData.GET_STARTER_BILLING_TERMS_MESSAGE(), stepTwoModal.getBillingTermsText());
-        stepTwoModal.selectOffer(TestData.PRO_OPTION_TEXT);
-        stepTwoModal.waitForPageLoad();
-        Assert.assertEquals(TestData.GET_PRO_BILLING_TERMS_MESSAGE(), stepTwoModal.getBillingTermsText());
+    private String getRandomOffer() {
+        String[] offers = {TestData.STARTER_OPTION_TEXT, TestData.PRIME_OPTION_TEXT, TestData.PRO_OPTION_TEXT};
+        Random random = new Random();
+        int randomNumber = random.nextInt(offers.length);
+        return offers[randomNumber];
     }
 }
