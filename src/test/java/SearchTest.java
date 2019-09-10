@@ -89,8 +89,8 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-601: User clicks result card")
     public void testLessonp_601() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testUserClicksResultCard(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testUserClicksResultCard(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)")
@@ -140,7 +140,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_603() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testSeePreviewButton();
     }
 
@@ -157,7 +157,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)")
     public void testLessonp_602() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testGoToResourceButtonForSharedResource();
         testGoToResourceButtonForRegularResource();
     }
@@ -175,7 +175,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-605: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_605() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testSeeCollection();
     }
 
@@ -193,7 +193,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-604: User clicks 'See Full Review' footer button")
     public void testLessonp_604() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testSeeFullReviewButton();
     }
 
@@ -238,19 +238,19 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-4007:Cards details - LP resource")
     public void testLessonp_4007() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testLpResource(TestData.VALID_EMAIL_ADMIN, false);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testLpResource(TestData.VALID_EMAIL_ACTIVE, false);
     }
 
     @Test(description = "Active user - Search Page - lessonp-4008: Cards details - Collection")
     public void testLessonp_4008() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testCollectionResource();
     }
 
     @Test(description = "Active user - Search Page - lessonp-4009: Cards details - Shared resource")
     public void testLessonp_4009() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testSharedResource();
     }
 
@@ -389,7 +389,7 @@ public class SearchTest extends BaseTest {
         lpResourceCard = getLpResourceCard(account, freeSample);
 
         testCommonItems(lpResourceCard);
-        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -503,7 +503,7 @@ public class SearchTest extends BaseTest {
     private WebElement getLpResourceCard(String account, boolean freeSample) {
         discoverResourcesPage.waitForLoad();
         WebElement lpResourceCard;
-        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
             if (freeSample) {
                 lpResourceCard = discoverResourcesPage.getSampleResourceCards().get(0);
             } else {
@@ -516,7 +516,7 @@ public class SearchTest extends BaseTest {
     }
 
     private void verifyLpResourceButtons(String account, boolean freeSample, WebElement lpResourceCard) {
-        if (!(account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));

@@ -44,7 +44,7 @@ public class HeaderTest extends BaseTest {
 
     @Test(description = "Active user - Header - lessonp-4617: Header buttons")
     public void testLessonp_4617() {
-        testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
+        testHeaderButtons(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
@@ -60,8 +60,8 @@ public class HeaderTest extends BaseTest {
 
     @Test(description = "Active user - Header - lessonp-4111: Search box (keyword functionality)")
     public void testLessonp_4111() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ACTIVE);
     }
 
     protected void testHeaderButtons(String account) {
@@ -92,7 +92,7 @@ public class HeaderTest extends BaseTest {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             stepTwoPage.goBackOnePage();
             testYourAccountButton(false);
-        } else if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        } else if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             testYourAccountButton(false);
         } else if (account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
             testYourAccountButton(true);
@@ -267,7 +267,7 @@ public class HeaderTest extends BaseTest {
         if (account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(headerPage.getPath(), TestData.LOGIN_PAGE_PATH);
             Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT);
-        } else if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        } else if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             Assert.assertEquals(headerPage.getPath(), TestData.LP_HOME_PAGE_PATH);
             Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.YOU_ARE_NOT_ALLOWED_TO_USE_FEATURE_TEXT);
         } else {

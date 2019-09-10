@@ -359,7 +359,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
-        testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+        testRegularResourceRRPOverview(true, TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-954: Shared Resource Modal Overview")
@@ -367,7 +367,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
-        testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+        testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-587: Collection Modal Overview")
@@ -375,7 +375,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
-        testCollectionRRPOverview(true, TestData.VALID_EMAIL_ADMIN);
+        testCollectionRRPOverview(true, TestData.VALID_EMAIL_ACTIVE);
         testPanelItemsOverview(true);
     }
 
@@ -384,9 +384,9 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
-        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ADMIN);
-        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
+        testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
+        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ACTIVE);
+        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview")
@@ -394,9 +394,9 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
-        testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
-        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ADMIN);
-        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ADMIN);
+        testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
+        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ACTIVE);
+        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4797: Collection Static Page Overview")
@@ -404,7 +404,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
-        testCollectionRRPOverview(false, TestData.VALID_EMAIL_ADMIN);
+        testCollectionRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
         testPanelItemsOverview(false);
     }
 
@@ -413,7 +413,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
-        testThumbnailForRegularResource(true, TestData.VALID_EMAIL_ADMIN);
+        testThumbnailForRegularResource(true, TestData.VALID_EMAIL_ACTIVE);
         testRegularResourceRRPNavigationButtonsSearchPage();
         testAddToCollectionDropdown(true);
         testGoToResourceButtonForRegularResource(true);
@@ -443,7 +443,7 @@ public class RRPSearchPageTest extends BaseTest {
         collectionRrpModal.clickPlayCollectionButton();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
-        testSaveCollectionButton(true, TestData.VALID_EMAIL_ADMIN);
+        testSaveCollectionButton(true, TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4805: LP Resource Main buttons")
@@ -451,11 +451,11 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
-        testThumbnailForRegularResource(false, TestData.VALID_EMAIL_ADMIN);
+        testThumbnailForRegularResource(false, TestData.VALID_EMAIL_ACTIVE);
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForRegularResource(false);
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ADMIN);
+        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ACTIVE);
         testSeeSimilarResourcesDropdown();
     }
 
@@ -468,7 +468,7 @@ public class RRPSearchPageTest extends BaseTest {
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForSharedResource(false);
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ADMIN);
+        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ACTIVE);
         testSeeSimilarResourcesDropdown();
     }
 
@@ -484,7 +484,7 @@ public class RRPSearchPageTest extends BaseTest {
         testItemViewerSection(false);
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection(false);
-        testSaveCollectionButton(false, TestData.VALID_EMAIL_ADMIN);
+        testSaveCollectionButton(false, TestData.VALID_EMAIL_ACTIVE);
     }
 
     public void testRegularResourceRRPOverview(boolean modal, String account) {
@@ -505,11 +505,11 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(rrpModal.isUpgradeForFullReviewButtonDisplayed());
                 Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
                 Assert.assertTrue(rrpModal.isFullReviewDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
                 Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
                 Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
@@ -532,7 +532,7 @@ public class RRPSearchPageTest extends BaseTest {
                         Assert.assertTrue(rrpModal.getLightRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                     }
                 }
-                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                     for (int i = 0; i < rrpModal.getLightRrpSubjectsNumber(); i++) {
                         Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getLightRrpSubjectText().get(i)));
                     }
@@ -552,7 +552,7 @@ public class RRPSearchPageTest extends BaseTest {
                         Assert.assertTrue(rrpModal.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                     }
                 }
-                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                     for (int i = 0; i < rrpModal.getFullRrpSubjectsNumber(); i++) {
                         Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getFullRrpSubjectText().get(i)));
                     }
@@ -577,11 +577,11 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(rrpPage.isUpgradeForFullReviewButtonDisplayed());
                 Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
                 Assert.assertTrue(rrpPage.isFullReviewDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
                 Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
                 Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
@@ -605,7 +605,7 @@ public class RRPSearchPageTest extends BaseTest {
                         Assert.assertTrue((rrpPage.getLightRrpResourceTypeText().get(1)).contains(TestData.DISABLED_TEXT));
                     }
                 }
-                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                     for (int i = 0; i < rrpPage.getLightRrpSubjectsNumber(); i++) {
                         Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getLightRrpSubjectText().get(i)));
                     }
@@ -626,7 +626,7 @@ public class RRPSearchPageTest extends BaseTest {
                         Assert.assertTrue(rrpPage.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                     }
                 }
-                if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                     for (int i = 0; i < rrpPage.getFullRrpSubjectsNumber(); i++) {
                         Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getFullRrpSubjectText().get(i)));
                     }
@@ -671,7 +671,7 @@ public class RRPSearchPageTest extends BaseTest {
         Assert.assertTrue(whatMembersSayWidget.isMemberPhotoDisplayed());
         Assert.assertTrue(whatMembersSayWidget.isSeeMoreTestimonialsLinkDisplayed());
         Assert.assertTrue(whatMembersSayWidget.isSubmitYourOwnLinkDisplayed());
-        if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             Assert.assertTrue(whatMembersSayWidget.isSubscriptionButtonDisplayed());
         }
     }
@@ -748,7 +748,7 @@ public class RRPSearchPageTest extends BaseTest {
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(collectionRrpModal.isUpgradeForFullReviewButtonDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed());
             }
@@ -772,7 +772,7 @@ public class RRPSearchPageTest extends BaseTest {
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(collectionRrpPage.isUpgradeForFullReviewButtonDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 Assert.assertTrue(collectionRrpPage.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonActiveUserDisplayed());
             }
@@ -926,7 +926,7 @@ public class RRPSearchPageTest extends BaseTest {
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             testPageUrl(TestData.STEP_ONE_PAGE_PATH);
         }
-        if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             testNewTabRegularResourceUrl();
         }
     }
@@ -1043,7 +1043,7 @@ public class RRPSearchPageTest extends BaseTest {
                     Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
                 }
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 collectionRrpModal.clickSaveCollectionButtonActiveUser();
                 Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
             }
@@ -1066,7 +1066,7 @@ public class RRPSearchPageTest extends BaseTest {
                     Assert.assertTrue(collectionRrpPage.isSavedCollectionNotificationDisplayed());
                 }
             }
-            if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
                 collectionRrpPage.clickSaveCollectionButtonActiveUser();
                 Assert.assertTrue(collectionRrpPage.isSavedCollectionNotificationDisplayed());
             }

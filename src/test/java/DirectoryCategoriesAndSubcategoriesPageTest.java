@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-import java.util.Arrays;
-
 public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
@@ -58,8 +56,8 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1209: Page UI")
     public void testLessonp_1209() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testPageUi(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testPageUi(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1022: Resource Tiles")
@@ -119,8 +117,8 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1216: Browse by Subject")
     public void testLessonp_1216() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testBrowseBySubject(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testBrowseBySubject(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1024: Start your 10 day free trial")
@@ -149,7 +147,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1218: Related Topics")
     public void testLessonp_1218() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testRelatedTopics();
     }
 
@@ -168,9 +166,9 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1219: What members say")
     public void testLessonp_1219() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testTestimonials(TestData.VALID_EMAIL_ADMIN);
+        testTestimonials(TestData.VALID_EMAIL_ACTIVE);
     }
 
     private void testPageUi(String account) {
@@ -415,7 +413,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         browseBySubjectPage.closeTab();
 
         //no Get free trial or Upgrade Me button if active user
-        if (!account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             whatMembersSayWidget.clickSubscriptionButton(false);
             if (account.equals(TestData.INVALID_EMAIL)) {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
