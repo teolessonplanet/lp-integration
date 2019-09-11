@@ -9,6 +9,7 @@ public class CalendarPageTest extends BaseTest {
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private LpHomePage lpHomePage;
+    private LoginPage loginPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -16,10 +17,27 @@ public class CalendarPageTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         lpHomePage = new LpHomePage(webDriver);
+        loginPage = new LoginPage(webDriver);
     }
 
-    @Test(description = "Visitor - Calendar Page -  lessonp-4196: Curriculum Calendar Page Buttons/Links")
+    @Test(description = "Visitor - Calendar Page - lessonp-4196:Buttons/Links")
     public void testLessonp_4196() {
+        testCurriculumCalendarPage();
+    }
+
+    @Test(description = "Freemium - Calendar Page - lessonp-5259:Buttons/Links")
+    public void testLessonp_5259() {
+        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        testCurriculumCalendarPage();
+    }
+
+    @Test(description = "Active user - Calendar Page - lessonp-5260:Buttons/Links")
+    public void testLessonp_5260() {
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testCurriculumCalendarPage();
+    }
+
+    private void testCurriculumCalendarPage() {
         lpHomePage.loadPage();
         headerPage.hoverOverResourcesButton();
         headerPage.clickOnCurriculumCalendarButton();
