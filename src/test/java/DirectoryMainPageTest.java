@@ -37,7 +37,7 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1040: Page UI")
     public void testLessonp_1040() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testPageUi();
     }
 
@@ -49,7 +49,7 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1041: Tumbnails")
     public void testLessonp_1041() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testThumbnails();
     }
 
@@ -61,7 +61,7 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1042: Links")
     public void testLessonp_1042() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testLinks();
     }
 
@@ -74,7 +74,7 @@ public class DirectoryMainPageTest extends BaseTest {
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1043: Show All button")
 
     public void testLessonp_1043() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testShowAllButton();
     }
 
@@ -91,7 +91,7 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1044: Categories modal")
     public void testLessonp_1044() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testCategoriesModal();
     }
 

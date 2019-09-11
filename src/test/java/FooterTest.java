@@ -38,8 +38,8 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-669: Footer structure")
     public void testLessonp_669() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testFooterContainer(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testFooterContainer(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Footer - lessonp-659: Open Educational Resources")
@@ -56,7 +56,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-671: Open Educational Resources")
     public void testLessonp_671() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testOpenEducationalResourcesSection();
     }
 
@@ -74,7 +74,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp672: Discover Resources")
     public void testLessonp_672() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testDiscoverResourcesSection();
     }
 
@@ -92,7 +92,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-670: Manage Curriculum")
     public void testLessonp_670() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testManageCurriculumSection();
     }
 
@@ -110,7 +110,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links")
     public void testLessonp_4117() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testBottomFooterLinks();
     }
 
@@ -128,7 +128,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-4118: Social links")
     public void testLessonp_4118() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testLessonPlanetSocialLinks();
     }
 
@@ -146,7 +146,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-4119: LP logo")
     public void testLessonp_4119() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
         testLpLogo();
     }
 
@@ -164,8 +164,8 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-4120: Newsletter")
     public void testLessonp_4120() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testSendEmailNewsletter(TestData.VALID_EMAIL_ADMIN);
+        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        testSendEmailNewsletter(TestData.VALID_EMAIL_ACTIVE);
     }
 
     public void initTest(WebDriver webDriver) {

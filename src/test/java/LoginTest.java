@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality")
     public void testLessonp_5034() {
-        testLoginFlow(TestData.VALID_EMAIL_ADMIN);
+        testLoginFlow(TestData.VALID_EMAIL_ACTIVE);
     }
 
     private void testLoginFlow(String email) {
