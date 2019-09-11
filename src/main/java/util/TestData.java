@@ -127,8 +127,8 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+57+959321@lessonplanet.com";
-    public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+94+2316026@lessonplanet.com";
+    public static final String VALID_EMAIL_REGULAR_SITE_LICENCE = "testuser+88+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_HENRY_SITE_LICENCE = "testuser+67+2312913@lessonplanet.com";
     public static final String VALID_EMAIL_QA_CUSTOM_SITE_LICENCE = "testuser+16+2471812@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
