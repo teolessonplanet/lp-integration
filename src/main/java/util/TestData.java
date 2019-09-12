@@ -342,6 +342,8 @@ public class TestData {
     public static final int ZERO_RESOURCES_FOUND = 0;
     public static final String SEARCH_MESSAGE = "reviewed resources for ";
     public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
+    public static final String SEARCH_MESSAGE_FOUND_1 = "We found ";
+    public static final String SEARCH_MESSAGE_FOUND_2 = " resources for ";
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
     public static final String SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE = "Showing all reviewed resources";
     public static final String SHOWING_ALL_RESOURCES_MESSAGE = "Showing all resources";
