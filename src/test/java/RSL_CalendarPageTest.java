@@ -16,8 +16,8 @@ public class RSL_CalendarPageTest extends BaseTest {
 
     @Test(description = "Regular SL - Calendar Page - lessonp-5125:Buttons/Links")
     public void testLessonp_5125() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         calendarPageTest.initTest(webDriver);
-        calendarPageTest.testCurriculumCalendarPage(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+        calendarPageTest.testCurriculumCalendarPage(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 }

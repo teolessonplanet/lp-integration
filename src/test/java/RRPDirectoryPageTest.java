@@ -24,7 +24,7 @@ public class RRPDirectoryPageTest extends BaseTest {
 
     public void reachDirectoryPage() {
         discoverResourcesPage.loadSearchPageInListView();
-        browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEARCH_PATH);
+        browseBySubjectPage.loadPage(TestData.SOCIAL_STUDIES_PAGE_PATH);
     }
 
     @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3284: Resource Modal Overview")

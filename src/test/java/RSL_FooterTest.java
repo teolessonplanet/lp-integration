@@ -15,13 +15,13 @@ public class RSL_FooterTest extends BaseTest {
     }
 
     public void reachRslLoginPage() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         footerTest.initTest(webDriver);
     }
 
     @Test(description = "Regular SL - Footer - lessonp-4150:Footer structure")
     public void testLessonp_4150() {
-        footerTest.testFooterContainer(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+        footerTest.testFooterContainer(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Footer - lessonp-4151:Open Educational Resources")

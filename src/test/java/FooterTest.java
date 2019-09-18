@@ -174,7 +174,7 @@ public class FooterTest extends BaseTest {
     }
 
     public void testFooterContainer(String account) {
-        if (!account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(footerPage.isLpLogoDisplayed());
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
             Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());

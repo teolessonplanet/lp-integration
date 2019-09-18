@@ -11,9 +11,9 @@ public class EditCollectionModal extends LpUiBasePage {
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
     private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
     private static final String PUBLISH_COLLECTION_BUTTON = "[class*='share-collection']";
-    private static final String MY_RESOURCES_BUTTON = "[class*='btn btn-default btn-text-sm']";
+    private static final String MY_RESOURCES_BUTTON = "#my-resources-button-wrap";
     private static final String CLOSE_BUTTON = "#edit-collection-modal [class*='edit-collection-modal-close']";
-
+    private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
     private static final String UPLOAD_A_FILE_BUTTON = "#upload-file-button";
     private static final String COLLECTION_ACTIONS_DROPDOWN = "[class='btn btn-default dropdown-toggle collection-actions']";
 
@@ -53,8 +53,8 @@ public class EditCollectionModal extends LpUiBasePage {
         clickElement(CLOSE_BUTTON);
     }
 
-    public void clickOnCollectionActionsDropdown(){
-        clickElement(COLLECTION_ACTIONS_DROPDOWN);
+    public void clickOnAddItemsDropdown(){
+        clickElement(ADD_ITEMS_DROPDOWN);
     }
 
     public void clickUploadAFileButton() {

@@ -389,7 +389,7 @@ public class SearchTest extends BaseTest {
         lpResourceCard = getLpResourceCard(account, freeSample);
 
         testCommonItems(lpResourceCard);
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -503,7 +503,7 @@ public class SearchTest extends BaseTest {
     private WebElement getLpResourceCard(String account, boolean freeSample) {
         discoverResourcesPage.waitForLoad();
         WebElement lpResourceCard;
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 lpResourceCard = discoverResourcesPage.getSampleResourceCards().get(0);
             } else {
@@ -516,7 +516,7 @@ public class SearchTest extends BaseTest {
     }
 
     private void verifyLpResourceButtons(String account, boolean freeSample, WebElement lpResourceCard) {
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE))) {
+        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
