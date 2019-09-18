@@ -467,7 +467,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderPage.clickOnEditCollection();
         editCollectionModal.waitForModal();
-        editCollectionModal.clickOnCollectionActionsDropdown();
+        editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickUploadAFileButton();
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }

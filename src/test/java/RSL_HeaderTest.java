@@ -16,13 +16,13 @@ public class RSL_HeaderTest extends BaseTest {
     @Test(description = "Regular SL - Header - lessonp-4619: Header buttons")
     public void testLessonp_4619() {
         headerTest.initTest(webDriver);
-        headerTest.testHeaderButtons(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+        headerTest.testHeaderButtons(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Header - lessonp-4144: Search box (keyword functionality)")
     public void testLessonp_4144() {
         headerTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
-        headerTest.testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        headerTest.testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 }

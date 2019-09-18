@@ -25,7 +25,7 @@ public class RSL_ContentManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
     public void testLessonp_1270() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
 
@@ -53,7 +53,7 @@ public class RSL_ContentManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
     public void testLessonp_1271() {
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
 
@@ -87,7 +87,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     @Test(description = "Regular SL - Content Manager - lessonp-5076: Search")
     public void testLessonp_5076() {
 
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
 
         rsl_contentManagerPage.typeSearchText(TestData.INVALID_SEARCH_WORD);
@@ -105,7 +105,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By")
     public void testLessonp_5078() {
 
-        loginPage.performLogin(TestData.VALID_EMAIL_REGULAR_SITE_LICENCE, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         rsl_contentManagerPage.loadPage();
 
         rsl_contentManagerPage.clickOnSortByDropdown();
