@@ -267,11 +267,9 @@ public class HeaderTest extends BaseTest {
         if (account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(headerPage.getPath(), TestData.LOGIN_PAGE_PATH);
             Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT);
-        } else if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        } else {
             Assert.assertEquals(headerPage.getPath(), TestData.LP_HOME_PAGE_PATH);
             Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.YOU_ARE_NOT_ALLOWED_TO_USE_FEATURE_TEXT);
-        } else {
-            Assert.assertEquals(headerPage.getPath(), TestData.SEARCH_EDTECH_PAGE_PATH + TestData.VALID_SEARCH_WORD);
         }
 
         headerPage.goBackOnePage();
