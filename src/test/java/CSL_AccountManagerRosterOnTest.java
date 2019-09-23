@@ -37,7 +37,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testEditDistrict(TestData.QA_CUSTOM_SL_DISTRICT_NAME, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.EXISTING_QA_CUSTOM_SL_TEACHER_EMAIL, true, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.EXISTING_TEACHER_EMAIL_CSL_QA_CUSTOM, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.QA_CUSTOM_SL_OWNER_FIRST_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.QA_CUSTOM_SL_OWNER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, true, true);
@@ -77,7 +77,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_QA_CUSTOM_SL_SCHOOL_NAME, true, true);
         rsl_accountManagerTest.testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_QA_CUSTOM_SL_SCHOOL_NAME, true, true);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.EXISTING_QA_CUSTOM_SL_TEACHER_EMAIL, true, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL_CSL_QA_CUSTOM, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.QA_CUSTOM_SL_TEACHER_FIRST_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.QA_CUSTOM_SL_TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, true, true);
@@ -95,7 +95,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         addADistrictAdminModal.clickOnAddButton();
         Assert.assertTrue(manageDistrictAdminsPage.getNotificationText().contains(TestData.ADD_SCHOOL_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT));
         districtPage.dismissNotification();
-        rsl_accountManagerTest.testAddSchoolAdmin(TestData.EXISTING_QA_CUSTOM_SL_TEACHER_EMAIL);
+        rsl_accountManagerTest.testAddSchoolAdmin(TestData.EXISTING_TEACHER_EMAIL_CSL_QA_CUSTOM);
         rsl_accountManagerTest.testManageSchoolAdminPage(true);
         csl_accountManagerSsoOnTest.initAndReachCSLAccountManagerSsoOnTest(webDriver);
         csl_accountManagerSsoOnTest.testEditSchoolAdmin();
