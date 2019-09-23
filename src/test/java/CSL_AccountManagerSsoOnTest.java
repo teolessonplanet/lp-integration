@@ -95,7 +95,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         schoolPage.clickOnDistrictBreadcrumbs();
         rsl_accountManagerTest.testRemoveSchool();
         districtPage.clickOnExistingSchool(TestData.EXISTING_HENRY_SL_SCHOOL_NAME);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.EXISTING_HENRY_SL_TEACHER_EMAIL, true, false);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL_CSL_HENRY, true, false);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, true, false);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.HENRY_SL_TEACHER_FIRST_NAME, true, false);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.HENRY_SL_TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, true, false);

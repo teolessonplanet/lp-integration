@@ -57,7 +57,7 @@ public class RSL_AccountManagerTest extends BaseTest {
     public void testLessonp_901() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testEditDistrict(TestData.RSL_DISTRICT_NAME, false);
-        testSearchButtonFromDistrictPage(TestData.EXISTING_RSL_TEACHER_EMAIL, false, false);
+        testSearchButtonFromDistrictPage(TestData.EXISTING_TEACHER_EMAIL_RSL_SBCEO, false, false);
         testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false, false);
         testSearchButtonFromDistrictPage(TestData.RSL_TEACHER_FIRST_NAME, false, false);
         testSearchButtonFromDistrictPage(TestData.RSL_TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, false, false);
@@ -99,7 +99,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         testRemoveSchool();
 
         districtPage.clickOnExistingSchool(TestData.EXISTING_RSL_SCHOOL_NAME);
-        testSearchButtonFromSchoolPage(TestData.EXISTING_RSL_TEACHER_EMAIL, false, false);
+        testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL_RSL_SBCEO, false, false);
         testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, false, false);
         testSearchButtonFromSchoolPage(TestData.RSL_TEACHER_FIRST_NAME, false, false);
         testSearchButtonFromSchoolPage(TestData.RSL_TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, false, false);
