@@ -165,7 +165,7 @@ public class TestData {
     public static final String REMOVE_SCHOOL_ADMIN_POPOVER_TEXT = "Remove School Admin";
     public static final String REMOVE_DISTRICT_ADMIN_POPOVER_TEXT = "Remove District Admin";
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
-    public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT= "Owner cannot be removed when Automated Rostering is enabled";
+    public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Owner cannot be removed when Automated Rostering is enabled";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
     public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
@@ -253,6 +253,8 @@ public class TestData {
     private static final String PRO_MONTHLY = "6";
     private static final String PRO_ANNUALLY = "72";
     public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
+
+    public static final String THANK_YOU_FOR_UPDATING_TEXT = "Thank you for updating your profile! Enjoy using Lesson Planet.";
 
     public static String GET_STARTER_BILLING_TERMS_MESSAGE() {
         return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY);
