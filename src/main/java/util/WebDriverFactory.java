@@ -38,11 +38,14 @@ public class WebDriverFactory {
             setChromeDriver();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
+            options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+            options.setExperimentalOption("useAutomationExtension", false);
+            options.addArguments("disable-infobars");
             webDriver = new ChromeDriver(options);
         } else if (FIREFOX.equals(browser)) {
             webDriver = new FirefoxDriver();
-            webDriver.manage().window().maximize();
         }
+        webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
         return webDriver;
     }
