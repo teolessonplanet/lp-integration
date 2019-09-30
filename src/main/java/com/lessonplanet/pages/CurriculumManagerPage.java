@@ -72,7 +72,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     }
 
     public void hoverOverPlayButton() {
-        hoverOverElement(PLAY_BUTTON, false);
+        hoverOverElement(PLAY_BUTTON, true);
     }
 
     public void clickOnPlayButton() {

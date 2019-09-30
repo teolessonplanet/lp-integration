@@ -491,11 +491,11 @@ public class CurriculumManagerPageTest extends BaseTest {
     private void testCollectionFolderActions(String accountPlanText) {
         curriculumManagerPage.loadPage();
         testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
-        testPlayCollection();
-        testPublishCollection();
+        testPlayCollectionWithNoItems();
+        testPublishCollectionWithNoItems();
         testAddRequiredInformationToPublishCollection(accountPlanText);
-        testPlayCollection();
-        testPublishCollection();
+        testPlayCollectionWithItems();
+        testPublishCollectionWithItems();
         testAssignResource(accountPlanText, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         testMaxLimitOfCollectionsCopied();
         testDeleteCollection();
@@ -546,34 +546,39 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.waitForRefreshIconToDisappear();
     }
 
-    private void testPlayCollection() {
+    private void testPlayCollectionWithItems() {
         curriculumManagerPage.hoverOverPlayButton();
-        if (curriculumManagerPage.getPopoverText().equals(TestData.PLAY_COLLECTION_WITH_ITEMS_POPOVER_TEXT)) {
-            curriculumManagerPage.clickOnPlayButton();
-            testCurriculumPlayerURL();
-            Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
-        } else {
-            Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PLAY_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
-        }
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PLAY_COLLECTION_WITH_ITEMS_POPOVER_TEXT);
+        curriculumManagerPage.clickOnPlayButton();
+        testCurriculumPlayerURL();
+        Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
     }
 
-    private void testPublishCollection() {
+    private void testPlayCollectionWithNoItems() {
+        curriculumManagerPage.hoverOverPlayButton();
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PLAY_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
+    }
+
+    private void testPublishCollectionWithItems() {
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.hoverOverPublishButton();
-        if (curriculumManagerPage.getPopoverText().equals(TestData.PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT)) {
-            curriculumManagerPage.hoverOverActionsDropdown();
-            curriculumManagerPage.clickOnPublishButton();
-            publishCollectionModal.waitForModal();
-            publishCollectionModal.typeRating();
-            publishCollectionModal.typeAudience();
-            publishCollectionModal.typeConcept();
-            publishCollectionModal.clickOnPublishCollectionButton();
-            publishCollectionModal.clickOnCloseButton();
-            curriculumManagerPage.waitForRefreshIconToDisappear();
-            Assert.assertEquals(curriculumManagerPage.getCollectionFolderStatus(), TestData.PUBLISHED_STATUS);
-        } else {
-            Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
-        }
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT);
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnPublishButton();
+        publishCollectionModal.waitForModal();
+        publishCollectionModal.chooseRating();
+        publishCollectionModal.chooseAudience();
+        publishCollectionModal.typeConcept();
+        publishCollectionModal.clickOnPublishCollectionButton();
+        publishCollectionModal.clickOnCloseButton();
+        curriculumManagerPage.waitForRefreshIconToDisappear();
+        Assert.assertEquals(curriculumManagerPage.getCollectionFolderStatus(), TestData.PUBLISHED_STATUS);
+    }
+
+    private void testPublishCollectionWithNoItems() {
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.hoverOverPublishButton();
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
     }
 
     private void testMaxLimitOfCollectionsCopied() {
