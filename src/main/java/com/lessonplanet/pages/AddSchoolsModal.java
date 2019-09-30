@@ -18,7 +18,7 @@ public class AddSchoolsModal extends AddADistrictAdminModal {
     }
 
     public void clearSchoolName() {
-        clearText(TEXT_INPUT);
+        clearTextUsingActions(TEXT_INPUT);
     }
 
     public void hoverOverBulkUploadInfoIcon() {

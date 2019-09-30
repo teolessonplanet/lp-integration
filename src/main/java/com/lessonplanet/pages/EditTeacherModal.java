@@ -32,7 +32,7 @@ public class EditTeacherModal extends EditDistrictModal {
     }
 
     public void clearEmail() {
-        clearText(EMAIL_INPUT);
+        clearTextUsingActions(EMAIL_INPUT);
     }
 
     public String getErrorText() {

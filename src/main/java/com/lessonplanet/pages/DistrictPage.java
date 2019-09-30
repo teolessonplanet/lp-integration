@@ -131,7 +131,7 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public void hoverOverEditOrganizationButton() {
-        hoverOverElement(EDIT_ORGANIZATION_BUTTON);
+        hoverOverElement(EDIT_ORGANIZATION_BUTTON, true);
     }
 
     public void hoverOverSearchButton() {
