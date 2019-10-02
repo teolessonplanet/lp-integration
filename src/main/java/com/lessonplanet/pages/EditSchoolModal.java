@@ -13,7 +13,7 @@ public class EditSchoolModal extends EditDistrictModal {
     }
 
     public void clearSchoolName() {
-        clearText(ORGANIZATION_NAME_INPUT);
+        clearTextUsingActions(ORGANIZATION_NAME_INPUT);
     }
 
     public String getSchoolName() {

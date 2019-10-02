@@ -18,7 +18,7 @@ public class AddADistrictAdminModal extends LpUiBasePage {
     }
 
     public void clearEmail() {
-        clearText(TEXT_INPUT);
+        clearTextUsingActions(TEXT_INPUT);
     }
 
     public String getErrorText() {

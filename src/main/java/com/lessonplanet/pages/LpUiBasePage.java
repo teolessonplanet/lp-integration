@@ -581,4 +581,20 @@ public class LpUiBasePage {
             return null;
         }
     }
+
+    public void clearTextUsingActions(String cssSelector){
+        clickElement(cssSelector);
+        Actions action = new Actions(driver);
+        String text = findElement(cssSelector).getAttribute("value");
+        int lenText = text.length();
+        for (int i = 0; i < lenText; i++) {
+            action.sendKeys(Keys.ARROW_LEFT);
+        }
+        action.build().perform();
+
+        for (int i = 0; i < lenText; i++) {
+            action.sendKeys(Keys.DELETE);
+        }
+        action.build().perform();
+    }
 }

@@ -124,6 +124,7 @@ public class TestData {
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_FREEMIUM = "free-member@lp.com";
     public static final String VALID_EMAIL_ACTIVE = "active-user@lessonplanet.com";
+    public static final String VALID_EMAIL_PRO = "pro-user@lessonplanet.com";
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";

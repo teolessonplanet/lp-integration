@@ -53,7 +53,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         addADistrictAdminModal.clickOnAddButton();
         Assert.assertTrue(manageDistrictAdminsPage.getNotificationText().contains(TestData.ADD_DISTRICT_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT));
         districtPage.dismissNotification();
-        rsl_accountManagerTest.testAddDistrictAdmin(TestData.VALID_EMAIL_ACTIVE);
+        rsl_accountManagerTest.testAddDistrictAdmin(TestData.VALID_EMAIL_PRO);
         csl_accountManagerSsoOnTest.initAndReachCSLAccountManagerSsoOnTest(webDriver);
         csl_accountManagerSsoOnTest.testEditDistrictAdmin();
         csl_accountManagerSsoOnTest.testEditOwner();
