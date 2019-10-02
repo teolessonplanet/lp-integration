@@ -62,6 +62,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(TestData.INVALID_EMAIL);
+        discoverResourcesPage.refreshPageAndDismissBrowserAlert();
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
         testDragAndDropItem(TestData.INVALID_EMAIL);

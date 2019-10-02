@@ -597,4 +597,14 @@ public class LpUiBasePage {
         }
         action.build().perform();
     }
+
+    public void refreshPageAndDismissBrowserAlert() {
+        driver.navigate().refresh();
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.dismiss();
+        } catch (NoAlertPresentException noe) {
+            System.out.println("No alert found on page");
+        }
+    }
 }
