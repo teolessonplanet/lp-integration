@@ -27,14 +27,13 @@ public class ArticlesPageTest extends BaseTest {
         testArticlesMainPage(TestData.INVALID_EMAIL);
     }
 
-
-    @Test(description = "Articles Main Page")
-    public void testLessonp_33bxcvbxcvb31() {
+    @Test(description = "Freemium - Lesson Planet Articles - lessonp-5256: Articles Main Page")
+    public void testLessonp_5256() {
         testArticlesMainPage(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Articles Main Page")
-    public void testLessonp_33bxcvbxcvb3sdfgsdf1() {
+    @Test(description = "Active - Lesson Planet Articles - lessonp-5258: Articles Main Page")
+    public void testLessonp_5258() {
         testArticlesMainPage(TestData.VALID_EMAIL_ACTIVE);
     }
 
@@ -43,12 +42,12 @@ public class ArticlesPageTest extends BaseTest {
         testArticlesPage(TestData.INVALID_EMAIL);
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
+    @Test(description = "Freemium - Lesson Planet Articles -  lessonp-5255: Article Page")
     public void testLessonp_5255() {
         testArticlesPage(TestData.VALID_EMAIL_FREEMIUM);
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
+    @Test(description = "Active - Lesson Planet Articles -  lessonp-5257: Article Page")
     public void testLessonp_5257() {
         testArticlesPage(TestData.VALID_EMAIL_ACTIVE);
     }
@@ -102,17 +101,17 @@ public class ArticlesPageTest extends BaseTest {
         testArticleCard();
         Assert.assertEquals(articlesPage.getArticleTopics(), TestData.ARTICLE_TOPICS);
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
-        if(!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
-        if(account.equals(TestData.VALID_EMAIL_FREEMIUM)){
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             lpHomePage.goBackOnePage();
         }
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
         directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(account);
-        if(!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             articlesPage.closeTab();
         }
         articlesPage.clickOnArticleTopicLink();
