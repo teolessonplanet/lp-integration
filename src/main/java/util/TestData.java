@@ -128,9 +128,9 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_SBCEO = "testuser+61+959321@lessonplanet.com";
-    public static final String VALID_EMAIL_CSL_HENRY = "testuser+73+2316026@lessonplanet.com";
-    public static final String VALID_EMAIL_CSL_QA_CUSTOM = "testuser+25+2471812@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_SBCEO = "testuser+51+959321@lessonplanet.com";
+    public static final String VALID_EMAIL_CSL_HENRY = "testuser+44+2316026@lessonplanet.com";
+    public static final String VALID_EMAIL_CSL_QA_CUSTOM = "testuser+59+2471812@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -187,17 +187,17 @@ public class TestData {
     public static final String EXISTING_RSL_SCHOOL_NAME = "All SBCEO";
     public static final String EXISTING_HENRY_SL_SCHOOL_NAME = "LP Elementary";
     public static final String EXISTING_QA_CUSTOM_SL_SCHOOL_NAME = "Rita";
-    public static final String EXISTING_TEACHER_EMAIL_RSL_SBCEO = "testuser+73+958202@lessonplanet.com";
-    public static final String EXISTING_TEACHER_EMAIL_CSL_HENRY = "testuser+11+2661407@lessonplanet.com";
-    public static final String EXISTING_TEACHER_EMAIL_CSL_QA_CUSTOM = "testuser+87+2544858@lessonplanet.com";
+    public static final String EXISTING_TEACHER_EMAIL_RSL_SBCEO = "testuser+29+958202@lessonplanet.com";
+    public static final String EXISTING_TEACHER_EMAIL_CSL_HENRY = "testuser+43+2463286@lessonplanet.com";
+    public static final String EXISTING_TEACHER_EMAIL_CSL_QA_CUSTOM = "testuser+77+2544858@lessonplanet.com";
     public static final String RSL_OWNER_FIRST_NAME = "Homer";
     public static final String RSL_OWNER_LAST_NAME = "Morro";
-    public static final String RSL_TEACHER_FIRST_NAME = "Eugene_958202";
+    public static final String RSL_TEACHER_FIRST_NAME = "Ronald_958202";
     public static final String TEACHER_LAST_NAME = "Fake";
-    public static final String HENRY_SL_OWNER_FIRST_NAME = "Deborah_2316026";
-    public static final String HENRY_SL_TEACHER_FIRST_NAME = "Joseph_2463286";
-    public static final String QA_CUSTOM_SL_OWNER_FIRST_NAME = "Joan_2471812";
-    public static final String QA_CUSTOM_SL_TEACHER_FIRST_NAME = "Richard_1852455";
+    public static final String HENRY_SL_OWNER_FIRST_NAME = "Ruth_2316026";
+    public static final String HENRY_SL_TEACHER_FIRST_NAME = "Jack_2463286";
+    public static final String QA_CUSTOM_SL_OWNER_FIRST_NAME = "Evelyn_2471812";
+    public static final String QA_CUSTOM_SL_TEACHER_FIRST_NAME = "Randy_25448585";
 
     public static final String NO_SEARCH_RESULTS_TEXT = "There were no results found";
     public static final String SEARCH_RESULTS_TEXT = "results were found for";
