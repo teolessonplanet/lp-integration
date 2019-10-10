@@ -169,8 +169,9 @@ public class TestData {
     public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Owner cannot be removed when Automated Rostering is enabled";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
-    public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
+    public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "This privilege gives a user the ability to publish collections to the learning object repository. The following options grant this privilege to users district-wide. To apply this privilege more selectively use the school-level or user-level settings.";
     public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
+    public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
     public static final String ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school.";
     public static final String ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new teacher.";
 
