@@ -500,7 +500,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
             editTeacherModal.isPublishCheckboxDisplayed();
             editTeacherModal.hoverOverPublishingOptionInfoIcon();
-            Assert.assertEquals(editTeacherModal.getPublishingOptionInfoIconPopoverText(), TestData.SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT);
+            Assert.assertEquals(editTeacherModal.getPublishingOptionInfoIconPopoverText(), TestData.PUBLISHING_PRIVILEGES_POPOVER_TEXT);
             editTeacherModal.clickOnSaveButton();
         } else {
             if (!schoolPage.getTeacherJoinedDate(0).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {

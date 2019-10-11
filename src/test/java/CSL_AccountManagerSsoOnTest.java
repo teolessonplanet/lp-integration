@@ -139,7 +139,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(editDistrictAdminModal.isPublishCheckboxDisplayed());
         Assert.assertEquals(editDistrictAdminModal.getPublishOptionText(), TestData.DISTRICT_ADMIN_PUBLISH_OPTION_TEXT);
         editDistrictAdminModal.hoverOverPublishingOptionInfoIcon();
-        Assert.assertEquals(editDistrictAdminModal.getPublishingOptionInfoIconPopoverText(), TestData.SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT);
+        Assert.assertEquals(editDistrictAdminModal.getPublishingOptionInfoIconPopoverText(), TestData.PUBLISHING_PRIVILEGES_POPOVER_TEXT);
         editDistrictAdminModal.clickOnCancelButton();
     }
 
@@ -151,7 +151,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(editOwnerModal.isPublishCheckboxDisplayed());
         Assert.assertEquals(editOwnerModal.getPublishOptionText(), TestData.OWNER_PUBLISH_OPTION_TEXT);
         editOwnerModal.hoverOverPublishingOptionInfoIcon();
-        Assert.assertEquals(editOwnerModal.getPublishingOptionInfoIconPopoverText(), TestData.SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT);
+        Assert.assertEquals(editOwnerModal.getPublishingOptionInfoIconPopoverText(), TestData.PUBLISHING_PRIVILEGES_POPOVER_TEXT);
         editOwnerModal.clickOnCancelButton();
     }
 
@@ -163,7 +163,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(editSchoolAdminModal.isPublishCheckboxDisplayed());
         Assert.assertEquals(editSchoolAdminModal.getPublishOptionText(), TestData.SCHOOL_ADMIN_PUBLISH_OPTION_TEXT);
         editSchoolAdminModal.hoverOverPublishingOptionInfoIcon();
-        Assert.assertEquals(editSchoolAdminModal.getPublishingOptionInfoIconPopoverText(), TestData.SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT);
+        Assert.assertEquals(editSchoolAdminModal.getPublishingOptionInfoIconPopoverText(), TestData.PUBLISHING_PRIVILEGES_POPOVER_TEXT);
         editSchoolAdminModal.clickOnCancelButton();
     }
 
@@ -197,6 +197,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         districtPage.clickEditActionButton(0);
         Assert.assertTrue(editSchoolModal.isAdminPublishCheckboxChecked());
         Assert.assertTrue(editSchoolModal.isAdminPublishCheckboxDisabled());
+        Assert.assertTrue(editSchoolModal.isTeacherPublishCheckboxChecked());
         editSchoolModal.clickOnCancelButton();
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
