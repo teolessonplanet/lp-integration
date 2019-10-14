@@ -103,7 +103,7 @@ public class TestData {
     public static final String MANAGE_MY_RESOURCES_PAGE_PATH = "us/videos?autoplay=curriculum_manager";
     public static final String SHARING_WITH_OTHERS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
 
-    public static final String OUR_REVIEW_PROCESS_PAGE_PATH = "content/how_it_works";
+    public static final String OUR_REVIEW_PROCESS_PAGE_PATH = "educator-edition?review-process";
     public static final String HOW_IT_WORKS_PAGE_PATH = "us/videos?autoplay=review";
     public static final String HOW_TO_SEARCH_PAGE_PATH = "us/videos?autoplay=search";
     public static final String CREATE_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_how_to";
@@ -114,8 +114,8 @@ public class TestData {
     public static final String PINTEREST_URL = "pinterest.com";
 
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";
-    public static final String PRIVACY_POLICY_PAGE_PATH = "us/privacy_policy";
-    public static final String TERMS_OF_USE_PAGE_PATH = "us/terms_of_use";
+    public static final String PRIVACY_POLICY_PAGE_PATH = "privacy-policy";
+    public static final String TERMS_OF_USE_PAGE_PATH = "terms-of-use";
 
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
@@ -359,7 +359,7 @@ public class TestData {
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
-    public static final String COPYRIGHT_TEXT = "© 1999-2019 Education Planet, Inc.\nAll rights reserved.";
+    public static final String COPYRIGHT_TEXT = "© 1999-2019 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
@@ -428,7 +428,7 @@ public class TestData {
     public static final String SOCIAL_STUDIES_PAGE_TITLE = "Social Studies Teacher Resources";
     public static final String SPECIAL_EDUCATION_PAGE_TITLE = "Special Education Teacher Resources";
     public static final String VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE = "Visual and Performing Arts Teacher Resources";
-    public static final String FREE_LESSON_PLANS_PAGE_URL = "https://www.lessonplanet.com/free-resources";
+    public static final String VIEW_ALL_LESSON_PLANS_PAGE_URL = "lesson-plans";
 
     public static final String WELLNESS_AND_SAFETY_PAGE_TITLE = "Wellness & Safety Teacher Resources";
     public static final String NUTRITION_PAGE_TITLE = "Nutrition Teacher Resources";
