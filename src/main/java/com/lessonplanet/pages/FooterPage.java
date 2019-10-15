@@ -14,13 +14,13 @@ public class FooterPage extends LpUiBasePage {
 
     private static final String CONTACT_US_BUTTON = "[class*='footer-container'] [href='/us/contact']";
     private static final String SITE_MAP_BUTTON = "[class*='footer-container'] [href='/content/site_map']";
-    private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/us/privacy_policy']";
-    private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href='/us/terms_of_use']";
+    private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/privacy-policy']";
+    private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href*='/terms-of-use']";
 
     private static final String FACEBOOK_BUTTON = "[class*='fa-facebook']";
     private static final String TWITTER_BUTTON = "[class*='fa-twitter']";
     private static final String LINKEDIN_BUTTON = "[class*='fa-linkedin']";
-    private static final String YOUTUBE_BUTTON = "[class*='fa-youtube']";
+    private static final String YOUTUBE_BUTTON = "[class='lp-icon fa fa-youtube-play']";
     private static final String PINTEREST_BUTTON = "[class*='fa-pinterest']";
 
     private static final String HEALTH_LINK = "[href*='/health']";
@@ -32,12 +32,12 @@ public class FooterPage extends LpUiBasePage {
     private static final String SOCIAL_STUDIES_LINK = "[href*='/social-studies']";
     private static final String SPECIAL_EDUCATION_LINK = "[href*='/special-education']";
     private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[href*='/visual-and-performing-arts']";
-    private static final String FREE_LESSON_PLANS_LINK = "[href*='/free-resources']";
+    private static final String VIEW_ALL_LESSON_PLANS_LINK = "[class='lp-footer-view-all-lesson-plans-link']";
 
-    private static final String OUR_REVIEW_PROCESS_LINK = "[class*='footer-col-content'] [href='/content/how_it_works']";
-    private static final String HOW_IT_WORKS_LINK = "[class*='footer-col-content'] [href='/us/videos?autoplay=review']";
-    private static final String HOW_TO_SEARCH_LINK = "[class*='footer-col-content'] [href='/us/videos?autoplay=search']";
-    private static final String CREATE_A_COLLECTION_LINK = "[class*='footer-col-content'] [href='/us/videos?autoplay=collections_how_to']";
+    private static final String OUR_REVIEW_PROCESS_LINK = "[class*='footer-col-content'] [href='/educator-edition?review-process']";
+    private static final String HOW_IT_WORKS_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=review']";
+    private static final String HOW_TO_SEARCH_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=search']";
+    private static final String CREATE_A_COLLECTION_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=collections_how_to']";
 
     private static final String EDIT_A_COLLECTION_LINK = "[href='/us/videos?autoplay=collections_edit']";
     private static final String ASSIGN_TO_STUDENTS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
@@ -156,8 +156,8 @@ public class FooterPage extends LpUiBasePage {
         scrollToElementAndClick(VISUAL_AND_PERFORMING_ARTS_LINK);
     }
 
-    public void clickOnFreeLessonPlansLink() {
-        scrollToElementAndClick(FREE_LESSON_PLANS_LINK);
+    public void clickOnViewAllLessonPlansLink() {
+        scrollToElementAndClick(VIEW_ALL_LESSON_PLANS_LINK);
     }
 
     public void clickOnOurReviewProcessLink() {

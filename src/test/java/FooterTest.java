@@ -225,8 +225,8 @@ public class FooterTest extends BaseTest {
         footerPage.clickOnVisualAndPerformingArtsLink();
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE);
 
-        footerPage.clickOnFreeLessonPlansLink();
-        Assert.assertEquals(browseBySubjectPage.getUrl(), TestData.FREE_LESSON_PLANS_PAGE_URL);
+        footerPage.clickOnViewAllLessonPlansLink();
+        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.VIEW_ALL_LESSON_PLANS_PAGE_URL);
     }
 
     public void testDiscoverResourcesSection() {
