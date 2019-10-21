@@ -18,6 +18,7 @@ public class SearchTest extends BaseTest {
     private CollectionRrpPage collectionRrpPage;
     private CollectionRrpModal collectionRrpModal;
     private LoginPage loginPage;
+    private HeaderPage headerPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -31,6 +32,7 @@ public class SearchTest extends BaseTest {
         collectionRrpPage = new CollectionRrpPage(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         loginPage = new LoginPage(webDriver);
+        headerPage = new HeaderPage(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -40,33 +42,18 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Visitor - Search Page - lessonp-494: Keyword search")
     public void testLessonp_494() {
-        lpHomePage.loadPage();
-        lpHomePage.typeSearchText(TestData.INVALID_SEARCH_WORD);
-        lpHomePage.clickOnSearch();
-        Assert.assertEquals(TestData.INVALID_SEARCH_MESSAGE, discoverResourcesPage.getSearchMessage());
-        Assert.assertTrue(discoverResourcesPage.isSuggestionBlockTextDisplayed());
-        Assert.assertEquals(TestData.SUGGESTIONS_BLOCK_MESSAGE, discoverResourcesPage.getSuggestionsBlockText());
-
-        lpHomePage.loadPage();
-        lpHomePage.typeSearchText(TestData.VALID_SEARCH_WORD);
-        lpHomePage.clickOnSearch();
-        Assert.assertTrue(TestData.ZERO_RESOURCES_FOUND < discoverResourcesPage.getTotalResults());
-        Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
+        testKeywordSearch(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-493: Keywordless search")
     public void testLessonp_493() {
-        lpHomePage.loadPage();
-        lpHomePage.clickOnSearch();
-        Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
-        Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
-        Assert.assertEquals(TestData.TOTAL_RESOURCES_PER_PAGE, discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode());
+        testKeywordlessSearch(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-487: Cards layout")
     public void testLessonp_487() {
         lpHomePage.loadPage();
-        lpHomePage.clickOnSearch();
+        headerPage.clickOnSearchButton();
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         discoverResourcesPage.clickOnTiledView();
         Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -263,9 +250,45 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(collectionRrpModal.isCollectionTitleDisplayed());
     }
 
-    protected void reachSearchPageInListView() {
+    protected void testKeywordSearch(String account) {
         lpHomePage.loadPage();
-        lpHomePage.clickOnSearch();
+        headerPage.typeSearchText(TestData.INVALID_SEARCH_WORD);
+        headerPage.clickOnSearchButton();
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.INVALID_SEARCH_MESSAGE);
+        } else {
+            Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_1) & discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_2));
+        }
+        Assert.assertTrue(discoverResourcesPage.isSuggestionBlockTextDisplayed());
+        Assert.assertEquals(TestData.SUGGESTIONS_BLOCK_MESSAGE, discoverResourcesPage.getSuggestionsBlockText());
+
+        lpHomePage.loadPage();
+        headerPage.clickOnClearSearchButton();
+        headerPage.typeSearchText(TestData.VALID_SEARCH_WORD);
+        headerPage.clickOnSearchButton();
+        Assert.assertTrue(TestData.ZERO_RESOURCES_FOUND < discoverResourcesPage.getTotalResults());
+        Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
+    }
+
+    protected void testKeywordlessSearch(String account) {
+        lpHomePage.loadPage();
+        headerPage.clickOnSearchButton();
+        Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE);
+            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        } else {
+            // https://lessonplanet.atlassian.net/browse/BC-2923 -> temporary fix // TODO: remove hack fix
+            headerPage.hoverOverResourcesButton();
+            headerPage.clickOnDiscoverResourcesButton();
+            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_RESOURCES_MESSAGE);
+            discoverResourcesPage.clickOnThumbnailView();
+            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        }
+    }
+
+    protected void reachSearchPageInListView() {
+        discoverResourcesPage.loadPage();
         discoverResourcesPage.clickOnListView();
     }
 
@@ -383,6 +406,7 @@ public class SearchTest extends BaseTest {
     protected void testLpResource(String account, boolean freeSample) {
         WebElement lpResourceCard;
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
 
@@ -433,6 +457,7 @@ public class SearchTest extends BaseTest {
 
     protected void testCollectionResource() {
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
 

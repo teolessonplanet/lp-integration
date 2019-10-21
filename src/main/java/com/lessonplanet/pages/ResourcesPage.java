@@ -111,7 +111,7 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(SEE_COLLECTION_BUTTON);
     }
 
-    public List<WebElement> getAllSeeFullReviewButtons(){
+    public List<WebElement> getAllSeeFullReviewButtons() {
         return findElements(SEE_FULL_REVIEW_BUTTON);
     }
 

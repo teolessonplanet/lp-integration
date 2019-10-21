@@ -106,6 +106,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickGoToResourceForRegularResource(boolean inANewTab) {
+        checkLessonPlanetProvider();
         selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES);
         super.clickGoToResourceForRegularResource(inANewTab);
     }
@@ -172,5 +173,15 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public int getFreeSampleResourcePosition() {
         return super.getFreeSampleResourcePosition();
+    }
+
+    public void checkLessonPlanetProvider() {
+        try {
+            selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_LESSONPLANET);
+            clickElement("[class*='parent-provider_ids'] i[class*='fa-caret-down']");
+            //TODO: SELECT CHILD IF POSSIBLE ///
+        } catch (NullPointerException exception) {
+            logger.info("The facet was not found " + exception.toString());
+        }
     }
 }
