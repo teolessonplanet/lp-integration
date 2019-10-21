@@ -19,16 +19,9 @@ public class LpHomePage extends LpUiBasePage {
         createCaptchaBypassCookie();
     }
 
-    public void typeSearchText(String search) {
-        sendKeys(SEARCH_INPUT, search);
-    }
-
-    public void clickOnSearch() {
-        clickElement(SEARCH_BUTTON);
-    }
-
     public void clickOnUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
+        //TODO: remove this - not a homepage component
     }
 
     public String getAlertMessageText() {

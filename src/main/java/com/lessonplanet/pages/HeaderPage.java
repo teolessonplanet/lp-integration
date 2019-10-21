@@ -49,7 +49,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER = "[class='lp-header-search-filter']";
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
-    private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class='lp-header-clear-search active']";
+    private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
