@@ -99,19 +99,19 @@ public class FooterTest extends BaseTest {
     @Test(description = "Visitor - Footer - lessonp-4033: Bottom footer links")
     public void testLessonp_4033() {
         lpHomePage.loadPage();
-        testBottomFooterLinks();
+        testBottomFooterLinks(TestData.INVALID_EMAIL);
     }
 
     @Test(description = "Free member - Footer - lessonp-4112: Bottom footer links")
     public void testLessonp_4112() {
         loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testBottomFooterLinks();
+        testBottomFooterLinks(TestData.VALID_EMAIL_FREEMIUM);
     }
 
     @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links")
     public void testLessonp_4117() {
         loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
-        testBottomFooterLinks();
+        testBottomFooterLinks(TestData.VALID_EMAIL_ACTIVE);
     }
 
     @Test(description = "Visitor - Footer - lessonp-4034: Social links")
@@ -178,15 +178,16 @@ public class FooterTest extends BaseTest {
             Assert.assertTrue(footerPage.isLpLogoDisplayed());
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
             Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+            Assert.assertTrue(footerPage.isContactUsButtonDisplayed());
         } else {
             Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
             Assert.assertFalse(footerPage.isSignUpTextDisplayed());
             Assert.assertFalse(footerPage.isSubscriptionEmailInputDisplayed());
+            Assert.assertFalse(footerPage.isContactUsButtonDisplayed());
         }
         Assert.assertTrue(footerPage.isOpenEducationalResourcesSectionDisplayed());
         Assert.assertTrue(footerPage.isDiscoverResourcesSectionDisplayed());
         Assert.assertTrue(footerPage.isManageCurriculumSectionDisplayed());
-        Assert.assertTrue(footerPage.isContactUsButtonDisplayed());
         Assert.assertTrue(footerPage.isSiteMapButtonDisplayed());
         Assert.assertTrue(footerPage.isPrivacyPolicyLinkDisplayed());
         Assert.assertTrue(footerPage.isTermsOfUseLinkDisplayed());
@@ -271,9 +272,11 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.SHARING_WITH_OTHERS_PAGE_PATH);
     }
 
-    public void testBottomFooterLinks() {
-        footerPage.clickOnContactUsButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
+    public void testBottomFooterLinks(String account) {
+        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+            footerPage.clickOnContactUsButton();
+            Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
+        }
 
         footerPage.clickOnSiteMapButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);

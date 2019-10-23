@@ -41,7 +41,7 @@ public class RSL_FooterTest extends BaseTest {
 
     @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links")
     public void testLessonp_4154() {
-        footerTest.testBottomFooterLinks();
+        footerTest.testBottomFooterLinks(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Footer - lessonp-4155:Social links")
