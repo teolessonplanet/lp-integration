@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,6 +22,11 @@ public class DirectoryMainPageTest extends BaseTest {
         directoryPage = new DirectoryPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         categoryModal = new CategoryModal(webDriver);
+    }
+
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Visitor - Directory Page - Main Page - lessonp-1015: Page UI")
@@ -95,7 +101,7 @@ public class DirectoryMainPageTest extends BaseTest {
         testCategoriesModal();
     }
 
-    private void testPageUi() {
+    protected void testPageUi() {
         headerPage.hoverOverResourcesButton();
         headerPage.clickOnBrowseResourceDirectoryButton();
 
@@ -133,7 +139,7 @@ public class DirectoryMainPageTest extends BaseTest {
         Assert.assertEquals(directoryPage.getHealthCategoryAndSubcategoriesText(), healthCategoryAndSubcategoriesText);
     }
 
-    private void testThumbnails() {
+    protected void testThumbnails() {
         directoryPage.loadPage();
 
         directoryPage.clickOnHealthSubjectThumbnail();
@@ -164,7 +170,7 @@ public class DirectoryMainPageTest extends BaseTest {
         checkPageTitleAndPagePath(TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_TITLE, TestData.VISUAL_AND_PERFORMING_ARTS_PAGE_PATH);
     }
 
-    private void testLinks() {
+    protected void testLinks() {
         directoryPage.loadPage();
 
         directoryPage.clickOnWellnessAndSafetyLink();
@@ -287,7 +293,7 @@ public class DirectoryMainPageTest extends BaseTest {
         browseBySubjectPage.goBackOnePage();
     }
 
-    private void testShowAllButton() {
+    protected void testShowAllButton() {
         directoryPage.loadPage();
         Assert.assertEquals(directoryPage.countShowAllButtons(), TestData.DIRECTORY_CATEGORIES_COUNTER);
         directoryPage.clickOnShowAllButtonFromHealthCategory();
@@ -295,7 +301,7 @@ public class DirectoryMainPageTest extends BaseTest {
         categoryModal.clickOnCloseModalButton();
     }
 
-    private void testCategoriesModal() {
+    protected void testCategoriesModal() {
         testShowAllButton();
 
         directoryPage.clickOnHealthSubjectLink();

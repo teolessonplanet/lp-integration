@@ -129,8 +129,8 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_SBCEO = "testuser+10+959321@lessonplanet.com";
-    public static final String VALID_EMAIL_CSL_HENRY = "testuser+33+2316026@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
+    public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "testuser+11+2471812@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
