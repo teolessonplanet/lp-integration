@@ -47,20 +47,20 @@ public class RSL_AccountManagerTest extends BaseTest {
     public void testLessonp_918() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testDistrictPage(false);
-        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME);
+        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         testRemoveSchool();
-        testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME);
+        testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         testRemoveSchool();
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-901: Edit District, Search in district")
     public void testLessonp_901() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testEditDistrict(TestData.RSL_DISTRICT_NAME, false);
-        testSearchButtonFromDistrictPage(TestData.EXISTING_TEACHER_EMAIL_RSL_SBCEO, false, false);
+        testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false, false);
         testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false, false);
-        testSearchButtonFromDistrictPage(TestData.RSL_TEACHER_FIRST_NAME, false, false);
-        testSearchButtonFromDistrictPage(TestData.RSL_OWNER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, false, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME, false, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_OWNER_FIRST_NAME + " " + TestData.RSL_SBCEO_OWNER_LAST_NAME, false, false);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
@@ -68,13 +68,13 @@ public class RSL_AccountManagerTest extends BaseTest {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
         testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER);
-        testRemoveDistrictAdmin(TestData.RSL_DISTRICT_NAME);
+        testRemoveDistrictAdmin(TestData.RSL_SBCEO_DISTRICT_NAME);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher")
     public void testLessonp_920() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME);
+        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         districtPage.clickOnSchool(0);
         testSchoolPage(false, false);
         Assert.assertTrue(schoolPage.getFlashNotificationText().contains(TestData.NO_TEACHER_ADDED_NOTIFICATION_TEXT));
@@ -92,23 +92,23 @@ public class RSL_AccountManagerTest extends BaseTest {
     @Test(description = "Regular SL - Account Manager - lessonp-895: Edit School, Search in School")
     public void testLessonp_895() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME);
-        testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME, false, false);
-        testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME, false, false);
+        testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
+        testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
+        testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
         schoolPage.clickOnDistrictBreadcrumbs();
         testRemoveSchool();
 
-        districtPage.clickOnExistingSchool(TestData.EXISTING_RSL_SCHOOL_NAME);
-        testSearchButtonFromSchoolPage(TestData.EXISTING_TEACHER_EMAIL_RSL_SBCEO, false, false);
+        districtPage.clickOnExistingSchool(TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false, false);
         testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, false, false);
-        testSearchButtonFromSchoolPage(TestData.RSL_TEACHER_FIRST_NAME, false, false);
-        testSearchButtonFromSchoolPage(TestData.RSL_TEACHER_FIRST_NAME + " " + TestData.TEACHER_LAST_NAME, false, false);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, false);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME + " " + TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, false);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
     public void testLessonp_924() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.EXISTING_RSL_SCHOOL_NAME);
+        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
         testManageSchoolAdminPage(false);
@@ -415,7 +415,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             editSchoolModal.typeSchoolName(newName);
             editSchoolModal.typeOrganizationShortName(TestData.CONCEPT);
         } else {
-            Assert.assertEquals(editSchoolModal.getSchoolName(), TestData.EXISTING_QA_CUSTOM_SL_SCHOOL_NAME);
+            Assert.assertEquals(editSchoolModal.getSchoolName(), TestData.CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME);
         }
         if (sso) {
             editSchoolModal.hoverOverSharingPrivilegesInfoIcon();
