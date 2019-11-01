@@ -122,6 +122,7 @@ public class TestData {
     //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
+    public static final String VALID_EMAIL_ADMIN = "admin";
     public static final String VALID_EMAIL_FREEMIUM = "free-member@lp.com";
     public static final String VALID_EMAIL_ACTIVE = "active-user@lessonplanet.com";
     public static final String VALID_EMAIL_PRO = "pro-user@lessonplanet.com";
@@ -355,7 +356,6 @@ public class TestData {
     public static final String SHARED_RESOURCE_TYPE = "Drive::Document";
 
     public static final String SEARCH_BOX_PLACEHOLDER_ED_TECH_PD_TEXT = "EdTech PD Videos & Courses: What would you like to learn today?";
-    public static final String SEARCH_BOX_PLACEHOLDER_COMMON_CORE_STATE_STANDARDS_TEXT = "What concept or skill would you like to find?";
 
     //Footer
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
@@ -387,13 +387,12 @@ public class TestData {
     public static final String CURRICULUM_CALENDAR_PAGE_PATH = "calendar";
     public static final String LESSON_PLANNING_ARTICLES_PAGE_PATH = "articles";
 
-    public static final String EDUCATOR_EDITION_PAGE_PATH = "content/how_it_works";
-    public static final String LEARNING_EXPLORER_URL = "https://solutions.lessonplanet.com/";
-    public static final String PD_LEARNING_NETWORK_URL = "https://solutions.lessonplanet.com/pdln/";
+    public static final String EDUCATOR_EDITION_PAGE_PATH = "educator-edition";
+    public static final String LEARNING_EXPLORER_PATH = "learning-explorer";
+    public static final String PD_LEARNING_NETWORK_PATH = "pdln";
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
     public static final String OUR_STORY_PAGE_PATH = "us/about_us";
-    public static final String PRESS_PAGE_PATH = "us/about_us#news";
     public static final String FAQ_PAGE_PATH = "us/faq";
     public static final String TESTIMONIALS_PAGE_PATH = "us/testimonials";
 
@@ -575,11 +574,7 @@ public class TestData {
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
     public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 
-    public static final String SEARCH_STANDARDS_PAGE_PATH = "standards/search?utf8=%E2%9C%93&keywords=";
     public static final String SEARCH_EDTECH_PAGE_PATH = "professional-development/courses/search?utf8=%E2%9C%93&keywords=";
-
-    public static final String YOU_ARE_NOT_ALLOWED_TO_USE_FEATURE_TEXT = "Sorry, you are not allowed to access that feature.";
-    public static final String PLEASE_LOGIN_TO_ACCESS_THIS_PAGE_TEXT = "Please login to access this page.";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";

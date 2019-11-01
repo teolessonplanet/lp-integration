@@ -7,7 +7,7 @@ import java.util.List;
 
 public class HeaderPage extends LpUiBasePage {
 
-    private static final String LP_LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/lp-logo-02d7']";
+    private static final String LP_LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/lessonplanet-logo-eb74']";
     private static final String REGULAR_SL_LOGO_IMAGE = "[class*='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/learning-explorer-logo-54e2']";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
     private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade'] a";
@@ -31,7 +31,6 @@ public class HeaderPage extends LpUiBasePage {
     private static final String ABOUT_BUTTON = "[class='lp-about']";
     private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
     private static final String OUR_STORY_BUTTON = "[class='lp-about'] [href='/us/about_us']";
-    private static final String PRESS_BUTTON = "[class='lp-about'] [href='/us/about_us#news']";
     private static final String FAQ_BUTTON = "[class='lp-about'] [href='/us/faq']";
     private static final String TESTIMONIALS_BUTTON = "[class='lp-about'] [href='/us/testimonials']";
 
@@ -162,10 +161,6 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnOurStoryButton() {
         clickElement(OUR_STORY_BUTTON);
-    }
-
-    public void clickOnPressButton() {
-        clickElement(PRESS_BUTTON);
     }
 
     public void clickOnFaqButton() {
