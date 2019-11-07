@@ -218,7 +218,7 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
-            collectionBuilderPage.clickOnEditCollection();
+            collectionBuilderPage.clickOnEditCollection(false);
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickUploadButton();
             testSignInOrJoinNowModal();
@@ -230,7 +230,7 @@ public class CollectionBuilderTest extends BaseTest {
         } else {
             curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
             curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-            collectionBuilderPage.clickOnEditCollection();
+            collectionBuilderPage.clickOnEditCollection(false);
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
             testAddLink();

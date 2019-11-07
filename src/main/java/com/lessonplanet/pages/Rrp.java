@@ -44,6 +44,7 @@ public class Rrp extends LpUiBasePage {
     private static final String ADD_A_COMMENT_LINK = "[class='add-a-comment']";
     private static final String USER_CONVERSATION_PANEL = "[class*='user-conversation'] h4";
     private static final String ADD_A_COMMENT_BUTTON = "[class*='add-comment-btn']";
+    private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -289,5 +290,9 @@ public class Rrp extends LpUiBasePage {
 
     public void clickAddToNewCollection() {
         clickElement(ADD_TO_NEW_COLLECTION_BUTTON);
+    }
+
+    public void clickEditYourCollectionLink(boolean inANewTab) {
+        openInANewTabOrClick(EDIT_YOUR_COLLECTION_LINK, inANewTab);
     }
 }
