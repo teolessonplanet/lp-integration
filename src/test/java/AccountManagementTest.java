@@ -541,7 +541,6 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromUpgradeMeButtons() {
         testUpgradeFromHeader();
         testUpgradeFromMyAccountPage();
-        testUpgradeFromHomePage();
         testUpgradeFromRrpPage();
         testUpgradeFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFromWhatMembersSayWidgetArticlesPage();
@@ -569,14 +568,6 @@ public class AccountManagementTest extends BaseTest {
         myAccountPage.clickOnUpgradeMeButton(true);
         checkStepTwoPageNewTab();
         myAccountPage.clickOnUpgradeMeButton(false);
-        checkStepTwoPageSameTab();
-    }
-
-    private void testUpgradeFromHomePage() {
-        lpHomePage.loadPage();
-        lpHomePage.clickOnUpgradeMeButton(true);
-        checkStepTwoPageNewTab();
-        lpHomePage.clickOnUpgradeMeButton(false);
         checkStepTwoPageSameTab();
     }
 
