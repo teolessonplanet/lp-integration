@@ -48,7 +48,6 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.isResourceViewsDisplayed(firstResource));
         Assert.assertTrue(rsl_contentManagerPage.isResourceDescriptionDisplayed(firstResource));
         Assert.assertTrue(rsl_contentManagerPage.isResourceConceptDisplayed(firstResource));
-        Assert.assertTrue(rsl_contentManagerPage.isResourceStandardDisplayed(firstResource));
     }
 
     @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
@@ -72,11 +71,13 @@ public class RSL_ContentManagerTest extends BaseTest {
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
         firstResource = rsl_contentManagerPage.getResourceCards().get(0);
 
-        rsl_contentManagerPage.clickOnStandardLink(firstResource, 0);
-        rsl_contentManagerPage.focusDriverToLastTab();
-        rsl_contentManagerPage.waitForLoad();
-        Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_STANDARD_REDIRECT_PATH));
-        rsl_contentManagerPage.closeTab();
+        if(rsl_contentManagerPage.isResourceStandardDisplayed(firstResource)) {
+            rsl_contentManagerPage.clickOnStandardLink(firstResource, 0);
+            rsl_contentManagerPage.focusDriverToLastTab();
+            rsl_contentManagerPage.waitForLoad();
+            Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_STANDARD_REDIRECT_PATH));
+            rsl_contentManagerPage.closeTab();
+        }
 
         rsl_contentManagerPage.clickOnQuickViewButton(firstResource);
         rsl_contentManagerPage.focusDriverToLastTab();
