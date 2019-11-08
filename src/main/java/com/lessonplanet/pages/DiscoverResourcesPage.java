@@ -177,11 +177,9 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void checkLessonPlanetProvider() {
         try {
-            selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_LESSONPLANET);
-            clickElement("[class*='parent-provider_ids'] i[class*='fa-caret-down']");
-            //TODO: SELECT CHILD IF POSSIBLE ///
-        } catch (NullPointerException exception) {
-            logger.info("The facet was not found " + exception.toString());
+            selectFacetFilter(TestData.FACET_CONTENT_CURATORS, TestData.FACET_PROVIDERS_LESSONPLANET);
+        } catch (Exception exception) {
+            logger.info("The facet Content Curators was not found " + exception.toString());
         }
     }
 }

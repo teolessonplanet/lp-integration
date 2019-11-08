@@ -294,6 +294,7 @@ public class SearchTest extends BaseTest {
 
     private void testUserClicksResultCard(String account) {
         reachSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isTitleDisplayed());
@@ -310,6 +311,7 @@ public class SearchTest extends BaseTest {
             checkRrpSample(false, false, true);
         }
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isTitleDisplayed());
@@ -333,6 +335,7 @@ public class SearchTest extends BaseTest {
 
     private void testSeePreviewButton() {
         reachSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
         discoverResourcesPage.closeTab();
@@ -344,6 +347,7 @@ public class SearchTest extends BaseTest {
 
     private void testGoToResourceButtonForSharedResource() {
         reachSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickGoToResourceForSharedResource(true);
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL));
         discoverResourcesPage.closeTab();
@@ -486,6 +490,7 @@ public class SearchTest extends BaseTest {
 
     protected void testSharedResource() {
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY);
@@ -557,6 +562,7 @@ public class SearchTest extends BaseTest {
 
     protected void testSeeFullReviewButton() {
         reachSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeFullReview(true);
         checkRrpSample(false, false, true);
         rrpPage.closeTab();
