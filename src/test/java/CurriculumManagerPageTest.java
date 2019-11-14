@@ -351,6 +351,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteRegularResource(String accountPlanText) {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             discoverResourcesPage.clickSeeReview(false);
         } else {
@@ -519,6 +520,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testAddSharedResourceToCollection() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testAddToCollectionButton(TestData.TWO_RESOURCES);
     }
@@ -637,6 +639,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     private void testFavoriteSharedResource() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testFavoriteButton(TestData.SHARED_RESOURCE_STATUS);
     }

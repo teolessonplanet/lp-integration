@@ -44,7 +44,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String ALL_RESOURCES_CARDS = "#search-results [class*='panel-resource']";
     private static final String CARD_ICON = "[class*='file-icon']";
     private static final String CARD_RESOURCE_TYPE = "div[class*='resource-icon']";
-    private static final String CARD_TITLE_TEXT = "h4[class='resource-title']";
+    private static final String CARD_TITLE_TEXT = "h4[class*='resource-title']";
     private static final String CARD_STAR_RATING = "span[class='star-rating']";
     private static final String CARD_FA_GRADUATION = "span[class*='detail-grades']";
     private static final String CARD_CSS_OPTIONAL = "span[class*='details-ccss']";
