@@ -1,58 +1,44 @@
 package util;
 
+import helpers.BrowserName;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-/*
- * Factory to instantiate a WebDriver object.
- * It returns an instance of the driver (local invocation) or an instance of RemoteWebDriver
- *
- */
 public class WebDriverFactory {
+    private final static String BROWSER_SYSTEM_VAR = "browser";
 
-    public static final String CHROME = "chrome";
-    public static final String FIREFOX = "firefox";
+    public WebDriver getInstance() {
 
-    private WebDriverFactory() {
-    }
+        if (StringUtils.isBlank(System.getProperty(BROWSER_SYSTEM_VAR))) {
+            throw new IllegalArgumentException("Browser name is not set in VM options. " +
+                "Please make sure you're setting the <browser> value before starting the tests " +
+                "-- https://www.screencast.com/t/CGYCEL6bc3U --");
+        }
+        final String browserVariable = System.getProperty(BROWSER_SYSTEM_VAR).toLowerCase();
+        WebDriver webDriver;
 
-    public static WebDriver getInstance(Browser browser) {
-        //TODO: add brower drivers for Firefox, Chrome, IE/Edge, Safari for Windows/Linux/Mac
-        WebDriver webDriver = null;
-        DesiredCapabilities capability = new DesiredCapabilities();
-        String browserName = browser.getName();
-        capability.setJavascriptEnabled(true);
-        return getInstance(browserName);
-    }
-
-    public static WebDriver getInstance(String browser) {
-
-        WebDriver webDriver = null;
-
-        if (CHROME.equals(browser)) {
-            setChromeDriver();
+        if (browserVariable.equals(BrowserName.CHROME.getName())) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
             options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
             options.setExperimentalOption("useAutomationExtension", false);
             options.addArguments("disable-infobars");
+            WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver(options);
-        } else if (FIREFOX.equals(browser)) {
+        } else if (browserVariable.equals(BrowserName.FIREFOX.getName())) {
+            WebDriverManager.firefoxdriver().setup();
             webDriver = new FirefoxDriver();
+        } else {
+            throw new IllegalArgumentException("Browser name is incorrectly set in VM options");
         }
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
         return webDriver;
-    }
-
-    private static void setChromeDriver() {
-        String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
-        String chromeBinary = "src/main/resources/drivers/chrome/chromedriver" + (os.equals("win") ? ".exe" : "");
-        System.setProperty("webdriver.chrome.driver", chromeBinary);
     }
 }
