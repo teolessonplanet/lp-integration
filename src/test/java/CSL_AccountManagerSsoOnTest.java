@@ -180,14 +180,14 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         editDistrictModal.clickAdminPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
-        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
         Assert.assertFalse(curriculumManagerPage.isPublishButtonDisplayed());
         districtPage.loadPage();
         districtPage.clickOnEditOrganizationButton();
         editDistrictAdminModal.clickAdminPublishCheckbox();
         editDistrictAdminModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
-        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
         Assert.assertTrue(curriculumManagerPage.isPublishButtonDisplayed());
     }
 

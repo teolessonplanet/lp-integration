@@ -277,7 +277,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
 
-        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
 
         upgradeAssignModal.waitForModal();
@@ -333,7 +333,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnMyFavoritesFolder();
 
-        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
 
         upgradeAssignModal.waitForModal();
