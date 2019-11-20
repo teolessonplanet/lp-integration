@@ -81,7 +81,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickSeeCollection(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
         super.clickSeeCollection(inANewTab);
     }
 
