@@ -1303,7 +1303,7 @@ public class RRPSearchPageTest extends BaseTest {
             rrpPage.clickAddToNewCollection();
         }
         if (upgradeMaxCollectionModal.isModalDisplayed()) {
-            Assert.assertEquals(upgradeMaxCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_COLLECTION_LIMIT);
+            Assert.assertEquals(upgradeMaxCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
             upgradeMaxCollectionModal.clickOnCloseButton();
         } else {
             createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);

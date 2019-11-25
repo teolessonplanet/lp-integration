@@ -6,7 +6,7 @@ import util.TestData;
 public class CurriculumManagerPage extends LpUiBasePage {
     private static final String ALERT_NOTIFICATION = "[class*='alert']";
     private static final String REFRESH_ICON = "[class*='fa-refresh']";
-    private static final String ACTIONS_DROPDOWN = " i.lp-ellipsis-icon";
+    private static final String ACTIONS_DROPDOWN = "[class*='actions'] i";
     private static final String PLAY_BUTTON = "[class*='fa-play-circle-o']";
     private static final String SHARE_BUTTON = "[class*='fa-share-alt']";
     private static final String EMAIL_OPTION = "[class*='fa-envelope-square']";
@@ -67,8 +67,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return isElementDisplayed(ACTIONS_DROPDOWN);
     }
 
-    public void hoverOverActionsDropdown() {
-        hoverOverElement(ACTIONS_DROPDOWN, true);
+    public void clickOnActionsDropdown() {
+        clickElement(ACTIONS_DROPDOWN);
     }
 
     public void hoverOverPlayButton() {
