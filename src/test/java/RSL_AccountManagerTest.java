@@ -59,7 +59,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false);
         testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false, false);
         testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false, false);
-        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME, false, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, false);
         testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_OWNER_FIRST_NAME + " " + TestData.RSL_SBCEO_OWNER_LAST_NAME, false, false);
     }
 
