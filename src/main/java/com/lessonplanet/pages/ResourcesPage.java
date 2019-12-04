@@ -26,6 +26,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
     private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [href*='/collections/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE = "[class*='trk-goto-resource'][href^='/drive/documents/']";
+    private static final String GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES = "[class*='trk-goto-resource']";
     private static final String SEE_PREVIEW_BUTTON = "[class*='panel-footer'] [href*='/member/resource']";
     private static final String FREE_FULL_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-sample']";
     private static final String PREVIOUS_BUTTON = "[class='pagination'] [class*='previous_page'] a";
@@ -201,7 +202,8 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public int getCountGoToResourceButtons() {
-        return findElements(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE).size();
+        //TODO: check resource type
+        return findElements(GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES).size();
     }
 
     public int getCountSeeFullReviewButton() {
