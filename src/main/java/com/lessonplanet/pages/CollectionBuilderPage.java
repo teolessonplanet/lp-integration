@@ -30,7 +30,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel panel'] [class='cb-item-info text-primary']";
     private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "#collection-items-list [class='cb-remove-item']";
     private static final String COLLECTION_BUILDER_ALERT_TEXT = "[class='contents'] [class*='alert alert-danger']";
-    
+
     private static final String LOADING_ICON = "[class*='cb-item panel'] [class*='panel-body'] [class*='spinner'] i";
 
     public CollectionBuilderPage(WebDriver driver) {
@@ -53,8 +53,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(MY_RESOURCES_BUTTON);
     }
 
-    public void clickOnEditCollection() {
-        clickElement(EDIT_COLLECTION_BUTTON);
+    public void clickOnEditCollection(boolean inANewTab) {
+        openInANewTabOrClick(EDIT_COLLECTION_BUTTON, inANewTab);
     }
 
     public boolean isSignInPopupLinkDisplayed() {

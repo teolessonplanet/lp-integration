@@ -14,7 +14,7 @@ public class UploadFileModal extends LpUiBasePage {
     private static final String SUBJECT_DROPDOWN_INPUT = "[class='form-group tag_hierarchy document_subject_list required'] [class='select2-container select2-container-multi tag_hierarchy form-control']";
     private static final String RESOURCE_OPTIONS = "#select2-drop [class='select2-result-label']";
     private static final String RESOURCE_DROPDOWN_INPUT = "[class='form-group tag_hierarchy document_resource_type_list required'] [class='select2-container select2-container-multi tag_hierarchy form-control']";
-    private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
+    private static final String DESCRIPTION_INPUT = "[class*='form-group text document_description'] [class='note-editable panel-body']";
     private static final String UPLOAD_BUTTON = "[class*='fa-upload mr5']";
     private static final String DONE_BUTTON = "[class*='btn-primary done']";
 

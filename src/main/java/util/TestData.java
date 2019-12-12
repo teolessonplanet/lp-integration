@@ -49,6 +49,19 @@ public class TestData {
     public static final String ART_AND_MUSIC_ARTICLE_GUIDE_SECTION_TITLE = "Art and Music Guide";
     public static final String ARTICLE_TOPICS = "Article Topics\n" + "Art and Music\n" + "Art\n" + "Arts and Crafts\n" + "Drama\n" + "Elementary Art\n" + "Music\n" + "Computers\n" + "Education\n" + "Alternative Education\n" + "Early Childhood Education\n" + "Educational Technology\n" + "Gifted And Talented Education\n" + "Higher Education\n" + "Homeschooling\n" + "Kindergarten\n" + "Parent Resources\n" + "Special Education\n" + "Teacher Education\n" + "Teacher Resources\n" + "Test Preparation\n" + "Geography\n" + "World Cultures\n" + "Health\n" + "Careers\n" + "Mental Health\n" + "Nutrition\n" + "Nutrition and Diet\n" + "Personal Growth\n" + "Physical Education\n" + "Language Arts\n" + "Calendar\n" + "Elementary Language Arts\n" + "English\n" + "ESL\n" + "Foreign Languages\n" + "Grammar\n" + "Literature\n" + "Middle School Writing\n" + "Poetry\n" + "Reading\n" + "Writing\n" + "Writing Technique\n" + "Math\n" + "Algebra\n" + "Arithmetic\n" + "Elementary Math\n" + "Science\n" + "Biology\n" + "Earth Science\n" + "Elementary Science\n" + "Environment\n" + "Life Science\n" + "Marine Science\n" + "Physics\n" + "Seasons\n" + "Space\n" + "Technology\n" + "Social Studies\n" + "Civics\n" + "Economics\n" + "Economics and Business\n" + "Elementary Social Studies\n" + "Family History\n" + "Government\n" + "History\n" + "Holidays\n" + "U.S. Government\n" + "U.S. History\n" + "Teacher Resources\n" + "Professional Development\n" + "Teacher Tools\n" + "Technology\n" + "Technology Integration\n" + "Seasonal Articles";
 
+    //Edit collection
+    public static final String EDIT_COLLECTION_TITLE = "Edit Collection";
+    public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
+    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This collection has already been shared. To reshare, please make at least one change.";
+    public static final String PIXABAY_IMAGE_TITLE = "Kiwi";
+    public static final String PAGE_TITLE = "Page Title";
+    public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
+    public static final String IMAGES_ADDED_NOTIFICATION_TEXT = "Images added to collection.";
+    public static final String LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT = "You can't add more than 10 images at once";
+    public static final String IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT = "Image already in collection";
+    public static final String PIXABAY_IMAGE_LINK = "https://pixabay.com/";
+    public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
+
     //Curriculum Manager
 
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this collection, but don't let that stop you!\n" + "Upgrade today to create more collections of any size and enjoy the benefits of full membership.";

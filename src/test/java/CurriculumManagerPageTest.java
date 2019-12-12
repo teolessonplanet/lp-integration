@@ -217,15 +217,15 @@ public class CurriculumManagerPageTest extends BaseTest {
             becomeALessonPlanetFreeMemberModal.waitForModal();
             becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
             discoverResourcesPage.waitForLoad();
-            collectionBuilderPage.clickOnEditCollection();
+            collectionBuilderPage.clickOnEditCollection(false);
             Assert.assertTrue(collectionBuilderPage.isSignInPopupLinkDisplayed());
             Assert.assertTrue(collectionBuilderPage.isSignUpPopupLinkDisplayed());
         } else {
             discoverResourcesPage.loadPage();
             testCreateCollectionFromCollectionBuilder();
-            collectionBuilderPage.clickOnEditCollection();
+            collectionBuilderPage.clickOnEditCollection(false);
             editCollectionModal.waitForModal();
-            editCollectionModal.clickOnMyResourceButton();
+            editCollectionModal.clickOnMyResourcesButton();
             Assert.assertEquals(discoverResourcesPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
         }
     }
@@ -385,7 +385,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         }
     }
 
-    private void testUpgradeModalFromAssignButton(String accountPlanText, String bodyText) {
+    public void testUpgradeModalFromAssignButton(String accountPlanText, String bodyText) {
         upgradeAssignModal.waitForModal();
         Assert.assertEquals(upgradeAssignModal.getUpgradeModalText(), bodyText);
         upgradeAssignModal.clickOnUpgradeMeButton();
@@ -506,7 +506,9 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testAddRequiredInformationToPublishCollection(String accountPlanText) {
         testAddRegularResourceToCollection(accountPlanText);
+        testCheckResourceIsAddedInCollection(TestData.ONE_RESOURCES);
         testAddSharedResourceToCollection();
+        testCheckResourceIsAddedInCollection(TestData.TWO_RESOURCES);
         testEditCollection();
     }
 
@@ -517,21 +519,24 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             discoverResourcesPage.clickSeeFullReview(false);
         }
-        testAddToCollectionButton(TestData.ONE_RESOURCES);
+        testAddToCollectionButton();
     }
 
     public void testAddSharedResourceToCollection() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
-        testAddToCollectionButton(TestData.TWO_RESOURCES);
+        testAddToCollectionButton();
     }
 
-    private void testAddToCollectionButton(String itemNumber) {
+    private void testAddToCollectionButton() {
         rrpModal.waitForModal();
         rrpModal.clickOnAddToCollectionDropdown();
         rrpModal.clickCollectionFromAddToCollectionDropdown();
         Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_COLLECTION_MESSAGE));
+    }
+
+    private void testCheckResourceIsAddedInCollection(String itemNumber){
         curriculumManagerPage.loadPage();
         Assert.assertTrue(curriculumManagerPage.getCollectionFolderItemNumber().contains(itemNumber));
         curriculumManagerPage.clickOnACollectionFolder();
@@ -541,13 +546,17 @@ public class CurriculumManagerPageTest extends BaseTest {
     private void testEditCollection() {
         curriculumManagerPage.clickOnACollectionFolder();
         curriculumManagerPage.clickOnEditButton();
+        testEditCollectionModalDetailsArea();
+        editCollectionModal.clickOnCloseButton();
+        curriculumManagerPage.waitForRefreshIconToDisappear();
+    }
+
+    public void testEditCollectionModalDetailsArea(){
         editCollectionModal.waitForModal();
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);
         editCollectionModal.selectGrade(TestData.EDIT_COLLECTION_GRADE_HIGHER_ED);
         editCollectionModal.selectSubject(TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION);
         editCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        editCollectionModal.clickOnCloseButton();
-        curriculumManagerPage.waitForRefreshIconToDisappear();
     }
 
     private void testPlayCollectionWithItems() {
@@ -570,14 +579,18 @@ public class CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT);
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnPublishButton();
+        testPublishCollectionModal();
+        curriculumManagerPage.waitForRefreshIconToDisappear();
+        Assert.assertEquals(curriculumManagerPage.getCollectionFolderStatus(), TestData.PUBLISHED_STATUS);
+    }
+
+    public void testPublishCollectionModal(){
         publishCollectionModal.waitForModal();
         publishCollectionModal.chooseRating();
         publishCollectionModal.chooseAudience();
         publishCollectionModal.typeConcept();
         publishCollectionModal.clickOnPublishCollectionButton();
         publishCollectionModal.clickOnCloseButton();
-        curriculumManagerPage.waitForRefreshIconToDisappear();
-        Assert.assertEquals(curriculumManagerPage.getCollectionFolderStatus(), TestData.PUBLISHED_STATUS);
     }
 
     private void testPublishCollectionWithNoItems() {

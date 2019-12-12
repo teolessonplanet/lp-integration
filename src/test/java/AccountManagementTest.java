@@ -465,7 +465,7 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
-        collectionBuilderPage.clickOnEditCollection();
+        collectionBuilderPage.clickOnEditCollection(false);
         editCollectionModal.waitForModal();
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickUploadAFileButton();

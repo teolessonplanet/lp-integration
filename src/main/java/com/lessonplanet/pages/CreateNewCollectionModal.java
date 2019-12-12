@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class CreateNewCollectionModal extends LpUiBasePage {
 
     private static final String CREATE_NEW_COLLECTION_MODAL = "#js-create-collection-modal";
+    private static final String CREATE_NEW_COLLECTION_MODAL_TITLE = "#newCollection h3";
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";
     private static final String CREATE_COLLECTION_BUTTON = "[class='modal-footer'] [type='submit']";
@@ -32,5 +33,9 @@ public class CreateNewCollectionModal extends LpUiBasePage {
 
     public void clickOnCreateCollectionRrp() {
         clickElement(CREATE_COLLECTION_BUTTON_RRP);
+    }
+
+    public String getTitle() {
+        return getTextForElement(CREATE_NEW_COLLECTION_MODAL_TITLE);
     }
 }
