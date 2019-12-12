@@ -14,14 +14,14 @@ public class Rrp extends LpUiBasePage {
     private static final String FULL_REVIEW = "[class='rrp-banner'] [src*='rrp-banner-fullreview']";
     private static final String FREE_SAMPLE = "[class*='rrp-banner'] [src*='/assets/rrp/lp_badge']";
     private static final String FAVORITE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-save-resource']";
+    private static final String FAVORITE_BUTTON_DISABLED = "[class*='panel-default panel-review'] div[class*='btn-default disabled']";
     private static final String VISITOR_FAVORITE_BUTTON = "[class*='favorite-join'][data-title='Get Full Access']";
     private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
     private static final String EXISTING_COLLECTION = "[class*='create_collection_item clearfix']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
-    private static final String ADD_TO_COLLECTION_DROPDOWN = "[class='hidden-xs hidden-sm']";
+    private static final String ADD_TO_COLLECTION_DROPDOWN = "[class*='dropdown-toggle rrp-add-to-collection']";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
-
-    private static final String SHARE_BUTTON = "[class='btn btn-default dropdown-toggle']";
+    private static final String SHARE_BUTTON = "[class*='dropdown-toggle rrp-share-resource']";
     private static final String DESCRIPTION = "[class='panel-body'] [class*='js-help-rpp-description'] + p";
     private static final String THUMBNAIL = "[class*='resource-img img-thumbnail']";
     private static final String NUMBER_OF_VIEWS = "[class*='detail-views']";
@@ -45,6 +45,8 @@ public class Rrp extends LpUiBasePage {
     private static final String USER_CONVERSATION_PANEL = "[class*='user-conversation'] h4";
     private static final String ADD_A_COMMENT_BUTTON = "[class*='add-comment-btn']";
     private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
+
+    private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
 
     protected Rrp(WebDriver driver) {
         super(driver);
@@ -264,6 +266,10 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(FAVORITE_BUTTON);
     }
 
+    public boolean isFavoriteButtonDisabledDisplayed() {
+        return isElementDisplayed(FAVORITE_BUTTON_DISABLED);
+    }
+
     public boolean isAddToCollectionDropdownDisplayed() {
         return isElementDisplayed(ADD_TO_COLLECTION_DROPDOWN);
     }
@@ -294,5 +300,9 @@ public class Rrp extends LpUiBasePage {
 
     public void clickEditYourCollectionLink(boolean inANewTab) {
         openInANewTabOrClick(EDIT_YOUR_COLLECTION_LINK, inANewTab);
+    }
+
+    public String getResourcePoolName() {
+        return getTextForElement(RESOURCE_POOL_NAME);
     }
 }

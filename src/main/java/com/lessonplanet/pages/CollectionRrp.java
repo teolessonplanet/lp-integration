@@ -15,6 +15,7 @@ public class CollectionRrp extends Rrp {
     private static final String COLLECTION_TITLE_TEXT = "[class*='panel-default panel-review'] div h1";
     private static final String SAVE_COLLECTION_BUTTON = "[class*='panel-default panel-review'] span[class='save-collection-btn']";
     private static final String SAVE_COLLECTION_BUTTON_ACTIVE_USER = "[class*='panel-default panel-review'] [class='save-collection-btn'] [action*='/remix_collection']";
+    private static final String SAVED_COLLECTION_BUTTON = "[class='save-collection-btn'] div[disabled='disabled']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
     private static final String SHARE_BUTTON = "[class*='panel-default panel-review'] div[class='btn-group pull-right ml3'] button";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
@@ -51,6 +52,10 @@ public class CollectionRrp extends Rrp {
 
     public boolean isSaveCollectionButtonDisplayed() {
         return isElementClickable(SAVE_COLLECTION_BUTTON);
+    }
+
+    public boolean isSavedCollectionButtonDisabled() {
+        return isElementDisplayed(SAVED_COLLECTION_BUTTON);
     }
 
     public void clickSaveCollectionButton() {

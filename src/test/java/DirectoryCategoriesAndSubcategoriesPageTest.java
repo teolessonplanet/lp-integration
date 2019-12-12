@@ -38,7 +38,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         manageMembershipPage = new ManageMembershipPage(webDriver);
     }
 
-    public void reachDirectoryCategoriesAndSubcategoriesPage(WebDriver webDriver) {
+    public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
     }
@@ -171,7 +171,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         testTestimonials(TestData.VALID_EMAIL_ACTIVE);
     }
 
-    private void testPageUi(String account) {
+    protected void testPageUi(String account) {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
@@ -196,10 +196,10 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         }
     }
 
-    private void testResourceTiles(String account) {
+    protected void testResourceTiles(String account) {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         discoverResourcesPage.changeToThumbnailView();
-        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT)) {
+        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInThumbnailMode(), TestData.ZERO_RESOURCES_FOUND);
         } else if (account.equals(TestData.STARTER_OPTION_TEXT)) {
@@ -211,7 +211,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         }
 
         discoverResourcesPage.changeToTiledView();
-        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT)) {
+        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInTiledMode(), TestData.ZERO_RESOURCES_FOUND);
         } else if (account.equals(TestData.STARTER_OPTION_TEXT)) {
@@ -223,7 +223,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         }
 
         discoverResourcesPage.changeToListView();
-        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT)) {
+        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.PRO_OPTION_TEXT) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInListMode(), TestData.ZERO_RESOURCES_FOUND);
         } else if (account.equals(TestData.STARTER_OPTION_TEXT)) {
@@ -277,13 +277,15 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
             Assert.assertTrue(!browseBySubjectPage.getUrl().contains(TestData.SERVER_URL));
             browseBySubjectPage.closeTab();
             browseBySubjectPage.clickSeeFullReview(true);
-            //TODO: if provider ! = Lesson Planet, skip this check
-            //Assert.assertTrue(rrpPage.isFullReviewDisplayed());
+
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                Assert.assertTrue(rrpPage.isFullReviewDisplayed());
+            }
             rrpPage.closeTab();
         }
     }
 
-    private void testBrowseBySubject(String account) {
+    protected void testBrowseBySubject(String account) {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (!account.equals(TestData.INVALID_EMAIL)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
@@ -375,17 +377,17 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         }
     }
 
-    private void testRelatedTopics() {
+    protected void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT));
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION, true);
-        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION.toLowerCase());
-        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH);
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION, true);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH);
 
         discoverResourcesPage.closeTab();
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION, false);
-        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION.toLowerCase());
-        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH);
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION, false);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH);
     }
 
     public void testTestimonials(String account) {
