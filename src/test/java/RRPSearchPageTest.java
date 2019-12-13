@@ -152,7 +152,7 @@ public class RRPSearchPageTest extends BaseTest {
         testGoToResourceButtonForSharedResource(false);
         testThumbnailForSharedResource(false);
         testStartYourFreeTrialTryItFreeButton();
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.INVALID_EMAIL);
         discoverResourcesPage.closeTab();
         testSeeSimilarResourcesDropdown();
@@ -319,7 +319,7 @@ public class RRPSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
         testFreeSampleStartYourFreeTrialUpgradeMeButton();
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
@@ -334,7 +334,7 @@ public class RRPSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
         testStartYourFreeTrialUpgradeMeButton();
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_FREEMIUM);
     }
 
@@ -454,7 +454,7 @@ public class RRPSearchPageTest extends BaseTest {
         testThumbnailForRegularResource(false, TestData.VALID_EMAIL_ACTIVE);
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForRegularResource(false);
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ACTIVE);
         testSeeSimilarResourcesDropdown();
     }
@@ -467,7 +467,7 @@ public class RRPSearchPageTest extends BaseTest {
         testThumbnailForSharedResource(false);
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForSharedResource(false);
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.VALID_EMAIL_ACTIVE);
         testSeeSimilarResourcesDropdown();
     }

@@ -8,8 +8,9 @@ public class CreateNewCollectionModal extends LpUiBasePage {
     private static final String CREATE_NEW_COLLECTION_MODAL_TITLE = "#newCollection h3";
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";
-    private static final String CREATE_COLLECTION_BUTTON = "[class='modal-footer'] [type='submit']";
+    private static final String CREATE_COLLECTION_BUTTON = "[class*='modal-footer'] [type='submit']";
     private static final String CREATE_COLLECTION_BUTTON_RRP = "[class='modal-dialog'] [type='submit']";
+    private static final String CLOSE_MODAL_BUTTON = "[class*='modal-footer'] [data-dismiss='modal']";
 
     public CreateNewCollectionModal(WebDriver driver) {
         super(driver);
@@ -20,6 +21,7 @@ public class CreateNewCollectionModal extends LpUiBasePage {
     }
 
     public void typeName(String name) {
+        waitForModal();
         sendKeys(NAME_INPUT, name);
     }
 
@@ -37,5 +39,9 @@ public class CreateNewCollectionModal extends LpUiBasePage {
 
     public String getTitle() {
         return getTextForElement(CREATE_NEW_COLLECTION_MODAL_TITLE);
+    }
+
+    public void clickOnCloseModalButton() {
+        clickElement(CLOSE_MODAL_BUTTON);
     }
 }

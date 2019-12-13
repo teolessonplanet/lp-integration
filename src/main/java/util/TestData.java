@@ -73,6 +73,8 @@ public class TestData {
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Collection Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "This resource review was added to your collection";
+    public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
+    public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
     public static final String CREATED_MESSAGE = "was created.";
     public static final String DELETED_MESSAGE = "was deleted";
@@ -422,6 +424,7 @@ public class TestData {
     public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/organization";
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
+    public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH = "lesson-plans/research/3";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
     public static final String LANGUAGE_ARTS_RESEARCH_PATH = "lesson-plans/research";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
@@ -507,8 +510,8 @@ public class TestData {
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Full Access";
 
     public static final String SIDE_WIDGET_RELATED_TOPICS = "Related Topics";
-    public static final String SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_OPTION = "Transportation";
-    public static final String SIDE_WIDGET_RELATED_TOPICS_TRANSPORTATION_REDIRECT_PATH = "search?keywords=transportation";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION = "Stress Management";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH = "search?keywords=stress+management";
     public static final String SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT = "Related Topics\nHealth Lesson Plans\nStress Management\nMental Heath\nFamily Life and Sexual Health\nClass Introduction\nCalorie\nWeight Loss\nEnvironmental Factors\nFood Systems\nFood Choices\nTransportation";
 
     public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";

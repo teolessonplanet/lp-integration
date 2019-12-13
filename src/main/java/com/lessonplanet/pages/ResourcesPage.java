@@ -15,6 +15,7 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String SEE_REVIEW_BUTTON = "[class*='panel-footer'] [href*='teachers']:not([class*='free-sample'])";
     protected static final String GET_FREE_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-access-btn']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE = "[class*='trk-goto-resource'][href^='/goto/']";
+    protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL = "[class*='trk-goto-resource'][href^='/pr/goto/']";
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
@@ -204,6 +205,8 @@ public class ResourcesPage extends LpUiBasePage {
     public int getCountGoToResourceButtons() {
         //TODO: check resource type
         return findElements(GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES).size();
+        //TODO: add checks for all types/provides
+//        return findElements(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE).size() + findElements(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL).size();
     }
 
     public int getCountSeeFullReviewButton() {

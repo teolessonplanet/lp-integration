@@ -81,7 +81,7 @@ public class ArticlesPageTest extends BaseTest {
             Assert.assertEquals(articlesPage.getArticlePageTitle(), recentArticleTitle);
         }
         if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-            directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+            directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
             directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
     }
@@ -100,7 +100,7 @@ public class ArticlesPageTest extends BaseTest {
         Assert.assertTrue(articlesPage.getArticlesCardNumber() > 1);
         testArticleCard();
         Assert.assertEquals(articlesPage.getArticleTopics(), TestData.ARTICLE_TOPICS);
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
@@ -109,7 +109,7 @@ public class ArticlesPageTest extends BaseTest {
         }
         rrpSearchPageTest.reachRRP(webDriver);
         rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
-        directoryCategoriesAndSubcategoriesTest.reachDirectoryCategoriesAndSubcategoriesPage(webDriver);
+        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(account);
         if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
             articlesPage.closeTab();
