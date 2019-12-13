@@ -103,7 +103,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
         Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed() || rrpModal.isFavoriteButtonDisabledDisplayed());
-        if (rrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_QA_CUSTOM)) {
+        if (rrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertTrue(rrpModal.isShareButtonDisplayed());
         } else {
             Assert.assertFalse(rrpModal.isShareButtonDisplayed());
@@ -142,7 +142,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed() || collectionRrpModal.isSavedCollectionButtonDisabled());
         Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
-        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_QA_CUSTOM)) {
+        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
         } else {
             Assert.assertFalse(collectionRrpModal.isShareButtonDisplayed());
