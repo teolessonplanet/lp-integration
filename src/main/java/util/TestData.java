@@ -424,7 +424,7 @@ public class TestData {
     public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/organization";
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
-    public static final String HEALTH_TRIANGLE_PAGE_3_PATH = "lesson-plans/health-triangle/3";
+    public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH = "lesson-plans/research/3";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
     public static final String LANGUAGE_ARTS_RESEARCH_PATH = "lesson-plans/research";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";

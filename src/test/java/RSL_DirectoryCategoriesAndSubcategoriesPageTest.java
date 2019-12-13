@@ -135,14 +135,14 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     protected void testRrpCollection(String account, boolean rrpStatic) {
         initDirectoryTestAndLogin(account);
 
-        browseBySubjectPage.loadPage(TestData.HEALTH_TRIANGLE_PAGE_3_PATH);
+        browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH);
         discoverResourcesPage.changeToListView();
         browseBySubjectPage.clickSeeCollection(rrpStatic);
         CollectionRrpModal collectionRrpModal = new CollectionRrpModal(webDriver);
 
         Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed() || collectionRrpModal.isSavedCollectionButtonDisabled());
         Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
-        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET)) {
+        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_QA_CUSTOM)) {
             Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
         } else {
             Assert.assertFalse(collectionRrpModal.isShareButtonDisplayed());
