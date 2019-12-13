@@ -415,7 +415,7 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
 
         lpResourceCard = getLpResourceCard(account, freeSample);
-
+        discoverResourcesPage.scrollToTop();
         testCommonItems(lpResourceCard);
         if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {

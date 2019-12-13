@@ -189,4 +189,8 @@ public class DiscoverResourcesPage extends ResourcesPage {
             logger.info("The facet Content Curators was not found " + exception.toString());
         }
     }
+
+    public void scrollToTop(){
+        scrollToElement(THUMBNAIL_VIEW_BUTTON);
+    }
 }
