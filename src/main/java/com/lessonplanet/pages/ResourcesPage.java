@@ -37,7 +37,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
     private static final String RESOURCE_CARDS = "#search-results [class*='search-result-item']";
-    private static final String COLLECTION_CARD_TITLE = "#search-results [data-item-type='CollectionItemFolder'] div h4";
+    private static final String COLLECTION_CARD_TITLE = "#search-results [class*='col-xs-12 list-card'] [href*='/collections'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
     private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
     private static final String FREE_SAMPLE_RESOURCE_CARD = "#search-results [data-type='Resource'] [class='panel panel-default panel-resource free-sample'] h4";

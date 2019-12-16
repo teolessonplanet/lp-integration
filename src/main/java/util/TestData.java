@@ -426,7 +426,7 @@ public class TestData {
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH = "lesson-plans/research/3";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
-    public static final String LANGUAGE_ARTS_RESEARCH_PATH = "lesson-plans/research";
+    public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_2_PATH = "lesson-plans/research/2";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";
