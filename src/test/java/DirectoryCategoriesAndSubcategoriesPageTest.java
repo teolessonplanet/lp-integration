@@ -278,7 +278,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
             browseBySubjectPage.closeTab();
             browseBySubjectPage.clickSeeFullReview(true);
 
-            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !rrpPage.getResourcePoolName().equals(TestData.FACET_PROVIDERS_KNOVATION)) {
                 Assert.assertTrue(rrpPage.isFullReviewDisplayed());
             }
             rrpPage.closeTab();
