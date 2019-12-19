@@ -438,20 +438,24 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testAssignResource(String accountPlanText, String assignBodyText) {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
-        if (accountPlanText.equals(TestData.PRO_OPTION_TEXT)) {
-            assignModal.waitForModal();
-            Assert.assertTrue(assignModal.getAssignModalText().contains(assignBodyText));
-            assignModal.typeAccessKey(TestData.VALID_PASSWORD);
-            assignModal.clickOnSaveButton();
-            assignModal.clickOnCopyButton();
-            Assert.assertTrue(assignModal.getCopiedLinkPopoverText().contains(TestData.COPIED_POPOVER_TEXT));
-            assignModal.clickOnResetAccessKeyLink();
-            Assert.assertTrue(assignModal.isAccessKeyFieldDisplayed());
-            assignModal.clickOnCloseButton();
+        if (accountPlanText.equals(TestData.PRO_OPTION_TEXT) || accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            testAssignModal(assignBodyText);
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
         } else {
             testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
         }
+    }
+
+    public void testAssignModal(String assignBodyText){
+        assignModal.waitForModal();
+        Assert.assertTrue(assignModal.getAssignModalText().contains(assignBodyText));
+        assignModal.typeAccessKey(TestData.VALID_PASSWORD);
+        assignModal.clickOnSaveButton();
+        assignModal.clickOnCopyButton();
+        Assert.assertTrue(assignModal.getCopiedLinkPopoverText().contains(TestData.COPIED_POPOVER_TEXT));
+        assignModal.clickOnResetAccessKeyLink();
+        Assert.assertTrue(assignModal.isAccessKeyFieldDisplayed());
+        assignModal.clickOnCloseButton();
     }
 
     private void testGoToResource(String accountPlanText) {

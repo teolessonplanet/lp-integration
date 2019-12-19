@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class AssignModal extends LpUiBasePage {
 
     private static final String ASSIGN_MODAL = "#popup-modal";
-    private static final String ASSIGN_MODAL_TEXT = "[class='control-label']";
+    private static final String ASSIGN_MODAL_TEXT = "#set-player-password [class='control-label']";
     private static final String ACCESS_KEY_FIELD = "#shared_player_access_key";
     private static final String SAVE_BUTTON = "[class*='form-submit']";
     private static final String COPY_BUTTON = "[class*='copy-to-clipboard']";
