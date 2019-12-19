@@ -155,7 +155,6 @@ public class TestData {
     public static final String FACET_CONTENT_CURATORS = "Content Curators";
     public static final String FACET_PROVIDERS = "Providers";
     public static final String FACET_PROVIDERS_LESSONPLANET = "Lesson Planet";
-    public static final String FACET_PROVIDERS_KNOVATION = "Knovation";
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES = "Folder Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
