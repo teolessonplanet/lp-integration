@@ -101,7 +101,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         browseBySubjectPage.clickSeeFullReview(rrpStatic);
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
-        Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
+        Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
         Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed() || rrpModal.isFavoriteButtonDisabledDisplayed());
         if (rrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertTrue(rrpModal.isShareButtonDisplayed());
@@ -121,11 +121,12 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         browseBySubjectPage.closeTab();
 
         browseBySubjectPage.clickSeeFullReview(rrpStatic);
-        rrpModal.clickOnAddToCollectionDropdown();
+        rrpModal.clickOnAddToFolderDropdown();
         rrpModal.clickAddToNewCollection();
         createNewCollectionModal.typeName(TestData.GET_NEW_EMAIL());
         createNewCollectionModal.clickOnCreateCollection();
         Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_COLLECTION_MESSAGE));
+        rrpModal.waitForNotificationToDisappear();
         if (!rrpModal.isFavoriteButtonDisabledDisplayed()) {
             rrpModal.clickOnFavoriteButton();
             Assert.assertTrue(rrpModal.getNotificationText().equals(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));

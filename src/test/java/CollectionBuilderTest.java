@@ -60,6 +60,7 @@ public class CollectionBuilderTest extends BaseTest {
     @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
     public void testLessonp_4378() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(TestData.INVALID_EMAIL);
         discoverResourcesPage.refreshPageAndDismissBrowserAlert();
@@ -89,6 +90,7 @@ public class CollectionBuilderTest extends BaseTest {
     public void testLessonp_4381() {
         stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
@@ -120,6 +122,7 @@ public class CollectionBuilderTest extends BaseTest {
     public void testLessonp_4915() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
@@ -154,8 +157,7 @@ public class CollectionBuilderTest extends BaseTest {
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 dismissBecomeALessonPlanetFreeMemberModal();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT);
-                for (int i = 1; i <= 3; i++) {
+                for (int i = 1; i <= 2; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                     if (becomeALessonPlanetFreeMemberModal.isModalDisplayed()) {
                         dismissBecomeALessonPlanetFreeMemberModal();
@@ -168,8 +170,7 @@ public class CollectionBuilderTest extends BaseTest {
                 List<WebElement> getFreeAccessResources1 = discoverResourcesPage.getAllFreeAccessButtons();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                Assert.assertTrue(collectionBuilderPage.getCollectionBuilderAlertText().contains(TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT));
-                for (int i = 1; i <= 10; i++) {
+                for (int i = 1; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(i), collectionBuilderPage.getCollectionDroppableZone());
                 }
                 accountManagementTest.reachAccountManagementPage(webDriver);
@@ -182,8 +183,8 @@ public class CollectionBuilderTest extends BaseTest {
                 List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
                 discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                Assert.assertTrue(collectionBuilderPage.getCollectionBuilderAlertText().contains(TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT));
-                for (int i = 1; i <= 10; i++) {
+
+                for (int i = 1; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFullReviewResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                 }
                 collectionBuilderPage.waitForLoadingIconToDisappear();

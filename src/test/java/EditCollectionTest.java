@@ -214,17 +214,15 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.getPixabayAlertText().contains(TestData.LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT));
         editCollectionPage.clickAddSelectedToCollectionButton();
         editCollectionPage.waitUntilNotificationIsDisplayed(TestData.IMAGES_ADDED_NOTIFICATION_TEXT);
-        for (int i = 0; i < 10; i++) {
-            Assert.assertEquals(editCollectionPage.getCollectionItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
-        }
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnAddPixabayImageOption();
         editCollectionPage.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
         editCollectionPage.clickPixabaySearchButton();
         editCollectionPage.clickOnPixabayImage(0);
         editCollectionPage.clickAddSelectedToCollectionButton();
-        editCollectionPage.waitUntilNotificationIsDisplayed(TestData.IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT);
-        editCollectionPage.waitForNotificationToDisappear();
+        for (int i = 0; i < 11; i++) {
+            Assert.assertEquals(editCollectionPage.getCollectionItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
+        }
 
         testCreateAPage();
 
