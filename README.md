@@ -18,4 +18,9 @@ This project runs the automated tests for the LP website.
         ```
         mvn test -ea -Dbrowser=browserName
         ```
+ - to run a specific test suite:
+        ```
+        mvn test -ea -Dbrowser=browserName -Dsuite=SuiteName
+        ```
+
   Where **browserName** is **firefox** or **chrome**
