@@ -478,7 +478,7 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
-        curriculumManagerTest.testMaxLimitOfCollectionsCreated();
+        curriculumManagerTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
     private void testUpgradeFreeMemberFromSaving4thCollection() {
@@ -490,7 +490,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
         collectionRrpModal.clickSaveCollectionButtonActiveUser();
-        curriculumManagerTest.testUpgradeModalFromMaxCollectionLimit();
+        curriculumManagerTest.testUpgradeModalFromMaxFolderLimit();
     }
 
     private void testUpgradeFreeMemberFromAssignResourceButton() {
@@ -501,7 +501,7 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromAssignCollectionButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
-        curriculumManagerTest.testCreateCollectionFromCurriculumManager(TestData.NEW_COLLECTION_NAME);
+        curriculumManagerTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
         curriculumManagerTest.testAddRegularResourceToCollection(TestData.FREE_MEMBERSHIP_TEXT);
         curriculumManagerTest.testAddSharedResourceToCollection();
         curriculumManagerPage.loadPage();

@@ -21,7 +21,7 @@ public class RRPSearchPageTest extends BaseTest {
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private LoginPage loginPage;
     private CreateNewCollectionModal createNewCollectionModal;
-    private UpgradeMaxCollectionModal upgradeMaxCollectionModal;
+    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
     private CurriculumManagerPageTest curriculumManagerTest;
     private StepTwoPage stepTwoPage;
@@ -42,7 +42,7 @@ public class RRPSearchPageTest extends BaseTest {
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         loginPage = new LoginPage(webDriver);
         createNewCollectionModal = new CreateNewCollectionModal(webDriver);
-        upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
+        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         curriculumManagerTest = new CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
@@ -1173,9 +1173,9 @@ public class RRPSearchPageTest extends BaseTest {
         rrp.clickOnAddToFolderDropdown();
         rrp.clickAddToNewCollection();
 
-        if (upgradeMaxCollectionModal.isModalDisplayed()) {
-            Assert.assertEquals(upgradeMaxCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
-            upgradeMaxCollectionModal.clickOnCloseButton();
+        if (upgradeMaxFolderModal.isModalDisplayed()) {
+            Assert.assertEquals(upgradeMaxFolderModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
+            upgradeMaxFolderModal.clickOnCloseButton();
         } else {
             createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
             createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);

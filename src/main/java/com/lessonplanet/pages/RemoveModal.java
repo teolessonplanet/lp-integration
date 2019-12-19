@@ -2,7 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class RemoveModal extends CopyCollectionModal {
+public class RemoveModal extends CopyToModal {
 
     public RemoveModal(WebDriver driver) {
         super(driver);
@@ -13,6 +13,6 @@ public class RemoveModal extends CopyCollectionModal {
     }
 
     public void clickOnRemoveButton() {
-        clickElement(CREATE_COPY_BUTTON);
+        clickElement(CONFIRM_BUTTON);
     }
 }

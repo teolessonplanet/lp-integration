@@ -20,10 +20,10 @@ public class CollectionBuilderTest extends BaseTest {
     private CurriculumManagerPageTest curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private AccountManagementTest accountManagementTest;
-    private CreateNewCollectionModal createNewCollectionModal;
+    private CreateNewFolderModal createNewFolderModal;
     private EditCollectionModal editCollectionModal;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
-    private UpgradeMaxCollectionModal upgradeMaxCollectionModal;
+    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private StepTwoPage stepTwoPage;
 
 
@@ -40,10 +40,10 @@ public class CollectionBuilderTest extends BaseTest {
         curriculumManagerPageTest = new CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         accountManagementTest = new AccountManagementTest();
-        createNewCollectionModal = new CreateNewCollectionModal(webDriver);
+        createNewFolderModal = new CreateNewFolderModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
-        upgradeMaxCollectionModal = new UpgradeMaxCollectionModal(webDriver);
+        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -274,21 +274,21 @@ public class CollectionBuilderTest extends BaseTest {
     private void testMaxCollectionCreated(String accountPlanText) {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
-        collectionBuilderPage.clickOnCreateNewCollection();
+        collectionBuilderPage.clickOnCreateNewFolder();
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
-            upgradeMaxCollectionModal.waitForModal();
-            upgradeMaxCollectionModal.clickOnCloseButton();
+            upgradeMaxFolderModal.waitForModal();
+            upgradeMaxFolderModal.clickOnCloseButton();
             ;
         } else {
-            createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-            createNewCollectionModal.clickOnCreateCollection();
+            createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
+            createNewFolderModal.clickOnCreateFolderButton();
         }
     }
 
     private void testAddLink() {
         collectionBuilderPage.clickAddALinkButton();
         collectionBuilderPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
-        collectionBuilderPage.typeName(TestData.NEW_COLLECTION_NAME);
+        collectionBuilderPage.typeName(TestData.NEW_FOLDER_NAME);
         collectionBuilderPage.clickAddToCollectionButton();
         collectionBuilderPage.openResourceInANewTab(0);
         Assert.assertEquals(discoverResourcesPage.getUrl(), TestData.COLLECTION_BUILDER_LINK);

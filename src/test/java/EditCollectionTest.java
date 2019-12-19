@@ -6,7 +6,7 @@ import util.TestData;
 
 public class EditCollectionTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
-    private CreateNewCollectionModal createNewCollectionModal;
+    private CreateNewFolderModal createNewFolderModal;
     private CurriculumManagerPageTest curriculumManagerTest;
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
@@ -21,7 +21,7 @@ public class EditCollectionTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        createNewCollectionModal = new CreateNewCollectionModal(webDriver);
+        createNewFolderModal = new CreateNewFolderModal(webDriver);
         curriculumManagerTest = new CurriculumManagerPageTest();
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
@@ -249,10 +249,10 @@ public class EditCollectionTest extends BaseTest {
         }
         editCollectionPage.clickCollectionActionsDropdown();
         editCollectionPage.clickCopyCollectionOption();
-        editCollectionPage.typeName(TestData.COPIED_COLLECTION_NAME);
+        editCollectionPage.typeName(TestData.COPIED_FOLDER_NAME);
         editCollectionPage.clickOnCreateCopyButton();
-        editCollectionPage.waitUntilNewlyCreatedCollectionIsActive(TestData.COPIED_COLLECTION_NAME);
-        Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionHeader(), TestData.COPIED_COLLECTION_NAME);
+        editCollectionPage.waitUntilNewlyCreatedCollectionIsActive(TestData.COPIED_FOLDER_NAME);
+        Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionHeader(), TestData.COPIED_FOLDER_NAME);
     }
 
     private void testMyResourcesButton() {
@@ -265,10 +265,10 @@ public class EditCollectionTest extends BaseTest {
     private void testMyCollectionsDropdown() {
         editCollectionPage.clickMyCollectionDropdown();
         Assert.assertTrue(editCollectionPage.isCreateNewCollectionButtonDisplayed());
-        Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionDropdown(), TestData.COPIED_COLLECTION_NAME);
+        Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionDropdown(), TestData.COPIED_FOLDER_NAME);
         editCollectionPage.clickCreateNewCollectionButton();
-        createNewCollectionModal.waitForModal();
-        Assert.assertEquals(createNewCollectionModal.getTitle(), TestData.CREATE_A_NEW_COLLECTION_TITLE);
+        createNewFolderModal.waitForModal();
+        Assert.assertEquals(createNewFolderModal.getTitle(), TestData.CREATE_A_NEW_COLLECTION_TITLE);
     }
 
     private void testItemOptions() {

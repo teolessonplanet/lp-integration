@@ -8,7 +8,7 @@ import java.util.List;
 public class CollectionBuilderPage extends LpUiBasePage {
 
     private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class='dropdown']";
-    private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
+    private static final String CREATE_NEW_FOLDER_OPTION = "[href='javascript:void(0)']";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
 
@@ -41,8 +41,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(CREATE_OR_OPEN_DROPDOWN);
     }
 
-    public void clickOnCreateNewCollection() {
-        clickElement(CREATE_NEW_COLLECTION_OPTION);
+    public void clickOnCreateNewFolder() {
+        clickElement(CREATE_NEW_FOLDER_OPTION);
     }
 
     public WebElement getCollectionDroppableZone() {
