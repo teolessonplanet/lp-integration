@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="CustomRunName" thread-count="1" verbose="1" configfailurepolicy="continue" parallel="classes">
+  <test name="NameOfTheTests">
+
+    <classes>
+
+      <class name="HeaderTest">
+        <methods>
+          <include name="testLessonp_4565"></include>
+        </methods>
+      </class>
+
+      <class name="FooterTest">
+        <methods>
+          <include name="testLessonp_656"></include>
+        </methods>
+      </class>
+
+    </classes>
+
+  </test>
+</suite>
