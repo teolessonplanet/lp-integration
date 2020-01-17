@@ -382,7 +382,7 @@ public class TestData {
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
-    public static final String COPYRIGHT_TEXT = "© 1999-2019 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
+    public static final String COPYRIGHT_TEXT = "© 1999-2020 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
