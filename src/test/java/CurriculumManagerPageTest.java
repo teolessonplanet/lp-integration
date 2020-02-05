@@ -531,8 +531,9 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     private void testAddToCollectionButton() {
         rrpModal.waitForModal();
-        rrpModal.clickOnAddToCollectionDropdown();
+        rrpModal.clickOnAddToFolderDropdown();
         rrpModal.clickCollectionFromAddToCollectionDropdown();
+        rrpModal.clickAddToFolderButton();
         Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_COLLECTION_MESSAGE));
     }
 

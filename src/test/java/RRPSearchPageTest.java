@@ -61,6 +61,7 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-1282: Shared Resource Modal Overview")
     public void testLessonp_1282() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
@@ -85,6 +86,7 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Visitor - Search Page - RRP Static  - RRP Overview - lessonp-944: Shared Resource Static Page Overview")
     public void testLessonp_944() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         testSharedResourceRRPOverview(false, TestData.INVALID_EMAIL);
         testWhatMembersSayWidgetOverview(TestData.INVALID_EMAIL);
@@ -113,6 +115,7 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-1254: Shared Resource Main buttons")
     public void testLessonp_1254() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testFavoriteButton(true);
         testGoToResourceButtonForSharedResource(true);
@@ -136,6 +139,7 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4603: LP Resource Main buttons")
     public void testLessonp_4603() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(true);
         testFavoriteButton(false);
         testResourceGetFreeAccessForTenDaysButton(false);
@@ -148,6 +152,7 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4608: Shared Resource Main Buttons")
     public void testLessonp_4608() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         testGoToResourceButtonForSharedResource(false);
         testThumbnailForSharedResource(false);
@@ -271,6 +276,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_4666() {
         stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testThumbnailForSharedResource(true);
         testSharedResourceRRPNavigationButtonsSearchPage();
@@ -327,6 +333,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_4671() {
         stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         testThumbnailForSharedResource(false);
         testAddToCollectionDropdown(false);
@@ -366,6 +373,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_954() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.VALID_EMAIL_ACTIVE);
     }
@@ -393,6 +401,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_4796() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         testSharedResourceRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
         testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ACTIVE);
@@ -423,6 +432,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_4794() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testThumbnailForSharedResource(true);
         testSharedResourceRRPNavigationButtonsSearchPage();
@@ -463,6 +473,7 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLessonp_4811() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         testThumbnailForSharedResource(false);
         testAddToCollectionDropdown(false);
@@ -511,7 +522,7 @@ public class RRPSearchPageTest extends BaseTest {
             }
             if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
+                Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
                 Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
                 rrpModal.clickAddACommentLink();
                 Assert.assertEquals(rrpModal.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
@@ -583,7 +594,7 @@ public class RRPSearchPageTest extends BaseTest {
             }
             if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
+                Assert.assertTrue(rrpPage.isAddToFolderDropdownDisplayed());
                 Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
                 rrpPage.clickAddACommentLink();
                 Assert.assertEquals(rrpPage.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
@@ -699,7 +710,7 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
             } else {
                 Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
+                Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
             }
         } else {
             Assert.assertTrue(rrpPage.isTitleDisplayed());
@@ -724,7 +735,7 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(rrpPage.isVisitorFavoriteButtonDisplayed());
             } else {
                 Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
+                Assert.assertTrue(rrpPage.isAddToFolderDropdownDisplayed());
             }
         }
     }
@@ -1162,7 +1173,7 @@ public class RRPSearchPageTest extends BaseTest {
             Assert.assertTrue(rrpModal.isConceptsTagsListDisplayed());
             Assert.assertTrue(rrpModal.isReviewerRatingDisplayed());
             Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
-            Assert.assertTrue(rrpModal.isAddToCollectionDropdownDisplayed());
+            Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
             Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
             Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
             rrpModal.clickAddACommentLink();
@@ -1195,7 +1206,7 @@ public class RRPSearchPageTest extends BaseTest {
             Assert.assertTrue(rrpPage.isConceptsTagsListDisplayed());
             Assert.assertTrue(rrpPage.isReviewerRatingDisplayed());
             Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
-            Assert.assertTrue(rrpPage.isAddToCollectionDropdownDisplayed());
+            Assert.assertTrue(rrpPage.isAddToFolderDropdownDisplayed());
             Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
             Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
             rrpPage.clickAddACommentLink();
@@ -1277,10 +1288,10 @@ public class RRPSearchPageTest extends BaseTest {
 
     private void testAddToNewCollection(boolean modal) {
         if (modal) {
-            rrpModal.clickOnAddToCollectionDropdown();
+            rrpModal.clickOnAddToFolderDropdown();
             rrpModal.clickAddToNewCollection();
         } else {
-            rrpPage.clickOnAddToCollectionDropdown();
+            rrpPage.clickOnAddToFolderDropdown();
             rrpPage.clickAddToNewCollection();
         }
         createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
@@ -1293,13 +1304,13 @@ public class RRPSearchPageTest extends BaseTest {
             for (int i = 0; i <= 2; i++) {
                 testAddToNewCollection(true);
             }
-            rrpModal.clickOnAddToCollectionDropdown();
+            rrpModal.clickOnAddToFolderDropdown();
             rrpModal.clickAddToNewCollection();
         } else {
             for (int i = 0; i <= 2; i++) {
                 testAddToNewCollection(false);
             }
-            rrpPage.clickOnAddToCollectionDropdown();
+            rrpPage.clickOnAddToFolderDropdown();
             rrpPage.clickAddToNewCollection();
         }
         if (upgradeMaxCollectionModal.isModalDisplayed()) {

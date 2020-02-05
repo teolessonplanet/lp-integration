@@ -72,7 +72,7 @@ public class TestData {
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Collection Player to students or share with colleagues, please enter a case-sensitive access key below";
-    public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "This resource review was added to your collection";
+    public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
     public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
     public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
@@ -301,7 +301,7 @@ public class TestData {
     public static final String LASTNAME = "LastnameTest";
     public static final String CARD_NUMBER = "4012888888881881";
     public static final String INVALID_CARD_NUMBER = "5555555555555555";
-    public static final String CARD_EXPIRATION = "01/20";
+    public static final String CARD_EXPIRATION = "09/20";
     public static final String INVALID_CARD_EXPIRATION = "04/11";
     public static final String CARD_CVV = "123";
     public static final String INVALID_CARD_CVV = "22";

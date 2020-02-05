@@ -17,7 +17,7 @@ public class RrpPage extends Rrp {
     private static final String SIMILAR_RESOURCES_HEADER = "#related-options";
     private static final String SIMILAR_RESOURCES_LIST = "#related-resources";
     private static final String ALL_RESOURCE_TYPES_DROPDOWN = "#related-dropdown";
-    private static final String ALL_RESOURCE_TYPES_OPTIONS = "[class='dropdown-menu']";
+    private static final String ALL_RESOURCE_TYPES_OPTIONS = "#related-dropdown [class='dropdown-menu']";
 
     private static final String LESSON_PLANS_RESOURCE_TYPE = "a[href*='id=357917']";
     private static final String SIMILAR_RESOURCE_CARD = "[class*='panel-resource'] [class='panel-body'] [class='trk-show-resource'] [class='resource-icon'] [class*='type-resource']";
