@@ -85,6 +85,11 @@ public class DiscoverResourcesPage extends ResourcesPage {
         super.clickSeeCollection(inANewTab);
     }
 
+    public void clickSeeCollectionUnit(boolean inANewTab) {
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        super.clickSeeCollectionUnit(inANewTab);
+    }
+
     public void clickSeeReview(boolean inANewTab) {
         selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         super.clickSeeReview(inANewTab);
@@ -190,7 +195,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
         }
     }
 
-    public void scrollToTop(){
+    public void scrollToTop() {
         scrollToElement(THUMBNAIL_VIEW_BUTTON);
     }
 }

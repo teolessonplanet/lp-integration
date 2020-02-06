@@ -25,7 +25,8 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String LOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='locked']";
     private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
-    private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [href*='/collections/']";
+    private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [title*='Collection'][href*='/collections/']";
+    private static final String SEE_COLLECTION_UNIT_BUTTON = "[class*='panel-footer'] [title*='Unit'][href*='/collections/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE = "[class*='trk-goto-resource'][href^='/drive/documents/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES = "[class*='trk-goto-resource']";
     private static final String SEE_PREVIEW_BUTTON = "[class*='panel-footer'] [href*='/member/resource']";
@@ -37,11 +38,10 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
     private static final String RESOURCE_CARDS = "#search-results [class*='search-result-item']";
-    private static final String COLLECTION_CARD_TITLE = "#search-results [class*='col-xs-12 list-card'] [href*='/collections'] div h4";
+    private static final String COLLECTION_CARD_TITLE = "#search-results [class*='col-xs-12 list-card']  [title*='Collection'][href*='/collections'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
     private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
     private static final String FREE_SAMPLE_RESOURCE_CARD = "#search-results [data-type='Resource'] [class='panel panel-default panel-resource free-sample'] h4";
-
 
     private static final String ALL_RESOURCES_CARDS = "#search-results [class*='panel-resource']";
     private static final String CARD_ICON = "[class*='file-icon']";
@@ -143,6 +143,10 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickSeeCollection(boolean inANewTab) {
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
+    }
+
+    public void clickSeeCollectionUnit(boolean inANewTab) {
+        clickFirstButtonOfType(SEE_COLLECTION_UNIT_BUTTON, inANewTab);
     }
 
     public void clickSeeReview(boolean inANewTab) {

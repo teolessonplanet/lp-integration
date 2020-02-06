@@ -301,7 +301,7 @@ public class TestData {
     public static final String LASTNAME = "LastnameTest";
     public static final String CARD_NUMBER = "4012888888881881";
     public static final String INVALID_CARD_NUMBER = "5555555555555555";
-    public static final String CARD_EXPIRATION = "09/20";
+    public static final String CARD_EXPIRATION = "09/23";
     public static final String INVALID_CARD_EXPIRATION = "04/11";
     public static final String CARD_CVV = "123";
     public static final String INVALID_CARD_CVV = "22";

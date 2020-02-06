@@ -26,7 +26,7 @@ public class RRPStandardsPageTest extends BaseTest {
     public void testLessonp_3411() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(false);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
@@ -34,7 +34,7 @@ public class RRPStandardsPageTest extends BaseTest {
     public void testLessonp_3428() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
@@ -44,7 +44,7 @@ public class RRPStandardsPageTest extends BaseTest {
     public void testLessonp_4614() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(false);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
         rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
@@ -54,7 +54,7 @@ public class RRPStandardsPageTest extends BaseTest {
     public void testLessonp_4615() {
         reachCorrelatedResourcePage();
         correlatedResourcesPage.clickSeeReview(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
         rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);

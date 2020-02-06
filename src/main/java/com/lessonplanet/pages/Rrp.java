@@ -19,7 +19,7 @@ public class Rrp extends LpUiBasePage {
     private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
     private static final String EXISTING_COLLECTION = "#collections-list [class='collection-section'] div:nth-child(1) [class='checkbox']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
-    private static final String ADD_TO_FOLDER_DROPDOWN = "#rrp-dropdown";
+    private static final String ADD_TO_FOLDER_DROPDOWN = "button#rrp-dropdown";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
     private static final String SHARE_BUTTON = "[class*='dropdown-toggle rrp-share-resource']";
     private static final String DESCRIPTION = "[class='panel-body'] [class*='js-help-rpp-description'] + p";
@@ -47,10 +47,9 @@ public class Rrp extends LpUiBasePage {
     private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
-
     private static final String ADD_TO_FOLDER_BUTTON = "#save-to-collections";
 
-    protected Rrp(WebDriver driver) {
+    public Rrp(WebDriver driver) {
         super(driver);
     }
 

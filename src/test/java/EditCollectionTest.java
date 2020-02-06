@@ -201,7 +201,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.isPixabayIllustrationButtonDisplayed();
         editCollectionModal.isPixabayVectorButtonDisplayed();
         editCollectionModal.clickOnPixabayLink();
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testNewTabUrl(TestData.PIXABAY_IMAGE_LINK);
         editCollectionModal.clickOnLearnMoreLink();
         rrpSearchPageTest.testNewTabUrl(TestData.LEARN_MORE_LINK);
@@ -238,7 +238,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.isAssignCollectionOptionDisplayed());
         Assert.assertTrue(editCollectionPage.isCopyCollectionOptionDisplayed());
         editCollectionPage.clickPlayCollectionOption();
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
         editCollectionPage.clickCollectionActionsDropdown();
         editCollectionPage.clickAssignCollectionOption();
