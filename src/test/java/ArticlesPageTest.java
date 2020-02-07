@@ -107,7 +107,7 @@ public class ArticlesPageTest extends BaseTest {
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             lpHomePage.goBackOnePage();
         }
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
         directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(account);

@@ -31,7 +31,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_3284() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
     }
 
@@ -39,7 +39,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_3285() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(false);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testCollectionRRPOverview(true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testPanelItemsOverview(true);
     }
@@ -48,7 +48,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_3308() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
@@ -58,7 +58,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_3309() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testCollectionRRPOverview(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testPanelItemsOverview(false);
     }
@@ -68,7 +68,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
         Assert.assertTrue(rrpModal.getModalId().contains(browseBySubjectPage.getRegularResourceCardDataId(0)));
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
         rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
@@ -80,7 +80,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         String firstCollectionCardTitle = browseBySubjectPage.getCollectionCardTitle(0);
         browseBySubjectPage.clickSeeCollection(false);
         Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), firstCollectionCardTitle);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testSaveCollectionButton(true, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
         collectionRrpModal.clickPanelItem(0);
@@ -93,7 +93,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_4610() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
         rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);
@@ -106,7 +106,7 @@ public class RRPDirectoryPageTest extends BaseTest {
     public void testLessonp_4613() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
-        rrpSearchPageTest.reachRRP(webDriver);
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testSaveCollectionButton(false, TestData.INVALID_EMAIL);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
         collectionRrpPage.clickPanelItem(0);

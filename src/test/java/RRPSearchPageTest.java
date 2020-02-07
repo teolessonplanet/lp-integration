@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,8 @@ public class RRPSearchPageTest extends BaseTest {
     private CurriculumManagerPageTest curriculumManagerTest;
     private StepTwoPage stepTwoPage;
     private ResourcePreviewPage resourcePreviewPage;
+    private CollectionRrp collectionRrp;
+    private Rrp rrp;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -44,9 +47,11 @@ public class RRPSearchPageTest extends BaseTest {
         curriculumManagerTest = new CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
         resourcePreviewPage = new ResourcePreviewPage(webDriver);
+        collectionRrp = new CollectionRrpModal(webDriver);
+        rrp = new Rrp(webDriver);
     }
 
-    public void reachRRP(WebDriver webDriver) {
+    public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
     }
@@ -390,11 +395,17 @@ public class RRPSearchPageTest extends BaseTest {
     @Test(description = "Active user - Search Page - RRP Static - RRP Overview - lessonp-4795: Resource Static Page Overview")
     public void testLessonp_4795() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        testResourcePageOverview(TestData.VALID_EMAIL_ACTIVE, false);
+    }
+
+    public void testResourcePageOverview(String account, boolean inModal) {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(true);
-        testRegularResourceRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
-        testWhatMembersSayWidgetOverview(TestData.VALID_EMAIL_ACTIVE);
-        testSimilarResourcesSectionOverview(TestData.VALID_EMAIL_ACTIVE);
+        discoverResourcesPage.clickSeeReview(!inModal);
+        testRegularResourceRRPOverview(inModal, account);
+        if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
+            testWhatMembersSayWidgetOverview(account);
+        }
+        testSimilarResourcesSectionOverview(account);
     }
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview")
@@ -415,6 +426,13 @@ public class RRPSearchPageTest extends BaseTest {
         discoverResourcesPage.clickSeeCollection(true);
         testCollectionRRPOverview(false, TestData.VALID_EMAIL_ACTIVE);
         testPanelItemsOverview(false);
+    }
+
+    public void testCollectionStaticPageOverview(String account, boolean inModal) {
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.clickSeeCollection(!inModal);
+        testCollectionRRPOverview(inModal, account);
+        testPanelItemsOverview(inModal);
     }
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4792: LP Resource Main buttons")
@@ -501,149 +519,77 @@ public class RRPSearchPageTest extends BaseTest {
     public void testRegularResourceRRPOverview(boolean modal, String account) {
         if (modal) {
             rrpModal.waitForModal();
-            Assert.assertTrue(rrpModal.isTitleDisplayed());
-            Assert.assertTrue(rrpModal.isDescriptionDisplayed());
-            Assert.assertTrue(rrpModal.isNumberOfViewsDisplayed());
-            Assert.assertTrue(rrpModal.isNumberOfDownloadsDisplayed());
-            Assert.assertTrue(rrpModal.isConceptsTagsListDisplayed());
-            Assert.assertTrue(rrpModal.isReviewerRatingDisplayed());
-            if (account.equals(TestData.INVALID_EMAIL)) {
-                Assert.assertTrue(rrpModal.isGetFreeAccessForTenDaysButtonDisplayed());
-                Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
-                Assert.assertTrue(rrpModal.isVisitorFavoriteButtonDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                Assert.assertTrue(rrpModal.isUpgradeForFullReviewButtonDisplayed());
-                Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
-                Assert.assertTrue(rrpModal.isFullReviewDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
-                Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
-                rrpModal.clickAddACommentLink();
-                Assert.assertEquals(rrpModal.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
-                Assert.assertTrue(rrpModal.isAddACommentButtonDisplayed());
-            }
-            Assert.assertTrue(rrpModal.isShareButtonDisplayed());
-            Assert.assertTrue(rrpModal.isThumbnailDisplayed());
-            if (rrpModal.isLeftSectionBlankDisplayed()) {
-                Assert.assertTrue(rrpModal.isLightRrpGradeDisplayed());
-                Assert.assertEquals(rrpModal.getLightRrpGradeNumber(), 1);
-                if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getLightRrpSubjectText().get(0)));
-                    if (rrpModal.getLightRrpSubjectsNumber() > 1) {
-                        Assert.assertTrue(rrpModal.getLightRrpSubjectText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getLightRrpResourceTypeText().get(0)));
-                    if (rrpModal.getLightRrpResourceTypeNumber() > 1) {
-                        Assert.assertTrue(rrpModal.getLightRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
+        }
+        testRrpGeneralContent();
+
+        if (account.equals(TestData.INVALID_EMAIL)) {
+            Assert.assertTrue(rrp.isGetFreeAccessForTenDaysButtonDisplayed());
+            Assert.assertTrue(rrp.isLimitedAccessReviewDisplayed());
+            Assert.assertTrue(rrp.isVisitorFavoriteButtonDisplayed());
+        }
+
+        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            Assert.assertTrue(rrp.isUpgradeForFullReviewButtonDisplayed());
+            Assert.assertTrue(rrp.isLimitedAccessReviewDisplayed());
+        }
+        if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
+            Assert.assertTrue(rrp.isFullReviewDisplayed());
+        }
+
+        if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertTrue(rrp.isFavoriteButtonDisplayed());
+            Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
+            Assert.assertTrue(rrp.isAddACommentLinkDisplayed());
+            rrp.clickAddACommentLink();
+            Assert.assertEquals(rrp.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
+            Assert.assertTrue(rrp.isAddACommentButtonDisplayed());
+        }
+
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            Assert.assertTrue(rrp.isShareButtonDisplayed());
+        }
+        Assert.assertTrue(rrp.isThumbnailDisplayed());
+
+        if (rrp.isLeftSectionBlankDisplayed()) {
+            Assert.assertTrue(rrp.isLightRrpGradeDisplayed());
+            Assert.assertEquals(rrp.getLightRrpGradeNumber(), 1);
+            if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+                Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getLightRrpSubjectText().get(0)));
+                if (rrp.getLightRrpSubjectsNumber() > 1) {
+                    Assert.assertTrue(rrp.getLightRrpSubjectText().get(1).contains(TestData.DISABLED_TEXT));
                 }
-                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                    for (int i = 0; i < rrpModal.getLightRrpSubjectsNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getLightRrpSubjectText().get(i)));
-                    }
-                    for (int i = 1; i < rrpModal.getLightRrpResourceTypeNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getLightRrpResourceTypeText().get(i)));
-                    }
+                Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getLightRrpResourceTypeText().get(0)));
+                if (rrp.getLightRrpResourceTypeNumber() > 1) {
+                    Assert.assertTrue(rrp.getLightRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                 }
-            } else {
-                Assert.assertTrue(rrpModal.isFullRrpGradeDisplayed());
-                if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getFullRrpSubjectText().get(0)));
-                    if (rrpModal.getFullRrpSubjectsNumber() > 1) {
-                        Assert.assertTrue(rrpModal.getFullRrpSubjectText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getFullRrpResourceTypeText().get(0)));
-                    if (rrpModal.getFullRrpResourceTypeNumber() > 1) {
-                        Assert.assertTrue(rrpModal.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
+            }
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+                for (int i = 0; i < rrp.getLightRrpSubjectsNumber(); i++) {
+                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getLightRrpSubjectText().get(i)));
                 }
-                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                    for (int i = 0; i < rrpModal.getFullRrpSubjectsNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getFullRrpSubjectText().get(i)));
-                    }
-                    for (int i = 1; i < rrpModal.getFullRrpResourceTypeNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getFullRrpResourceTypeText().get(i)));
-                    }
+                for (int i = 1; i < rrp.getLightRrpResourceTypeNumber(); i++) {
+                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getLightRrpResourceTypeText().get(i)));
                 }
             }
         } else {
-            Assert.assertTrue(rrpPage.isTitleDisplayed());
-            Assert.assertTrue(rrpPage.isDescriptionDisplayed());
-            Assert.assertTrue(rrpPage.isNumberOfViewsDisplayed());
-            Assert.assertTrue(rrpPage.isNumberOfDownloadsDisplayed());
-            Assert.assertTrue(rrpPage.isConceptsTagsListDisplayed());
-            Assert.assertTrue(rrpPage.isReviewerRatingDisplayed());
-            if (account.equals(TestData.INVALID_EMAIL)) {
-                Assert.assertTrue(rrpPage.isGetFreeAccessForTenDaysButtonDisplayed());
-                Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
-                Assert.assertTrue(rrpPage.isVisitorFavoriteButtonDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                Assert.assertTrue(rrpPage.isUpgradeForFullReviewButtonDisplayed());
-                Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
-                Assert.assertTrue(rrpPage.isFullReviewDisplayed());
-            }
-            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
-                Assert.assertTrue(rrpPage.isAddToFolderDropdownDisplayed());
-                Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
-                rrpPage.clickAddACommentLink();
-                Assert.assertEquals(rrpPage.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
-                Assert.assertTrue(rrpPage.isAddACommentButtonDisplayed());
-            }
-            Assert.assertTrue(rrpPage.isShareButtonDisplayed());
-            Assert.assertTrue(rrpPage.isThumbnailDisplayed());
-            Assert.assertFalse(rrpPage.isPreviousButtonDisplayed());
-            if (rrpPage.isLeftSectionBlankDisplayed()) {
-                Assert.assertTrue(rrpPage.isLightRrpGradeDisplayed());
-                Assert.assertEquals(rrpPage.getLightRrpGradeNumber(), 1);
-                if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getLightRrpSubjectText().get(0)));
-                    if (rrpPage.getLightRrpSubjectsNumber() > 1) {
-                        Assert.assertTrue((rrpPage.getLightRrpSubjectText().get(1)).contains(TestData.DISABLED_TEXT));
-                    }
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getLightRrpResourceTypeText().get(0)));
-                    if (rrpPage.getLightRrpResourceTypeNumber() > 1) {
-                        Assert.assertTrue((rrpPage.getLightRrpResourceTypeText().get(1)).contains(TestData.DISABLED_TEXT));
-                    }
+            Assert.assertTrue(rrp.isFullRrpGradeDisplayed());
+            if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+                Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getFullRrpSubjectText().get(0)));
+                if (rrp.getFullRrpSubjectsNumber() > 1) {
+                    Assert.assertTrue(rrp.getFullRrpSubjectText().get(1).contains(TestData.DISABLED_TEXT));
                 }
-                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                    for (int i = 0; i < rrpPage.getLightRrpSubjectsNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getLightRrpSubjectText().get(i)));
-                    }
-                    for (int i = 1; i < rrpPage.getLightRrpResourceTypeNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getLightRrpResourceTypeText().get(i)));
-                    }
+                Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getFullRrpResourceTypeText().get(0)));
+                if (rrp.getFullRrpResourceTypeNumber() > 1) {
+                    Assert.assertTrue(rrp.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
                 }
-            } else {
-                Assert.assertTrue(rrpPage.isFullRrpGradeDisplayed());
-                Assert.assertEquals(rrpPage.getFullRrpGradeNumber(), 1);
-                if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getFullRrpSubjectText().get(0)));
-                    if (rrpPage.getFullRrpSubjectsNumber() > 1) {
-                        Assert.assertTrue(rrpPage.getFullRrpSubjectText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getFullRrpResourceTypeText().get(0)));
-                    if (rrpPage.getFullRrpResourceTypeNumber() > 1) {
-                        Assert.assertTrue(rrpPage.getFullRrpResourceTypeText().get(1).contains(TestData.DISABLED_TEXT));
-                    }
+            }
+            if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+                for (int i = 0; i < rrp.getFullRrpSubjectsNumber(); i++) {
+                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getFullRrpSubjectText().get(i)));
                 }
-                if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
-                    for (int i = 0; i < rrpPage.getFullRrpSubjectsNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getFullRrpSubjectText().get(i)));
-                    }
-                    for (int i = 1; i < rrpPage.getFullRrpResourceTypeNumber(); i++) {
-                        Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getFullRrpResourceTypeText().get(i)));
-                    }
+                for (int i = 1; i < rrp.getFullRrpResourceTypeNumber(); i++) {
+                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getFullRrpResourceTypeText().get(i)));
                 }
             }
         }
@@ -759,7 +705,7 @@ public class RRPSearchPageTest extends BaseTest {
             if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
                 Assert.assertTrue(collectionRrpModal.isUpgradeForFullReviewButtonDisplayed());
             }
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+            if (account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
                 Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed());
             }
@@ -877,37 +823,24 @@ public class RRPSearchPageTest extends BaseTest {
     public void testResourceGetFreeAccessForTenDaysButton(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickGetFreeAccessForTenDaysButton(false);
-            testStepOneModal();
-            rrpModal.clickGetFreeAccessForTenDaysButton(true);
-            testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
-        } else {
-            rrpPage.clickGetFreeAccessForTenDaysButton(false);
-            testStepOneModal();
-            rrpPage.clickGetFreeAccessForTenDaysButton(true);
-            testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
         }
+        rrpPage.clickGetFreeAccessForTenDaysButton(false);
+        testStepOneModal();
+        rrpPage.clickGetFreeAccessForTenDaysButton(true);
+        testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
     }
 
     public void testFavoriteButton(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickVisitorFavoriteButton();
-            Assert.assertTrue(rrpModal.isSignInPopupLinkDisplayed() && rrpModal.isJoinNowPopupLinkDisplayed());
-            rrpModal.clickJoinNowPopupLink();
-            testStepOneModal();
-            rrpModal.clickVisitorFavoriteButton();
-            rrpModal.clickSignInPopupLink(true);
-            testSignInPage();
-        } else {
-            rrpPage.clickVisitorFavoriteButton();
-            Assert.assertTrue(rrpPage.isSignInPopupLinkDisplayed() && rrpPage.isJoinNowPopupLinkDisplayed());
-            rrpPage.clickJoinNowPopupLink();
-            testStepOneModal();
-            rrpPage.clickVisitorFavoriteButton();
-            rrpPage.clickSignInPopupLink(true);
-            testSignInPage();
         }
+        rrpPage.clickVisitorFavoriteButton();
+        Assert.assertTrue(rrpPage.isSignInPopupLinkDisplayed() && rrpPage.isJoinNowPopupLinkDisplayed());
+        rrpPage.clickJoinNowPopupLink();
+        testStepOneModal();
+        rrpPage.clickVisitorFavoriteButton();
+        rrpPage.clickSignInPopupLink(true);
+        testSignInPage();
     }
 
     public void testRegularResourceRRPNavigationButtonsSearchPage() {
@@ -927,10 +860,8 @@ public class RRPSearchPageTest extends BaseTest {
     public void testThumbnailForRegularResource(boolean modal, String account) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickOnThumbnail();
-        } else {
-            rrpPage.clickOnThumbnail();
         }
+        rrpPage.clickOnThumbnail();
         if (account.equals(TestData.INVALID_EMAIL)) {
             testStepOneModal();
         }
@@ -943,51 +874,39 @@ public class RRPSearchPageTest extends BaseTest {
     }
 
     public void testGoToResourceButtonForRegularResource(boolean modal) {
-        if (modal) {
-            rrpModal.clickGoToResourceButton(true);
-        } else {
-            rrpPage.clickGoToResourceButton(true);
-        }
+        rrpPage.clickGoToResourceButton(modal);
         testNewTabRegularResourceUrl();
     }
 
     public void testThumbnailForSharedResource(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickOnThumbnail();
-        } else {
-            rrpPage.clickOnThumbnail();
         }
+        rrpPage.clickOnThumbnail();
         testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
     }
 
     public void testGoToResourceButtonForSharedResource(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickGoToResourceButton(true);
-        } else {
-            rrpPage.clickGoToResourceButton(true);
         }
+        rrpPage.clickGoToResourceButton(true);
         testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL);
     }
 
     public void testThumbnailForFreeSampleResource(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickOnThumbnail();
-        } else {
-            rrpPage.clickOnThumbnail();
         }
+        rrpPage.clickOnThumbnail();
         testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
     public void testGoToResourceButtonForFreeSampleResource(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            rrpModal.clickGoToResourceButton(true);
-        } else {
-            rrpPage.clickGoToResourceButton(true);
         }
+        rrpPage.clickGoToResourceButton(true);
         testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
@@ -1008,16 +927,11 @@ public class RRPSearchPageTest extends BaseTest {
     public void testCollectionGetFreeAccessForTenDaysButton(boolean modal) {
         if (modal) {
             collectionRrpModal.waitForModal();
-            collectionRrpModal.clickGetFreeAccessForTenDaysButton(false);
-            testStepOneModal();
-            collectionRrpModal.clickGetFreeAccessForTenDaysButton(true);
-            testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
-        } else {
-            collectionRrpPage.clickGetFreeAccessForTenDaysButton(false);
-            testStepOneModal();
-            collectionRrpPage.clickGetFreeAccessForTenDaysButton(true);
-            testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
         }
+        collectionRrpPage.clickGetFreeAccessForTenDaysButton(false);
+        testStepOneModal();
+        collectionRrpPage.clickGetFreeAccessForTenDaysButton(true);
+        testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
     }
 
     public void testCollectionUpgradeForFullReviewButton(boolean modal) {
@@ -1084,49 +998,38 @@ public class RRPSearchPageTest extends BaseTest {
         }
     }
 
-    public void testCollectionRRPNavigationButtonsSearchPage() {
+    private void testCollectionRRPNavigationButtonsSearchPage() {
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        ArrayList<String> collectionTitles = new ArrayList<>();
+        collectionTitles.add(discoverResourcesPage.getCollectionCardTitle(0));
+        collectionTitles.add(discoverResourcesPage.getCollectionCardTitle(1));
+
+        discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
-        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), discoverResourcesPage.getCollectionCardTitle(0));
+        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), collectionTitles.get(0));
         collectionRrpModal.clickNextButtonRrp();
-        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), discoverResourcesPage.getCollectionCardTitle(1));
+        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), collectionTitles.get(1));
         collectionRrpModal.clickPreviousButtonRrp();
-        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), discoverResourcesPage.getCollectionCardTitle(0));
+        Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), collectionTitles.get(0));
     }
 
     public void testItemViewerSection(boolean modal) {
-        if (modal) {
-            Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(0), collectionRrpModal.getPanelItemDataId(0));
-            Assert.assertFalse(collectionRrpModal.isSeeFullReviewsLinkVisible());
-            Assert.assertFalse(collectionRrpModal.isPreviousButtonItemViewerDisplayed());
-            if (collectionRrpModal.getCollectionItemsCount() > 1) {
-                Assert.assertTrue(collectionRrpModal.isNextButtonItemViewerDisplayed());
-                collectionRrpModal.clickNextButtonItemViewer();
-                Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(1), collectionRrpModal.getPanelItemDataId(1));
-                collectionRrpModal.clickPreviousButtonItemViewer();
-                Assert.assertEquals(collectionRrpModal.getExpandedRrpDataId(0), collectionRrpModal.getPanelItemDataId(0));
-            }
-            if (collectionRrpModal.getCollectionItemsCount() == 1) {
-                Assert.assertFalse(collectionRrpModal.isNextButtonItemViewerDisplayed());
-            }
-            collectionRrpModal.clickCloseExpandedRrp();
-            Assert.assertTrue(collectionRrpModal.isSeeFullReviewsLinkVisible());
-        } else {
-            Assert.assertEquals(collectionRrpPage.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
-            Assert.assertFalse(collectionRrpPage.isSeeFullReviewsLinkVisible());
-            Assert.assertFalse(collectionRrpPage.isPreviousButtonItemViewerDisplayed());
-            if (collectionRrpPage.getCollectionItemsCount() > 1) {
-                Assert.assertTrue(collectionRrpPage.isNextButtonItemViewerDisplayed());
-                collectionRrpPage.clickNextButtonItemViewer();
-                Assert.assertEquals(collectionRrpPage.getExpandedRrpDataId(1), collectionRrpPage.getPanelItemDataId(1));
-                collectionRrpPage.clickPreviousButtonItemViewer();
-                Assert.assertEquals(collectionRrpPage.getExpandedRrpDataId(0), collectionRrpPage.getPanelItemDataId(0));
-            }
-            if (collectionRrpPage.getCollectionItemsCount() == 1) {
-                Assert.assertFalse(collectionRrpPage.isNextButtonItemViewerDisplayed());
-            }
-            collectionRrpPage.clickCloseExpandedRrp();
-            Assert.assertTrue(collectionRrpPage.isSeeFullReviewsLinkVisible());
+        Assert.assertEquals(collectionRrp.getExpandedRrpDataId(0), collectionRrp.getPanelItemDataId(0));
+        Assert.assertFalse(collectionRrp.isSeeFullReviewsLinkVisible());
+        Assert.assertFalse(collectionRrp.isPreviousButtonItemViewerDisplayed());
+        if (collectionRrp.getCollectionItemsCount() > 1) {
+            Assert.assertTrue(collectionRrp.isNextButtonItemViewerDisplayed());
+            collectionRrp.clickNextButtonItemViewer();
+            Assert.assertEquals(collectionRrp.getExpandedRrpDataId(1), collectionRrp.getPanelItemDataId(1));
+            collectionRrp.clickPreviousButtonItemViewer();
+            Assert.assertEquals(collectionRrp.getExpandedRrpDataId(0), collectionRrp.getPanelItemDataId(0));
         }
+        if (collectionRrp.getCollectionItemsCount() == 1) {
+            Assert.assertFalse(collectionRrp.isNextButtonItemViewerDisplayed());
+        }
+        collectionRrp.clickCloseExpandedRrp();
+        Assert.assertTrue(collectionRrp.isSeeFullReviewsLinkVisible());
     }
 
     public void testStartYourFreeTrialTryItFreeButton() {
@@ -1141,7 +1044,6 @@ public class RRPSearchPageTest extends BaseTest {
         testStepOneModal();
         rrpPage.clickBottomPageTryItFreeButton(true);
         testNewTabUrl(TestData.STEP_ONE_PAGE_PATH);
-        ;
     }
 
     public void testSeeSimilarResourcesDropdown() {
@@ -1166,73 +1068,43 @@ public class RRPSearchPageTest extends BaseTest {
     private void testFreeSampleResourceRRPOverview(boolean modal) {
         if (modal) {
             rrpModal.waitForModal();
-            Assert.assertTrue(rrpModal.isTitleDisplayed());
-            Assert.assertTrue(rrpModal.isDescriptionDisplayed());
-            Assert.assertTrue(rrpModal.isNumberOfViewsDisplayed());
-            Assert.assertTrue(rrpModal.isNumberOfDownloadsDisplayed());
-            Assert.assertTrue(rrpModal.isConceptsTagsListDisplayed());
-            Assert.assertTrue(rrpModal.isReviewerRatingDisplayed());
-            Assert.assertTrue(rrpModal.isFavoriteButtonDisplayed());
-            Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
-            Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
-            Assert.assertTrue(rrpModal.isAddACommentLinkDisplayed());
-            rrpModal.clickAddACommentLink();
-            Assert.assertEquals(rrpModal.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
-            Assert.assertTrue(rrpModal.isAddACommentButtonDisplayed());
-            if (rrpModal.isLeftSectionBlankDisplayed()) {
-                Assert.assertTrue(rrpModal.isLightRrpGradeDisplayed());
-                Assert.assertEquals(rrpModal.getLightRrpGradeNumber(), 1);
-                for (int i = 0; i < rrpModal.getLightRrpSubjectsNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getLightRrpSubjectText().get(i)));
-                }
-                for (int i = 1; i < rrpModal.getLightRrpResourceTypeNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getLightRrpResourceTypeText().get(i)));
-                }
+        }
+        testRrpGeneralContent();
+        Assert.assertTrue(rrp.isFavoriteButtonDisplayed());
+        Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
+        Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
+        Assert.assertTrue(rrp.isAddACommentLinkDisplayed());
+        rrp.clickAddACommentLink();
+        Assert.assertEquals(rrp.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
+        Assert.assertTrue(rrp.isAddACommentButtonDisplayed());
 
-            } else {
-                Assert.assertTrue(rrpModal.isFullRrpGradeDisplayed());
-                for (int i = 0; i < rrpModal.getFullRrpSubjectsNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpModal.getFullRrpSubjectText().get(i)));
-                }
-                for (int i = 1; i < rrpModal.getFullRrpResourceTypeNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpModal.getFullRrpResourceTypeText().get(i)));
-                }
+        if (rrp.isLeftSectionBlankDisplayed()) {
+            Assert.assertTrue(rrp.isLightRrpGradeDisplayed());
+            Assert.assertEquals(rrp.getLightRrpGradeNumber(), 1);
+            for (int i = 0; i < rrp.getLightRrpSubjectsNumber(); i++) {
+                Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getLightRrpSubjectText().get(i)));
+            }
+            for (int i = 1; i < rrp.getLightRrpResourceTypeNumber(); i++) {
+                Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getLightRrpResourceTypeText().get(i)));
             }
         } else {
-            Assert.assertTrue(rrpPage.isTitleDisplayed());
-            Assert.assertTrue(rrpPage.isDescriptionDisplayed());
-            Assert.assertTrue(rrpPage.isNumberOfViewsDisplayed());
-            Assert.assertTrue(rrpPage.isNumberOfDownloadsDisplayed());
-            Assert.assertTrue(rrpPage.isConceptsTagsListDisplayed());
-            Assert.assertTrue(rrpPage.isReviewerRatingDisplayed());
-            Assert.assertTrue(rrpPage.isFavoriteButtonDisplayed());
-            Assert.assertTrue(rrpPage.isAddToFolderDropdownDisplayed());
-            Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
-            Assert.assertTrue(rrpPage.isAddACommentLinkDisplayed());
-            rrpPage.clickAddACommentLink();
-            Assert.assertEquals(rrpPage.getUserConversationPanelText(), TestData.ADD_A_COMMENT_PANEL_TEXT);
-            Assert.assertTrue(rrpPage.isAddACommentButtonDisplayed());
-            if (rrpPage.isLeftSectionBlankDisplayed()) {
-                Assert.assertTrue(rrpPage.isLightRrpGradeDisplayed());
-                Assert.assertEquals(rrpPage.getLightRrpGradeNumber(), 1);
-                for (int i = 0; i < rrpPage.getLightRrpSubjectsNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getLightRrpSubjectText().get(i)));
-                }
-                for (int i = 1; i < rrpPage.getLightRrpResourceTypeNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getLightRrpResourceTypeText().get(i)));
-                }
-
-            } else {
-                Assert.assertTrue(rrpPage.isFullRrpGradeDisplayed());
-                Assert.assertEquals(rrpPage.getFullRrpGradeNumber(), 1);
-                for (int i = 0; i < rrpPage.getFullRrpSubjectsNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrpPage.getFullRrpSubjectText().get(i)));
-                }
-                for (int i = 1; i < rrpPage.getFullRrpResourceTypeNumber(); i++) {
-                    Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrpPage.getFullRrpResourceTypeText().get(i)));
-                }
+            Assert.assertTrue(rrp.isFullRrpGradeDisplayed());
+            for (int i = 0; i < rrp.getFullRrpSubjectsNumber(); i++) {
+                Assert.assertTrue(Arrays.asList(TestData.SUBJECTS).contains(rrp.getFullRrpSubjectText().get(i)));
+            }
+            for (int i = 1; i < rrp.getFullRrpResourceTypeNumber(); i++) {
+                Assert.assertTrue(Arrays.asList(TestData.RESOURCE_TYPES).contains(rrp.getFullRrpResourceTypeText().get(i)));
             }
         }
+    }
+
+    private void testRrpGeneralContent() {
+        Assert.assertTrue(rrp.isTitleDisplayed());
+        Assert.assertTrue(rrp.isDescriptionDisplayed());
+        Assert.assertTrue(rrp.isNumberOfViewsDisplayed());
+        Assert.assertTrue(rrp.isNumberOfDownloadsDisplayed());
+        Assert.assertTrue(rrp.isConceptsTagsListDisplayed());
+        Assert.assertTrue(rrp.isReviewerRatingDisplayed());
     }
 
     private void testFreeSampleResourceStartYourFreeTrialWidgetOverview() {
@@ -1287,32 +1159,20 @@ public class RRPSearchPageTest extends BaseTest {
     }
 
     private void testAddToNewCollection(boolean modal) {
-        if (modal) {
-            rrpModal.clickOnAddToFolderDropdown();
-            rrpModal.clickAddToNewCollection();
-        } else {
-            rrpPage.clickOnAddToFolderDropdown();
-            rrpPage.clickAddToNewCollection();
-        }
+        rrp.clickOnAddToFolderDropdown();
+        rrp.clickAddToNewCollection();
         createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
         createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
         createNewCollectionModal.clickOnCreateCollectionRrp();
     }
 
     private void testAddToCollectionDropdown(boolean modal) {
-        if (modal) {
-            for (int i = 0; i <= 2; i++) {
-                testAddToNewCollection(true);
-            }
-            rrpModal.clickOnAddToFolderDropdown();
-            rrpModal.clickAddToNewCollection();
-        } else {
-            for (int i = 0; i <= 2; i++) {
-                testAddToNewCollection(false);
-            }
-            rrpPage.clickOnAddToFolderDropdown();
-            rrpPage.clickAddToNewCollection();
+        for (int i = 0; i <= 2; i++) {
+            testAddToNewCollection(modal);
         }
+        rrp.clickOnAddToFolderDropdown();
+        rrp.clickAddToNewCollection();
+
         if (upgradeMaxCollectionModal.isModalDisplayed()) {
             Assert.assertEquals(upgradeMaxCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
             upgradeMaxCollectionModal.clickOnCloseButton();
