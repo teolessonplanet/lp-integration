@@ -22,4 +22,16 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         rsl_rrpSearchPageTest.initiTest(webDriver);
         rsl_rrpSearchPageTest.testResourcePageOverview(TestData.VALID_EMAIL_CSL_HENRY, false);
     }
+
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4479:Collection Modal Overview")
+    public void lessonp_4497() {
+        rsl_rrpSearchPageTest.initiTest(webDriver);
+        rsl_rrpSearchPageTest.testCollectionPageOverview(TestData.VALID_EMAIL_CSL_HENRY, true);
+    }
+
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4480:Collection Static Page Overview")
+    public void lessonp_4480() {
+        rsl_rrpSearchPageTest.initiTest(webDriver);
+        rsl_rrpSearchPageTest.testCollectionPageOverview(TestData.VALID_EMAIL_CSL_HENRY, false);
+    }
 }
