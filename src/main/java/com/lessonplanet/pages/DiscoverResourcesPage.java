@@ -81,12 +81,12 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickSeeCollection(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES);
         super.clickSeeCollection(inANewTab);
     }
 
     public void clickSeeCollectionUnit(boolean inANewTab) {
-        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES);
         super.clickSeeCollectionUnit(inANewTab);
     }
 
@@ -166,6 +166,10 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public String getCollectionCardTitle(int position) {
         return super.getCollectionCardTitle(position);
+    }
+
+    public String getCollectionOrUnitCardTitle(int position) {
+        return super.getCollectionOrUnitCardTitle(position);
     }
 
     public String getResourceCardDataType(int position) {

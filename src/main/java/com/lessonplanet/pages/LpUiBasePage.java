@@ -162,6 +162,15 @@ public class LpUiBasePage {
         }
     }
 
+    protected void clickElementIfStartsWith(List<WebElement> webElements, String textToClick) {
+        for (WebElement webElement : webElements) {
+            if (webElement.getText().startsWith(textToClick)) {
+                clickElement(webElement);
+                break;
+            }
+        }
+    }
+
     protected void clickElement(String cssSelector, int position) {
         clickElement(findElements(cssSelector), position);
     }
