@@ -157,7 +157,7 @@ public class TestData {
     public static final String FACET_PROVIDERS_LESSONPLANET = "Lesson Planet";
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES = "Folder Types";
-    public static final String FACET_CATEGORY_RESOURCES_TYPE_UNIT_TYPES = "Unit type";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES = "Unit Modules";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES = "Collections";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";

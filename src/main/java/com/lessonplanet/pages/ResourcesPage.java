@@ -21,6 +21,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
     private static final String SHOW_MORE_BUTTON_FACET = "[class='lp-filter-item'] [class='show-more-facets']";
     private static final String FACET_OPTION = "[class='lp-filter-item']";
+    private static final String FACET_CHECK_SQUARE = "i[class*='fa-check-square-o']";
     private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='locked']";
     private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='trk-show-resource']";
@@ -40,8 +41,8 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String UPGRADE_ME_NOW_BUTTON = "a[data-track-click='Limited Search Upgrade'][data-track-label='Search Page']";
 
     private static final String RESOURCE_CARDS = "#search-results [class*='search-result-item']";
-    private static final String COLLECTION_CARD_TITLE = "#search-results [class*='col-xs-12 list-card']  [title*='Collection'][href*='/collections'] div h4";
-    private static final String COLLECTION_OR_UNIT_CARD_TITLE = "#search-results [class*='col-xs-12 list-card'] [href*='/collections'] div h4";
+    private static final String COLLECTION_CARD_TITLE = "#search-results [class*='list-card']  [title*='Collection'][href*='/collections'] div h4";
+    private static final String COLLECTION_OR_UNIT_CARD_TITLE = "#search-results [class*='list-card'] [href*='/collections'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
     private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
     private static final String FREE_SAMPLE_RESOURCE_CARD = "#search-results [data-type='Resource'] [class='panel panel-default panel-resource free-sample'] h4";
@@ -81,14 +82,14 @@ public class ResourcesPage extends LpUiBasePage {
     public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option;
 
-        if (optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_TYPES)) {
+        if (optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES)) {
             option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
             // if SHOW MORE is extended -> leave it
             if (findElements(option, SHOW_MORE_BUTTON_FACET).size() != 0) {
                 findElements(option, SHOW_MORE_BUTTON_FACET).get(0).click();
             }
             // if the option is selected -> leave it
-            if (findElements(option, "i[class*='fa-check-square-o']").size() < 1) {
+            if (findElements(option, FACET_CHECK_SQUARE).size() < 1) {
                 clickElementIfStartsWith(findElements(FACET_OPTION), optionName);
             }
         } else {
