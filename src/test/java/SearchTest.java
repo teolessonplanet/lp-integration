@@ -463,7 +463,7 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES);
 
         WebElement collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
 

@@ -134,7 +134,7 @@ public class RRPSearchPageTest extends BaseTest {
         discoverResourcesPage.clickSeeCollection(false);
         testSaveCollectionButton(true, TestData.INVALID_EMAIL);
         testCollectionGetFreeAccessForTenDaysButton(true);
-        testCollectionRRPNavigationButtonsSearchPage();
+        testCollectionOrUnitRRPNavigationButtonsSearchPage();
         collectionRrpModal.clickPanelItem(0);
         testItemViewerSection(true);
         collectionRrpModal.clickSeeFullReviewsLink();
@@ -301,7 +301,7 @@ public class RRPSearchPageTest extends BaseTest {
         collectionRrpModal.clickPlayCollectionButton();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
-        testCollectionRRPNavigationButtonsSearchPage();
+        testCollectionOrUnitRRPNavigationButtonsSearchPage();
         testCollectionUpgradeForFullReviewButton(true);
         testSaveCollectionButton(true, TestData.VALID_EMAIL_FREEMIUM);
     }
@@ -463,7 +463,7 @@ public class RRPSearchPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
-        testCollectionRRPNavigationButtonsSearchPage();
+        testCollectionOrUnitRRPNavigationButtonsSearchPage();
         collectionRrpModal.clickPanelItem(0);
         testItemViewerSection(true);
         collectionRrpModal.clickSeeFullReviewsLink();
@@ -998,12 +998,12 @@ public class RRPSearchPageTest extends BaseTest {
         }
     }
 
-    private void testCollectionRRPNavigationButtonsSearchPage() {
+    private void testCollectionOrUnitRRPNavigationButtonsSearchPage() {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES);
         ArrayList<String> collectionTitles = new ArrayList<>();
-        collectionTitles.add(discoverResourcesPage.getCollectionCardTitle(0));
-        collectionTitles.add(discoverResourcesPage.getCollectionCardTitle(1));
+        collectionTitles.add(discoverResourcesPage.getCollectionOrUnitCardTitle(0));
+        collectionTitles.add(discoverResourcesPage.getCollectionOrUnitCardTitle(1));
 
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
