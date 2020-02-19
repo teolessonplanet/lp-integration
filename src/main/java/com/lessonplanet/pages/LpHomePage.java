@@ -16,7 +16,7 @@ public class LpHomePage extends LpUiBasePage {
 
     public void loadPage() {
         loadUrl(TestData.LP_HOME_PAGE_PATH);
-        createCaptchaBypassCookie();
+        createQaIntegrationBypassCookie();
     }
 
     public void clickOnUpgradeMeButton(boolean inANewTab) {

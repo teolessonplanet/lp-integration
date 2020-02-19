@@ -4,8 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 
-import java.awt.Robot;
-
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -13,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
 
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -382,8 +379,8 @@ public class LpUiBasePage {
             , element);
     }
 
-    protected void createCaptchaBypassCookie() {
-        driver.manage().addCookie(new Cookie(TestData.STAGING_SERVER_CAPTCHA_COOKIE_NAME, ""));
+    protected void createQaIntegrationBypassCookie() {
+        driver.manage().addCookie(new Cookie(TestData.STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME, ""));
     }
 
     protected void openInANewTab(String cssSelector) {
