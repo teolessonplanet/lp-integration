@@ -13,7 +13,7 @@ public class TestData {
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
     public static final String EMPTY_URL = "about:blank";
     public static final Locale LOCALE = java.util.Locale.US;
-    public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integrations";
+    public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integration";
     public static final String STAGING_SERVER_SHARED_RESOURCE_REDIRECT_URL = "https://staging.lessonplanet.com/drive/documents/";
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL = "https://s3.amazonaws.com/dev-lessonplanet-files/drive/";
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "https://staging.lessonplanet.com/goto/";
