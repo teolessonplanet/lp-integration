@@ -709,7 +709,9 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed());
             }
-//            Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
+            }
             Assert.assertTrue(collectionRrpModal.isSeeFullReviewsLinkVisible());
             Assert.assertEquals(collectionRrpModal.getCollectionItemsCount(), collectionRrpModal.getPanelItemsCount());
         } else {
@@ -733,7 +735,10 @@ public class RRPSearchPageTest extends BaseTest {
                 Assert.assertTrue(collectionRrpPage.isPlayCollectionButtonDisplayed());
                 Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonActiveUserDisplayed());
             }
-//            Assert.assertTrue(collectionRrpPage.isShareButtonDisplayed());
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                Assert.assertTrue(collectionRrpPage.isShareButtonDisplayed());
+            }
+
             Assert.assertTrue(collectionRrpPage.isSeeFullReviewsLinkVisible());
             Assert.assertEquals(collectionRrpPage.getCollectionItemsCount(), collectionRrpPage.getPanelItemsCount());
         }
