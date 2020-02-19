@@ -1,19 +1,18 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import util.TestData;
+
+import java.util.List;
 
 public class CurriculumManagerPage extends LpUiBasePage {
     private static final String ALERT_NOTIFICATION = "[class*='alert']";
     private static final String REFRESH_ICON = "[class*='fa-refresh']";
-    private static final String ACTIONS_DROPDOWN = "[class*='actions'] i";
-    private static final String PLAY_BUTTON = "[class*='fa-play-circle-o']";
-    private static final String SHARE_BUTTON = "[class*='fa-share-alt']";
-    private static final String EMAIL_OPTION = "[class*='fa-envelope-square']";
-    private static final String LINK_OPTION = "[class*='fa-link']";
-    private static final String FACEBOOK_OPTION = "[class*='fa-facebook-square']";
-    private static final String TWITTER_OPTION = "[class*='fa-twitter-square']";
-    private static final String PINTEREST_OPTION = "[class*='fa-pinterest-square']";
+    private static final String ACTIONS_DROPDOWN = " .info.actions.persistent [class='action-dropdown']";
+    private static final String MY_UPLOADS_FOLDER_ACTIONS_DROPDOWN = "#folder-2 [class*='actions'] i";
+    private static final String PLAY_RESOURCE_BUTTON = "[class*='fa-play-circle-o']";
+    private static final String PLAY_COLLECTION_BUTTON = "div.options.actions button:nth-child(2)";
     private static final String PUBLISH_BUTTON = "[class='fa fa-book']";
     private static final String POPOVER_TEXT = "[class*='popuptext show']";
     private static final String DELETE_BUTTON = "[class*='fa-trash']";
@@ -23,25 +22,27 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='fa-external-link']";
     private static final String MY_FAVORITES_FOLDER_ROW = "#folder-1";
     private static final String MY_UPLOADS_FOLDER_ROW = "#folder-2";
-    private static final String COLLECTION_ROW = "div.collection.group-row";
+    private static final String FOLDER_ROW = "div.collection.group-row";
     private static final String RESOURCE_ROW = " div.resource.group-row";
     private static final String FAVORITE_RESOURCE_ROW = "#folder-1 div.resource.group-row";
     private static final String UPLOAD_RESOURCE_ROW = "#folder-2 div.resource.group-row";
-    private static final String COLLECTION_STATUS = " div.info.status:nth-child(3)";
+    private static final String FOLDER_STATUS = " .info.status";
     private static final String RESOURCE_STATUS = " div.info.status";
     private static final String ITEM_NUMBER = " .number-of-items";
     private static final String RESOURCE_TITLE = " .resource-title-text:nth-child(1)";
     private static final String FOLDER_TITLE = " .resource-title-text";
-    private static final String CREATE_A_COLLECTION_BUTTON = "[class*='cm-create-collection-btn']";
+    private static final String CREATE_A_FOLDER_BUTTON = "[class*='cm-create-collection-btn']";
     private static final String UPLOAD_RESOURCE_BUTTON = "[class*='cm-upload-resource-btn']";
-    private static final String SHOW_MORE_AND_LESS_BUTTON = "[class*='collection-info-view-toggle']";
-    private static final String STATUS_COLUMN = "#sort-header-license_enum";
-    private static final String DATE_COLUMN = "#sort-header-updated_at";
+    private static final String SHOW_AND_HIDE_DETAILS_BUTTON = "[class*='cm-show-details-btn']";
+    private static final String STATUS_COLUMN = "[class='info status']";
+    private static final String DATE_COLUMN = "[class='info date']";
     private static final String SORT_BY_DROPDOWN = "#sort-widget";
     private static final String STATUS_SORT_BY_OPTION = "#sort-dropdown-license_enum";
     private static final String DATE_SORT_BY_OPTION = "#sort-dropdown-updated_at";
     private static final String RESOURCE_TITLE_SORT_BY_OPTION = "#sort-dropdown-title";
-    private static final String MY_ORDER_SORT_BY_OPTION = "#sort-dropdown-custom";
+    private static final String MOVE_TO_OPTION = "div.options.actions button:nth-child(6)";
+    private static final String FOLDER_TYPE = " .info.type.persistent";
+    private static final String ACTIONS_DROPDOWN_OPTIONS = "[class='action-dropdown'] [class='options actions']";
 
     public CurriculumManagerPage(WebDriver driver) {
         super(driver);
@@ -63,24 +64,24 @@ public class CurriculumManagerPage extends LpUiBasePage {
         waitUntilElementIsHidden(REFRESH_ICON);
     }
 
-    public boolean isActionsDropdownDisplayed() {
-        return isElementDisplayed(ACTIONS_DROPDOWN);
+    public boolean isMyUploadsFolderActionsDropdownDisplayed() {
+        return isElementVisible(MY_UPLOADS_FOLDER_ACTIONS_DROPDOWN);
     }
 
     public void clickOnActionsDropdown() {
         clickElement(ACTIONS_DROPDOWN);
     }
 
-    public void hoverOverPlayButton() {
-        hoverOverElement(PLAY_BUTTON, true);
+    public void hoverOverPlayCollectionButton() {
+        hoverOverElement(PLAY_COLLECTION_BUTTON);
     }
 
-    public void clickOnPlayButton() {
-        clickElement(PLAY_BUTTON);
+    public void clickOnPlayCollectionButton() {
+        clickElement(PLAY_COLLECTION_BUTTON);
     }
 
-    public void hoverOverShareButton() {
-        hoverOverElement(SHARE_BUTTON, true);
+    public void clickOnPlayFavoriteButton() {
+        clickElement(PLAY_RESOURCE_BUTTON);
     }
 
     public void hoverOverPublishButton() {
@@ -99,7 +100,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
         clickElement(DELETE_BUTTON);
     }
 
-    public void clickOnCopyCollectionButton() {
+    public void clickOnCopyToButton() {
         clickElement(CLONE_BUTTON);
     }
 
@@ -165,29 +166,29 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return getTextForElement(MY_FAVORITES_FOLDER_ROW + RESOURCE_STATUS);
     }
 
-    public void clickOnACollectionFolder() {
-        findElement('#' + getElementId(COLLECTION_ROW) + RESOURCE_TITLE).click();
+    public void clickOnAFolder() {
+        findElement('#' + getElementId(FOLDER_ROW) + RESOURCE_TITLE).click();
     }
 
-    public boolean isResourceInCollectionDisplayed() {
+    public boolean isResourceInFolderDisplayed() {
         return isElementDisplayed('#' + getElementId(RESOURCE_ROW) + RESOURCE_TITLE);
     }
 
-    public String getCollectionFolderTitle() {
-        return getTextForElement('#' + getElementId(COLLECTION_ROW) + RESOURCE_TITLE);
+    public String getFolderTitle() {
+        return getTextForElement('#' + getElementId(FOLDER_ROW) + RESOURCE_TITLE);
     }
 
-    public String getCollectionFolderStatus() {
-        return getTextForElement('#' + getElementId(COLLECTION_ROW) + COLLECTION_STATUS);
+    public String getFolderType() {
+        return getTextForElement('#' + getElementId(FOLDER_ROW) + FOLDER_TYPE);
     }
 
-    public String getCollectionFolderItemNumber() {
-        return getTextForElement('#' + getElementId(COLLECTION_ROW) + ITEM_NUMBER);
+    public String getFolderItemNumber() {
+        return getTextForElement('#' + getElementId(FOLDER_ROW) + ITEM_NUMBER);
     }
 
-    public void clickOnCreateACollectionButton() {
+    public void clickOnCreateAFolderButton() {
         waitForNotificationToDisappear();
-        clickElement(CREATE_A_COLLECTION_BUTTON);
+        clickElement(CREATE_A_FOLDER_BUTTON);
         waitForLoad();
     }
 
@@ -195,8 +196,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
         clickElement(UPLOAD_RESOURCE_BUTTON);
     }
 
-    public void clickOnShowMoreAndLessButton() {
-        clickElement(SHOW_MORE_AND_LESS_BUTTON);
+    public void clickOnShowAndHideDetailsButton() {
+        clickElement(SHOW_AND_HIDE_DETAILS_BUTTON);
     }
 
     public boolean isStatusColumnDisplayed() {
@@ -223,31 +224,36 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return isElementDisplayed(DATE_SORT_BY_OPTION);
     }
 
-    public boolean isMyOrderOptionDisplayed() {
-        return isElementDisplayed(MY_ORDER_SORT_BY_OPTION);
-    }
-
-    public boolean isFacebookOptionDisplayed() {
-        return isElementDisplayed(FACEBOOK_OPTION);
-    }
-
-    public boolean isTwitterOptionDisplayed() {
-        return isElementDisplayed(TWITTER_OPTION);
-    }
-
-    public boolean isPinterestOptionDisplayed() {
-        return isElementDisplayed(PINTEREST_OPTION);
-    }
-
-    public boolean isEmailOptionDisplayed() {
-        return isElementDisplayed(EMAIL_OPTION);
-    }
-
-    public boolean isLinkOptionDisplayed() {
-        return isElementDisplayed(LINK_OPTION);
-    }
-
     public boolean isPublishButtonDisplayed() {
         return isElementDisplayed(PUBLISH_BUTTON);
+    }
+
+    public void clickOnMoveToOption() {
+        clickElement(MOVE_TO_OPTION);
+    }
+
+    public void hoverOverPlayButton() {
+        hoverOverElement(PLAY_COLLECTION_BUTTON);
+    }
+
+    public void hoverOverActionsDropdown() {
+        hoverOverElement(ACTIONS_DROPDOWN);
+    }
+
+    public String getFolderStatus() {
+        return getTextForElement('#' + getElementId(FOLDER_ROW) + FOLDER_STATUS);
+    }
+
+    public int getFoldersNumber() {
+        final List<WebElement> foldersNumber = findElements(FOLDER_ROW);
+        return foldersNumber.size();
+    }
+
+    public void hoverOverAssignButton() {
+        hoverOverElement(ASSIGN_BUTTON, false);
+    }
+
+    public boolean isActionsDropdownOptionsDisplayed() {
+        return isElementDisplayed(ACTIONS_DROPDOWN_OPTIONS);
     }
 }

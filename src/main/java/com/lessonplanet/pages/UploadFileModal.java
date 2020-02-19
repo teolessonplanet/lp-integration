@@ -18,8 +18,8 @@ public class UploadFileModal extends LpUiBasePage {
     private static final String UPLOAD_BUTTON = "[class*='fa-upload mr5']";
     private static final String DONE_BUTTON = "[class*='btn-primary done']";
 
-    private static final String COLLECTION_DROPDOWN = "#s2id_document_collection_id";
-    private static final String COLLECTION_DROPDOWN_INPUT = "#select2-drop [class='select2-results'] li:nth-child(1)";
+    private static final String FOLDER_DROPDOWN = "#s2id_document_collection_id";
+    private static final String FOLDER_DROPDOWN_INPUT = "#select2-drop [class='select2-results'] li:nth-child(1)";
 
     public UploadFileModal(WebDriver driver) {
         super(driver);
@@ -57,8 +57,8 @@ public class UploadFileModal extends LpUiBasePage {
         clickElement(DONE_BUTTON);
     }
 
-    public void selectCollection() {
-        clickElement(COLLECTION_DROPDOWN);
-        clickElement(COLLECTION_DROPDOWN_INPUT);
+    public void selectFolder() {
+        clickElement(FOLDER_DROPDOWN);
+        clickElement(FOLDER_DROPDOWN_INPUT);
     }
 }

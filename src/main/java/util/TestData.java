@@ -76,18 +76,17 @@ public class TestData {
     public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
     public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
-    public static final String CREATED_MESSAGE = "was created.";
+    public static final String CREATED_MESSAGE = "was created";
     public static final String DELETED_MESSAGE = "was deleted";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
     public static final String NEW_COLLECTION_NAME = "Test Collection";
+    public static final String NEW_FOLDER_NAME = "Test Folder";
     public static final String EDIT_TITLE = "-edit";
-    public static final String EDIT_COLLECTION_NAME = NEW_COLLECTION_NAME + EDIT_TITLE;
     public static final String UPLOAD_RESOURCE_TITLE = "test-upload-file";
     public static final String UPLOAD_RESOURCE_EDIT_TITLE = UPLOAD_RESOURCE_TITLE + EDIT_TITLE;
-    public static final String[] collectionName = {"Collection 1", "Collection 2", "Collection 3", "Collection 4"};
-    public static final String COPIED_COLLECTION_NAME = "Copy of " + EDIT_COLLECTION_NAME;
+    public static final String COPIED_FOLDER_NAME = "Copy of " + NEW_FOLDER_NAME;
     public static final String NEW_COLLECTION_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 ";
     public static final String PUBLISH_RESOURCE_TITLE = "test publish resource";
     public static final String EDIT_COLLECTION_GRADE_HIGHER_ED = "Higher Ed";
@@ -111,6 +110,15 @@ public class TestData {
     public static final String RATING = "5.0";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
+    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons" , "Assessment Sets", "Unit Modules"};
+    public static final String MOVED_MESSAGE = "was moved";
+    public static final String PLAY_FOLDER_POPOVER_TEXT = "Only collections can be viewed in the Player";
+    public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
+    public static final String PUBLISH_FOLDER_POPOVER_TEXT = "Only collections can be published";
+    public static final String ASSIGN_FOLDER_POPOVER_TEXT = "Only collections can be assigned in the Player";
+    public static final String LESSON_FOLDER_TYPE = "Lesson";
+    public static final String CHAPTER_FOLDER_TYPE = "Chapter";
+    public static final String COLLECTION_FOLDER_TYPE = "Collection";
 
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";

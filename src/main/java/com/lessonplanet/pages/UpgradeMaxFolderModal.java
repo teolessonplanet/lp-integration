@@ -2,14 +2,14 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class UpgradeMaxCollectionModal extends LpUiBasePage {
+public class UpgradeMaxFolderModal extends LpUiBasePage {
 
     private static final String UPGRADE_MODAL = "#collection-limit-hit-modal";
     private static final String UPGRADE_MODAL_TEXT = "#collection-limit-hit-modal [class='modal-body']";
     private static final String UPGRADE_ME_BUTTON = "#collection-limit-hit-modal [href='/subscription/new']";
     private static final String CLOSE_BUTTON = "[class='modal-dialog'] [class='close']";
 
-    public UpgradeMaxCollectionModal(WebDriver driver) {
+    public UpgradeMaxFolderModal(WebDriver driver) {
         super(driver);
     }
 
