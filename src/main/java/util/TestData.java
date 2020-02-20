@@ -34,6 +34,7 @@ public class TestData {
     //Collection Builder
     public static final String EXISTING_RESOURCE_COLLECTION_ERROR_TEXT = "Resource already in collection";
     public static final String COLLECTION_BUILDER_LINK = "https://en.wikipedia.org/wiki/World_War_I";
+    public static final String DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT = "Resource publishing is not yet available for your Site License";
 
     //Curriculum Calendar Page
     public static final String SEARCH_PAGE_PATH = "search?keywords=";

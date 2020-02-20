@@ -312,14 +312,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             testUpgradeModalFromUploadButton();
         } else {
-            testUpload(false);
+            testUpload(false, accountPlanText);
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
             testIsUploadResourceDisplayed();
         }
     }
 
-    public void testUpload(boolean existingFolder) {
+    public void testUpload(boolean editCollection, String accountPlanText) {
         uploadFileModal.waitForModal();
         File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + "test-upload-file.png");
         uploadFileModal.uploadUsingTextInput(file.getPath());
@@ -327,10 +327,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
         uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
         uploadFileModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        if (existingFolder) {
+        if (!editCollection) {
             uploadFileModal.selectFolder();
         }
         uploadFileModal.clickOnUploadButton();
+        if(accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !editCollection){
+            uploadFileModal.hoverOverDisabledPublishButton();
+            Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
+        }
         uploadFileModal.clickOnDoneButton();
     }
 

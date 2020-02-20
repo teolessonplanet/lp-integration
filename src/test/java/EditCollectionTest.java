@@ -186,7 +186,7 @@ public class EditCollectionTest extends BaseTest {
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
         } else {
-            curriculumManagerTest.testUpload(false);
+            curriculumManagerTest.testUpload(true, accountPlanText);
         }
 
         editCollectionPage.clickOnAddItemsDropdown();

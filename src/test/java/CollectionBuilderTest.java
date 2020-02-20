@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -26,6 +27,10 @@ public class CollectionBuilderTest extends BaseTest {
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private StepTwoPage stepTwoPage;
 
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
+    }
 
     @BeforeMethod
     public void beforeMethod() {
@@ -60,7 +65,6 @@ public class CollectionBuilderTest extends BaseTest {
     @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
     public void testLessonp_4378() {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(TestData.INVALID_EMAIL);
         discoverResourcesPage.refreshPageAndDismissBrowserAlert();
@@ -136,7 +140,7 @@ public class CollectionBuilderTest extends BaseTest {
         testCollectionBuilderItem();
     }
 
-    private void testDragAndDropItem(String accountPlanText) {
+    public void testDragAndDropItem(String accountPlanText) {
         if (accountPlanText.equals(TestData.INVALID_EMAIL) || accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
             browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
@@ -150,13 +154,15 @@ public class CollectionBuilderTest extends BaseTest {
         }
     }
 
-    private void testDragAndDropMaxItemsInsideCollection(String accountPlanText) {
+    public void testDragAndDropMaxItemsInsideCollection(String accountPlanText) {
         switch (accountPlanText) {
             case TestData.INVALID_EMAIL:
                 List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 dismissBecomeALessonPlanetFreeMemberModal();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT);
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
                 for (int i = 1; i <= 2; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                     if (becomeALessonPlanetFreeMemberModal.isModalDisplayed()) {
@@ -168,11 +174,11 @@ public class CollectionBuilderTest extends BaseTest {
                 break;
             case TestData.FREE_MEMBERSHIP_TEXT:
                 List<WebElement> getFreeAccessResources1 = discoverResourcesPage.getAllFreeAccessButtons();
-                discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                for (int i = 1; i <= 9; i++) {
+                for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(i), collectionBuilderPage.getCollectionDroppableZone());
                 }
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
+                discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 accountManagementTest.reachAccountManagementPage(webDriver);
                 accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
                 discoverResourcesPage.goBackOnePage();
@@ -180,25 +186,25 @@ public class CollectionBuilderTest extends BaseTest {
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 break;
             case TestData.STARTER_OPTION_TEXT:
+            case TestData.VALID_EMAIL_RSL_SBCEO:
                 List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
-                discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-
-                for (int i = 1; i <= 9; i++) {
+                for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFullReviewResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                 }
                 collectionBuilderPage.waitForLoadingIconToDisappear();
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
+                discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 11);
                 break;
         }
     }
 
-    private void dismissBecomeALessonPlanetFreeMemberModal() {
+    public void dismissBecomeALessonPlanetFreeMemberModal() {
         becomeALessonPlanetFreeMemberModal.waitForModal();
         becomeALessonPlanetFreeMemberModal.clickOnCloseModalButton();
     }
 
-    private void testMyResourcesButton(String accountPlanText) {
+    public void testMyResourcesButton(String accountPlanText) {
         collectionBuilderPage.isMyResourcesButtonDisplayed();
         if (accountPlanText.equals(TestData.INVALID_EMAIL)) {
             collectionBuilderPage.clickOnMyResources();
@@ -210,7 +216,7 @@ public class CollectionBuilderTest extends BaseTest {
         }
     }
 
-    private void testCollectionBuilderButtons(String accountPlanText) {
+    public void testCollectionBuilderButtons(String accountPlanText) {
         collectionBuilderPage.isMyCollectionDropdownDisplayed();
         collectionBuilderPage.isEditCollectionButtonDisplayed();
         collectionBuilderPage.isUploadButtonDisplayed();
@@ -235,17 +241,20 @@ public class CollectionBuilderTest extends BaseTest {
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
             testAddLink();
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
             collectionBuilderPage.clickUploadButton();
             curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
             if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
                 curriculumManagerPageTest.testUpgradeModalFromUploadButton();
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
             } else {
-                curriculumManagerPageTest.testUpload(true);
+                curriculumManagerPageTest.testUpload(false, accountPlanText);
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 2);
             }
         }
     }
 
-    private void testCollectionBuilderItem() {
+    public void testCollectionBuilderItem() {
         String collectionBuilderItemTitle = collectionBuilderPage.getCollectionBuilderItemTitle(0);
         int collectionBuilderItemsNumber = collectionBuilderPage.getCollectionBuilderItemsNumber();
         collectionBuilderPage.clickOnCollectionBuilderItem(0);
@@ -271,21 +280,20 @@ public class CollectionBuilderTest extends BaseTest {
         Assert.assertTrue(collectionBuilderPage.isSignUpPopupLinkDisplayed());
     }
 
-    private void testMaxCollectionCreated(String accountPlanText) {
+    public void testMaxCollectionCreated(String accountPlanText) {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnCreateNewFolder();
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             upgradeMaxFolderModal.waitForModal();
             upgradeMaxFolderModal.clickOnCloseButton();
-            ;
         } else {
             createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
             createNewFolderModal.clickOnCreateFolderButton();
         }
     }
 
-    private void testAddLink() {
+    public void testAddLink() {
         collectionBuilderPage.clickAddALinkButton();
         collectionBuilderPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
         collectionBuilderPage.typeName(TestData.NEW_FOLDER_NAME);
