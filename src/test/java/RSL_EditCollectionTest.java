@@ -19,28 +19,28 @@ public class RSL_EditCollectionTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
-    public void testLessonp_5279() {
+    @Test(description = "Regular SL - Edit Collection - lessonp-5617: Edit Collection Modal Appearance")
+    public void testLessonp_5617() {
         editCollectionTest.testEditCollectionAppearance(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance")
-    public void testLessonp_5169() {
+    @Test(description = "Regular SL - Edit Collection - lessonp-5618: Edit Collection Static Page Appearance")
+    public void testLessonp_5618() {
         editCollectionTest.testEditCollectionAppearance(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5261: Publish. Republish")
-    public void testLessonp_5261() {
+    @Test(description = "Regular SL - Edit Collection - lessonp-5619: Publish. Republish")
+    public void testLessonp_5619() {
         editCollectionTest.testPublishFromEditCollection();
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-497: Edit Collection Buttons")
-    public void testLessonp_497() {
+    @Test(description = "Regular SL - Edit Collection - lessonp-5620: Edit Collection Buttons")
+    public void testLessonp_5620() {
         editCollectionTest.testEditCollectionButtons(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5263: Item Options")
-    public void testLessonp_5263() {
+    @Test(description = "Regular SL - Edit Collection - lessonp-5621: Item Options")
+    public void testLessonp_5621() {
         editCollectionTest.testItemOptions();
     }
 }
