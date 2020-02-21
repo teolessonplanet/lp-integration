@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -76,10 +77,22 @@ public class EditCollectionTest extends BaseTest {
         testEditCollectionButtons(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    @Test(description = "Active Users - Edit Collection - lessonp-571: Edit Collection Buttons")
-    public void testLessonp_571() {
+    @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons")
+    public void testLessonp_5272() {
         stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
         testEditCollectionButtons(TestData.STARTER_OPTION_TEXT);
+    }
+
+    @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
+    public void testLessonp_5639() {
+        stepTwoPage.createNewAccount(TestData.PRIME_OPTION_TEXT);
+        testEditCollectionButtons(TestData.PRIME_OPTION_TEXT);
+    }
+
+    @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
+    public void testLessonp_5640() {
+        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        testEditCollectionButtons(TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options")
@@ -94,13 +107,18 @@ public class EditCollectionTest extends BaseTest {
         testItemOptions();
     }
 
-    private void testCreateCollectionSearchPage() {
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
+    }
+
+    public void testCreateCollectionSearchPage() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
     }
 
-    private void testEditCollectionAppearance(String accountPlanText, boolean inANewTab) {
+    public void testEditCollectionAppearance(String accountPlanText, boolean inANewTab) {
         testCreateCollectionSearchPage();
         if (!inANewTab) {
             collectionBuilderPage.clickOnEditCollection(false);
@@ -126,7 +144,7 @@ public class EditCollectionTest extends BaseTest {
         }
     }
 
-    private void testPublishFromEditCollection() {
+    public void testPublishFromEditCollection() {
         testCreateCollectionSearchPage();
         collectionBuilderPage.clickOnEditCollection(false);
         for (int i = 0; i < 2; i++) {
@@ -146,7 +164,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionModal.getDisabledPublishCollectionPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
     }
 
-    private void testEditCollectionButtons(String accountPlanText) {
+    public void testEditCollectionButtons(String accountPlanText) {
         testCreateCollectionSearchPage();
         collectionBuilderPage.clickOnEditCollection(true);
         testAddItemsDropdown(accountPlanText);
@@ -155,7 +173,7 @@ public class EditCollectionTest extends BaseTest {
         testMyCollectionsDropdown();
     }
 
-    private void testCreateAPage() {
+    public void testCreateAPage() {
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickOnCreateAPageOption();
         editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
@@ -165,7 +183,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertEquals(editCollectionModal.getCollectionItemTitle(0), TestData.PAGE_TITLE);
     }
 
-    private void testAddItemsDropdown(String accountPlanText) {
+    public void testAddItemsDropdown(String accountPlanText) {
         editCollectionPage.clickOnAddItemsDropdown();
         Assert.assertTrue(editCollectionPage.isAddALinkOptionDisplayed());
         Assert.assertTrue(editCollectionPage.isUploadAFileOptionDisplayed());
@@ -231,7 +249,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.DISCOVER_RESOURCES_PAGE_PATH));
     }
 
-    private void testCollectionActionsDropdown(String accountPlanText) {
+    public void testCollectionActionsDropdown(String accountPlanText) {
         collectionBuilderPage.clickOnEditCollection(true);
         editCollectionPage.clickCollectionActionsDropdown();
         Assert.assertTrue(editCollectionPage.isPlayCollectionOptionDisplayed());
@@ -242,8 +260,8 @@ public class EditCollectionTest extends BaseTest {
         rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
         editCollectionPage.clickCollectionActionsDropdown();
         editCollectionPage.clickAssignCollectionOption();
-        if (accountPlanText.equals(TestData.PRO_OPTION_TEXT)) {
-            curriculumManagerTest.testAssignResource(accountPlanText, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
+        if (accountPlanText.equals(TestData.PRO_OPTION_TEXT) || accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            curriculumManagerTest.testAssignModal(TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         } else {
             curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
         }
@@ -255,14 +273,14 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionHeader(), TestData.COPIED_FOLDER_NAME);
     }
 
-    private void testMyResourcesButton() {
+    public void testMyResourcesButton() {
         editCollectionPage.clickOnMyResourcesButton();
         curriculumManagerPage.waitForLoad();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
         curriculumManagerPage.goBackOnePage();
     }
 
-    private void testMyCollectionsDropdown() {
+    public void testMyCollectionsDropdown() {
         editCollectionPage.clickMyCollectionDropdown();
         Assert.assertTrue(editCollectionPage.isCreateNewCollectionButtonDisplayed());
         Assert.assertEquals(editCollectionPage.getActiveCollectionFromMyCollectionDropdown(), TestData.COPIED_FOLDER_NAME);
@@ -271,7 +289,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertEquals(createNewFolderModal.getTitle(), TestData.CREATE_A_NEW_COLLECTION_TITLE);
     }
 
-    private void testItemOptions() {
+    public void testItemOptions() {
         testCreateCollectionSearchPage();
         collectionBuilderPage.clickOnEditCollection(false);
         testCreateAPage();
