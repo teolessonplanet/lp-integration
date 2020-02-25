@@ -308,6 +308,9 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testUploadResourceUsingTextInput(String accountPlanText) {
         curriculumManagerPage.loadPage();
+        if(!accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)){
+            testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
+        }
         curriculumManagerPage.clickOnUploadResourceButton();
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             testUpgradeModalFromUploadButton();
