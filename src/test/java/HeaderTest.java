@@ -47,6 +47,11 @@ public class HeaderTest extends BaseTest {
         testHeaderButtons(TestData.VALID_EMAIL_ACTIVE);
     }
 
+    @Test(description = "Admin - Header - lessonp-5660: Header buttons")
+    public void testLessonp_5660() {
+        testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
+    }
+
     @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
     public void testLessonp_4004() {
         testSearchBoxKeywordFunctionality(TestData.INVALID_EMAIL);
@@ -77,9 +82,11 @@ public class HeaderTest extends BaseTest {
 
         testLogo(account);
 
-        testResourcesButton(account);
+        testDiscoverButton(account);
 
-        testSolutionsButton();
+        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+            testSolutionsButton();
+        }
 
         testAboutButton(account);
 
@@ -117,36 +124,42 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
     }
 
-    private void testResourcesButton(String account) {
+    private void testDiscoverButton(String account) {
         lpHomePage.loadPage();
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnDiscoverResourcesButton();
         Assert.assertEquals(TestData.DISCOVER_RESOURCES_PAGE_PATH, headerPage.getPath());
 
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnBrowseResourceDirectoryButton();
         Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH, headerPage.getPath());
 
         if (account.equals(TestData.INVALID_EMAIL)) {
-            headerPage.hoverOverResourcesButton();
+            headerPage.hoverOverDiscoverButton();
             headerPage.hoverOverCurriculumManagerButton();
             Assert.assertTrue(headerPage.isSignInPopupLinkDisplayed());
             Assert.assertTrue(headerPage.isSignUpPopupLinkDisplayed());
             lpHomePage.loadPage();
         } else {
-            headerPage.hoverOverResourcesButton();
+            headerPage.hoverOverDiscoverButton();
             headerPage.clickOnCurriculumManagerButton();
             Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
         }
 
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnCurriculumCalendarButton();
         Assert.assertEquals(TestData.CURRICULUM_CALENDAR_PAGE_PATH, headerPage.getPath());
 
         if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            headerPage.hoverOverResourcesButton();
+            headerPage.hoverOverDiscoverButton();
             headerPage.clickOnLessonPlanningArticlesButton();
             Assert.assertEquals(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH, headerPage.getPath());
+        }
+
+        if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+            headerPage.hoverOverDiscoverButton();
+            headerPage.clickOnPdLearningNetworkDiscoverButton();
+            Assert.assertEquals(TestData.EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH, headerPage.getPath());
         }
     }
 
@@ -159,11 +172,12 @@ public class HeaderTest extends BaseTest {
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
         headerPage.clickOnLearningExplorer();
-        Assert.assertEquals(headerPage.getPath(), TestData.LEARNING_EXPLORER_PATH);
+        headerPage.waitForLinkToLoad();
+        Assert.assertEquals(headerPage.getUrl(), TestData.LEARNING_EXPLORER_URL);
 
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
-        headerPage.clickOnPdLearningNetworkButton();
+        headerPage.clickOnPdLearningNetworkSolutionsButton();
         Assert.assertEquals(headerPage.getPath(), TestData.PD_LEARNING_NETWORK_PATH);
     }
 
@@ -258,17 +272,8 @@ public class HeaderTest extends BaseTest {
         footerPage.clickOnCopyRightText();
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
         headerPage.clickOnClearSearchButton();
-        Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
-        if(account.equals(TestData.VALID_EMAIL_ADMIN)){
-            headerPage.clickOnSearchFilterButton();
-            headerPage.setSearchFilter(TestData.SEARCH_FILTER_EDTECHPD_VIDEOS_AND_COURSES);
-            Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_ED_TECH_PD_TEXT);
-            headerPage.typeSearchText(TestData.VALID_SEARCH_WORD);
-            headerPage.clickOnSearchButton();
-            Assert.assertTrue(headerPage.getPath().contains(TestData.SEARCH_EDTECH_PAGE_PATH));
-            headerPage.goBackOnePage();
-            Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
-        }
+        Assert.assertEquals(headerPage.getSearchBoxPlaceholder(),TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
+
 
         headerPage.typeSearchText(TestData.VALID_SEARCH_WORD);
         headerPage.clickOnSearchButton();

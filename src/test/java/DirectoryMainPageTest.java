@@ -102,7 +102,7 @@ public class DirectoryMainPageTest extends BaseTest {
     }
 
     protected void testPageUi() {
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnBrowseResourceDirectoryButton();
 
         directoryPage.clickOnHealthSubjectLink();

@@ -279,7 +279,7 @@ public class SearchTest extends BaseTest {
             Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         } else {
             // https://lessonplanet.atlassian.net/browse/BC-2923 -> temporary fix // TODO: remove hack fix
-            headerPage.hoverOverResourcesButton();
+            headerPage.hoverOverDiscoverButton();
             headerPage.clickOnDiscoverResourcesButton();
             Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_RESOURCES_MESSAGE);
             discoverResourcesPage.clickOnThumbnailView();
