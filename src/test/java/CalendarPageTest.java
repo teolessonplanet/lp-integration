@@ -45,7 +45,7 @@ public class CalendarPageTest extends BaseTest {
 
     protected void testCurriculumCalendarPage(String account) {
         lpHomePage.loadPage();
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnCurriculumCalendarButton();
         testMonthPage(TestData.getCurrentMonth(), account);
         for (int i = TestData.getCurrentMonth() + 1; i < 12; i++) {

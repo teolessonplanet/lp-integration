@@ -14,7 +14,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
     private static final String SIGN_IN_BUTTON = "[class='lp-sign-in'] a";
 
-    private static final String RESOURCES_BUTTON = "[class='lp-resources']";
+    private static final String DISCOVER_BUTTON = "[class='lp-resources']";
     private static final String DISCOVER_RESOURCES_BUTTON = "[class='lp-resources'] [href='/search']";
     private static final String BROWSE_RESOURCE_DIRECTORY = "[class='lp-resources'] [href='/lesson-plans']";
     private static final String CURRICULUM_MANAGER_BUTTON = "#curriculum-manager-menu-item";
@@ -22,11 +22,12 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SIGN_UP_POPUP = "[class='lp-sign-up-popup-link']";
     private static final String CURRICULUM_CALENDAR_BUTTON = "[class='lp-resources'] [href='/calendar']";
     private static final String LESSON_PLANNING_ARTICLES_BUTTON = "[class='lp-resources'] [href='/articles']";
+    private static final String PD_LEARNING_NETWORK_DISCOVER_BUTTON = "[class='lp-resources'] [href='/professional-development/courses']";
 
     private static final String SOLUTIONS_BUTTON = "[class='lp-solutions']";
     private static final String EDUCATOR_EDITION_BUTTON = "[class='lp-solutions-ee']";
     private static final String LEARNING_EXPLORER_BUTTON = "[class='lp-solutions-se']";
-    private static final String PD_LEARNING_NETWORK_BUTTON = "[class='lp-solutions-se-pd']";
+    private static final String PD_LEARNING_NETWORK_SOLUTIONS_BUTTON = "[class='lp-solutions-se-pd']";
 
     private static final String ABOUT_BUTTON = "[class='lp-about']";
     private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
@@ -98,8 +99,8 @@ public class HeaderPage extends LpUiBasePage {
         return isElementClickable(SIGN_IN_BUTTON);
     }
 
-    public void hoverOverResourcesButton() {
-        hoverOverElement(RESOURCES_BUTTON, true);
+    public void hoverOverDiscoverButton() {
+        hoverOverElement(DISCOVER_BUTTON, true);
     }
 
     public void clickOnDiscoverResourcesButton() {
@@ -147,8 +148,8 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(LEARNING_EXPLORER_BUTTON);
     }
 
-    public void clickOnPdLearningNetworkButton() {
-        clickElement(PD_LEARNING_NETWORK_BUTTON);
+    public void clickOnPdLearningNetworkSolutionsButton() {
+        clickElement(PD_LEARNING_NETWORK_SOLUTIONS_BUTTON);
     }
 
     public void hoverOverAboutButton() {
@@ -243,8 +244,8 @@ public class HeaderPage extends LpUiBasePage {
             isElementDisplayed(SEARCH_FILTER);
     }
 
-    public boolean isResourcesDropdownDisplayed() {
-        return isElementDisplayed(RESOURCES_BUTTON);
+    public boolean isDiscoverDropdownDisplayed() {
+        return isElementDisplayed(DISCOVER_BUTTON);
     }
 
     public boolean isSolutionDropdownDisplayed() {
@@ -285,5 +286,9 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnClearSearchButton() {
         clickElement(SEARCH_CLEAR_SEARCH_BUTTON);
+    }
+
+    public void clickOnPdLearningNetworkDiscoverButton() {
+        clickElement(PD_LEARNING_NETWORK_DISCOVER_BUTTON);
     }
 }

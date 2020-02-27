@@ -382,12 +382,10 @@ public class TestData {
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
     public static final String SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE = "Showing all reviewed resources";
     public static final String SHOWING_ALL_RESOURCES_MESSAGE = "Showing all resources";
-    public static final String SEARCH_BOX_PLACEHOLDER_TEXT = "Search 350K+ Teacher Reviewed Resources Including Lesson Plans, Worksheets, Apps, & More";
+    public static final String SEARCH_BOX_PLACEHOLDER_TEXT = "Search educational resources";
 
     public static final String REGULAR_RESOURCE_TYPE = "Resource";
     public static final String SHARED_RESOURCE_TYPE = "Drive::Document";
-
-    public static final String SEARCH_BOX_PLACEHOLDER_ED_TECH_PD_TEXT = "EdTech PD Videos & Courses: What would you like to learn today?";
 
     //Footer
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
@@ -418,9 +416,10 @@ public class TestData {
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_CALENDAR_PAGE_PATH = "calendar";
     public static final String LESSON_PLANNING_ARTICLES_PAGE_PATH = "articles";
+    public static final String EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH = "professional-development/courses";
 
     public static final String EDUCATOR_EDITION_PAGE_PATH = "educator-edition";
-    public static final String LEARNING_EXPLORER_PATH = "learning-explorer";
+    public static final String LEARNING_EXPLORER_URL= "https://www.learningexplorer.com/";
     public static final String PD_LEARNING_NETWORK_PATH = "pdln";
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
@@ -554,7 +553,6 @@ public class TestData {
     public static final String SELECT_GRADE_TEXT = "Select Grade";
 
     public static final String SEARCH_FILTER_REVIEWED_RESOURCES = "Reviewed Resources";
-    public static final String SEARCH_FILTER_EDTECHPD_VIDEOS_AND_COURSES = "EdTechPD Videos & Courses";
     public static final String SEARCH_FILTER_COMMON_CORE_STATE_STANDARDS = "Common Core State Standards";
 
     public static final String SEARCH_STANDARDS_STANDARD_OPTION_COMMON_CORE = "Common Core";
@@ -606,8 +604,6 @@ public class TestData {
 
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
     public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
-
-    public static final String SEARCH_EDTECH_PAGE_PATH = "professional-development/courses/search?utf8=%E2%9C%93&keywords=";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";

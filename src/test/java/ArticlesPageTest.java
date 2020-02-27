@@ -92,7 +92,7 @@ public class ArticlesPageTest extends BaseTest {
         }
 
         lpHomePage.loadPage();
-        headerPage.hoverOverResourcesButton();
+        headerPage.hoverOverDiscoverButton();
         headerPage.clickOnLessonPlanningArticlesButton();
         Assert.assertEquals(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH, headerPage.getPath());
         Assert.assertEquals(articlesPage.getLessonPlanningArticlesPageTitle(), TestData.LESSON_PLANNING_ARTICLES_TITLE);
