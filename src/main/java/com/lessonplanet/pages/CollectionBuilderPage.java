@@ -19,9 +19,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
     private static final String EDIT_FOLDER_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
 
+    private static final String MY_RESOURCES_SIGN_IN_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold']";
+    private static final String MY_RESOURCES_SIGN_UP_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold text-danger']";
+
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
-
     private static final String UPLOAD_BUTTON = "div[class*='upload'] [class*='fa-upload']";
 
     private static final String ADD_A_LINK_BUTON = "[class*='add-link']";
@@ -42,6 +44,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void clickOnDropdown() {
+        scrollToElement(CREATE_OR_OPEN_DROPDOWN);
         clickElement(CREATE_OR_OPEN_DROPDOWN);
     }
 
@@ -54,10 +57,12 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void clickOnMyResources() {
+        scrollToElement(MY_RESOURCES_BUTTON);
         clickElement(MY_RESOURCES_BUTTON);
     }
 
     public void clickOnEditFolder(boolean inANewTab) {
+        scrollToElement(EDIT_FOLDER_BUTTON);
         openInANewTabOrClick(EDIT_FOLDER_BUTTON, inANewTab);
     }
 
@@ -65,11 +70,20 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementClickable(SIGN_IN_POPUP);
     }
 
+    public boolean isMyResourcesButtonSignInPopupLinkDisplayed() {
+        return isElementClickable(MY_RESOURCES_SIGN_IN_POPUP);
+    }
+
+    public boolean isMyResourcesButtonSignUpPopupLinkDisplayed() {
+       return isElementClickable(MY_RESOURCES_SIGN_UP_POPUP);
+    }
+
     public boolean isSignUpPopupLinkDisplayed() {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
     public void clickUploadButton() {
+        scrollToElement(UPLOAD_BUTTON);
         clickElement(UPLOAD_BUTTON);
     }
 

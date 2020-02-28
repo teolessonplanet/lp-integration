@@ -408,6 +408,12 @@ public class EditCollection extends CreateNewFolderModal {
         return getTextForElement(FOLDER_PUBLISH_STATUS_TEXT);
     }
 
+    public String getPublishedFolderMonth() {
+        if (TestData.getCurrentMonth() < 10) {
+            return String.format("%02d", TestData.getCurrentMonth());
+        } else return String.format("%01d", TestData.getCurrentMonth());
+    }
+
     public boolean isWhatIsPublishingLinkDisplayed() {
         return isElementDisplayed(WHAT_IS_PUBLISHING_LINK);
     }
