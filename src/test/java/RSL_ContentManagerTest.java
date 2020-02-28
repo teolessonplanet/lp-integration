@@ -1,7 +1,5 @@
-import com.lessonplanet.pages.HeaderPage;
-import com.lessonplanet.pages.LoginPage;
-import com.lessonplanet.pages.RSL_ContentManagerPage;
-import com.lessonplanet.pages.RrpPage;
+import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -26,11 +24,16 @@ public class RSL_ContentManagerTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
     }
 
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
+    }
+
     @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
     public void testLessonp_1270() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         reachContentManagerPage();
-        rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
 
         Assert.assertEquals(rsl_contentManagerPage.getTitleText(), TestData.CONTENT_MANAGER_PAGE_TITLE_TEXT);
         Assert.assertEquals(rsl_contentManagerPage.getPageSubtitleText(), TestData.CONTENT_MANAGER_PAGE_SUBTITLE_TEXT);
@@ -57,7 +60,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     public void testLessonp_1271() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         reachContentManagerPage();
-        rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
 
         WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
 
@@ -71,7 +74,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.ACCOUNT_MANAGER_PAGE_PATH) && rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_CONCEPT_REDIRECT_PATH));
 
         reachContentManagerPage();
-        rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
         firstResource = rsl_contentManagerPage.getResourceCards().get(0);
 
         if(rsl_contentManagerPage.isResourceStandardDisplayed(firstResource)) {
