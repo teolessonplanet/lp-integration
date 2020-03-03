@@ -164,9 +164,13 @@ public class TestData {
     public static final String FACET_CONTENT_CURATORS = "Content Curators";
     public static final String FACET_PROVIDERS = "Providers";
     public static final String FACET_PROVIDERS_LESSONPLANET = "Lesson Planet";
+    public static final String FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS = "Henry County Schools";
+    public static final String FACET_PROVIDERS_MCGRAW_HILL_EDUCATION = "McGraw-Hill Education";
+    public static final String FACET_PROVIDERS_CLAIRMONT_PRESS = "Clairmont Press";
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES = "Folder Types";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES = "Unit Modules";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS = "Curriculum Sets";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES = "Collections";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS = "Presentations";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";

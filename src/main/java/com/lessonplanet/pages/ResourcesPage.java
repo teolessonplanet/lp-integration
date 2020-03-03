@@ -17,6 +17,7 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE = "[class*='trk-goto-resource'][href^='/goto/']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL = "[class*='trk-goto-resource'][href^='/pr/goto/']";
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
+    protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
     private static final String SHOW_MORE_BUTTON_FACET = "[class='lp-filter-item'] [class='show-more-facets']";
@@ -82,7 +83,7 @@ public class ResourcesPage extends LpUiBasePage {
     public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option;
 
-        if (optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES)) {
+        if (optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS)) {
             option = getOptionFromLeftSide(widgetCategorySelector, widgetCategoryName, optionNameSelector, TestData.FACET_CATEGORY_RESOURCES_TYPE_FOLDER_TYPES);
             // if SHOW MORE is extended -> leave it
             if (findElements(option, SHOW_MORE_BUTTON_FACET).size() != 0) {
@@ -193,6 +194,10 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickSeeFullReview(boolean inANewTab) {
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
+    }
+
+    public void clickFolderDetails(boolean inANewTab) {
+        clickFirstButtonOfType(FOLDER_DETAILS_BUTTON, inANewTab);
     }
 
     protected void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {

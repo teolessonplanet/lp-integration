@@ -49,6 +49,9 @@ public class Rrp extends LpUiBasePage {
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
     private static final String ADD_TO_FOLDER_BUTTON = "#save-to-collections";
 
+    private static final String OPEN_FOLDER_BUTTON = "[class='pull-left'] a[class*='trk-goto-resource'][href*='/pr/goto/']";
+    private static final String BREADCRUMBS_CONTAINER = "#breadcrumbs-container";
+
     public Rrp(WebDriver driver) {
         super(driver);
     }
@@ -313,5 +316,13 @@ public class Rrp extends LpUiBasePage {
 
     public void waitForNotificationToDisappear() {
         waitUntilElementIsHidden(NOTIFICATION_TEXT);
+    }
+
+    public boolean isOpenFolderButtonDisplayed() {
+        return isElementDisplayed(OPEN_FOLDER_BUTTON);
+    }
+
+    public boolean isBreadcrumbsContainerDisplayed(){
+        return isElementDisplayed(BREADCRUMBS_CONTAINER);
     }
 }
