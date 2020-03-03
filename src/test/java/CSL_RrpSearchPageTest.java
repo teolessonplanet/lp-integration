@@ -96,14 +96,14 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadSearchPageInListView();
 
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_CRAIRMONT_PRESS);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
         resourcesPage.clickSeeFullReview(inANewTab);
 
         Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
         Assert.assertTrue(rrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
         Assert.assertFalse(rrp.isFullReviewDisplayed());
-        Assert.assertEquals(rrp.getResourcePoolName(), TestData.FACET_PROVIDERS_CRAIRMONT_PRESS);
+        Assert.assertEquals(rrp.getResourcePoolName(), TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
 
         testCommonProperties(inANewTab);
     }
