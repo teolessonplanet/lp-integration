@@ -441,7 +441,7 @@ public class TestData {
     public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/organization";
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
-    public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH = "lesson-plans/research/3";
+    public static final String DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH = "lesson-plans/developmental-and-behavioral-disorders";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
     public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_2_PATH = "lesson-plans/research/2";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
@@ -457,7 +457,7 @@ public class TestData {
     public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
     public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nSocial Awareness\nSelf-Management\nSelf-Awareness\nResponsible Decision-Making\nRelationship Skills\nGrowth and Development\nSex Education";
+    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences & Trauma-Informed Practices\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
 
     public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
     public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
@@ -508,7 +508,7 @@ public class TestData {
 
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nSocial Awareness\nSelf-Management\nSelf-Awareness\nResponsible Decision-Making\nRelationship Skills\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences & Trauma-Informed Practices\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental Health\nDental and Personal Hygiene\nHeart Condition\nPhysical Activity\nPersonal Health Management\nHospital\nSubstance Abuse";
     public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
 
