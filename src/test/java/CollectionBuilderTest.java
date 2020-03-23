@@ -218,14 +218,14 @@ public class CollectionBuilderTest extends BaseTest {
 
     public void testCollectionBuilderButtons(String accountPlanText) {
         collectionBuilderPage.isMyCollectionDropdownDisplayed();
-        collectionBuilderPage.isEditCollectionButtonDisplayed();
+        collectionBuilderPage.isEditFolderButtonDisplayed();
         collectionBuilderPage.isUploadButtonDisplayed();
         collectionBuilderPage.isAddALinkButtonDisplayed();
         if (accountPlanText.equals(TestData.INVALID_EMAIL)) {
             collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
-            collectionBuilderPage.clickOnEditCollection(false);
+            collectionBuilderPage.clickOnEditFolder(false);
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickUploadButton();
             testSignInOrJoinNowModal();
@@ -237,7 +237,7 @@ public class CollectionBuilderTest extends BaseTest {
         } else {
             curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
             curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-            collectionBuilderPage.clickOnEditCollection(false);
+            collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
             testAddLink();
@@ -283,7 +283,7 @@ public class CollectionBuilderTest extends BaseTest {
     public void testMaxCollectionCreated(String accountPlanText) {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
-        collectionBuilderPage.clickOnCreateNewFolder();
+        collectionBuilderPage.clickOnCreateNewCollection();
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             upgradeMaxFolderModal.waitForModal();
             upgradeMaxFolderModal.clickOnCloseButton();
@@ -297,7 +297,7 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.clickAddALinkButton();
         collectionBuilderPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
         collectionBuilderPage.typeName(TestData.NEW_FOLDER_NAME);
-        collectionBuilderPage.clickAddToCollectionButton();
+        collectionBuilderPage.clickAddToFolderButton();
         collectionBuilderPage.openResourceInANewTab(0);
         Assert.assertEquals(discoverResourcesPage.getUrl(), TestData.COLLECTION_BUILDER_LINK);
         discoverResourcesPage.closeTab();

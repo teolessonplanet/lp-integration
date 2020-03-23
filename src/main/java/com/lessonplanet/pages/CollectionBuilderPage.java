@@ -7,13 +7,13 @@ import java.util.List;
 
 public class CollectionBuilderPage extends LpUiBasePage {
 
-    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class='dropdown']";
-    private static final String CREATE_NEW_FOLDER_OPTION = "[href='javascript:void(0)']";
+    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
+    private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
 
     private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
-    private static final String EDIT_COLLECTION_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
+    private static final String EDIT_FOLDER_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
 
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
@@ -23,7 +23,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String ADD_A_LINK_BUTON = "[class*='add-link']";
     private static final String URL_FIELD = "[name='collection_item[url]']";
     private static final String NAME_FIELD = "[name='collection_item[title]']";
-    private static final String ADD_TO_COLLECTION_BUTTON = "#js-create-item [class='modal-footer'] [class*='btn-warning']";
+    private static final String ADD_TO_FOLDER_BUTTON = "#js-create-item [class='modal-footer'] [class*='btn-warning']";
 
     private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
     private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class*='cb-item panel']";
@@ -41,8 +41,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(CREATE_OR_OPEN_DROPDOWN);
     }
 
-    public void clickOnCreateNewFolder() {
-        clickElement(CREATE_NEW_FOLDER_OPTION);
+    public void clickOnCreateNewCollection() {
+        clickElement(CREATE_NEW_COLLECTION_OPTION);
     }
 
     public WebElement getCollectionDroppableZone() {
@@ -53,8 +53,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(MY_RESOURCES_BUTTON);
     }
 
-    public void clickOnEditCollection(boolean inANewTab) {
-        openInANewTabOrClick(EDIT_COLLECTION_BUTTON, inANewTab);
+    public void clickOnEditFolder(boolean inANewTab) {
+        openInANewTabOrClick(EDIT_FOLDER_BUTTON, inANewTab);
     }
 
     public boolean isSignInPopupLinkDisplayed() {
@@ -81,8 +81,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementDisplayed(CREATE_OR_OPEN_DROPDOWN);
     }
 
-    public boolean isEditCollectionButtonDisplayed() {
-        return isElementDisplayed(EDIT_COLLECTION_BUTTON);
+    public boolean isEditFolderButtonDisplayed() {
+        return isElementDisplayed(EDIT_FOLDER_BUTTON);
     }
 
     public boolean isCollectionVideoBannerDisplayed() {
@@ -130,8 +130,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return getTextForElement(COLLECTION_BUILDER_ALERT_TEXT);
     }
 
-    public void clickAddToCollectionButton() {
-        clickElement(ADD_TO_COLLECTION_BUTTON);
+    public void clickAddToFolderButton() {
+        clickElement(ADD_TO_FOLDER_BUTTON);
     }
 
     public void typeUrl(String Url) {

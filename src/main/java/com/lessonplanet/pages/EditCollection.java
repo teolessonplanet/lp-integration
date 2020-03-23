@@ -6,31 +6,28 @@ import util.TestData;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-public class EditCollection extends LpUiBasePage {
+public class EditCollection extends CreateNewFolderModal {
 
-    private static final String EDIT_COLLECTION_TITLE = "[class*='edit-title']";
+    private static final String EDIT_FOLDER_TITLE = "[class*='edit-title']";
+    private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
 
-    private static final String COLLECTION_TITLE_INPUT = "[name='collection[title]']";
+    private static final String FOLDER_TITLE_INPUT = "[name='collection[title]']";
     private static final String GRADE_LIST_DROPDOWN = "#s2id_collection_grade_list";
     private static final String GRADE_OPTIONS = "#select2-drop li";
     private static final String SUBJECT_LIST_DROPDOWN = "#s2id_collection_subject_list";
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
     private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
-    private static final String DISABLED_PUBLISH_COLLECTION_BUTTON = "[class*='share-collection disabled']";
-    private static final String ENABLED_PUBLISH_COLLECTION_BUTTON = "[class*='share-collection ok']";
+    private static final String DISABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection disabled']";
+    private static final String ENABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection ok']";
 
-    private static final String MY_COLLECTION_DROPDOWN = "#manage-collections-wrap";
-    private static final String CREATE_NEW_COLLECTION_BUTTON = "[class*='manage-collections-dropdown'] li:nth-child(1)";
-    private static final String ACTIVE_COLLECTION_MY_COLLECTION_DROPDOWN = "[class*='manage-collections-dropdown'] li:nth-child(2) [class='title']";
-    private static final String ACTIVE_COLLECTION_MY_COLLECTION_HEADER = "#crt-col-title";
-
-    private static final String MY_RESOURCES_BUTTON = "#my-resources-button-wrap";
+    private static final String NAVIGATE_FOLDER_DROPDOWN = "#folders-dropdown";
+    private static final String CREATE_NEW_FOLDER_BUTTON = "[class*='manage-collections-dropdown'] li:nth-child(1)";
 
     private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
     private static final String ADD_A_LINK_OPTION = "#js-add-url-btn";
     private static final String ADD_A_LINK_URL_INPUT = "#url";
     private static final String ADD_A_LINK_NAME_FIELD = "[name='collection_item[title]']";
-    private static final String ADD_TO_COLLECTION_BUTTON = "#js-create-item [class*='btn-warning']";
+    private static final String ADD_TO_FOLDER_BUTTON = "#js-create-item [class*='btn-warning']";
     private static final String UPLOAD_A_FILE_OPTION = "#upload-file-button";
     private static final String ADD_PIXABAY_IMAGE_OPTION = "#js-add-pixabay-image-btn";
     private static final String PIXABAY_SUBTITLE = "[class='pixabay-license-title']";
@@ -43,7 +40,7 @@ public class EditCollection extends LpUiBasePage {
     private static final String PIXABAY_IMAGE_LINK = "a[href='https://pixabay.com']";
     private static final String PIXABAY_LEARN_MORE_LINK = "a[href='https://pixabay.com/service/faq']";
     private static final String PIXABAY_IMAGES = "[class*='pixabay-image-container']";
-    private static final String ADD_SELECTED_TO_COLLECTION_BUTTON = "[class*='add-selected']";
+    private static final String ADD_SELECTED_TO_FOLDER_BUTTON = "[class*='add-selected']";
     private static final String PIXABAY_ALERT_TEXT = "[class*='alert-info']";
     private static final String CREATE_A_PAGE_OPTION = "#js-add-page-btn";
     private static final String PAGE_TITLE_INPUT = "[name='page_resource[title]']";
@@ -51,16 +48,17 @@ public class EditCollection extends LpUiBasePage {
     private static final String SAVE_BUTTON = "[class='modal-footer pl25 pr25'] [class='btn btn-primary']";
     private static final String SEARCH_RESOURCES_OPTION = "[href*='/search?keywords=']";
 
-    private static final String COLLECTION_ACTIONS_DROPDOWN = "[class*='collection-actions']";
-    private static final String PLAY_COLLECTION_OPTION = "[href*='/player']";
-    private static final String ASSIGN_COLLECTION_OPTION = "[href*='/assign_modal']";
-    private static final String COPY_THIS_COLLECTION_OPTION = "#js-copy-collection-btn";
+    private static final String ACTIONS_DROPDOWN = "[class*='collection-actions']";
+    private static final String PLAY_FOLDER_OPTION = "[href*='/player']";
+    private static final String ASSIGN_FOLDER_OPTION = "[href*='/assign_modal']";
+    private static final String COPY_THIS_FOLDER_OPTION = "#js-copy-collection-btn";
     private static final String CREATE_COPY_BUTTON = "[class*='btn btn-default btn-primary']";
     private static final String NAME_INPUT =  "#copy-collection-title";
+    private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] [class='my-resources list-option']";
 
-    private static final String COLLECTION_ITEMS = "[class='collection-item-panel panel']";
-    private static final String COLLECTION_ITEMS_COUNT = "[class='js-items-count']";
-    private static final String COLLECTION_ITEM_TITLE = "[class*='collection-item-title']";
+    private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
+    private static final String FOLDER_ITEMS_COUNT = "[class='js-items-count']";
+    private static final String FOLDER_ITEM_TITLE = "[class*='collection-item-title']";
     private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions']";
     private static final String EDIT_PAGE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(1)";
@@ -76,49 +74,45 @@ public class EditCollection extends LpUiBasePage {
         super(driver);
     }
 
-    public String getEditCollectionTitle() {
-        return super.getTextForElement(EDIT_COLLECTION_TITLE);
+    public String getEditFolderTitle() {
+        return super.getTextForElement(EDIT_FOLDER_TITLE);
     }
 
-    public void clickOnMyResourcesButton() {
-        clickElement(MY_RESOURCES_BUTTON);
+    public void clickActionsDropdown() {
+        scrollToElement(ACTIONS_DROPDOWN);
+        clickElement(ACTIONS_DROPDOWN);
     }
 
-    public void clickCollectionActionsDropdown() {
-        scrollToElement(COLLECTION_ACTIONS_DROPDOWN);
-        clickElement(COLLECTION_ACTIONS_DROPDOWN);
+    public boolean isPlayFolderOptionDisplayed() {
+        return isElementDisplayed(PLAY_FOLDER_OPTION);
     }
 
-    public boolean isPlayCollectionOptionDisplayed() {
-        return isElementDisplayed(PLAY_COLLECTION_OPTION);
+    public boolean isAssignFolderOptionDisplayed() {
+        return isElementDisplayed(ASSIGN_FOLDER_OPTION);
     }
 
-    public boolean isAssignCollectionOptionDisplayed() {
-        return isElementDisplayed(ASSIGN_COLLECTION_OPTION);
+    public boolean isCopyFolderOptionDisplayed() {
+        return isElementDisplayed(COPY_THIS_FOLDER_OPTION);
     }
 
-    public boolean isCopyCollectionOptionDisplayed() {
-        return isElementDisplayed(COPY_THIS_COLLECTION_OPTION);
+    public void clickPlayFolderOption() {
+        clickElement(PLAY_FOLDER_OPTION);
     }
 
-    public void clickPlayCollectionOption() {
-        clickElement(PLAY_COLLECTION_OPTION);
+    public void clickAssignFolderOption() {
+        clickElement(ASSIGN_FOLDER_OPTION);
     }
 
-    public void clickAssignCollectionOption() {
-        clickElement(ASSIGN_COLLECTION_OPTION);
-    }
-
-    public void clickCopyCollectionOption() {
-        clickElement(COPY_THIS_COLLECTION_OPTION);
+    public void clickCopyFolderOption() {
+        clickElement(COPY_THIS_FOLDER_OPTION);
     }
 
     public void clickOnCreateCopyButton() {
         clickElement(CREATE_COPY_BUTTON);
     }
 
-    public int getCollectionItemsCount() {
-        String rawNumber = getTextForElement(COLLECTION_ITEMS_COUNT);
+    public int getFolderItemsCount() {
+        String rawNumber = getTextForElement(FOLDER_ITEMS_COUNT);
         int number;
         try {
             number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
@@ -128,20 +122,16 @@ public class EditCollection extends LpUiBasePage {
         return number;
     }
 
-    public String getCollectionItemTitle(int index) {
-        return findElements(COLLECTION_ITEM_TITLE).get(index).getText();
+    public String getFolderItemTitle(int index) {
+        return findElements(FOLDER_ITEM_TITLE).get(index).getText();
     }
 
-    public void clickAddToCollectionButton() {
-        clickElement(ADD_TO_COLLECTION_BUTTON);
-    }
-
-    public void waitUntilNewlyCreatedCollectionIsActive(String collectionTitle) {
-        waitUntilTextIsDisplayed(ACTIVE_COLLECTION_MY_COLLECTION_HEADER, collectionTitle);
+    public void clickAddToFolderButton() {
+        clickElement(ADD_TO_FOLDER_BUTTON);
     }
 
     public void typeTitle(String title) {
-        sendKeys(COLLECTION_TITLE_INPUT, title);
+        sendKeys(FOLDER_TITLE_INPUT, title);
     }
 
     public void selectGrade(String grade) {
@@ -156,20 +146,20 @@ public class EditCollection extends LpUiBasePage {
         sendKeys(DESCRIPTION_INPUT, description);
     }
 
-    public void clickOnPublishCollection() {
-        clickElement(ENABLED_PUBLISH_COLLECTION_BUTTON);
+    public void clickOnPublishFolder() {
+        clickElement(ENABLED_PUBLISH_FOLDER_BUTTON);
     }
 
-    public void hoverOverDisabledPublishCollectionButton() {
-        hoverOverElement(DISABLED_PUBLISH_COLLECTION_BUTTON);
+    public void hoverOverDisabledPublishFolderButton() {
+        hoverOverElement(DISABLED_PUBLISH_FOLDER_BUTTON);
     }
 
-    public String getDisabledPublishCollectionPopoverText() {
-        return getElementAttribute(DISABLED_PUBLISH_COLLECTION_BUTTON, "data-content", 0);
+    public String getDisabledPublishFolderPopoverText() {
+        return getElementAttribute(DISABLED_PUBLISH_FOLDER_BUTTON, "data-content", 0);
     }
 
-    public void waitUntilPublishCollectionButtonIsEnabled() {
-        waitUntilElementIsDisplayed(findElement(ENABLED_PUBLISH_COLLECTION_BUTTON));
+    public void waitUntilPublishFolderButtonIsEnabled() {
+        waitUntilElementIsDisplayed(findElement(ENABLED_PUBLISH_FOLDER_BUTTON));
     }
 
     public void clickEllipsisActions(int index) {
@@ -290,24 +280,16 @@ public class EditCollection extends LpUiBasePage {
         clickElement(SEARCH_RESOURCES_OPTION);
     }
 
-    public void clickMyCollectionDropdown() {
-        clickElement(MY_COLLECTION_DROPDOWN);
+    public void clickNavigateFolderDropdown() {
+        clickElement(NAVIGATE_FOLDER_DROPDOWN);
     }
 
-    public boolean isCreateNewCollectionButtonDisplayed() {
-        return isElementDisplayed(CREATE_NEW_COLLECTION_BUTTON);
+    public boolean isCreateNewFolderButtonDisplayed() {
+        return isElementDisplayed(CREATE_NEW_FOLDER_BUTTON);
     }
 
-    public String getActiveCollectionFromMyCollectionDropdown() {
-        return getTextForElement(ACTIVE_COLLECTION_MY_COLLECTION_DROPDOWN);
-    }
-
-    public String getActiveCollectionFromMyCollectionHeader() {
-        return getTextForElement(ACTIVE_COLLECTION_MY_COLLECTION_HEADER);
-    }
-
-    public void clickCreateNewCollectionButton() {
-        clickElement(CREATE_NEW_COLLECTION_BUTTON);
+    public void clickCreateNewFolderButton() {
+        clickElement(CREATE_NEW_FOLDER_BUTTON);
     }
 
     public void clickOnAddPixabayImageOption() {
@@ -322,16 +304,16 @@ public class EditCollection extends LpUiBasePage {
         clickElement(PIXABAY_SEARCH_BUTTON);
     }
 
-    public void waitUntilAddSelectedToCollectionButtonIsDisplayed() {
-        waitUntilElementIsDisplayed(findElement(ADD_SELECTED_TO_COLLECTION_BUTTON));
+    public void waitUntilAddSelectedToFolderButtonIsDisplayed() {
+        waitUntilElementIsDisplayed(findElement(ADD_SELECTED_TO_FOLDER_BUTTON));
     }
 
     public void clickOnPixabayImage(int position) {
         findElements(PIXABAY_IMAGES).get(position).click();
     }
 
-    public void clickAddSelectedToCollectionButton() {
-        clickElement(ADD_SELECTED_TO_COLLECTION_BUTTON);
+    public void clickAddSelectedToFolderButton() {
+        clickElement(ADD_SELECTED_TO_FOLDER_BUTTON);
     }
 
     public void clickOnPixabayLink() {
@@ -386,8 +368,8 @@ public class EditCollection extends LpUiBasePage {
         waitUntilTextIsDisplayed(ALERT_NOTIFICATION, text);
     }
 
-    public void waitUntilItemIsAddedIntoCollection() {
-        waitUntilElementIsDisplayed(findElements(COLLECTION_ITEMS).get(0));
+    public void waitUntilItemIsAddedIntoFolder() {
+        waitUntilElementIsDisplayed(findElements(FOLDER_ITEMS).get(0));
     }
 
     public void waitUntilNameFieldIsDisplayed() {
@@ -402,5 +384,17 @@ public class EditCollection extends LpUiBasePage {
     public void typeName(String name) {
         clearText(NAME_INPUT);
         sendKeys(NAME_INPUT, name);
+    }
+
+    public void clickMyResourcesDestinationFolder() {
+        clickElement(MY_RESOURCES_DESTINATION_FOLDER);
+    }
+
+    public void chooseFolderType(String folderType) {
+        selectFromDropdown(FOLDER_TYPE_DROPDOWN, FOLDER_TYPE_OPTIONS, folderType);
+    }
+
+    public String getFolderTitle() {
+        return findElement(FOLDER_TITLE_INPUT).getAttribute("value");
     }
 }

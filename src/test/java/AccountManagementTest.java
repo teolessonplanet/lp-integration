@@ -198,7 +198,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_690() {
         stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
         testUpgradeFreeMemberFromAssignResourceButton();
-        testUpgradeFreeMemberFromAssignCollectionButton();
+        testUpgradeFreeMemberFromAssignFolderButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection")
@@ -263,7 +263,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Upgrade a Prime membership - lessonp-677: From the Assign modal")
+  /*  @Test(description = "Account management - Upgrade a Prime membership - lessonp-677: From the Assign modal")
     public void testLessonp_677() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -287,7 +287,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
-
+*/
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page")
     public void testLessonp_678() {
         stepTwoTest = new StepTwoTest();
@@ -317,7 +317,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
-
+/*
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-680: From the Assign modal")
     public void testLessonp_680() {
         stepTwoTest = new StepTwoTest();
@@ -344,7 +344,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
-
+*/
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -465,7 +465,7 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
-        collectionBuilderPage.clickOnEditCollection(false);
+        collectionBuilderPage.clickOnEditFolder(false);
         editCollectionModal.waitForModal();
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickUploadAFileButton();
@@ -499,11 +499,11 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
-    private void testUpgradeFreeMemberFromAssignCollectionButton() {
+    private void testUpgradeFreeMemberFromAssignFolderButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
-        curriculumManagerTest.testAddRegularResourceToCollection(TestData.FREE_MEMBERSHIP_TEXT);
-        curriculumManagerTest.testAddSharedResourceToCollection();
+        curriculumManagerTest.testAddRegularResourceToFolder(TestData.FREE_MEMBERSHIP_TEXT);
+        curriculumManagerTest.testAddSharedResourceToFolder();
         curriculumManagerPage.loadPage();
         curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
@@ -513,6 +513,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         for (int i = 0; i <= 10; i++) {
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
