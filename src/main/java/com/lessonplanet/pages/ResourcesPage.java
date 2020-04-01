@@ -18,6 +18,7 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL = "[class*='trk-goto-resource'][href^='/pr/goto/']";
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
     protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
+    protected static final String OPEN_FOLDER_BUTTON = "[class='panel-footer'] a[class*='open-folder-btn']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
     private static final String SHOW_MORE_BUTTON_FACET = "[class='lp-filter-item'] [class='show-more-facets']";
@@ -198,6 +199,10 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void clickFolderDetails(boolean inANewTab) {
         clickFirstButtonOfType(FOLDER_DETAILS_BUTTON, inANewTab);
+    }
+
+    public void clickOpenFolder(boolean inANewTab) {
+        clickFirstButtonOfType(OPEN_FOLDER_BUTTON, inANewTab);
     }
 
     protected void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {

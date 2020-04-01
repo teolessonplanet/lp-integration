@@ -51,6 +51,8 @@ public class Rrp extends LpUiBasePage {
 
     private static final String OPEN_FOLDER_BUTTON = "[class='pull-left'] a[class*='trk-goto-resource'][href*='/pr/goto/']";
     private static final String BREADCRUMBS_CONTAINER = "#breadcrumbs-container";
+    private static final String BREADCRUMB_ITEMS = "#breadcrumbs-container li a";
+    private static final String FOLDER_DETAILS_DROPDOWN = "div[class*='resource-details'] [class*='detail-collections']";
 
     public Rrp(WebDriver driver) {
         super(driver);
@@ -322,7 +324,19 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(OPEN_FOLDER_BUTTON);
     }
 
-    public boolean isBreadcrumbsContainerDisplayed(){
+    public boolean isBreadcrumbsContainerDisplayed() {
         return isElementDisplayed(BREADCRUMBS_CONTAINER);
+    }
+
+    public void clickOnBreadcrumbsItem(int position) {
+        clickElement(BREADCRUMB_ITEMS, position);
+    }
+
+    public int getNumberOfBreadcrumbsItems() {
+        return findElements(BREADCRUMB_ITEMS).size();
+    }
+
+    public boolean isFolderDetailsDropdownDisplayed() {
+        return isElementDisplayed(FOLDER_DETAILS_DROPDOWN);
     }
 }
