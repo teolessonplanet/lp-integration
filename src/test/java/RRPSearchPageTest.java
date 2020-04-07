@@ -570,7 +570,7 @@ public class RRPSearchPageTest extends BaseTest {
         }
 
         if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_FREEMIUM) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            Assert.assertTrue(rrp.isFavoriteButtonDisplayed());
+            Assert.assertTrue(rrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
             Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
             Assert.assertTrue(rrp.isAddACommentLinkDisplayed());
             rrp.clickAddACommentLink();
