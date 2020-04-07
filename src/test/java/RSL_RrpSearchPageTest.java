@@ -69,12 +69,12 @@ public class RSL_RrpSearchPageTest extends BaseTest {
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5145:LP Main Buttons")
     public void testLessonp_5145() {
-        testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, false);
+        testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5160:LP Main Buttons")
     public void testLessonp_5160() {
-        testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, true);
+        testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5151:Collection Main Buttons")
@@ -112,10 +112,11 @@ public class RSL_RrpSearchPageTest extends BaseTest {
     protected void testLpMainButtons(String account, boolean inModal) {
         rrpSearchPageTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        discoverResourcesPage.checkLessonPlanetProvider();
-        RRPSearchPageTest rrpSearchPageTest = new RRPSearchPageTest();
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testLpResourceMainButtons(inModal, account);
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
+        discoverResourcesPage.clickSeeFullReview(!inModal);
+        rrpSearchPageTest.testLpResourceCommonButtons(inModal, account);
     }
 
     protected void testCollectionMainButtons(String account, boolean inModal) {

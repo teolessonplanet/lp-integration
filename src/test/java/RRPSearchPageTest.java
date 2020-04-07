@@ -400,6 +400,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     public void testResourcePageOverview(String account, boolean inModal) {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(!inModal);
         testRegularResourceRRPOverview(inModal, account);
         if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
@@ -444,8 +445,14 @@ public class RRPSearchPageTest extends BaseTest {
     public void testLpResourceMainButtons(boolean inANewTab, String account) {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(inANewTab);
+        testLpResourceCommonButtons(inANewTab,account);
+    }
+
+    public void testLpResourceCommonButtons(boolean inANewTab, String account) {
         testThumbnailForRegularResource(!inANewTab, account);
-        testRegularResourceRRPNavigationButtonsSearchPage();
+        if (inANewTab) {
+            testRegularResourceRRPNavigationButtonsSearchPage();
+        }
         testAddToCollectionDropdown(!inANewTab);
         testGoToResourceButtonForRegularResource(!inANewTab);
     }
@@ -484,7 +491,7 @@ public class RRPSearchPageTest extends BaseTest {
         testSaveCollectionButton(inModal, account);
     }
 
-    public void testCollectionOrUnitMainButtons(boolean inModal, String account){
+    public void testCollectionOrUnitMainButtons(boolean inModal, String account) {
         if (inModal) {
             testCollectionOrUnitRRPNavigationButtonsSearchPage();
         }
@@ -677,10 +684,10 @@ public class RRPSearchPageTest extends BaseTest {
         Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrp.isShareButtonDisplayed());
         Assert.assertTrue(rrp.isThumbnailDisplayed());
-        if(modal) {
+        if (modal) {
             Assert.assertTrue(rrp.isPreviousButtonDisplayed());
             Assert.assertTrue(rrp.isNextButtonDisplayed());
-        }else {
+        } else {
             Assert.assertFalse(rrp.isPreviousButtonDisplayed());
             Assert.assertFalse(rrp.isNextButtonDisplayed());
         }
@@ -818,10 +825,6 @@ public class RRPSearchPageTest extends BaseTest {
             Assert.assertFalse(rrpModal.isPreviousButtonDisplayed());
         }
         Assert.assertTrue(rrpModal.isNextButtonDisplayed());
-        rrpModal.clickNextButton();
-        Assert.assertTrue(rrpModal.getModalId().contains(discoverResourcesPage.getRegularResourceCardDataId(1)));
-        rrpModal.clickPreviousButton();
-        Assert.assertTrue((rrpModal.getModalId().contains(discoverResourcesPage.getRegularResourceCardDataId(0))));
     }
 
     public void testThumbnailForRegularResource(boolean modal, String account) {
