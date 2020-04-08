@@ -383,7 +383,6 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testFavoriteRegularResource(String accountPlanText) {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             discoverResourcesPage.clickSeeReview(false);
         } else {
