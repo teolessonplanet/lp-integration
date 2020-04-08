@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 import org.openqa.selenium.WebDriver;
@@ -262,8 +263,9 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
-
-  /*  @Test(description = "Account management - Upgrade a Prime membership - lessonp-677: From the Assign modal")
+    //TODO: temporary all active users have assign privileges
+    @Ignore
+    @Test(description = "Account management - Upgrade a Prime membership - lessonp-677: From the Assign modal")
     public void testLessonp_677() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -287,7 +289,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
-*/
+
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page")
     public void testLessonp_678() {
         stepTwoTest = new StepTwoTest();
@@ -317,7 +319,8 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
-/*
+    //TODO: temporary all active users have assign privileges
+    @Ignore
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-680: From the Assign modal")
     public void testLessonp_680() {
         stepTwoTest = new StepTwoTest();
@@ -344,7 +347,7 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
-*/
+
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);

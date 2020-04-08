@@ -653,7 +653,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.hoverOverPublishButton();
         if (!folder) {
             Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
-
         } else {
             Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_FOLDER_POPOVER_TEXT);
         }
