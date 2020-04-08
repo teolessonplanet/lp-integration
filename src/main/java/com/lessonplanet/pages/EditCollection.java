@@ -10,6 +10,7 @@ public class EditCollection extends CreateNewFolderModal {
 
     private static final String EDIT_FOLDER_TITLE = "[class*='edit-title']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
+    private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
 
     private static final String FOLDER_TITLE_INPUT = "[name='collection[title]']";
     private static final String GRADE_LIST_DROPDOWN = "#s2id_collection_grade_list";
