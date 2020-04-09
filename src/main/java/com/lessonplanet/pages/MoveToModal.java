@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MoveToModal extends CopyToModal {
 
-    private static final String MY_RESOURCES_CHILD_DESTINATION_FOLDER = "[class='folder-list'] div div";
+    private static final String MY_RESOURCES_CHILD_DESTINATION_FOLDER = "[class='folder-list'] li:nth-child(2)";
 
     public MoveToModal(WebDriver driver) {
         super(driver);

@@ -29,7 +29,6 @@ public class RSL_CurriculumManagerTest extends BaseTest {
         lpHomePage.loadPage();
         curriculumManagerPageTest.testAccessCurriculumManagerPageFromHeader(true);
         curriculumManagerPageTest.testAccessCurriculumManagerPageFromSearchPage(true);
-        curriculumManagerPageTest.testAccessCurriculumManagerPageFromEditCollectionModal(true);
     }
 
     @Test(description = "RSL - Curriculum Manager - lessonp-5655: Create Collections")
@@ -51,13 +50,15 @@ public class RSL_CurriculumManagerTest extends BaseTest {
 
     @Test(description = "RSL - Curriculum Manager - lessonp-5581: Collection: Actions Dropdown")
     public void testLessonp_5581() {
-        curriculumManagerPageTest.testCollectionActions(TestData.VALID_EMAIL_RSL_SBCEO);
+        curriculumManagerPage.loadPage();
+        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
     @Test(description = "RSL - Curriculum Manager - lessonp-5582: Folder Actions Dropdown")
     public void testLessonp_5582() {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
-        curriculumManagerPageTest.testFolderActions();
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 }

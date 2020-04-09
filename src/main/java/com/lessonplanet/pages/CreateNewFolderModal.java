@@ -6,7 +6,7 @@ public class CreateNewFolderModal extends LpUiBasePage {
 
     protected static final String CREATE_FOLDER_BUTTON = "[class*='modal-footer'] [type='submit']";
     protected static final String NAME_INPUT = "[name='collection[title]']";
-    protected static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
+    private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
     private static final String CREATE_NEW_FOLDER_MODAL = "#js-create-collection-modal";
     private static final String CREATE_NEW_FOLDER_MODAL_TITLE = "#newCollection h3";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";

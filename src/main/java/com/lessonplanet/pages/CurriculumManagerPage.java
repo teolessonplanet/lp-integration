@@ -12,7 +12,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String ACTIONS_DROPDOWN = " .info.actions.persistent [class='action-dropdown']";
     private static final String MY_UPLOADS_FOLDER_ACTIONS_DROPDOWN = "#folder-2 [class*='actions'] i";
     private static final String PLAY_RESOURCE_BUTTON = "[class*='fa-play-circle-o']";
-    private static final String PLAY_COLLECTION_BUTTON = "div.options.actions button:nth-child(2)";
+    private static final String PLAY_FOLDER_BUTTON = "div.options.actions button:nth-child(2)";
     private static final String PUBLISH_BUTTON = "[class='fa fa-book']";
     private static final String POPOVER_TEXT = "[class*='popuptext show']";
     private static final String DELETE_BUTTON = "[class*='fa-trash']";
@@ -72,12 +72,12 @@ public class CurriculumManagerPage extends LpUiBasePage {
         clickElement(ACTIONS_DROPDOWN);
     }
 
-    public void hoverOverPlayCollectionButton() {
-        hoverOverElement(PLAY_COLLECTION_BUTTON);
+    public void hoverOverPlayFolderButton() {
+        hoverOverElement(PLAY_FOLDER_BUTTON);
     }
 
-    public void clickOnPlayCollectionButton() {
-        clickElement(PLAY_COLLECTION_BUTTON);
+    public void clickOnPlayFolderButton() {
+        clickElement(PLAY_FOLDER_BUTTON);
     }
 
     public void clickOnPlayFavoriteButton() {
@@ -233,7 +233,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     }
 
     public void hoverOverPlayButton() {
-        hoverOverElement(PLAY_COLLECTION_BUTTON);
+        hoverOverElement(PLAY_FOLDER_BUTTON);
     }
 
     public void hoverOverActionsDropdown() {
