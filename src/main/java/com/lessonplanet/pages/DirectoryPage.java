@@ -26,7 +26,7 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String SHOW_ALL_BUTTONS = "[class*='open-modal']";
 
     private static final String WELLNESS_AND_SAFETY_LINK = "[href='/lesson-plans/health-triangle']";
-    private static final String NUTRITION_LINK = "[href='/lesson-plans/nutrition']";
+    private static final String SOCIAL_EMOTIONAL_LEARNING_LINK = "li:nth-child(2) a[href='/lesson-plans/mental-emotional-health']";
     private static final String GROWTH_AND_DEVELOPMENT_LINK = "[href='/lesson-plans/growth-and-development']";
     private static final String SEX_EDUCATION_LINK = "[href='/lesson-plans/sex-education']";
     private static final String RESEARCH_LINK = "[href='/lesson-plans/research']";
@@ -148,8 +148,8 @@ public class DirectoryPage extends LpUiBasePage {
         clickElement(WELLNESS_AND_SAFETY_LINK);
     }
 
-    public void clickOnNutritionLink() {
-        clickElement(NUTRITION_LINK);
+    public void clickOnSocialEmotionalLearningLink() {
+        findElements(SOCIAL_EMOTIONAL_LEARNING_LINK).get(0).click();
     }
 
     public void clickOnGrowthAndDevelopmentLink() {
