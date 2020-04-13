@@ -20,6 +20,7 @@ public class LpUiBasePage {
     protected WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
+    private boolean isQaIntegrationCookieCreated = false;
 
     protected LpUiBasePage(WebDriver driver) {
         this.driver = driver;
@@ -192,6 +193,14 @@ public class LpUiBasePage {
     }
 
     protected void loadUrl(String pagePath) {
+        if (!isQaIntegrationCookieCreated) {
+            try {
+                createQaIntegrationBypassCookie();
+                isQaIntegrationCookieCreated = true;
+            } catch (Exception ex) {
+                logger.info(ex.toString());
+            }
+        }
         if (getUrl().contains(TestData.SERVER_URL)) {
             waitForLoad();
         }
@@ -588,7 +597,7 @@ public class LpUiBasePage {
         }
     }
 
-    public void clearTextUsingActions(String cssSelector){
+    public void clearTextUsingActions(String cssSelector) {
         clickElement(cssSelector);
         Actions action = new Actions(driver);
         String text = findElement(cssSelector).getAttribute("value");
