@@ -450,9 +450,9 @@ public class TestData {
 
     public static final int DIRECTORY_CATEGORIES_COUNTER = 9;
     public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
-    public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
+    public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
+    public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
+    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nSocial Awareness\nSelf-Management\nSelf-Awareness\nResponsible Decision-Making\nRelationship Skills\nGrowth and Development\nSex Education";
 
     public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
     public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
@@ -466,7 +466,7 @@ public class TestData {
     public static final String VIEW_ALL_LESSON_PLANS_PAGE_URL = "lesson-plans";
 
     public static final String WELLNESS_AND_SAFETY_PAGE_TITLE = "Wellness & Safety Teacher Resources";
-    public static final String NUTRITION_PAGE_TITLE = "Nutrition Teacher Resources";
+    public static final String SOCIAL_EMOTIONAL_LEARNING_PAGE_TITLE = "Social and Emotional Learning Teacher Resources";
     public static final String GROWTH_AND_DEVELOPMENT_PAGE_TITLE = "Growth and Development Teacher Resources";
     public static final String SEX_EDUCATION_PAGE_TITLE = "Sex Education Teacher Resources";
     public static final String RESEARCH_PAGE_TITLE = "Research Teacher Resources";
@@ -501,21 +501,21 @@ public class TestData {
     public static final String FILM_STUDIES_PAGE_TITLE = "Film Studies Teacher Resources";
     public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
 
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nMental Emotional Health\nInjury Prevention and Safety\nPhysical Health\nSocial Health\nNutrition\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nNutrition\nFood\nHealthy Eating\nNutrition in Schools\nGrowth and Development\nSex Education\nCommunity Health";
-    public static final String BROWSE_BY_SUBJECT_FOR_SOCIAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nSocial Health\nConflict Resolution\nPositive Social Behaviors";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nSocial Awareness\nSelf-Management\nSelf-Awareness\nResponsible Decision-Making\nRelationship Skills\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental Health\nDental and Personal Hygiene\nHeart Condition\nPhysical Activity\nPersonal Health Management\nHospital\nSubstance Abuse";
     public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
 
     public static final String SUGGEST_A_CATEGORY_MODAL_TITLE = "Suggest a Category";
 
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_CATEGORIES = "Browse by Subject";
     public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE = "Growth and Development";
-    public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_SOCIAL_HEALTH_TYPE = "Social Health";
+    public static final String SIDE_WIDGET_BROWSE_BY_SUBJECT_PHYSICAL_HEALTH_TYPE = "Physical Health";
 
     public static final String GROWTH_AND_DEVELOPMENT_PAGE_PATH = "lesson-plans/growth-and-development";
-    public static final String SOCIAL_HEALTH_PAGE_PATH = "lesson-plans/social-health";
-    public static final String SOCIAL_HEALTH_PAGE_TITLE = "Social Health Teacher Resources";
+    public static final String PHYSICAL_HEALTH_PAGE_PATH = "lesson-plans/physical-health";
+    public static final String PHYSICAL_HEALTH_PAGE_TITLE = "Physical Health Teacher Resources";
 
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL = "Start Your 10-Day Free Trial";
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_VISITOR_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Free Trial";

@@ -176,8 +176,8 @@ public class DirectoryMainPageTest extends BaseTest {
         directoryPage.clickOnWellnessAndSafetyLink();
         checkPageTitle(TestData.WELLNESS_AND_SAFETY_PAGE_TITLE);
 
-        directoryPage.clickOnNutritionLink();
-        checkPageTitle(TestData.NUTRITION_PAGE_TITLE);
+        directoryPage.clickOnSocialEmotionalLearningLink();
+        checkPageTitle(TestData.SOCIAL_EMOTIONAL_LEARNING_PAGE_TITLE);
 
         directoryPage.clickOnGrowthAndDevelopmentLink();
         checkPageTitle(TestData.GROWTH_AND_DEVELOPMENT_PAGE_TITLE);
