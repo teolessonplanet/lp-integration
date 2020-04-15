@@ -139,13 +139,13 @@ public class StepTwoPage extends LpUiBasePage {
         if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
             switch (accountType) {
                 case TestData.STARTER_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "starter_24", email));
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "starter_36", email));
                     break;
                 case TestData.PRIME_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "prime_36", email));
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "prime_48", email));
                     break;
                 case TestData.PRO_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "pro_72_yr", email));
+                    driver.get(String.format(STAGING_CREATE_USER_URL, "pro_84", email));
                     break;
                 default:
                     driver.get(String.format(STAGING_CREATE_USER_URL, "freemium", email));
