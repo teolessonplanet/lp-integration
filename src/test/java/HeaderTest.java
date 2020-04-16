@@ -14,6 +14,10 @@ public class HeaderTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
+    private DirectoryPage directoryPage;
+    private CurriculumManagerPage curriculumManagerPage;
+    private CalendarPage calendarPage;
+    private ArticlesPage articlesPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -25,6 +29,10 @@ public class HeaderTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
+        directoryPage= new DirectoryPage(webDriver);
+        curriculumManagerPage= new CurriculumManagerPage(webDriver);
+        calendarPage = new CalendarPage(webDriver);
+        articlesPage = new ArticlesPage(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -129,10 +137,16 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverDiscoverButton();
         headerPage.clickOnDiscoverResourcesButton();
         Assert.assertEquals(TestData.DISCOVER_RESOURCES_PAGE_PATH, headerPage.getPath());
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
+        } else {
+            Assert.assertEquals(TestData.SHOWING_ALL_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
+        }
 
         headerPage.hoverOverDiscoverButton();
         headerPage.clickOnBrowseResourceDirectoryButton();
         Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH, headerPage.getPath());
+        Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_TITLE, directoryPage.getTitle());
 
         if (account.equals(TestData.INVALID_EMAIL)) {
             headerPage.hoverOverDiscoverButton();
@@ -144,16 +158,18 @@ public class HeaderTest extends BaseTest {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnCurriculumManagerButton();
             Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
+            Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
         }
 
         headerPage.hoverOverDiscoverButton();
         headerPage.clickOnCurriculumCalendarButton();
         Assert.assertEquals(TestData.CURRICULUM_CALENDAR_PAGE_PATH, headerPage.getPath());
-
+        Assert.assertEquals(calendarPage.getCalendarTitle(), TestData.MONTH[TestData.getCurrentMonth()] + TestData.CALENDAR_TITLE);
         if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnLessonPlanningArticlesButton();
             Assert.assertEquals(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH, headerPage.getPath());
+            Assert.assertEquals(articlesPage.getLessonPlanningArticlesPageTitle(), TestData.LESSON_PLANNING_ARTICLES_TITLE);
         }
 
         if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
@@ -187,6 +203,7 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnOurStoryButton();
         Assert.assertEquals(headerPage.getPath(), TestData.OUR_STORY_PAGE_PATH);
 
+        lpHomePage.loadPage();
         headerPage.hoverOverAboutButton();
         headerPage.clickOnFaqButton();
         Assert.assertEquals(headerPage.getPath(), TestData.FAQ_PAGE_PATH);
@@ -216,6 +233,7 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyResourcesButton();
         Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
+        Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
 
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnSearchHistoryButton();
