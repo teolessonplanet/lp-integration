@@ -43,6 +43,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String MOVE_TO_OPTION = "div.options.actions button:nth-child(6)";
     private static final String FOLDER_TYPE = " .info.type.persistent";
     private static final String ACTIONS_DROPDOWN_OPTIONS = "[class='action-dropdown'] [class='options actions']";
+    private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#new_curriculum_manager h1";
 
     public CurriculumManagerPage(WebDriver driver) {
         super(driver);
@@ -255,5 +256,9 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     public boolean isActionsDropdownOptionsDisplayed() {
         return isElementDisplayed(ACTIONS_DROPDOWN_OPTIONS);
+    }
+
+    public String getTitle() {
+        return getTextForElement(CURRICULUM_MANAGER_PAGE_TITLE);
     }
 }

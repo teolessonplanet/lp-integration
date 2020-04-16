@@ -5,6 +5,7 @@ import util.TestData;
 
 public class DirectoryPage extends LpUiBasePage {
 
+    private static final String DIRECTORY_PAGE_TITLE = "[class='mt0']";
     private static final String HEALTH_SUBJECT_LINK = "[class*='panel-default']:not([class*='react-modal']) h4 [href*='/health']";
     private static final String HEALTH_SUBJECT_THUMBNAIL = "[class*='panel-default']:not([class*='react-modal']) [class*='img'][href*='/health']";
     private static final String LANGUAGE_ARTS_SUBJECT_LINK = "h4 [href*='/language-arts']";
@@ -302,5 +303,9 @@ public class DirectoryPage extends LpUiBasePage {
 
     public void clickOnShowAllButtonFromHealthCategory() {
         clickElement(SHOW_ALL_BUTTONS, 0);
+    }
+
+    public String getTitle() {
+        return getTextForElement(DIRECTORY_PAGE_TITLE);
     }
 }

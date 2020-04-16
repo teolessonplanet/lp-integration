@@ -65,6 +65,7 @@ public class TestData {
 
     //Curriculum Manager
 
+    public static final String CURRICULUM_MANAGER_PAGE_TITLE = "My Resources";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION = "As a Free Member you can only save folders with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited folders, and enjoy the benefits of a Full Membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT = "You've reached your 3-folder limit, but don't let that stop you!\n" + "Upgrade today to create more folders and enjoy the benefits of full membership.";
@@ -145,8 +146,8 @@ public class TestData {
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_ADMIN = "admin";
-    public static final String VALID_EMAIL_FREEMIUM = "free-member@lp.com";
-    public static final String VALID_EMAIL_ACTIVE = "active-user@lp.com";
+    public static final String VALID_EMAIL_FREEMIUM = "freemember@lp.com";
+    public static final String VALID_EMAIL_ACTIVE = "active@lp.com";
     public static final String VALID_EMAIL_PRO = "pro-user@lp.com";
     public static final String VALID_EMAIL_STARTER = "starter-user@lp.com";
     public static final String VALID_PASSWORD = "test123";
@@ -413,6 +414,7 @@ public class TestData {
     public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED = 12;
     public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED = 18;
     public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED = 6;
+    public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_TITLE = "Educational Resources by Subject";
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";
@@ -425,7 +427,7 @@ public class TestData {
     public static final String PD_LEARNING_NETWORK_PATH = "pdln";
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
-    public static final String OUR_STORY_PAGE_PATH = "us/about_us";
+    public static final String OUR_STORY_PAGE_PATH = "about";
     public static final String FAQ_PAGE_PATH = "us/faq";
     public static final String TESTIMONIALS_PAGE_PATH = "us/testimonials";
 
