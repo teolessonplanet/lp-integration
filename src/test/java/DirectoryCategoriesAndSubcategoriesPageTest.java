@@ -205,6 +205,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         } else if (account.equals(TestData.STARTER_OPTION_TEXT)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
+            //TODO: check this
         } else {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
