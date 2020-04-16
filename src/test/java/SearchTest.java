@@ -453,7 +453,7 @@ public class SearchTest extends BaseTest {
             }
         } else {
             Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForRegularCard(lpResourceCard).equals(TestData.GO_TO_RESOURCE_BUTTON_TEXT));
-            Assert.assertTrue(discoverResourcesPage.getSeeReviewInThumbnailViewButtonTextForRegularCard(lpResourceCard).equals(TestData.SEE_FULL_REVIEW_BUTTON_TEXT));
+            Assert.assertTrue(discoverResourcesPage.getSeeReviewInThumbnailViewButtonTextForRegularCard(lpResourceCard).equals(TestData.SEE_REVIEW_BUTTON_TEXT));
         }
 
         discoverResourcesPage.clickOnTiledView();
