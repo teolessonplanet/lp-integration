@@ -13,10 +13,14 @@ import java.util.List;
 public class ResourcesPage extends LpUiBasePage {
 
     protected static final String SEE_REVIEW_BUTTON = "[class*='panel-footer'] [href*='teachers']:not([class*='free-sample'])";
+    protected static final String SEE_REVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href*='teachers']:not([class*='free-sample'])";
     protected static final String GET_FREE_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-access-btn']";
+    protected static final String GET_FREE_ACCESS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='free-access-btn']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE = "[class*='trk-goto-resource'][href^='/goto/']";
+    protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href^='/goto/']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL = "[class*='trk-goto-resource'][href^='/pr/goto/']";
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
+    protected static final String SEE_FULL_REVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource']";
     protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
     protected static final String OPEN_FOLDER_BUTTON = "[class='panel-footer'] a[class*='open-folder-btn']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
@@ -24,18 +28,22 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String SHOW_MORE_BUTTON_FACET = "[class='lp-filter-item'] [class='show-more-facets']";
     private static final String FACET_OPTION = "[class='lp-filter-item']";
     private static final String FACET_CHECK_SQUARE = "i[class*='fa-check-square-o']";
-    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='trk-show-resource']";
-    private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='panel-body'] [class='locked']";
+    private static final String UNLOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class='resource-actions'] [class*='trk-show-resource']";
+    private static final String LOCKED_RESOURCES_IN_THUMBNAIL_VIEW = "[class*='thumbnail-card'] [class*='thumb-img-wrap'] [class='locked']";
     private static final String UNLOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_TILED_VIEW = "[class*='tiled-card'] [class='locked']";
     private static final String UNLOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='trk-show-resource']";
     private static final String LOCKED_RESOURCES_IN_LIST_VIEW = "[class*='list-card'] [class='locked']";
     private static final String SEE_COLLECTION_BUTTON = "[class*='panel-footer'] [title*='Collection'][href*='/collections/']";
+    private static final String SEE_COLLECTION_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [title*='Collection'][href*='/collections/']";
     private static final String SEE_COLLECTION_UNIT_BUTTON = "[class*='panel-footer'] [title*='Unit'][href*='/collections/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE = "[class*='trk-goto-resource'][href^='/drive/documents/']";
+    private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW =  "[class='resource-actions'] [href^='/drive/documents/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES = "[class*='trk-goto-resource']";
     private static final String SEE_PREVIEW_BUTTON = "[class*='panel-footer'] [href*='/member/resource']";
+    private static final String SEE_PREVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href*='/member/resource']";
     private static final String FREE_FULL_ACCESS_BUTTON = "[class*='panel-footer'] [class*='free-sample']";
+    private static final String FREE_FULL_ACCESS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='free-sample']";
     private static final String PREVIOUS_BUTTON = "[class='pagination'] [class*='previous_page'] a";
     private static final String NEXT_BUTTON = "[class='pagination'] [class*='next_page'] a";
     private static final String SEE_ALL_BUTTON = "[class='pagination'] #see_all";
@@ -61,6 +69,10 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_SHARED_RESOURCE_TAG = "span[class*='shared-resource-tag']";
     private static final String CARD_SHARED_RESOURCE_TAG_LIST_OR_TILED_VIEW = "[class*='star-rating'] [class*='label-info']";
     private static final String CARD_FREE_SAMPLE_STAMP_ICON = "div[class*='free-sample-stamp']";
+
+    private static final String CARD_ICON_IN_THUMBNAIL_VIEW = "div[class='thumb-img-wrap']";
+    private static final String CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW = "div[class*='resource-type-banner']";
+    private static final String CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW = "span[class*='resource-grade']";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -312,16 +324,32 @@ public class ResourcesPage extends LpUiBasePage {
         return getResourceOfType(GET_FREE_ACCESS_BUTTON);
     }
 
+    public List<WebElement> getLimitedLpResourcesCardsInThumbnailView() {
+        return getResourceOfType(GET_FREE_ACCESS_BUTTON_IN_THUMBNAIL_VIEW);
+    }
+
     public List<WebElement> getCollectionCards() {
         return getResourceOfType(SEE_COLLECTION_BUTTON);
+    }
+
+    public List<WebElement> getCollectionCardsInThumbnailView(){
+        return getResourceOfType(SEE_COLLECTION_BUTTON_IN_THUMBNAIL_VIEW);
     }
 
     public List<WebElement> getSharedResourcesCards() {
         return getResourceOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
     }
 
+    public List<WebElement> getSharedResourcesCardsInThumbnailView() {
+        return getResourceOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW);
+    }
+
     public List<WebElement> getSampleResourceCards() {
         return getResourceOfType(FREE_FULL_ACCESS_BUTTON);
+    }
+
+    public List<WebElement> getSampleResourceCardsInThumbnailView() {
+        return getResourceOfType(FREE_FULL_ACCESS_BUTTON_IN_THUMBNAIL_VIEW);
     }
 
     public List<WebElement> getFullLpResourcesCards() {
@@ -359,6 +387,14 @@ public class ResourcesPage extends LpUiBasePage {
         return getTextForButton(getGetFreeAccessButtonForCard(card));
     }
 
+    public WebElement getGetFreeAccessButtonInThumbnailViewForCard(WebElement card) {
+        return card.findElement(By.cssSelector(GET_FREE_ACCESS_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getFreeAccessInThumbnailViewButtonText(WebElement card) {
+        return getTextForButton(getGetFreeAccessButtonInThumbnailViewForCard(card));
+    }
+
     public WebElement getSeeReviewButtonForCard(WebElement card) {
         return card.findElement(By.cssSelector(SEE_REVIEW_BUTTON));
     }
@@ -367,12 +403,28 @@ public class ResourcesPage extends LpUiBasePage {
         return getTextForButton(getSeeReviewButtonForCard(card));
     }
 
+    public WebElement getSeeReviewButtonInThumbnailViewForCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_REVIEW_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getSeeReviewInThumbnailViewButtonText(WebElement card) {
+        return getTextForButton(getSeeReviewButtonInThumbnailViewForCard(card));
+    }
+
     public WebElement getSeeCollectionButtonForCard(WebElement card) {
         return card.findElement(By.cssSelector(SEE_COLLECTION_BUTTON));
     }
 
     public String getSeeCollectionButtonTextForCard(WebElement card) {
         return getTextForButton(getSeeCollectionButtonForCard(card));
+    }
+
+    public WebElement getSeeCollectionButtonInThumbnailViewForCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_COLLECTION_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getSeeCollectionInThumbnailViewButtonTextForCard(WebElement card) {
+        return getTextForButton(getSeeCollectionButtonInThumbnailViewForCard(card));
     }
 
     public WebElement getGoToResourceButtonForSharedCard(WebElement card) {
@@ -391,12 +443,28 @@ public class ResourcesPage extends LpUiBasePage {
         return getTextForButton(getSeePreviewButtonForSharedCard(card));
     }
 
+    public WebElement getSeePreviewInThumbnailViewButtonForSharedCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_PREVIEW_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getSeePreviewInThumbnailViewButtonTextForSharedCard(WebElement card) {
+        return getTextForButton(getSeePreviewInThumbnailViewButtonForSharedCard(card));
+    }
+
     public WebElement getGoToResourceButtonForRegularCard(WebElement card) {
         return card.findElement(By.cssSelector(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE));
     }
 
     public String getGoToResourceButtonTextForRegularCard(WebElement card) {
         return getTextForButton(getGoToResourceButtonForRegularCard(card));
+    }
+
+    public WebElement getGoToResourceInThumbnailViewButtonForRegularCard(WebElement card) {
+        return card.findElement(By.cssSelector(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getGoToResourceInThumbnailViewButtonTextForRegularCard(WebElement card) {
+        return getTextForButton(getGoToResourceInThumbnailViewButtonForRegularCard(card));
     }
 
     public WebElement getSeeFullReviewButtonForRegularCard(WebElement card) {
@@ -407,12 +475,28 @@ public class ResourcesPage extends LpUiBasePage {
         return getTextForButton(getSeeFullReviewButtonForRegularCard(card));
     }
 
+    public WebElement getSeeReviewInThumbnailViewButtonForRegularCard(WebElement card) {
+        return card.findElement(By.cssSelector(SEE_FULL_REVIEW_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getSeeReviewInThumbnailViewButtonTextForRegularCard(WebElement card) {
+        return getTextForButton(getSeeReviewInThumbnailViewButtonForRegularCard(card));
+    }
+
     public WebElement getFreeFullAccessButtonForCard(WebElement card) {
         return card.findElement(By.cssSelector(FREE_FULL_ACCESS_BUTTON));
     }
 
     public String getFreeFullAccessButtonTextForCard(WebElement card) {
         return getTextForButton(getFreeFullAccessButtonForCard(card));
+    }
+
+    public WebElement getFreeFullAccessInThumbnailViewButtonForCard(WebElement card) {
+        return card.findElement(By.cssSelector(FREE_FULL_ACCESS_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getFreeFullAccessInThumbnailViewButtonTextForCard(WebElement card) {
+        return getTextForButton(getFreeFullAccessInThumbnailViewButtonForCard(card));
     }
 
     private String getTextForButton(WebElement button) {
@@ -425,8 +509,16 @@ public class ResourcesPage extends LpUiBasePage {
         return isElementDisplayed(card, CARD_ICON);
     }
 
+    public boolean isCardIconInThumbnailViewDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_ICON_IN_THUMBNAIL_VIEW);
+    }
+
     public boolean isCardResourceTypeDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_RESOURCE_TYPE);
+    }
+
+    public boolean isCardResourceTypeInThumbnailViewDisplayed(WebElement card){
+        return isElementDisplayed(card, CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW);
     }
 
     public boolean isCardTitleDisplayed(WebElement card) {
@@ -439,6 +531,10 @@ public class ResourcesPage extends LpUiBasePage {
 
     public boolean isCardGraduationDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_FA_GRADUATION);
+    }
+
+    public boolean isCardGraduationInThumbnailViewDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW);
     }
 
     public boolean isCardCssDisplayed(WebElement card) {
