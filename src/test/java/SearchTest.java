@@ -400,14 +400,14 @@ public class SearchTest extends BaseTest {
         }
     }
 
-    private void testCommonItems(WebElement card) {
+    protected void testCommonItems(WebElement card) {
         Assert.assertTrue(discoverResourcesPage.isCardIconDisplayed(card));
         Assert.assertTrue(discoverResourcesPage.isCardTitleDisplayed(card));
         Assert.assertTrue(discoverResourcesPage.isCardResourceTypeDisplayed(card));
         Assert.assertTrue(discoverResourcesPage.isCardGraduationDisplayed(card));
     }
 
-    private void testCommonItemsInThumbnailView(WebElement card) {
+    protected void testCommonItemsInThumbnailView(WebElement card) {
         Assert.assertTrue(discoverResourcesPage.isCardIconInThumbnailViewDisplayed(card));
         Assert.assertTrue(discoverResourcesPage.isCardTitleDisplayed(card));
         Assert.assertTrue(discoverResourcesPage.isCardResourceTypeInThumbnailViewDisplayed(card));

@@ -22,7 +22,9 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
     protected static final String SEE_FULL_REVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource']";
     protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
+    protected static final String FOLDER_DETAILS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
     protected static final String OPEN_FOLDER_BUTTON = "[class='panel-footer'] a[class*='open-folder-btn']";
+    protected static final String OPEN_FOLDER_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] a[class*='open-folder-btn']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
     private static final String UNSELECTED_FACET_OPTIONS = "[class*='fa-square-o']";
     private static final String SHOW_MORE_BUTTON_FACET = "[class='lp-filter-item'] [class='show-more-facets']";
@@ -38,7 +40,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String SEE_COLLECTION_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [title*='Collection'][href*='/collections/']";
     private static final String SEE_COLLECTION_UNIT_BUTTON = "[class*='panel-footer'] [title*='Unit'][href*='/collections/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE = "[class*='trk-goto-resource'][href^='/drive/documents/']";
-    private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW =  "[class='resource-actions'] [href^='/drive/documents/']";
+    private static final String GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href^='/drive/documents/']";
     private static final String GO_TO_RESOURCE_BUTTON_FOR_ALL_RESOURCES = "[class*='trk-goto-resource']";
     private static final String SEE_PREVIEW_BUTTON = "[class*='panel-footer'] [href*='/member/resource']";
     private static final String SEE_PREVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href*='/member/resource']";
@@ -69,6 +71,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_SHARED_RESOURCE_TAG = "span[class*='shared-resource-tag']";
     private static final String CARD_SHARED_RESOURCE_TAG_LIST_OR_TILED_VIEW = "[class*='star-rating'] [class*='label-info']";
     private static final String CARD_FREE_SAMPLE_STAMP_ICON = "div[class*='free-sample-stamp']";
+    private static final String CARD_PROVIDER_TEXT = "[class='resource-pool-tag']";
 
     private static final String CARD_ICON_IN_THUMBNAIL_VIEW = "div[class='thumb-img-wrap']";
     private static final String CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW = "div[class*='resource-type-banner']";
@@ -332,7 +335,7 @@ public class ResourcesPage extends LpUiBasePage {
         return getResourceOfType(SEE_COLLECTION_BUTTON);
     }
 
-    public List<WebElement> getCollectionCardsInThumbnailView(){
+    public List<WebElement> getCollectionCardsInThumbnailView() {
         return getResourceOfType(SEE_COLLECTION_BUTTON_IN_THUMBNAIL_VIEW);
     }
 
@@ -354,6 +357,14 @@ public class ResourcesPage extends LpUiBasePage {
 
     public List<WebElement> getFullLpResourcesCards() {
         return getResourceOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE);
+    }
+
+    public List<WebElement> getFolderResourceCards() {
+        return getResourceOfType(FOLDER_DETAILS_BUTTON);
+    }
+
+    public List<WebElement> getFolderResourceCardsInThumbnailView() {
+        return getResourceOfType(FOLDER_DETAILS_BUTTON_IN_THUMBNAIL_VIEW);
     }
 
     private List<WebElement> getResourceOfType(String buttonCssSelector) {
@@ -499,6 +510,38 @@ public class ResourcesPage extends LpUiBasePage {
         return getTextForButton(getFreeFullAccessInThumbnailViewButtonForCard(card));
     }
 
+    public WebElement getOpenFolderButtonForCard(WebElement card) {
+        return card.findElement(By.cssSelector(OPEN_FOLDER_BUTTON));
+    }
+
+    public String getOpenFolderButtonTextForCard(WebElement card) {
+        return getTextForElement(getOpenFolderButtonForCard(card));
+    }
+
+    public WebElement getOpenFolderInThumbnailViewButtonForCard(WebElement card) {
+        return card.findElement(By.cssSelector(OPEN_FOLDER_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getOpenFolderInThumbnailViewButtonTextForCard(WebElement card) {
+        return getTextForElement(getOpenFolderInThumbnailViewButtonForCard(card));
+    }
+
+    public WebElement getFolderDetailsButtonForCard(WebElement card) {
+        return card.findElement(By.cssSelector(FOLDER_DETAILS_BUTTON));
+    }
+
+    public String getFolderDetailsButtonTextForCard(WebElement card) {
+        return getTextForElement(getFolderDetailsButtonForCard(card));
+    }
+
+    public WebElement getFolderDetailsInThumbnailViewButtonForCard(WebElement card) {
+        return card.findElement(By.cssSelector(FOLDER_DETAILS_BUTTON_IN_THUMBNAIL_VIEW));
+    }
+
+    public String getFolderDetailsInThumbnailViewButtonTextForCard(WebElement card) {
+        return getTextForElement(getFolderDetailsInThumbnailViewButtonForCard(card));
+    }
+
     private String getTextForButton(WebElement button) {
         waitForLoad();
         waitUntilElementIsDisplayed(button);
@@ -517,7 +560,7 @@ public class ResourcesPage extends LpUiBasePage {
         return isElementDisplayed(card, CARD_RESOURCE_TYPE);
     }
 
-    public boolean isCardResourceTypeInThumbnailViewDisplayed(WebElement card){
+    public boolean isCardResourceTypeInThumbnailViewDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW);
     }
 
@@ -559,5 +602,9 @@ public class ResourcesPage extends LpUiBasePage {
 
     public boolean isFreeSampleStampIconDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_FREE_SAMPLE_STAMP_ICON);
+    }
+
+    public boolean isCardProviderDisplayed(WebElement card){
+        return isElementDisplayed(card,CARD_PROVIDER_TEXT);
     }
 }

@@ -616,6 +616,8 @@ public class TestData {
     public static final String SEE_PREVIEW_BUTTON_TEXT = "See Preview";
     public static final String SEE_FULL_REVIEW_BUTTON_TEXT = "See Full Review";
     public static final String FREE_SAMPLE_BUTTON_TEXT = "Free: Full Access Review";
+    public static final String OPEN_FOLDER_BUTTON_TEXT = "Open Folder";
+    public static final String FOLDER_DETAILS_BUTTON_TEXT = "Folder Details";
 
     public static final String CONTENT_MANAGER_PAGE_TITLE_TEXT = "Content Manager";
     public static final String CONTENT_MANAGER_PAGE_SUBTITLE_TEXT = "View and manage your learning object repository";
