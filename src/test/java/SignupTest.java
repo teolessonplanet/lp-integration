@@ -1,6 +1,7 @@
 import com.lessonplanet.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
@@ -39,6 +40,8 @@ public class SignupTest extends BaseTest {
         testCreateAccountViaTryItFree(TestData.PRO_OPTION_TEXT);
     }
 
+    @Ignore
+    @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button")
     public void testLessonp_3881() {
         testCreateAccountViaPricing(TestData.STARTER_OPTION_TEXT);
@@ -49,6 +52,8 @@ public class SignupTest extends BaseTest {
         testCreateAccountViaPricing(TestData.PRIME_OPTION_TEXT);
     }
 
+    @Ignore
+    @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n")
     public void testLessonp_3883() {
         testCreateAccountViaPricing(TestData.PRO_OPTION_TEXT);

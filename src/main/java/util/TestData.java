@@ -272,7 +272,7 @@ public class TestData {
 
     //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
-    public static final String STEP_ONE_MODAL_TITLE = "Discover 350k+ Teacher Reviewed Resources";
+    public static final String STEP_ONE_MODAL_TITLE = "Discover 550k+ Teacher Reviewed Resources";
 
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
@@ -604,10 +604,10 @@ public class TestData {
     public static final String CANCEL_MODAL_CHEAPER_TEXT = "Want to try a cheaper plan?";
     public static final String CANCEL_MODAL_TRIAL_TIME_TEXT = "10-Day\nFree Trial";
     public static final String CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT = "20\nCollections";
-    public static final String CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT = "* Billed annually at $24";
+    public static final String CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
-    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
+    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $48";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";
