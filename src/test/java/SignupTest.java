@@ -47,13 +47,13 @@ public class SignupTest extends BaseTest {
         testCreateAccountViaPricing(TestData.STARTER_OPTION_TEXT);
     }
 
+    @Ignore
+    @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3882:Create a Prime Account - Pricing button")
     public void testLessonp_3882() {
         testCreateAccountViaPricing(TestData.PRIME_OPTION_TEXT);
     }
 
-    @Ignore
-    @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n")
     public void testLessonp_3883() {
         testCreateAccountViaPricing(TestData.PRO_OPTION_TEXT);
