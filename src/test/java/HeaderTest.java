@@ -264,7 +264,11 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
         Assert.assertEquals(headerPage.getSearchText(), TestData.VALID_SEARCH_WORD);
         Assert.assertTrue(headerPage.isClearSearchButtonDisplayed());
-        footerPage.clickOnCopyRightText();
+        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+            footerPage.clickOnCopyRightText();
+        } else {
+            footerPage.clickOnRegularSlIframeCopyRightText();
+        }
 
         headerPage.clickOnClearSearchButton();
         Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
@@ -287,7 +291,11 @@ public class HeaderTest extends BaseTest {
             Assert.assertEquals(TestData.SHOWING_ALL_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         }
 
-        footerPage.clickOnCopyRightText();
+        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+            footerPage.clickOnCopyRightText();
+        } else {
+            footerPage.clickOnRegularSlIframeCopyRightText();
+        }
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
         headerPage.clickOnClearSearchButton();
         Assert.assertEquals(headerPage.getSearchBoxPlaceholder(),TestData.SEARCH_BOX_PLACEHOLDER_TEXT);

@@ -179,23 +179,24 @@ public class FooterTest extends BaseTest {
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
             Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
             Assert.assertTrue(footerPage.isContactUsButtonDisplayed());
+            Assert.assertTrue(footerPage.isOpenEducationalResourcesSectionDisplayed());
+            Assert.assertTrue(footerPage.isDiscoverResourcesSectionDisplayed());
+            Assert.assertTrue(footerPage.isManageCurriculumSectionDisplayed());
+            Assert.assertTrue(footerPage.isSiteMapButtonDisplayed());
+            Assert.assertTrue(footerPage.isPrivacyPolicyLinkDisplayed());
+            Assert.assertTrue(footerPage.isTermsOfUseLinkDisplayed());
+            Assert.assertTrue(footerPage.isFacebookButtonDisplayed());
+            Assert.assertTrue(footerPage.isTwitterButtonDisplayed());
+            Assert.assertTrue(footerPage.isLinkedinButtonDisplayed());
+            Assert.assertTrue(footerPage.isYoutubeButtonDisplayed());
+            Assert.assertTrue(footerPage.isPinterestButtonDisplayed());
         } else {
             Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
-            Assert.assertFalse(footerPage.isSignUpTextDisplayed());
-            Assert.assertFalse(footerPage.isSubscriptionEmailInputDisplayed());
-            Assert.assertFalse(footerPage.isContactUsButtonDisplayed());
+            Assert.assertTrue(footerPage.isRegularSlIframeCopyrightTextDisplayed());
+            Assert.assertEquals(footerPage.getRegularSlIframeCopyrightText(), TestData.RSL_IFRAME_COPYRIGHT_TEXT);
+            Assert.assertTrue(footerPage.isRegularSlIframePrivacyPolicyLinkDisplayed());
+            Assert.assertTrue(footerPage.isRegularSlIframeTermsOfUseLinkDisplayed());
         }
-        Assert.assertTrue(footerPage.isOpenEducationalResourcesSectionDisplayed());
-        Assert.assertTrue(footerPage.isDiscoverResourcesSectionDisplayed());
-        Assert.assertTrue(footerPage.isManageCurriculumSectionDisplayed());
-        Assert.assertTrue(footerPage.isSiteMapButtonDisplayed());
-        Assert.assertTrue(footerPage.isPrivacyPolicyLinkDisplayed());
-        Assert.assertTrue(footerPage.isTermsOfUseLinkDisplayed());
-        Assert.assertTrue(footerPage.isFacebookButtonDisplayed());
-        Assert.assertTrue(footerPage.isTwitterButtonDisplayed());
-        Assert.assertTrue(footerPage.isLinkedinButtonDisplayed());
-        Assert.assertTrue(footerPage.isYoutubeButtonDisplayed());
-        Assert.assertTrue(footerPage.isPinterestButtonDisplayed());
     }
 
     public void testOpenEducationalResourcesSection() {
@@ -273,19 +274,27 @@ public class FooterTest extends BaseTest {
     }
 
     public void testBottomFooterLinks(String account) {
-        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             footerPage.clickOnContactUsButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
+
+            footerPage.clickOnSiteMapButton();
+            Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
+
+            footerPage.clickOnPrivacyPolicyButton();
+            Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PAGE_PATH);
+
+            footerPage.clickOnTermsOfUseButton();
+            Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
         }
+        else {
+            footerPage.clickOnRegularSlIframePrivacyPolicyLink();
+            Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_PRIVACY_POLICY_URL);
+            footerPage.goBackOnePage();
 
-        footerPage.clickOnSiteMapButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
-
-        footerPage.clickOnPrivacyPolicyButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.PRIVACY_POLICY_PAGE_PATH);
-
-        footerPage.clickOnTermsOfUseButton();
-        Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
+            footerPage.clickOnRegularSlIframeTermsOfUseLink();
+            Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_TERMS_OF_USE_URL);
+        }
     }
 
     public void testLessonPlanetSocialLinks() {
@@ -324,11 +333,13 @@ public class FooterTest extends BaseTest {
 
     public void testRegularSlLogo() {
         Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
-        Assert.assertEquals(footerPage.getCopyrightText(), TestData.COPYRIGHT_TEXT);
         footerPage.clickOnRegularSlLogo(false);
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+        footerPage.waitForLinkToLoad();
+        Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_URL);
+        lpHomePage.goBackOnePage();
+        footerPage.waitForPageLoad();
         footerPage.clickOnRegularSlLogo(true);
-        Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+        Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_URL);
     }
 
     private void testSendEmailNewsletter(String account) {

@@ -395,6 +395,9 @@ public class TestData {
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
     public static final String COPYRIGHT_TEXT = "© 1999-2020 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
+    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Lesson Planet";
+    public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
+    public static final String LEARNING_EXPLORER_TERMS_OF_USE_URL = "https://www.learningexplorer.com/terms-of-use/";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";

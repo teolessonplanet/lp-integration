@@ -51,6 +51,10 @@ public class FooterPage extends LpUiBasePage {
     private static final String SIGN_UP_HINT_TEXT = "[class='lp-footer-top'] [class='newsletter-box'] [class='text']";
     private static final String SIGN_UP_ERROR_TEXT = "#email_subscription_email-error";
 
+    private static final String RSL_IFRAME_COPY_RIGHT_TEXT = "[class='le-footer-meta-item']:nth-child(1)";
+    private static final String RSL_IFRAME_PRIVACY_POLICY_LINK = "[class='le-footer-meta-item']:nth-child(2)";
+    private static final String RSL_IFRAME_TERMS_OF_USE_LINK = "[class='le-footer-meta-item']:nth-child(3)";
+
     public FooterPage(WebDriver driver) {
         super(driver);
     }
@@ -274,5 +278,33 @@ public class FooterPage extends LpUiBasePage {
 
     public boolean isPinterestButtonDisplayed() {
         return isElementDisplayed(PINTEREST_BUTTON);
+    }
+
+    public String getRegularSlIframeCopyrightText() {
+        return getTextForElement(RSL_IFRAME_COPY_RIGHT_TEXT);
+    }
+
+    public boolean isRegularSlIframeCopyrightTextDisplayed() {
+        return isElementDisplayed(RSL_IFRAME_COPY_RIGHT_TEXT);
+    }
+
+    public boolean isRegularSlIframePrivacyPolicyLinkDisplayed() {
+        return isElementDisplayed(RSL_IFRAME_PRIVACY_POLICY_LINK);
+    }
+
+    public boolean isRegularSlIframeTermsOfUseLinkDisplayed() {
+        return isElementDisplayed(RSL_IFRAME_TERMS_OF_USE_LINK);
+    }
+
+    public void clickOnRegularSlIframeCopyRightText() {
+        clickElement(RSL_IFRAME_COPY_RIGHT_TEXT);
+    }
+
+    public void clickOnRegularSlIframePrivacyPolicyLink() {
+        clickElement(RSL_IFRAME_PRIVACY_POLICY_LINK);
+    }
+
+    public void clickOnRegularSlIframeTermsOfUseLink() {
+        clickElement(RSL_IFRAME_TERMS_OF_USE_LINK);
     }
 }

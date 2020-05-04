@@ -1,13 +1,12 @@
 import com.lessonplanet.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class RSL_FooterTest extends BaseTest {
+public class RSL_Iframe_FooterTest extends BaseTest {
     private LoginPage loginPage;
     private FooterTest footerTest;
-    @Ignore
+
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
@@ -25,29 +24,9 @@ public class RSL_FooterTest extends BaseTest {
         footerTest.testFooterContainer(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Footer - lessonp-4151:Open Educational Resources")
-    public void testLessonp_4151() {
-        footerTest.testOpenEducationalResourcesSection();
-    }
-
-    @Test(description = "Regular SL - Footer - lessonp4152:Discover Resources")
-    public void testLessonp_4152() {
-        footerTest.testDiscoverResourcesSection();
-    }
-
-    @Test(description = "Regular SL - Footer - lessonp-4153:Manage Curriculum")
-    public void testLessonp_4153() {
-        footerTest.testManageCurriculumSection();
-    }
-
     @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links")
     public void testLessonp_4154() {
         footerTest.testBottomFooterLinks(TestData.VALID_EMAIL_RSL_SBCEO);
-    }
-
-    @Test(description = "Regular SL - Footer - lessonp-4155:Social links")
-    public void testLessonp_4155() {
-        footerTest.testLessonPlanetSocialLinks();
     }
 
     @Test(description = "Regular SL - Footer -  lessonp-4156:LE Logo")
