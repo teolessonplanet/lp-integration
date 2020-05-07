@@ -3,7 +3,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
-
+@Ignore
+@Deprecated
 public class RSL_FooterTest extends BaseTest {
     private LoginPage loginPage;
     private FooterTest footerTest;

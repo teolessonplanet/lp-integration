@@ -136,7 +136,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     protected void testRrpCollection(String account, boolean rrpStatic) {
         initDirectoryTestAndLogin(account);
 
-        browseBySubjectPage.loadPage(TestData.LANGUAGE_ARTS_RESEAERCH_PAGE_3_PATH);
+        browseBySubjectPage.loadPage(TestData.DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH);
         discoverResourcesPage.changeToListView();
         browseBySubjectPage.clickSeeCollection(rrpStatic);
         CollectionRrpModal collectionRrpModal = new CollectionRrpModal(webDriver);
