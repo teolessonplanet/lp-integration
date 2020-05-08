@@ -631,4 +631,6 @@ public class TestData {
     public static final String CONTENT_MANAGER_CONCEPT_REDIRECT_PATH = "/content-tool?concept_ids=";
     public static final String CONTENT_MANAGER_STANDARD_REDIRECT_PATH = "standards/resources/";
     public static final String CONTENT_MANAGER_RESOURCES_FOR_TEXT = " resources found for ";
+
+    public static final String OPEN_FOLDER_PATH = "pr/teachers/";
 }

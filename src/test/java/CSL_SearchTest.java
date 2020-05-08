@@ -1,5 +1,7 @@
 import com.lessonplanet.pages.DiscoverResourcesPage;
 import com.lessonplanet.pages.LoginPage;
+import com.lessonplanet.pages.Rrp;
+import com.lessonplanet.pages.RrpModal;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -12,12 +14,14 @@ public class CSL_SearchTest extends BaseTest {
     private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private SearchTest searchTest;
+    private Rrp rrp;
 
     @BeforeMethod
     private void beforeMethod() {
         rsl_searchTest = new RSL_SearchTest();
         loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
+        rrp = new Rrp(webDriver);
         searchTest = new SearchTest();
     }
 
@@ -39,6 +43,31 @@ public class CSL_SearchTest extends BaseTest {
         rsl_searchTest.testGoToResource(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
+    @Test(description = "Custom SL - Search Page -  lessonp-5567:User clicks 'Open Folder' footer button")
+    public void testLessonp_5567() {
+        loginAndGetFolderResources();
+
+        discoverResourcesPage.clickOpenFolder(true);
+        Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
+        discoverResourcesPage.closeTab();
+        discoverResourcesPage.clickOpenFolder(false);
+        Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
+    }
+
+    @Test(description = "Custom SL - Search Page -  lessonp-5568:User clicks 'Folder Details' footer button")
+    public void testLessonp_5568() {
+        loginAndGetFolderResources();
+
+        discoverResourcesPage.clickFolderDetails(true);
+        Assert.assertTrue(rrp.isTitleDisplayed());
+        discoverResourcesPage.closeTab();
+        discoverResourcesPage.clickFolderDetails(false);
+        RrpModal rrpModal = new RrpModal(webDriver);
+        rrpModal.waitForModal();
+        Assert.assertTrue(rrpModal.isTitleDisplayed());
+    }
+
+
     @Test(description = "Custom SL - Search Page - lessonp-5274:Cards details - LP resource")
     public void testLessonp_5274() {
         rsl_searchTest.initTest(webDriver);
@@ -54,11 +83,7 @@ public class CSL_SearchTest extends BaseTest {
     @Test(description = "Custom SL - Search Page - lessonp-5664:Cards details - Folder: HMH/McGraw")
     public void testLessonp_5664() {
         searchTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickOnThumbnailView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
+        loginAndGetFolderResources();
         discoverResourcesPage.scrollToTop();
 
         WebElement folderResourceCard = discoverResourcesPage.getFolderResourceCardsInThumbnailView().get(0);
@@ -73,6 +98,14 @@ public class CSL_SearchTest extends BaseTest {
         discoverResourcesPage.clickOnListView();
         folderResourceCard = discoverResourcesPage.getFolderResourceCards().get(0);
         testFolderResourceCard(folderResourceCard);
+    }
+
+    private void loginAndGetFolderResources(){
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.clickOnListView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
     }
 
     private void testFolderResourceCardInThumbnailView(WebElement folderResourceCard) {
