@@ -195,7 +195,11 @@ public class LpUiBasePage {
     protected void loadUrl(String pagePath) {
         if (!isQaIntegrationCookieCreated) {
             try {
-                driver.get(TestData.SERVER_URL + TestData.LP_HOME_PAGE_PATH);
+                if (TestData.WFH_ENVIRONMENT_VARIABLE) {
+                    driver.get("https://demo:hqu5duYLqbyi6@staging.lessonplanet.com");
+                } else {
+                    driver.get(TestData.SERVER_URL + TestData.LP_HOME_PAGE_PATH);
+                }
                 createQaIntegrationBypassCookie();
                 isQaIntegrationCookieCreated = true;
             } catch (Exception ex) {
