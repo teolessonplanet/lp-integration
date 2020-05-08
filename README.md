@@ -24,3 +24,5 @@ This project runs the automated tests for the LP website.
         ```
 
   Where **browserName** is **firefox** or **chrome**
+
+  NOTE: Add **-Dwfh=true** flag if you IP is not whitelisted

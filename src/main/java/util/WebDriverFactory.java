@@ -3,6 +3,8 @@ package util;
 import helpers.BrowserName;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,6 +14,9 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
     private final static String BROWSER_SYSTEM_VAR = "browser";
+    private final static String WFH_SYSTEM_VAR = "wfh";
+
+    protected static final Logger logger = LogManager.getRootLogger();
 
     public WebDriver getInstance() {
 
@@ -39,6 +44,15 @@ public class WebDriverFactory {
         }
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
+
+        try {
+            if (System.getProperty(WFH_SYSTEM_VAR).equals("true")) {
+                TestData.WFH_ENVIRONMENT_VARIABLE = true;
+            }
+        } catch (NullPointerException ex) {
+            logger.info("WFH is not set in VM options");
+        }
+
         return webDriver;
     }
 }

@@ -11,6 +11,7 @@ public class TestData {
     public static final int TIMEOUT = 15;
     public static final int SHORT_TIMEOUT = 5;
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
+    public static boolean WFH_ENVIRONMENT_VARIABLE = false;
     public static final String EMPTY_URL = "about:blank";
     public static final Locale LOCALE = java.util.Locale.US;
     public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integration";
@@ -112,7 +113,7 @@ public class TestData {
     public static final String RATING = "5.0";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
-    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons" , "Assessment Sets", "Unit Modules"};
+    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules"};
     public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
     public static final String PUBLISH_FOLDER_POPOVER_TEXT = "Only collections can be published";
@@ -426,7 +427,7 @@ public class TestData {
     public static final String EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH = "professional-development/courses";
 
     public static final String EDUCATOR_EDITION_PAGE_PATH = "educator-edition";
-    public static final String LEARNING_EXPLORER_URL= "https://www.learningexplorer.com/";
+    public static final String LEARNING_EXPLORER_URL = "https://www.learningexplorer.com/";
     public static final String PD_LEARNING_NETWORK_PATH = "pdln";
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
