@@ -136,6 +136,10 @@ public class StepTwoPage extends LpUiBasePage {
         final String email = TestData.GET_NEW_EMAIL();
         boolean accountCreated = false;
 
+        if (TestData.WFH_ENVIRONMENT_VARIABLE) {
+            lpHomePage.loadPage();
+        }
+
         if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
             switch (accountType) {
                 case TestData.STARTER_OPTION_TEXT:
