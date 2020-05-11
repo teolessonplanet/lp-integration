@@ -125,11 +125,12 @@ public class HeaderTest extends BaseTest {
         if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(headerPage.isLpLogoClickable());
             headerPage.clickOnLpLogo(false);
+            Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
         } else {
             Assert.assertTrue(headerPage.isRegularSlLogoClickable());
             headerPage.clickOnRegularSlLogo(false);
+            Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
         }
-        Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
     }
 
     private void testDiscoverButton(String account) {

@@ -838,7 +838,7 @@ public class RRPSearchPageTest extends BaseTest {
         if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
             testPageUrl(TestData.STEP_ONE_PAGE_PATH);
         }
-        if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             testNewTabRegularResourceUrl();
         }
     }
