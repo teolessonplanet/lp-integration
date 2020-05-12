@@ -42,51 +42,49 @@ public class HeaderTest extends BaseTest {
 
     @Test(description = "Visitor - Header - lessonp-4565: Header buttons")
     public void testLessonp_4565() {
-        testHeaderButtons(TestData.INVALID_EMAIL);
+        testHeaderButtons(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Free member - Header - lessonp-4602: Header buttons")
     public void testLessonp_4602() {
-        testHeaderButtons(TestData.VALID_EMAIL_FREEMIUM);
+        testHeaderButtons(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Header - lessonp-4617: Header buttons")
     public void testLessonp_4617() {
-        testHeaderButtons(TestData.VALID_EMAIL_ACTIVE);
+        testHeaderButtons(TestData.PLAN_PRO);
     }
 
     @Test(description = "Admin - Header - lessonp-5660: Header buttons")
     public void testLessonp_5660() {
-        testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
+        testHeaderButtons(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
     public void testLessonp_4004() {
-        testSearchBoxKeywordFunctionality(TestData.INVALID_EMAIL);
+        testSearchBoxKeywordFunctionality(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Free member - Header - lessonp-4107: Search box (keyword functionality)")
     public void testLessonp_4107() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_FREEMIUM);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testSearchBoxKeywordFunctionality(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Header - lessonp-4111: Search box (keyword functionality)")
     public void testLessonp_4111() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
-        testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ACTIVE);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testSearchBoxKeywordFunctionality(TestData.PLAN_PRO);
     }
 
     @Test(description = "Admin - Header - lessonp-5366: Search box (keyword functionality)")
     public void testLessonp_5366() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
-        testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_ADMIN);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testSearchBoxKeywordFunctionality(TestData.PLAN_PRO);
     }
 
     protected void testHeaderButtons(String account) {
-        if (!account.equals(TestData.INVALID_EMAIL)) {
-            loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        }
+        stepTwoPage.createNewAccount(account);
 
         testLogo(account);
 
@@ -98,7 +96,7 @@ public class HeaderTest extends BaseTest {
 
         testAboutButton(account);
 
-        if (account.equals(TestData.INVALID_EMAIL)) {
+        if (account.equals(TestData.PLAN_VISITOR)) {
             headerPage.clickOnPricingButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.PRICING_PAGE_PATH);
 
@@ -108,12 +106,12 @@ public class HeaderTest extends BaseTest {
 
             headerPage.clickOnTryItFree(false);
             Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
-        } else if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+        } else if (account.equals(TestData.PLAN_FREEMIUM)) {
             headerPage.clickOnUpgradeMeButton(false);
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             stepTwoPage.goBackOnePage();
             testYourAccountButton(false);
-        } else if (account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        } else if (account.equals(TestData.PLAN_PRO)) {
             testYourAccountButton(false);
         } else if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             testYourAccountButton(true);
@@ -149,7 +147,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_PATH, headerPage.getPath());
         Assert.assertEquals(TestData.BROWSE_RESOURCE_DIRECTORY_PAGE_TITLE, directoryPage.getTitle());
 
-        if (account.equals(TestData.INVALID_EMAIL)) {
+        if (account.equals(TestData.PLAN_VISITOR)) {
             headerPage.hoverOverDiscoverButton();
             headerPage.hoverOverCurriculumManagerButton();
             Assert.assertTrue(headerPage.isSignInPopupLinkDisplayed());
@@ -173,7 +171,7 @@ public class HeaderTest extends BaseTest {
             Assert.assertEquals(articlesPage.getLessonPlanningArticlesPageTitle(), TestData.LESSON_PLANNING_ARTICLES_TITLE);
         }
 
-        if (account.equals(TestData.VALID_EMAIL_ADMIN)) {
+        if (account.equals(TestData.PLAN_PRO)) {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnPdLearningNetworkDiscoverButton();
             Assert.assertEquals(TestData.EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH, headerPage.getPath());

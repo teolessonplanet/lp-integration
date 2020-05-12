@@ -32,7 +32,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(false);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testRegularResourceRRPOverview(true, TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3285: Collection Modal Overview")
@@ -40,7 +40,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(false);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testCollectionRRPOverview(true, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testPanelItemsOverview(true);
     }
 
@@ -49,9 +49,9 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(true);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.INVALID_EMAIL);
-        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.INVALID_EMAIL);
-        rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testRegularResourceRRPOverview(false, TestData.PLAN_VISITOR);
+        rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, TestData.PLAN_VISITOR);
+        rrpSearchPageTest.testSimilarResourcesSectionOverview(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor - Directory Page  - RRP Static - RRP Overview: lessonp-3309: Collection Static Page Overview")
@@ -59,7 +59,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(false, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testCollectionRRPOverview(false, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testPanelItemsOverview(false);
     }
 
@@ -71,7 +71,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(true);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(true);
-        rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(true, TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons")
@@ -81,7 +81,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         browseBySubjectPage.clickSeeCollection(false);
         Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), firstCollectionCardTitle);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(true, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testSaveCollectionButton(true, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
         collectionRrpModal.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(true);
@@ -96,7 +96,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testFavoriteButton(false);
         rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(false);
-        rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testThumbnailForRegularResource(false, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
         rrpSearchPageTest.testSeeSimilarResourcesDropdown();
         rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
@@ -107,7 +107,7 @@ public class RRPDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(false, TestData.INVALID_EMAIL);
+        rrpSearchPageTest.testSaveCollectionButton(false, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
         collectionRrpPage.clickPanelItem(0);
         rrpSearchPageTest.testItemViewerSection(false);

@@ -11,6 +11,7 @@ public class CalendarPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
+    private  StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -19,6 +20,7 @@ public class CalendarPageTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
     }
 
     protected void initTest(WebDriver webDriver) {
@@ -28,19 +30,19 @@ public class CalendarPageTest extends BaseTest {
 
     @Test(description = "Visitor - Calendar Page - lessonp-4196:Buttons/Links")
     public void testLessonp_4196() {
-        testCurriculumCalendarPage(TestData.INVALID_EMAIL);
+        testCurriculumCalendarPage(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Calendar Page - lessonp-5259:Buttons/Links")
     public void testLessonp_5259() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testCurriculumCalendarPage(TestData.VALID_EMAIL_FREEMIUM);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testCurriculumCalendarPage(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Calendar Page - lessonp-5260:Buttons/Links")
     public void testLessonp_5260() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
-        testCurriculumCalendarPage(TestData.VALID_EMAIL_ACTIVE);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testCurriculumCalendarPage(TestData.PLAN_PRO);
     }
 
     protected void testCurriculumCalendarPage(String account) {

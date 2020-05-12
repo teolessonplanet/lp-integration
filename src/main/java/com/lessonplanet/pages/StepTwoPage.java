@@ -132,8 +132,8 @@ public class StepTwoPage extends LpUiBasePage {
         waitForPageLoad();
     }
 
-    public String createNewAccount(String accountType) {
-        final String email = TestData.GET_NEW_EMAIL();
+    public String createNewAccount(String accountPlan) {
+        String email = TestData.GET_NEW_EMAIL();
         boolean accountCreated = false;
 
         if (TestData.WFH_ENVIRONMENT_VARIABLE) {
@@ -141,39 +141,41 @@ public class StepTwoPage extends LpUiBasePage {
         }
 
         if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
-            switch (accountType) {
-                case TestData.STARTER_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "starter_36", email));
-                    break;
-                case TestData.PRIME_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "prime_48", email));
-                    break;
-                case TestData.PRO_OPTION_TEXT:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "pro_84", email));
-                    break;
-                default:
-                    driver.get(String.format(STAGING_CREATE_USER_URL, "freemium", email));
-                    lpHomePage.loadPage();
-                    break;
-            }
-            if (headerPage.isUsernameDropDownDisplayed()) {
-                logger.info("Account created via endpoint");
+            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
+                // creates freemium || starter || prime || pro via endpoint
+                driver.get(String.format(STAGING_CREATE_USER_URL, accountPlan, email));
+                lpHomePage.loadPage();
+                if (headerPage.isUsernameDropDownDisplayed()) {
+                    logger.info("Account created via endpoint");
+                    accountCreated = true;
+                }
+            } else {
+                // we have visitor account
+                lpHomePage.loadPage();
+                email = null;
                 accountCreated = true;
             }
         }
 
         if (!accountCreated || !STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
-            if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
-                lpHomePage.loadPage();
+            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
+                if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
+                    lpHomePage.loadPage();
+                }
+                stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
+                if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
+                    if (accountPlan.equals(TestData.STARTER_OPTION_TEXT) || accountPlan.equals(TestData.PRIME_OPTION_TEXT) || accountPlan.equals(TestData.PRO_OPTION_TEXT)) {
+                        final String currentPath = getPath();
+                        loadPage();
+                        completeStepTwoPageWith(accountPlan);
+                        loadUrl(currentPath);
+                    }
+                }
+                logger.info("Account created via UI");
+            } else {
+                // we have visitor account
+                email = null;
             }
-            stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
-            if (accountType.equals(TestData.STARTER_OPTION_TEXT) || accountType.equals(TestData.PRIME_OPTION_TEXT) || accountType.equals(TestData.PRO_OPTION_TEXT)) {
-                final String currentPath = getPath();
-                loadPage();
-                completeStepTwoPageWith(accountType);
-                loadUrl(currentPath);
-            }
-            logger.info("Account created via UI");
         }
         return email;
     }

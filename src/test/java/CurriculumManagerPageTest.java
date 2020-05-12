@@ -73,7 +73,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5538: Access Curriculum Manager Page")
     public void testLessonp_5538() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testAccessCurriculumManagerPageFromHeader(true);
         testAccessCurriculumManagerPageFromSearchPage(true);
         testSortByDropdown();
@@ -91,7 +91,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5614: Create Collections")
     public void testLessonp_5614() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
@@ -103,7 +103,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5535: Upload Resource & My Uploads Folder")
     public void testLessonp_5535() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
         testMyUploadsFolderActions(TestData.FREE_MEMBERSHIP_TEXT);
     }
@@ -124,14 +124,14 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder")
     public void testLessonp_5544() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testUploadResourceUsingTextInput(TestData.PRO_OPTION_TEXT);
         testMyUploadsFolderActions(TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5536: Favorite Resource & My Favorites Folder")
     public void testLessonp_5536() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testFavoriteResources(TestData.FREE_MEMBERSHIP_TEXT);
         testMyFavoritesFolderActions(TestData.FREE_MEMBERSHIP_TEXT);
     }
@@ -152,14 +152,14 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5547: Favorite Resource & My Favorites Folder")
     public void testLessonp_5547() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testFavoriteResources(TestData.PRO_OPTION_TEXT);
         testMyFavoritesFolderActions(TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5537: Collection: Actions Dropdown")
     public void testLessonp_5537() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
         testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
@@ -186,7 +186,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5550: Collection: Actions Dropdown")
     public void testLessonp_5550() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         curriculumManagerPage.loadPage();
         testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
@@ -195,7 +195,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5539: Folder Actions Dropdown")
     public void testLessonp_5539() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
@@ -222,7 +222,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
     public void testLessonp_5022() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         curriculumManagerPage.loadPage();
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);

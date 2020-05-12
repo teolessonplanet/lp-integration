@@ -143,7 +143,6 @@ public class TestData {
 
     public static final String SUBSCRIPTION_MODAL_TEXT = "Thank you for subscribing to Lesson Planet News.";
 
-    //Emails and passwords
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_ADMIN = "admin";
@@ -159,6 +158,14 @@ public class TestData {
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
+
+
+    public static final String PLAN_VISITOR = "visitor";
+    public static final String PLAN_FREEMIUM = "freemium";
+    public static final String PLAN_STARTER = "starter_36";
+    public static final String PLAN_PRIME = "prime_48";
+    public static final String PLAN_PRO = "pro_84";
+
 
     //Search Facet
     public static final String FACET_CONTENT_CURATORS = "Content Curators";

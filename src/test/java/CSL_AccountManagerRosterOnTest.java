@@ -38,7 +38,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testEditDistrict(TestData.CSL_QA_CUSTOM_DISTRICT_NAME, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, true, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.PLAN_VISITOR, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_QA_CUSTOM_OWNER_FIRST_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_QA_CUSTOM_OWNER_FIRST_NAME + " " + TestData.CSL_QA_CUSTOM_OWNER_LAST_NAME, true, true);
     }
@@ -78,7 +78,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME, true, true);
         rsl_accountManagerTest.testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL, true, true);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, true, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.PLAN_VISITOR, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_QA_CUSTOM_TEACHER_FIRST_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_QA_CUSTOM_TEACHER_FIRST_NAME + " " + TestData.CSL_QA_CUSTOM_TEACHER_LAST_NAME, true, true);
     }

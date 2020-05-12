@@ -55,22 +55,22 @@ public class CollectionBuilderTest extends BaseTest {
     @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
     public void testLessonp_431() {
         discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.INVALID_EMAIL);
-        testCollectionBuilderButtons(TestData.INVALID_EMAIL);
+        testMyResourcesButton(TestData.PLAN_VISITOR);
+        testCollectionBuilderButtons(TestData.PLAN_VISITOR);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testCollectionBuilderButtons(TestData.INVALID_EMAIL);
-        testMyResourcesButton(TestData.INVALID_EMAIL);
+        testCollectionBuilderButtons(TestData.PLAN_VISITOR);
+        testMyResourcesButton(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
     public void testLessonp_4378() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        testDragAndDropMaxItemsInsideCollection(TestData.INVALID_EMAIL);
+        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_VISITOR);
         discoverResourcesPage.refreshPageAndDismissBrowserAlert();
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
-        testDragAndDropItem(TestData.INVALID_EMAIL);
+        testDragAndDropItem(TestData.PLAN_VISITOR);
         dismissBecomeALessonPlanetFreeMemberModal();
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
         testCollectionBuilderItem();
@@ -78,7 +78,7 @@ public class CollectionBuilderTest extends BaseTest {
 
     @Test(description = "Freemium - Collection Builder - lessonp-548: Collection Builder Buttons")
     public void testLessonp_548() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadPage();
         testMyResourcesButton(TestData.FREE_MEMBERSHIP_TEXT);
         testCollectionBuilderButtons(TestData.FREE_MEMBERSHIP_TEXT);
@@ -92,7 +92,7 @@ public class CollectionBuilderTest extends BaseTest {
 
     @Test(description = "Freemium - Collection Builder - lessonp-4381: Collection Builder Items")
     public void testLessonp_4381() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
@@ -141,7 +141,7 @@ public class CollectionBuilderTest extends BaseTest {
     }
 
     public void testDragAndDropItem(String accountPlanText) {
-        if (accountPlanText.equals(TestData.INVALID_EMAIL) || accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_VISITOR) || accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
             browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
             if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
@@ -156,7 +156,7 @@ public class CollectionBuilderTest extends BaseTest {
 
     public void testDragAndDropMaxItemsInsideCollection(String accountPlanText) {
         switch (accountPlanText) {
-            case TestData.INVALID_EMAIL:
+            case TestData.PLAN_VISITOR:
                 List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 dismissBecomeALessonPlanetFreeMemberModal();
@@ -206,7 +206,7 @@ public class CollectionBuilderTest extends BaseTest {
 
     public void testMyResourcesButton(String accountPlanText) {
         collectionBuilderPage.isMyResourcesButtonDisplayed();
-        if (accountPlanText.equals(TestData.INVALID_EMAIL)) {
+        if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
             collectionBuilderPage.clickOnMyResources();
             testSignInOrJoinNowModal();
         } else {
@@ -221,7 +221,7 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.isEditFolderButtonDisplayed();
         collectionBuilderPage.isUploadButtonDisplayed();
         collectionBuilderPage.isAddALinkButtonDisplayed();
-        if (accountPlanText.equals(TestData.INVALID_EMAIL)) {
+        if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
             collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();

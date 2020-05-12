@@ -37,7 +37,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
     public void testLessonp_5279() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, false);
     }
 
@@ -49,7 +49,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance")
     public void testLessonp_495() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, true);
     }
 
@@ -61,7 +61,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-982: Publish. Republish")
     public void testLessonp_982() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testPublishFromEditFolder();
     }
 
@@ -73,7 +73,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons")
     public void testLessonp_497() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderButtons(TestData.FREE_MEMBERSHIP_TEXT);
     }
 
@@ -97,7 +97,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options")
     public void testLessonp_5263() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testItemOptions();
     }
 
