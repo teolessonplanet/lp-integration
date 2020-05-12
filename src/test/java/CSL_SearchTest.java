@@ -86,6 +86,7 @@ public class CSL_SearchTest extends BaseTest {
         loginAndGetFolderResources();
         discoverResourcesPage.scrollToTop();
 
+        discoverResourcesPage.clickOnThumbnailView();
         WebElement folderResourceCard = discoverResourcesPage.getFolderResourceCardsInThumbnailView().get(0);
         testFolderResourceCardInThumbnailView(folderResourceCard);
         discoverResourcesPage.hoverOverElement(folderResourceCard);

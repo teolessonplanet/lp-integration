@@ -22,7 +22,7 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
     protected static final String SEE_FULL_REVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource']";
     protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
-    protected static final String FOLDER_DETAILS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
+    protected static final String FOLDER_DETAILS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource'][href*='/pr/teachers/']";
     protected static final String OPEN_FOLDER_BUTTON = "[class='panel-footer'] a[class*='open-folder-btn']";
     protected static final String OPEN_FOLDER_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] a[class*='open-folder-btn']";
     protected static final String UPGRADE_FOR_ACCESS_BUTTON = "[class='panel-footer'] [href*='/subscription/new?ref=']";
