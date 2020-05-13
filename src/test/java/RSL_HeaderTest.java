@@ -16,6 +16,7 @@ public class RSL_HeaderTest extends BaseTest {
     @Test(description = "Regular SL - Header - lessonp-4619: Header buttons")
     public void testLessonp_4619() {
         headerTest.initTest(webDriver);
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         headerTest.testHeaderButtons(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 

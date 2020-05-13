@@ -47,16 +47,19 @@ public class HeaderTest extends BaseTest {
 
     @Test(description = "Free member - Header - lessonp-4602: Header buttons")
     public void testLessonp_4602() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testHeaderButtons(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Header - lessonp-4617: Header buttons")
     public void testLessonp_4617() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testHeaderButtons(TestData.PLAN_PRO);
     }
 
     @Test(description = "Admin - Header - lessonp-5660: Header buttons")
     public void testLessonp_5660() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testHeaderButtons(TestData.PLAN_PRO);
     }
 
@@ -84,8 +87,6 @@ public class HeaderTest extends BaseTest {
     }
 
     protected void testHeaderButtons(String account) {
-        stepTwoPage.createNewAccount(account);
-
         testLogo(account);
 
         testDiscoverButton(account);
