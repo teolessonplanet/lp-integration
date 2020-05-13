@@ -177,7 +177,6 @@ public class HeaderTest extends BaseTest {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnPdLearningNetworkDiscoverButton();
             Assert.assertEquals(TestData.EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH, headerPage.getPath());
-            //TODO: here
         }
     }
 
