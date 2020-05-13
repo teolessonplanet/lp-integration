@@ -158,14 +158,14 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Free member - Footer - lessonp-4116: Newsletter")
     public void testLessonp_4116() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testSendEmailNewsletter(TestData.PLAN_FREEMIUM);
+        String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testSendEmailNewsletter(userEmail);
     }
 
     @Test(description = "Active user - Footer - lessonp-4120: Newsletter")
     public void testLessonp_4120() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testSendEmailNewsletter(TestData.PLAN_PRO);
+        String userEmail =stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testSendEmailNewsletter(userEmail);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -274,7 +274,7 @@ public class FooterTest extends BaseTest {
     }
 
     public void testBottomFooterLinks(String account) {
-        if(!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             footerPage.clickOnContactUsButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
 
@@ -286,8 +286,7 @@ public class FooterTest extends BaseTest {
 
             footerPage.clickOnTermsOfUseButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
-        }
-        else {
+        } else {
             footerPage.clickOnRegularSlIframePrivacyPolicyLink();
             Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_PRIVACY_POLICY_URL);
             footerPage.goBackOnePage();
@@ -343,16 +342,23 @@ public class FooterTest extends BaseTest {
     }
 
     private void testSendEmailNewsletter(String account) {
+        lpHomePage.loadPage();
         Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
         Assert.assertTrue(footerPage.isSignUpTextDisplayed());
         Assert.assertEquals(footerPage.getSignUpHintText(), TestData.SIGN_UP_HINT_TEXT);
+        String visitorMail = "";
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
         } else {
             Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
-            footerPage.typeEmail(account);
+            visitorMail = TestData.GET_NEW_EMAIL();
+            footerPage.typeEmail(visitorMail);
         }
-        testSendButton(account);
+        if (account.equals(TestData.PLAN_VISITOR)) {
+            testSendButton(visitorMail);
+        } else {
+            testSendButton(account);
+        }
 
         footerPage.clearSubscriptionEmail();
         footerPage.clickSendButton();
