@@ -135,7 +135,7 @@ public class StepTwoTest extends BaseTest {
     }
 
     private String getRandomOffer() {
-        String[] offers = {TestData.STARTER_OPTION_TEXT, TestData.PRIME_OPTION_TEXT, TestData.PRO_OPTION_TEXT};
+        String[] offers = {TestData.PLAN_STARTER, TestData.PLAN_PRIME, TestData.PLAN_PRO};
         Random random = new Random();
         int randomNumber = random.nextInt(offers.length);
         return offers[randomNumber];

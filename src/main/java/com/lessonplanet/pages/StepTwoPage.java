@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import util.TestData;
 import org.openqa.selenium.WebElement;
 
+import java.security.InvalidParameterException;
 import java.util.List;
 
 public class StepTwoPage extends LpUiBasePage {
@@ -100,13 +101,13 @@ public class StepTwoPage extends LpUiBasePage {
     public void selectOffer(String offer) {
         List<WebElement> options = findElements(SELECT_OFFER_BUTTON);
         switch (offer) {
-            case TestData.STARTER_OPTION_TEXT:
+            case TestData.PLAN_STARTER:
                 clickElement(options, 0);
                 break;
-            case TestData.PRIME_OPTION_TEXT:
+            case TestData.PLAN_PRIME:
                 clickElement(options, 1);
                 break;
-            case TestData.PRO_OPTION_TEXT:
+            case TestData.PLAN_PRO:
                 clickElement(options, 2);
                 break;
             default:
@@ -132,7 +133,10 @@ public class StepTwoPage extends LpUiBasePage {
         waitForPageLoad();
     }
 
-    public String createNewAccount(String accountPlan) {
+    public String createNewAccount(String accountPlan) throws InvalidParameterException {
+        if (!(accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO))) {
+            throw new InvalidParameterException("The plan " + accountPlan + " is not valid");
+        }
         String email = TestData.GET_NEW_EMAIL();
         boolean accountCreated = false;
 
@@ -164,7 +168,7 @@ public class StepTwoPage extends LpUiBasePage {
                 }
                 stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
                 if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
-                    if (accountPlan.equals(TestData.STARTER_OPTION_TEXT) || accountPlan.equals(TestData.PRIME_OPTION_TEXT) || accountPlan.equals(TestData.PRO_OPTION_TEXT)) {
+                    if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
                         final String currentPath = getPath();
                         loadPage();
                         completeStepTwoPageWith(accountPlan);

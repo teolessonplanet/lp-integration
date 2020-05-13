@@ -43,8 +43,8 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Active Users - Edit Collection - lessonp-5280: Edit Collection Modal Appearance")
     public void testLessonp_5280() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderAppearance(TestData.STARTER_OPTION_TEXT, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderAppearance(TestData.PLAN_STARTER, false);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance")
@@ -55,8 +55,8 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Active Users - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance")
     public void testLessonp_5169() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderAppearance(TestData.STARTER_OPTION_TEXT, true);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderAppearance(TestData.PLAN_STARTER, true);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-982: Publish. Republish")
@@ -67,7 +67,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish")
     public void testLessonp_5261() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPublishFromEditFolder();
     }
 
@@ -79,20 +79,20 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons")
     public void testLessonp_5272() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderButtons(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderButtons(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
     public void testLessonp_5639() {
-        stepTwoPage.createNewAccount(TestData.PRIME_OPTION_TEXT);
-        testEditFolderButtons(TestData.PRIME_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        testEditFolderButtons(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
     public void testLessonp_5640() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
-        testEditFolderButtons(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testEditFolderButtons(TestData.PLAN_PRO);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options")
@@ -103,7 +103,7 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Active Users - Edit Collection - lessonp-5264: Item Options")
     public void testLessonp_5264() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testItemOptions();
     }
 

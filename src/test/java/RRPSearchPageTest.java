@@ -368,7 +368,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-586: Resource Modal Overview")
     public void testLessonp_586() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.PLAN_PRO);
@@ -376,7 +376,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-954: Shared Resource Modal Overview")
     public void testLessonp_954() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
@@ -385,7 +385,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-587: Collection Modal Overview")
     public void testLessonp_587() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         testCollectionRRPOverview(true, TestData.PLAN_PRO);
@@ -394,7 +394,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Overview - lessonp-4795: Resource Static Page Overview")
     public void testLessonp_4795() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testResourcePageOverview(TestData.PLAN_PRO, false);
     }
 
@@ -411,7 +411,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview")
     public void testLessonp_4796() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
@@ -422,7 +422,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4797: Collection Static Page Overview")
     public void testLessonp_4797() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         testCollectionRRPOverview(false, TestData.PLAN_PRO);
@@ -438,7 +438,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4792: LP Resource Main buttons")
     public void testLessonp_4792() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testLpResourceMainButtons(false, TestData.PLAN_PRO);
     }
 
@@ -459,7 +459,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4794: Shared Resource Main buttons")
     public void testLessonp_4794() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
@@ -471,8 +471,8 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons")
     public void testLessonp_4793() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testCollectionMainButtons(true, TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testCollectionMainButtons(true, TestData.PLAN_STARTER);
     }
 
     public void testCollectionMainButtons(boolean inModal, String account) {
@@ -508,7 +508,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4805: LP Resource Main buttons")
     public void testLessonp_4805() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testThumbnailForRegularResource(false, TestData.PLAN_PRO);
@@ -521,7 +521,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4811: Shared Resource Main Buttons")
     public void testLessonp_4811() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
@@ -535,7 +535,7 @@ public class RRPSearchPageTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4817: Collection Main buttons")
     public void testLessonp_4817() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         collectionRrpModal.clickPlayCollectionButton();

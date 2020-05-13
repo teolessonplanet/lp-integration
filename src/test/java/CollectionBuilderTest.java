@@ -110,30 +110,30 @@ public class CollectionBuilderTest extends BaseTest {
 
     @Test(description = "Active User - Collection Builder - Search - lessonp-4914: Collection Builder Buttons")
     public void testLessonp_4914() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.STARTER_OPTION_TEXT);
-        testCollectionBuilderButtons(TestData.STARTER_OPTION_TEXT);
+        testMyResourcesButton(TestData.PLAN_STARTER);
+        testCollectionBuilderButtons(TestData.PLAN_STARTER);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testMyResourcesButton(TestData.STARTER_OPTION_TEXT);
-        testCollectionBuilderButtons(TestData.STARTER_OPTION_TEXT);
+        testMyResourcesButton(TestData.PLAN_STARTER);
+        testCollectionBuilderButtons(TestData.PLAN_STARTER);
         curriculumManagerPage.loadPage();
-        testCollectionBuilderButtons(TestData.STARTER_OPTION_TEXT);
-        testMaxCollectionCreated(TestData.STARTER_OPTION_TEXT);
+        testCollectionBuilderButtons(TestData.PLAN_STARTER);
+        testMaxCollectionCreated(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Active User - Collection Builder - Search - lessonp-4915: Collection Builder Items")
     public void testLessonp_4915() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-        testDragAndDropMaxItemsInsideCollection(TestData.STARTER_OPTION_TEXT);
+        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_STARTER);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 11);
-        testDragAndDropItem(TestData.STARTER_OPTION_TEXT);
+        testDragAndDropItem(TestData.PLAN_STARTER);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 12);
         curriculumManagerPage.loadPage();
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 12);
@@ -185,7 +185,7 @@ public class CollectionBuilderTest extends BaseTest {
                 collectionBuilderPage.waitForLoadingIconToDisappear();
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 break;
-            case TestData.STARTER_OPTION_TEXT:
+            case TestData.PLAN_STARTER:
             case TestData.VALID_EMAIL_RSL_SBCEO:
                 List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
                 for (int i = 0; i <= 9; i++) {
