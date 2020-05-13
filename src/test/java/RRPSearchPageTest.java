@@ -639,8 +639,7 @@ public class RRPSearchPageTest extends BaseTest {
     }
 
     public void testSimilarResourcesSectionOverview(String account) {
-        if (rrpPage.isSimilarResourcesSectionDisplayed()) {
-            Assert.assertTrue(rrpPage.isSimilarResourcesHeaderDisplayed());
+        if (rrpPage.isSimilarResourcesHeaderDisplayed()) {
             Assert.assertTrue(rrpPage.isSimilarResourcesListDisplayed());
             Assert.assertTrue(rrpPage.isAllResourceTypesDropdownDisplayed());
             rrpPage.clickAllResourceTypesDropdown();

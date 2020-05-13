@@ -13,7 +13,6 @@ public class RrpPage extends Rrp {
     private static final String BOTTOM_PAGE_TRY_IT_FREE_BUTTON = "a[data-track-click='Try It Free'][data-track-label='side_widget_button']";
     private static final String START_YOUR_FREE_TRIAL_WIDGET = "[class='col-md-4 col-sm-12'] [class='panel panel-default']";
     private static final String START_YOUR_FREE_TRIAL_TEXT = "[class='col-md-4 col-sm-12'] [class='panel-body'] p";
-    private static final String SIMILAR_RESOURCES_SECTION = "#related-container";
     private static final String SIMILAR_RESOURCES_HEADER = "#related-options";
     private static final String SIMILAR_RESOURCES_LIST = "#related-resources";
     private static final String ALL_RESOURCE_TYPES_DROPDOWN = "#related-dropdown";
@@ -51,10 +50,6 @@ public class RrpPage extends Rrp {
 
     public String getStartYourFreeTrialText() {
         return getTextForElement(START_YOUR_FREE_TRIAL_TEXT);
-    }
-
-    public boolean isSimilarResourcesSectionDisplayed() {
-        return isElementDisplayed(SIMILAR_RESOURCES_SECTION);
     }
 
     public boolean isSimilarResourcesHeaderDisplayed() {
