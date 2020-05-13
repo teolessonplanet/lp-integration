@@ -227,12 +227,12 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRO);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PLAN_PRO);
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
         Assert.assertFalse(myAccountPage.isUpgradeYourPlanButtonDisplayed());
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
         //Only PRO available
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PLAN_PRO);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Prime membership - lessonp-675: From Search page")
@@ -245,8 +245,8 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.clickOnUpgradeMeNowButton();
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PLAN_PRIME);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PLAN_PRO);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
     @Test(description = "Account management - Upgrade a Prime membership - lessonp-676: From My Account page")
@@ -259,8 +259,8 @@ public class AccountManagementTest extends BaseTest {
         myAccountPage.clickOnUpgradeYourPlanButton();
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PLAN_PRIME);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PLAN_PRO);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
     //TODO: temporary all active users have assign privileges
     @Ignore
