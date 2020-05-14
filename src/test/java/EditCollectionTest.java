@@ -38,7 +38,7 @@ public class EditCollectionTest extends BaseTest {
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
     public void testLessonp_5279() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, false);
+        testEditFolderAppearance(TestData.PLAN_FREEMIUM, false);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5280: Edit Collection Modal Appearance")
@@ -50,7 +50,7 @@ public class EditCollectionTest extends BaseTest {
     @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance")
     public void testLessonp_495() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, true);
+        testEditFolderAppearance(TestData.PLAN_FREEMIUM, true);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance")
@@ -74,7 +74,7 @@ public class EditCollectionTest extends BaseTest {
     @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons")
     public void testLessonp_497() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testEditFolderButtons(TestData.FREE_MEMBERSHIP_TEXT);
+        testEditFolderButtons(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons")
@@ -200,7 +200,7 @@ public class EditCollectionTest extends BaseTest {
 
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickUploadAFileButton();
-        if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText);
@@ -258,7 +258,7 @@ public class EditCollectionTest extends BaseTest {
         rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
         editCollectionPage.clickActionsDropdown();
         editCollectionPage.clickAssignFolderOption();
-        if (!accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testAssignModal(TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         } else {
             curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
