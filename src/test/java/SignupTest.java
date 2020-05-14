@@ -98,6 +98,6 @@ public class SignupTest extends BaseTest {
         subscriptionSuccessPage.clickOnGetStartedButton();
         Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.THANK_YOU_FOR_UPDATING_TEXT);
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), plan);
+        Assert.assertTrue(plan.startsWith(myAccountPage.getPlan().toLowerCase()));
     }
 }
