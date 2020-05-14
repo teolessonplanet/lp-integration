@@ -475,7 +475,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage() {
-        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
+        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.PLAN_FREEMIUM);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {
@@ -497,17 +497,17 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromAssignResourceButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
-        curriculumManagerTest.testFavoriteRegularResource(TestData.FREE_MEMBERSHIP_TEXT);
-        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
+        curriculumManagerTest.testFavoriteRegularResource(TestData.PLAN_FREEMIUM);
+        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromAssignFolderButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
-        curriculumManagerTest.testAddRegularResourceToFolder(TestData.FREE_MEMBERSHIP_TEXT);
+        curriculumManagerTest.testAddRegularResourceToFolder(TestData.PLAN_FREEMIUM);
         curriculumManagerTest.testAddSharedResourceToFolder();
         curriculumManagerPage.loadPage();
-        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
+        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
