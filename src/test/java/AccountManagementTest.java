@@ -119,7 +119,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PLAN_STARTER);
+        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));
 
         customMembershipPage.loadPage();
         customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
@@ -129,7 +129,7 @@ public class AccountManagementTest extends BaseTest {
         cancelModal.clickOnNoThanksConfirmCancellationButton();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PLAN_STARTER);
+        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));;
 
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
@@ -353,7 +353,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(subscriptionToTest);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
         manageMembershipPage.clickOnMoreAccountOptionsButton();
@@ -366,7 +366,7 @@ public class AccountManagementTest extends BaseTest {
         checkCancelModalTexts(subscriptionToTest);
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscription);
+        Assert.assertTrue(lowerSubscription.startsWith(myAccountPage.getPlan().toLowerCase()));
 
         if (!subscriptionToTest.equals(TestData.PLAN_STARTER)) {
             manageMembershipPage.loadPage();
@@ -398,21 +398,21 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
     private void checkCancelModalTexts(String subscriptionToTest) {
         if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
             Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
-            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PLAN_PRIME);
+            Assert.assertTrue(TestData.PLAN_PRIME.startsWith(cancelModal.getModalIndividualMembershipText().toLowerCase()));
             Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT);
             Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
             Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT);
 
         } else if ((subscriptionToTest.equals(TestData.PLAN_PRIME))) {
             Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
-            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PLAN_STARTER);
+            Assert.assertTrue(TestData.PLAN_STARTER.startsWith(cancelModal.getModalIndividualMembershipText().toLowerCase()));
             Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT);
             Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
             Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT);
