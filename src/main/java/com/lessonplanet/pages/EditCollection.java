@@ -63,7 +63,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions']";
     private static final String EDIT_PAGE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(1)";
-    private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary']";
+    private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']";
     private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(2)";
     private static final String HIDE_FROM_PLAYER_ICON = "[class*='lp-play-disabled']";
     private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(3)";
