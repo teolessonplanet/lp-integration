@@ -144,11 +144,11 @@ public class StepTwoModal extends LpHomePage {
         }
         switch (index) {
             case 0:
-                return TestData.STARTER_OPTION_TEXT;
+                return TestData.PLAN_STARTER;
             case 1:
-                return TestData.PRIME_OPTION_TEXT;
+                return TestData.PLAN_PRIME;
             case 2:
-                return TestData.PRO_OPTION_TEXT;
+                return TestData.PLAN_PRO;
             default:
                 logger.error("No option is selected");
                 return "";
@@ -158,13 +158,13 @@ public class StepTwoModal extends LpHomePage {
     public void selectOffer(String offer) {
         List<WebElement> options = findElements(SELECT_OFFER_BUTTON);
         switch (offer) {
-            case TestData.STARTER_OPTION_TEXT:
+            case TestData.PLAN_STARTER:
                 clickElement(options, 0);
                 break;
-            case TestData.PRIME_OPTION_TEXT:
+            case TestData.PLAN_PRIME:
                 clickElement(options, 1);
                 break;
-            case TestData.PRO_OPTION_TEXT:
+            case TestData.PLAN_PRO:
                 clickElement(options, 2);
                 break;
             default:

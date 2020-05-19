@@ -37,73 +37,73 @@ public class EditCollectionTest extends BaseTest {
 
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
     public void testLessonp_5279() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
-        testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testEditFolderAppearance(TestData.PLAN_FREEMIUM, false);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5280: Edit Collection Modal Appearance")
     public void testLessonp_5280() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderAppearance(TestData.STARTER_OPTION_TEXT, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderAppearance(TestData.PLAN_STARTER, false);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance")
     public void testLessonp_495() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
-        testEditFolderAppearance(TestData.FREE_MEMBERSHIP_TEXT, true);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testEditFolderAppearance(TestData.PLAN_FREEMIUM, true);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance")
     public void testLessonp_5169() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderAppearance(TestData.STARTER_OPTION_TEXT, true);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderAppearance(TestData.PLAN_STARTER, true);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-982: Publish. Republish")
     public void testLessonp_982() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testPublishFromEditFolder();
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish")
     public void testLessonp_5261() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPublishFromEditFolder();
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons")
     public void testLessonp_497() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
-        testEditFolderButtons(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testEditFolderButtons(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons")
     public void testLessonp_5272() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
-        testEditFolderButtons(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testEditFolderButtons(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
     public void testLessonp_5639() {
-        stepTwoPage.createNewAccount(TestData.PRIME_OPTION_TEXT);
-        testEditFolderButtons(TestData.PRIME_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        testEditFolderButtons(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
     public void testLessonp_5640() {
-        stepTwoPage.createNewAccount(TestData.PRO_OPTION_TEXT);
-        testEditFolderButtons(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testEditFolderButtons(TestData.PLAN_PRO);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options")
     public void testLessonp_5263() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testItemOptions();
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5264: Item Options")
     public void testLessonp_5264() {
-        stepTwoPage.createNewAccount(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testItemOptions();
     }
 
@@ -200,7 +200,7 @@ public class EditCollectionTest extends BaseTest {
 
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickUploadAFileButton();
-        if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText);
@@ -258,7 +258,7 @@ public class EditCollectionTest extends BaseTest {
         rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
         editCollectionPage.clickActionsDropdown();
         editCollectionPage.clickAssignFolderOption();
-        if (!accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testAssignModal(TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         } else {
             curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);

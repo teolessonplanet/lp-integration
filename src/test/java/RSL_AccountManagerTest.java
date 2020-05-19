@@ -54,6 +54,7 @@ public class RSL_AccountManagerTest extends BaseTest {
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-901: Edit District, Search in district")
+    //TODO: try to remove static account
     public void testLessonp_901() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false);
@@ -65,6 +66,7 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
     public void testLessonp_904() {
+        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
         testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER);
@@ -91,6 +93,7 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-895: Edit School, Search in School")
     public void testLessonp_895() {
+        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
@@ -107,6 +110,7 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
     public void testLessonp_924() {
+        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         districtPage.clickOnSchool(0);

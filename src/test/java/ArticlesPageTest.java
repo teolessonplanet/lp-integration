@@ -11,6 +11,7 @@ public class ArticlesPageTest extends BaseTest {
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
     private LoginPage loginPage;
     private RRPSearchPageTest rrpSearchPageTest;
+    private StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -19,37 +20,38 @@ public class ArticlesPageTest extends BaseTest {
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
         rrpSearchPageTest = new RRPSearchPageTest();
     }
 
     @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
     public void testLessonp_3331() {
-        testArticlesMainPage(TestData.INVALID_EMAIL);
+        testArticlesMainPage(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Lesson Planet Articles - lessonp-5256: Articles Main Page")
     public void testLessonp_5256() {
-        testArticlesMainPage(TestData.VALID_EMAIL_FREEMIUM);
+        testArticlesMainPage(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active - Lesson Planet Articles - lessonp-5258: Articles Main Page")
     public void testLessonp_5258() {
-        testArticlesMainPage(TestData.VALID_EMAIL_ACTIVE);
+        testArticlesMainPage(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
     public void testLessonp_3398() {
-        testArticlesPage(TestData.INVALID_EMAIL);
+        testArticlesPage(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Lesson Planet Articles -  lessonp-5255: Article Page")
     public void testLessonp_5255() {
-        testArticlesPage(TestData.VALID_EMAIL_FREEMIUM);
+        testArticlesPage(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active - Lesson Planet Articles -  lessonp-5257: Article Page")
     public void testLessonp_5257() {
-        testArticlesPage(TestData.VALID_EMAIL_ACTIVE);
+        testArticlesPage(TestData.PLAN_PRO);
     }
 
     private void testArticleCard() {
@@ -59,9 +61,7 @@ public class ArticlesPageTest extends BaseTest {
     }
 
     private void testArticlesPage(String account) {
-        if (!account.equals(TestData.INVALID_EMAIL)) {
-            loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        }
+        stepTwoPage.createNewAccount(account);
         articlesPage.loadPage();
         String articleCardTitle = articlesPage.getArticleCardTitle(0);
         articlesPage.clickOnArticleCard(0);
@@ -78,17 +78,14 @@ public class ArticlesPageTest extends BaseTest {
             articlesPage.clickOnRecentArticle(0);
             Assert.assertEquals(articlesPage.getArticlePageTitle(), recentArticleTitle);
         }
-        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        if (!account.equals(TestData.PLAN_PRO)) {
             directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
             directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
     }
 
     private void testArticlesMainPage(String account) {
-        if (!account.equals(TestData.INVALID_EMAIL)) {
-            loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        }
-
+        stepTwoPage.createNewAccount(account);
         lpHomePage.loadPage();
         headerPage.hoverOverDiscoverButton();
         headerPage.clickOnLessonPlanningArticlesButton();
@@ -99,17 +96,17 @@ public class ArticlesPageTest extends BaseTest {
         testArticleCard();
         Assert.assertEquals(articlesPage.getArticleTopics(), TestData.ARTICLE_TOPICS);
         directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        if (!account.equals(TestData.PLAN_PRO)) {
             directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
-        if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+        if (account.equals(TestData.PLAN_FREEMIUM)) {
             lpHomePage.goBackOnePage();
         }
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
         directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         directoryCategoriesAndSubcategoriesTest.testTestimonials(account);
-        if (!account.equals(TestData.VALID_EMAIL_ACTIVE)) {
+        if (!account.equals(TestData.PLAN_PRO)) {
             articlesPage.closeTab();
         }
         articlesPage.clickOnArticleTopicLink();

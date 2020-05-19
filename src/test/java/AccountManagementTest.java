@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
-import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
@@ -117,10 +116,10 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_694() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.STARTER_OPTION_TEXT);
+        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));
 
         customMembershipPage.loadPage();
         customMembershipPage.clickOnSpecialOffersAndCancellationsLink();
@@ -130,7 +129,7 @@ public class AccountManagementTest extends BaseTest {
         cancelModal.clickOnNoThanksConfirmCancellationButton();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.STARTER_OPTION_TEXT);
+        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));;
 
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
@@ -150,34 +149,34 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Downgrade - lessonp-948: From Pro membership")
     public void testLessonp_948() {
-        testDowngrade(TestData.PRO_OPTION_TEXT, TestData.PRIME_OPTION_TEXT);
+        testDowngrade(TestData.PLAN_PRO, TestData.PLAN_PRIME);
     }
 
     @Test(description = "Account management - Downgrade - lessonp-947: From Prime membership")
     public void testLessonp_947() {
-        testDowngrade(TestData.PRIME_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+        testDowngrade(TestData.PLAN_PRIME, TestData.PLAN_STARTER);
     }
 
     @Test(description = "Account management - Downgrade - lessonp-683: From Starter membership")
     public void testLessonp_983() {
-        testDowngrade(TestData.STARTER_OPTION_TEXT, TestData.STARTER_OPTION_TEXT);
+        testDowngrade(TestData.PLAN_STARTER, TestData.PLAN_STARTER);
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-687: From <Get Free Access> button on a resource card")
     public void testLessonp_687() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromGetFreeAccessButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-688: From <Upgrade for Full Review> button on the RRP")
     public void testLessonp_688() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager")
     public void testLessonp_686() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
@@ -185,38 +184,38 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-684: Free members exceeds the allowed number of collections created")
     public void testLessonp_684() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-1000: Free member tries to save a 4th collection")
     public void testLessonp_1000() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromSaving4thCollection();
     }
 
     @Test(description = "AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection")
     public void testLessonp_690() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromAssignResourceButton();
         testUpgradeFreeMemberFromAssignFolderButton();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection")
     public void testLessonp_685() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-689: Free member tries to save a collection containing more than 10 items")
     public void testLessonp_689() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
     public void testLessonp_3884() {
-        stepTwoPage.createNewAccount(TestData.FREE_MEMBERSHIP_TEXT);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
     }
@@ -225,7 +224,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_673() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.PRO_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRO);
 
         myAccountPage.loadPage();
         Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
@@ -240,7 +239,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_675() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRIME);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
@@ -254,7 +253,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_676() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRIME);
 
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
@@ -269,7 +268,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_677() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.PRIME_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRIME);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeFullReview(false);
@@ -286,15 +285,15 @@ public class AccountManagementTest extends BaseTest {
         upgradeAssignModal.clickOnUpgradeMeButton();
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRIME_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PLAN_PRIME);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PLAN_PRO);
     }
 
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page")
     public void testLessonp_678() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickOnUpgradeMeNowButton();
@@ -309,7 +308,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_679() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
         myAccountPage.loadPage();
         myAccountPage.clickOnUpgradeYourPlanButton();
@@ -325,7 +324,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_680() {
         stepTwoTest = new StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
-        stepTwoPage.completeStepTwoPageWith(TestData.STARTER_OPTION_TEXT);
+        stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
@@ -344,8 +343,8 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 2);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
-        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PLAN_STARTER);
+        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PLAN_PRO);
     }
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
@@ -354,7 +353,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(subscriptionToTest);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
         manageMembershipPage.clickOnMoreAccountOptionsButton();
@@ -367,9 +366,9 @@ public class AccountManagementTest extends BaseTest {
         checkCancelModalTexts(subscriptionToTest);
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), lowerSubscription);
+        Assert.assertTrue(lowerSubscription.startsWith(myAccountPage.getPlan().toLowerCase()));
 
-        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+        if (!subscriptionToTest.equals(TestData.PLAN_STARTER)) {
             manageMembershipPage.loadPage();
             manageMembershipPage.upgradeSubscriptionAndReturn(subscriptionToTest);
         }
@@ -380,7 +379,7 @@ public class AccountManagementTest extends BaseTest {
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
 
-        if (subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+        if (subscriptionToTest.equals(TestData.PLAN_STARTER)) {
             Assert.assertEquals(cancelModal.getModalTitleText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_TITLE_TEXT);
             Assert.assertEquals(cancelModal.getCancelQuestionText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_QUESTION_TEXT);
             Assert.assertEquals(cancelModal.getModalYourCurrentMembershipText(), TestData.CANCEL_MODAL_FROM_STARTER_MONTHLY_YOUR_CURRENT_MEMBERSHIP_TEXT);
@@ -390,7 +389,7 @@ public class AccountManagementTest extends BaseTest {
         } else {
             checkCancelModalTexts(subscriptionToTest);
         }
-        if (!subscriptionToTest.equals(TestData.STARTER_OPTION_TEXT)) {
+        if (!subscriptionToTest.equals(TestData.PLAN_STARTER)) {
             cancelModal.clickOnNoThanksConfirmCancellationButton();
         } else {
             cancelModal.clickOnConfirmCancellation();
@@ -399,21 +398,21 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertEquals(myAccountPage.getPlan(), subscriptionToTest);
+        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
     private void checkCancelModalTexts(String subscriptionToTest) {
-        if (subscriptionToTest.equals(TestData.PRO_OPTION_TEXT)) {
+        if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
             Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
-            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.PRIME_OPTION_TEXT);
+            Assert.assertTrue(TestData.PLAN_PRIME.startsWith(cancelModal.getModalIndividualMembershipText().toLowerCase()));
             Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT);
             Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
             Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT);
 
-        } else if ((subscriptionToTest.equals(TestData.PRIME_OPTION_TEXT))) {
+        } else if ((subscriptionToTest.equals(TestData.PLAN_PRIME))) {
             Assert.assertEquals(cancelModal.getModalWantToTryACheaperPlanText(), TestData.CANCEL_MODAL_CHEAPER_TEXT);
-            Assert.assertEquals(cancelModal.getModalIndividualMembershipText(), TestData.STARTER_OPTION_TEXT);
+            Assert.assertTrue(TestData.PLAN_STARTER.startsWith(cancelModal.getModalIndividualMembershipText().toLowerCase()));
             Assert.assertEquals(cancelModal.getNumberOfCollectionsText(), TestData.CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT);
             Assert.assertEquals(cancelModal.getFreeTrialText(), TestData.CANCEL_MODAL_TRIAL_TIME_TEXT);
             Assert.assertEquals(cancelModal.getBillingText(), TestData.CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT);
@@ -476,7 +475,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage() {
-        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.FREE_MEMBERSHIP_TEXT);
+        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.PLAN_FREEMIUM);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {
@@ -498,17 +497,17 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromAssignResourceButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
-        curriculumManagerTest.testFavoriteRegularResource(TestData.FREE_MEMBERSHIP_TEXT);
-        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
+        curriculumManagerTest.testFavoriteRegularResource(TestData.PLAN_FREEMIUM);
+        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromAssignFolderButton() {
         curriculumManagerTest.reachCurriculumManagerPage(webDriver);
         curriculumManagerTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
-        curriculumManagerTest.testAddRegularResourceToFolder(TestData.FREE_MEMBERSHIP_TEXT);
+        curriculumManagerTest.testAddRegularResourceToFolder(TestData.PLAN_FREEMIUM);
         curriculumManagerTest.testAddSharedResourceToFolder();
         curriculumManagerPage.loadPage();
-        curriculumManagerTest.testAssignResource(TestData.FREE_MEMBERSHIP_TEXT, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
+        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {

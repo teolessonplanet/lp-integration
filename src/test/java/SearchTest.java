@@ -42,12 +42,12 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Visitor - Search Page - lessonp-494: Keyword search")
     public void testLessonp_494() {
-        testKeywordSearch(TestData.INVALID_EMAIL);
+        testKeywordSearch(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-493: Keywordless search")
     public void testLessonp_493() {
-        testKeywordlessSearch(TestData.INVALID_EMAIL);
+        testKeywordlessSearch(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-487: Cards layout")
@@ -65,19 +65,19 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Visitor - Search Page - lessonp-4747: User clicks result card")
     public void testLessonp_4747() {
-        testUserClicksResultCard(TestData.INVALID_EMAIL);
+        testUserClicksResultCard(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Free member - Search Page - lessonp-503: User clicks result card")
     public void testLessonp_503() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testUserClicksResultCard(TestData.VALID_EMAIL_FREEMIUM);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testUserClicksResultCard(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Search Page - lessonp-601: User clicks result card")
     public void testLessonp_601() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
-        testUserClicksResultCard(TestData.VALID_EMAIL_ACTIVE);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testUserClicksResultCard(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)")
@@ -87,7 +87,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - lessonp-505: User clicks 'See Review' footer button (LP resource)")
     public void testLessonp_505() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeeReviewButton();
     }
 
@@ -104,7 +104,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - lessonp-504: User clicks 'Get Free Access' footer button")
     public void testLessonp_504() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
@@ -121,13 +121,13 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - lessonp-998: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_998() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeePreviewButton();
     }
 
     @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_603() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeePreviewButton();
     }
 
@@ -138,13 +138,13 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - lessonp-999: User clicks 'Go to Resource' footer button (Shared resource)")
     public void testLessonp_999() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testGoToResourceButtonForSharedResource();
     }
 
     @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)")
     public void testLessonp_602() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testGoToResourceButtonForSharedResource();
         testGoToResourceButtonForRegularResource();
     }
@@ -156,19 +156,19 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Freemium - Search Page - lessonp-507: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_507() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeeCollection();
     }
 
     @Test(description = "Active user - Search Page - lessonp-605: User clicks 'See Collection' footer button (Collection)")
     public void testLessonp_605() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeeCollection();
     }
 
     @Test(description = "Free member - Search Page - lessonp-506: User clicks 'Free: Full Access Review' footer button")
     public void testLessonp_506() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
         checkRrpSample(false, true, false);
@@ -180,13 +180,13 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-604: User clicks 'See Full Review' footer button")
     public void testLessonp_604() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeeFullReviewButton();
     }
 
     @Test(description = "Visitor - Search Page - lessonp-3956: Cards details - LP resource")
     public void testLessonp_3956() {
-        testLpResource(TestData.INVALID_EMAIL, false);
+        testLpResource(TestData.PLAN_VISITOR, false);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-3957: Cards details - Collection")
@@ -201,43 +201,43 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Free member - Search Page - lessonp-3993: Cards details - LP resource")
     public void testLessonp_3993() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testLpResource(TestData.VALID_EMAIL_FREEMIUM, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testLpResource(TestData.PLAN_FREEMIUM, false);
     }
 
     @Test(description = "Free member - Search Page - lessonp-4002:Cards details - Sample resource")
     public void testLessonp_4002() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
-        testLpResource(TestData.VALID_EMAIL_FREEMIUM, true);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testLpResource(TestData.PLAN_FREEMIUM, true);
     }
 
     @Test(description = "Free member - Search Page - lessonp-3994: Cards details - Collection")
     public void testLessonp_3994() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionResource();
     }
 
     @Test(description = "Free member - Search Page - lessonp-3995: Cards details - Shared resource")
     public void testLessonp_3995() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSharedResource();
     }
 
     @Test(description = "Active user - Search Page - lessonp-4007:Cards details - LP resource")
     public void testLessonp_4007() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
-        testLpResource(TestData.VALID_EMAIL_ACTIVE, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testLpResource(TestData.PLAN_PRO, false);
     }
 
     @Test(description = "Active user - Search Page - lessonp-4008: Cards details - Collection")
     public void testLessonp_4008() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionResource();
     }
 
     @Test(description = "Active user - Search Page - lessonp-4009: Cards details - Shared resource")
     public void testLessonp_4009() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSharedResource();
     }
 
@@ -298,9 +298,9 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isTitleDisplayed());
-        if (account.equals(TestData.INVALID_EMAIL) || account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             checkRrpSample(true, false, false);
-            if (account.equals(TestData.VALID_EMAIL_FREEMIUM)) {
+            if (account.equals(TestData.PLAN_FREEMIUM)) {
                 //check free resource
                 discoverResourcesPage.loadPage();
                 discoverResourcesPage.clickFreeFullAccessReview(false);
@@ -425,7 +425,7 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.scrollToTop();
         testCommonItemsInThumbnailView(lpResourceCard);
 
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessInThumbnailViewButtonTextForCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -443,7 +443,7 @@ public class SearchTest extends BaseTest {
 
         testCommonItemsInThumbnailView(lpResourceCard);
 
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessInThumbnailViewButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -547,7 +547,7 @@ public class SearchTest extends BaseTest {
     private WebElement getLpResourceCard(String account, boolean freeSample, boolean inThumbnailView) {
         discoverResourcesPage.waitForLoad();
         WebElement lpResourceCard;
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 if(inThumbnailView){
                     lpResourceCard = discoverResourcesPage.getSampleResourceCardsInThumbnailView().get(0);
@@ -568,7 +568,7 @@ public class SearchTest extends BaseTest {
     }
 
     private void verifyLpResourceButtons(String account, boolean freeSample, WebElement lpResourceCard) {
-        if (!(account.equals(TestData.VALID_EMAIL_ACTIVE) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));

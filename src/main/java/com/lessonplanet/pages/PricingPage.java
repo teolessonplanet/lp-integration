@@ -15,13 +15,13 @@ public class PricingPage extends LpUiBasePage {
 
     public void selectOffer(String offer) {
         switch (offer) {
-            case TestData.STARTER_OPTION_TEXT:
+            case TestData.PLAN_STARTER:
                 clickElement(SELECT_PLAN_STARTER_BUTTON);
                 break;
-            case TestData.PRIME_OPTION_TEXT:
+            case TestData.PLAN_PRIME:
                 clickElement(SELECT_PLAN_PRIME_BUTTON);
                 break;
-            case TestData.PRO_OPTION_TEXT:
+            case TestData.PLAN_PRO:
                 clickElement(SELECT_PLAN_PRO_BUTTON);
                 break;
             default:

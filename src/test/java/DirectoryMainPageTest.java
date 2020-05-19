@@ -8,7 +8,7 @@ import util.TestData;
 public class DirectoryMainPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
-    private LoginPage loginPage;
+    private StepTwoPage stepTwoPage;
     private HeaderPage headerPage;
     private DirectoryPage directoryPage;
     private BrowseBySubjectPage browseBySubjectPage;
@@ -17,7 +17,7 @@ public class DirectoryMainPageTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
-        loginPage = new LoginPage(webDriver);
+        stepTwoPage = new StepTwoPage(webDriver);
         headerPage = new HeaderPage(webDriver);
         directoryPage = new DirectoryPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
@@ -37,50 +37,50 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Free member - Directory Page - Main Page - lessonp-1035: Page UI")
     public void testLessonp_1035() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testPageUi();
     }
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1040: Page UI")
     public void testLessonp_1040() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPageUi();
     }
 
     @Test(description = "Free member - Directory Page - Main Page - lessonp-1330: Tumbnails")
     public void testLessonp_1030() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testThumbnails();
     }
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1041: Tumbnails")
     public void testLessonp_1041() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testThumbnails();
     }
 
     @Test(description = "Free member - Directory Page - Main Page - lessonp-1331: Links")
     public void testLessonp_1331() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLinks();
     }
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1042: Links")
     public void testLessonp_1042() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLinks();
     }
 
     @Test(description = "Free member - Directory Page - Main Page - lessonp-1332: Show All button")
     public void testLessonp_1332() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testShowAllButton();
     }
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1043: Show All button")
 
     public void testLessonp_1043() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testShowAllButton();
     }
 
@@ -91,13 +91,13 @@ public class DirectoryMainPageTest extends BaseTest {
 
     @Test(description = "Free member - Directory Page - Main Page - lessonp-1039: Categories modal")
     public void testLessonp_1039() {
-        loginPage.performLogin(TestData.VALID_EMAIL_FREEMIUM, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCategoriesModal();
     }
 
     @Test(description = "Active user - Directory Page - Main Page - lessonp-1044: Categories modal")
     public void testLessonp_1044() {
-        loginPage.performLogin(TestData.VALID_EMAIL_ACTIVE, TestData.VALID_PASSWORD);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCategoriesModal();
     }
 

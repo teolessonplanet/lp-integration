@@ -41,7 +41,7 @@ public class StepTwoTest extends BaseTest {
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
         headerPage.clickOnUpgradeMeButton(false);
     }
-    
+
     @Test(description = "Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data")
     public void testLessonp_5252() {
         lpHomePage.loadPage();
@@ -85,7 +85,7 @@ public class StepTwoTest extends BaseTest {
         Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
         // check if selected subscription is met
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), offerToSelect);
+        Assert.assertTrue(offerToSelect.startsWith(myAccountPage.getPlan().toLowerCase()));
     }
 
     @Test(description = "Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data")
@@ -131,11 +131,11 @@ public class StepTwoTest extends BaseTest {
         Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
         // check if selected subscription is met
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), offerToSelect);
+        Assert.assertTrue(offerToSelect.startsWith(myAccountPage.getPlan().toLowerCase()));
     }
 
     private String getRandomOffer() {
-        String[] offers = {TestData.STARTER_OPTION_TEXT, TestData.PRIME_OPTION_TEXT, TestData.PRO_OPTION_TEXT};
+        String[] offers = {TestData.PLAN_STARTER, TestData.PLAN_PRIME, TestData.PLAN_PRO};
         Random random = new Random();
         int randomNumber = random.nextInt(offers.length);
         return offers[randomNumber];

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +29,13 @@ public class ManageMembershipPage extends LpUiBasePage {
     }
 
     private void upgradeSubscription(String newSubscription) {
+        if (!(newSubscription.equals(TestData.PLAN_STARTER) || newSubscription.equals(TestData.PLAN_PRIME) || newSubscription.equals(TestData.PLAN_PRO))) {
+            throw new InvalidParameterException("The plan " + newSubscription + " is not valid");
+        }
+        String[] offerToSelect = newSubscription.split("_");
         List<WebElement> offerContainers = findElements(OFFER_CONTAINERS);
         for (WebElement offer : offerContainers) {
-            if (offer.getText().contains(newSubscription)) {
+            if (offer.getText().toLowerCase().startsWith(offerToSelect[0])) {
                 clickElement(findElements(offer, SELECT_BUTTONS), 0);
                 break;
             }

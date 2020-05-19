@@ -27,36 +27,36 @@ public class SignupTest extends BaseTest {
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3849:Create a Starter Account - Try it Free button")
     public void testLessonp_3849() {
-        testCreateAccountViaTryItFree(TestData.STARTER_OPTION_TEXT);
+        testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3850:Create a Prime Account - Try it Free button")
     public void testLessonp_3850() {
-        testCreateAccountViaTryItFree(TestData.PRIME_OPTION_TEXT);
+        testCreateAccountViaTryItFree(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button")
     public void testLessonp_3851() {
-        testCreateAccountViaTryItFree(TestData.PRO_OPTION_TEXT);
+        testCreateAccountViaTryItFree(TestData.PLAN_PRO);
     }
 
     @Ignore
     @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button")
     public void testLessonp_3881() {
-        testCreateAccountViaPricing(TestData.STARTER_OPTION_TEXT);
+        testCreateAccountViaPricing(TestData.PLAN_STARTER);
     }
 
     @Ignore
     @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3882:Create a Prime Account - Pricing button")
     public void testLessonp_3882() {
-        testCreateAccountViaPricing(TestData.PRIME_OPTION_TEXT);
+        testCreateAccountViaPricing(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n")
     public void testLessonp_3883() {
-        testCreateAccountViaPricing(TestData.PRO_OPTION_TEXT);
+        testCreateAccountViaPricing(TestData.PLAN_PRO);
     }
 
     private void testCreateAccountViaTryItFree(String plan) {
@@ -98,6 +98,6 @@ public class SignupTest extends BaseTest {
         subscriptionSuccessPage.clickOnGetStartedButton();
         Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.THANK_YOU_FOR_UPDATING_TEXT);
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), plan);
+        Assert.assertTrue(plan.startsWith(myAccountPage.getPlan().toLowerCase()));
     }
 }
