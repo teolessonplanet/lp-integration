@@ -145,7 +145,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertEquals(districtPage.getSearchButtonPopoverText(), TestData.SEARCH_BUTTON_POPOVER_TEXT);
         Assert.assertTrue(districtPage.isAddButtonDisplayed());
         if (districtPage.isSchoolListDisplayed()) {
-            for (int i = 0; i < districtPage.getSchoolsNumber(); i++) {
+            for (int i = 0; i < districtPage.getSchoolsNumber() - 1; i++) {
                 Assert.assertTrue(districtPage.isSchoolNameDisplayed());
                 Assert.assertTrue(districtPage.isNrOfTeachersDisplayed());
                 Assert.assertTrue(districtPage.isNrOfResourcesUploadedDisplayed());
