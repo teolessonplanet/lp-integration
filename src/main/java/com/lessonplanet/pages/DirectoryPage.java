@@ -26,8 +26,8 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String VISUAL_AND_PERFORMING_ARTS_SUBJECT_THUMBNAIL = "[class*='img'][href*='/visual-and-performing-arts']";
     private static final String SHOW_ALL_BUTTONS = "[class*='open-modal']";
 
-    private static final String WELLNESS_AND_SAFETY_LINK = "[href='/lesson-plans/health-triangle']";
-    private static final String SOCIAL_EMOTIONAL_LEARNING_LINK = "li:nth-child(2) a[href='/lesson-plans/mental-emotional-health']";
+    private static final String WELLNESS_AND_SAFETY_LINK = "[href='/lesson-plans/wellness-and-safety']";
+    private static final String SOCIAL_EMOTIONAL_LEARNING_LINK = "li:nth-child(2) a[href='/lesson-plans/social-and-emotional-learning']";
     private static final String GROWTH_AND_DEVELOPMENT_LINK = "[href='/lesson-plans/growth-and-development']";
     private static final String SEX_EDUCATION_LINK = "[href='/lesson-plans/sex-education']";
     private static final String RESEARCH_LINK = "[href='/lesson-plans/research']";
@@ -46,7 +46,7 @@ public class DirectoryPage extends LpUiBasePage {
     private static final String WATER_ACTIVITIES_LINK = "[href='/lesson-plans/water-activities']";
     private static final String SPORT_SKILLS_LINK = "[href='/lesson-plans/sports-skills']";
     private static final String NATURAL_SCIENCE_LINK = "[href='/lesson-plans/natural-science']";
-    private static final String SCIENTISTS_LINK = "[href='/lesson-plans/scientist']";
+    private static final String SCIENTISTS_LINK = "[href='/lesson-plans/scientists']";
     private static final String BIOLOGY_LINK = "[href='/lesson-plans/biology']";
     private static final String APPLIED_SCIENCE_LINK = "[href='/lesson-plans/applied-science']";
     private static final String TWENTY_ONE_CENTURY_LEARNING_SKILLS_LINK = "[href='/lesson-plans/21st-century-learning-skills']";
