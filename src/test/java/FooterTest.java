@@ -239,6 +239,7 @@ public class FooterTest extends BaseTest {
         videoContentModal.waitForModal();
         videoContentModal.clickOnXButton();
         Assert.assertEquals(lpHomePage.getPath(), TestData.HOW_IT_WORKS_PAGE_PATH);
+        lpHomePage.loadPage();
 
         footerPage.clickOnHowToSearchLink();
         videoContentModal.waitForModal();
