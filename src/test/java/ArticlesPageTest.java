@@ -56,7 +56,6 @@ public class ArticlesPageTest extends BaseTest {
         Assert.assertTrue(articlesPage.isArticleCardTitleDisplayed());
         Assert.assertTrue(articlesPage.isArticleCardDescriptionDisplayed());
         Assert.assertTrue(articlesPage.isArticleCardPhotoDisplayed());
-        Assert.assertTrue(articlesPage.isArticleCardDateDisplayed());
     }
 
     private void testArticlesPage(String account) {
@@ -69,7 +68,6 @@ public class ArticlesPageTest extends BaseTest {
         Assert.assertEquals(articlesPage.getArticlePageTitle(), articleCardTitle);
         Assert.assertTrue(articlesPage.isArticlePageDescriptionDisplayed());
         Assert.assertTrue(articlesPage.isArticlePageAuthorDisplayed());
-        Assert.assertTrue(articlesPage.isArticlePageDateDisplayed());
         Assert.assertTrue(articlesPage.isFacebookShareButtonDisplayed());
         Assert.assertTrue(articlesPage.isTwitterShareButtonDisplayed());
         Assert.assertTrue(articlesPage.isPinterestShareButtonDisplayed());
