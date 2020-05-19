@@ -44,6 +44,10 @@ public class TestData {
     public static final String[] MONTH = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     public static final String[] KEYWORD = {"Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
+    //Publish Modal
+    public static final String PUBLISH_COLLECTION_WITH_UPLOADED_FILE_MODAL_TEXT = "This collection contains private uploaded files, which are currently not supported with publishing. If these files can be accessed via a URL, use the \"Add a Link\" collection feature to include them or select \"Continue\" to publish the collection without these files.";
+    public static final String PUBLISH_COLLECTION_WITH_FOLDER_MODAL_TEXT = "This Collection contains Folder items, which are currently not supported with publishing. Select “Continue” to publish the collection without these items.";
+
     //Articles Page
     public static final String LESSON_PLANNING_ARTICLES_TITLE = "Lesson Planning Articles";
     public static final String ART_AND_MUSIC_TOPIC_PATH = "articles/art-and-music";
