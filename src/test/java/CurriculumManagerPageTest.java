@@ -336,7 +336,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             uploadFileModal.selectFolder();
         }
         uploadFileModal.clickOnUploadButton();
-        if (accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !editCollection) {
+        if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)|| accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
             uploadFileModal.hoverOverDisabledPublishButton();
             Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
         }

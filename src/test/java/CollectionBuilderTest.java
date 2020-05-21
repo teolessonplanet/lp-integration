@@ -187,6 +187,7 @@ public class CollectionBuilderTest extends BaseTest {
                 break;
             case TestData.PLAN_STARTER:
             case TestData.VALID_EMAIL_RSL_SBCEO:
+            case TestData.VALID_EMAIL_CSL_HENRY:
                 List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
                 for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFullReviewResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
