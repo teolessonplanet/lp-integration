@@ -264,6 +264,10 @@ public class DistrictPage extends LpUiBasePage {
         return isElementDisplayed(TEACHER_SCHOOL_TEXT, position);
     }
 
+    public String getTeacherSchoolName(int position){
+        return getTextForElement(TEACHER_SCHOOL_TEXT, position);
+    }
+
     public String getTeacherFirstName(int position) {
         scrollToElement(TEACHER_FIRST_NAME_TEXT, position);
         return getTextForElement(TEACHER_FIRST_NAME_TEXT, position);

@@ -55,6 +55,10 @@ public class TestData {
     public static final String ART_AND_MUSIC_ARTICLE_GUIDE_SECTION_TITLE = "Art and Music Guide";
     public static final String ARTICLE_TOPICS = "Article Topics\n" + "Art and Music\n" + "Art\n" + "Arts and Crafts\n" + "Drama\n" + "Elementary Art\n" + "Music\n" + "Computers\n" + "Education\n" + "Alternative Education\n" + "Early Childhood Education\n" + "Educational Technology\n" + "Gifted And Talented Education\n" + "Higher Education\n" + "Homeschooling\n" + "Kindergarten\n" + "Parent Resources\n" + "Special Education\n" + "Teacher Education\n" + "Teacher Resources\n" + "Test Preparation\n" + "Geography\n" + "World Cultures\n" + "Health\n" + "Careers\n" + "Mental Health\n" + "Nutrition\n" + "Nutrition and Diet\n" + "Personal Growth\n" + "Physical Education\n" + "Language Arts\n" + "Calendar\n" + "Elementary Language Arts\n" + "English\n" + "ESL\n" + "Foreign Languages\n" + "Grammar\n" + "Literature\n" + "Middle School Writing\n" + "Poetry\n" + "Reading\n" + "Writing\n" + "Writing Technique\n" + "Math\n" + "Algebra\n" + "Arithmetic\n" + "Elementary Math\n" + "Science\n" + "Biology\n" + "Earth Science\n" + "Elementary Science\n" + "Environment\n" + "Life Science\n" + "Marine Science\n" + "Physics\n" + "Seasons\n" + "Space\n" + "Technology\n" + "Social Studies\n" + "Civics\n" + "Economics\n" + "Economics and Business\n" + "Elementary Social Studies\n" + "Family History\n" + "Government\n" + "History\n" + "Holidays\n" + "U.S. Government\n" + "U.S. History\n" + "Teacher Resources\n" + "Professional Development\n" + "Teacher Tools\n" + "Technology\n" + "Technology Integration\n" + "Seasonal Articles";
 
+    //Limited Resource Access
+    public static final String LIMITED_RESOURCE_ACCESS_TITLE = "Limited Resource Access";
+    public static final String LIMITED_RESOURCE_ACCESS_MODAL_TEXT = "Your access is limited to";
+
     //Edit collection
     public static final String EDIT_COLLECTION_TITLE = "Edit Folder";
     public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
@@ -237,6 +241,7 @@ public class TestData {
     public static final String CSL_HENRY_TEACHER_LAST_NAME = "Reese";
     public static final String CSL_QA_CUSTOM_DISTRICT_NAME = "QA Custom SL Test";
     public static final String CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME = "new school";
+    public static final String CSL_PARENTS_SCHOOL_NAME = "Parents School";
     public static final String CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL = "i_t_csl_qa_custom@lp.com";
     public static final String CSL_QA_CUSTOM_OWNER_FIRST_NAME = "Michelle";
     public static final String CSL_QA_CUSTOM_OWNER_LAST_NAME = "Tracey";
@@ -456,6 +461,7 @@ public class TestData {
     public static final String DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH = "lesson-plans/developmental-and-behavioral-disorders";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
     public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_2_PATH = "lesson-plans/research/2";
+    public static final String SOCIAL_AND_EMOTIONAL_LEARNING_PATH = "lesson-plans/social-and-emotional-learning";
     public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";

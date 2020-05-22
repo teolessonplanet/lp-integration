@@ -17,6 +17,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     private CreateNewCollectionModal createNewCollectionModal;
 
     private SearchTest searchTest;
+    private LimitedResourceAccessModal limitedResourceAccessModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -29,6 +30,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         createNewCollectionModal = new CreateNewCollectionModal(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
+        limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -151,6 +153,11 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         if (collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed()) {
             collectionRrpModal.clickSaveCollectionButtonActiveUser();
+            if (limitedResourceAccessModal.isModalDisplayed()) {
+                Assert.assertEquals(limitedResourceAccessModal.getLimitedResourceAccessModalTitleText(), TestData.LIMITED_RESOURCE_ACCESS_TITLE);
+                Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
+                limitedResourceAccessModal.clickOnSaveButton();
+            }
             Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER));
         }
 

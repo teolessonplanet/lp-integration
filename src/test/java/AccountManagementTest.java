@@ -92,6 +92,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_692() {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
         becomeALessonPlanetFreeMemberModal.waitForModal();
