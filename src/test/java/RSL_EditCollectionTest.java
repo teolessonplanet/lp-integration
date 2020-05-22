@@ -31,7 +31,7 @@ public class RSL_EditCollectionTest extends BaseTest {
 
     @Test(description = "Regular SL - Edit Collection - lessonp-5619: Publish. Republish")
     public void testLessonp_5619() {
-        editCollectionTest.testPublishFromEditFolder();
+        editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Edit Collection - lessonp-5620: Edit Collection Buttons")

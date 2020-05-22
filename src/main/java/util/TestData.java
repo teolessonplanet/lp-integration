@@ -71,6 +71,7 @@ public class TestData {
     public static final String IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT = "Image already in collection";
     public static final String PIXABAY_IMAGE_LINK = "https://pixabay.com/";
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
+    public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Collection has been added to";
 
     //Curriculum Manager
 

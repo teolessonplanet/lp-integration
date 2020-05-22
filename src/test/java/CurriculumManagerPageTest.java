@@ -336,7 +336,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             uploadFileModal.selectFolder();
         }
         uploadFileModal.clickOnUploadButton();
-        if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)|| accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
+        if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
             uploadFileModal.hoverOverDisabledPublishButton();
             Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
         }
@@ -492,7 +492,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             testEditResource();
             testPlayResource(accountPlanText);
-            if (!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
                 testPublishUploadResource();
             }
             testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
@@ -527,7 +527,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         testPublishCollectionWithNoItems(folder);
         testAddRequiredInformationToPublishCollection(accountPlanText);
         testPlayFolderWithItems();
-        testPublishCollectionWithItems(folder);
+        testPublishCollectionWithItems(folder, accountPlanText);
         testAssignResource(accountPlanText, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
         testMaxLimitOfFoldersCopied();
         testMoveFolder();
@@ -549,7 +549,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testAddRequiredInformationToPublishCollection(String accountPlanText) {
         testAddRegularResourceToFolder(accountPlanText);
         testCheckResourceIsAddedInFolder(TestData.ONE_RESOURCES);
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
             testAddSharedResourceToFolder();
         } else {
             testAddRegularResourceToFolder(accountPlanText);
@@ -623,14 +623,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PLAY_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT);
     }
 
-    public void testPublishCollectionWithItems(boolean folder) {
+    public void testPublishCollectionWithItems(boolean folder, String accountPlanText) {
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.hoverOverPublishButton();
         if (!folder) {
             Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT);
             curriculumManagerPage.clickOnPublishButton();
-            testPublishCollectionModal();
+            testPublishCollectionModal(accountPlanText);
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PUBLISHED_STATUS);
         } else {
@@ -639,13 +639,17 @@ public class CurriculumManagerPageTest extends BaseTest {
         }
     }
 
-    public void testPublishCollectionModal() {
+    public void testPublishCollectionModal(String accountPlanText) {
         publishCollectionModal.waitForModal();
         publishCollectionModal.chooseRating();
         publishCollectionModal.chooseAudience();
         publishCollectionModal.typeConcept();
         publishCollectionModal.clickOnPublishCollectionButton();
-        publishCollectionModal.clickOnCloseButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            publishCollectionModal.clickOnCloseButton();
+        } else {
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+        }
     }
 
     public void testPublishCollectionWithNoItems(boolean folder) {
@@ -710,7 +714,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteResources(String accountPlanText) {
         testFavoriteRegularResource(accountPlanText);
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
             testFavoriteSharedResource();
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
