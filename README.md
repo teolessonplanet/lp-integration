@@ -16,13 +16,14 @@ This project runs the automated tests for the LP website.
     * navigate to the lp-integration directory
     * start the tests using the command: 
         ```
-        mvn test -ea -Dbrowser=browserName
-        ```
- - to run a specific test suite:
-        ```
-        mvn test -ea -Dbrowser=browserName -Dsuite=SuiteName
+        mvn test -Dbrowser=browserName
         ```
 
-  Where **browserName** is **firefox** or **chrome**
-
-  NOTE: Add **-Dwfh=true** flag if you IP is not whitelisted
+  **NOTES:** 
+  
+    Mandatory flag:
+      -Dbrowser={firefox,chrome}
+    Optional flags:
+      -Dheadless=true (to run tests in headless mode)
+      -Dipwhitelisted=false (bypasses the staging username and password if the IP is not whitelisted)
+  

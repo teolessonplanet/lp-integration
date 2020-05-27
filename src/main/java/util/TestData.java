@@ -11,7 +11,7 @@ public class TestData {
     public static final int TIMEOUT = 15;
     public static final int SHORT_TIMEOUT = 5;
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
-    public static boolean WFH_ENVIRONMENT_VARIABLE = false;
+    public static boolean IP_IS_WHITELISTED = true;
     public static final String EMPTY_URL = "about:blank";
     public static final Locale LOCALE = java.util.Locale.US;
     public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integration";
