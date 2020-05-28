@@ -140,7 +140,7 @@ public class StepTwoPage extends LpUiBasePage {
         String email = TestData.GET_NEW_EMAIL();
         boolean accountCreated = false;
 
-        if (TestData.WFH_ENVIRONMENT_VARIABLE) {
+        if (!TestData.IP_IS_WHITELISTED) {
             lpHomePage.loadPage();
         }
 

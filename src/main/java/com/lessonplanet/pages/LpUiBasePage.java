@@ -195,7 +195,7 @@ public class LpUiBasePage {
     protected void loadUrl(String pagePath) {
         if (!isQaIntegrationCookieCreated) {
             try {
-                if (TestData.WFH_ENVIRONMENT_VARIABLE) {
+                if (!TestData.IP_IS_WHITELISTED) {
                     driver.get("https://demo:hqu5duYLqbyi6@staging.lessonplanet.com");
                 } else {
                     driver.get(TestData.SERVER_URL + TestData.LP_HOME_PAGE_PATH);
