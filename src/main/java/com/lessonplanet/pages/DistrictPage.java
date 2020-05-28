@@ -14,7 +14,7 @@ public class DistrictPage extends LpUiBasePage {
     private static final String ADD_LINK_REMOVE_BUTTON = "[class='group-table children'] [class*='placeholder'] [class*='btn-danger']";
     private static final String ADD_LINK_SEE_REPORTING_BUTTON = "[class='group-table children'] [class*='placeholder'] [class*='btn-primary']";
 
-    private static final String ORGANIZATION_NAME = "[class='se-org-name']";
+    private static final String ORGANIZATION_NAME = "[class*='se-org-name']";
     private static final String EDIT_ORGANIZATION_BUTTON = "[class*='se-edit-org-info']";
     private static final String EDIT_ORGANIZATION_BUTTON_POPOVER_TEXT = "[class*='se-edit-org-info'] [class='popuptext show']";
     private static final String MANAGE_ADMINS_BUTTON = "[class*='se-edit-org-admins']";

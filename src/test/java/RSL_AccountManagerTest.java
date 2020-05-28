@@ -139,14 +139,8 @@ public class RSL_AccountManagerTest extends BaseTest {
     public void testDistrictPage(boolean roster) {
         Assert.assertTrue(districtPage.isOrganizationNameDisplayed());
         Assert.assertTrue(districtPage.isEditOrganizationButtonDisplayed());
-        districtPage.hoverOverEditOrganizationButton();
-        Assert.assertEquals(districtPage.getEditOrganizationButtonPopoverText(), TestData.EDIT_DISTRICT_BUTTON_POPOVER_TEXT);
         Assert.assertTrue(districtPage.isManageAdminsButtonDisplayed());
-        districtPage.hoverOverManageAdminsButton();
-        Assert.assertEquals(districtPage.getManageAdminsPopoverText(), TestData.MANAGE_DISTRICT_ADMINS_POPOVER_TEXT);
         Assert.assertTrue(districtPage.isSearchButtonDisplayed());
-        districtPage.hoverOverSearchButton();
-        Assert.assertEquals(districtPage.getSearchButtonPopoverText(), TestData.SEARCH_BUTTON_POPOVER_TEXT);
         Assert.assertTrue(districtPage.isAddButtonDisplayed());
         if (districtPage.isSchoolListDisplayed()) {
             for (int i = 0; i < districtPage.getSchoolsNumber() - 1; i++) {
@@ -354,14 +348,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(schoolPage.isDistrictBreadcrumbsDisplayed());
         Assert.assertTrue(schoolPage.isOrganizationNameDisplayed());
         Assert.assertTrue(schoolPage.isEditOrganizationButtonDisplayed());
-        schoolPage.hoverOverEditOrganizationButton();
-        Assert.assertEquals(schoolPage.getEditOrganizationButtonPopoverText(), TestData.EDIT_SCHOOL_BUTTON_POPOVER_TEXT);
         Assert.assertTrue(schoolPage.isManageAdminsButtonDisplayed());
-        schoolPage.hoverOverManageAdminsButton();
-        Assert.assertEquals(schoolPage.getManageAdminsPopoverText(), TestData.MANAGE_SCHOOL_ADMINS_POPOVER_TEXT);
         Assert.assertTrue(schoolPage.isSearchButtonDisplayed());
-        schoolPage.hoverOverSearchButton();
-        Assert.assertEquals(schoolPage.getSearchButtonPopoverText(), TestData.SEARCH_BUTTON_POPOVER_TEXT);
         Assert.assertTrue(schoolPage.isAddButtonDisplayed());
         if (schoolPage.isTeachersListDisplayed()) {
             for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
