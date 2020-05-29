@@ -14,7 +14,7 @@ public class RSL_PublishCollection extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private EditCollectionModal editCollectionModal;
     private CollectionBuilderPage collectionBuilderPage;
-    private ConfirmShareUploadModal confirmShareUploadModal;
+    private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
     private ConfirmShareFolderModal confirmShareFolderModal;
 
     @BeforeMethod
@@ -25,7 +25,7 @@ public class RSL_PublishCollection extends BaseTest {
         curriculumManagerPageTest = new CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        confirmShareUploadModal = new ConfirmShareUploadModal(webDriver);
+        confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
         confirmShareFolderModal = new ConfirmShareFolderModal(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
@@ -80,11 +80,11 @@ public class RSL_PublishCollection extends BaseTest {
             if (folder) {
                 Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_COLLECTION_WITH_FOLDER_MODAL_TEXT);
                 confirmShareFolderModal.clickOnContinueButton();
-                Assert.assertEquals(confirmShareUploadModal.getModalText(), TestData.PUBLISH_COLLECTION_WITH_UPLOADED_FILE_MODAL_TEXT);
+                confirmPublishUploadFileModal.clickAgreementOption();
             } else {
-                Assert.assertEquals(confirmShareUploadModal.getModalText(), TestData.PUBLISH_COLLECTION_WITH_UPLOADED_FILE_MODAL_TEXT);
+                confirmPublishUploadFileModal.clickAgreementOption();
             }
-            confirmShareUploadModal.clickOnPublishCollectionButton();
+            confirmPublishUploadFileModal.clickOnPublishCollectionButton();
         } else {
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
