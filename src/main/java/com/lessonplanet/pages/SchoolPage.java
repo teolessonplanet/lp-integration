@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SchoolPage extends DistrictPage {
 
-    private static final String DISTRICT_BREADCRUMBS = "[class='go-to-parent']";
+    private static final String DISTRICT_BREADCRUMBS = "[class*='go-to-parent']";
     private static final String FLASH_NOTIFICATION_TEXT = "#se-flash-message";
     private static final String FLASH_NOTIFICATION_X_BUTTON = "#se-flash-message [class='close']";
     private static final String TEACHERS_LIST = "[class='group-table children'] [class='group-body'] [class='group-row member member']";

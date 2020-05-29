@@ -198,11 +198,6 @@ public class TestData {
     public static final String DISTRICT_NAME_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
     public static final String SCHOOL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your school's initials or a shorter version of your school's name. 20 characters max.";
     public static final String DISTRICT_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your district's initials or a shorter version of your district's name. 20 characters max.";
-    public static final String MANAGE_DISTRICT_ADMINS_POPOVER_TEXT = "Manage District Admins";
-    public static final String MANAGE_SCHOOL_ADMINS_POPOVER_TEXT = "Manage School Admins";
-    public static final String EDIT_DISTRICT_BUTTON_POPOVER_TEXT = "Edit District";
-    public static final String EDIT_SCHOOL_BUTTON_POPOVER_TEXT = "Edit School";
-    public static final String SEARCH_BUTTON_POPOVER_TEXT = "Search";
     public static final String ENABLED_EDIT_TEACHER_POPOVER_TEXT = "Edit Teacher";
     public static final String DISABLED_EDIT_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
     public static final String ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
