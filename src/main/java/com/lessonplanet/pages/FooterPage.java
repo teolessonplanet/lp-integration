@@ -23,26 +23,26 @@ public class FooterPage extends LpUiBasePage {
     private static final String YOUTUBE_BUTTON = "[class='lp-icon fa fa-youtube-play']";
     private static final String PINTEREST_BUTTON = "[class*='fa-pinterest']";
 
-    private static final String HEALTH_LINK = "[href*='/health']";
-    private static final String LANGUAGE_ARTS_LINK = "[href*='/language-arts']";
-    private static final String LANGUAGES_LINK = "[href*='/languages']";
-    private static final String MATH_LINK = "[href*='/math']";
-    private static final String PHYSICAL_EDUCATION_LINK = "[href*='/physical-education']";
-    private static final String SCIENCE_LINK = "[href*='/science']";
-    private static final String SOCIAL_STUDIES_LINK = "[href*='/social-studies']";
-    private static final String SPECIAL_EDUCATION_LINK = "[href*='/special-education']";
-    private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[href*='/visual-and-performing-arts']";
-    private static final String VIEW_ALL_LESSON_PLANS_LINK = "[class='lp-footer-view-all-lesson-plans-link']";
+    private static final String HEALTH_LINK = "[class*='lp-oer-col'] [href*='/health']";
+    private static final String LANGUAGE_ARTS_LINK = "[class*='lp-oer-col'] [href*='/language-arts']";
+    private static final String LANGUAGES_LINK = "[class*='lp-oer-col'] [href*='/languages']";
+    private static final String MATH_LINK = "[class*='lp-oer-col'] [href*='/math']";
+    private static final String PHYSICAL_EDUCATION_LINK = "[class*='lp-oer-col'] [href*='/physical-education']";
+    private static final String SCIENCE_LINK = "[class*='lp-oer-col'] [href*='/science']";
+    private static final String SOCIAL_STUDIES_LINK = "[class*='lp-oer-col'] [href*='/social-studies']";
+    private static final String SPECIAL_EDUCATION_LINK = "[class='lp-footer-top'] [href*='/special-education']";
+    private static final String VISUAL_AND_PERFORMING_ARTS_LINK = "[class*='lp-oer-col'] [href*='/visual-and-performing-arts']";
+    private static final String VIEW_ALL_LESSON_PLANS_LINK = "[class*='lp-oer-col'] [class='lp-footer-view-all-lesson-plans-link']";
 
-    private static final String OUR_REVIEW_PROCESS_LINK = "[class*='footer-col-content'] [href='/educator-edition?review-process']";
-    private static final String HOW_IT_WORKS_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=review']";
-    private static final String HOW_TO_SEARCH_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=search']";
-    private static final String CREATE_A_COLLECTION_LINK = "[class*='footer-col-content'] [href*='/us/videos?autoplay=collections_how_to']";
+    private static final String OUR_REVIEW_PROCESS_LINK = "[class*='lp-resources-col'] [href='/educator-edition?review-process']";
+    private static final String HOW_IT_WORKS_LINK = "[class*='lp-resources-col'] [href*='/us/videos?autoplay=review']";
+    private static final String HOW_TO_SEARCH_LINK = "[class*='lp-resources-col'] [href*='/us/videos?autoplay=search']";
+    private static final String CREATE_A_COLLECTION_LINK = "[class*='lp-resources-col'] [href*='/us/videos?autoplay=collections_how_to']";
 
-    private static final String EDIT_A_COLLECTION_LINK = "[href='/us/videos?autoplay=collections_edit']";
-    private static final String ASSIGN_TO_STUDENTS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
-    private static final String MANAGE_MY_RESOURCES_LINK = "[href='/us/videos?autoplay=curriculum_manager']";
-    private static final String SHARING_WITH_OTHERS_LINK = "[href='/us/videos?autoplay=how_to_share_collections']";
+    private static final String EDIT_A_COLLECTION_LINK = "[class*='lp-curriculum-col'] [href='/us/videos?autoplay=collections_edit']";
+    private static final String ASSIGN_TO_STUDENTS_LINK = "[class*='lp-curriculum-col'] [href='/us/videos?autoplay=how_to_share_collections']";
+    private static final String MANAGE_MY_RESOURCES_LINK = "[class*='lp-curriculum-col'] [href='/us/videos?autoplay=curriculum_manager']";
+    private static final String SHARING_WITH_OTHERS_LINK = "[class*='lp-curriculum-col'] [href='/us/videos?autoplay=how_to_share_collections']";
 
     private static final String OPEN_EDUCATIONAL_RESOURCES_CATEGORY = "[class='lp-footer-top'] [class*='lp-oer-col'] [class='footer-col-title']";
     private static final String DISCOVER_RESOURCES_CATEGORY = "[class='lp-footer-top'] [class*='lp-resources-col'] [class='footer-col-title']";
