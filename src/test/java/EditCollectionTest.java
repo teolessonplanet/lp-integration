@@ -62,13 +62,13 @@ public class EditCollectionTest extends BaseTest {
     @Test(description = "Free member - Edit Collection - lessonp-982: Publish. Republish")
     public void testLessonp_982() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testPublishFromEditFolder();
+        testPublishFromEditFolder(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish")
     public void testLessonp_5261() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testPublishFromEditFolder();
+        testPublishFromEditFolder(TestData.PLAN_PRO);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons")
@@ -144,7 +144,7 @@ public class EditCollectionTest extends BaseTest {
         }
     }
 
-    public void testPublishFromEditFolder() {
+    public void testPublishFromEditFolder(String accountPlanText) {
         testCreateCollectionSearchPage();
         collectionBuilderPage.clickOnEditFolder(false);
         for (int i = 0; i < 2; i++) {
@@ -153,7 +153,7 @@ public class EditCollectionTest extends BaseTest {
         curriculumManagerTest.testEditFolderModalDetailsArea();
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
-        curriculumManagerTest.testPublishCollectionModal();
+        curriculumManagerTest.testPublishCollectionModal(accountPlanText);
         editCollectionModal.hoverOverDisabledPublishFolderButton();
         Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);

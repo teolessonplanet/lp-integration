@@ -93,7 +93,7 @@ public class RSL_PublishCollection extends BaseTest {
                 confirmShareFolderModal.clickOnContinueButton();
             }
         }
-        curriculumManagerPageTest.testPublishCollectionModal();
+        curriculumManagerPageTest.testPublishCollectionModal(TestData.VALID_EMAIL_RSL_SBCEO);
         editCollectionModal.hoverOverDisabledPublishFolderButton();
         Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
         editCollectionModal.clickOnCloseButton();

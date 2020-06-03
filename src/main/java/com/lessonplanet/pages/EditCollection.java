@@ -71,6 +71,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String DELETE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(4)";
     private static final String DELETE_ITEM_BUTTON = "[class='modal-footer'] a";
 
+    private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
+
     public EditCollection(WebDriver driver) {
         super(driver);
     }
@@ -397,5 +399,9 @@ public class EditCollection extends CreateNewFolderModal {
 
     public String getFolderTitle() {
         return findElement(FOLDER_TITLE_INPUT).getAttribute("value");
+    }
+
+    public String getAlertNotificationText(){
+        return getTextForElement(PUBLISHED_COLLECTION_NOTIFICATION);
     }
 }
