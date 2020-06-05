@@ -28,6 +28,7 @@ public class RRPSearchPageTest extends BaseTest {
     private ResourcePreviewPage resourcePreviewPage;
     private CollectionRrp collectionRrp;
     private Rrp rrp;
+    private LimitedResourceAccessModal limitedResourceAccessModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -49,6 +50,7 @@ public class RRPSearchPageTest extends BaseTest {
         resourcePreviewPage = new ResourcePreviewPage(webDriver);
         collectionRrp = new CollectionRrpModal(webDriver);
         rrp = new Rrp(webDriver);
+        limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -938,7 +940,13 @@ public class RRPSearchPageTest extends BaseTest {
             }
         } else { // ACTIVE & SLs
             collectionRrpModal.clickSaveCollectionButtonActiveUser();
-            Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
+
+            if (limitedResourceAccessModal.isModalDisplayed()) {
+                Assert.assertEquals(limitedResourceAccessModal.getLimitedResourceAccessModalTitleText(), TestData.LIMITED_RESOURCE_ACCESS_TITLE);
+                Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
+                limitedResourceAccessModal.clickOnSaveButton();
+            }
+           Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
         }
     }
 
