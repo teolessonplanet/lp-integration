@@ -72,6 +72,7 @@ public class TestData {
     public static final String PIXABAY_IMAGE_LINK = "https://pixabay.com/";
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
     public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Collection has been added to";
+    public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
 
     //Curriculum Manager
 
