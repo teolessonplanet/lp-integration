@@ -197,13 +197,16 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickAddToFolderButton();
         editCollectionPage.refreshPageAndDismissBrowserAlert();
         Assert.assertEquals(editCollectionPage.getFolderItemTitle(0), TestData.PRIVATE_STATUS);
+        Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 1);
 
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickUploadAFileButton();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 1);
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 2);
         }
 
         editCollectionPage.clickOnAddItemsDropdown();
@@ -230,6 +233,12 @@ public class EditCollectionTest extends BaseTest {
         }
         Assert.assertTrue(editCollectionPage.getPixabayAlertText().contains(TestData.LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT));
         editCollectionPage.clickAddSelectedToFolderButton();
+        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 11);
+        } else {
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 12);
+        }
+
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnAddPixabayImageOption();
         editCollectionPage.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
@@ -239,9 +248,18 @@ public class EditCollectionTest extends BaseTest {
         for (int i = 0; i < 11; i++) {
             Assert.assertEquals(editCollectionPage.getFolderItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
         }
+        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 12);
+        } else {
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
+        }
 
         testCreateAPage();
-
+        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
+        } else {
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
+        }
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnSearchResourcesOption();
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.DISCOVER_RESOURCES_PAGE_PATH));
@@ -276,7 +294,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.isCreateNewFolderButtonDisplayed());
         editCollectionPage.clickCreateNewFolderButton();
         createNewFolderModal.waitForModal();
-        Assert.assertEquals(createNewFolderModal.getTitle(), "Create a New Folder");
+        Assert.assertEquals(createNewFolderModal.getTitle(), TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE);
     }
 
     public void testItemOptions() {
