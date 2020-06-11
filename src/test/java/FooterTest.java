@@ -335,11 +335,11 @@ public class FooterTest extends BaseTest {
         Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
         footerPage.clickOnRegularSlLogo(false);
         footerPage.waitForLinkToLoad();
-        Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_URL);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
         lpHomePage.goBackOnePage();
         footerPage.waitForPageLoad();
         footerPage.clickOnRegularSlLogo(true);
-        Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_URL);
+        Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
     }
 
     private void testSendEmailNewsletter(String account) {
