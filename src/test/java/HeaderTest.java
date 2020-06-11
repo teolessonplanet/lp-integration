@@ -92,11 +92,22 @@ public class HeaderTest extends BaseTest {
 
         testDiscoverButton(account);
 
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             testSolutionsButton();
         }
 
-        testAboutButton(account);
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            testAboutButton(account);
+        }
+
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            headerPage.clickOnHelpButton();
+            headerPage.waitForNewTab();
+            headerPage.focusDriverToLastTab();
+            headerPage.waitForLinkToLoad();
+            Assert.assertEquals(headerPage.getUrl(), TestData.LEARNING_EXPLORER_HELP_URL);
+            headerPage.closeTab();
+        }
 
         if (account.equals(TestData.PLAN_VISITOR)) {
             headerPage.clickOnPricingButton();
@@ -112,24 +123,34 @@ public class HeaderTest extends BaseTest {
             headerPage.clickOnUpgradeMeButton(false);
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             stepTwoPage.goBackOnePage();
-            testYourAccountButton(false);
+            testYourAccountButton(false, account);
         } else if (account.equals(TestData.VALID_EMAIL_ADMIN) || account.equals(TestData.PLAN_PRO)) {
-            testYourAccountButton(false);
-        } else if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            testYourAccountButton(true);
+            testYourAccountButton(false, account);
+        } else if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            testYourAccountButton(true, account);
         }
     }
 
     private void testLogo(String account) {
         lpHomePage.loadPage();
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            Assert.assertTrue(headerPage.isLpLogoClickable());
-            headerPage.clickOnLpLogo(false);
-            Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
-        } else {
-            Assert.assertTrue(headerPage.isRegularSlLogoClickable());
-            headerPage.clickOnRegularSlLogo(false);
-            Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
+        switch (account) {
+            case TestData.VALID_EMAIL_RSL_SBCEO:
+                Assert.assertTrue(headerPage.isRegularSlLogoClickable());
+                headerPage.clickOnRegularSlLogo(false);
+                Assert.assertEquals(lpHomePage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
+                break;
+            case TestData.VALID_EMAIL_CSL_HENRY:
+                Assert.assertTrue(headerPage.isHenryCustomSlLogoDisplayed());
+                break;
+            case TestData.PLAN_STARTER:
+            case TestData.PLAN_PRIME:
+            case TestData.PLAN_PRO:
+            case TestData.PLAN_FREEMIUM:
+            case TestData.PLAN_VISITOR:
+                Assert.assertTrue(headerPage.isLpLogoClickable());
+                headerPage.clickOnLpLogo(false);
+                Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+                break;
         }
     }
 
@@ -138,7 +159,7 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverDiscoverButton();
         headerPage.clickOnDiscoverResourcesButton();
         Assert.assertEquals(TestData.DISCOVER_RESOURCES_PAGE_PATH, headerPage.getPath());
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         } else {
             Assert.assertEquals(TestData.SHOWING_ALL_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
@@ -166,7 +187,7 @@ public class HeaderTest extends BaseTest {
         headerPage.clickOnCurriculumCalendarButton();
         Assert.assertEquals(TestData.CURRICULUM_CALENDAR_PAGE_PATH, headerPage.getPath());
         Assert.assertEquals(calendarPage.getCalendarTitle(), TestData.MONTH[TestData.getCurrentMonth()] + TestData.CALENDAR_TITLE);
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnLessonPlanningArticlesButton();
             Assert.assertEquals(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH, headerPage.getPath());
@@ -220,7 +241,7 @@ public class HeaderTest extends BaseTest {
         }
     }
 
-    private void testYourAccountButton(boolean adminManager) {
+    private void testYourAccountButton(boolean adminManager, String account) {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyAccountButton();
         Assert.assertEquals(headerPage.getPath(), TestData.MY_ACCOUNT_PAGE_PATH);
@@ -236,20 +257,23 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
         Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
 
-        headerPage.hoverOverUserDropDownButton();
-        headerPage.clickOnSearchHistoryButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.SEARCH_HISTORY_PAGE_PATH);
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            headerPage.hoverOverUserDropDownButton();
+            headerPage.clickOnSearchHistoryButton();
+            Assert.assertEquals(headerPage.getPath(), TestData.SEARCH_HISTORY_PAGE_PATH);
+        }
 
         if (adminManager) {
             headerPage.hoverOverUserDropDownButton();
             headerPage.clickOnAdminManagerButton();
             Assert.assertEquals(headerPage.getPath(), TestData.ACCOUNT_MANAGER_PAGE_PATH);
         }
-
-        headerPage.hoverOverUserDropDownButton();
-        headerPage.clickOnSignOutButton();
-        Assert.assertTrue(headerPage.isSignInButtonDisplayed());
-        Assert.assertTrue(headerPage.isLpLogoClickable());
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            headerPage.hoverOverUserDropDownButton();
+            headerPage.clickOnSignOutButton();
+            Assert.assertTrue(headerPage.isSignInButtonDisplayed());
+            Assert.assertTrue(headerPage.isLpLogoClickable());
+        }
     }
 
     protected void testSearchBoxKeywordFunctionality(String account) {
@@ -265,17 +289,14 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
         Assert.assertEquals(headerPage.getSearchText(), TestData.VALID_SEARCH_WORD);
         Assert.assertTrue(headerPage.isClearSearchButtonDisplayed());
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            footerPage.clickOnCopyRightText();
-        } else {
-            footerPage.clickOnRegularSlIframeCopyRightText();
-        }
+
+        changeFocus(account);
 
         headerPage.clickOnClearSearchButton();
         Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
         Assert.assertEquals(headerPage.getSearchText(), TestData.LP_HOME_PAGE_PATH);
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         } else {
             Assert.assertEquals(TestData.SHOWING_ALL_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
@@ -286,17 +307,14 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.SEARCH_BUTTON_TEXT);
         Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
         Assert.assertTrue(headerPage.isClearSearchButtonDisplayed());
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertEquals(TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         } else {
             Assert.assertEquals(TestData.SHOWING_ALL_RESOURCES_MESSAGE, discoverResourcesPage.getSearchMessage());
         }
 
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            footerPage.clickOnCopyRightText();
-        } else {
-            footerPage.clickOnRegularSlIframeCopyRightText();
-        }
+        changeFocus(account);
+
         Assert.assertEquals(headerPage.getSearchButtonText(), TestData.LP_HOME_PAGE_PATH);
         headerPage.clickOnClearSearchButton();
         Assert.assertEquals(headerPage.getSearchBoxPlaceholder(), TestData.SEARCH_BOX_PLACEHOLDER_TEXT);
@@ -305,5 +323,23 @@ public class HeaderTest extends BaseTest {
         headerPage.typeSearchText(TestData.VALID_SEARCH_WORD);
         headerPage.clickOnSearchButton();
         Assert.assertTrue(TestData.ZERO_RESOURCES_FOUND < discoverResourcesPage.getTotalResults());
+    }
+
+    public void changeFocus(String account) {
+        switch (account) {
+            case TestData.VALID_EMAIL_RSL_SBCEO:
+                footerPage.clickOnRegularSlIframeCopyRightText();
+                break;
+            case TestData.VALID_EMAIL_CSL_HENRY:
+                headerPage.clickOnHenryCustomSlLogo();
+                break;
+            case TestData.PLAN_STARTER:
+            case TestData.PLAN_PRIME:
+            case TestData.PLAN_PRO:
+            case TestData.PLAN_FREEMIUM:
+            case TestData.PLAN_VISITOR:
+                footerPage.clickOnCopyRightText();
+                break;
+        }
     }
 }

@@ -9,6 +9,7 @@ public class HeaderPage extends LpUiBasePage {
 
     private static final String LP_LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/lessonplanet-logo@1x']";
     private static final String REGULAR_SL_LOGO_IMAGE =  "[class*='lp-logo-wrap lp-logo'] #logo[src^='/assets/logos/learning-explorer-logo-'][src$='.png']";
+    private static final String HENRY_CUSTOM_SL_LOGO = "[class*='custom-sl-logo-search-wrap'] #logo[src^='https://staging.lessonplanet.com/assets/logos/whitelabel/henry_county_logo-'][src$='.png']";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
     private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade'] a";
     private static final String USER_DROPDOWN_BUTTON = "#lp-username";
@@ -50,6 +51,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
     private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
+    private static final String HELP_BUTTON = "[href='https://www.learningexplorer.com/help-center/?admin']";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -290,5 +292,17 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnPdLearningNetworkDiscoverButton() {
         clickElement(PD_LEARNING_NETWORK_DISCOVER_BUTTON);
+    }
+
+    public boolean isHenryCustomSlLogoDisplayed() {
+        return isElementDisplayed(HENRY_CUSTOM_SL_LOGO);
+    }
+
+    public void clickOnHenryCustomSlLogo(){
+        clickElement(HENRY_CUSTOM_SL_LOGO);
+    }
+
+    public void clickOnHelpButton() {
+        clickElement(HELP_BUTTON);
     }
 }
