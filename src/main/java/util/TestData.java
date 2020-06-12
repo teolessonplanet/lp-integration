@@ -193,6 +193,7 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES = "Handouts & References";
     public static final String FACET_CATEGORY_SUBJECTS = "Subjects";
     public static final String FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY = "Social Studies & History";
 
