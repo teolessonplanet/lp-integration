@@ -136,6 +136,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
 
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
+        discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
         Assert.assertEquals(TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS, rrp.getResourcePoolName());
 
@@ -188,6 +189,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
 
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
+        discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(inModal, TestData.VALID_EMAIL_CSL_HENRY);
