@@ -413,6 +413,7 @@ public class TestData {
     public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Lesson Planet";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
     public static final String LEARNING_EXPLORER_TERMS_OF_USE_URL = "https://www.learningexplorer.com/terms-of-use/";
+    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center/?admin";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
