@@ -315,32 +315,32 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         //Click on the caret icon displayed in front of the subject title link &&
         //Click on the caret icon displayed in front of an expanded subject title link
-        browseBySubjectPage.clickFirstCaretFromBrowseBySubjectCategory();
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT);
         }
-        browseBySubjectPage.clickFirstCaretFromBrowseBySubjectCategory();
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         }
-        browseBySubjectPage.clickSecondCaretFromBrowseBySubjectCategory();
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(1);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT);
         }
-        browseBySubjectPage.clickSecondCaretFromBrowseBySubjectCategory();
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(1);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         }
         //Click on a sub-subject title link or Right click on a sub-subject title link and open in a new tab/window
-        browseBySubjectPage.clickFirstCaretFromBrowseBySubjectCategory();
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(3);
         browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_PHYSICAL_HEALTH_TYPE, true);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.PHYSICAL_HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.PHYSICAL_HEALTH_PAGE_PATH);

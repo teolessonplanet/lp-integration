@@ -59,12 +59,8 @@ public class BrowseBySubjectPage extends ResourcesPage {
         return getTextForElement(getBrowseBySubjectWidget());
     }
 
-    public void clickFirstCaretFromBrowseBySubjectCategory() {
-        clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), 0);
-    }
-
-    public void clickSecondCaretFromBrowseBySubjectCategory() {
-        clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), 1);
+    public void clickCaretFromBrowseBySubjectCategory(int index){
+        clickElement(findElements(getBrowseBySubjectWidget(), BROWSE_BY_SUBJECT_CARETS), index);
     }
 
     public void clickOnSuggestACategoryButton() {
