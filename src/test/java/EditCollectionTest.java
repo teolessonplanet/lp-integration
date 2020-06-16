@@ -208,7 +208,7 @@ public class EditCollectionTest extends BaseTest {
             curriculumManagerTest.testUpload(true, accountPlanText);
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 2);
         }
-
+        editCollectionPage.refreshPageAndDismissBrowserAlert();
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnAddPixabayImageOption();
         editCollectionModal.isPixabayLinkDisplayed();
@@ -233,7 +233,8 @@ public class EditCollectionTest extends BaseTest {
         }
         Assert.assertTrue(editCollectionPage.getPixabayAlertText().contains(TestData.LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT));
         editCollectionPage.clickAddSelectedToFolderButton();
-        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+        editCollectionPage.refreshPageAndDismissBrowserAlert();
+        if(accountPlanText.equals(TestData.PLAN_FREEMIUM)){
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 11);
         } else {
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 12);
@@ -245,17 +246,19 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickPixabaySearchButton();
         editCollectionPage.clickOnPixabayImage(0);
         editCollectionPage.clickAddSelectedToFolderButton();
+        editCollectionPage.refreshPageAndDismissBrowserAlert();
         for (int i = 0; i < 11; i++) {
             Assert.assertEquals(editCollectionPage.getFolderItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
         }
-        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+        if(accountPlanText.equals(TestData.PLAN_FREEMIUM)){
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 12);
         } else {
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
         }
 
         testCreateAPage();
-        if(accountPlanText.equals(accountPlanText.equals(TestData.PLAN_FREEMIUM))){
+        editCollectionPage.refreshPageAndDismissBrowserAlert();
+        if(accountPlanText.equals(TestData.PLAN_FREEMIUM)){
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
         } else {
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
