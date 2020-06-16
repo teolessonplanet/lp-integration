@@ -73,6 +73,8 @@ public class TestData {
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
     public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Collection has been added to";
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
+    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your collection was not published because it does not include at least two resources.";
+    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Collection not published!";
 
     //Curriculum Manager
 
