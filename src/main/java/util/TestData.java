@@ -474,7 +474,7 @@ public class TestData {
     public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
     public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences & Trauma-Informed Practices\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
+    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
 
     public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
     public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
@@ -525,7 +525,7 @@ public class TestData {
 
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences & Trauma-Informed Practices\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental Health\nDental and Personal Hygiene\nHeart Condition\nPhysical Activity\nPersonal Health Management\nHospital\nSubstance Abuse";
     public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
 
