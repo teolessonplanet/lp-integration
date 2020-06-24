@@ -525,10 +525,10 @@ public class TestData {
     public static final String FILM_STUDIES_PAGE_TITLE = "Film Studies Teacher Resources";
     public static final String DANCE_PAGE_TITLES = "Dance Teacher Resources";
 
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental Health\nDental and Personal Hygiene\nHeart Condition\nPhysical Activity\nPersonal Health Management\nHospital\nSubstance Abuse";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nGrowth and Development\nSex Education\nSocial and Emotional Learning\nWellness & Safety";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nGrowth and Development\nHuman Life Cycle\nSex Education\nSocial and Emotional Learning\nWellness & Safety";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nGrowth and Development\nSex Education\nHealthy Relationships\nInfluences on Sexual Behavior\nLaws and Sexual Behavior\nParenting Responsibilities\nPregnancy Prevention and Protection\nReproduction\nReproductive Health\nSafe Sex\nSexually Transmitted Diseases\nSocial and Emotional Learning\nWellness & Safety";
+    public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental and Personal Hygiene\nDental Health\nHeart Condition\nHospital\nPersonal Health Management\nPhysical Activity\nSubstance Abuse";
     public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
 
     public static final String SUGGEST_A_CATEGORY_MODAL_TITLE = "Suggest a Category";
