@@ -380,7 +380,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     protected void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT));
+        Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText()));
         browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION, true);
         Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION.toLowerCase());
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH);
@@ -436,11 +436,10 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         }
     }
 
-    private boolean verifyRelatedTopics(String actual, String expected) {
+    private boolean verifyRelatedTopics(String actual) {
         String[] actualWords = actual.split("\n");
-        String[] expectedWords = expected.split("\n");
 
-        if (actualWords.length == expectedWords.length && actualWords.length == TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED) {
+        if (actualWords.length == TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED) {
             return true;
         }
         return false;

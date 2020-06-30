@@ -548,8 +548,6 @@ public class TestData {
     public static final String SIDE_WIDGET_RELATED_TOPICS = "Related Topics";
     public static final String SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION = "Stress Management";
     public static final String SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH = "search?keywords=stress+management";
-    public static final String SIDE_WIDGET_RELATED_TOPICS_CATEGORY_TEXT = "Related Topics\nHealth Lesson Plans\nStress Management\nMental Heath\nFamily Life and Sexual Health\nClass Introduction\nCalorie\nWeight Loss\nEnvironmental Factors\nFood Systems\nFood Choices\nTransportation";
-
     public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
 
     public static final String FEEDBACKS_PAGE_PATH = "feedbacks/new";
