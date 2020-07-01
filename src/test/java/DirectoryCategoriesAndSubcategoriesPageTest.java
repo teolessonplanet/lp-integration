@@ -340,7 +340,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         }
         //Click on a sub-subject title link or Right click on a sub-subject title link and open in a new tab/window
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(3);
+        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
         browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_PHYSICAL_HEALTH_TYPE, true);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.PHYSICAL_HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.PHYSICAL_HEALTH_PAGE_PATH);
