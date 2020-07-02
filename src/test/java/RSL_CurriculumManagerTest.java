@@ -38,7 +38,7 @@ public class RSL_CurriculumManagerTest extends BaseTest {
 
     @Test(description = "RSL - Curriculum Manager - lessonp-5575: Upload Resource & My Uploads Folder")
     public void testLessonp_5575() {
-        curriculumManagerPageTest.testUploadResourceUsingTextInput(TestData.VALID_EMAIL_RSL_SBCEO);
+        curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.VALID_EMAIL_RSL_SBCEO, false);
         curriculumManagerPageTest.testMyUploadsFolderActions(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 

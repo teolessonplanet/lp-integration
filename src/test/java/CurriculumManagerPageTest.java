@@ -104,28 +104,28 @@ public class CurriculumManagerPageTest extends BaseTest {
     @Test(description = "Free member - Curriculum Manager - lessonp-5535: Upload Resource & My Uploads Folder")
     public void testLessonp_5535() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testUploadResourceUsingTextInput(TestData.PLAN_FREEMIUM);
+        testUploadResourceFromMyResources(TestData.PLAN_FREEMIUM, false);
         testMyUploadsFolderActions(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Starter membership - Curriculum Manager - lessonp- 5542: Upload Resource & My Uploads Folder")
     public void testLessonp_5542() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
-        testUploadResourceUsingTextInput(TestData.PLAN_STARTER);
+        testUploadResourceFromMyResources(TestData.PLAN_STARTER, false);
         testMyUploadsFolderActions(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Prime membership - Curriculum Manager - lessonp- 5543: Upload Resource & My Uploads Folder")
     public void testLessonp_5543() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testUploadResourceUsingTextInput(TestData.PLAN_PRIME);
+        testUploadResourceFromMyResources(TestData.PLAN_PRIME, false);
         testMyUploadsFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder")
     public void testLessonp_5544() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testUploadResourceUsingTextInput(TestData.PLAN_PRO);
+        testUploadResourceFromMyResources(TestData.PLAN_PRO, false);
         testMyUploadsFolderActions(TestData.PLAN_PRO);
     }
 
@@ -308,7 +308,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
-    public void testUploadResourceUsingTextInput(String accountPlanText) {
+    public void testUploadResourceFromMyResources(String accountPlanText, boolean publishedResource) {
         curriculumManagerPage.loadPage();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
@@ -317,14 +317,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             testUpgradeModalFromUploadButton();
         } else {
-            testUpload(false, accountPlanText);
+            testUpload(false, accountPlanText, publishedResource);
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
-            testIsUploadResourceDisplayed();
+            testIsUploadResourceDisplayed(publishedResource);
         }
     }
 
-    public void testUpload(boolean editCollection, String accountPlanText) {
+    public void testUpload(boolean editCollection, String accountPlanText, boolean publishedResource) {
         uploadFileModal.waitForModal();
         File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + "test-upload-file.png");
         uploadFileModal.uploadUsingTextInput(file.getPath());
@@ -336,19 +336,29 @@ public class CurriculumManagerPageTest extends BaseTest {
             uploadFileModal.selectFolder();
         }
         uploadFileModal.clickOnUploadButton();
-        if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
-            uploadFileModal.hoverOverDisabledPublishButton();
-            Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
+        if (publishedResource) {
+            uploadFileModal.clickOnPublishOnLessonPlanetButton();
+            publishResourceModal();
+        } else {
+            if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
+                uploadFileModal.hoverOverDisabledPublishButton();
+                Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
+            }
+            uploadFileModal.clickOnDoneButton();
         }
-        uploadFileModal.clickOnDoneButton();
     }
 
-    public void testIsUploadResourceDisplayed() {
+    public void testIsUploadResourceDisplayed(boolean publishedResource) {
         curriculumManagerPage.clickOnMyUploadsFolder();
         curriculumManagerPage.waitForRefreshIconToDisappear();
         Assert.assertTrue(curriculumManagerPage.isUploadResourceDisplayed());
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.UPLOAD_RESOURCE_TITLE);
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PRIVATE_STATUS);
+        if (!publishedResource) {
+            Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PRIVATE_STATUS);
+            Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.UPLOAD_RESOURCE_TITLE);
+        } else {
+            Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_RESOURCE_STATUS);
+            Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.PUBLISH_RESOURCE_TITLE);
+        }
     }
 
     public void testUpgradeModalFromUploadButton() {
@@ -493,7 +503,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             testEditResource();
             testPlayResource(accountPlanText);
             if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
-                testPublishUploadResource();
+                testPublishUploadResourceFromActionsDropdown();
             }
             testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
             testRemoveUploadResource(accountPlanText);
@@ -510,16 +520,20 @@ public class CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.UPLOAD_RESOURCE_EDIT_TITLE);
     }
 
-    public void testPublishUploadResource() {
+    public void testPublishUploadResourceFromActionsDropdown() {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnPublishButton();
+        publishResourceModal();
+        curriculumManagerPage.waitForRefreshIconToDisappear();
+        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_RESOURCE_STATUS);
+        Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.PUBLISH_RESOURCE_TITLE);
+    }
+
+    public void publishResourceModal() {
         publishResourceModal.waitForModal();
         publishResourceModal.typeTitle(TestData.PUBLISH_RESOURCE_TITLE);
         publishResourceModal.clickAgreementOption();
         publishResourceModal.clickOnPublishResourceButton();
-        curriculumManagerPage.waitForRefreshIconToDisappear();
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_RESOURCE_STATUS);
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.PUBLISH_RESOURCE_TITLE);
     }
 
     public void testFolderActions(String accountPlanText) {

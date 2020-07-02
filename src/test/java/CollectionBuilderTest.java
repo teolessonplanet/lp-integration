@@ -243,15 +243,18 @@ public class CollectionBuilderTest extends BaseTest {
             editCollectionModal.clickOnCloseButton();
             testAddLink();
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
-            collectionBuilderPage.clickUploadButton();
-            curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
-            if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
-                curriculumManagerPageTest.testUpgradeModalFromUploadButton();
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
-            } else {
-                curriculumManagerPageTest.testUpload(false, accountPlanText);
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 2);
-            }
+            testUploadResourceFromCollectionBuilder(accountPlanText, false, TestData.UPLOAD_RESOURCE_TITLE);
+        }
+    }
+
+    public void testUploadResourceFromCollectionBuilder(String accountPlanText, boolean publishedResource, String uploadedFileName) {
+        collectionBuilderPage.clickUploadButton();
+        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+            curriculumManagerPageTest.testUpgradeModalFromUploadButton();
+        } else {
+            curriculumManagerPageTest.testUpload(false, accountPlanText, publishedResource);
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemTitle(0), uploadedFileName);
         }
     }
 
