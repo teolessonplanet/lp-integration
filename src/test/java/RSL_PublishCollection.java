@@ -108,7 +108,7 @@ public class RSL_PublishCollection extends BaseTest {
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
             if (folder) {
-                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_COLLECTION_WITH_FOLDER_MODAL_TEXT);
+                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT);
                 confirmShareFolderModal.clickOnContinueButton();
                 if (includedFile) {
                     confirmPublishUploadFileModal.clickOnIncludeFileOption();
@@ -129,11 +129,11 @@ public class RSL_PublishCollection extends BaseTest {
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
             if (folder) {
-                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_COLLECTION_WITH_FOLDER_MODAL_TEXT);
+                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT);
                 confirmShareFolderModal.clickOnContinueButton();
             }
         }
-        curriculumManagerPageTest.testPublishCollectionModal(account);
+        curriculumManagerPageTest.testPublishFolderModal(account);
         if (uploadedResource && !includedFile) {
             editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         } else {

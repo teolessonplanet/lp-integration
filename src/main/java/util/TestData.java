@@ -45,8 +45,8 @@ public class TestData {
     public static final String[] KEYWORD = {"Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
     //Publish Modal
-    public static final String PUBLISH_COLLECTION_WITH_UPLOADED_FILE_MODAL_TEXT = "This collection contains private uploaded files, which are currently not supported with publishing. If these files can be accessed via a URL, use the \"Add a Link\" collection feature to include them or select \"Continue\" to publish the collection without these files.";
-    public static final String PUBLISH_COLLECTION_WITH_FOLDER_MODAL_TEXT = "This Collection contains Folder items, which are currently not supported with publishing. Select “Continue” to publish the collection without these items.";
+    public static final String PUBLISH_FOLDER_WITH_UPLOADED_FILE_MODAL_TEXT = "This collection contains private uploaded files, which are currently not supported with publishing. If these files can be accessed via a URL, use the \"Add a Link\" collection feature to include them or select \"Continue\" to publish the collection without these files.";
+    public static final String PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT = "This Collection contains Folder items, which are currently not supported with publishing. Select “Continue” to publish the collection without these items.";
 
     //Articles Page
     public static final String LESSON_PLANNING_ARTICLES_TITLE = "Lesson Planning Articles";
@@ -62,7 +62,7 @@ public class TestData {
     //Edit collection
     public static final String EDIT_COLLECTION_TITLE = "Edit Folder";
     public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
-    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This collection has already been shared. To reshare, please make at least one change.";
+    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This folder has already been shared. To reshare, please make at least one change.";
     public static final String PIXABAY_IMAGE_TITLE = "Mango";
     public static final String PAGE_TITLE = "Page Title";
     public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
@@ -79,15 +79,15 @@ public class TestData {
     //Curriculum Manager
 
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "My Resources";
-    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION = "As a Free Member you can only save folders with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited folders, and enjoy the benefits of a Full Membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
+    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER = "As a Free Member you can only save folders with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited folders, and enjoy the benefits of a Full Membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT = "You've reached your 3-folder limit, but don't let that stop you!\n" + "Upgrade today to create more folders and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
-    public static final String ASSIGN_COLLECTION_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below";
-    public static final String RESOURCE_ADDED_TO_COLLECTION_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
+    public static final String ASSIGN_FOLDER_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below";
+    public static final String RESOURCE_ADDED_TO_FOLDER_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
     public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
     public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
@@ -109,10 +109,10 @@ public class TestData {
     public static final String UPLOAD_YOUR_FILE_GRADE = "Higher Ed";
     public static final String UPLOAD_YOUR_FILE_SUBJECT = "Special Education & Program: Special Education";
     public static final String UPLOAD_YOUR_FILE_RESOURCE_TYPE = "Interactives";
-    public static final String PLAY_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT = "Please add items to play this folder";
-    public static final String PLAY_COLLECTION_WITH_ITEMS_POPOVER_TEXT = "Play Folder";
-    public static final String PUBLISH_COLLECTION_WITH_NO_ITEMS_POPOVER_TEXT = "This collection needs additional information in order to publish. Select the Edit button to continue.";
-    public static final String PUBLISH_COLLECTION_WITH_ITEMS_POPOVER_TEXT = "Publish to make visible to others";
+    public static final String PLAY_FOLDER_WITH_NO_ITEMS_POPOVER_TEXT = "Please add items to play this folder";
+    public static final String PLAY_FOLDER_WITH_ITEMS_POPOVER_TEXT = "Play Folder";
+    public static final String PUBLISH_FOLDER_WITH_NO_ITEMS_POPOVER_TEXT = "This folder needs additional information in order to publish. Select the Edit button to continue.";
+    public static final String PUBLISH_FOLDER_WITH_ITEMS_POPOVER_TEXT = "Publish to make visible to others";
     public static final String COPIED_POPOVER_TEXT = "Copied!";
     public static final String PUBLISHED_STATUS = "Published";
     public static final String PRIVATE_STATUS = "Private";
@@ -128,7 +128,6 @@ public class TestData {
     public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules"};
     public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
-    public static final String PUBLISH_FOLDER_POPOVER_TEXT = "Only collections can be published";
     public static final String LESSON_FOLDER_TYPE = "Lesson";
     public static final String CHAPTER_FOLDER_TYPE = "Chapter";
     public static final String COLLECTION_FOLDER_TYPE = "Collection";

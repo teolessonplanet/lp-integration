@@ -938,7 +938,7 @@ public class RrpSearchPageTest extends BaseTest {
         } else if (account.equals(TestData.PLAN_FREEMIUM)) {
             collectionRrpModal.clickSaveCollectionButtonActiveUser();
             if (collectionRrpModal.getCollectionItemsCount() > 10) {
-                Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
+                Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER);
             }
             if (collectionRrpModal.getCollectionItemsCount() < 10) {
                 Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());

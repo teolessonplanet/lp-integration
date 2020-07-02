@@ -52,13 +52,13 @@ public class CSL_CurriculumManagerTest extends BaseTest {
     public void testLessonp_5592() {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
-        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_HENRY, false);
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "CSL - Curriculum Manager - lessonp-5593: Folder Actions Dropdown")
     public void testLessonp_5593() {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
-        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_HENRY, true);
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_HENRY);
     }
 }
