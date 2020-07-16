@@ -9,7 +9,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LoginPage loginPage;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
-    private RRPSearchPageTest rrpSearchPageTest;
+    private RrpSearchPageTest rrpSearchPageTest;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpModal rrpModal;
     private DiscoverResourcesPage discoverResourcesPage;
@@ -23,7 +23,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         directoryCategoriesAndSubcategoriesPageTest = new DirectoryCategoriesAndSubcategoriesPageTest();
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         searchTest = new SearchTest();

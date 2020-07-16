@@ -8,13 +8,13 @@ import util.TestData;
 public class RSL_RrpSearchPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private RRPSearchPageTest rrpSearchPageTest;
+    private RrpSearchPageTest rrpSearchPageTest;
     DiscoverResourcesPage discoverResourcesPage;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
 

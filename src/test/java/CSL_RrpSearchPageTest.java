@@ -14,7 +14,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private ResourcesPage resourcesPage;
     private Rrp rrp;
-    private RRPSearchPageTest rrpSearchPageTest;
+    private RrpSearchPageTest rrpSearchPageTest;
 
     @BeforeMethod
     private void beforeMethod() {
@@ -23,7 +23,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         rrp = new Rrp(webDriver);
         resourcesPage = new ResourcesPage(webDriver);
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
     }
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-1311:LP Resource Modal Overview")
