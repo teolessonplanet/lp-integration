@@ -17,7 +17,7 @@ public class EditCollectionTest extends BaseTest {
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
     private BrowseBySubjectPage browseBySubjectPage;
-    private RRPSearchPageTest rrpSearchPageTest;
+    private RrpSearchPageTest rrpSearchPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,7 +32,7 @@ public class EditCollectionTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")

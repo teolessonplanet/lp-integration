@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 import util.TestData;
 @Ignore
 @Deprecated
-public class RRPStandardsPageTest extends BaseTest {
-    private RRPSearchPageTest rrpSearchPageTest;
+public class RrpStandardsPageTest extends BaseTest {
+    private RrpSearchPageTest rrpSearchPageTest;
     private CorrelatedResourcesPage correlatedResourcesPage;
     private DiscoverResourcesPage discoverResourcesPage;
 
     @BeforeMethod
     public void beforeMethod() {
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
         correlatedResourcesPage = new CorrelatedResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }

@@ -9,8 +9,7 @@ public class ArticlesPageTest extends BaseTest {
     private HeaderPage headerPage;
     private ArticlesPage articlesPage;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
-    private LoginPage loginPage;
-    private RRPSearchPageTest rrpSearchPageTest;
+    private RrpSearchPageTest rrpSearchPageTest;
     private StepTwoPage stepTwoPage;
 
     @BeforeMethod
@@ -19,9 +18,8 @@ public class ArticlesPageTest extends BaseTest {
         articlesPage = new ArticlesPage(webDriver);
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
-        loginPage = new LoginPage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        rrpSearchPageTest = new RRPSearchPageTest();
+        rrpSearchPageTest = new RrpSearchPageTest();
     }
 
     @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")

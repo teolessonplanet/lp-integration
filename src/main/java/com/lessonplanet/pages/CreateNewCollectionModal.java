@@ -9,7 +9,6 @@ public class CreateNewCollectionModal extends LpUiBasePage {
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";
     private static final String CREATE_COLLECTION_BUTTON = "[class*='modal-footer'] [type='submit']";
-    private static final String CREATE_COLLECTION_BUTTON_RRP = "[class='modal-dialog'] [type='submit']";
     private static final String CLOSE_MODAL_BUTTON = "[class*='modal-footer'] [data-dismiss='modal']";
 
     public CreateNewCollectionModal(WebDriver driver) {
@@ -31,10 +30,6 @@ public class CreateNewCollectionModal extends LpUiBasePage {
 
     public void clickOnCreateCollection() {
         clickElement(CREATE_COLLECTION_BUTTON);
-    }
-
-    public void clickOnCreateCollectionRrp() {
-        clickElement(CREATE_COLLECTION_BUTTON_RRP);
     }
 
     public String getTitle() {
