@@ -212,18 +212,22 @@ public class TestData {
     public static final String ENABLED_EDIT_OWNER_POPOVER_TEXT = "Edit Owner";
     public static final String DISABLED_EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
     public static final String REMOVE_TEACHER_POPOVER_TEXT = "Remove Teacher";
-    public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed when Automated Rostering is enabled";
     public static final String REMOVE_SCHOOL_ADMIN_POPOVER_TEXT = "Remove School Admin";
     public static final String REMOVE_DISTRICT_ADMIN_POPOVER_TEXT = "Remove District Admin";
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
-    public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Owner cannot be removed when Automated Rostering is enabled";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
     public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "This privilege gives a user the ability to publish collections to the learning object repository. The following options grant this privilege to users district-wide. To apply this privilege more selectively use the school-level or user-level settings.";
     public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
     public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
+    public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed when Automated Rostering is enabled";
+    public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
+    public static final String REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT = "District Admin cannot be removed because it is managed by the Automated Rostering";
     public static final String ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school.";
     public static final String ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new teacher.";
+    public static final String ADD_SCHOOL_ADMIN_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school admin.";
+    public static final String ADD_DISTRICT_ADMIN_ROSTER_ON_NOTIFICATION_TEXT = "You cannot add admins to an organization if they're not a teacher first";
+    public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
@@ -240,7 +244,7 @@ public class TestData {
     public static final String CSL_HENRY_TEACHER_FIRST_NAME = "George";
     public static final String CSL_HENRY_TEACHER_LAST_NAME = "Reese";
     public static final String CSL_QA_CUSTOM_DISTRICT_NAME = "QA Custom SL Test";
-    public static final String CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME = "new school";
+    public static final String CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME = "School 4";
     public static final String CSL_PARENTS_SCHOOL_NAME = "Parents School";
     public static final String CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL = "i_t_csl_qa_custom@lp.com";
     public static final String CSL_QA_CUSTOM_OWNER_FIRST_NAME = "Michelle";
@@ -284,10 +288,7 @@ public class TestData {
     public static final String OWNER_PUBLISH_OPTION_TEXT = "This owner may publish collections to the learning object repository";
     public static final String DISTRICT_ADMIN_PUBLISH_OPTION_TEXT = "This district admin may publish collections to the learning object repository";
     public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
-    public static final String ADD_DISTRICT_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT = "You cannot add admins that do not have an active subscription";
-    public static final String ADD_SCHOOL_ADMIN_INACTIVE_SUBSCRIPTION_NOTIFICATION_TEXT = "You cannot add admins to an organization with Automated Rostering enabled if they're not a teacher first";
 
-    //step 1
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
     public static final String STEP_ONE_MODAL_TITLE = "Discover 550k+ Teacher Reviewed Resources";
 
