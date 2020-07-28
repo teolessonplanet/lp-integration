@@ -69,7 +69,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
-        testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER);
+        testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER, false);
         testRemoveDistrictAdmin(TestData.RSL_SBCEO_DISTRICT_NAME);
     }
 
@@ -115,9 +115,9 @@ public class RSL_AccountManagerTest extends BaseTest {
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
-        testManageSchoolAdminPage(false);
+        testManageSchoolAdminPage(false, false);
         testAddSchoolAdmin(TestData.VALID_EMAIL_STARTER);
-        testManageSchoolAdminPage(false);
+        testManageSchoolAdminPage(false, false);
         schoolPage.clickOnManageAdminsButton();
         testSchoolPage(false, false);
         schoolPage.clickOnManageAdminsButton();
@@ -223,7 +223,11 @@ public class RSL_AccountManagerTest extends BaseTest {
                 Assert.assertTrue(manageDistrictAdminsPage.isAdminEmailDisplayed(i));
                 Assert.assertTrue(manageDistrictAdminsPage.isRemoveButtonDisplayed(i));
                 manageDistrictAdminsPage.hoverOverRemoveButton(i);
-                Assert.assertEquals(manageDistrictAdminsPage.getRemoveButtonPopoverText(), TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT);
+                if (roster) {
+                    Assert.assertTrue((manageDistrictAdminsPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT)) || manageDistrictAdminsPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT) || manageDistrictAdminsPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT));
+                } else {
+                    Assert.assertTrue((manageDistrictAdminsPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT)) || manageDistrictAdminsPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT));
+                }
                 if (sso) {
                     Assert.assertTrue(manageDistrictAdminsPage.isEditButtonDisplayed(i));
                     manageDistrictAdminsPage.hoverOverEditButton(i);
@@ -233,9 +237,12 @@ public class RSL_AccountManagerTest extends BaseTest {
         }
         Assert.assertEquals(manageSchoolAdminsPage.getAddAdminLinkNumber(), 1);
         Assert.assertTrue(manageDistrictAdminsPage.isAddAdminLinkRemoveButtonDisplayed(0));
+        if (sso) {
+            Assert.assertTrue(manageDistrictAdminsPage.isAddAdminLinkEditButtonDisplayed(0));
+        }
     }
 
-    public void testAddDistrictAdmin(String adminEmail) {
+    public void testAddDistrictAdmin(String adminEmail, boolean roster) {
         manageDistrictAdminsPage.clickOnAddAdminLink();
         addADistrictAdminModal.typeEmail(TestData.INVALID_EMAIL);
         addADistrictAdminModal.clearEmail();
@@ -252,6 +259,10 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertEquals(manageDistrictAdminsPage.getAdminEmail(1), adminEmail);
         Assert.assertTrue(districtPage.getNotificationText().contains(TestData.CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT));
         districtPage.dismissNotification();
+        if (roster) {
+            manageDistrictAdminsPage.hoverOverStarredAdminIcon(0);
+            Assert.assertEquals(manageDistrictAdminsPage.getStarredAdminIconPopoverText(), TestData.STAR_ICON_ROSTER_ON_POPOVER_TEXT);
+        }
     }
 
     public void testRemoveDistrictAdmin(String organizationName) {
@@ -276,7 +287,7 @@ public class RSL_AccountManagerTest extends BaseTest {
                 Assert.assertTrue(districtPage.getTeacherFirstName(i).contains(text) || districtPage.getTeacherLastName(i).contains(text) || districtPage.getTeacherEmail(i).contains(text));
                 Assert.assertTrue(districtPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || districtPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || districtPage.getTeacherRole(i).contains(TestData.OWNER_ROLE));
                 Assert.assertTrue(districtPage.isTeacherSchoolDisplayed(i));
-                if(!districtPage.getTeacherSchoolName(i).equals(TestData.CSL_PARENTS_SCHOOL_NAME)){
+                if (!districtPage.getTeacherSchoolName(i).equals(TestData.CSL_PARENTS_SCHOOL_NAME)) {
                     districtPage.hoverOverEditButton(i);
                     if (!sso) {
                         if (!districtPage.getTeacherJoinedDate(i).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
@@ -295,12 +306,13 @@ public class RSL_AccountManagerTest extends BaseTest {
                     Assert.assertTrue(districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT));
                 } else {
                     districtPage.hoverOverRemoveButton(j);
-                    Assert.assertTrue(districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT));
+                    Assert.assertTrue(districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || districtPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
                 }
             }
         } else {
             Assert.assertTrue(districtPage.getNoSearchResultsText().contains(TestData.NO_SEARCH_RESULTS_TEXT) && districtPage.getNoSearchResultsText().contains(text));
         }
+        districtPage.clickOnSearchButton();
         districtPage.clickClearSearchButton();
     }
 
@@ -372,7 +384,7 @@ public class RSL_AccountManagerTest extends BaseTest {
                 if (!roster) {
                     Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT));
                 } else {
-                    Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT));
+                    Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
                 }
             }
             if (!roster) {
@@ -515,7 +527,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         }
     }
 
-    public void testManageSchoolAdminPage(boolean sso) {
+    public void testManageSchoolAdminPage(boolean sso, boolean roster) {
         Assert.assertTrue(manageSchoolAdminsPage.isOrganizationNameDisplayed());
         Assert.assertTrue(manageSchoolAdminsPage.isEditOrganizationButtonDisplayed());
         Assert.assertTrue(manageSchoolAdminsPage.isManageAdminsButtonDisplayed());
@@ -538,12 +550,19 @@ public class RSL_AccountManagerTest extends BaseTest {
             if (sso) {
                 Assert.assertTrue(manageSchoolAdminsPage.isAddAdminLinkEditButtonDisplayed(0));
             }
+            if (roster) {
+                Assert.assertFalse(manageSchoolAdminsPage.isAddLinkDisplayed());
+            }
         } else {
             Assert.assertEquals(manageSchoolAdminsPage.getAddAdminLinkNumber(), 3);
             for (int i = 0; i < 3; i++) {
                 Assert.assertTrue(manageSchoolAdminsPage.isAddAdminLinkRemoveButtonDisplayed(i));
                 if (sso) {
                     Assert.assertTrue(manageSchoolAdminsPage.isAddAdminLinkEditButtonDisplayed(i));
+                }
+                if (roster) {
+                    manageSchoolAdminsPage.hoverOverAddAdminLink();
+                    Assert.assertEquals(manageSchoolAdminsPage.getAddLinkPopoverText(), TestData.ADD_SCHOOL_ADMIN_BUTTON_ROSTER_ON_POPOVER_TEXT);
                 }
             }
         }
@@ -603,7 +622,7 @@ public class RSL_AccountManagerTest extends BaseTest {
                     Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT));
                 } else {
                     schoolPage.hoverOverRemoveButton(j);
-                    Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT));
+                    Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
                 }
             }
 

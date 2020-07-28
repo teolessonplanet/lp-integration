@@ -62,7 +62,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testManageDistrictAdminsPage(TestData.VALID_EMAIL_CSL_HENRY, true, false);
-        rsl_accountManagerTest.testAddDistrictAdmin(TestData.GET_NEW_EMAIL());
+        rsl_accountManagerTest.testAddDistrictAdmin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, false);
         testEditDistrictAdmin();
         testEditOwner();
         rsl_accountManagerTest.testRemoveDistrictAdmin(TestData.CSL_HENRY_DISTRICT_NAME);
@@ -108,9 +108,9 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
-        rsl_accountManagerTest.testManageSchoolAdminPage(true);
+        rsl_accountManagerTest.testManageSchoolAdminPage(true, false);
         rsl_accountManagerTest.testAddSchoolAdmin(TestData.GET_NEW_EMAIL());
-        rsl_accountManagerTest.testManageSchoolAdminPage(true);
+        rsl_accountManagerTest.testManageSchoolAdminPage(true, false);
         testEditSchoolAdmin();
         rsl_accountManagerTest.testRemoveSchoolAdmin();
         schoolPage.clickOnDistrictBreadcrumbs();
