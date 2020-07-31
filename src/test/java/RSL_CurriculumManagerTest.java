@@ -52,13 +52,13 @@ public class RSL_CurriculumManagerTest extends BaseTest {
     public void testLessonp_5581() {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
-        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO, false);
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "RSL - Curriculum Manager - lessonp-5582: Folder Actions Dropdown")
     public void testLessonp_5582() {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
-        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO, true);
+        curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 }

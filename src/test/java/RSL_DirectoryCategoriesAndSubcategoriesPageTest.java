@@ -127,7 +127,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         rrpModal.clickAddToNewCollection();
         createNewCollectionModal.typeName(TestData.GET_NEW_EMAIL());
         createNewCollectionModal.clickOnCreateCollection();
-        Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_COLLECTION_MESSAGE));
+        Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
         rrpModal.waitForNotificationToDisappear();
         if (!rrpModal.isFavoriteButtonDisabledDisplayed()) {
             rrpModal.clickOnFavoriteButton();

@@ -153,7 +153,7 @@ public class EditCollectionTest extends BaseTest {
         curriculumManagerTest.testEditFolderModalDetailsArea();
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
-        curriculumManagerTest.testPublishCollectionModal(accountPlanText);
+        curriculumManagerTest.testPublishFolderModal(accountPlanText);
         editCollectionModal.hoverOverDisabledPublishFolderButton();
         Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);
@@ -280,7 +280,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickActionsDropdown();
         editCollectionPage.clickAssignFolderOption();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            curriculumManagerTest.testAssignModal(TestData.ASSIGN_COLLECTION_MODAL_TEXT);
+            curriculumManagerTest.testAssignModal(TestData.ASSIGN_FOLDER_MODAL_TEXT);
         } else {
             curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
         }

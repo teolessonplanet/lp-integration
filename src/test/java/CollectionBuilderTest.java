@@ -180,7 +180,7 @@ public class CollectionBuilderTest extends BaseTest {
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 accountManagementTest.reachAccountManagementPage(webDriver);
-                accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
+                accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
                 discoverResourcesPage.goBackOnePage();
                 collectionBuilderPage.waitForLoadingIconToDisappear();
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);

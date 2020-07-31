@@ -508,7 +508,7 @@ public class AccountManagementTest extends BaseTest {
         curriculumManagerTest.testAddRegularResourceToFolder(TestData.PLAN_FREEMIUM);
         curriculumManagerTest.testAddSharedResourceToFolder();
         curriculumManagerPage.loadPage();
-        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_COLLECTION_MODAL_TEXT);
+        curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_FOLDER_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
@@ -521,7 +521,7 @@ public class AccountManagementTest extends BaseTest {
         for (int i = 0; i <= 10; i++) {
             discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
         }
-        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_COLLECTION);
+        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection() {
@@ -535,7 +535,7 @@ public class AccountManagementTest extends BaseTest {
             }
         }
         collectionRrpModal.clickSaveCollectionButtonActiveUser();
-        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_COLLECTION);
+        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER);
     }
 
     public void testUpgradeModalFromMaxItemsInsideCollection(String bodyText) {
