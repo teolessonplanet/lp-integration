@@ -20,6 +20,7 @@ public class UploadFileModal extends LpUiBasePage {
     private static final String FOLDER_DROPDOWN_INPUT = "#select2-drop [class='select2-results'] li:nth-child(1)";
     private static final String DISABLED_PUBLISH_BUTTON = "#upload-confirmation-content [class*='btn-primary disabled']";
     private static final String DISABLED_PUBLISH_BUTTON_POPOVER_TEXT = "[class*='popover'] [class='popover-content']";
+    private static final String PUBLISH_ON_LESSON_PLANET_BUTTON = "[class*='confirm-buttons-group'] [class='btn btn-primary']:nth-child(1)";
 
     public UploadFileModal(WebDriver driver) {
         super(driver);
@@ -68,5 +69,9 @@ public class UploadFileModal extends LpUiBasePage {
 
     public String getDisabledPublishButtonPopoverText() {
         return getTextForElement(DISABLED_PUBLISH_BUTTON_POPOVER_TEXT);
+    }
+
+    public void clickOnPublishOnLessonPlanetButton() {
+        clickElement(PUBLISH_ON_LESSON_PLANET_BUTTON);
     }
 }

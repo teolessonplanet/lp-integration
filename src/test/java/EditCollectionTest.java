@@ -205,7 +205,7 @@ public class EditCollectionTest extends BaseTest {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 1);
         } else {
-            curriculumManagerTest.testUpload(true, accountPlanText);
+            curriculumManagerTest.testUpload(true, accountPlanText, false);
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 2);
         }
         editCollectionPage.refreshPageAndDismissBrowserAlert();

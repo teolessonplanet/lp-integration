@@ -38,7 +38,7 @@ public class CSL_CurriculumManagerTest extends BaseTest {
 
     @Test(description = "CSL - Curriculum Manager - lessonp-5590: Upload Resource & My Uploads Folder")
     public void testLessonp_5590() {
-        curriculumManagerPageTest.testUploadResourceUsingTextInput(TestData.VALID_EMAIL_CSL_HENRY);
+        curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.VALID_EMAIL_CSL_HENRY, false);
         curriculumManagerPageTest.testMyUploadsFolderActions(TestData.VALID_EMAIL_CSL_HENRY);
     }
 

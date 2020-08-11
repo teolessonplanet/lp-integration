@@ -104,7 +104,7 @@ public class RSL_PublishCollection extends BaseTest {
         if (uploadedResource) {
             editCollectionModal.clickOnAddItemsDropdown();
             editCollectionModal.clickUploadAFileButton();
-            curriculumManagerPageTest.testUpload(true, account);
+            curriculumManagerPageTest.testUpload(true, account, false);
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
             if (folder) {
@@ -142,7 +142,8 @@ public class RSL_PublishCollection extends BaseTest {
             Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
         }
         editCollectionModal.clickOnCloseButton();
-        Assert.assertTrue(curriculumManagerPage.getFolderStatus().contains(TestData.PUBLISHED_STATUS));
+        curriculumManagerPage.waitUntilPublishedStatusIsDisplayed();
+        Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PUBLISHED_STATUS);
     }
 
     public void testCollectionNotPublishedModal(String account) {
@@ -164,7 +165,7 @@ public class RSL_PublishCollection extends BaseTest {
 
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickUploadAFileButton();
-        curriculumManagerPageTest.testUpload(true, account);
+        curriculumManagerPageTest.testUpload(true, account, false);
 
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();

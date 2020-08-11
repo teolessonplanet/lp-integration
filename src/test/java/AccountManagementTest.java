@@ -476,7 +476,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage() {
-        curriculumManagerTest.testUploadResourceUsingTextInput(TestData.PLAN_FREEMIUM);
+        curriculumManagerTest.testUploadResourceFromMyResources(TestData.PLAN_FREEMIUM, false);
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {

@@ -261,4 +261,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
     public String getTitle() {
         return getTextForElement(CURRICULUM_MANAGER_PAGE_TITLE);
     }
+
+    public void waitUntilPublishedStatusIsDisplayed() {
+        waitUntilTextIsDisplayed('#' + getElementId(FOLDER_ROW) + FOLDER_STATUS, TestData.PUBLISHED_STATUS);
+    }
 }
