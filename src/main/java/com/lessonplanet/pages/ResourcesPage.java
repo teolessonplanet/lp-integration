@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,6 +78,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_ICON_IN_THUMBNAIL_VIEW = "div[class='thumb-img-wrap']";
     private static final String CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW = "div[class*='resource-type-banner']";
     private static final String CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW = "span[class*='resource-grade']";
+    private static final String COLLECTION_CARD_ITEMS_COUNT = "#search-results [class*='search-result-item'] [class='items-count'] [class='count']";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -243,6 +246,24 @@ public class ResourcesPage extends LpUiBasePage {
             logger.error("The button " + cssSelector + " was not found on the first " + TestData.SHORT_TIMEOUT + " pages");
         }
         openInANewTabOrClick(button, inANewTab);
+    }
+
+    public WebElement findFirstCollectionWithLess10Items() {
+        boolean webElementWasFound = false;
+        int attempts = TestData.SHORT_TIMEOUT;
+        WebElement collection = null;
+        do {
+            try {
+                collection = findElements(SEE_COLLECTION_BUTTON).get(0);
+                if (getCollectionCardItemsCount(0) < 10) {
+                    webElementWasFound = true;
+                }
+            } catch (Exception ex) {
+                clickOnNextButton();
+                attempts--;
+            }
+        } while (!webElementWasFound && attempts > 0);
+        return collection;
     }
 
     public int getCountFreeAccessButtons() {
@@ -608,7 +629,18 @@ public class ResourcesPage extends LpUiBasePage {
         return isElementDisplayed(card, CARD_FREE_SAMPLE_STAMP_ICON);
     }
 
-    public boolean isCardProviderDisplayed(WebElement card){
-        return isElementDisplayed(card,CARD_PROVIDER_TEXT);
+    public boolean isCardProviderDisplayed(WebElement card) {
+        return isElementDisplayed(card, CARD_PROVIDER_TEXT);
+    }
+
+    public int getCollectionCardItemsCount(int position) {
+        String rawNumber = getTextForElement(COLLECTION_CARD_ITEMS_COUNT, position);
+        int number;
+        try {
+            number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
+        } catch (ParseException e) {
+            throw new Error("The number " + rawNumber + " cannot be parsed");
+        }
+        return number;
     }
 }
