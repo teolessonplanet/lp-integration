@@ -96,7 +96,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
         testDragAndDropMaxItemsInsideCollection(TestData.FREE_MEMBERSHIP_TEXT);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
@@ -128,7 +128,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
         testDragAndDropMaxItemsInsideCollection(TestData.PLAN_STARTER);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
@@ -236,7 +236,7 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderVideoModal.waitForModal();
             collectionBuilderVideoModal.clickOnXButton();
         } else {
-            curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+            curriculumManagerPageTest.initTest(webDriver);
             curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.waitForModal();
@@ -249,7 +249,7 @@ public class CollectionBuilderTest extends BaseTest {
 
     public void testUploadResourceFromCollectionBuilder(String accountPlanText, boolean publishedResource, String uploadedFileName) {
         collectionBuilderPage.clickUploadButton();
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             curriculumManagerPageTest.testUpgradeModalFromUploadButton();
         } else {

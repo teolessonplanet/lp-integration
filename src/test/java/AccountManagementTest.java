@@ -461,7 +461,7 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder() {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickUploadButton();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
 
@@ -480,13 +480,13 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated() {
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
     private void testUpgradeFreeMemberFromSaving4thCollection() {
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         for (int i = 0; i <= 2; i++) {
             curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         }
@@ -497,13 +497,13 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testUpgradeFreeMemberFromAssignResourceButton() {
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testFavoriteRegularResource(TestData.PLAN_FREEMIUM);
         curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
     }
 
     private void testUpgradeFreeMemberFromAssignFolderButton() {
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
         curriculumManagerTest.testAddRegularResourceToFolder(TestData.PLAN_FREEMIUM);
         curriculumManagerTest.testAddSharedResourceToFolder();
@@ -513,7 +513,7 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
         discoverResourcesPage.loadPage();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.clickOnListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);

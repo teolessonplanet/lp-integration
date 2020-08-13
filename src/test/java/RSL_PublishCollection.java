@@ -81,7 +81,7 @@ public class RSL_PublishCollection extends BaseTest {
 
     public void testAddResourcesToPublishCollection(boolean folder, boolean uploadedResource, String account, boolean includedFile) {
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
@@ -148,7 +148,7 @@ public class RSL_PublishCollection extends BaseTest {
 
     public void testCollectionNotPublishedModal(String account) {
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
 
         curriculumManagerPage.loadPage();

@@ -20,7 +20,7 @@ public class RSL_CurriculumManagerTest extends BaseTest {
     }
 
     public void initCurriculumManagerPageAndLogin() {
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
 

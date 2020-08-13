@@ -51,7 +51,7 @@ public class CSL_CollectionBuilderTest extends BaseTest {
     public void testLessonp_4949() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderTest.testDragAndDropMaxItemsInsideCollection(TestData.VALID_EMAIL_CSL_HENRY);
         discoverResourcesPage.refreshPageAndDismissBrowserAlert();
