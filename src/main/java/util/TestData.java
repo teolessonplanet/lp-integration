@@ -164,6 +164,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+67+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -199,9 +200,11 @@ public class TestData {
     public static final String FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY = "Social Studies & History";
 
     //Account Manager
-    public static final String DISTRICT_NAME_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
+    public static final String DISTRICT_NAME_SL_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
+    public static final String SCHOOL_NAME_SL_POPOVER_TEXT = "If you'd like to change the school name, please contact Lesson Planet.";
     public static final String SCHOOL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your school's initials or a shorter version of your school's name. 20 characters max.";
-    public static final String DISTRICT_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your district's initials or a shorter version of your district's name. 20 characters max.";
+    public static final String DISTRICT_SL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your district's initials or a shorter version of your district's name. 20 characters max.";
+    public static final String SCHOOL_SL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your school's initials or a shorter version of your school's name. 20 characters max.";
     public static final String ENABLED_EDIT_TEACHER_POPOVER_TEXT = "Edit Teacher";
     public static final String DISABLED_EDIT_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
     public static final String ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
@@ -228,6 +231,9 @@ public class TestData {
     public static final String ADD_DISTRICT_ADMIN_ROSTER_ON_NOTIFICATION_TEXT = "You cannot add admins to an organization if they're not a teacher first";
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
+    public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
+    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+90+1280567@lessonplanet.com";
+    public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Ashley";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
@@ -243,7 +249,7 @@ public class TestData {
     public static final String CSL_HENRY_TEACHER_FIRST_NAME = "George";
     public static final String CSL_HENRY_TEACHER_LAST_NAME = "Reese";
     public static final String CSL_QA_CUSTOM_DISTRICT_NAME = "QA Custom SL Test";
-    public static final String CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME = "School 4";
+    public static final String CSL_QA_CUSTOM_EXISTING_SCHOOL_NAME = "rita's school 11";
     public static final String CSL_PARENTS_SCHOOL_NAME = "Parents School";
     public static final String CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL = "i_t_csl_qa_custom@lp.com";
     public static final String CSL_QA_CUSTOM_OWNER_FIRST_NAME = "Michelle";
@@ -264,6 +270,7 @@ public class TestData {
     public static final String REMOVE_DISTRICT_ADMIN_MODAL_TEXT = "If this District Admin is also a Teacher, their account will remain active with the Teacher role. If this District Admin did not have another role, their account will be removed from this Site License.";
     public static final String REMOVE_SCHOOL_ADMIN_MODAL_TEXT = "Are you sure you want to remove this School Admin? They will remain in a Teacher role at this school.";
     public static final String REMOVE_TEACHER_MODAL_TEXT = "If this Teacher is also registered as a Teacher at another school, their School Edition account will remain active at that school.";
+    public static final String REMOVE_TEACHER_SCHOOL_SL_MODAL_TEXT = "Are you sure you want to remove this Teacher?";
     public static final String REMOVE_SCHOOL_MODAL_TEXT = "Are you sure you want to remove this school? If there are any teachers registered with this school, their accounts may be removed as well.";
 
     public static final String REQUIRED_FIELD_ERROR_TEXT = "This field is required";

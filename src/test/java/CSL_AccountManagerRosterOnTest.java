@@ -36,7 +36,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
     public void testLessonp_5108() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testEditDistrict(TestData.CSL_QA_CUSTOM_DISTRICT_NAME, true);
+        rsl_accountManagerTest.testEditDistrict(TestData.CSL_QA_CUSTOM_DISTRICT_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.PLAN_VISITOR, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_QA_CUSTOM_OWNER_FIRST_NAME, true, true);
@@ -65,7 +65,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         districtPage.clickOnSchool(0);
-        rsl_accountManagerTest.testSchoolPage(true, true);
+        rsl_accountManagerTest.testSchoolPage(true, true, true);
         schoolPage.hoverOverAddButton();
         Assert.assertEquals(schoolPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
         rsl_accountManagerTest.testEditTeacher(true);
@@ -88,7 +88,14 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         districtPage.clickOnSchool(0);
-        schoolPage.clickOnManageAdminsButton();
+        schoolPage.clickOnManageDistrictButton();
         rsl_accountManagerTest.testManageSchoolAdminPage(true, true);
+    }
+
+    @Test(description = "Custom SL - Account Manager - lessonp-5871: Manage District Page")
+    public void testLessonp_5871() {
+        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
+        rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        rsl_accountManagerTest.testManageDistrictPage(true, true);
     }
 }
