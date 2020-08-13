@@ -20,7 +20,7 @@ public class CSL_CurriculumManagerTest extends BaseTest {
     }
 
     public void initCurriculumManagerPageAndLogin() {
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
     }
 

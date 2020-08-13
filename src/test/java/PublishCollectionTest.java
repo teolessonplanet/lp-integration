@@ -69,7 +69,7 @@ public class PublishCollectionTest extends BaseTest {
     @Test(description = "Active User - Publish Resource - lessonp-995: Publish Uploaded File - from My Resources")
     public void testLessonp_995() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.PLAN_PRO, true);
     }
 
@@ -77,7 +77,7 @@ public class PublishCollectionTest extends BaseTest {
     public void testLessonp_5616() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
         collectionBuilderTest.initTest(webDriver);
         collectionBuilderTest.testUploadResourceFromCollectionBuilder(TestData.PLAN_PRO, true, TestData.PUBLISH_RESOURCE_TITLE);

@@ -315,7 +315,7 @@ public class RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection(inModal);
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
         testCollectionUpgradeForFullReviewButton(inModal);
         testSaveCollectionButton(inModal, TestData.PLAN_FREEMIUM);
@@ -491,7 +491,7 @@ public class RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection(inModal);
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
         testSaveCollectionButton(inModal, account);
     }
@@ -505,7 +505,7 @@ public class RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection(inModal);
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
         testSaveCollectionButton(inModal, account);
     }
@@ -544,7 +544,7 @@ public class RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCurriculumPlayerURL();
         collectionRrpModal.clickPanelItem(0);
         testItemViewerSection(false);

@@ -59,7 +59,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         moveToModal = new MoveToModal(webDriver);
     }
 
-    public void reachCurriculumManagerPage(WebDriver webDriver) {
+    public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
     }
@@ -227,6 +227,82 @@ public class CurriculumManagerPageTest extends BaseTest {
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
         testFolderActions(TestData.PLAN_PRO);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
+    public void testLessonp_5670() {
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[1]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Chapters)")
+    public void testLessonp_5671() {
+        testNestedFolders(TestData.PLAN_FREEMIUM,  TestData.FOLDER_TYPE[2]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Lessons)")
+    public void testLessonp_5672() {
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[3]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Assessment Sets)")
+    public void testLessonp_5673() {
+        testNestedFolders(TestData.PLAN_FREEMIUM,TestData.FOLDER_TYPE[4]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5674:Create Folders (Unit Modules)")
+    public void testLessonp_5674() {
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[5]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5675:Create Folders (Course Folders)")
+    public void testLessonp_5675() {
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[6]);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5676:Create Folders (Root Folders)")
+    public void testLessonp_5676() {
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[7]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5737:Create Folders (Curriculum Sets)")
+    public void testLessonp_5737() {
+        testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[1]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5741:Create Folders (Chapters)")
+    public void testLessonp_5741() {
+        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[2]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5742:Create Folders (Lessons)")
+    public void testLessonp_5742() {
+        testNestedFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[3]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)")
+    public void testLessonp_5743() {
+        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[4]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)")
+    public void testLessonp_5744() {
+        testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[5]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)")
+    public void testLessonp_5745() {
+        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[6]);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)")
+    public void testLessonp_5746() {
+        testNestedFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[7]);
+    }
+
+    private void testNestedFolders(String accountPlan, String folderType) {
+        stepTwoPage.createNewAccount(accountPlan);
+        curriculumManagerPage.loadPage();
+        testMaxLimitOfFoldersCreated(folderType);
     }
 
     public void testAccessCurriculumManagerPageFromHeader(boolean loggedIn) {

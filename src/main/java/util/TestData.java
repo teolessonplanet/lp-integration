@@ -125,7 +125,7 @@ public class TestData {
     public static final String RATING = "5.0";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
-    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules"};
+    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules", "Course Folders", "Root Folders"};
     public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
     public static final String LESSON_FOLDER_TYPE = "Lesson";

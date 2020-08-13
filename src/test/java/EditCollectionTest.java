@@ -114,7 +114,7 @@ public class EditCollectionTest extends BaseTest {
 
     public void testCreateCollectionSearchPage() {
         discoverResourcesPage.loadPage();
-        curriculumManagerTest.reachCurriculumManagerPage(webDriver);
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
     }
 
