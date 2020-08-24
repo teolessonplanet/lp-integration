@@ -415,7 +415,7 @@ public class TestData {
     public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Lesson Planet";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
     public static final String LEARNING_EXPLORER_TERMS_OF_USE_URL = "https://www.learningexplorer.com/terms-of-use/";
-    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center/?admin";
+    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center/";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
@@ -456,7 +456,7 @@ public class TestData {
 
     public static final String MEMBER_PROFILE_PAGE_PATH = "profile";
     public static final String SEARCH_HISTORY_PAGE_PATH = "my/saved_searches";
-    public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/organization";
+    public static final String ACCOUNT_MANAGER_PAGE_PATH = "my/admin-manager/account/";
 
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH = "lesson-plans/developmental-and-behavioral-disorders";

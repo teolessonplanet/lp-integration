@@ -1,3 +1,4 @@
+import com.lessonplanet.pages.HeaderPage;
 import com.lessonplanet.pages.LoginPage;
 import com.lessonplanet.pages.RSL_ContentManagerPage;
 import com.lessonplanet.pages.RrpPage;
@@ -15,18 +16,20 @@ public class RSL_ContentManagerTest extends BaseTest {
     private LoginPage loginPage;
     private RSL_ContentManagerPage rsl_contentManagerPage;
     private RrpPage rrpPage;
+    private HeaderPage headerPage;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         rsl_contentManagerPage = new RSL_ContentManagerPage(webDriver);
         rrpPage = new RrpPage(webDriver);
+        headerPage = new HeaderPage(webDriver);
     }
 
     @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
     public void testLessonp_1270() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
 
         Assert.assertEquals(rsl_contentManagerPage.getTitleText(), TestData.CONTENT_MANAGER_PAGE_TITLE_TEXT);
@@ -53,7 +56,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
     public void testLessonp_1271() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
 
         WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
@@ -67,7 +70,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         rsl_contentManagerPage.clickOnConceptLink(firstResource, 0);
         Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.ACCOUNT_MANAGER_PAGE_PATH) && rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_CONCEPT_REDIRECT_PATH));
 
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
         rsl_contentManagerPage.selectPrimarySourcesFromResourceTypes();
         firstResource = rsl_contentManagerPage.getResourceCards().get(0);
 
@@ -89,7 +92,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     public void testLessonp_5076() {
 
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
 
         rsl_contentManagerPage.typeSearchText(TestData.INVALID_SEARCH_WORD);
         rsl_contentManagerPage.clickOnSearchButton();
@@ -107,7 +110,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     public void testLessonp_5078() {
 
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
 
         rsl_contentManagerPage.clickOnSortByDropdown();
         rsl_contentManagerPage.clickOnDropdownAzOption();
@@ -151,7 +154,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertFalse(listsAreTheSame(sortA_Z_Texts, allResourcesOldestTexts));
         Assert.assertFalse(listsAreTheSame(sortA_Z_Texts, allResourcesOldestTexts));
         Assert.assertFalse(listsAreTheSame(allResourcesOldestTexts, allResourcesNewestTexts));
-        rsl_contentManagerPage.loadPage();
+        reachContentManagerPage();
     }
 
     private boolean listsAreTheSame(List<String> cards1, List<String> cards2) {
@@ -162,5 +165,11 @@ public class RSL_ContentManagerTest extends BaseTest {
             }
         }
         return false;
+    }
+
+    public void reachContentManagerPage(){
+        headerPage.hoverOverUserDropDownButton();
+        headerPage.clickOnAdminManagerButton();
+        rsl_contentManagerPage.clickOnContentManagerTab();
     }
 }
