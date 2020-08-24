@@ -42,7 +42,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String MY_MEMBER_PROFILE_BUTTON = "[class='lp-username'] [href='/profile']";
     private static final String MY_RESOURCES_BUTTON = "[class='lp-username'] [href='/my/curriculum_manager']";
     private static final String SEARCH_HISTORY_BUTTON = "[class='lp-username'] [href='/my/saved_searches']";
-    private static final String ADMIN_MANAGER_BUTTON = "[class='lp-username'] [href='/my/organization']";
+    private static final String ADMIN_MANAGER_BUTTON = "[class='lp-username'] [href*='/my/admin-manager/account/']";
     private static final String SIGN_OUT_BUTTON = "[class='lp-username'] [href='/logout']";
 
     private static final String SEARCH_INPUT = "#keywords";
@@ -51,7 +51,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
     private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
-    private static final String HELP_BUTTON = "[href='https://www.learningexplorer.com/help-center/?admin']";
+    private static final String HELP_BUTTON = "[href='https://www.learningexplorer.com/help-center/']";
 
     public HeaderPage(WebDriver driver) {
         super(driver);

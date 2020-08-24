@@ -266,7 +266,7 @@ public class HeaderTest extends BaseTest {
         if (adminManager) {
             headerPage.hoverOverUserDropDownButton();
             headerPage.clickOnAdminManagerButton();
-            Assert.assertEquals(headerPage.getPath(), TestData.ACCOUNT_MANAGER_PAGE_PATH);
+            Assert.assertTrue(headerPage.getPath().contains(TestData.ACCOUNT_MANAGER_PAGE_PATH));
         }
         if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             headerPage.hoverOverUserDropDownButton();

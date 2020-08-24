@@ -50,9 +50,7 @@ public class RSL_ContentManagerPage extends LpUiBasePage {
         resourcesPage = new ResourcesPage(driver);
     }
 
-    public void loadPage() {
-        //TODO: change this after Account Manager is implemented
-        loadUrl(TestData.ACCOUNT_MANAGER_PAGE_PATH);
+    public void clickOnContentManagerTab() {
         clickElement(CONTENT_MANAGER_TAB_BUTTON);
     }
 
