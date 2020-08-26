@@ -15,14 +15,10 @@ public class DistrictPage extends LpUiBasePage {
     private static final String ADD_LINK_SEE_REPORTING_BUTTON = "[class='group-table children'] [class*='placeholder'] [class*='btn-primary']";
 
     private static final String ORGANIZATION_NAME = "[class*='se-org-name']";
-    private static final String EDIT_ORGANIZATION_BUTTON = "[class*='se-edit-org-info']";
-    private static final String EDIT_ORGANIZATION_BUTTON_POPOVER_TEXT = "[class*='se-edit-org-info'] [class='popuptext show']";
-    private static final String MANAGE_ADMINS_BUTTON = "[class*='se-edit-org-admins']";
-    private static final String MANAGE_ADMINS_POPOVER_TEXT = "[class*='se-edit-org-admins'] [class='popuptext show']";
     private static final String SEARCH_BUTTON = "[class*='se-member-search']";
-    private static final String SEARCH_BUTTON_POPOVER_TEXT = "[class*='se-member-search'] [class='popuptext show']";
+    private static final String MANAGE_DISTRICT_BUTTON = "[class*='se-edit-org-admins']";
 
-    private static final String SCHOOLS_LIST = "[class='group-row org school']";
+    private static final String SCHOOLS_LIST = "[class='group-table children'] [class='group-row org school']";
     private static final String SCHOOL_NAME_TEXT = "[class='group-row org school'] [class*='name'] a";
     private static final String NR_OF_TEACHERS_TEXT = "[class='group-row org school'] [class*='members-count']";
     private static final String NR_OF_RESOURCES_UPLOADED_TEXT = "[class='group-row org school'] [class*='uploads-count']";
@@ -51,10 +47,6 @@ public class DistrictPage extends LpUiBasePage {
 
     public DistrictPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void loadPage() {
-        loadUrl(TestData.ACCOUNT_MANAGER_PAGE_PATH);
     }
 
     public boolean isSchoolListDisplayed() {
@@ -90,52 +82,12 @@ public class DistrictPage extends LpUiBasePage {
         return getTextForElement(ORGANIZATION_NAME);
     }
 
-    public boolean isEditOrganizationButtonDisplayed() {
-        return isElementDisplayed(EDIT_ORGANIZATION_BUTTON);
-    }
-
-    public boolean isManageAdminsButtonDisplayed() {
-        return isElementDisplayed(MANAGE_ADMINS_BUTTON);
-    }
-
     public boolean isSearchButtonDisplayed() {
         return isElementDisplayed(SEARCH_BUTTON);
     }
 
-    public void clickOnEditOrganizationButton() {
-        clickElement(EDIT_ORGANIZATION_BUTTON);
-    }
-
-    public void clickOnManageAdminsButton() {
-        clickElement(MANAGE_ADMINS_BUTTON);
-    }
-
     public void clickOnSearchButton() {
         clickElement(SEARCH_BUTTON);
-    }
-
-    public String getManageAdminsPopoverText() {
-        return getTextForElement(MANAGE_ADMINS_POPOVER_TEXT);
-    }
-
-    public String getEditOrganizationButtonPopoverText() {
-        return getTextForElement(EDIT_ORGANIZATION_BUTTON_POPOVER_TEXT);
-    }
-
-    public String getSearchButtonPopoverText() {
-        return getTextForElement(SEARCH_BUTTON_POPOVER_TEXT);
-    }
-
-    public void hoverOverManageAdminsButton() {
-        hoverOverElement(MANAGE_ADMINS_BUTTON);
-    }
-
-    public void hoverOverEditOrganizationButton() {
-        hoverOverElement(EDIT_ORGANIZATION_BUTTON, true);
-    }
-
-    public void hoverOverSearchButton() {
-        hoverOverElement(SEARCH_BUTTON);
     }
 
     public boolean isAddButtonDisplayed() {
@@ -168,6 +120,7 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public String getEditButtonPopoverText() {
+        scrollToElement(EDIT_ACTION_BUTTON_POPOVER_TEXT);
         return getTextForElement(EDIT_ACTION_BUTTON_POPOVER_TEXT);
     }
 
@@ -181,6 +134,7 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public String getRemoveButtonPopoverText() {
+        scrollToElement(REMOVE_ACTION_BUTTON_POPOVER_TEXT);
         return getTextForElement(REMOVE_ACTION_BUTTON_POPOVER_TEXT);
     }
 
@@ -264,7 +218,7 @@ public class DistrictPage extends LpUiBasePage {
         return isElementDisplayed(TEACHER_SCHOOL_TEXT, position);
     }
 
-    public String getTeacherSchoolName(int position){
+    public String getTeacherSchoolName(int position) {
         return getTextForElement(TEACHER_SCHOOL_TEXT, position);
     }
 
@@ -293,10 +247,22 @@ public class DistrictPage extends LpUiBasePage {
     }
 
     public void hoverOverAddButton() {
-        hoverOverElement(ADD_BUTTON);
+        hoverOverElement(ADD_BUTTON, true);
     }
 
     public String getAddButtonPopoverText() {
         return getTextForElement(ADD_BUTTON_POPOVER_TEXT);
+    }
+
+    public boolean isManageDistrictButtonDisplayed() {
+        return isElementDisplayed(MANAGE_DISTRICT_BUTTON);
+    }
+
+    public void clickOnManageDistrictButton() {
+        clickElement(MANAGE_DISTRICT_BUTTON);
+    }
+
+    public boolean isClearSearchButtonDisplayed() {
+        return isElementVisible(CLEAR_SEARCH_BUTTON);
     }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ManageDistrictAdminsPage extends DistrictPage {
+public class ManageDistrictAdminsPage extends ManageDistrictPage {
 
     protected static final String ADD_ADMIN_LINK = "[class='group-table admins'] [class*='placeholder'] a";
     private static final String TITLE_TEXT = "[class='se-manage-admins-title']";
@@ -111,7 +111,7 @@ public class ManageDistrictAdminsPage extends DistrictPage {
         hoverOverElement(STARRED_ADMIN_ICON, adminPos);
     }
 
-    public String getStarredAdminIconPopoverText(){
+    public String getStarredAdminIconPopoverText() {
         return getTextForElement(STARRED_ADMIN_ICON_POPOVER_TEXT);
     }
 }
