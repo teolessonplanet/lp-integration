@@ -1,6 +1,5 @@
 import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -236,7 +235,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Chapters)")
     public void testLessonp_5671() {
-        testNestedFolders(TestData.PLAN_FREEMIUM,  TestData.FOLDER_TYPE[2]);
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[2]);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Lessons)")
@@ -246,7 +245,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Assessment Sets)")
     public void testLessonp_5673() {
-        testNestedFolders(TestData.PLAN_FREEMIUM,TestData.FOLDER_TYPE[4]);
+        testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[4]);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5674:Create Folders (Unit Modules)")
@@ -380,7 +379,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.waitForModal();
         removeModal.clickOnRemoveButton();
-        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.DELETED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -454,7 +453,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.clickOnRemoveButton();
-        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.DELETED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertFalse(curriculumManagerPage.isUploadResourceDisplayed());
     }
@@ -601,7 +600,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnPublishButton();
         publishResourceModal();
         curriculumManagerPage.waitForRefreshIconToDisappear();
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_RESOURCE_STATUS);
+        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_STATUS);
         Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.PUBLISH_RESOURCE_TITLE);
     }
 
@@ -721,7 +720,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnPublishButton();
         testPublishFolderModal(accountPlanText);
         curriculumManagerPage.waitForRefreshIconToDisappear();
-        Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PUBLISHED_STATUS);
+        Assert.assertEquals(TestData.PRIVATE_AND_PUBLISHED_STATUS, curriculumManagerPage.getFolderStatus());
     }
 
     public void testPublishFolderModal(String accountPlanText) {
@@ -769,7 +768,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
-        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), TestData.COPIED_FOLDER_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber + 1);

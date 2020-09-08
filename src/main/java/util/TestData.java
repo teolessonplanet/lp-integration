@@ -90,9 +90,11 @@ public class TestData {
     public static final String RESOURCE_ADDED_TO_FOLDER_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
     public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
     public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
-    public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from favorites";
+    public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from \"My Favorites\"";
     public static final String CREATED_MESSAGE = "was created";
+    public static final String COPIED_MESSAGE = "was copied";
     public static final String DELETED_MESSAGE = "was deleted";
+    public static final String REMOVED_MESSAGE = "was removed";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
@@ -116,6 +118,7 @@ public class TestData {
     public static final String COPIED_POPOVER_TEXT = "Copied!";
     public static final String PUBLISHED_STATUS = "Published";
     public static final String PRIVATE_STATUS = "Private";
+    public static final String PRIVATE_AND_PUBLISHED_STATUS = PRIVATE_STATUS + ", " + PUBLISHED_STATUS;
     public static final String FREE_SAMPLE_RESOURCE_STATUS = "LP Free Sample";
     public static final String REGULAR_RESOURCE_STATUS = "LP Reviewed";
     public static final String SHARED_RESOURCE_STATUS = "Member Shared";

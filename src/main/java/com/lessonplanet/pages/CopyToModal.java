@@ -6,7 +6,7 @@ public class CopyToModal extends LpUiBasePage {
 
     protected static final String CONFIRM_BUTTON = "[class='footer'] [class*='btn-primary']";
     private static final String NAME_INPUT = "[name='collectionTitle']";
-    private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] [class='my-resources list-option']";
+    private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] li[class='list-option my-resources']";
 
     public CopyToModal(WebDriver driver) {
         super(driver);
