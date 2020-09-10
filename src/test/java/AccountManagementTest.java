@@ -553,7 +553,6 @@ public class AccountManagementTest extends BaseTest {
         testUpgradeFromWhatMembersSayWidgetArticlesPage();
         testUpgradeFromWhatMembersSayWidgetContactUsPage();
         testUpgradeFromWhatMembersSayWidgetTestimonialsPage();
-        testUpgradeFromWhatMembersSayWidgetFAQPage();
     }
 
     private void testUpgradeFreeMemberFromGetFullAccessButtons() {
@@ -604,11 +603,6 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFromWhatMembersSayWidgetTestimonialsPage() {
         testimonialsPage.loadPage();
-        testClickSubscriptionButtonFromWhatMembersSayWidget();
-    }
-
-    private void testUpgradeFromWhatMembersSayWidgetFAQPage() {
-        faqPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 
