@@ -33,7 +33,8 @@ public class HeaderPage extends LpUiBasePage {
     private static final String ABOUT_BUTTON = "[class='lp-about']";
     private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
     private static final String OUR_STORY_BUTTON = "[class='lp-about'] [href='/about']";
-    private static final String FAQ_BUTTON = "[class='lp-about'] [href='/us/faq']";
+    private static final String FREQUENTLY_ASKED_QUESTIONS_BUTTON = "[class='lp-about'] [href='/faq']";
+    private static final String HELP_CENTER_FAQ_BUTTON = "[class='lp-about'] [href='/help-center/']";
     private static final String TESTIMONIALS_BUTTON = "[class='lp-about'] [href='/us/testimonials']";
 
     private static final String PRICING_BUTTON = "[class='lp-pricing']";
@@ -166,8 +167,8 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(OUR_STORY_BUTTON);
     }
 
-    public void clickOnFaqButton() {
-        clickElement(FAQ_BUTTON);
+    public void clickOnFrequentlyAskedQuestionsButton() {
+        clickElement(FREQUENTLY_ASKED_QUESTIONS_BUTTON);
     }
 
     public void clickOnTestimonialsButton() {
@@ -304,5 +305,9 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnHelpButton() {
         clickElement(HELP_BUTTON);
+    }
+
+    public void clickOnHelpCenterFaqButton() {
+        clickElement(HELP_CENTER_FAQ_BUTTON);
     }
 }

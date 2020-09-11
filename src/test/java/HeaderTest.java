@@ -61,7 +61,6 @@ public class HeaderTest extends BaseTest {
     public void testLessonp_5660() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
-
     }
 
     @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
@@ -101,6 +100,7 @@ public class HeaderTest extends BaseTest {
         }
 
         if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            lpHomePage.loadPage();
             headerPage.clickOnHelpButton();
             headerPage.waitForNewTab();
             headerPage.focusDriverToLastTab();
@@ -115,8 +115,7 @@ public class HeaderTest extends BaseTest {
 
             headerPage.clickOnSignInButton(false);
             Assert.assertEquals(signInModal.getModalTitle(), TestData.SIGN_IN_MODAL_TITLE_TEXT);
-            signInModal.clickOnClose();
-
+            lpHomePage.loadPage();
             headerPage.clickOnTryItFree(false);
             Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
         } else if (account.equals(TestData.PLAN_FREEMIUM)) {
@@ -180,7 +179,11 @@ public class HeaderTest extends BaseTest {
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnCurriculumManagerButton();
             Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
-            Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
+            if(!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+                Assert.assertEquals(TestData.MY_RESOURCES_PAGE_TITLE, curriculumManagerPage.getTitle());
+            } else {
+                Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
+            }
         }
 
         headerPage.hoverOverDiscoverButton();
@@ -227,10 +230,16 @@ public class HeaderTest extends BaseTest {
 
         lpHomePage.loadPage();
         headerPage.hoverOverAboutButton();
-        headerPage.clickOnFaqButton();
-        Assert.assertEquals(headerPage.getPath(), TestData.FAQ_PAGE_PATH);
+        if(!account.equals(TestData.PLAN_VISITOR)){
+            headerPage.clickOnHelpCenterFaqButton();
+            Assert.assertEquals(headerPage.getUrl(), TestData.HELP_CENTER_FAQ_URL);
+        } else {
+            headerPage.clickOnFrequentlyAskedQuestionsButton();
+            Assert.assertEquals(headerPage.getPath(), TestData.FAQ_PAGE_PATH);
+        }
 
         if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            lpHomePage.loadPage();
             headerPage.hoverOverAboutButton();
             headerPage.clickOnTestimonialsButton();
             Assert.assertEquals(headerPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
@@ -255,7 +264,11 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnMyResourcesButton();
         Assert.assertEquals(headerPage.getPath(), TestData.CURRICULUM_MANAGER_PAGE_PATH);
-        Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
+        if(!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_RSL_SBCEO)){
+            Assert.assertEquals(TestData.MY_RESOURCES_PAGE_TITLE, curriculumManagerPage.getTitle());
+        } else {
+            Assert.assertEquals(TestData.CURRICULUM_MANAGER_PAGE_TITLE, curriculumManagerPage.getTitle());
+        }
 
         if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             headerPage.hoverOverUserDropDownButton();

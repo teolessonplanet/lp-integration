@@ -52,9 +52,7 @@ public class FooterPage extends LpUiBasePage {
     private static final String SIGN_UP_ERROR_TEXT = "#email_subscription_email-error";
 
     private static final String RSL_IFRAME_COPY_RIGHT_TEXT = "[class='le-footer-meta-item']:nth-child(1)";
-    private static final String RSL_IFRAME_PRIVACY_POLICY_LINK = "[class='le-footer-meta-item']:nth-child(2)";
-    private static final String RSL_IFRAME_TERMS_OF_USE_LINK = "[class='le-footer-meta-item']:nth-child(3)";
-
+    private static final String RSL_IFRAME_TERMS_LINK = "[class='le-footer-meta'] [href*='https://www.learningexplorer.com/term']";
     public FooterPage(WebDriver driver) {
         super(driver);
     }
@@ -288,23 +286,16 @@ public class FooterPage extends LpUiBasePage {
         return isElementDisplayed(RSL_IFRAME_COPY_RIGHT_TEXT);
     }
 
-    public boolean isRegularSlIframePrivacyPolicyLinkDisplayed() {
-        return isElementDisplayed(RSL_IFRAME_PRIVACY_POLICY_LINK);
-    }
-
-    public boolean isRegularSlIframeTermsOfUseLinkDisplayed() {
-        return isElementDisplayed(RSL_IFRAME_TERMS_OF_USE_LINK);
+    public boolean isRegularSlIframeTermsLinkDisplayed() {
+        return isElementDisplayed(RSL_IFRAME_TERMS_LINK);
     }
 
     public void clickOnRegularSlIframeCopyRightText() {
         clickElement(RSL_IFRAME_COPY_RIGHT_TEXT);
     }
 
-    public void clickOnRegularSlIframePrivacyPolicyLink() {
-        clickElement(RSL_IFRAME_PRIVACY_POLICY_LINK);
-    }
-
-    public void clickOnRegularSlIframeTermsOfUseLink() {
-        clickElement(RSL_IFRAME_TERMS_OF_USE_LINK);
+    public void clickOnRegularSlIframeTermsLink() {
+        scrollToElement(RSL_IFRAME_TERMS_LINK);
+        clickElement(RSL_IFRAME_TERMS_LINK);
     }
 }

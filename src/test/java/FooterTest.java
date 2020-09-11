@@ -194,8 +194,7 @@ public class FooterTest extends BaseTest {
             Assert.assertTrue(footerPage.isRegularSlLogoDisplayed());
             Assert.assertTrue(footerPage.isRegularSlIframeCopyrightTextDisplayed());
             Assert.assertEquals(footerPage.getRegularSlIframeCopyrightText(), TestData.RSL_IFRAME_COPYRIGHT_TEXT);
-            Assert.assertTrue(footerPage.isRegularSlIframePrivacyPolicyLinkDisplayed());
-            Assert.assertTrue(footerPage.isRegularSlIframeTermsOfUseLinkDisplayed());
+            Assert.assertTrue(footerPage.isRegularSlIframeTermsLinkDisplayed());
         }
     }
 
@@ -288,12 +287,11 @@ public class FooterTest extends BaseTest {
             footerPage.clickOnTermsOfUseButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.TERMS_OF_USE_PAGE_PATH);
         } else {
-            footerPage.clickOnRegularSlIframePrivacyPolicyLink();
-            Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_PRIVACY_POLICY_URL);
-            footerPage.goBackOnePage();
-
-            footerPage.clickOnRegularSlIframeTermsOfUseLink();
-            Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_TERMS_OF_USE_URL);
+            footerPage.clickOnRegularSlIframeTermsLink();
+            footerPage.waitForNewTab();
+            footerPage.focusDriverToLastTab();
+            footerPage.waitForLinkToLoad();
+            Assert.assertEquals(lpHomePage.getUrl(), TestData.LEARNING_EXPLORER_TERMS_URL);
         }
     }
 

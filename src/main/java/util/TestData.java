@@ -78,7 +78,8 @@ public class TestData {
 
     //Curriculum Manager
 
-    public static final String CURRICULUM_MANAGER_PAGE_TITLE = "My Resources";
+    public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
+    public static final String MY_RESOURCES_PAGE_TITLE = "My Resources";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER = "As a Free Member you can only save folders with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited folders, and enjoy the benefits of a Full Membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT = "You've reached your 3-folder limit, but don't let that stop you!\n" + "Upgrade today to create more folders and enjoy the benefits of full membership.";
@@ -167,7 +168,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+67+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+61+1280189@lessonplanet.com\t";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -422,9 +423,9 @@ public class TestData {
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
     public static final String COPYRIGHT_TEXT = "© 1999-2020 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
-    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Lesson Planet";
+    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Learning Explorer";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
-    public static final String LEARNING_EXPLORER_TERMS_OF_USE_URL = "https://www.learningexplorer.com/terms-of-use/";
+    public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms/";
     public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center/";
 
     //RRPs
@@ -459,7 +460,8 @@ public class TestData {
 
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
     public static final String OUR_STORY_PAGE_PATH = "about";
-    public static final String FAQ_PAGE_PATH = "us/faq";
+    public static final String FAQ_PAGE_PATH = "faq";
+    public static final String HELP_CENTER_FAQ_URL = "https://page.lessonplanet.com/help-center/";
     public static final String TESTIMONIALS_PAGE_PATH = "us/testimonials";
 
     public static final String PRICING_PAGE_PATH = "pricing";
