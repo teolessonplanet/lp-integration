@@ -254,8 +254,8 @@ public class ResourcesPage extends LpUiBasePage {
         WebElement collection = null;
         do {
             try {
-                collection = findElements(SEE_COLLECTION_BUTTON).get(0);
-                if (getCollectionCardItemsCount(0) < 10) {
+                collection = findElements(SEE_COLLECTION_BUTTON).get(1);
+                if (getCollectionCardItemsCount(1) < 10) {
                     webElementWasFound = true;
                 }
             } catch (Exception ex) {

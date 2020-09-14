@@ -155,13 +155,13 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickOnPublishFolder();
         curriculumManagerTest.testPublishFolderModal(accountPlanText);
         editCollectionModal.hoverOverDisabledPublishFolderButton();
-        Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
+        Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
         publishCollectionModal.clickOnPublishCollectionButton();
         editCollectionModal.hoverOverDisabledPublishFolderButton();
-        Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
+        Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
     }
 
     public void testEditFolderButtons(String accountPlanText) {

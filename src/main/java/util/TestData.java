@@ -45,7 +45,7 @@ public class TestData {
     public static final String[] KEYWORD = {"Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
     //Publish Modal
-    public static final String PUBLISH_FOLDER_WITH_UPLOADED_FILE_MODAL_TEXT = "This collection contains private uploaded files, which are currently not supported with publishing. If these files can be accessed via a URL, use the \"Add a Link\" collection feature to include them or select \"Continue\" to publish the collection without these files.";
+    public static final String PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT = "Private Documents";
     public static final String PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT = "This Collection contains Folder items, which are currently not supported with publishing. Select “Continue” to publish the collection without these items.";
 
     //Articles Page
@@ -62,7 +62,7 @@ public class TestData {
     //Edit collection
     public static final String EDIT_COLLECTION_TITLE = "Edit Folder";
     public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
-    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This folder has already been shared. To reshare, please make at least one change.";
+    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This folder has already been published. To republish, please make at least one change.";
     public static final String PIXABAY_IMAGE_TITLE = "Mango";
     public static final String PAGE_TITLE = "Page Title";
     public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
@@ -77,7 +77,6 @@ public class TestData {
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Collection not published!";
 
     //Curriculum Manager
-
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
     public static final String MY_RESOURCES_PAGE_TITLE = "My Resources";
     public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
@@ -94,7 +93,6 @@ public class TestData {
     public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from \"My Favorites\"";
     public static final String CREATED_MESSAGE = "was created";
     public static final String COPIED_MESSAGE = "was copied";
-    public static final String DELETED_MESSAGE = "was deleted";
     public static final String REMOVED_MESSAGE = "was removed";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
@@ -123,7 +121,7 @@ public class TestData {
     public static final String FREE_SAMPLE_RESOURCE_STATUS = "LP Free Sample";
     public static final String REGULAR_RESOURCE_STATUS = "LP Reviewed";
     public static final String SHARED_RESOURCE_STATUS = "Member Shared";
-    public static final String PUBLISHED_RESOURCE_STATUS = "Shared";
+    public static final String PUBLISHED_RESOURCE_STATUS = "Published";
     public static final String FACEBOOK_URL = "https://www.facebook.com";
     public static final String TWITTER_URL = "https://twitter.com";
     public static final String RATING = "5.0";
@@ -168,7 +166,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+61+1280189@lessonplanet.com\t";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+51+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
