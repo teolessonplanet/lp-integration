@@ -24,7 +24,7 @@ public class CSL_PublishCollectionTest extends BaseTest {
     public void testLessonp_5800() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(false, true, TestData.VALID_EMAIL_CSL_HENRY, true);
+        publishCollectionTest.testAddResourcesToPublishCollection(false, true, TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5801: With LP Resources & Uploaded Resources - do not include")
@@ -45,7 +45,7 @@ public class CSL_PublishCollectionTest extends BaseTest {
     public void testLessonp_5803() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(true, true, TestData.VALID_EMAIL_CSL_HENRY, true);
+        publishCollectionTest.testAddResourcesToPublishCollection(true, true, TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5804: With LP Resources & Folders & Uploaded Resources - do not include")

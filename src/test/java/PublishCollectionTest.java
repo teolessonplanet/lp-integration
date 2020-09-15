@@ -19,6 +19,7 @@ public class PublishCollectionTest extends BaseTest {
     private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
     private ConfirmShareFolderModal confirmShareFolderModal;
     private CollectionNotPublishedModal collectionNotPublishedModal;
+    private PrivateDocumentsModal privateDocumentsModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -33,6 +34,7 @@ public class PublishCollectionTest extends BaseTest {
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
         confirmShareFolderModal = new ConfirmShareFolderModal(webDriver);
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
+        privateDocumentsModal = new PrivateDocumentsModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -148,21 +150,31 @@ public class PublishCollectionTest extends BaseTest {
             if (folder) {
                 Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT);
                 confirmShareFolderModal.clickOnContinueButton();
-                if (includedFile) {
-                    confirmPublishUploadFileModal.clickOnIncludeFileOption();
+                if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                    if (includedFile) {
+                        confirmPublishUploadFileModal.clickOnIncludeFileOption();
+                    } else {
+                        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+                    }
+                    confirmPublishUploadFileModal.checkAgreementOption();
+                    confirmPublishUploadFileModal.clickOnPublishCollectionButton();
                 } else {
-                    confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+                    testPrivateDocumentsModal();
                 }
-                confirmPublishUploadFileModal.checkAgreementOption();
             } else {
-                if (includedFile) {
-                    confirmPublishUploadFileModal.clickOnIncludeFileOption();
+                if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                    if (includedFile) {
+                        confirmPublishUploadFileModal.clickOnIncludeFileOption();
+                    } else {
+                        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+                    }
+                    confirmPublishUploadFileModal.checkAgreementOption();
+                    confirmPublishUploadFileModal.clickOnPublishCollectionButton();
                 } else {
-                    confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+                    testPrivateDocumentsModal();
                 }
-                confirmPublishUploadFileModal.checkAgreementOption();
             }
-            confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+
         } else {
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
@@ -172,16 +184,20 @@ public class PublishCollectionTest extends BaseTest {
             }
         }
         curriculumManagerPageTest.testPublishFolderModal(account);
-        if (uploadedResource && !includedFile) {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         } else {
-            editCollectionModal.isDisabledPublishFolderButtonDisplayed();
-            editCollectionModal.hoverOverDisabledPublishFolderButton();
-            Assert.assertTrue(editCollectionModal.getDisabledPublishFolderPopoverText().contains(TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT));
+            if (uploadedResource && !includedFile) {
+                editCollectionModal.isEnabledPublishFolderButtonDisplayed();
+            } else {
+                editCollectionModal.isDisabledPublishFolderButtonDisplayed();
+                editCollectionModal.hoverOverDisabledPublishFolderButton();
+                Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
+            }
         }
         editCollectionModal.clickOnCloseButton();
         curriculumManagerPage.waitUntilPublishedStatusIsDisplayed();
-        Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PUBLISHED_STATUS);
+        Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
     }
 
     public void testCollectionNotPublishedModal(String account) {
@@ -208,10 +224,13 @@ public class PublishCollectionTest extends BaseTest {
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
 
-        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
-        confirmPublishUploadFileModal.checkAgreementOption();
-
-        confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+            confirmPublishUploadFileModal.checkAgreementOption();
+            confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+        } else {
+            testPrivateDocumentsModal();
+        }
 
         collectionNotPublishedModal.waitForModal();
         Assert.assertEquals(collectionNotPublishedModal.getModalTitle(), TestData.COLLECTION_NOT_PUBLISHED_MODAL_TITLE);
@@ -219,5 +238,11 @@ public class PublishCollectionTest extends BaseTest {
         collectionNotPublishedModal.clickOnOkButton();
         editCollectionModal.clickOnCloseButton();
         Assert.assertTrue(curriculumManagerPage.getFolderStatus().contains(TestData.PRIVATE_STATUS));
+    }
+
+    private void testPrivateDocumentsModal() {
+        privateDocumentsModal.waitForModal();
+        Assert.assertEquals(privateDocumentsModal.getModalTitleText(), TestData.PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT);
+        privateDocumentsModal.clickOnContinueButton();
     }
 }
