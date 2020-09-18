@@ -166,5 +166,4 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         collectionRrpModal.waitForLoad();
         Assert.assertTrue(collectionRrpModal.getUrl().contains(TestData.CURRICULUM_PLAYER_PATH));
     }
-
 }

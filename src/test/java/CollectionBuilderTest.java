@@ -144,7 +144,7 @@ public class CollectionBuilderTest extends BaseTest {
         if (accountPlanText.equals(TestData.PLAN_VISITOR) || accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
             List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
             browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-            if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+            if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
                 upgradeMaxItemsCollectionModal.waitForModal();
                 upgradeMaxItemsCollectionModal.clickOnCloseModalButton();
             }
@@ -250,7 +250,7 @@ public class CollectionBuilderTest extends BaseTest {
     public void testUploadResourceFromCollectionBuilder(String accountPlanText, boolean publishedResource, String uploadedFileName) {
         collectionBuilderPage.clickUploadButton();
         curriculumManagerPageTest.initTest(webDriver);
-        if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerPageTest.testUpgradeModalFromUploadButton();
         } else {
             curriculumManagerPageTest.testUpload(false, accountPlanText, publishedResource);
@@ -288,7 +288,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnCreateNewCollection();
-        if (accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             upgradeMaxFolderModal.waitForModal();
             upgradeMaxFolderModal.clickOnCloseButton();
         } else {

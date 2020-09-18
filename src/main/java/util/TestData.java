@@ -185,7 +185,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+90+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+87+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -263,12 +263,12 @@ public class TestData {
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
-    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+69+1280567@lessonplanet.com";
+    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+59+989155@lessonplanet.com";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Ashley";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+66+959960@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+71+958202@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -458,8 +458,8 @@ public class TestData {
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
-    public static final String COPYRIGHT_TEXT = "© 1999-2020 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
-    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Learning Explorer";
+    public static final String COPYRIGHT_TEXT = "© 1999-2021 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
+    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2021 Learning Explorer";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
     public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms";
     public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center";
@@ -470,7 +470,7 @@ public class TestData {
     public static final String LESSON_PLANS_RESOURCE_TYPE = "Lesson Plans";
     public static final String LESSON_RESOURCE_TYPE_CARD = "Lesson";
     public static final String NO_RESOURCES_FOUND_TEXT = "No resources found.";
-    public static final String[] SUBJECTS = {"Math", "Arithmetic & Pre-Algebra", "Algebra I", "Algebra II", "Geometry", "Trigonometry", "Pre-Calculus", "Calculus", "Statistics & Probability", "Consumer Math & Personal Finance", "General Math", "Science", "Agriculture", "Biology", "Chemistry", "Earth Science", "Environment", "Life Science", "Physical Science", "Physics", "Science Principles", "Space Science & Astronomy", "General Science", "English Language Arts", "Grammar", "Spelling & Vocabulary", "Speaking & Listening", "Reading: Foundational Skills", "Reading: Informational Text", "Reading: Literature", "Narative Writing", "Expository Writing", "Persuasive Writing", "Poetry", "Fine Motor Skills", "ESL & ELD", "General Writing", "Reading & Visual Literacy", "General English Language Arts", "Social Studies & History", "Cultural & Social Studies", "Economics & Business", "Geography", "Government", "Holidays", "Philosophy", "Psychology", "World History", "General History", "Religion", "United States History", "World History", "Physical Education", "Activities & Sports", "Motor Skills & Movement", "Outdoor Education", "Physical Fitness", "Health", "Growth & Development", "Nutrition", "Sex Education", "Substance Abuse", "Wellness & Safety", "Visual & Performing Arts", "Art History", "Arts & Crafts", "Drama", "Dance", "Music", "Visual Arts", "Languages", "American Sign Language", "Arabic", "Chinese", "French", "German", "Italian", "Japanese", "Latin", "Portuguese", "Russian", "Spanish", "Hindi", "Other Languages", "STEM", "Computer Programming", "Engineering", "21st Century Skills", "Social & Emotional Learning", "Family & Consumer Sciences", "Career & Education & Skills", "Computer Skills", "Media Literacy", "Researcg Process", "Study Skills", "Digital Citizenship", "Classroom Support", "Classroom Management", "Learning Displays", "Classroom Tools", "Professional Development", "Special Education & Programs", "Special Education", "Social & Emotional Learning", "CASEL Competencies"};
+    public static final String[] SUBJECTS = {"Math", "Arithmetic & Pre-Algebra", "Algebra I", "Algebra II", "Geometry", "Trigonometry", "Pre-Calculus", "Calculus", "Statistics & Probability", "Consumer Math & Personal Finance", "General Math", "Science", "Agriculture", "Biology", "Chemistry", "Earth Science", "Environment", "Life Science", "Physical Science", "Physics", "Science Principles", "Space Science & Astronomy", "General Science", "English Language Arts", "Grammar", "Spelling & Vocabulary", "Speaking & Listening", "Reading: Foundational Skills", "Reading: Informational Text", "Reading: Literature", "Narrative Writing", "Expository Writing", "Persuasive Writing", "Poetry", "Fine Motor Skills", "ESL & ELD", "General Writing", "Reading & Visual Literacy", "General English Language Arts", "Social Studies & History", "Cultural & Social Studies", "Economics & Business", "Geography", "Government", "Holidays", "Philosophy", "Psychology", "World History", "General History", "Religion", "United States History", "World History", "Physical Education", "Activities & Sports", "Motor Skills & Movement", "Outdoor Education", "Physical Fitness", "Health", "Growth & Development", "Nutrition", "Sex Education", "Substance Abuse", "Wellness & Safety", "Visual & Performing Arts", "Art History", "Arts & Crafts", "Drama", "Dance", "Music", "Visual Arts", "Languages", "American Sign Language", "Arabic", "Chinese", "French", "German", "Italian", "Japanese", "Latin", "Portuguese", "Russian", "Spanish", "Hindi", "Other Languages", "STEM", "Computer Programming", "Engineering", "21st Century Skills", "Social & Emotional Learning", "Family & Consumer Sciences", "Career & Education & Skills", "Computer Skills", "Media Literacy", "Researcg Process", "Study Skills", "Digital Citizenship", "Classroom Support", "Classroom Management", "Learning Displays", "Classroom Tools", "Professional Development", "Special Education & Programs", "Special Education", "Social & Emotional Learning", "CASEL Competencies"};
     public static final String[] RESOURCE_TYPES = {"Collections", "Activities & Projects", "Standardized Tests", "Presentations", "Assessments", "Graphics & Images", "Handouts & References", "Interactives", "Lab Resources", "Learning Games", "Lesson Plans", "Presentations", "Primary Sources", "Printables & Templates", "Professional Documents", "PD Courses", "Study Guides", "Units", "Videos", "Performance Tasks", "Websites", "Graphic Organizers", "Worksheets", "Workbooks", "Writing Prompts", "Constructed Response Items", "Apps", "AP Test Preps", "Articles", "Lesson Planet Articles", "Audios", "Courses", "eBooks", "Interactive Whiteboards", "Home Letters", "Rubrics", "Syllabis"};
     public static final String START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE = "Save time and discover engaging curriculum for your classroom. Reviewed and rated by trusted, credentialed teachers.";
     public static final String START_YOUR_FREE_TRIAL_TEXT_SHARED_RESOURCE = "Save time and discover engaging curriculum for your classroom. Quickly find resources you need — reviewed and rated by trusted, credentialed teachers.";
