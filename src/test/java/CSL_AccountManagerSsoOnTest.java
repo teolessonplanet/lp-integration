@@ -66,7 +66,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testManageDistrictAdminsPage(TestData.VALID_EMAIL_CSL_HENRY, true, false);
-        rsl_accountManagerTest.testAddDistrictAdmin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, false);
+        rsl_accountManagerTest.testAddDistrictAdmin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, false, TestData.EXISTING_USER_ANOTHER_SL_ERROR_TEXT);
         testEditDistrictAdmin();
         testEditOwner();
         rsl_accountManagerTest.testRemoveDistrictAdmin(TestData.CSL_HENRY_DISTRICT_NAME);
@@ -227,12 +227,11 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         editSchoolAdminModal.clickOnSaveButton();
         manageSchoolAdminsPage.clickXButton();
         Assert.assertEquals(schoolPage.getTeacherRole(0), TestData.ADMIN_ROLE);
-        schoolPage.clickOnManageAdminsButton();
-        rsl_accountManagerTest.testRemoveSchoolAdmin(0);
+        schoolPage.clickOnAccountManagerBreadcrumbs();
+        rsl_accountManagerTest.testRemoveSchool();
     }
 
     public void testTeacherPublisherRole() {
-        schoolPage.clickOnAccountManagerBreadcrumbs();
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnEditOrganizationButton();
         editDistrictModal.clickTeacherPublishCheckbox();
@@ -257,7 +256,5 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(editDistrictModal.isTeacherPublishCheckboxChecked());
         editDistrictModal.clickTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
-        manageDistrictPage.clickOnAccountManagerBreadcrumbs();
-        rsl_accountManagerTest.testRemoveSchool();
     }
 }

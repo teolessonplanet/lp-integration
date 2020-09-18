@@ -146,7 +146,7 @@ public class SearchTest extends BaseTest {
     public void testLessonp_602() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testGoToResourceButtonForSharedResource();
-        testGoToResourceButtonForRegularResource();
+        testGoToResourceButtonForRegularResource(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)")
@@ -367,7 +367,12 @@ public class SearchTest extends BaseTest {
         }
     }
 
-    protected void testGoToResourceButtonForRegularResource() {
+    protected void testGoToResourceButtonForRegularResource(String account) {
+        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+            discoverResourcesPage.expandProvidersFacet();
+        }
+        discoverResourcesPage.checkLessonPlanetProvider();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         discoverResourcesPage.clickGoToResourceForRegularResource(true);
         String currentUrl = discoverResourcesPage.getUrl();
         boolean assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
@@ -417,6 +422,9 @@ public class SearchTest extends BaseTest {
     protected void testLpResource(String account, boolean freeSample) {
         WebElement lpResourceCard;
         discoverResourcesPage.loadPage();
+        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            discoverResourcesPage.expandProvidersFacet();
+        }
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
@@ -504,6 +512,7 @@ public class SearchTest extends BaseTest {
 
     protected void testSharedResource() {
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnThumbnailView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);

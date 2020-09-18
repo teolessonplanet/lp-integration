@@ -20,6 +20,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     private static final String FACETS_CATEGORIES = "[class*='lp-filter-group']";
     private static final String FACET_OPTIONS = "li";
+    private static final String PROVIDERS_FACET = "#facet-sidebar [class*='lp-filter-group parent-provider_ids'] h4";
 
     private static final Logger logger = LogManager.getRootLogger();
 
@@ -201,5 +202,9 @@ public class DiscoverResourcesPage extends ResourcesPage {
 
     public void scrollToTop() {
         scrollToElement(THUMBNAIL_VIEW_BUTTON);
+    }
+
+    public void expandProvidersFacet() {
+        clickElement(PROVIDERS_FACET);
     }
 }

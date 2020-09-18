@@ -68,6 +68,7 @@ public class CSL_CollectionBuilderTest extends BaseTest {
 
     private void goToFolderNavigator(String provider, String folderType) {
         discoverResourcesPage.loadPage();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, provider);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, folderType);
         discoverResourcesPage.clickOpenFolder(true);

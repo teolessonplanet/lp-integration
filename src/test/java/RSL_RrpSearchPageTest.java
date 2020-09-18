@@ -114,6 +114,9 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
         rrpSearchPageTest.initTest(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
+        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+            discoverResourcesPage.expandProvidersFacet();
+        }
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeFullReview(!inModal);
         rrpSearchPageTest.testLpResourceCommonButtons(inModal, account);

@@ -467,6 +467,9 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteRegularResource(String accountPlanText) {
         discoverResourcesPage.loadSearchPageInListView();
+        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            discoverResourcesPage.expandProvidersFacet();
+        }
         discoverResourcesPage.checkLessonPlanetProvider();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             discoverResourcesPage.clickSeeReview(false);
