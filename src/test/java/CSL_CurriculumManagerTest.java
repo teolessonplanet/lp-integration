@@ -61,4 +61,39 @@ public class CSL_CurriculumManagerTest extends BaseTest {
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_HENRY);
     }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5737:Create Folders (Curriculum Sets)")
+    public void testLessonp_5737() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[1]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5741:Create Folders (Chapters)")
+    public void testLessonp_5741() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[2]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5742:Create Folders (Lessons)")
+    public void testLessonp_5742() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[3]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)")
+    public void testLessonp_5743() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[4]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)")
+    public void testLessonp_5744() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[5]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)")
+    public void testLessonp_5745() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[6]);
+    }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)")
+    public void testLessonp_5746() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[7]);
+    }
 }

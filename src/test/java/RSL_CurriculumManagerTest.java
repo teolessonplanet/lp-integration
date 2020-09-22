@@ -61,4 +61,39 @@ public class RSL_CurriculumManagerTest extends BaseTest {
         curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_RSL_SBCEO);
     }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5806:Create Folders (Curriculum Sets)")
+    public void testLessonp_5806() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[1]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5809:Create Folders (Chapters)")
+    public void testLessonp_5809() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[2]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5810:Create Folders (Lessons)")
+    public void testLessonp_5810() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[3]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5811:Create Folders (Assessment Sets)")
+    public void testLessonp_5811() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[4]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5812:Create Folders (Unit Modules)")
+    public void testLessonp_5812() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[5]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5813:Create Folders (Course Folders)")
+    public void testLessonp_5813() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[6]);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5814:Create Folders (Root Folders)")
+    public void testLessonp_5814() {
+        curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[7]);
+    }
 }
