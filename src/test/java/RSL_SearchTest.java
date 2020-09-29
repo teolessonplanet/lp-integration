@@ -70,7 +70,7 @@ public class RSL_SearchTest extends BaseTest {
         searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
         searchTest.reachSearchPageInListView();
-        searchTest.testGoToResourceButtonForRegularResource();
+        searchTest.testGoToResourceButtonForRegularResource(account);
     }
 
     protected void testSeeFullReview(String account) {
@@ -82,7 +82,7 @@ public class RSL_SearchTest extends BaseTest {
     protected void testCardDetailsLpResource(String account) {
         searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.testLpResource(TestData.VALID_EMAIL_RSL_SBCEO, false);
+        searchTest.testLpResource(account, false);
     }
 
     protected void testCardDetailsCollection(String account) {

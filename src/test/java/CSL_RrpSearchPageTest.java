@@ -134,7 +134,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     private void testSiteSpecificRrp(boolean inModal) {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
-
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
         discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
@@ -145,7 +145,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     private void testProprietaryResource(boolean inModal) {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
-
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
         resourcesPage.clickSeeFullReview(!inModal);
 
@@ -160,7 +160,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     private void testFolderHmhMcGraw(boolean inModal) {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
-
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
         discoverResourcesPage.clickFolderDetails(!inModal);
@@ -187,7 +187,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     private void testSiteSpecificRrpMainButtons(boolean inModal) {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
-
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
         discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
@@ -201,7 +201,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     private void testFolderHmhRrpMainButton(boolean inModal) {
         initTestAndLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
-
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
 

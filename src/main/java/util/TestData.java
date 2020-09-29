@@ -46,7 +46,7 @@ public class TestData {
 
     //Publish Modal
     public static final String PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT = "Private Documents";
-    public static final String PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT = "This Collection contains Folder items, which are currently not supported with publishing. Select “Continue” to publish the collection without these items.";
+    public static final String PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT = "This Folder contains other Folder items, which are currently not supported with publishing. Select “Continue” to publish the folder without these items.";
 
     //Articles Page
     public static final String LESSON_PLANNING_ARTICLES_TITLE = "Lesson Planning Articles";
@@ -73,8 +73,8 @@ public class TestData {
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
     public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Collection has been added to";
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
-    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your collection was not published because it does not include at least two resources.";
-    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Collection not published!";
+    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
+    public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
 
     //Curriculum Manager
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
@@ -166,7 +166,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+51+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+93+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -224,7 +224,7 @@ public class TestData {
     public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "This privilege gives a user the ability to publish collections to the learning object repository. The following options grant this privilege to users district-wide. To apply this privilege more selectively use the school-level or user-level settings.";
     public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
     public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
-    public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed when Automated Rostering is enabled";
+    public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed because it is managed by the Automated Rostering";
     public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT = "District Admin cannot be removed because it is managed by the Automated Rostering";
     public static final String ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school.";
@@ -239,6 +239,7 @@ public class TestData {
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+53+959960@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -246,6 +247,7 @@ public class TestData {
     public static final String CSL_HENRY_DISTRICT_NAME = "Henry County Schools";
     public static final String CSL_HENRY_EXISTING_SCHOOL_NAME = "LP Elementary";
     public static final String CSL_HENRY_EXISTING_TEACHER_EMAIL = "i_t_csl_henry@lp.com";
+    public static final String CSL_HENRY_EXISTING_DISTRICT_ADMIN_EMAIL = "";
     public static final String CSL_HENRY_OWNER_FIRST_NAME = "Henry";
     public static final String CSL_HENRY_OWNER_LAST_NAME = "Thomas";
     public static final String CSL_HENRY_TEACHER_FIRST_NAME = "George";
@@ -270,14 +272,15 @@ public class TestData {
     public static final String SEARCH_RESULTS_TEXT = "results were found for";
 
     public static final String REMOVE_DISTRICT_ADMIN_MODAL_TEXT = "If this District Admin is also a Teacher, their account will remain active with the Teacher role. If this District Admin did not have another role, their account will be removed from this Site License.";
-    public static final String REMOVE_SCHOOL_ADMIN_MODAL_TEXT = "Are you sure you want to remove this School Admin? They will remain in a Teacher role at this school.";
+    public static final String REMOVE_SCHOOL_ADMIN_MODAL_TEXT = "If this School Admin is also a Teacher, their account will remain active with the Teacher role. Are you sure you want to remove this School Admin?";
     public static final String REMOVE_TEACHER_MODAL_TEXT = "If this Teacher is also registered as a Teacher at another school, their School Edition account will remain active at that school.";
     public static final String REMOVE_TEACHER_SCHOOL_SL_MODAL_TEXT = "Are you sure you want to remove this Teacher?";
     public static final String REMOVE_SCHOOL_MODAL_TEXT = "Are you sure you want to remove this school? If there are any teachers registered with this school, their accounts may be removed as well.";
 
     public static final String REQUIRED_FIELD_ERROR_TEXT = "This field is required";
     public static final String EXISTING_SCHOOL_ERROR_TEXT = "Already exists in this district";
-    public static final String EXISTING_EMAIL_ERROR_TEXT = "Already present in an organization";
+    public static final String EXISTING_USER_ANOTHER_SL_ERROR_TEXT = "User present in another site license";
+    public static final String EXISTING_DISTRICT_ADMIN_ERROR_TEXT= "The user is already a District Admin";
     public static final String VALID_EMAIL_FORMAT_ERROR_TEXT = "Please enter a valid email";
     public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
     public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
@@ -286,7 +289,7 @@ public class TestData {
     public static final String CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "has been added as a District Admin";
     public static final String REMOVED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "is no longer a District Admin";
     public static final String CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "has been added as a School Admin";
-    public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is now a Teacher in your school";
+    public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is no longer a School Admin";
     public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
     public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
     public static final String ADMIN_PUBLISH_SCHOOL_OPTION_TEXT = "All admins at this school have the ability to publish";
@@ -423,8 +426,8 @@ public class TestData {
     public static final String COPYRIGHT_TEXT = "© 1999-2020 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
     public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2020 Learning Explorer";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
-    public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms/";
-    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center/";
+    public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms";
+    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
@@ -459,7 +462,7 @@ public class TestData {
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
     public static final String OUR_STORY_PAGE_PATH = "about";
     public static final String FAQ_PAGE_PATH = "faq";
-    public static final String HELP_CENTER_FAQ_URL = "https://page.lessonplanet.com/help-center/";
+    public static final String HELP_CENTER_FAQ_URL = "https://staging.lessonplanet.com/help-center";
     public static final String TESTIMONIALS_PAGE_PATH = "us/testimonials";
 
     public static final String PRICING_PAGE_PATH = "pricing";

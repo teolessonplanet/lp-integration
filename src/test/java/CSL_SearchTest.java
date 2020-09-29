@@ -105,6 +105,7 @@ public class CSL_SearchTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         discoverResourcesPage.loadPage();
         discoverResourcesPage.clickOnListView();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
     }

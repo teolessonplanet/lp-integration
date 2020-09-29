@@ -117,6 +117,9 @@ public class PublishCollectionTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+            discoverResourcesPage.expandProvidersFacet();
+        }
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
