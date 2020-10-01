@@ -368,7 +368,7 @@ public class SearchTest extends BaseTest {
     }
 
     protected void testGoToResourceButtonForRegularResource(String account) {
-        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -422,7 +422,7 @@ public class SearchTest extends BaseTest {
     protected void testLpResource(String account, boolean freeSample) {
         WebElement lpResourceCard;
         discoverResourcesPage.loadPage();
-        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -433,7 +433,7 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.scrollToTop();
         testCommonItemsInThumbnailView(lpResourceCard);
 
-        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessInThumbnailViewButtonTextForCard(lpResourceCard).equals(TestData.LP_HOME_PAGE_PATH));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -451,7 +451,7 @@ public class SearchTest extends BaseTest {
 
         testCommonItemsInThumbnailView(lpResourceCard);
 
-        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessInThumbnailViewButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
@@ -465,14 +465,14 @@ public class SearchTest extends BaseTest {
         }
 
         discoverResourcesPage.clickOnTiledView();
-        lpResourceCard = getLpResourceCard(account, freeSample,false);
+        lpResourceCard = getLpResourceCard(account, freeSample, false);
 
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
         testCommonItems(lpResourceCard);
         verifyLpResourceButtons(account, freeSample, lpResourceCard);
 
         discoverResourcesPage.clickOnListView();
-        lpResourceCard = getLpResourceCard(account, freeSample,false);
+        lpResourceCard = getLpResourceCard(account, freeSample, false);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(lpResourceCard));
 
         testCommonItems(lpResourceCard);
@@ -556,17 +556,18 @@ public class SearchTest extends BaseTest {
     private WebElement getLpResourceCard(String account, boolean freeSample, boolean inThumbnailView) {
         discoverResourcesPage.waitForLoad();
         WebElement lpResourceCard;
-        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             if (freeSample) {
-                if(inThumbnailView){
+                if (inThumbnailView) {
                     lpResourceCard = discoverResourcesPage.getSampleResourceCardsInThumbnailView().get(0);
-                }else {
+                } else {
                     lpResourceCard = discoverResourcesPage.getSampleResourceCards().get(0);
                 }
             } else {
-                if(inThumbnailView) {
+                if (inThumbnailView) {
                     lpResourceCard = discoverResourcesPage.getLimitedLpResourcesCardsInThumbnailView().get(0);
-                }else {
+                } else {
                     lpResourceCard = discoverResourcesPage.getLimitedLpResourcesCards().get(0);
                 }
             }
@@ -577,7 +578,7 @@ public class SearchTest extends BaseTest {
     }
 
     private void verifyLpResourceButtons(String account, boolean freeSample, WebElement lpResourceCard) {
-        if (!(account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO))) {
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             if (freeSample) {
                 Assert.assertTrue(discoverResourcesPage.getFreeFullAccessButtonTextForCard(lpResourceCard).equals(TestData.FREE_SAMPLE_BUTTON_TEXT));
                 Assert.assertTrue(discoverResourcesPage.isFreeSampleStampIconDisplayed(lpResourceCard));
