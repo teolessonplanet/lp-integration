@@ -641,7 +641,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testAddRequiredInformationToPublishCollection(String accountPlanText) {
         testAddRegularResourceToFolder(accountPlanText);
         testCheckResourceIsAddedInFolder(TestData.ONE_RESOURCES);
-        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
             testAddSharedResourceToFolder();
         } else {
             testAddRegularResourceToFolder(accountPlanText);

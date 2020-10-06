@@ -166,7 +166,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+93+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+14+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -177,8 +177,8 @@ public class TestData {
     public static final String PLAN_VISITOR = "visitor";
     public static final String PLAN_FREEMIUM = "freemium";
     public static final String PLAN_STARTER = "starter_36";
-    public static final String PLAN_PRIME = "prime_48";
-    public static final String PLAN_PRO = "pro_84";
+    public static final String PLAN_PRIME = "prime_5mo";
+    public static final String PLAN_PRO = "video_pro_boclips_9";
 
 
     //Search Facet
@@ -239,7 +239,7 @@ public class TestData {
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+53+959960@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+8+959960@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -301,7 +301,7 @@ public class TestData {
     public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
 
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
-    public static final String STEP_ONE_MODAL_TITLE = "Discover 550k+ Teacher Reviewed Resources";
+    public static final String STEP_ONE_MODAL_TITLE = "Discover 2.6 Million\n" + "Teacher Reviewed Resources";
 
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
@@ -640,7 +640,7 @@ public class TestData {
     public static final String CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 
     public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
-    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $48";
+    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $60";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";
