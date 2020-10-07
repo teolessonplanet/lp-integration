@@ -354,7 +354,7 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(subscriptionToTest);
 
         myAccountPage.loadPage();
-        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
+        Assert.assertTrue(myAccountPage.getPlan().contains(TestData.PRO_OPTION_TEXT));
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
         manageMembershipPage.clickOnMoreAccountOptionsButton();
@@ -367,7 +367,7 @@ public class AccountManagementTest extends BaseTest {
         checkCancelModalTexts(subscriptionToTest);
         cancelModal.clickOnYesSignUpInput();
         myAccountPage.loadPage();
-        Assert.assertTrue(lowerSubscription.startsWith(myAccountPage.getPlan().toLowerCase()));
+        Assert.assertTrue(lowerSubscription.contains(myAccountPage.getPlan().toLowerCase()));
 
         if (!subscriptionToTest.equals(TestData.PLAN_STARTER)) {
             manageMembershipPage.loadPage();
@@ -399,7 +399,7 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertTrue(subscriptionToTest.startsWith(myAccountPage.getPlan().toLowerCase()));
+        Assert.assertTrue(myAccountPage.getPlan().contains(TestData.PRO_OPTION_TEXT));
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 

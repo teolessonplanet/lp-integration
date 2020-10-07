@@ -35,7 +35,7 @@ public class ManageMembershipPage extends LpUiBasePage {
         String[] offerToSelect = newSubscription.split("_");
         List<WebElement> offerContainers = findElements(OFFER_CONTAINERS);
         for (WebElement offer : offerContainers) {
-            if (offer.getText().toLowerCase().startsWith(offerToSelect[0])) {
+            if (offer.getText().toLowerCase().contains(offerToSelect[0])) {
                 clickElement(findElements(offer, SELECT_BUTTONS), 0);
                 break;
             }

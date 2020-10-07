@@ -98,6 +98,10 @@ public class SignupTest extends BaseTest {
         subscriptionSuccessPage.clickOnGetStartedButton();
         Assert.assertEquals(lpHomePage.getAlertMessageText(), TestData.THANK_YOU_FOR_UPDATING_TEXT);
         myAccountPage.loadPage();
-        Assert.assertTrue(plan.startsWith(myAccountPage.getPlan().toLowerCase()));
+        if(!plan.equals(TestData.PLAN_PRO)){
+            Assert.assertTrue(plan.startsWith(myAccountPage.getPlan().toLowerCase()));
+        } else {
+            Assert.assertTrue(myAccountPage.getPlan().contains(TestData.PRO_OPTION_TEXT));
+        }
     }
 }
