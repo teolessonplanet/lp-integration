@@ -18,6 +18,7 @@ public class EditCollectionTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpSearchPageTest rrpSearchPageTest;
+    private ReplaceExistingFolderModal replaceExistingFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -33,6 +34,7 @@ public class EditCollectionTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpSearchPageTest = new RrpSearchPageTest();
+        replaceExistingFolderModal = new ReplaceExistingFolderModal(webDriver);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
@@ -57,12 +59,6 @@ public class EditCollectionTest extends BaseTest {
     public void testLessonp_5169() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderAppearance(TestData.PLAN_STARTER, true);
-    }
-
-    @Test(description = "Free member - Edit Collection - lessonp-982: Publish. Republish")
-    public void testLessonp_982() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testPublishFromEditFolder(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish")
@@ -147,6 +143,10 @@ public class EditCollectionTest extends BaseTest {
     public void testPublishFromEditFolder(String accountPlanText) {
         testCreateCollectionSearchPage();
         collectionBuilderPage.clickOnEditFolder(false);
+        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), TestData.FOLDER_NOT_PUBLISHED_TEXT);
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
+        }
         for (int i = 0; i < 2; i++) {
             testCreateAPage();
         }
@@ -154,14 +154,33 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
         curriculumManagerTest.testPublishFolderModal(accountPlanText);
-        editCollectionModal.hoverOverDisabledPublishFolderButton();
-        Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
+        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);
-        editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
         publishCollectionModal.clickOnPublishCollectionButton();
-        editCollectionModal.hoverOverDisabledPublishFolderButton();
-        Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
+        replaceExistingFolderModal.clickOnPublishNewButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            publishCollectionModal.clickOnCloseButton();
+        } else {
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+        }
+        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
+        editCollectionModal.typeTitle(TestData.EDIT_TITLE);
+        editCollectionModal.clickOnPublishFolder();
+        publishCollectionModal.clickOnPublishCollectionButton();
+        replaceExistingFolderModal.clickOnPublishAndReplaceButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            publishCollectionModal.clickOnCloseButton();
+        } else {
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+        }
+        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
+        editCollectionModal.clickOnCloseButton();
+        collectionBuilderPage.clickOnEditFolder(false);
+        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), (TestData.FOLDER_PUBLISHED_TEXT) + " " + TestData.getCurrentMonth() + "/" + TestData.getCurrentDateWithTimezone() + "/" + TestData.getCurrentYear() + ".");
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
+        }
     }
 
     public void testEditFolderButtons(String accountPlanText) {

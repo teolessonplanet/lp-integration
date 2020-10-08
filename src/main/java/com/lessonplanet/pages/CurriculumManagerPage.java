@@ -39,7 +39,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String STATUS_SORT_BY_OPTION = "#sort-dropdown-license_enum";
     private static final String DATE_SORT_BY_OPTION = "#sort-dropdown-updated_at";
     private static final String RESOURCE_TITLE_SORT_BY_OPTION = "#sort-dropdown-title";
-    private static final String MOVE_TO_OPTION = "div.options.actions button:nth-child(6)";
+    private static final String MOVE_TO_OPTION = "[class*='fa-arrow-right']";
     private static final String FOLDER_TYPE = " .info.type.persistent";
     private static final String ACTIONS_DROPDOWN_OPTIONS = "[class='action-dropdown'] [class='options actions']";
     private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#new_curriculum_manager h1";
