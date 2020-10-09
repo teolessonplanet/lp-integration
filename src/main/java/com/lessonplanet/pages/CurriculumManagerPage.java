@@ -12,7 +12,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String ACTIONS_DROPDOWN = " .info.actions.persistent [class='action-dropdown']";
     private static final String MY_UPLOADS_FOLDER_ACTIONS_DROPDOWN = "#folder-2 [class*='actions'] i";
     private static final String PLAY_RESOURCE_BUTTON = "[class*='fa-play-circle-o']";
-    private static final String PLAY_FOLDER_BUTTON = "div.options.actions button:nth-child(2)";
     private static final String PUBLISH_BUTTON = "[class='fa fa-book']";
     private static final String POPOVER_TEXT = "[class*='popuptext show']";
     private static final String DELETE_BUTTON = "[class*='fa-trash']";
@@ -44,6 +43,25 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String FOLDER_TYPE = " .info.type.persistent";
     private static final String ACTIONS_DROPDOWN_OPTIONS = "[class='action-dropdown'] [class='options actions']";
     private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#new_curriculum_manager h1";
+
+    private static final String ACTIONS_DROPDOWN_BUTTON = "[class='group-info'] [class='action-dropdown']";
+    private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Edit']";
+    private static final String PLAY_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Play']";
+    private static final String PLAY_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class*='disabled'][data-reactid*='Play']";
+    private static final String ASSIGN_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Assign']";
+    private static final String ASSIGN_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class*='disabled'][data-reactid*='Assign']";
+    private static final String PUBLISH_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Publish']";
+    private static final String COPY_FOLDER_TO_BUTTON = "[class='options actions'] button[data-reactid*='Copy To']";
+    private static final String MOVE_FOLDER_TO_BUTTON = "[class='options actions'] button[data-reactid*='Move To']";
+    private static final String DELETE_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Delete']";
+
+    private static final String ACTIONS_FROM_HEADER_DROPDOWN_BUTTON = "[class^='manager-header'] [class^='action-dropdown']";
+
+    private static final String FOLDERS = "[class='group-body'] [id^='collection-']:not([id^='collection-item-'])";
+    private static final String FOLDERS_CHILDS = "div[id^='collection-item-']";
+    private static final String BREADCRUMBS_ITEMS = "[class='breadcrumbs-list'] li";
+    private static final String BREADCRUMBS_LAST_ITEM = "[class='breadcrumbs-list'] [class='focused-title']";
+    private static final String ACTIONS_HEADER_BUTTON = "[class^='manager-header'] [class^='action-dropdown']";
 
     public CurriculumManagerPage(WebDriver driver) {
         super(driver);
@@ -183,8 +201,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return getTextForElement('#' + getElementId(FOLDER_ROW) + FOLDER_TYPE);
     }
 
-    public String getFolderItemNumber() {
-        return getTextForElement('#' + getElementId(FOLDER_ROW) + ITEM_NUMBER);
+    public int getFolderItemNumber() {
+        return Integer.parseInt(getTextForElement('#' + getElementId(FOLDER_ROW) + ITEM_NUMBER).replaceAll("[()]", ""));
     }
 
     public void clickOnCreateAFolderButton() {
@@ -264,5 +282,188 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     public void waitUntilPublishedStatusIsDisplayed() {
         waitUntilTextIsDisplayed('#' + getElementId(FOLDER_ROW) + FOLDER_STATUS, TestData.PUBLISHED_STATUS);
+    }
+
+    public int getCountFolders() {
+        return findElements(FOLDERS).size();
+    }
+
+    public WebElement getFolder(int position) {
+        return findElements(FOLDERS).get(position);
+    }
+
+    public void clickOnFolder(int position) {
+        clickElement(findElements(getFolder(position), RESOURCE_TITLE).get(0));
+    }
+
+    public int getCountFolderChilds(int folderPosition) {
+        return findElements(getFolder(folderPosition), FOLDERS_CHILDS).size();
+    }
+
+    public WebElement getChild(WebElement folder, int childPosition) {
+        return findElements(folder, FOLDERS_CHILDS).get(childPosition);
+    }
+
+    public void clickOnChild(int folderPosition, int childPosition) {
+        clickElement(findElements(getChild(getFolder(folderPosition), childPosition), RESOURCE_TITLE).get(0));
+    }
+
+    public WebElement getBreadcrumbs(int breadcrumbPosition) {
+        return findElements(BREADCRUMBS_ITEMS).get(breadcrumbPosition);
+    }
+
+    public void clickOnBreadcrumb(int breadcrumbPosition) {
+        clickElement(getBreadcrumbs(breadcrumbPosition));
+    }
+
+    public int getCountBreadcrumbs() {
+        return findElements(BREADCRUMBS_ITEMS).size();
+    }
+
+    public String getBreadcrumbText(int breadcrumbPosition) {
+        return getTextForElement(getBreadcrumbs(breadcrumbPosition));
+    }
+
+    public String getBreadcrumbLastItemText() {
+        return getTextForElement(BREADCRUMBS_LAST_ITEM);
+    }
+
+    public boolean isActionsHeaderButtonDisplayed() {
+        return isElementVisible(ACTIONS_HEADER_BUTTON);
+    }
+
+    public void clickActionsDropdown(WebElement folder) {
+        clickElement(findElements(folder, ACTIONS_DROPDOWN).get(0));
+    }
+
+    public void clickOnActionsDropdownButton(WebElement folder) {
+        clickElement(findElements(folder, ACTIONS_DROPDOWN_BUTTON).get(0));
+    }
+
+    public boolean isEditFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {   //if null -> get the Edit button from Header -> Actions
+            return isElementDisplayed(EDIT_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, EDIT_FOLDER_BUTTON);
+    }
+
+    public boolean isPlayFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(PLAY_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, PLAY_FOLDER_BUTTON);
+    }
+
+    public boolean isPlayFolderButtonDisabled(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(PLAY_FOLDER_DISABLED_BUTTON);
+        }
+        return isElementDisplayed(folder, PLAY_FOLDER_DISABLED_BUTTON);
+    }
+
+    public boolean isAssignFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(ASSIGN_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, ASSIGN_FOLDER_BUTTON);
+    }
+
+    public boolean isAssignButtonDisabled(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(ASSIGN_FOLDER_DISABLED_BUTTON);
+        }
+        return isElementDisplayed(folder, ASSIGN_FOLDER_DISABLED_BUTTON);
+    }
+
+    public boolean isPublishFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(PUBLISH_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, PUBLISH_FOLDER_BUTTON);
+    }
+
+    public boolean isCopyFolderToButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(COPY_FOLDER_TO_BUTTON);
+        }
+        return isElementDisplayed(folder, COPY_FOLDER_TO_BUTTON);
+    }
+
+    public boolean isMoveFolderToButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(MOVE_FOLDER_TO_BUTTON);
+        }
+        return isElementDisplayed(folder, MOVE_FOLDER_TO_BUTTON);
+    }
+
+    public boolean isDeleteFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(DELETE_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, DELETE_FOLDER_BUTTON);
+    }
+
+    public void clickOnEditFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(EDIT_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, EDIT_FOLDER_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnPlayFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(PLAY_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, PLAY_FOLDER_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnAssignFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(ASSIGN_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, ASSIGN_FOLDER_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnPublishFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(PUBLISH_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, PUBLISH_FOLDER_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnCopyFolderToButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(COPY_FOLDER_TO_BUTTON);
+        } else {
+            clickElement(findElements(folder, COPY_FOLDER_TO_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnMoveFolderToButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(MOVE_FOLDER_TO_BUTTON);
+        } else {
+            clickElement(findElements(folder, MOVE_FOLDER_TO_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnDeleteFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(DELETE_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, DELETE_FOLDER_BUTTON).get(0));
+        }
+    }
+
+    public void clickOnActionsFromHeaderDropdownButton() {
+        clickElement(ACTIONS_FROM_HEADER_DROPDOWN_BUTTON);
+    }
+
+    public List<WebElement> getFolders() {
+        return findElements(FOLDERS);
     }
 }

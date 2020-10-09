@@ -96,4 +96,14 @@ public class RSL_CurriculumManagerTest extends BaseTest {
     public void testLessonp_5814() {
         curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[7]);
     }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5807:Dragging folders into another folder")
+    public void testLessonp_5807() {
+        curriculumManagerPageTest.testDraggingFoldersIntoAnotherFolder(TestData.VALID_EMAIL_RSL_SBCEO);
+    }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5808:Drilled in view & functionality")
+    public void testLessonp_5808() {
+        curriculumManagerPageTest.testDrilledInViewAndFunctionality(TestData.VALID_EMAIL_RSL_SBCEO);
+    }
 }

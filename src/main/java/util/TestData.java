@@ -86,6 +86,8 @@ public class TestData {
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
+    public static final String ASSIGN_FOLDER_PLAYER_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below.";
+
     public static final String ASSIGN_FOLDER_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String RESOURCE_ADDED_TO_FOLDER_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
     public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
@@ -451,6 +453,7 @@ public class TestData {
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
     public static final String CURRICULUM_MANAGER_PAGE_PATH = "my/curriculum_manager";
+    public static final String CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH = "/folders/";
     public static final String CURRICULUM_CALENDAR_PAGE_PATH = "calendar";
     public static final String LESSON_PLANNING_ARTICLES_PAGE_PATH = "articles";
     public static final String EDTECH_PROFESSIONAL_DEVELOPMENT_COURSES_PAGE_PATH = "professional-development/courses";
@@ -662,4 +665,7 @@ public class TestData {
     public static final String CONTENT_MANAGER_RESOURCES_FOR_TEXT = " resources found for ";
 
     public static final String OPEN_FOLDER_PATH = "pr/teachers/";
+
+    public static final String DELETE_FOLDER_MODAL_TITLE_TEXT = "Please Confirm";
+    public static final String DELETE_FOLDER_MESSAGE_TEXT = "Are you sure you want to delete this Folder ?";
 }

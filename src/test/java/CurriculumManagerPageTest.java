@@ -1,5 +1,6 @@
 import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -31,6 +32,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private ManageMembershipPage manageMembershipPage;
     private MoveToModal moveToModal;
+    private DeleteFolderModal deleteFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -56,6 +58,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         uploadFileModal = new UploadFileModal(webDriver);
         assignModal = new AssignModal(webDriver);
         moveToModal = new MoveToModal(webDriver);
+        deleteFolderModal = new DeleteFolderModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -226,6 +229,32 @@ public class CurriculumManagerPageTest extends BaseTest {
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
         testFolderActions(TestData.PLAN_PRO);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5677:Dragging folders into another folder")
+    public void testLessonp_5677() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        curriculumManagerPage.loadPage();
+        testDraggingFoldersIntoAnotherFolder(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5738:Dragging folders into another folder")
+    public void testLessonp_5738() {
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        curriculumManagerPage.loadPage();
+        testDraggingFoldersIntoAnotherFolder(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5681:Drilled in functionality & buttons")
+    public void testLessonp_5681() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testDrilledInViewAndFunctionality(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5739:Drilled in view & functionality")
+    public void testLessonp_5739() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        testDrilledInViewAndFunctionality(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
@@ -677,7 +706,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testCheckResourceIsAddedInFolder(String itemNumber) {
         curriculumManagerPage.loadPage();
-        Assert.assertTrue(curriculumManagerPage.getFolderItemNumber().contains(itemNumber));
+        Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), Integer.parseInt(itemNumber.replaceAll("[()]", "")));
         curriculumManagerPage.clickOnAFolder();
         Assert.assertTrue(curriculumManagerPage.isResourceInFolderDisplayed());
     }
@@ -816,5 +845,154 @@ public class CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS);
+    }
+
+    protected void testDraggingFoldersIntoAnotherFolder(String accountPlan) {
+        curriculumManagerPage.loadPage();
+        int currentNoOfFolders = curriculumManagerPage.getCountFolders();
+        testCreateThreeFolders(TestData.FOLDER_TYPE[0]);
+        Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 3);
+        Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 0);
+        WebElement folder0 = curriculumManagerPage.getFolder(1);
+        WebElement folder1 = curriculumManagerPage.getFolder(2);
+        curriculumManagerPage.customDragAndDrop(folder0, folder1);
+        curriculumManagerPage.loadPage();
+        Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 2);
+        curriculumManagerPage.clickOnAFolder();
+        Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 1);
+        curriculumManagerPage.clickOnCreateAFolderButton();
+        if (accountPlan.endsWith(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
+        } else {
+            createNewFolderModal.waitForModal();
+            Assert.assertEquals(TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE, createNewFolderModal.getTitle());
+        }
+    }
+
+    private void createNestedFoldersRequirement() {
+        curriculumManagerPage.loadPage();
+        testCreateThreeFolders(TestData.FOLDER_TYPE[0]);
+        WebElement folder0 = curriculumManagerPage.getFolder(0);
+        WebElement folder1 = curriculumManagerPage.getFolder(1);
+        curriculumManagerPage.customDragAndDrop(folder1, folder0);
+        curriculumManagerPage.loadPage();
+        folder0 = curriculumManagerPage.getFolder(0);
+        folder1 = curriculumManagerPage.getFolder(1);
+        curriculumManagerPage.customDragAndDrop(folder1, folder0);
+        curriculumManagerPage.loadPage();
+    }
+
+    protected void testDrilledInViewAndFunctionality(String accountPlan) {
+        createNestedFoldersRequirement();
+
+        curriculumManagerPage.clickOnFolder(0);
+        curriculumManagerPage.clickOnChild(0, 0);
+
+        curriculumManagerPage.waitForLoad();
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 2);
+        Assert.assertTrue(curriculumManagerPage.isEditFolderButtonDisplayed(null));
+        Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(null));
+        Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisabled(null));
+        Assert.assertTrue(curriculumManagerPage.isAssignFolderButtonDisplayed(null));
+        Assert.assertTrue(curriculumManagerPage.isAssignFolderButtonDisplayed(null));
+        if (!accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertTrue(curriculumManagerPage.isPublishFolderButtonDisplayed(null));
+        }
+        Assert.assertTrue(curriculumManagerPage.isCopyFolderToButtonDisplayed(null));
+        Assert.assertTrue(curriculumManagerPage.isMoveFolderToButtonDisplayed(null));
+        Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(null));
+
+        curriculumManagerPage.clickOnEditFolderButton(null);
+        editCollectionModal.waitForModal();
+        String folderTitle = TestData.GET_NEW_EMAIL();
+        editCollectionModal.typeTitle(folderTitle);
+
+        editCollectionModal.clickOnAddItemsDropdown();
+        editCollectionModal.clickOnAddPixabayImageOption();
+        editCollectionModal.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
+        editCollectionModal.clickPixabaySearchButton();
+        editCollectionModal.clickOnPixabayImage(0);
+        editCollectionModal.clickAddSelectedToFolderButton();
+        editCollectionModal.clickOnCloseButton();
+
+
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        curriculumManagerPage.clickOnPlayFolderButton(null);
+        testCurriculumPlayerURL();
+        curriculumManagerPage.focusDriverToLastTab();
+        Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
+
+        curriculumManagerPage.refreshPageAndDismissBrowserAlert();
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        curriculumManagerPage.clickOnAssignFolderButton(null);
+
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            testUpgradeModalFromAssignButton(TestData.PLAN_FREEMIUM, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
+
+        } else {
+            testAssignModal(TestData.ASSIGN_FOLDER_PLAYER_MODAL_TEXT);
+            Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
+        }
+
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        curriculumManagerPage.clickOnDeleteFolderButton(null);
+        Assert.assertEquals(TestData.DELETE_FOLDER_MODAL_TITLE_TEXT, deleteFolderModal.getTitleText());
+        Assert.assertEquals(TestData.DELETE_FOLDER_MESSAGE_TEXT, deleteFolderModal.getContentText());
+        deleteFolderModal.clickOnDeleteButton();
+        Assert.assertEquals(1, curriculumManagerPage.getCountBreadcrumbs());
+
+        testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[2]);
+
+        curriculumManagerPage.clickOnCreateAFolderButton();
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            upgradeUploadModal.waitForModal();
+            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
+            upgradeMaxFolderModal.clickOnCloseButton();
+        } else {
+            createNewFolderModal.waitForModal();
+            createNewFolderModal.clickOnCancelButton();
+        }
+
+        curriculumManagerPage.clickOnUploadResourceButton();
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            upgradeUploadModal.waitForModal();
+            Assert.assertEquals(upgradeUploadModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON);
+            upgradeUploadModal.clickOnCloseButton();
+        } else {
+            uploadFileModal.waitForModal();
+            testUpload(false, accountPlan, false);
+            curriculumManagerPage.clickOnFolder(0);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), 1);
+            curriculumManagerPage.clickOnFolder(0);
+        }
+
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        curriculumManagerPage.clickOnCopyFolderToButton(null);
+
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
+            upgradeMaxFolderModal.clickOnCloseButton();
+        } else {
+            copyToModal.waitForModal();
+            copyToModal.clickMyResourcesDestinationFolder();
+            copyToModal.clickOnCopyToSelectedFolderButton();
+        }
+
+        curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
+        curriculumManagerPage.clickOnMoveFolderToButton(null);
+
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            moveToModal.clickOnMyResourcesDestinationFolder();
+        } else {
+            moveToModal.clickOnMyResourcesChildDestinationFolder();
+        }
+        moveToModal.clickOnMoveToSelectedFolderButton();
+
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
+        } else {
+            Assert.assertEquals(curriculumManagerPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
+        }
     }
 }
