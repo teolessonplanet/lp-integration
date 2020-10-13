@@ -395,7 +395,8 @@ public class TestData {
 
     public static int getCurrentMonth() {
         Calendar cal = Calendar.getInstance();
-        return cal.get(Calendar.MONTH);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
+        return Integer.parseInt(dateFormat.format(cal.getTime()));
     }
 
     public static int getCurrentYear() {
