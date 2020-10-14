@@ -55,7 +55,7 @@ public class CalendarPageTest extends BaseTest {
             testMonthPage(i, account);
         }
         calendarPage.loadPage();
-        for (int i = TestData.getCurrentMonth() - 1; i >= 0; i--) {
+        for (int i = TestData.getCurrentMonth() - 1; i > 0; i--) {
             calendarPage.clickPreviousArrowLink();
             testMonthPage(i, account);
         }

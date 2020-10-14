@@ -44,8 +44,8 @@ public class TestData {
     public static final String SEARCH_PAGE_PATH = "search?keywords=";
     public static final String CALENDAR_TITLE = " Curriculum Calendar - Lesson Plan Ideas by Date";
     public static final String CALENDAR_DECRIPTION = "Enhance your current curriculum with this fun reference calendar. Whether you want to highlight historic events, honor birthdays of significant people, or celebrate holidays, this is a valuable tool for every teacher. Click on any event to find a breadth of related teaching resources that will spark new ideas to spice up your daily lessons. There's something worth celebrating every day!";
-    public static final String[] MONTH = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    public static final String[] KEYWORD = {"Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
+    public static final String[] MONTH = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    public static final String[] KEYWORD = {"", "Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
     //Publish Modal
     public static final String PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT = "Private Documents";
@@ -285,7 +285,7 @@ public class TestData {
     public static final String REQUIRED_FIELD_ERROR_TEXT = "This field is required";
     public static final String EXISTING_SCHOOL_ERROR_TEXT = "Already exists in this district";
     public static final String EXISTING_USER_ANOTHER_SL_ERROR_TEXT = "User present in another site license";
-    public static final String EXISTING_DISTRICT_ADMIN_ERROR_TEXT= "The user is already a District Admin";
+    public static final String EXISTING_DISTRICT_ADMIN_ERROR_TEXT = "The user is already a District Admin";
     public static final String VALID_EMAIL_FORMAT_ERROR_TEXT = "Please enter a valid email";
     public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
     public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
