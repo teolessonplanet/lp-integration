@@ -106,4 +106,9 @@ public class CSL_CurriculumManagerTest extends BaseTest {
     public void testLessonp_5818() {
         curriculumManagerPageTest.testDrilledInViewAndFunctionality(TestData.VALID_EMAIL_CSL_HENRY);
     }
+
+    @Test(description = "Custom SL - Curriculum Manager - lessonp-5825:Drag folders into the CB")
+    public void testLessonp_5825() {
+        curriculumManagerPageTest.testDragAndDrop(TestData.VALID_EMAIL_CSL_HENRY);
+    }
 }
