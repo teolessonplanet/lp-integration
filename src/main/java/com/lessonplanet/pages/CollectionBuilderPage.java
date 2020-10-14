@@ -7,10 +7,13 @@ import java.util.List;
 
 public class CollectionBuilderPage extends LpUiBasePage {
 
-    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
-    private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
+    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class='dropdown cb-dropdown']";
+    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='cb-dropdown'] li[class$='create-new-collection']";
+    private static final String FOLDERS_OPTIONS = "[class*='cb-dropdown'] li[class='list-option']";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
+    private static final String GET_STARTED_TEXT = "#not-droppable [class='text']";
+    private static final String DRAG_AND_DROP_TEXT = "#droppable [class*='new-empty-collection']";
 
     private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
     private static final String EDIT_FOLDER_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
@@ -106,7 +109,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void hoverOverCollectionBuilderItem(int position) {
-        hoverOverElement(COLLECTION_BUILDER_ITEMS, false, position);
+        hoverOverElement(COLLECTION_BUILDER_ITEMS, true, position);
     }
 
     public void clickOnXButton(int position) {
@@ -148,7 +151,31 @@ public class CollectionBuilderPage extends LpUiBasePage {
         waitUntilElementIsHidden(LOADING_ICON);
     }
 
-    public boolean isCollectionBuilderDisplayed(){
+    public boolean isCollectionBuilderDisplayed() {
         return isElementDisplayed(COLLECTION_DROPPABLE_ZONE);
+    }
+
+    public String getCreateOrOpenDropdownText() {
+        return getTextForElement(CREATE_OR_OPEN_DROPDOWN);
+    }
+
+    public int getNumberOfItemsInCollection() {
+        return Integer.parseInt(getTextForElement(CREATE_OR_OPEN_DROPDOWN).replaceAll("\\D+", ""));
+    }
+
+    public boolean isGetStartedTextDisplayed() {
+        return isElementDisplayed(GET_STARTED_TEXT);
+    }
+
+    public WebElement getGetStartedNonDroppableArea() {
+        return findElement(GET_STARTED_TEXT);
+    }
+
+    public void clickOnFolderFromDropdown(int position) {
+        clickElement(findElements(FOLDERS_OPTIONS).get(position));
+    }
+
+    public String getDragAndDropText() {
+        return getTextForElement(DRAG_AND_DROP_TEXT);
     }
 }

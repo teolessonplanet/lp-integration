@@ -106,4 +106,9 @@ public class RSL_CurriculumManagerTest extends BaseTest {
     public void testLessonp_5808() {
         curriculumManagerPageTest.testDrilledInViewAndFunctionality(TestData.VALID_EMAIL_RSL_SBCEO);
     }
+
+    @Test(description = "Regular SL - Curriculum Manager - lessonp-5815:Drag folders into the CB")
+    public void testLessonp_5815() {
+        curriculumManagerPageTest.testDragAndDrop(TestData.VALID_EMAIL_RSL_SBCEO);
+    }
 }

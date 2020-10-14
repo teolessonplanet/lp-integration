@@ -9,7 +9,6 @@ import util.TestData;
 import java.io.File;
 
 public class CurriculumManagerPageTest extends BaseTest {
-
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private CurriculumManagerPage curriculumManagerPage;
@@ -33,6 +32,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     private ManageMembershipPage manageMembershipPage;
     private MoveToModal moveToModal;
     private DeleteFolderModal deleteFolderModal;
+    private DeleteCollectionBuilderResourceModal deleteCollectionBuilderResourceModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -59,6 +59,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         assignModal = new AssignModal(webDriver);
         moveToModal = new MoveToModal(webDriver);
         deleteFolderModal = new DeleteFolderModal(webDriver);
+        deleteCollectionBuilderResourceModal = new DeleteCollectionBuilderResourceModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -255,6 +256,18 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testLessonp_5739() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
         testDrilledInViewAndFunctionality(TestData.PLAN_PRIME);
+    }
+
+    @Test(description = "Free member - Curriculum Manager - lessonp-5964:Drag folders into the CB")
+    public void testLessonp_5964() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testDragAndDrop(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Curriculum Manager - lessonp-5747:Drag folders into the CB")
+    public void testLessonp_5747() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testDragAndDrop(TestData.PLAN_PRO);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
@@ -993,6 +1006,60 @@ public class CurriculumManagerPageTest extends BaseTest {
             Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
         } else {
             Assert.assertEquals(curriculumManagerPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
+        }
+    }
+
+    protected void testDragAndDrop(String accountPlan) {
+        testCreateThreeFolders(TestData.FOLDER_TYPE[3]);
+
+        Assert.assertFalse(collectionBuilderPage.isGetStartedTextDisplayed());
+        Assert.assertTrue(collectionBuilderPage.getCreateOrOpenDropdownText().startsWith(TestData.NEW_FOLDER_NAME));
+        curriculumManagerPage.clickOnActionsDropdownButton(curriculumManagerPage.getFolder(0));
+        curriculumManagerPage.clickOnDeleteFolderButton(curriculumManagerPage.getFolder(0));
+        deleteFolderModal.clickOnDeleteButton();
+
+        Assert.assertTrue(collectionBuilderPage.isGetStartedTextDisplayed());
+        Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), TestData.COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT);
+
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getGetStartedNonDroppableArea());
+        Assert.assertTrue(collectionBuilderPage.isGetStartedTextDisplayed());
+        Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), TestData.COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT);
+
+        collectionBuilderPage.clickOnDropdown();
+        collectionBuilderPage.clickOnFolderFromDropdown(0);
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
+        checkItems(1);
+
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT);
+        } else {
+            checkItems(2);
+        }
+
+        if (!accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            testDeleteItemsFromCollectionBuilder(1);
+            curriculumManagerPage.loadPage();
+        }
+        testDeleteItemsFromCollectionBuilder(0);
+    }
+
+    private void checkItems(int numberOfFolders) {
+        curriculumManagerPage.loadPage();
+        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), numberOfFolders);
+        Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), numberOfFolders);
+        curriculumManagerPage.clickOnFolder(0);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), numberOfFolders);
+    }
+
+    private void testDeleteItemsFromCollectionBuilder(int noOfFoldersExpectedToLeft) {
+        collectionBuilderPage.hoverOverCollectionBuilderItem(0);
+        collectionBuilderPage.clickOnXButton(0);
+        deleteCollectionBuilderResourceModal.waitForModal();
+        deleteCollectionBuilderResourceModal.clickOnDeleteResourceButton();
+        Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), noOfFoldersExpectedToLeft);
+        if (noOfFoldersExpectedToLeft == 0) {
+            Assert.assertEquals(collectionBuilderPage.getDragAndDropText(), TestData.COLLECTION_BUILDER_DRAG_AND_DROP_TEXT);
         }
     }
 }
