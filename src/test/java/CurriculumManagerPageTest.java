@@ -270,6 +270,34 @@ public class CurriculumManagerPageTest extends BaseTest {
         testDragAndDrop(TestData.PLAN_PRO);
     }
 
+    @Test(description = "Free member - Curriculum Manager - lessonp-5893:Drilled in view")
+    public void testLessonp_5893() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        createNestedFoldersRequirement();
+
+        curriculumManagerPage.clickOnFolder(0);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), 2);
+
+        WebElement folder0 = curriculumManagerPage.getFolder(0);
+        curriculumManagerPage.clickOnActionsDropdownButton(folder0);
+        Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isCopyFolderToButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isMoveFolderToButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(folder0));
+
+        curriculumManagerPage.clickOnChild(0, 0);
+
+        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 2);
+        Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
+        Assert.assertEquals(TestData.NEW_FOLDER_NAME, curriculumManagerPage.getBreadcrumbLastItemText());
+        Assert.assertTrue(curriculumManagerPage.isActionsHeaderButtonDisplayed());
+
+        curriculumManagerPage.clickOnBreadcrumb(1);
+        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 1);
+        Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
+        Assert.assertEquals(curriculumManagerPage.getCountFolders(),2);
+    }
+
     @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
     public void testLessonp_5670() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[1]);
