@@ -12,8 +12,8 @@ import java.util.List;
 public class RSL_ContentManagerPage extends LpUiBasePage {
 
     private static final String CONTENT_MANAGER_TAB_BUTTON = "[href$='/content-tool']";
-    private static final String PAGE_TITLE_TEXT = "[class='title-area'] h2";
-    private static final String PAGE_SUBTITLE_TEXT = "[class='title-area'] h3";
+    private static final String PAGE_TITLE_TEXT = "[class*='content-manager-header'] h2";
+    private static final String PAGE_SUBTITLE_TEXT = "[class*='content-manager-header'] [class='text-xl mb-3']";
 
     private static final String SEARCH_TEXT_FIELD_TEXT = "#resources-heading";
     private static final String TOTAL_RESOURCES_FOUND_TEXT = "#resources-heading strong";
@@ -23,10 +23,10 @@ public class RSL_ContentManagerPage extends LpUiBasePage {
     private static final String SORT_DROPDOWN_NEWEST_OPTION = "[class*='sort'] #newest";
     private static final String SORT_DROPDOWN_OLDEST_OPTION = "[class*='sort'] #oldest";
 
-    private static final String RESOURCES_CARDS = "[class='resources'] [class='resource']";
+    private static final String RESOURCES_CARDS = "[class='resources'] [class*='resource']";
     private static final String RESOURCE_PROVIDER = "[class='pool-area'] [class*='pool']";
-    private static final String RESOURCE_TITLE = "[class='main-panel'] [class*='title'] [href*='/']";
-    private static final String RESOURCE_THUMBNAIL = "[class='resource'] img[class='thumbnail-img']";
+    private static final String RESOURCE_TITLE = "[class='main-panel'] [class*='resource-heading'] [href*='/']";
+    private static final String RESOURCE_THUMBNAIL = "[class*='resource'] img[class='thumbnail-img']";
     private static final String RESOURCE_TYPE = "[class='resource-content'] [class*='type-resource']";
     private static final String RESOURCE_GRADES = "[class='resource-content'] [class*='detail-grades']";
     private static final String RESOURCE_RATING = "[class='resource-content'] [class*='star-rating']";
@@ -42,7 +42,7 @@ public class RSL_ContentManagerPage extends LpUiBasePage {
     private static final String SEARCH_BUTTON = "[class*='keywords-search-bar'] #content-search-btn";
     private static final String SEARCH_ALERT_WARNING = "[class='resources'] [class*='alert-warning']";
 
-    private static final String FACETS_SIDEBAR = "#facet-sidebar";
+    private static final String FACETS_SIDEBAR = "#cm-facet-sidebar";
     private ResourcesPage resourcesPage;
 
     public RSL_ContentManagerPage(WebDriver driver) {
