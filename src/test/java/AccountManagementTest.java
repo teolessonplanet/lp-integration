@@ -130,7 +130,7 @@ public class AccountManagementTest extends BaseTest {
         cancelModal.clickOnNoThanksConfirmCancellationButton();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));;
+        Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));
 
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
@@ -354,7 +354,11 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(subscriptionToTest);
 
         myAccountPage.loadPage();
-        Assert.assertTrue(myAccountPage.getPlan().contains(TestData.PRO_OPTION_TEXT));
+        if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
+            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        } else {
+            Assert.assertTrue(subscriptionToTest.contains(myAccountPage.getPlan().toLowerCase()));
+        }
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertTrue(manageMembershipPage.getPath().equals(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
         manageMembershipPage.clickOnMoreAccountOptionsButton();
@@ -399,7 +403,11 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
-        Assert.assertTrue(myAccountPage.getPlan().contains(TestData.PRO_OPTION_TEXT));
+        if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
+            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        } else {
+            Assert.assertTrue(subscriptionToTest.contains(myAccountPage.getPlan().toLowerCase()));
+        }
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 

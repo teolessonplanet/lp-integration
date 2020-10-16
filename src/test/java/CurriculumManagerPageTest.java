@@ -571,6 +571,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     }
 
     public void testAssignResource(String accountPlanText, String assignBodyText) {
+        curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
@@ -658,10 +659,14 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFolderActions(String accountPlanText) {
         testPlayFolderWithNoItems();
-        testPublishFolderWithNoItems();
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            testPublishFolderWithNoItems();
+        }
         testAddRequiredInformationToPublishCollection(accountPlanText);
         testPlayFolderWithItems();
-        testPublishFolderWithItems(accountPlanText);
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            testPublishFolderWithItems(accountPlanText);
+        }
         testAssignResource(accountPlanText, TestData.ASSIGN_FOLDER_MODAL_TEXT);
         testMaxLimitOfFoldersCopied();
         testMoveFolder();
@@ -839,7 +844,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteResources(String accountPlanText) {
         testFavoriteRegularResource(accountPlanText);
-        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
             testFavoriteSharedResource();
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {

@@ -11,6 +11,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_FOLDER_TITLE = "[class*='edit-title']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
+    private static final String FOLDER_PUBLISH_STATUS_TEXT = "[class='text-muted text-center']";
+    private static final String WHAT_IS_PUBLISHING_LINK = "#share-help-text-link";
 
     private static final String FOLDER_TITLE_INPUT = "[name='collection[title]']";
     private static final String GRADE_LIST_DROPDOWN = "#s2id_collection_grade_list";
@@ -18,7 +20,6 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String SUBJECT_LIST_DROPDOWN = "#s2id_collection_subject_list";
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
     private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
-    private static final String DISABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection disabled']";
     private static final String ENABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection ok']";
 
     private static final String NAVIGATE_FOLDER_DROPDOWN = "#folders-dropdown";
@@ -151,14 +152,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public void clickOnPublishFolder() {
         clickElement(ENABLED_PUBLISH_FOLDER_BUTTON);
-    }
-
-    public void hoverOverDisabledPublishFolderButton() {
-        hoverOverElement(DISABLED_PUBLISH_FOLDER_BUTTON);
-    }
-
-    public String getDisabledPublishFolderPopoverText() {
-        return getElementAttribute(DISABLED_PUBLISH_FOLDER_BUTTON, "data-content", 0);
     }
 
     public void waitUntilPublishFolderButtonIsEnabled() {
@@ -405,11 +398,15 @@ public class EditCollection extends CreateNewFolderModal {
         return getTextForElement(PUBLISHED_COLLECTION_NOTIFICATION);
     }
 
-    public boolean isDisabledPublishFolderButtonDisplayed() {
-        return isElementDisplayed(DISABLED_PUBLISH_FOLDER_BUTTON);
+    public boolean isEnabledPublishFolderButtonDisplayed() {
+        return isElementDisplayed(ENABLED_PUBLISH_FOLDER_BUTTON);
     }
 
-    public boolean isEnabledPublishFolderButtonDisplayed(){
-        return isElementDisplayed(ENABLED_PUBLISH_FOLDER_BUTTON);
+    public String getFolderPublishStatusText() {
+        return getTextForElement(FOLDER_PUBLISH_STATUS_TEXT);
+    }
+
+    public boolean isWhatIsPublishingLinkDisplayed(){
+        return isElementDisplayed(WHAT_IS_PUBLISHING_LINK);
     }
 }

@@ -101,23 +101,11 @@ public class PublishCollectionTest extends BaseTest {
         collectionBuilderTest.testUploadResourceFromCollectionBuilder(TestData.PLAN_PRO, true, TestData.PUBLISH_RESOURCE_TITLE);
     }
 
-    @Test(description = "Free member - Publish Collection - lessonp-5849: With LP Resources")
-    public void testLessonp_5849() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testAddResourcesToPublishCollection(false, false, TestData.PLAN_FREEMIUM, false);
-    }
-
-    @Test(description = "Free Member- Publish Collection - lessonp-5729: With LP Resources & Folders")
-    public void testLessonp_5729() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testAddResourcesToPublishCollection(true, false, TestData.PLAN_FREEMIUM, false);
-    }
-
     public void testAddResourcesToPublishCollection(boolean folder, boolean uploadedResource, String account, boolean includedFile) {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO)){
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -187,17 +175,7 @@ public class PublishCollectionTest extends BaseTest {
             }
         }
         curriculumManagerPageTest.testPublishFolderModal(account);
-        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-            editCollectionModal.isEnabledPublishFolderButtonDisplayed();
-        } else {
-            if (uploadedResource && !includedFile) {
-                editCollectionModal.isEnabledPublishFolderButtonDisplayed();
-            } else {
-                editCollectionModal.isDisabledPublishFolderButtonDisplayed();
-                editCollectionModal.hoverOverDisabledPublishFolderButton();
-                Assert.assertEquals(editCollectionModal.getDisabledPublishFolderPopoverText(), TestData.DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT);
-            }
-        }
+        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         editCollectionModal.clickOnCloseButton();
         curriculumManagerPage.waitUntilPublishedStatusIsDisplayed();
         Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);

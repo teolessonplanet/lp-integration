@@ -65,7 +65,6 @@ public class TestData {
     //Edit collection
     public static final String EDIT_COLLECTION_TITLE = "Edit Folder";
     public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
-    public static final String DISABLED_REPUBLISH_BUTTON_POPOVER_TEXT = "This folder has already been published. To republish, please make at least one change.";
     public static final String PIXABAY_IMAGE_TITLE = "Mango";
     public static final String PAGE_TITLE = "Page Title";
     public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
@@ -78,6 +77,8 @@ public class TestData {
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
+    public static final String FOLDER_NOT_PUBLISHED_TEXT = "This folder has not been published.";
+    public static final String FOLDER_PUBLISHED_TEXT = "This folder has been published on";
 
     //Curriculum Manager
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
@@ -171,7 +172,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+14+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+65+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -244,7 +245,7 @@ public class TestData {
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+8+959960@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+81+959960@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -405,6 +406,16 @@ public class TestData {
     public static int getCurrentYear() {
         Calendar cal = Calendar.getInstance();
         return cal.get(Calendar.YEAR);
+    }
+
+    public static int getCurrentDate() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.DATE);
+    }
+
+    public static int getCurrentDateWithTimezone() {
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("America/Los_Angeles"));
+        return cal.get(Calendar.DATE);
     }
 
     //Search data
