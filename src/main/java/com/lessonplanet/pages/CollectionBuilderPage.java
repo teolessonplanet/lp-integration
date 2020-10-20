@@ -7,8 +7,8 @@ import java.util.List;
 
 public class CollectionBuilderPage extends LpUiBasePage {
 
-    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class='dropdown cb-dropdown']";
-    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='cb-dropdown'] li[class$='create-new-collection']";
+    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
+    private static final String CREATE_NEW_COLLECTION_OPTION = "[href='javascript:void(0)']";
     private static final String FOLDERS_OPTIONS = "[class*='cb-dropdown'] li[class='list-option']";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
