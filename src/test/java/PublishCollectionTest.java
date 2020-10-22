@@ -17,7 +17,6 @@ public class PublishCollectionTest extends BaseTest {
     private EditCollectionModal editCollectionModal;
     private CollectionBuilderPage collectionBuilderPage;
     private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
-    private ConfirmShareFolderModal confirmShareFolderModal;
     private CollectionNotPublishedModal collectionNotPublishedModal;
     private PrivateDocumentsModal privateDocumentsModal;
 
@@ -32,7 +31,6 @@ public class PublishCollectionTest extends BaseTest {
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
-        confirmShareFolderModal = new ConfirmShareFolderModal(webDriver);
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
         privateDocumentsModal = new PrivateDocumentsModal(webDriver);
     }
@@ -105,7 +103,7 @@ public class PublishCollectionTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO)){
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -138,41 +136,20 @@ public class PublishCollectionTest extends BaseTest {
             curriculumManagerPageTest.testUpload(true, account, false);
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
-            if (folder) {
-                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT);
-                confirmShareFolderModal.clickOnContinueButton();
-                if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-                    if (includedFile) {
-                        confirmPublishUploadFileModal.clickOnIncludeFileOption();
-                    } else {
-                        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
-                    }
-                    confirmPublishUploadFileModal.checkAgreementOption();
-                    confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+                if (includedFile) {
+                    confirmPublishUploadFileModal.clickOnIncludeFileOption();
                 } else {
-                    testPrivateDocumentsModal();
+                    confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
                 }
+                confirmPublishUploadFileModal.checkAgreementOption();
+                confirmPublishUploadFileModal.clickOnPublishCollectionButton();
             } else {
-                if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-                    if (includedFile) {
-                        confirmPublishUploadFileModal.clickOnIncludeFileOption();
-                    } else {
-                        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
-                    }
-                    confirmPublishUploadFileModal.checkAgreementOption();
-                    confirmPublishUploadFileModal.clickOnPublishCollectionButton();
-                } else {
-                    testPrivateDocumentsModal();
-                }
+                testPrivateDocumentsModal();
             }
-
         } else {
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
-            if (folder) {
-                Assert.assertEquals(confirmShareFolderModal.getModalText(), TestData.PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT);
-                confirmShareFolderModal.clickOnContinueButton();
-            }
         }
         curriculumManagerPageTest.testPublishFolderModal(account);
         editCollectionModal.isEnabledPublishFolderButtonDisplayed();
