@@ -51,10 +51,12 @@ public class UploadFileModal extends LpUiBasePage {
     }
 
     public void clickOnUploadButton() {
+        scrollToElement(UPLOAD_BUTTON);
         clickElement(UPLOAD_BUTTON);
     }
 
     public void clickOnDoneButton() {
+        scrollToElement(DONE_BUTTON);
         clickElement(DONE_BUTTON);
     }
 

@@ -76,8 +76,8 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-601: User clicks result card")
     public void testLessonp_601() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testUserClicksResultCard(TestData.PLAN_PRO);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        testUserClicksResultCard(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)")
@@ -127,7 +127,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_603() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
         testSeePreviewButton();
     }
 
@@ -144,9 +144,9 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)")
     public void testLessonp_602() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
         testGoToResourceButtonForSharedResource();
-        testGoToResourceButtonForRegularResource(TestData.PLAN_PRO);
+        testGoToResourceButtonForRegularResource(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)")
@@ -294,6 +294,7 @@ public class SearchTest extends BaseTest {
 
     private void testUserClicksResultCard(String account) {
         reachSearchPageInListView();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(false);
         rrpModal.waitForModal();
@@ -335,6 +336,7 @@ public class SearchTest extends BaseTest {
 
     private void testSeePreviewButton() {
         reachSearchPageInListView();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
         Assert.assertTrue(rrpPage.isGoToResourceButtonDisplayed());
@@ -347,6 +349,7 @@ public class SearchTest extends BaseTest {
 
     private void testGoToResourceButtonForSharedResource() {
         reachSearchPageInListView();
+        discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickGoToResourceForSharedResource(true);
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL));

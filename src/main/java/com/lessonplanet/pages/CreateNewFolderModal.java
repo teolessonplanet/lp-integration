@@ -9,7 +9,8 @@ public class CreateNewFolderModal extends LpUiBasePage {
     protected static final String NAME_INPUT = "[name='collection[title]']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
     private static final String CREATE_NEW_FOLDER_MODAL = "#js-create-collection-modal";
-    private static final String CREATE_NEW_FOLDER_MODAL_TITLE = "h3[class='modal-title']";
+    private static final String CREATE_NEW_FOLDER_MODAL_TITLE_NAVIGATION_DROPDOWN = "#newCollection h3";
+    private static final String CREATE_NEW_FOLDER_MODAL_TITLE_MY_RESOURCES = "#js-create-collection-modal h3";
     private static final String DESCRIPTION_INPUT = "[name='collection[description]']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='form-group type_list']";
 
@@ -38,8 +39,12 @@ public class CreateNewFolderModal extends LpUiBasePage {
         clickElement(CANCEL_BUTTON);
     }
 
-    public String getTitle() {
-        return getTextForElement(CREATE_NEW_FOLDER_MODAL_TITLE);
+    public String getCreateNewFolderModalTitleFromMyResources() {
+        return getTextForElement(CREATE_NEW_FOLDER_MODAL_TITLE_MY_RESOURCES);
+    }
+
+    public String getCreateNewFolderModalTitleFromEditCollection() {
+        return getTextForElement(CREATE_NEW_FOLDER_MODAL_TITLE_NAVIGATION_DROPDOWN);
     }
 
     public void chooseFolderType(String folderType) {
