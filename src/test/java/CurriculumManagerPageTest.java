@@ -295,7 +295,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnBreadcrumb(1);
         Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 1);
         Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
-        Assert.assertEquals(curriculumManagerPage.getCountFolders(),2);
+        Assert.assertEquals(curriculumManagerPage.getCountFolders(), 2);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
@@ -903,7 +903,11 @@ public class CurriculumManagerPageTest extends BaseTest {
         WebElement folder1 = curriculumManagerPage.getFolder(2);
         curriculumManagerPage.customDragAndDrop(folder0, folder1);
         curriculumManagerPage.loadPage();
-        Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 2);
+        if (currentNoOfFolders + 2 <= TestData.CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS) {
+            Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 2);
+        } else {
+            Assert.assertEquals(curriculumManagerPage.getCountFolders(), TestData.CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS);
+        }
         curriculumManagerPage.clickOnAFolder();
         Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 1);
         curriculumManagerPage.clickOnCreateAFolderButton();

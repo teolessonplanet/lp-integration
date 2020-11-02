@@ -139,6 +139,7 @@ public class TestData {
     public static final String LESSON_FOLDER_TYPE = "Lesson";
     public static final String CHAPTER_FOLDER_TYPE = "Chapter";
     public static final String COLLECTION_FOLDER_TYPE = "Collection";
+    public static final int CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS = 20;
 
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
