@@ -526,7 +526,8 @@ public class LpUiBasePage {
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
             ));
             waitForLoad();
-            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
+//            TODO: uodate modal-backdrop
+//            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
         } catch (Exception ex) {
             logger.info("The Bootstrap modal is not visible " + ex.toString());
         }

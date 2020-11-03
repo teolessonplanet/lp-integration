@@ -1,5 +1,11 @@
 package util;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -173,7 +179,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+58+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+85+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -246,7 +252,7 @@ public class TestData {
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+58+959960@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+49+959960@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -409,14 +415,10 @@ public class TestData {
         return cal.get(Calendar.YEAR);
     }
 
-    public static int getCurrentDate() {
-        Calendar cal = Calendar.getInstance();
-        return cal.get(Calendar.DATE);
-    }
-
-    public static int getCurrentDateWithTimezone() {
+    public static String getCurrentDateWithTimezone() {
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("America/Los_Angeles"));
-        return cal.get(Calendar.DATE);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
+        return dateFormat.format(cal.getTime());
     }
 
     //Search data
@@ -683,5 +685,5 @@ public class TestData {
     public static final String OPEN_FOLDER_PATH = "pr/teachers/";
 
     public static final String DELETE_FOLDER_MODAL_TITLE_TEXT = "Please Confirm";
-    public static final String DELETE_FOLDER_MESSAGE_TEXT = "Are you sure you want to delete this Folder ?";
+    public static final String DELETE_FOLDER_MESSAGE_TEXT = "Are you sure you want to delete this Folder?";
 }

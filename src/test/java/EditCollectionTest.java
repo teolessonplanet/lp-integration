@@ -316,7 +316,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.isCreateNewFolderButtonDisplayed());
         editCollectionPage.clickCreateNewFolderButton();
         createNewFolderModal.waitForModal();
-        Assert.assertEquals(createNewFolderModal.getTitle(), TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE);
+        Assert.assertEquals(createNewFolderModal.getCreateNewFolderModalTitleFromEditCollection(), TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE);
     }
 
     public void testItemOptions() {

@@ -29,8 +29,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String ADD_TO_FOLDER_BUTTON = "#js-create-item [class='modal-footer'] [class*='btn-warning']";
 
     private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
-    private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class*='cb-item panel']";
-    private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel panel'] [class='cb-item-info text-primary']";
+    private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class='cb-item panel panel-default clickable clearfix']";
+    private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel'] [class='cb-item-info text-primary']";
     private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "#collection-items-list [class='cb-remove-item']";
     private static final String COLLECTION_BUILDER_ALERT_TEXT = "[class='contents'] [class*='alert alert-danger']";
 
