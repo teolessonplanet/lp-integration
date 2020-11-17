@@ -55,7 +55,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ASSIGN_FOLDER_OPTION = "[href*='/assign_modal']";
     private static final String COPY_THIS_FOLDER_OPTION = "#js-copy-collection-btn";
     private static final String CREATE_COPY_BUTTON = "[class*='btn btn-default btn-primary']";
-    private static final String NAME_INPUT =  "#copy-collection-title";
+    private static final String NAME_INPUT = "#copy-collection-title";
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] [class='my-resources list-option']";
 
     private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
@@ -372,7 +372,7 @@ public class EditCollection extends CreateNewFolderModal {
         waitUntilElementIsDisplayed(findElement(ADD_A_LINK_NAME_FIELD));
     }
 
-    public void typeUrlName(String name){
+    public void typeUrlName(String name) {
         clearText(ADD_A_LINK_NAME_FIELD);
         sendKeys(ADD_A_LINK_NAME_FIELD, name);
     }
@@ -394,7 +394,7 @@ public class EditCollection extends CreateNewFolderModal {
         return findElement(FOLDER_TITLE_INPUT).getAttribute("value");
     }
 
-    public String getAlertNotificationText(){
+    public String getAlertNotificationText() {
         return getTextForElement(PUBLISHED_COLLECTION_NOTIFICATION);
     }
 
@@ -406,7 +406,16 @@ public class EditCollection extends CreateNewFolderModal {
         return getTextForElement(FOLDER_PUBLISH_STATUS_TEXT);
     }
 
-    public boolean isWhatIsPublishingLinkDisplayed(){
+    public boolean isWhatIsPublishingLinkDisplayed() {
         return isElementDisplayed(WHAT_IS_PUBLISHING_LINK);
+    }
+
+    public void publishCollection(String collectionTitle, String grade, String subject, String description) {
+        typeTitle(collectionTitle);
+        selectGrade(grade);
+        typeDescription(description);
+        selectSubject(subject);
+        waitUntilPublishFolderButtonIsEnabled();
+        clickOnPublishFolder();
     }
 }
