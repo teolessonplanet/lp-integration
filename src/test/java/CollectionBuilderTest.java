@@ -98,7 +98,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
-        testDragAndDropMaxItemsInsideCollection(TestData.FREE_MEMBERSHIP_TEXT);
+        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
         testDragAndDropItem(TestData.FREE_MEMBERSHIP_TEXT);
@@ -172,7 +172,7 @@ public class CollectionBuilderTest extends BaseTest {
                 collectionBuilderPage.waitForLoadingIconToDisappear();
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
                 break;
-            case TestData.FREE_MEMBERSHIP_TEXT:
+            case TestData.PLAN_FREEMIUM:
                 List<WebElement> getFreeAccessResources1 = discoverResourcesPage.getAllFreeAccessButtons();
                 for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(i), collectionBuilderPage.getCollectionDroppableZone());

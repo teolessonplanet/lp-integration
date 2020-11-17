@@ -40,6 +40,10 @@ public class TestData {
     public static final String COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT = "Upgrade your membership to add more collections";
     public static final String COLLECTION_BUILDER_DRAG_AND_DROP_TEXT = "Drag & Drop resources from the left here";
 
+    public static final String COLLECTION_PLAYER_PAGE_PATH_1 = "users/";
+    public static final String COLLECTION_PLAYER_PAGE_PATH_2 = "/collections/";
+    public static final String COLLECTION_PLAYER_PAGE_PATH_3 = "/player";
+
     //Curriculum Calendar Page
     public static final String SEARCH_PAGE_PATH = "search?keywords=";
     public static final String CALENDAR_TITLE = " Curriculum Calendar - Lesson Plan Ideas by Date";
@@ -375,7 +379,7 @@ public class TestData {
         return PRIME_OPTION_TEXT + GET_CURRENT_TIME();
     }
 
-    private static String GET_CURRENT_TIME() {
+    public static String GET_CURRENT_TIME() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         Date date = new Date();
         return formatter.format(date);

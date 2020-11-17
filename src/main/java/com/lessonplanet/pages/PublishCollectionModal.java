@@ -42,4 +42,12 @@ public class PublishCollectionModal extends LpUiBasePage {
         findElement(CONCEPTS_FIELD).sendKeys(TestData.CONCEPT);
         clickElement(MATCHING_OPTION);
     }
+
+    public void publishCollection(){
+        chooseRating();
+        chooseAudience();
+        typeConcept();
+        clickOnPublishCollectionButton();
+        clickOnCloseButton();
+    }
 }
