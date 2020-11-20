@@ -11,8 +11,13 @@ public class CSL_CollectionPlayerTest extends BaseTest {
         collectionPlayerTest.initTest(webDriver);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5129:Appearance")
+    @Test(description = "Custom SL - Collection player - lessonp-5129:Appearance")
     public void testLessonp_5129() {
-        collectionPlayerTest.testCollectionPlayerAppearance(TestData.VALID_EMAIL_RSL_SBCEO);
+        collectionPlayerTest.testCollectionPlayerAppearance(TestData.VALID_EMAIL_CSL_HENRY);
+    }
+
+    @Test(description = "Custom SL - Collection player - lessonp-5093:Collection Navigator")
+    public void testLessonp_5093() {
+        collectionPlayerTest.testCollectionNavigator(TestData.VALID_EMAIL_CSL_HENRY);
     }
 }
