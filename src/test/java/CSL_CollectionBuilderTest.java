@@ -52,7 +52,7 @@ public class CSL_CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         collectionBuilderTest.testDragAndDropMaxItemsInsideCollection(TestData.VALID_EMAIL_CSL_HENRY);
         discoverResourcesPage.refreshPageAndDismissBrowserAlert();
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);

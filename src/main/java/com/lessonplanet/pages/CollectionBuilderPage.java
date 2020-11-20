@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import util.TestData;
 
 import java.util.List;
 
@@ -177,5 +178,9 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public String getDragAndDropText() {
         return getTextForElement(DRAG_AND_DROP_TEXT);
+    }
+
+    public void waitUntilGetStartedTextIsDisplayed() {
+        waitUntilTextIsDisplayed(GET_STARTED_TEXT, TestData.COLLECTION_BUILDER_EMPTY_TEXT);
     }
 }

@@ -396,11 +396,11 @@ public class CurriculumManagerPageTest extends BaseTest {
         }
     }
 
-    public void testCreateCollectionFromCollectionBuilder() {
+    public void testCreateCollectionFromCollectionBuilder(String folderName) {
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewFolderModal.waitForModal();
-        createNewFolderModal.typeName(TestData.NEW_COLLECTION_NAME);
+        createNewFolderModal.typeName(folderName);
         createNewFolderModal.clickOnCreateFolderButton();
     }
 
@@ -412,7 +412,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
         createNewFolderModal.clickOnCreateFolderButton();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), folderName);
         Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_STATUS);
@@ -811,7 +811,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             publishCollectionModal.clickOnCloseButton();
         } else {
-            //Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
         }
     }
 
@@ -1057,6 +1057,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteFolderButton(curriculumManagerPage.getFolder(0));
         deleteFolderModal.clickOnDeleteButton();
 
+        collectionBuilderPage.waitUntilGetStartedTextIsDisplayed();
         Assert.assertTrue(collectionBuilderPage.isGetStartedTextDisplayed());
         Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), TestData.COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT);
 

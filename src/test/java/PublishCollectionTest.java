@@ -94,7 +94,7 @@ public class PublishCollectionTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         collectionBuilderTest.initTest(webDriver);
         collectionBuilderTest.testUploadResourceFromCollectionBuilder(TestData.PLAN_PRO, true, TestData.PUBLISH_RESOURCE_TITLE);
     }
@@ -102,7 +102,7 @@ public class PublishCollectionTest extends BaseTest {
     public void testAddResourcesToPublishCollection(boolean folder, boolean uploadedResource, String account, boolean includedFile) {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO)) {
             discoverResourcesPage.expandProvidersFacet();
         }
@@ -161,7 +161,7 @@ public class PublishCollectionTest extends BaseTest {
     public void testCollectionNotPublishedModal(String account) {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
         curriculumManagerPage.loadPage();
         curriculumManagerPage.hoverOverActionsDropdown();

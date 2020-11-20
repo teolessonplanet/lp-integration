@@ -475,7 +475,7 @@ public class AccountManagementTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal() {
         discoverResourcesPage.loadPage();
-        curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         collectionBuilderPage.clickOnEditFolder(false);
         editCollectionModal.waitForModal();
         editCollectionModal.clickOnAddItemsDropdown();
@@ -496,7 +496,7 @@ public class AccountManagementTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerTest.initTest(webDriver);
         for (int i = 0; i <= 2; i++) {
-            curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
+            curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         }
         discoverResourcesPage.clickSeeCollection(false);
         collectionRrpModal.waitForModal();
@@ -522,7 +522,7 @@ public class AccountManagementTest extends BaseTest {
     private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         discoverResourcesPage.clickOnListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();

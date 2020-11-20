@@ -10,7 +10,7 @@ public class ManageDistrictPage extends DistrictPage {
     private static final String EDIT_ORGANIZATION_BUTTON = "[class*='se-edit-org-info']";
     private static final String MANAGE_ADMINS_BUTTON = "[class*='se-edit-org-admins']";
     protected static final String TEACHERS_LIST = "[class='group-table children'] [class='group-body'] [class='group-row member member']";
-    private static final String TEACHER_ROLE_TEXT = "[class='group-table children'] div[class*='role']";
+    private static final String TEACHER_ROLE_TEXT = "[class='group-table children'] [class='group-row member member'] [class='info role']";
     private static final String TEACHER_JOINED_DATE_TEXT = "[class='group-table children'] div[class*='joined-on ']";
 
     public ManageDistrictPage(WebDriver driver) {

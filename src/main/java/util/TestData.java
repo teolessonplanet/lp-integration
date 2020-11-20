@@ -45,6 +45,7 @@ public class TestData {
     public static final String COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT = "Create or Open";
     public static final String COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT = "Upgrade your membership to add more collections";
     public static final String COLLECTION_BUILDER_DRAG_AND_DROP_TEXT = "Drag & Drop resources from the left here";
+    public static final String COLLECTION_BUILDER_EMPTY_TEXT = "Get started: Choose a Folder above or create a new one";
 
     public static final String COLLECTION_PLAYER_PAGE_PATH_1 = "users/";
     public static final String COLLECTION_PLAYER_PAGE_PATH_2 = "/collections/";
@@ -83,11 +84,12 @@ public class TestData {
     public static final String IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT = "Image already in collection";
     public static final String PIXABAY_IMAGE_LINK = "https://pixabay.com/";
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
-    public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Collection has been added to";
+    public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Folder has been added to";
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
     public static final String FOLDER_NOT_PUBLISHED_TEXT = "This folder has not been published.";
+    public static final String FOLDER_DEFAULT_STATUS = "This folder is private ";
     public static final String FOLDER_PUBLISHED_TEXT = "This folder has been published on";
 
     //Curriculum Manager
@@ -183,7 +185,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+85+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+90+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
@@ -251,12 +253,12 @@ public class TestData {
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
-    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+90+1280567@lessonplanet.com";
+    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+69+1280567@lessonplanet.com";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Ashley";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+49+959960@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+66+959960@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -264,7 +266,6 @@ public class TestData {
     public static final String CSL_HENRY_DISTRICT_NAME = "Henry County Schools";
     public static final String CSL_HENRY_EXISTING_SCHOOL_NAME = "LP Elementary";
     public static final String CSL_HENRY_EXISTING_TEACHER_EMAIL = "i_t_csl_henry@lp.com";
-    public static final String CSL_HENRY_EXISTING_DISTRICT_ADMIN_EMAIL = "";
     public static final String CSL_HENRY_OWNER_FIRST_NAME = "Henry";
     public static final String CSL_HENRY_OWNER_LAST_NAME = "Thomas";
     public static final String CSL_HENRY_TEACHER_FIRST_NAME = "George";

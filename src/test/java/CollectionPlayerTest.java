@@ -75,7 +75,7 @@ public class CollectionPlayerTest extends BaseTest {
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
-            publishCollectionModal.publishCollection();
+            publishCollectionModal.publishCollection(accountType);
             //generate method to publish fast
 
             editCollectionModal.clickOnCloseButton();
@@ -99,7 +99,7 @@ public class CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
         List<WebElement> resources;
         if (accountType.equals(TestData.PLAN_FREEMIUM)) {
@@ -112,8 +112,8 @@ public class CollectionPlayerTest extends BaseTest {
         }
 
         collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.clickActionsDropdown();
-        editCollectionModal.clickPlayFolderOption();
+        editCollectionModal.clickMoreDropdown();
+        editCollectionModal.clickPlayOption();
     }
 
     private void checkCollectionPlayerTab() {
