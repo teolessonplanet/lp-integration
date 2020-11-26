@@ -144,7 +144,7 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionModal.isFolderTypeDisplayed());
         Assert.assertTrue(editCollectionModal.isNavigateFolderDropdownDisplayed());
         Assert.assertEquals(editCollectionModal.getEditFolderTitle(), folderName);
-        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + itemsCount + ")");
+        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), itemsCount);
         Assert.assertTrue(editCollectionModal.isAddDropdownDisplayed());
         Assert.assertTrue(editCollectionModal.isPlayOptionDisplayed());
         Assert.assertTrue(editCollectionModal.isMoreDropdownDisplayed());
@@ -228,16 +228,16 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickAddToFolderButton();
         editCollectionPage.refreshPageAndDismissBrowserAlert();
         Assert.assertEquals(editCollectionPage.getFolderItemTitle(0), TestData.PRIVATE_STATUS);
-        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 1 + ")");
+        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
 
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickUploadAFileButton();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             curriculumManagerTest.testUpgradeModalFromUploadButton();
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 1 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText, false);
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 2 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 2);
         }
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnAddPixabayImageOption();
@@ -265,9 +265,9 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickAddSelectedToFolderButton();
         editCollectionPage.refreshPageAndDismissBrowserAlert();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 11 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 11);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 12 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 12);
         }
 
         editCollectionPage.clickOnAddItemsDropdown();
@@ -281,16 +281,16 @@ public class EditCollectionTest extends BaseTest {
             Assert.assertEquals(editCollectionPage.getFolderItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 12 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 12);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 13 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 13);
         }
 
         testCreateAPage();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 13 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 13);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 14 + ")");
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
         }
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnSearchResourcesOption();
@@ -323,9 +323,9 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.waitUntilCopiedCollectionIsDisplayed();
         Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), "(" + 13 + ")");
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
         } else {
-            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), "(" + 14 + ")");
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
         }
     }
 
@@ -375,6 +375,6 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickEllipsisActions(0);
         editCollectionModal.clickDeleteOption();
         editCollectionModal.clickDeleteItemButton();
-        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), "(" + 0 + ")");
+        Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 0);
     }
 }

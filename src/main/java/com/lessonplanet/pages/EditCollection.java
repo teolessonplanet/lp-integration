@@ -120,8 +120,8 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(COPY_TO_SELECTED_FOLDER_BUTTON);
     }
 
-    public String getFolderItemsCount() {
-        return getTextForElement(FOLDER_ITEMS_COUNT);
+    public int getFolderItemsCount() {
+        return Integer.parseInt(getTextForElement(FOLDER_ITEMS_COUNT).replaceAll("\\D+", ""));
     }
 
     public boolean isFolderItemsCountDisplayed() {
