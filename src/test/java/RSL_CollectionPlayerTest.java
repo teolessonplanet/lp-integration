@@ -20,4 +20,9 @@ public class RSL_CollectionPlayerTest extends BaseTest {
     public void testLessonp_5127() {
         collectionPlayerTest.testCollectionNavigator(TestData.VALID_EMAIL_RSL_SBCEO);
     }
+
+    @Test(description = "Regular SL - Collection player - lessonp-5128:Resource Viewer")
+    public void testLessonp_5128() {
+        collectionPlayerTest.testResourceViewer(TestData.VALID_EMAIL_RSL_SBCEO);
+    }
 }
