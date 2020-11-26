@@ -221,9 +221,9 @@ public class CollectionPlayerTest extends BaseTest {
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES:
                 //WebPage
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
-                if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES);
-                }
+//                if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+//                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES);
+//                }
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
@@ -261,11 +261,7 @@ public class CollectionPlayerTest extends BaseTest {
                     Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
                     break;
                 default:
-                    if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-                        Assert.assertTrue(collectionPlayerPage.isDownloadButtonDisplayed());
-                    } else {
-                        Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
-                    }
+                    Assert.assertTrue(collectionPlayerPage.isDownloadButtonDisplayed());
                     break;
             }
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonDisplayed());
