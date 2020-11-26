@@ -59,6 +59,16 @@ public class CollectionPlayerTest extends BaseTest {
         testCollectionNavigator(TestData.PLAN_STARTER);
     }
 
+    @Test(description = "Freemium - Collection player - lessonp-555:Resource Viewer")
+    public void testLessonp_555() {
+        testResourceViewer(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Collection player - lessonp-625:Resource Viewer")
+    public void testLessonp_625() {
+        testResourceViewer(TestData.PLAN_PRO);
+    }
+
     protected void testCollectionPlayerAppearance(String accountType) {
         createRequirementForCollectionPlayer(accountType);
 
@@ -137,5 +147,122 @@ public class CollectionPlayerTest extends BaseTest {
         Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 1);
         collectionPlayerPage.clickOnPreviousButton();
         Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 0);
+    }
+
+    protected void testResourceViewer(String accountType) {
+        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            loginPage.performLogin(accountType, TestData.VALID_PASSWORD);
+        } else {
+            stepTwoPage.createNewAccount(accountType);
+        }
+
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
+
+        curriculumManagerPageTest.initTest(webDriver);
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+
+        addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
+        addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
+        addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
+        addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+
+        collectionBuilderPage.clickOnEditFolder(false);
+        editCollectionModal.clickActionsDropdown();
+        editCollectionModal.clickPlayFolderOption();
+        editCollectionModal.focusDriverToLastTab();
+
+        collectionPlayerPage.waitUntilNavigatorItemSliderIsHidden();
+        collectionPlayerPage.clickOnUpArrowButton();
+        List<WebElement> collectionItems = collectionPlayerPage.getCollectionItemsList();
+        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(0)), TestData.RESOURCE_TYPE_PRESENTATION);
+        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(1)), TestData.RESOURCE_TYPE_VIDEO);
+        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(2)), TestData.RESOURCE_TYPE_GRAPHICS_AND_IMAGE);
+        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(3)), TestData.RESOURCE_TYPE_WEBSITE);
+
+        Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 0);
+        checkButtons(accountType, TestData.RESOURCE_TYPE_PRESENTATION);
+
+        collectionPlayerPage.clickOnNextItemButton();
+        Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 1);
+        checkButtons(accountType, TestData.RESOURCE_TYPE_VIDEO);
+
+        collectionPlayerPage.clickOnNextItemButton();
+        Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 2);
+        checkButtons(accountType, TestData.RESOURCE_TYPE_GRAPHICS_AND_IMAGE);
+
+        collectionPlayerPage.clickOnNextItemButton();
+        Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 3);
+        checkButtons(accountType, TestData.RESOURCE_TYPE_WEBSITE);
+        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            Assert.assertTrue(collectionPlayerPage.isHenryLogoDisplayed());
+            collectionPlayerPage.clickOnHenryLogo();
+            checkCollectionPlayerTab();
+        } else {
+            if (accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+                collectionPlayerPage.clickOnLearningExplorerLogo();
+                collectionPlayerPage.focusDriverToLastTab();
+                Assert.assertEquals(collectionPlayerPage.getPath(), TestData.DISCOVER_RESOURCES_PAGE_PATH);
+            } else {
+                collectionPlayerPage.clickOnLessonPlanetLogo();
+                collectionPlayerPage.focusDriverToLastTab();
+                Assert.assertEquals(collectionPlayerPage.getPath(), TestData.LP_HOME_PAGE_PATH);
+            }
+        }
+    }
+
+    private void addResourceOfType(String accountType, String resourceCategory) {
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
+
+        switch (resourceCategory) {
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES:
+                //WebPage
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
+                //Images
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
+                //VIDEO
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS:
+                //PDF - PPT
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_ENGLISH_LANGUAGE_ARTS);
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+                break;
+        }
+
+        List<WebElement> resources;
+        if (accountType.equals(TestData.PLAN_FREEMIUM)) {
+            resources = discoverResourcesPage.getAllFreeAccessButtons();
+        } else {
+            resources = discoverResourcesPage.getAllSeeFullReviewButtons();
+        }
+        discoverResourcesPage.dragAndDrop(resources.get(0), collectionBuilderPage.getCollectionDroppableZone());
+    }
+
+    private void checkButtons(String accountPlan, String resourceType) {
+        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+//            Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden()); TODO: uncomment when BC-3497 is fixed
+            Assert.assertTrue(collectionPlayerPage.isFullScreenButtonHidden());
+            Assert.assertTrue(collectionPlayerPage.isPopOutButtonHidden());
+        } else {
+            switch (resourceType) {
+                case TestData.RESOURCE_TYPE_VIDEO:
+                case TestData.RESOURCE_TYPE_WEBSITE:
+                    Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
+                    break;
+                default:
+                    Assert.assertTrue(collectionPlayerPage.isDownloadButtonDisplayed());
+                    break;
+            }
+            Assert.assertTrue(collectionPlayerPage.isFullScreenButtonDisplayed());
+            Assert.assertTrue(collectionPlayerPage.isPopOutButtonDisplayed());
+        }
     }
 }

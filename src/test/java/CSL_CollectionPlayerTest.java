@@ -20,4 +20,9 @@ public class CSL_CollectionPlayerTest extends BaseTest {
     public void testLessonp_5093() {
         collectionPlayerTest.testCollectionNavigator(TestData.VALID_EMAIL_CSL_HENRY);
     }
+
+    @Test(description = "Custom SL - Collection player - lessonp-5094:Resource Viewer")
+    public void testLessonp_5094() {
+        collectionPlayerTest.testResourceViewer(TestData.VALID_EMAIL_CSL_HENRY);
+    }
 }

@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
@@ -186,6 +187,14 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void checkLessonPlanetProvider() {
+        //the provider is hidden by default for Custom SL - Henry  -  needs to be optimised
+        try {
+            driver.findElement(By.cssSelector("[class='lp-filter-group parent-provider_ids closed']")).click();
+            logger.info("The Provider facet was expanded ");
+        } catch (Exception ex) {
+            logger.info("The Provider facet was already expanded " + ex.toString());
+        }
+
         try {
             selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_LESSONPLANET);
             //TODO: SELECT CHILD IF POSSIBLE ///
