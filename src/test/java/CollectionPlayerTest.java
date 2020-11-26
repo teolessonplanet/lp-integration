@@ -221,9 +221,6 @@ public class CollectionPlayerTest extends BaseTest {
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES:
                 //WebPage
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
-//                if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-//                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES);
-//                }
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
