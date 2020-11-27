@@ -8,10 +8,11 @@ import java.text.ParseException;
 
 public class EditCollection extends CreateNewFolderModal {
 
-    private static final String EDIT_FOLDER_TITLE = "[class*='edit-title']";
+    private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
+    private static final String FOLDER_TYPE = "#edit-folder-type";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
-    private static final String FOLDER_PUBLISH_STATUS_TEXT = "[class='text-muted text-center']";
+    private static final String FOLDER_PUBLISH_STATUS_TEXT = "[class='publish-status']";
     private static final String WHAT_IS_PUBLISHING_LINK = "#share-help-text-link";
 
     private static final String FOLDER_TITLE_INPUT = "[name='collection[title]']";
@@ -23,7 +24,9 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ENABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection ok']";
 
     private static final String NAVIGATE_FOLDER_DROPDOWN = "#folders-dropdown";
-    private static final String CREATE_NEW_FOLDER_BUTTON = "[class*='manage-collections-dropdown'] li:nth-child(1)";
+    private static final String CREATE_NEW_FOLDER_BUTTON = "[class*='manage-collections-dropdown'] [class='list-option create-new-collection']";
+    private static final String ACTIVE_FOLDER = "[class*='manage-collections-dropdown'] [class='list-option active']";
+    private static final String ACTIVE_FOLDER_TITLE = "[class*='manage-collections-dropdown'] [class='list-option active'] a";
 
     private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
     private static final String ADD_A_LINK_OPTION = "#js-add-url-btn";
@@ -47,19 +50,19 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String CREATE_A_PAGE_OPTION = "#js-add-page-btn";
     private static final String PAGE_TITLE_INPUT = "[name='page_resource[title]']";
     private static final String PAGE_CONTENT_INPUT = "[class='add-a-page-body'] [class*='note-editable']";
-    private static final String SAVE_BUTTON = "[class='modal-footer pl25 pr25'] [class='btn btn-primary']";
+    private static final String SAVE_BUTTON = "[class*='modal-footer'] [class='btn btn-primary']";
     private static final String SEARCH_RESOURCES_OPTION = "[href*='/search?keywords=']";
 
-    private static final String ACTIONS_DROPDOWN = "[class*='collection-actions']";
-    private static final String PLAY_FOLDER_OPTION = "[href*='/player']";
-    private static final String ASSIGN_FOLDER_OPTION = "[href*='/assign_modal']";
-    private static final String COPY_THIS_FOLDER_OPTION = "#js-copy-collection-btn";
-    private static final String CREATE_COPY_BUTTON = "[class*='btn btn-default btn-primary']";
+    private static final String PLAY_OPTION = "[href*='/player']";
+    private static final String MORE_DROPDOWN = "#collection-actions-wrap";
+    private static final String ASSIGN_OPTION = "[class='dropdown-menu collection-actions-dropdown'] [href*='/assign_modal']";
+    private static final String COPY_TO_OPTION = "#js-copy-collection-btn";
+    private static final String COPY_TO_SELECTED_FOLDER_BUTTON = "[class*='btn btn-default btn-primary']";
     private static final String NAME_INPUT = "#copy-collection-title";
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] [class='my-resources list-option']";
 
     private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
-    private static final String FOLDER_ITEMS_COUNT = "[class='js-items-count']";
+    private static final String FOLDER_ITEMS_COUNT = "[class='edit-folder-num-wrap'] [class='js-items-count']";
     private static final String FOLDER_ITEM_TITLE = "[class*='collection-item-title']";
     private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions']";
@@ -74,6 +77,8 @@ public class EditCollection extends CreateNewFolderModal {
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
 
+    private static final String FOLDER_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='default-text']";
+
     public EditCollection(WebDriver driver) {
         super(driver);
     }
@@ -82,48 +87,45 @@ public class EditCollection extends CreateNewFolderModal {
         return super.getTextForElement(EDIT_FOLDER_TITLE);
     }
 
-    public void clickActionsDropdown() {
-        scrollToElement(ACTIONS_DROPDOWN);
-        clickElement(ACTIONS_DROPDOWN);
+    public void clickMoreDropdown() {
+        scrollToElement(MORE_DROPDOWN);
+        clickElement(MORE_DROPDOWN);
     }
 
-    public boolean isPlayFolderOptionDisplayed() {
-        return isElementDisplayed(PLAY_FOLDER_OPTION);
+    public boolean isPlayOptionDisplayed() {
+        return isElementDisplayed(PLAY_OPTION);
     }
 
-    public boolean isAssignFolderOptionDisplayed() {
-        return isElementDisplayed(ASSIGN_FOLDER_OPTION);
+    public boolean isAssignOptionDisplayed() {
+        return isElementDisplayed(ASSIGN_OPTION);
     }
 
-    public boolean isCopyFolderOptionDisplayed() {
-        return isElementDisplayed(COPY_THIS_FOLDER_OPTION);
+    public boolean isCopyToOptionDisplayed() {
+        return isElementDisplayed(COPY_TO_OPTION);
     }
 
-    public void clickPlayFolderOption() {
-        clickElement(PLAY_FOLDER_OPTION);
+    public void clickPlayOption() {
+        clickElement(PLAY_OPTION);
     }
 
-    public void clickAssignFolderOption() {
-        clickElement(ASSIGN_FOLDER_OPTION);
+    public void clickAssignOption() {
+        clickElement(ASSIGN_OPTION);
     }
 
-    public void clickCopyFolderOption() {
-        clickElement(COPY_THIS_FOLDER_OPTION);
+    public void clickCopyToOption() {
+        clickElement(COPY_TO_OPTION);
     }
 
-    public void clickOnCreateCopyButton() {
-        clickElement(CREATE_COPY_BUTTON);
+    public void clickOnCopyToSelectedFolderButton() {
+        clickElement(COPY_TO_SELECTED_FOLDER_BUTTON);
     }
 
     public int getFolderItemsCount() {
-        String rawNumber = getTextForElement(FOLDER_ITEMS_COUNT);
-        int number;
-        try {
-            number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
-        } catch (ParseException e) {
-            throw new Error("The number " + rawNumber + " cannot be parsed");
-        }
-        return number;
+        return Integer.parseInt(getTextForElement(FOLDER_ITEMS_COUNT).replaceAll("\\D+", ""));
+    }
+
+    public boolean isFolderItemsCountDisplayed() {
+        return isElementDisplayed(FOLDER_ITEMS_COUNT);
     }
 
     public String getFolderItemTitle(int index) {
@@ -417,5 +419,37 @@ public class EditCollection extends CreateNewFolderModal {
         selectSubject(subject);
         waitUntilPublishFolderButtonIsEnabled();
         clickOnPublishFolder();
+    }
+
+    public void waitUntilCopiedCollectionIsDisplayed() {
+        waitUntilTextIsDisplayed(EDIT_FOLDER_TITLE, TestData.COPIED_FOLDER_NAME);
+    }
+
+    public boolean isActiveFolderDisplayed() {
+        return isElementDisplayed(ACTIVE_FOLDER);
+    }
+
+    public String getActiveFolderTitle() {
+        return getTextForElement(ACTIVE_FOLDER_TITLE);
+    }
+
+    public boolean isAddDropdownDisplayed() {
+        return isElementDisplayed(ADD_ITEMS_DROPDOWN);
+    }
+
+    public boolean isMoreDropdownDisplayed() {
+        return isElementDisplayed(MORE_DROPDOWN);
+    }
+
+    public String getFolderStatus() {
+        return getTextForElement(FOLDER_STATUS);
+    }
+
+    public boolean isFolderTypeDisplayed() {
+        return isElementDisplayed(FOLDER_TYPE);
+    }
+
+    public boolean isNavigateFolderDropdownDisplayed() {
+        return isElementDisplayed(NAVIGATE_FOLDER_DROPDOWN);
     }
 }

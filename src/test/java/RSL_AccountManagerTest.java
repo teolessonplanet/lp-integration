@@ -387,7 +387,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(schoolPage.isSearchButtonDisplayed());
         Assert.assertTrue(schoolPage.isAddButtonDisplayed());
         if (schoolPage.isTeachersListDisplayed()) {
-            for (int i = 0; i <= 4; i++) {
+            for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
                 Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
                 Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
                 schoolPage.hoverOverEditButton(i);
@@ -677,7 +677,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             manageDistrictPage.hoverOverAddButton();
             Assert.assertEquals(manageDistrictPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
         }
-        for (int i = 0; i < manageDistrictPage.getTeachersNumber(); i++) {
+        for (int i = 0; i < 2; i++) {
             manageDistrictPage.hoverOverEditButton(i);
             if (sso) {
                 Assert.assertTrue(manageDistrictPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || manageDistrictPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT));
@@ -689,11 +689,11 @@ public class RSL_AccountManagerTest extends BaseTest {
                 }
             }
         }
-        for (int j = 0; j < manageDistrictPage.getTeachersNumber(); j++) {
+        for (int j = 0; j < 2; j++) {
             manageDistrictPage.hoverOverRemoveButton(j);
-            Assert.assertTrue(manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT));
+            Assert.assertTrue(manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT));
         }
-        for (int k = 0; k < manageDistrictPage.getTeachersNumber(); k++) {
+        for (int k = 0; k < 2; k++) {
             Assert.assertTrue(schoolPage.getTeacherRole(k).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(k).contains(TestData.ADMIN_ROLE));
         }
         if (!roster) {

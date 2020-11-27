@@ -43,11 +43,13 @@ public class PublishCollectionModal extends LpUiBasePage {
         clickElement(MATCHING_OPTION);
     }
 
-    public void publishCollection(){
+    public void publishCollection(String accountPlanText) {
         chooseRating();
         chooseAudience();
         typeConcept();
         clickOnPublishCollectionButton();
-        clickOnCloseButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            clickOnCloseButton();
+        }
     }
 }

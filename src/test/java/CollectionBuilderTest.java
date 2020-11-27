@@ -97,7 +97,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         testDragAndDropMaxItemsInsideCollection(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
@@ -129,7 +129,7 @@ public class CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         testDragAndDropMaxItemsInsideCollection(TestData.PLAN_STARTER);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 11);
@@ -237,7 +237,7 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderVideoModal.clickOnXButton();
         } else {
             curriculumManagerPageTest.initTest(webDriver);
-            curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+            curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
