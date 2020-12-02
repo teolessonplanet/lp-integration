@@ -161,7 +161,7 @@ public class CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
 
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder();
+        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.GET_CURRENT_TIME());
 
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
@@ -169,8 +169,7 @@ public class CollectionPlayerTest extends BaseTest {
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
 
         collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.clickActionsDropdown();
-        editCollectionModal.clickPlayFolderOption();
+        editCollectionModal.clickPlayOption();
         editCollectionModal.focusDriverToLastTab();
 
         collectionPlayerPage.waitUntilNavigatorItemSliderIsHidden();
