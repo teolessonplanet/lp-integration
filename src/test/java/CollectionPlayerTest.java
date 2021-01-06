@@ -122,7 +122,6 @@ public class CollectionPlayerTest extends BaseTest {
         }
 
         collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.clickMoreDropdown();
         editCollectionModal.clickPlayOption();
     }
 

@@ -17,7 +17,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String DELETE_BUTTON = "[class*='fa-trash']";
     private static final String CLONE_BUTTON = "[class='fa fa-clone']";
     private static final String ASSIGN_BUTTON = "[class*='fa-paper-plane']";
-    private static final String EDIT_BUTTON = "[class*='fa-edit']";
+    private static final String EDIT_BUTTON = "[class='options actions'] button[class^='action-item edit']";
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='fa-external-link']";
     private static final String MY_FAVORITES_FOLDER_ROW = "#folder-1";
     private static final String MY_UPLOADS_FOLDER_ROW = "#folder-2";
@@ -46,14 +46,15 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     private static final String ACTIONS_DROPDOWN_BUTTON = "[class='group-info'] [class='action-dropdown']";
     private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Edit']";
-    private static final String PLAY_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Play']";
-    private static final String PLAY_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class*='disabled'][data-reactid*='Play']";
-    private static final String ASSIGN_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Assign']";
-    private static final String ASSIGN_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class*='disabled'][data-reactid*='Assign']";
-    private static final String PUBLISH_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Publish']";
-    private static final String COPY_FOLDER_TO_BUTTON = "[class='options actions'] button[data-reactid*='Copy To']";
-    private static final String MOVE_FOLDER_TO_BUTTON = "[class='options actions'] button[data-reactid*='Move To']";
-    private static final String DELETE_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Delete']";
+    private static final String PLAY_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item play']";
+    private static final String PLAY_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class^='action-item play  disabled']";
+    private static final String ASSIGN_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item assign']";
+    private static final String ASSIGN_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class^='action-item assign  disabled']";
+    private static final String PUBLISH_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item publish']";
+    private static final String COPY_FOLDER_TO_BUTTON = "[class='options actions'] button[class^='action-item copy-to']";
+    private static final String MOVE_FOLDER_TO_BUTTON = "[class='options actions'] button[class^='action-item move-to']";
+    private static final String DELETE_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item delete']";
+    private static final String ACTIVITY_BUTTON = "[class='options actions'] button[class^='action-item activity']";
 
     private static final String ACTIONS_FROM_HEADER_DROPDOWN_BUTTON = "[class^='manager-header'] [class^='action-dropdown']";
 
