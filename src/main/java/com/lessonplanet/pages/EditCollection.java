@@ -20,7 +20,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String GRADE_OPTIONS = "#select2-drop li";
     private static final String SUBJECT_LIST_DROPDOWN = "#s2id_collection_subject_list";
     private static final String SUBJECT_OPTIONS = "#select2-drop [class='select2-result-label']";
-    private static final String DESCRIPTION_INPUT = "[class='note-editable panel-body']";
+    private static final String DESCRIPTION_INPUT = "[class='note-editing-area'] [class='note-editable']";
     private static final String ENABLED_PUBLISH_FOLDER_BUTTON = "[class*='share-collection ok']";
 
     private static final String NAVIGATE_FOLDER_DROPDOWN = "#folders-dropdown";
@@ -53,7 +53,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String SAVE_BUTTON = "[class*='modal-footer'] [class='btn btn-primary']";
     private static final String SEARCH_RESOURCES_OPTION = "[href*='/search?keywords=']";
 
-    private static final String PLAY_OPTION = "[href*='/player']";
+    private static final String PLAY_OPTION = "[class='edit-folder-action-item'][href$='/player']";
     private static final String MORE_DROPDOWN = "#collection-actions-wrap";
     private static final String ASSIGN_OPTION = "[class='dropdown-menu collection-actions-dropdown'] [href*='/assign_modal']";
     private static final String COPY_TO_OPTION = "#js-copy-collection-btn";
