@@ -142,6 +142,7 @@ public class TestData {
     public static final String PUBLISHED_RESOURCE_STATUS = "Published";
     public static final String FACEBOOK_URL = "https://www.facebook.com";
     public static final String TWITTER_URL = "https://twitter.com";
+    public static final String GOOGLE_URL = "google.com";
     public static final String RATING = "5.0";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";

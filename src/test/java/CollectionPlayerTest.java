@@ -69,6 +69,11 @@ public class CollectionPlayerTest extends BaseTest {
         testResourceViewer(TestData.PLAN_PRO);
     }
 
+    @Test(description = "Active user - Collection player - lessonp-629:Teacher View")
+    public void testLessonp_629() {
+        testTeacherView(TestData.PLAN_PRO);
+    }
+
     protected void testCollectionPlayerAppearance(String accountType) {
         createRequirementForCollectionPlayer(accountType);
 
@@ -262,5 +267,21 @@ public class CollectionPlayerTest extends BaseTest {
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonDisplayed());
             Assert.assertTrue(collectionPlayerPage.isPopOutButtonDisplayed());
         }
+    }
+
+    protected void testTeacherView(String accountType) {
+        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            loginPage.performLogin(accountType, TestData.VALID_PASSWORD);
+        } else {
+            stepTwoPage.createNewAccount(accountType);
+        }
+        createRequirementForCollectionPlayer(TestData.PLAN_PRO);
+
+        collectionPlayerPage.focusDriverToLastTab();
+        collectionPlayerPage.clickAssignFolderButton();
+
+        AssignFolderModalTest assignFolderModalTest = new AssignFolderModalTest();
+        assignFolderModalTest.initTest(webDriver);
+        assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
     }
 }
