@@ -45,7 +45,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#new_curriculum_manager h1";
 
     private static final String ACTIONS_DROPDOWN_BUTTON = "[class='group-info'] [class='action-dropdown']";
-    private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[data-reactid*='Edit']";
+    private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item edit']";
     private static final String PLAY_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item play']";
     private static final String PLAY_FOLDER_DISABLED_BUTTON = "[class='options actions'] button[class^='action-item play  disabled']";
     private static final String ASSIGN_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item assign']";
