@@ -122,6 +122,10 @@ public class CollectionPlayerPage extends LpUiBasePage {
         return isElementDisplayed(ASSIGN_FOLDER_BUTTON);
     }
 
+    public void clickAssignFolderButton(){
+        clickElement(ASSIGN_FOLDER_BUTTON);
+    }
+
     public boolean isCollectionItemsListDisplayed() {
         return isElementDisplayed(COLLECTION_ITEMS_LIST);
     }
