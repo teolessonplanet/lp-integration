@@ -35,6 +35,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     private static final String LOADING_ICON = "[class*='cb-item panel'] [class*='panel-body'] [class*='spinner'] i";
 
+    private static final String SHARED_FOLDER_COLLECTION_BUILDER = "[class*='cb-dropdown'] li[class='list-option']:last-child";
+
     public CollectionBuilderPage(WebDriver driver) {
         super(driver);
     }
@@ -182,5 +184,9 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void waitUntilGetStartedTextIsDisplayed() {
         waitUntilTextIsDisplayed(GET_STARTED_TEXT, TestData.COLLECTION_BUILDER_EMPTY_TEXT);
+    }
+
+    public void clickOnSharedFolderFromCollectionBuilder() {
+        clickElement(SHARED_FOLDER_COLLECTION_BUILDER);
     }
 }

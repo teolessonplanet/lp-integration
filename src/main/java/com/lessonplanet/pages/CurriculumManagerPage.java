@@ -55,6 +55,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String MOVE_FOLDER_TO_BUTTON = "[class='options actions'] button[class*='action-item move-to']";
     private static final String DELETE_FOLDER_BUTTON = "[class='options actions'] button[class*='action-item delete']";
     private static final String ACTIVITY_BUTTON = "[class='options actions'] button[class*='action-item activity']";
+    private static final String SHARE_BUTTON = "[class='options actions'] [class*='action-item share']";
+
 
     private static final String FOLDERS = "[class='group-table'] [id^='collection-']:not([id^='collection-item-']) [class='group-info']";
     private static final String FOLDERS_CHILDS = "[class='children-container'] div[id^='collection-item-']";
@@ -63,6 +65,11 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String ACTIONS_HEADER_BUTTON = "[class^='cm-table-header'] [class^='action-dropdown']";
 
     private static final String VIEW_FOLDER_BUTTON = " .view-folder-btn";
+
+    private static final String SHARED_WITH_ME_TAB_BUTTON = "[class='nav nav-tabs'] [href='/my/shared_with_me']";
+    private static final String SHARED_WITH_ME_TAB_EMPTY_MESSAGE_TEXT = "[class='no-resources-shared-message']";
+    private static final String REMOVE_SHARED_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item remove']";
+    private static final String FOLDER_LAST_CHILD = "div[id^='collection-item-']:last-child";
 
     public CurriculumManagerPage(WebDriver driver) {
         super(driver);
@@ -486,5 +493,59 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     public void clickOnUploadedFileInfoIcon() {
         clickElement('#' + getElementId(UPLOAD_RESOURCE_ROW) + RESOURCE_DETAILS_ICON);
+    }
+
+    public boolean isShareFolderButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(SHARE_BUTTON);
+        }
+        return isElementDisplayed(folder, SHARE_BUTTON);
+    }
+
+    public WebElement getExpandedFolderChild(int childPosition) {
+        return findElements(FOLDERS_CHILDS + " [class='group-info']").get(childPosition);
+    }
+
+    public String getChildFolderStatus(int childPosition) {
+        return getTextForElement(findElements(FOLDERS_CHILDS + FOLDER_STATUS).get(childPosition));
+    }
+
+    public void clickOnFolderResourceInfoIcon(int index) {
+        findElements(FOLDERS_CHILDS + RESOURCE_DETAILS_ICON).get(index).click();
+    }
+
+    public void clickOnSharedWithMeTabButton() {
+        clickElement(SHARED_WITH_ME_TAB_BUTTON);
+    }
+
+    public String getSharedWithMeEmptyPageText() {
+        return getTextForElement(SHARED_WITH_ME_TAB_EMPTY_MESSAGE_TEXT);
+    }
+
+    public void clickOnShareFolderButton() {
+        clickElement(SHARE_BUTTON);
+    }
+
+    public boolean isFolderListDisplayed() {
+        return isElementDisplayed(FOLDER_ROW);
+    }
+
+    public WebElement getFolderLastChild() {
+        return findElement(FOLDER_LAST_CHILD);
+    }
+
+    public boolean isRemoveFolderToButtonDisplayed(WebElement folder) {
+        if (folder == null) {
+            return isElementDisplayed(REMOVE_SHARED_FOLDER_BUTTON);
+        }
+        return isElementDisplayed(folder, REMOVE_SHARED_FOLDER_BUTTON);
+    }
+
+    public void clickOnRemoveFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(REMOVE_SHARED_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, REMOVE_SHARED_FOLDER_BUTTON).get(0));
+        }
     }
 }
