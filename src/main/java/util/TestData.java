@@ -553,7 +553,7 @@ public class TestData {
     public static final String CONTACT_US_PAGE_PATH = "us/contact";
     public static final String OUR_STORY_PAGE_PATH = "about";
     public static final String FAQ_PAGE_PATH = "faq";
-    public static final String HELP_CENTER_FAQ_URL = "https://staging.lessonplanet.com/help-center";
+    public static final String HELP_CENTER_FAQ_PATH = "help-center";
     public static final String TESTIMONIALS_PAGE_PATH = "us/testimonials";
 
     public static final String PRICING_PAGE_PATH = "pricing";

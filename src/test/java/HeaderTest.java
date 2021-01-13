@@ -233,7 +233,7 @@ public class HeaderTest extends BaseTest {
         headerPage.hoverOverAboutButton();
         if (!account.equals(TestData.PLAN_VISITOR)) {
             headerPage.clickOnHelpCenterFaqButton();
-            Assert.assertEquals(headerPage.getUrl(), TestData.HELP_CENTER_FAQ_URL);
+            Assert.assertEquals(headerPage.getPath(), TestData.HELP_CENTER_FAQ_PATH);
         } else {
             headerPage.clickOnFrequentlyAskedQuestionsButton();
             Assert.assertEquals(headerPage.getPath(), TestData.FAQ_PAGE_PATH);
