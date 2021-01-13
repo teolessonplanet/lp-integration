@@ -19,6 +19,10 @@ public class CollectionPlayerTest extends BaseTest {
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
     private PublishCollectionModal publishCollectionModal;
+    private AssignFolderModalTest assignFolderModalTest;
+    private AssignModal assignModal;
+    private StudentViewPage studentViewPage;
+    private LpHomePage lpHomePage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,6 +36,8 @@ public class CollectionPlayerTest extends BaseTest {
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         publishCollectionModal = new PublishCollectionModal(webDriver);
+        assignModal = new AssignModal(webDriver);
+        assignFolderModalTest = new AssignFolderModalTest();
     }
 
     public void initTest(WebDriver webDriver) {
@@ -72,6 +78,11 @@ public class CollectionPlayerTest extends BaseTest {
     @Test(description = "Active user - Collection player - lessonp-629:Teacher View")
     public void testLessonp_629() {
         testTeacherView(TestData.PLAN_PRO);
+    }
+
+    @Test(description = "Active user - Collection player - lessonp-557:Student View")
+    public void testLessonp_557() {
+        testStudentView(TestData.PLAN_PRO);
     }
 
     protected void testCollectionPlayerAppearance(String accountType) {
@@ -280,8 +291,39 @@ public class CollectionPlayerTest extends BaseTest {
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
 
-        AssignFolderModalTest assignFolderModalTest = new AssignFolderModalTest();
         assignFolderModalTest.initTest(webDriver);
         assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
+    }
+
+    protected void testStudentView(String accountType) {
+        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            loginPage.performLogin(accountType, TestData.VALID_PASSWORD);
+        } else {
+            stepTwoPage.createNewAccount(accountType);
+        }
+        createRequirementForCollectionPlayer(TestData.PLAN_PRO);
+
+        collectionPlayerPage.focusDriverToLastTab();
+        collectionPlayerPage.clickAssignFolderButton();
+        assignModal.typeAccessKey(TestData.VALID_PASSWORD);
+        assignModal.clickOnSaveButton();
+        String shareLink = assignModal.getShareLinkText();
+
+        tearDown();
+        init();
+        lpHomePage = new LpHomePage(webDriver);
+        studentViewPage = new StudentViewPage(webDriver);
+        lpHomePage.loadPage();
+        webDriver.get(shareLink);
+        studentViewPage.typePassword(TestData.INVALID_PASSWORD);
+        studentViewPage.clickOnSubmitButton();
+        Assert.assertEquals(studentViewPage.getIncorrectAccessKeyText(), TestData.INCORRECT_ACCESS_KEY_MESSAGE_TEXT);
+        studentViewPage.clearPasswordField();
+        studentViewPage.typePassword(TestData.VALID_PASSWORD);
+        studentViewPage.clickOnSubmitButton();
+
+        String expectedUrl = TestData.SERVER_URL + TestData.COLLECTION_PLAYER_PAGE_PATH_2.replace("/", "") + TestData.COLLECTION_PLAYER_PAGE_PATH_3;
+        Assert.assertTrue(studentViewPage.getUrl().startsWith(expectedUrl));
+        tearDown();
     }
 }

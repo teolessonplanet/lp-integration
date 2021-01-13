@@ -702,4 +702,6 @@ public class TestData {
 
     public static final String DELETE_FOLDER_MODAL_TITLE_TEXT = "Please Confirm";
     public static final String DELETE_FOLDER_MESSAGE_TEXT = "Are you sure you want to delete this Folder?";
+
+    public static final String INCORRECT_ACCESS_KEY_MESSAGE_TEXT = "Sorry, this access key is incorrect. Need help?";
 }

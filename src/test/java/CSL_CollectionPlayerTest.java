@@ -27,7 +27,12 @@ public class CSL_CollectionPlayerTest extends BaseTest {
     }
 
     @Test(description = "Custom SL - Collection player - lessonp-5091:Teacher View")
-    public void testLessonp_5190() {
+    public void testLessonp_5191() {
         collectionPlayerTest.testTeacherView(TestData.VALID_EMAIL_CSL_HENRY);
+    }
+
+    @Test(description = "Custom SL - Collection player - lessonp-5090:Student View")
+    public void testLessonp_5090() {
+        collectionPlayerTest.testStudentView(TestData.VALID_EMAIL_CSL_HENRY);
     }
 }
