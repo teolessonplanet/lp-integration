@@ -389,8 +389,8 @@ public class CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnMyResources();
         if (!loggedIn) {
-            Assert.assertTrue(collectionBuilderPage.isSignInPopupLinkDisplayed());
-            Assert.assertTrue(collectionBuilderPage.isSignUpPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
         } else {
             Assert.assertEquals(discoverResourcesPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
         }

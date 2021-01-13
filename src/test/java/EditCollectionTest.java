@@ -188,7 +188,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         editCollectionModal.clickOnCloseButton();
         collectionBuilderPage.clickOnEditFolder(false);
-        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), (TestData.FOLDER_PUBLISHED_TEXT) + " " + TestData.getCurrentMonth() + "/" + TestData.getCurrentDateWithTimezone() + "/" + TestData.getCurrentYear() + ".");
+        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), (TestData.FOLDER_PUBLISHED_TEXT) + " " + editCollectionPage.getPublishedFolderMonth() + "/" + TestData.getCurrentDateWithTimezone() + "/" + TestData.getCurrentYear() + ".");
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
         }
@@ -209,7 +209,6 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
         editCollectionModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
         editCollectionModal.clickSaveButton();
-        editCollectionModal.waitUntilItemIsAddedIntoFolder();
         Assert.assertEquals(editCollectionModal.getFolderItemTitle(0), TestData.PAGE_TITLE);
     }
 

@@ -80,14 +80,14 @@ public class CollectionBuilderTest extends BaseTest {
     public void testLessonp_548() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.FREE_MEMBERSHIP_TEXT);
-        testCollectionBuilderButtons(TestData.FREE_MEMBERSHIP_TEXT);
+        testMyResourcesButton(TestData.PLAN_FREEMIUM);
+        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testMyResourcesButton(TestData.FREE_MEMBERSHIP_TEXT);
-        testCollectionBuilderButtons(TestData.FREE_MEMBERSHIP_TEXT);
+        testMyResourcesButton(TestData.PLAN_FREEMIUM);
+        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
-        testCollectionBuilderButtons(TestData.FREE_MEMBERSHIP_TEXT);
-        testMaxCollectionCreated(TestData.FREE_MEMBERSHIP_TEXT);
+        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
+        testMaxCollectionCreated(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Freemium - Collection Builder - lessonp-4381: Collection Builder Items")
@@ -101,7 +101,7 @@ public class CollectionBuilderTest extends BaseTest {
         testDragAndDropMaxItemsInsideCollection(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-        testDragAndDropItem(TestData.FREE_MEMBERSHIP_TEXT);
+        testDragAndDropItem(TestData.PLAN_FREEMIUM);
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
         curriculumManagerPage.loadPage();
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
@@ -141,7 +141,7 @@ public class CollectionBuilderTest extends BaseTest {
     }
 
     public void testDragAndDropItem(String accountPlanText) {
-        if (accountPlanText.equals(TestData.PLAN_VISITOR) || accountPlanText.equals(TestData.FREE_MEMBERSHIP_TEXT)) {
+        if (accountPlanText.equals(TestData.PLAN_VISITOR) || accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
             browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
             if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
@@ -209,7 +209,8 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.isMyResourcesButtonDisplayed();
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
             collectionBuilderPage.clickOnMyResources();
-            testSignInOrJoinNowModal();
+            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
         } else {
             collectionBuilderPage.clickOnMyResources();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));

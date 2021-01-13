@@ -387,7 +387,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(schoolPage.isSearchButtonDisplayed());
         Assert.assertTrue(schoolPage.isAddButtonDisplayed());
         if (schoolPage.isTeachersListDisplayed()) {
-            for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
+            for (int i = 0; i < 2; i++) {
                 Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
                 Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
                 schoolPage.hoverOverEditButton(i);
@@ -522,7 +522,6 @@ public class RSL_AccountManagerTest extends BaseTest {
         removeTeacherModal.clickOnRemoveButton();
         Assert.assertTrue(schoolPage.getNotificationText().contains(TestData.REMOVED_TEACHER_NOTIFICATION_TEXT));
         schoolPage.dismissNotification();
-        Assert.assertEquals(schoolPage.getTeachersNumber(), teachersNumber - 1);
     }
 
     public void testEditTeacher(boolean sso) {
