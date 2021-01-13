@@ -254,10 +254,10 @@ public class SearchTest extends BaseTest {
         lpHomePage.loadPage();
         headerPage.typeSearchText(TestData.INVALID_SEARCH_WORD);
         headerPage.clickOnSearchButton();
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.INVALID_SEARCH_MESSAGE);
-        } else {
+        if (account.equals(TestData.VALID_EMAIL_CSL_COBB) || account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_QA_CUSTOM) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_1) & discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_2));
+        } else {
+            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.INVALID_SEARCH_MESSAGE);
         }
         Assert.assertTrue(discoverResourcesPage.isSuggestionBlockTextDisplayed());
         Assert.assertEquals(TestData.SUGGESTIONS_BLOCK_MESSAGE, discoverResourcesPage.getSuggestionsBlockText());
@@ -274,15 +274,15 @@ public class SearchTest extends BaseTest {
         lpHomePage.loadPage();
         headerPage.clickOnSearchButton();
         Assert.assertFalse(discoverResourcesPage.isSuggestionBlockTextDisplayed());
-        if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE);
-            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
-        } else {
+        if (account.equals(TestData.VALID_EMAIL_CSL_COBB) || account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_QA_CUSTOM) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             // https://lessonplanet.atlassian.net/browse/BC-2923 -> temporary fix // TODO: remove hack fix
             headerPage.hoverOverDiscoverButton();
             headerPage.clickOnDiscoverResourcesButton();
             Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_RESOURCES_MESSAGE);
             discoverResourcesPage.clickOnThumbnailView();
+            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        } else {
+            Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE);
             Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
         }
     }
@@ -371,7 +371,7 @@ public class SearchTest extends BaseTest {
     }
 
     protected void testGoToResourceButtonForRegularResource(String account) {
-        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -425,7 +425,7 @@ public class SearchTest extends BaseTest {
     protected void testLpResource(String account, boolean freeSample) {
         WebElement lpResourceCard;
         discoverResourcesPage.loadPage();
-        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
