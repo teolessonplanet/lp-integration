@@ -11,15 +11,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
     private final static String BROWSER_SYSTEM_VAR = "browser";
     private final static String HEADLESS_SYSTEM_VAR = "headless";
+    private final static String FIREFOX_PROFILE = "ffprof";
     private final static String IP_WHITELISTED_SYSTEM_VAR = "ipwhitelisted";
 
     private boolean headlessBrowser = false;
+    private boolean firefoxDefaultProfile = false;
     protected static final Logger logger = LogManager.getRootLogger();
 
     public WebDriver getInstance() {
@@ -39,6 +43,14 @@ public class WebDriverFactory {
             logger.info("HEADLESS is not set in VM options");
         }
 
+        try {
+            if (System.getProperty(FIREFOX_PROFILE).equals("true")) {
+                firefoxDefaultProfile = true;
+            }
+        } catch (NullPointerException ex) {
+            logger.info("ffprof is not set in VM options");
+        }
+
         WebDriver webDriver;
 
         if (browserVariable.equals(BrowserName.CHROME.getName())) {
@@ -55,6 +67,13 @@ public class WebDriverFactory {
             webDriver = new ChromeDriver(options);
         } else if (browserVariable.equals(BrowserName.FIREFOX.getName())) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+            if (firefoxDefaultProfile) {
+                ProfilesIni profile = new ProfilesIni();
+                FirefoxProfile firefoxProfile = profile.getProfile("default");
+                firefoxOptions.setProfile(firefoxProfile);
+            }
+
             if (headlessBrowser) {
                 firefoxOptions.addArguments("--headless");
             }
