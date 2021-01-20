@@ -1,8 +1,7 @@
 package com.lessonplanet.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
-import java.awt.*;
 
 public class AddAResourcePage extends LpUiBasePage {
 
@@ -107,10 +106,13 @@ public class AddAResourcePage extends LpUiBasePage {
     private static final String INCLUDED_MATERIAL_RESOURCE_TYPE_MATCHING_OPTIONS = "[class*='ecc container included-materials-input'] [class='Select-menu-outer']";
     private static final String INCLUDED_MATERIAL_RESOURCE_TITLE_TEXT_FIELD = "[class*='ecc container included-materials-input'] [class*='add-included-material-title-group'] #title";
     private static final String INCLUDED_MATERIAL_RESOURCE_URL_TEXT_FIELD = "[class*='ecc container included-materials-input'] [class*=' add-included-material-url-group'] #url";
-    private static final String CHOOSE_FILE_ATTACHMENT_INPUT = "[class*='add-thumbnail-upload-file-wrap'] [for='uploaded_thumbnail']";
+    private static final String UPLOADED_THUMBNAIL_IMAGE = "#uploaded_thumbnail";
+
+    private HeaderPage headerPage;
 
     public AddAResourcePage(WebDriver driver) {
         super(driver);
+        headerPage = new HeaderPage(driver);
     }
 
     public void clickOnContinueButton() {
@@ -278,7 +280,7 @@ public class AddAResourcePage extends LpUiBasePage {
     }
 
     public void pasteResourceUrl(String url) {
-        pasteTextUsingKeys(url, RESOURCE_URL_TEXT_FIELD);
+        pasteTextUsingSearchField(RESOURCE_URL_TEXT_FIELD, url);
     }
 
     public void waitUntilUploadedFileIsDisplayed(String text) {
@@ -290,19 +292,15 @@ public class AddAResourcePage extends LpUiBasePage {
     }
 
     public void pasteImageUrl(String url) {
-        pasteTextUsingKeys(url, THUMBNAIL_URL);
+        pasteTextUsingSearchField(THUMBNAIL_URL, url);
     }
 
     public String getPasteImageUrlFieldText() {
         return getTextForElement(THUMBNAIL_URL);
     }
 
-    public void uploadUsingKeys(String path) {
-        try {
-            uploadUsingKeys(CHOOSE_FILE_ATTACHMENT_INPUT, path);
-        } catch (AWTException e) {
-            throw new Error("Cannot upload file using keys");
-        }
+    public void uploadThumbnailImage(String path) {
+        sendKeys(UPLOADED_THUMBNAIL_IMAGE, path);
     }
 
     public String getThumbnailAttribute() {
@@ -434,7 +432,7 @@ public class AddAResourcePage extends LpUiBasePage {
     }
 
     public void pasteIncludedMaterialResourceUrl(String url) {
-        pasteTextUsingKeys(url, INCLUDED_MATERIAL_RESOURCE_URL_TEXT_FIELD);
+        pasteTextUsingSearchField(INCLUDED_MATERIAL_RESOURCE_URL_TEXT_FIELD, url);
     }
 
     public boolean isDisabledFinishButtonDisplayed() {
@@ -636,5 +634,22 @@ public class AddAResourcePage extends LpUiBasePage {
     public void selectAccessibility(String accessibility) {
         sendKeys(ACCESSIBILITY_DROPDOWN, accessibility);
         clickElement(ACCESSIBILITY_DROPDOWN_MATCHING_OPTION, 0);
+    }
+
+    private void pasteTextUsingSearchField(String cssSelector, String text) {
+        headerPage.typeSearchText(text);
+        if (!System.getProperty("os.name").toUpperCase().contains("MAC")) {
+            headerPage.typeSearchText(Keys.CONTROL + "a");
+            headerPage.typeSearchText(Keys.CONTROL + "c");
+        } else {
+            headerPage.typeSearchText(Keys.COMMAND + "a");
+            headerPage.typeSearchText(Keys.COMMAND + "c");
+        }
+        headerPage.deleteSearchText();
+        if (!System.getProperty("os.name").toUpperCase().contains("MAC")) {
+            sendKeys(cssSelector, Keys.CONTROL + "v");
+        } else {
+            sendKeys(cssSelector, Keys.COMMAND + "v");
+        }
     }
 }

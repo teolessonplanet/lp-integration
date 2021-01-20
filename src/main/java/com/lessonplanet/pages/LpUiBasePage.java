@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -12,10 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestData;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,6 +118,12 @@ public class LpUiBasePage {
     protected void sendKeys(String cssLocator, String text) {
         waitForLoad();
         findElement(cssLocator).sendKeys(text);
+        waitForLoad();
+    }
+
+    protected void setValueForWebElement(WebElement webElement, String value) {
+        waitForLoad();
+        javascriptExecutor.executeScript("arguments[0].value='" + value + "';", webElement);
         waitForLoad();
     }
 
@@ -653,39 +654,5 @@ public class LpUiBasePage {
         } catch (NoAlertPresentException noe) {
             System.out.println("No alert found on page");
         }
-    }
-
-    public void pasteTextUsingKeys(String text, String cssSelector) {
-        StringSelection stringSelection = new StringSelection(text);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-
-        WebElement element = driver.findElement(By.cssSelector(cssSelector));
-        element.click();
-        element.sendKeys(Keys.CONTROL + "v");
-    }
-
-    public void uploadUsingKeys(String fileNameSelector, String path) throws AWTException {
-        Robot robot = new Robot();
-        Actions builder = new Actions(driver);
-        Action myAction = builder.click(driver.findElement(By.cssSelector(fileNameSelector)))
-            .release()
-            .build();
-        myAction.perform();
-        robot.setAutoDelay(2000);
-        StringSelection str = new StringSelection(path);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
-        robot.setAutoDelay(1000);
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.setAutoDelay(1000);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 }

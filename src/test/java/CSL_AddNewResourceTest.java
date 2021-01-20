@@ -1,10 +1,12 @@
-import com.lessonplanet.pages.*;
+import com.lessonplanet.pages.AddAResourcePage;
+import com.lessonplanet.pages.CSL_ContentManagerPage;
+import com.lessonplanet.pages.LoginPage;
+import com.lessonplanet.pages.RemoveResourceModal;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-import java.awt.*;
 import java.io.File;
 
 public class CSL_AddNewResourceTest extends BaseTest {
@@ -24,8 +26,8 @@ public class CSL_AddNewResourceTest extends BaseTest {
         rsl_contentManagerTest = new RSL_ContentManagerTest();
     }
 
-    @Test(description = "Custom SL - Content Manager - Add/Edit/Remove Resource")
-    public void testLessonp_1673()  {
+    @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource")
+    public void testLessonp_1673() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
@@ -76,8 +78,9 @@ public class CSL_AddNewResourceTest extends BaseTest {
         Assert.assertTrue(addAResourcePage.isDescriptionErrorTextDisplayed());
         addAResourcePage.hoverOverFinishButton();
         Assert.assertEquals(addAResourcePage.getDisabledFinishButtonPopoverText(), TestData.DISABLED_FINISH_BUTTON_POPOVER_TEXT);
+        String resourceTitle = TestData.ADD_A_RESOURCE_TITLE;
         addAResourcePage.pasteResourceUrl(TestData.RESOURCE_URL);
-        addAResourcePage.typeTitle(TestData.ADD_A_RESOURCE_TITLE);
+        addAResourcePage.typeTitle(resourceTitle);
         addAResourcePage.selectResourceType(TestData.ADD_A_RESOURCE_RESOURCE_TYPE);
         addAResourcePage.selectSubject(TestData.FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY);
         addAResourcePage.selectGrade(TestData.EDIT_COLLECTION_GRADE_HIGHER_ED);
@@ -85,7 +88,7 @@ public class CSL_AddNewResourceTest extends BaseTest {
         addAResourcePage.selectConcept(TestData.CONCEPT);
         addAResourcePage.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
         Assert.assertFalse(addAResourcePage.isAdditionalTagErrorTextDisplayed());
-        addAResourcePage.isEnabledFinishButtonDisplayed();
+        Assert.assertTrue(addAResourcePage.isEnabledFinishButtonDisplayed());
 
         addAResourcePage.clickOnContinueButton();
         Assert.assertEquals(addAResourcePage.getAddResourceStep(), TestData.ADD_A_THUMBNAIL_STEP_TITLE);
@@ -96,8 +99,8 @@ public class CSL_AddNewResourceTest extends BaseTest {
         addAResourcePage.pasteImageUrl(TestData.THUMBNAIL_IMAGE_URL);
         addAResourcePage.waitUntilThumbnailIsDisplayed();
         Assert.assertEquals(addAResourcePage.getThumbnailAttribute(), TestData.THUMBNAIL_IMAGE_URL);
-        File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + "test-upload-file");
-        addAResourcePage.uploadUsingKeys(file.getPath());
+        File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + TestData.UPLOADED_FILE_TITLE_TEXT);
+        addAResourcePage.uploadThumbnailImage(file.getPath());
         addAResourcePage.waitUntilUploadedFileIsDisplayed(TestData.UPLOADED_FILE_TITLE_TEXT);
         Assert.assertEquals(addAResourcePage.getUploadedFileText(), TestData.UPLOADED_FILE_TITLE_TEXT);
         Assert.assertFalse(addAResourcePage.getThumbnailAttribute().contains(TestData.THUMBNAIL_IMAGE_URL));
@@ -183,29 +186,33 @@ public class CSL_AddNewResourceTest extends BaseTest {
         addAResourcePage.pasteIncludedMaterialResourceUrl(TestData.COLLECTION_BUILDER_LINK);
 
         addAResourcePage.clickOnFinishButton();
-        Assert.assertTrue(csl_contentManagerPage.getNotificationText().contains(TestData.ADD_RESOURCE_NOTIFICATION));
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.ADD_RESOURCE_NOTIFICATION);
+        int noOfRefreshes = TestData.SHORT_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
-        } while (!csl_contentManagerPage.getResourceTitle(0).equals(TestData.ADD_A_RESOURCE_TITLE));
-        Assert.assertEquals(csl_contentManagerPage.getResourceTitle(0), TestData.ADD_A_RESOURCE_TITLE);
+            noOfRefreshes--;
+        } while (!(csl_contentManagerPage.getResourceTitle(0).equals(resourceTitle) || noOfRefreshes > 0));
+        Assert.assertEquals(csl_contentManagerPage.getResourceTitle(0), resourceTitle);
         Assert.assertTrue(csl_contentManagerPage.getResourceType(0).contains(TestData.ADD_A_RESOURCE_RESOURCE_TYPE));
         Assert.assertTrue(csl_contentManagerPage.getResourceGrades(0).contains(TestData.EDIT_COLLECTION_GRADE_HIGHER_ED));
 
         csl_contentManagerPage.clickOnEditResourceButton(0);
         addAResourcePage.typeTitle(TestData.EDIT_TITLE);
         addAResourcePage.clickOnFinishButton();
-        Assert.assertTrue(csl_contentManagerPage.getNotificationText().contains(TestData.UPDATE_RESOURCE_NOTIFICATION));
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.UPDATE_RESOURCE_NOTIFICATION);
+        noOfRefreshes = TestData.SHORT_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
-        } while (!csl_contentManagerPage.getResourceTitle(0).equals(TestData.ADD_A_RESOURCE_TITLE + TestData.EDIT_TITLE));
-        Assert.assertEquals(csl_contentManagerPage.getResourceTitle(0), TestData.ADD_A_RESOURCE_TITLE + TestData.EDIT_TITLE);
+            noOfRefreshes--;
+        } while (!(csl_contentManagerPage.getResourceTitle(0).equals(resourceTitle + TestData.EDIT_TITLE) || noOfRefreshes > 0));
+        Assert.assertEquals(csl_contentManagerPage.getResourceTitle(0), resourceTitle + TestData.EDIT_TITLE);
 
         csl_contentManagerPage.clickOnRemoveButton(0);
         removeResourceModal.clickOnRemoveButton();
-        Assert.assertTrue(csl_contentManagerPage.getNotificationText().contains(TestData.REMOVING_IMAGE_NOTIFICATION));
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.REMOVE_RESOURCE_NOTIFICATION);
         csl_contentManagerPage.waitForNotificationToDisappear();
 
         csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
-        Assert.assertTrue(!csl_contentManagerPage.getResourceTitle(0).equals(TestData.ADD_A_RESOURCE_TITLE + TestData.EDIT_TITLE));
+        Assert.assertTrue(!csl_contentManagerPage.getResourceTitle(0).equals(resourceTitle + TestData.EDIT_TITLE));
     }
 }

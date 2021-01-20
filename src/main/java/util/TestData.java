@@ -1,11 +1,5 @@
 package util;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -95,7 +89,7 @@ public class TestData {
     //Add a Resource
     public static final String ADD_A_RESOURCE_PATH = "/content-tool/resources/new";
     public static final String ADD_A_RESOURCE_RESOURCE_TYPE = "Interactive";
-    public static final String ADD_A_RESOURCE_TITLE = "Test New Resource";
+    public static final String ADD_A_RESOURCE_TITLE = "TestNewResource" + GET_CURRENT_TIME();
     public static final String RESOURCE_URL_PLACEHOLDER_TEXT = "Paste a resource URL";
     public static final String TITLE_PLACEHOLDER_TEXT = "Provide a title";
     public static final String RESOURCE_TYPE_PLACEHOLDER_TEXT = "Select a resource type";
@@ -116,9 +110,9 @@ public class TestData {
     public static final String ADD_ADDITIONAL_INFO_TITLE = "Add Additional Info";
     public static final String UPLOADED_FILE_TITLE_TEXT = "test-upload-file.png";
     public static final String THUMBNAIL_IMAGE_URL = "https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-    public static final String ADD_RESOURCE_NOTIFICATION = "Resource is currently being processed";
-    public static final String UPDATE_RESOURCE_NOTIFICATION = "Resource was successfully updated";
-    public static final String REMOVING_IMAGE_NOTIFICATION = "Resource scheduled for removal";
+    public static final String ADD_RESOURCE_NOTIFICATION = "Resource is currently being processed\n" + "×";
+    public static final String UPDATE_RESOURCE_NOTIFICATION = "Resource was successfully updated\n" + "×";
+    public static final String REMOVE_RESOURCE_NOTIFICATION = "Resource scheduled for removal\n" + "×";
     public static final String NGSS_STANDARDS = "PS2";
     public static final String NGSS_STANDARDS_PLACEHOLDER_TEXT = "Select NGSS identifiers";
     public static final String CCSS_STANDARDS = "CCRA.R.1";
@@ -135,14 +129,14 @@ public class TestData {
     public static final String DURATION = "1 hour";
     public static final String USAGE_PERMISSIONS = "NC-ND";
     public static final String USAGE_PERMISSIONS_I_ICON_POPOVER_TEXT = "Select and start typing to find a list of usage permissions";
-    public static final String CUSTOM_LICENCE_LINK_I_ICON_POPOVER_TEXT= "First select usage permissions and then paste a URL link to the terms of use page";
-    public static final String AUDIENCE_I_ICON_POPOVER_TEXT= "The default entry is \"For Teacher Use\". However, you may edit this field.";
-    public static final String INSTRUCTIONAL_STRATEGY_I_ICON_POPOVER_TEXT= "Select and start typing to find a list of instructional strategies";
-    public static final String LANGUAGE_I_ICON_POPOVER_TEXT= "Select language resource is written in";
-    public static final String PROS_I_ICON_POPOVER_TEXT= "Provide a bulleted list of pros for this resource";
-    public static final String CONS_I_ICON_POPOVER_TEXT= "Provide a bulleted list of cons for this resource";
-    public static final String INSTRUCTIONAL_IDEAS_I_ICON_POPOVER_TEXT= "What ideas do you have for using this resource?";
-    public static final String CLASSROOM_CONSIDERATIONS_I_ICON_POPOVER_TEXT= "Is there anything another educator should consider before using this resource?";
+    public static final String CUSTOM_LICENCE_LINK_I_ICON_POPOVER_TEXT = "First select usage permissions and then paste a URL link to the terms of use page";
+    public static final String AUDIENCE_I_ICON_POPOVER_TEXT = "The default entry is \"For Teacher Use\". However, you may edit this field.";
+    public static final String INSTRUCTIONAL_STRATEGY_I_ICON_POPOVER_TEXT = "Select and start typing to find a list of instructional strategies";
+    public static final String LANGUAGE_I_ICON_POPOVER_TEXT = "Select language resource is written in";
+    public static final String PROS_I_ICON_POPOVER_TEXT = "Provide a bulleted list of pros for this resource";
+    public static final String CONS_I_ICON_POPOVER_TEXT = "Provide a bulleted list of cons for this resource";
+    public static final String INSTRUCTIONAL_IDEAS_I_ICON_POPOVER_TEXT = "What ideas do you have for using this resource?";
+    public static final String CLASSROOM_CONSIDERATIONS_I_ICON_POPOVER_TEXT = "Is there anything another educator should consider before using this resource?";
     public static final String AUTHOR_PLACEHOLDER_TEXT = "Provide an author name";
     public static final String PUBLISHER_PLACEHOLDER_TEXT = "Provide a publisher name";
     public static final String USAGE_PERMISSIONS_PLACEHOLDER_TEXT = "Select usage permissions";
@@ -150,7 +144,7 @@ public class TestData {
     public static final String INSTRUCTIONAL_STRATEGY_PLACEHOLDER_TEXT = "Select an instructional strategy";
     public static final String LANGUAGE_PLACEHOLDER_TEXT = "Select the language(s) in which the resource is written";
     public static final String YEAR_PLACEHOLDER_TEXT = "Select a publication year";
-    public static final String DURATION_PLACEHOLDER_TEXT =  "Select a duration";
+    public static final String DURATION_PLACEHOLDER_TEXT = "Select a duration";
 
     //Curriculum Manager
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
@@ -286,10 +280,10 @@ public class TestData {
     public static final String FACET_CATEGORY_SUBJECTS_ENGLISH_LANGUAGE_ARTS = "English Language Arts";
     public static final String FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES = "World Languages";
 
-    public static final String RESOURCE_TYPE_PRESENTATION ="Presentation";
-    public static final String RESOURCE_TYPE_VIDEO ="Video";
-    public static final String RESOURCE_TYPE_GRAPHICS_AND_IMAGE ="Graphics & Image";
-    public static final String RESOURCE_TYPE_WEBSITE ="Website";
+    public static final String RESOURCE_TYPE_PRESENTATION = "Presentation";
+    public static final String RESOURCE_TYPE_VIDEO = "Video";
+    public static final String RESOURCE_TYPE_GRAPHICS_AND_IMAGE = "Graphics & Image";
+    public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
 
     //Account Manager
