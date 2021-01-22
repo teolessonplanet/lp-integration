@@ -91,6 +91,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public void clickOnAddToFolderDropdown() {
+        scrollToElement(ADD_TO_FOLDER_DROPDOWN);
         clickElement(ADD_TO_FOLDER_DROPDOWN);
     }
 
@@ -313,6 +314,7 @@ public class Rrp extends LpUiBasePage {
     }
 
     public void clickAddToFolderButton() {
+        scrollToElement(ADD_TO_FOLDER_BUTTON);
         clickElement(ADD_TO_FOLDER_BUTTON);
     }
 
