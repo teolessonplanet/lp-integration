@@ -107,6 +107,7 @@ public class AddAResourcePage extends LpUiBasePage {
     private static final String INCLUDED_MATERIAL_RESOURCE_TITLE_TEXT_FIELD = "[class*='ecc container included-materials-input'] [class*='add-included-material-title-group'] #title";
     private static final String INCLUDED_MATERIAL_RESOURCE_URL_TEXT_FIELD = "[class*='ecc container included-materials-input'] [class*=' add-included-material-url-group'] #url";
     private static final String UPLOADED_THUMBNAIL_IMAGE = "#uploaded_thumbnail";
+    private static final String EDIT_RESOURCE_TITLE = "[class='form-title']";
 
     private HeaderPage headerPage;
 
@@ -634,6 +635,10 @@ public class AddAResourcePage extends LpUiBasePage {
     public void selectAccessibility(String accessibility) {
         sendKeys(ACCESSIBILITY_DROPDOWN, accessibility);
         clickElement(ACCESSIBILITY_DROPDOWN_MATCHING_OPTION, 0);
+    }
+
+    public String getEditResourcePageTitle() {
+        return getTextForElement(EDIT_RESOURCE_TITLE);
     }
 
     private void pasteTextUsingSearchField(String cssSelector, String text) {

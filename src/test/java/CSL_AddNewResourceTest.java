@@ -197,6 +197,7 @@ public class CSL_AddNewResourceTest extends BaseTest {
         Assert.assertTrue(csl_contentManagerPage.getResourceGrades(0).contains(TestData.EDIT_COLLECTION_GRADE_HIGHER_ED));
 
         csl_contentManagerPage.clickOnEditResourceButton(0);
+        Assert.assertEquals(addAResourcePage.getEditResourcePageTitle(), TestData.EDIT_RESOURCE_PAGE_TITLE);
         addAResourcePage.typeTitle(TestData.EDIT_TITLE);
         addAResourcePage.clickOnFinishButton();
         Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.UPDATE_RESOURCE_NOTIFICATION);

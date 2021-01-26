@@ -145,6 +145,7 @@ public class TestData {
     public static final String LANGUAGE_PLACEHOLDER_TEXT = "Select the language(s) in which the resource is written";
     public static final String YEAR_PLACEHOLDER_TEXT = "Select a publication year";
     public static final String DURATION_PLACEHOLDER_TEXT = "Select a duration";
+    public static final String EDIT_RESOURCE_PAGE_TITLE = "Edit Resource";
 
     //Curriculum Manager
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
