@@ -27,7 +27,7 @@ public class CSL_AddNewResourceTest extends BaseTest {
     }
 
     @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource")
-    public void testLessonp_1673() {
+    public void testLessonp_1692() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
