@@ -121,6 +121,12 @@ public class LpUiBasePage {
         waitForLoad();
     }
 
+    protected void setValueForWebElement(WebElement webElement, String value) {
+        waitForLoad();
+        javascriptExecutor.executeScript("arguments[0].value='" + value + "';", webElement);
+        waitForLoad();
+    }
+
     protected void clearText(String cssSelector) {
         findElement(cssSelector).clear();
         waitForLoad();
@@ -591,6 +597,14 @@ public class LpUiBasePage {
     public String getElementAttribute(String cssSelector, String attributeName, int position) {
         try {
             return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
+        } catch (org.openqa.selenium.NoSuchElementException ex) {
+            return null;
+        }
+    }
+
+    public String getElementAttribute(String cssSelector, String attributeName) {
+        try {
+            return driver.findElement(By.cssSelector(cssSelector)).getAttribute(attributeName);
         } catch (org.openqa.selenium.NoSuchElementException ex) {
             return null;
         }
