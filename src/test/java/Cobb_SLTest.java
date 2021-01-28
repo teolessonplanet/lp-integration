@@ -9,6 +9,7 @@ public class Cobb_SLTest extends BaseTest {
     private CSL_SearchTest csl_searchTest;
     private SearchTest searchTest;
     private LoginPage loginPage;
+    private RSL_CalendarPageTest rsl_calendarPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -16,6 +17,7 @@ public class Cobb_SLTest extends BaseTest {
         csl_searchTest = new CSL_SearchTest();
         searchTest = new SearchTest();
         loginPage = new LoginPage(webDriver);
+        rsl_calendarPageTest = new RSL_CalendarPageTest();
     }
 
     protected void initTest(WebDriver webDriver) {
@@ -86,5 +88,11 @@ public class Cobb_SLTest extends BaseTest {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_CSL_COBB);
+    }
+
+    @Test(description = "Calendar page - lessonp-5514:Buttons/Links")
+    public void testLessonp_5514() {
+        rsl_calendarPageTest.initTest(webDriver);
+        rsl_calendarPageTest.testCurriculumCalendarPage(TestData.VALID_EMAIL_CSL_COBB);
     }
 }
