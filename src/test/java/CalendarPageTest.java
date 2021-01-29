@@ -78,11 +78,11 @@ public class CalendarPageTest extends BaseTest {
         calendarPage.waitForPageLoad();
         Assert.assertEquals(calendarPage.getPath(), TestData.SEARCH_PAGE_PATH + TestData.KEYWORD[index].replace(" ", "+").replace("'", "%27"));
         Assert.assertEquals(headerPage.getSearchText(), TestData.KEYWORD[index]);
-        if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO)||account.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
-            Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE + TestData.KEYWORD[index]));
-        } else {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB) || account.equalsIgnoreCase(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_1));
             Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_2 + TestData.KEYWORD[index]));
+        } else {
+            Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE + TestData.KEYWORD[index]));
         }
         discoverResourcesPage.goBackOnePage();
         calendarPage.waitForPageLoad();
