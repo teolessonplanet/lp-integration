@@ -155,7 +155,7 @@ public class EditCollectionTest extends BaseTest {
         testCreateCollectionSearchPage(TestData.NEW_COLLECTION_NAME);
         collectionBuilderPage.clickOnEditFolder(false);
         Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), TestData.FOLDER_NOT_PUBLISHED_TEXT);
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
         }
         for (int i = 0; i < 2; i++) {
@@ -170,7 +170,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickOnPublishFolder();
         publishCollectionModal.clickOnPublishCollectionButton();
         replaceExistingFolderModal.clickOnPublishNewButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             publishCollectionModal.clickOnCloseButton();
         } else {
             Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
@@ -180,7 +180,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickOnPublishFolder();
         publishCollectionModal.clickOnPublishCollectionButton();
         replaceExistingFolderModal.clickOnPublishAndReplaceButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             publishCollectionModal.clickOnCloseButton();
         } else {
             Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
@@ -189,7 +189,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickOnCloseButton();
         collectionBuilderPage.clickOnEditFolder(false);
         Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), (TestData.FOLDER_PUBLISHED_TEXT) + " " + editCollectionPage.getPublishedFolderMonth() + "/" + TestData.getCurrentDateWithTimezone() + "/" + TestData.getCurrentYear() + ".");
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
         }
     }
