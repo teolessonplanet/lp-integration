@@ -716,7 +716,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testAddRequiredInformationToPublishCollection(String accountPlanText) {
         testAddRegularResourceToFolder(accountPlanText);
         testCheckResourceIsAddedInFolder(TestData.ONE_RESOURCES);
-        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
             testAddSharedResourceToFolder();
         } else {
             testAddRegularResourceToFolder(accountPlanText);
@@ -808,7 +808,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         publishCollectionModal.chooseAudience();
         publishCollectionModal.typeConcept();
         publishCollectionModal.clickOnPublishCollectionButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             publishCollectionModal.clickOnCloseButton();
         } else {
             Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
