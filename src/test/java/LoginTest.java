@@ -1,7 +1,4 @@
-import com.lessonplanet.pages.HeaderPage;
-import com.lessonplanet.pages.LoginPage;
-import com.lessonplanet.pages.LpHomePage;
-import com.lessonplanet.pages.SignInModal;
+import com.lessonplanet.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
