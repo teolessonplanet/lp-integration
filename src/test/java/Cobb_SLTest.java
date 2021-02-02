@@ -11,6 +11,7 @@ public class Cobb_SLTest extends BaseTest {
     private LoginPage loginPage;
     private RSL_CalendarPageTest rsl_calendarPageTest;
     private EditCollectionTest editCollectionTest;
+    private HeaderTest headerTest;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -20,6 +21,7 @@ public class Cobb_SLTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
         rsl_calendarPageTest = new RSL_CalendarPageTest();
         editCollectionTest = new EditCollectionTest();
+        headerTest = new HeaderTest();
     }
 
     protected void initTest(WebDriver webDriver) {
@@ -131,5 +133,19 @@ public class Cobb_SLTest extends BaseTest {
         editCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         editCollectionTest.testItemOptions();
+    }
+
+    @Test(description = "Header - lessonp-5894: Header buttons")
+    public void testLessonp_5894() {
+        headerTest.initTest(webDriver);
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
+        headerTest.testHeaderButtons(TestData.VALID_EMAIL_CSL_COBB);
+    }
+
+    @Test(description = " Header - lessonp-5383: Search box")
+    public void testLessonp_5383() {
+        headerTest.initTest(webDriver);
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
+        headerTest.testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_CSL_COBB);
     }
 }
