@@ -54,6 +54,8 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
     private static final String HELP_BUTTON = "[href='https://www.learningexplorer.com/help-center/']";
 
+    private static final String RESOURCES_HEADER_TEXT = "[class='lp-header-title']";
+
     public HeaderPage(WebDriver driver) {
         super(driver);
     }
@@ -313,5 +315,13 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnHelpCenterFaqButton() {
         clickElement(HELP_CENTER_FAQ_BUTTON);
+    }
+
+    public boolean isResourcesHeaderTextDisplayed() {
+        return isElementDisplayed(RESOURCES_HEADER_TEXT);
+    }
+
+    public void clickOnResourcesHeaderText() {
+        clickElement(RESOURCES_HEADER_TEXT);
     }
 }
