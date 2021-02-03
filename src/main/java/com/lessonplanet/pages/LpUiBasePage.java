@@ -3,12 +3,12 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import util.ExecutionTimer;
 import util.TestData;
 
 import java.util.ArrayList;
@@ -20,36 +20,45 @@ public class LpUiBasePage {
     protected WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
+    private ExecutionTimer executionTimer;
     private boolean isQaIntegrationCookieCreated = false;
 
     protected LpUiBasePage(WebDriver driver) {
         this.driver = driver;
         javascriptExecutor = (JavascriptExecutor) driver;
         webDriverWait = new WebDriverWait(driver, TestData.TIMEOUT);
+        executionTimer = new ExecutionTimer();
     }
 
-    protected WebElement findElement(String cssLocator) {
-        waitForElement(cssLocator);
-        return driver.findElement(By.cssSelector(cssLocator));
+    protected WebElement findElement(String cssSelector) {
+        logStart("Wait start " + cssSelector);
+        waitForElement(cssSelector);
+        logEnd("Wait end " + cssSelector);
+        return driver.findElement(By.cssSelector(cssSelector));
     }
 
     protected boolean isElementClickable(String cssSelector) {
         waitForLoad();
+        logStart("Element is clickable? " + cssSelector);
         try {
             WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
             webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+            logEnd("Element is clickable! " + cssSelector);
             return true;
         } catch (Exception e) {
+            logEnd("Element is not clickable!  " + cssSelector);
             return false;
         }
     }
 
     protected boolean isElementVisible(String cssSelector) {
+        logStart("Element is visible?  " + cssSelector);
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+            logEnd("Element is visible!  " + cssSelector);
             return true;
         } catch (TimeoutException timeoutException) {
-            logger.error("The element " + cssSelector + " is not visible");
+            logEnd("Element " + cssSelector + " is not visible");
             return false;
         }
     }
@@ -61,29 +70,27 @@ public class LpUiBasePage {
 
     protected void waitForElementToBeVisible(String cssSelector) {
         waitForLoad();
-        logger.info("Wait until the webElement is visible: " + cssSelector);
+        logStart("Element is visible? " + cssSelector);
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+            logEnd("Element is visible! " + cssSelector);
         } catch (TimeoutException timeoutException) {
-            logger.error("The element " + cssSelector + " cannot be clicked");
+            logEnd("Element is not visible " + cssSelector);
         }
     }
 
     private void waitUntilElementIsClickable(WebElement webElement) {
+        logStart("Wait until visible " + webElement);
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+        logEnd("Element is visible " + webElement);
+        logStart("Wait until clickable " + webElement);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        logEnd("Element is clickable! " + webElement);
     }
 
     public void uploadUsingTextInput(String fileNameSelector, String path) {
         try {
             sendKeys(fileNameSelector, path);
-            //TODO: remove this if upload is stable
-//            clickElement(fileNameSelector);
-//            driver.switchTo().activeElement().sendKeys(path);
-//            Robot robot = new Robot();
-//            robot.waitForIdle();
-//            robot.keyPress(KeyEvent.VK_ESCAPE);
-//            robot.keyRelease(KeyEvent.VK_ESCAPE);
         } catch (Exception e) {
             logger.info("Cannot upload file");
         }
@@ -95,11 +102,15 @@ public class LpUiBasePage {
     }
 
     protected List<WebElement> findElements(WebElement element, String cssSelector) {
+        List<WebElement> result;
         waitForElement(cssSelector);
         try {
-            return element.findElements(By.cssSelector(cssSelector));
+            logStart("Find elements " + cssSelector + " in element" + element);
+            result = element.findElements(By.cssSelector(cssSelector));
+            logEnd("Elements " + cssSelector + " was found in element " + element);
+            return result;
         } catch (Exception e) {
-            logger.info("The element " + cssSelector + " cannot be found in the current webElement");
+            logEnd("Element " + cssSelector + " cannot be found in the current " + element);
         }
         return null;
     }
@@ -108,10 +119,14 @@ public class LpUiBasePage {
         waitForLoad();
         logger.info("Wait until the webElement is clickable: " + cssSelector);
         try {
+            logStart("Wait until the webElement is visible: " + cssSelector);
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+            logEnd("WebElement is clickable: " + cssSelector);
+            logStart("Wait until the webElement is clickable: " + cssSelector);
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+            logEnd("WebElement is clickable: " + cssSelector);
         } catch (TimeoutException timeoutException) {
-            logger.error("The element " + cssSelector + " cannot be clicked");
+            logEnd("The element " + cssSelector + " is not visible or clickable");
         }
     }
 
@@ -140,16 +155,23 @@ public class LpUiBasePage {
         waitForLoad();
         boolean elementWasClicked = false;
         int attempts = TestData.SHORT_TIMEOUT;
+//        logStart("Click on webElement " + webElement);
+        logger.info("Click on webElement " + webElement);
         do {
             try {
                 waitUntilElementIsClickable(webElement);
                 webElement.click();
                 elementWasClicked = true;
+//                logEnd("Clicked on webElement " + webElement);
+                logger.info("Clicked on webElement " + webElement);
             } catch (Exception ex) {
                 logger.error("The element " + webElement + " still no clickable");
                 attempts--;
             }
         } while (!elementWasClicked && attempts > 0);
+        if (attempts == 0) {
+            throw new Error(" Unable to click on webElement " + webElement);
+        }
         waitForLoad();
     }
 
@@ -186,7 +208,8 @@ public class LpUiBasePage {
 
     protected String getTextForElement(WebElement element, String cssLocator) {
         waitForLoad();
-        findElement(cssLocator);
+//        findElement(cssLocator);
+        //TODO: test if it works without it
         return findElements(element, cssLocator).get(0).getText();
     }
 
@@ -238,7 +261,7 @@ public class LpUiBasePage {
     }
 
     public void waitForPageLoad() {
-        logger.info("Waiting for jQuery to complete");
+        logStart("Waiting for jQuery to complete");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -246,30 +269,32 @@ public class LpUiBasePage {
                     return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
                 }
             });
-            logger.info("jQuery completed");
+            logEnd("jQuery completed");
         } catch (Exception ex) {
-            logger.error("jQuery is not completed: " + ex.toString());
+            logEnd("jQuery is not completed: " + ex.toString());
         }
         waitUntilDocumentIsReady();
     }
 
     public void waitUntilDocumentIsReady() {
-        logger.info("Waiting for document to be ready");
+        logStart("Waiting for document to be ready");
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 return (Boolean) javascriptExecutor.executeScript("return document.readyState == 'complete'");
             }
         });
-        logger.info("document is ready");
+        logEnd("Document is ready");
     }
 
     public void waitForLoad() {
+        logger.info("Waiting for load");
         waitForLinkToLoad();
         waitForPageLoad();
         waitUntilDocumentIsReady();
         waitForAngularLoad();
         waitForAxiosRequests();
+        logger.info("Waited for load");
     }
 
     //Wait for Angular Load
@@ -281,7 +306,7 @@ public class LpUiBasePage {
             "} else {" +
             "return true;" +
             "}";
-
+        logStart("Waiting for Angular to load");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -289,14 +314,15 @@ public class LpUiBasePage {
                     try {
                         return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
                     } catch (Exception ex) {
-                        logger.info("Angular is not defined");
+                        logEnd("Angular is not defined");
                         return true;
                     }
                 }
             });
         } catch (Exception ex) {
-            logger.info("The Angular modal is not found " + ex.toString());
+            logEnd("The Angular modal is not found " + ex.toString());
         }
+        logEnd("Waited for Angular to load");
     }
 
     public void waitForAxiosRequests() {
@@ -304,7 +330,7 @@ public class LpUiBasePage {
             "    return window.axios_requests == 0" +
             "  }else{" +
             "    return true;}";
-        //Wait for Axios to load
+        logStart("Wait for Axios to load");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -313,9 +339,9 @@ public class LpUiBasePage {
                 }
             });
         } catch (Exception ex) {
-            logger.info("The Axios modal is not found " + ex.toString());
+            logEnd("The Axios modal is not found " + ex.toString());
         }
-
+        logEnd("Waited for Axios to load");
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
@@ -392,15 +418,19 @@ public class LpUiBasePage {
     }
 
     protected void waitUntilElementIsDisplayed(WebElement webElement) {
+        logStart("Wait until webElement is displayed " + webElement);
         try {
             webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (Exception ex) {
-            logger.info("Element is not visible");
+            logEnd("WebElement is not displayed " + webElement);
         }
+        logEnd("Waited to webElement to be displayed " + webElement);
     }
 
     protected void waitUntilTextIsDisplayed(String cssSelector, String text) {
+        logStart("Waiting until text is " + text + " displayed for webElement " + cssSelector);
         webDriverWait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(cssSelector), text));
+        logEnd("Waited until text was " + text + " displayed for webElement " + cssSelector);
     }
 
     private boolean isOnTop(WebElement element) {
@@ -481,12 +511,14 @@ public class LpUiBasePage {
     }
 
     public void waitForLinkToLoad() {
+        logStart("Wait for link to load");
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 return (!driver.getCurrentUrl().contains(TestData.EMPTY_URL));
             }
         });
+        logEnd("Waited for link to load");
     }
 
     public void waitForNewTab() {
@@ -520,6 +552,7 @@ public class LpUiBasePage {
 
     public void waitForBootstrapModalToBeVisible(String modalId) {
         waitForLoad();
+        logStart("Waiting for Bootstrap modal to be visible " + modalId);
         try {
             webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
@@ -531,16 +564,18 @@ public class LpUiBasePage {
                 },
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
             ));
+            logEnd("Waited for Bootstrap modal to be visible " + modalId);
             waitForLoad();
 //            TODO: uodate modal-backdrop
 //            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
         } catch (Exception ex) {
-            logger.info("The Bootstrap modal is not visible " + ex.toString());
+            logEnd("The Bootstrap modal is not visible " + ex.toString());
         }
     }
 
     public void waitForReactModalToBeVisible() {
         waitForLoad();
+        logStart("Wait for React modal to be visible");
         try {
             webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
@@ -552,10 +587,11 @@ public class LpUiBasePage {
                 },
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
             ));
+            logEnd("Waited for React modal to be visible");
             waitForLoad();
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal-overlay")));
         } catch (Exception ex) {
-            logger.info("The React modal is not visible " + ex.toString());
+            logEnd("The React modal is not visible " + ex.toString());
         }
     }
 
@@ -655,4 +691,14 @@ public class LpUiBasePage {
             System.out.println("No alert found on page");
         }
     }
+
+    protected void logStart(String message) {
+        logger.info(message);
+        executionTimer.start();
+    }
+
+    protected void logEnd(String message) {
+        logger.info(executionTimer.toString() + message);
+    }
+
 }
