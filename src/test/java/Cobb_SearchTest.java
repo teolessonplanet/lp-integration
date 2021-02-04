@@ -4,14 +4,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Cobb_SLTest extends BaseTest {
+public class Cobb_SearchTest extends BaseTest {
     private RSL_SearchTest rsl_searchTest;
     private CSL_SearchTest csl_searchTest;
     private SearchTest searchTest;
     private LoginPage loginPage;
-    private RSL_CalendarPageTest rsl_calendarPageTest;
-    private EditCollectionTest editCollectionTest;
-    private HeaderTest headerTest;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -19,14 +16,6 @@ public class Cobb_SLTest extends BaseTest {
         csl_searchTest = new CSL_SearchTest();
         searchTest = new SearchTest();
         loginPage = new LoginPage(webDriver);
-        rsl_calendarPageTest = new RSL_CalendarPageTest();
-        editCollectionTest = new EditCollectionTest();
-        headerTest = new HeaderTest();
-    }
-
-    protected void initTest(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        beforeMethod();
     }
 
     @Test(description = "Search Page - lessonp-5918: User clicks 'See Collection' footer button")
@@ -92,60 +81,5 @@ public class Cobb_SLTest extends BaseTest {
         searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_CSL_COBB);
-    }
-
-    @Test(description = "Calendar page - lessonp-5514:Buttons/Links")
-    public void testLessonp_5514() {
-        rsl_calendarPageTest.initTest(webDriver);
-        rsl_calendarPageTest.testCurriculumCalendarPage(TestData.VALID_EMAIL_CSL_COBB);
-    }
-
-    @Test(description = "Edit Collection - lessonp-5897: Edit Collection Modal Appearance")
-    public void testLessonp_5897() {
-        editCollectionTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_COBB, false, TestData.NEW_FOLDER_NAME);
-    }
-
-    @Test(description = "Edit Collection - lessonp-5898: Edit Collection Static Page Appearance")
-    public void testLessonp_5898() {
-        editCollectionTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_COBB, true, TestData.NEW_FOLDER_NAME);
-    }
-
-    @Test(description = "Edit Collection - lessonp-5899: Publish. Republish")
-    public void testLessonp_5899() {
-        editCollectionTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_CSL_COBB);
-    }
-
-    @Test(description = "Edit Collection - lessonp-5900: Edit Collection Buttons")
-    public void testLessonp_5900() {
-        editCollectionTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        editCollectionTest.testEditFolderButtons(TestData.VALID_EMAIL_CSL_COBB, TestData.COPIED_FOLDER_NAME);
-    }
-
-    @Test(description = "Edit Collection - lessonp-5901: Item Options")
-    public void testLessonp_5901() {
-        editCollectionTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        editCollectionTest.testItemOptions();
-    }
-
-    @Test(description = "Header - lessonp-5894: Header buttons")
-    public void testLessonp_5894() {
-        headerTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        headerTest.testHeaderButtons(TestData.VALID_EMAIL_CSL_COBB);
-    }
-
-    @Test(description = " Header - lessonp-5383: Search box")
-    public void testLessonp_5383() {
-        headerTest.initTest(webDriver);
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        headerTest.testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_CSL_COBB);
     }
 }
