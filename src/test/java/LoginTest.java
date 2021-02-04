@@ -20,15 +20,16 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality")
     public void testLessonp_5033() {
-        testLoginFlow(TestData.VALID_EMAIL_FREEMIUM);
+        testLoginFlow(createNewUser(TestData.PLAN_FREEMIUM));
     }
 
     @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality")
     public void testLessonp_5034() {
-        testLoginFlow(TestData.VALID_EMAIL_ACTIVE);
+        testLoginFlow(createNewUser(TestData.PLAN_PRIME));
     }
 
     private void testLoginFlow(String email) {
+        beforeMethod();
         lpHomePage.loadPage();
         headerPage.clickOnSignInButton(false);
         Assert.assertEquals(TestData.SIGN_IN_MODAL_TITLE_TEXT, signInModal.getModalTitle());
