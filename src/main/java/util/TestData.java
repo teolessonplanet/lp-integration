@@ -234,8 +234,6 @@ public class TestData {
     public static final String INVALID_EMAIL = "bla@bla.com";
     public static final String INVALID_PASSWORD = "J*(Y@D#DfJVnd*(^sd";
     public static final String VALID_EMAIL_ADMIN = "admin";
-    public static final String VALID_EMAIL_FREEMIUM = "freemember@lp.com";
-    public static final String VALID_EMAIL_ACTIVE = "active@lp.com";
     public static final String VALID_EMAIL_PRO = "pro-user@lp.com";
     public static final String VALID_EMAIL_STARTER = "starter-user@lp.com";
     public static final String VALID_PASSWORD = "test123";

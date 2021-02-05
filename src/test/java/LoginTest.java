@@ -29,7 +29,6 @@ public class LoginTest extends BaseTest {
     }
 
     private void testLoginFlow(String email) {
-        beforeMethod();
         lpHomePage.loadPage();
         headerPage.clickOnSignInButton(false);
         Assert.assertEquals(TestData.SIGN_IN_MODAL_TITLE_TEXT, signInModal.getModalTitle());

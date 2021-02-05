@@ -18,8 +18,7 @@ public class BaseTest {
 
     protected String createNewUser(String accountPlan) {
         String account = stepTwoPage.createNewAccount(accountPlan);
-        tearDown();
-        init();
+        webDriver.manage().deleteAllCookies();
         return account;
     }
 
