@@ -145,7 +145,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed() || collectionRrpModal.isSavedCollectionButtonDisabled());
         Assert.assertTrue(collectionRrpModal.isPlayCollectionButtonDisplayed());
-        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (collectionRrpModal.getResourcePoolName().equals(TestData.FACET_PROVIDERS_LESSONPLANET) && !account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             Assert.assertTrue(collectionRrpModal.isShareButtonDisplayed());
         } else {
             Assert.assertFalse(collectionRrpModal.isShareButtonDisplayed());
