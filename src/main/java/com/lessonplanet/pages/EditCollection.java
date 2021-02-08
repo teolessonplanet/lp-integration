@@ -420,8 +420,8 @@ public class EditCollection extends CreateNewFolderModal {
 
     public void publishCollection(String collectionTitle, String grade, String subject, String description) {
         typeTitle(collectionTitle);
-        selectGrade(grade);
         typeDescription(description);
+        selectGrade(grade);
         selectSubject(subject);
         waitUntilPublishFolderButtonIsEnabled();
         clickOnPublishFolder();
