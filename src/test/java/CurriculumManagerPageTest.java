@@ -488,7 +488,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             uploadFileModal.clickOnPublishOnLessonPlanetButton();
             publishResourceModal();
         } else {
-            if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
+            if ((accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && !editCollection) {
                 uploadFileModal.hoverOverDisabledPublishButton();
                 Assert.assertEquals(uploadFileModal.getDisabledPublishButtonPopoverText(), TestData.DISABLED_PUBLISH_UPLOADED_FILE_POPOVER_TEXT);
             }
@@ -540,7 +540,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteRegularResource(String accountPlanText) {
         discoverResourcesPage.loadSearchPageInListView();
-        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -654,7 +654,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             testEditResource();
             testPlayResource(accountPlanText);
-            if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
+            if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB))) {
                 testPublishUploadResourceFromActionsDropdown();
             }
             testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
@@ -876,7 +876,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testFavoriteResources(String accountPlanText) {
         testFavoriteRegularResource(accountPlanText);
-        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
+        if ((!accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) && (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) && (!accountPlanText.equals(TestData.PLAN_PRO))) {
             testFavoriteSharedResource();
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
