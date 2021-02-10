@@ -238,10 +238,12 @@ public class CollectionPlayerTest extends BaseTest {
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH);
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
                 //VIDEO
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SPECIAL_EDUCATION_AND_PROGRAMS);
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS:

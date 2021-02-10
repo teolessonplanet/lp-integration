@@ -274,6 +274,8 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES = "Handouts & References";
     public static final String FACET_CATEGORY_SUBJECTS = "Subjects";
     public static final String FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY = "Social Studies & History";
+    public static final String FACET_CATEGORY_SUBJECTS_TYPE_SPECIAL_EDUCATION_AND_PROGRAMS = "Special Education & Programs";
+    public static final String FACET_CATEGORY_SUBJECTS_TYPE_MATH = "Math";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_WEBSITES = "Websites";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES = "Graphics & Images";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_VIDEOS = "Videos";
@@ -282,6 +284,7 @@ public class TestData {
 
     public static final String RESOURCE_TYPE_PRESENTATION = "Presentation";
     public static final String RESOURCE_TYPE_VIDEO = "Video";
+    public static final String RESOURCE_TYPE_AP_TEST_PREP = "AP Test Prep";
     public static final String RESOURCE_TYPE_GRAPHICS_AND_IMAGE = "Graphics & Image";
     public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
