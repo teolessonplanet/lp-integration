@@ -332,9 +332,9 @@ public class RSL_AccountManagerTest extends BaseTest {
             }
         } else {
             Assert.assertTrue(districtPage.getNoSearchResultsText().contains(TestData.NO_SEARCH_RESULTS_TEXT) && districtPage.getNoSearchResultsText().contains(text));
+            districtPage.clickOnSearchButton();
         }
-        districtPage.clickOnSearchButton();
-        districtPage.clickClearSearchButton();
+        districtPage.clearSearchText();
     }
 
     public void testAddSchoolsModal(String newName, String existingName) {

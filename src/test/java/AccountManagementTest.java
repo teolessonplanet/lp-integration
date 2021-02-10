@@ -228,7 +228,8 @@ public class AccountManagementTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRO);
 
         myAccountPage.loadPage();
-        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+        //TODO: remove this - after Jeff changes the code
+        Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_PLUS_OPTION_TEXT);
         Assert.assertFalse(myAccountPage.isUpgradeYourPlanButtonDisplayed());
         myAccountPage.clickOnManageMembershipLink();
         Assert.assertEquals(manageMembershipPage.getTitleText(), TestData.MANAGE_MEMBERSHIP_TITLE_MESSAGE);
@@ -355,7 +356,8 @@ public class AccountManagementTest extends BaseTest {
 
         myAccountPage.loadPage();
         if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
-            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+            //TODO: remove this - after Jeff changes the code
+            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_PLUS_OPTION_TEXT);
         } else {
             Assert.assertTrue(subscriptionToTest.contains(myAccountPage.getPlan().toLowerCase()));
         }
@@ -404,7 +406,8 @@ public class AccountManagementTest extends BaseTest {
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
         if (subscriptionToTest.equals(TestData.PLAN_PRO)) {
-            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_OPTION_TEXT);
+            //TODO: remove this - after Jeff changes the code
+            Assert.assertEquals(myAccountPage.getPlan(), TestData.PRO_PLUS_OPTION_TEXT);
         } else {
             Assert.assertTrue(subscriptionToTest.contains(myAccountPage.getPlan().toLowerCase()));
         }

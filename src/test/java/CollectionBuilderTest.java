@@ -211,6 +211,7 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderPage.clickOnMyResources();
             Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
             Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
+            collectionBuilderPage.clickOnCollectionDroppableZone();
         } else {
             collectionBuilderPage.clickOnMyResources();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));

@@ -56,6 +56,10 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return findElement(COLLECTION_DROPPABLE_ZONE);
     }
 
+    public void clickOnCollectionDroppableZone() {
+        clickElement(COLLECTION_DROPPABLE_ZONE);
+    }
+
     public void clickOnMyResources() {
         scrollToElement(MY_RESOURCES_BUTTON);
         clickElement(MY_RESOURCES_BUTTON);

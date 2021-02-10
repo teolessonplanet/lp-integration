@@ -11,7 +11,7 @@ import java.util.List;
 public class ManageMembershipPage extends LpUiBasePage {
 
     private static final String OFFER_CONTAINERS = "[class='plan-container']";
-    private static final String SELECT_BUTTONS = "button[name='button']";
+    private static final String SELECT_BUTTONS = "[class='panel-footer'] form[action='/subscription']";
     private static final String TITLE_TEXT = "[class='mt0']";
     private static final String DISPLAYED_OFFERS_TEXT = "[class*='panel-offer'] [class*='panel-title']";
     private static final String MORE_ACCOUNT_OPTIONS_BUTTON = "[class*='more-options-button'] [href='/cancellation/new']";

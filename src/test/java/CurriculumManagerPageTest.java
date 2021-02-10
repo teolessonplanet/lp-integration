@@ -424,7 +424,10 @@ public class CurriculumManagerPageTest extends BaseTest {
         if (upgradeMaxFolderModal.isModalDisplayed()) {
             testUpgradeModalFromMaxFolderLimit();
         } else {
-            testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, folderType);
+            createNewFolderModal.chooseFolderType(folderType);
+            createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
+            createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
+            createNewFolderModal.clickOnCreateFolderButton();
         }
     }
 
