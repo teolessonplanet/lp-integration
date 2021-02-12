@@ -279,7 +279,7 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_WEBSITES = "Websites";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES = "Graphics & Images";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_VIDEOS = "Videos";
-    public static final String FACET_CATEGORY_SUBJECTS_ENGLISH_LANGUAGE_ARTS = "English Language Arts";
+    public static final String FACET_CATEGORY_SUBJECTS_CLASSROOM_SUPPORT = "Classroom Support";
     public static final String FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES = "World Languages";
 
     public static final String RESOURCE_TYPE_PRESENTATION = "Presentation";
