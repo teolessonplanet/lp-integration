@@ -387,27 +387,42 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(schoolPage.isSearchButtonDisplayed());
         Assert.assertTrue(schoolPage.isAddButtonDisplayed());
         if (schoolPage.isTeachersListDisplayed()) {
-            for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
-                Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
-                Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
-                schoolPage.hoverOverEditButton(i);
-                if (!sso) {
+            if (district) {
+                for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
+                    Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
+                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
+                    schoolPage.hoverOverEditButton(i);
+                    if (!sso) {
+                        if (!schoolPage.getTeacherJoinedDate(i).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
+                            Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
+                        } else {
+                            Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
+                        }
+                    } else {
+                        if (!roster) {
+                            Assert.assertFalse(schoolPage.getTeacherJoinedDate(i).contains(TestData.UNREGISTERED_TEACHER_STATUS));
+                        }
+                        Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
+                    }
+                    schoolPage.hoverOverRemoveButton(i);
+                    if (!roster) {
+                        Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT));
+                    } else {
+                        Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
+                    }
+                }
+            } else {
+                for (int i = 0; i < 4; i++) {
+                    Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
+                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
+                    schoolPage.hoverOverEditButton(i);
                     if (!schoolPage.getTeacherJoinedDate(i).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
                         Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
                     } else {
                         Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
                     }
-                } else {
-                    if (!roster) {
-                        Assert.assertFalse(schoolPage.getTeacherJoinedDate(i).contains(TestData.UNREGISTERED_TEACHER_STATUS));
-                    }
-                    Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
-                }
-                schoolPage.hoverOverRemoveButton(i);
-                if (!roster) {
+                    schoolPage.hoverOverRemoveButton(i);
                     Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT));
-                } else {
-                    Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
                 }
             }
             if (!roster) {

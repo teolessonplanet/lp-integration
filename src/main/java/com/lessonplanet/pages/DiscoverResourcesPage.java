@@ -65,6 +65,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickOnTiledView() {
+        scrollToElement(TILED_VIEW_BUTTON);
         clickViewModeButton(TILED_VIEW_BUTTON);
     }
 
@@ -129,6 +130,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void selectFacetFilter(String facetCategoryName, String facetName) {
+        scrollToElement(FACETS_CATEGORIES);
         clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
     }
 

@@ -387,6 +387,7 @@ public class LpUiBasePage {
         if (resetPosition) {
             hoverOverElement("[class*='lp-header-search-icon']");
         }
+        scrollToElement(webElement);
         hoverOverElement(webElement);
     }
 
