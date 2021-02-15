@@ -26,6 +26,7 @@ public class AssignFolderModalTest extends BaseTest {
 
         assignModal.clickOnGoogleClassroomButton();
         assignModal.focusDriverToLastTab();
+        assignModal.waitForLinkToLoad();
         Assert.assertTrue(assignModal.getUrl().contains(TestData.GOOGLE_URL));
         assignModal.closeTab();
 

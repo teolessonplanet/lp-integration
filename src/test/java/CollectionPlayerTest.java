@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -6,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionPlayerTest extends BaseTest {
@@ -190,10 +192,16 @@ public class CollectionPlayerTest extends BaseTest {
         collectionPlayerPage.waitUntilNavigatorItemSliderIsHidden();
         collectionPlayerPage.clickOnUpArrowButton();
         List<WebElement> collectionItems = collectionPlayerPage.getCollectionItemsList();
-        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(0)), TestData.RESOURCE_TYPE_PRESENTATION);
-        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(1)), TestData.RESOURCE_TYPE_VIDEO);
-        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(2)), TestData.RESOURCE_TYPE_GRAPHICS_AND_IMAGE);
-        Assert.assertEquals(collectionPlayerPage.getCollectionItemType(collectionItems.get(3)), TestData.RESOURCE_TYPE_WEBSITE);
+        ArrayList<String> expectedTypes = new ArrayList<>();
+        ArrayList<String> actualTypes = new ArrayList<>();
+        actualTypes.add(TestData.RESOURCE_TYPE_PRESENTATION);
+        actualTypes.add(TestData.RESOURCE_TYPE_VIDEO);
+        actualTypes.add(TestData.RESOURCE_TYPE_GRAPHICS_AND_IMAGE);
+        actualTypes.add(TestData.RESOURCE_TYPE_WEBSITE);
+        for (WebElement element : collectionItems) {
+            expectedTypes.add(collectionPlayerPage.getCollectionItemType(element));
+        }
+        Assert.assertTrue(actualTypes.containsAll(expectedTypes));
 
         Assert.assertEquals(collectionPlayerPage.getPositionOfSelectedItem(), 0);
         checkButtons(accountType, TestData.RESOURCE_TYPE_PRESENTATION);
@@ -238,15 +246,19 @@ public class CollectionPlayerTest extends BaseTest {
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
+                if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
+                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH);
+                }
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
                 //VIDEO
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SPECIAL_EDUCATION_AND_PROGRAMS);
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS:
                 //PDF - PPT
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_ENGLISH_LANGUAGE_ARTS);
+                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_CLASSROOM_SUPPORT);
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
                 break;
         }
@@ -270,9 +282,6 @@ public class CollectionPlayerTest extends BaseTest {
                 case TestData.RESOURCE_TYPE_VIDEO:
                 case TestData.RESOURCE_TYPE_WEBSITE:
                     Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
-                    break;
-                default:
-                    Assert.assertTrue(collectionPlayerPage.isDownloadButtonDisplayed());
                     break;
             }
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonDisplayed());
