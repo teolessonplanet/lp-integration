@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -245,7 +246,9 @@ public class CollectionPlayerTest extends BaseTest {
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH);
+                if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
+                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH);
+                }
                 discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
@@ -279,9 +282,6 @@ public class CollectionPlayerTest extends BaseTest {
                 case TestData.RESOURCE_TYPE_VIDEO:
                 case TestData.RESOURCE_TYPE_WEBSITE:
                     Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
-                    break;
-                default:
-                    Assert.assertTrue(collectionPlayerPage.isDownloadButtonDisplayed());
                     break;
             }
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonDisplayed());
