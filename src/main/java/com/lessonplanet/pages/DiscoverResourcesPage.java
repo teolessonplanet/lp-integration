@@ -207,6 +207,13 @@ public class DiscoverResourcesPage extends ResourcesPage {
         } catch (Exception exception) {
             logger.info("The facet Content Curators was not found " + exception.toString());
         }
+
+        try {
+            driver.findElement(By.cssSelector("[class='lp-filter-group parent-provider_ids'] [class='lp-filter-head']")).click();
+            logger.info("The Provider facet was collapsed ");
+        } catch (Exception ex) {
+            logger.info("The Provider facet was already collapsed " + ex.toString());
+        }
     }
 
     public void scrollToTop() {
