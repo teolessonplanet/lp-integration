@@ -61,7 +61,7 @@ public class WebDriverFactory {
             options.addArguments("disable-infobars");
             if (headlessBrowser) {
                 options.addArguments("headless");
-                options.addArguments("window-size=1920x1080");
+                options.addArguments("window-size=1920x2160");
             }
             WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver(options);
@@ -80,7 +80,7 @@ public class WebDriverFactory {
             WebDriverManager.firefoxdriver().setup();
             webDriver = new FirefoxDriver(firefoxOptions);
             if (headlessBrowser) {
-                webDriver.manage().window().setSize(new Dimension(1920, 1080));
+                webDriver.manage().window().setSize(new Dimension(1920, 2160));
             }
         } else {
             throw new IllegalArgumentException("Browser name is incorrectly set in VM options");
