@@ -192,7 +192,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeeReview(boolean inANewTab) {
-        scrollToElement(SEE_REVIEW_BUTTON);
         clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
@@ -219,7 +218,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeeFullReview(boolean inANewTab) {
-        scrollToElement(SEE_FULL_REVIEW_BUTTON);
         clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -373,7 +371,6 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public List<WebElement> getSharedResourcesCardsInThumbnailView() {
-        scrollToElement(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW);
         return getResourceOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE_IN_THUMBNAIL_VIEW);
     }
 
