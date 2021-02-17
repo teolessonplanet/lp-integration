@@ -61,7 +61,7 @@ public class WebDriverFactory {
             options.addArguments("disable-infobars");
             if (headlessBrowser) {
                 options.addArguments("headless");
-                options.addArguments("window-size=1920x1080");
+                options.addArguments("window-size=1920x2160");
             }
             WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver(options);
