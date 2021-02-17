@@ -239,11 +239,11 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+27+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+74+1280189@lessonplanet.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
-    public static final String VALID_EMAIL_CSL_COBB = "testuser+2+2312913@lessonplanet.com";
+    public static final String VALID_EMAIL_CSL_COBB = "testuser+54+2312913@lessonplanet.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -322,12 +322,12 @@ public class TestData {
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
-    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+9+989124@lessonplanet.com";
+    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+73+989124@lessonplanet.com";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Ashley";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+69+958202@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+64+958202@lessonplanet.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";

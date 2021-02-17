@@ -42,7 +42,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String MOVE_TO_OPTION = "[class*='fa-arrow-right']";
     private static final String FOLDER_TYPE = " .info.type.persistent";
     private static final String ACTIONS_DROPDOWN_OPTIONS = "[class='action-dropdown'] [class='options actions']";
-    private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#new_curriculum_manager h1";
+    private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#curriculum_manager h1";
 
     private static final String ACTIONS_DROPDOWN_BUTTON = "[class='group-info'] [class='action-dropdown']";
     private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item edit']";
