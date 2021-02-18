@@ -239,11 +239,11 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "testuser+74+1280189@lessonplanet.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = " i_o_rsl_laguna@lp.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
-    public static final String VALID_EMAIL_CSL_COBB = "testuser+54+2312913@lessonplanet.com";
+    public static final String VALID_EMAIL_CSL_COBB = "i_o_csl_cobb@lp.com";
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
@@ -322,12 +322,15 @@ public class TestData {
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
 
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
-    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "testuser+73+989124@lessonplanet.com";
-    public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Ashley";
+    public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "i_t_rsl_laguna@lp.com";
+    public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Stephen";
+    public static final String RSL_LAGUNA_SCHOOL_TEACHER_LAST_NAME = "Carl";
+    public static final String RSL_LAGUNA_SCHOOL_OWNER_FIRST_NAME = "Abbey";
+    public static final String RSL_LAGUNA_SCHOOL_LAST_NAME = "Lilian";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
-    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "testuser+64+958202@lessonplanet.com";
+    public static final String RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL = "i_da_rsl_sbceo@lp.com";
     public static final String RSL_SBCEO_OWNER_FIRST_NAME = "Connor";
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
@@ -347,6 +350,11 @@ public class TestData {
     public static final String CSL_QA_CUSTOM_OWNER_LAST_NAME = "Tracey";
     public static final String CSL_QA_CUSTOM_TEACHER_FIRST_NAME = "Jones";
     public static final String CSL_QA_CUSTOM_TEACHER_LAST_NAME = "Smith";
+    public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = " i_t_csl_cobb@lp.com";
+    public static final String CSL_COBB_OWNER_FIRST_NAME = "Jane";
+    public static final String CSL_COBB_OWNER_LAST_NAME = "Maryland";
+    public static final String CSL_COBB_TEACHER_FIRST_NAME = "Anthony";
+    public static final String CSL_COBB_TEACHER_LAST_NAME = "Simpson";
     public static final String TEACHER_ROLE = "Teacher";
     public static final String ADMIN_ROLE = "Admin";
     public static final String OWNER_ROLE = "Owner";
