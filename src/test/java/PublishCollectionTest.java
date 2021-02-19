@@ -103,7 +103,7 @@ public class PublishCollectionTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO)) {
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -136,7 +136,7 @@ public class PublishCollectionTest extends BaseTest {
             curriculumManagerPageTest.testUpload(true, account, false);
             editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
             editCollectionModal.clickOnPublishFolder();
-            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && (!account.equals(TestData.VALID_EMAIL_CSL_COBB))) {
                 if (includedFile) {
                     confirmPublishUploadFileModal.clickOnIncludeFileOption();
                 } else {
@@ -182,7 +182,7 @@ public class PublishCollectionTest extends BaseTest {
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
 
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
             confirmPublishUploadFileModal.checkAgreementOption();
             confirmPublishUploadFileModal.clickOnPublishCollectionButton();
