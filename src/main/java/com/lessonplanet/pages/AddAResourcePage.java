@@ -258,8 +258,8 @@ public class AddAResourcePage extends LpUiBasePage {
         clickElement(CCSS_STANDARDS_MATCHING_OPTIONS, 0);
     }
 
-    public void selectGeorgiaStandard(String georgiaStandard) {
-        sendKeys(STATE_STANDARDS_DROPDOWN, georgiaStandard);
+    public void selectStateSpecificStandard(String stateStandard) {
+        sendKeys(STATE_STANDARDS_DROPDOWN, stateStandard);
         clickElement(STATE_STANDARDS_MATCHING_OPTIONS, 0);
     }
 

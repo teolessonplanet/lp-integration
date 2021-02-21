@@ -32,7 +32,30 @@ public class RSL_ContentManagerTest extends BaseTest {
     @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
     public void testLessonp_1270() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        testContentManagerMainPage();
+    }
+
+    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
+    public void testLessonp_1271() {
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        testContentManagerCardsList(TestData.VALID_EMAIL_RSL_SBCEO);
+    }
+
+    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search")
+    public void testLessonp_5076() {
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        testContentManagerSearch();
+    }
+
+    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By")
+    public void testLessonp_5078() {
+        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        testContentManagerSortBy();
+    }
+
+    public void testContentManagerMainPage() {
         reachContentManagerPage();
+        rsl_contentManagerPage.checkLessonPlanetProvider();
         rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
 
         Assert.assertEquals(rsl_contentManagerPage.getTitleText(), TestData.CONTENT_MANAGER_PAGE_TITLE_TEXT);
@@ -56,45 +79,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.isResourceConceptDisplayed(firstResource));
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
-    public void testLessonp_1271() {
-        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        reachContentManagerPage();
-        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
-
-        WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
-
-        rsl_contentManagerPage.clickOnResourceTitle(firstResource);
-        rsl_contentManagerPage.focusDriverToLastTab();
-        Assert.assertTrue(rrpPage.isFullReviewDisplayed());
-        Assert.assertTrue(rsl_contentManagerPage.getUrl().contains(TestData.SERVER_URL + TestData.CONTENT_MANAGER_RESOURCE_REDIRECT_PATH));
-        rsl_contentManagerPage.closeTab();
-
-        rsl_contentManagerPage.clickOnConceptLink(firstResource, 0);
-        Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.ACCOUNT_MANAGER_PAGE_PATH) && rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_CONCEPT_REDIRECT_PATH));
-
-        reachContentManagerPage();
-        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
-        firstResource = rsl_contentManagerPage.getResourceCards().get(0);
-
-        if(rsl_contentManagerPage.isResourceStandardDisplayed(firstResource)) {
-            rsl_contentManagerPage.clickOnStandardLink(firstResource, 0);
-            rsl_contentManagerPage.focusDriverToLastTab();
-            rsl_contentManagerPage.waitForLoad();
-            Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_STANDARD_REDIRECT_PATH));
-            rsl_contentManagerPage.closeTab();
-        }
-
-        rsl_contentManagerPage.clickOnQuickViewButton(firstResource);
-        rsl_contentManagerPage.focusDriverToLastTab();
-
-        Assert.assertTrue(rrpPage.isTitleDisplayed());
-    }
-
-    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search")
-    public void testLessonp_5076() {
-
-        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+    public void testContentManagerSearch() {
         reachContentManagerPage();
 
         rsl_contentManagerPage.typeSearchText(TestData.INVALID_SEARCH_WORD);
@@ -109,10 +94,44 @@ public class RSL_ContentManagerTest extends BaseTest {
         Assert.assertTrue(rsl_contentManagerPage.getTotalResourcesFound() > TestData.ZERO_RESOURCES_FOUND);
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By")
-    public void testLessonp_5078() {
+    public void testContentManagerCardsList(String account) {
+        reachContentManagerPage();
+        rsl_contentManagerPage.checkLessonPlanetProvider();
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
 
-        loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
+        WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
+
+        rsl_contentManagerPage.clickOnResourceTitle(firstResource);
+        rsl_contentManagerPage.focusDriverToLastTab();
+        rsl_contentManagerPage.waitForLinkToLoad();
+        if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            Assert.assertTrue(rrpPage.isFullReviewDisplayed());
+        }
+        Assert.assertTrue(rsl_contentManagerPage.getUrl().contains(TestData.SERVER_URL + TestData.CONTENT_MANAGER_RESOURCE_REDIRECT_PATH));
+        rsl_contentManagerPage.closeTab();
+
+        rsl_contentManagerPage.clickOnConceptLink(firstResource, 0);
+        Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.ACCOUNT_MANAGER_PAGE_PATH) && rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_CONCEPT_REDIRECT_PATH));
+
+        reachContentManagerPage();
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
+        firstResource = rsl_contentManagerPage.getResourceCards().get(0);
+
+        if (rsl_contentManagerPage.isResourceStandardDisplayed(firstResource)) {
+            rsl_contentManagerPage.clickOnStandardLink(firstResource, 0);
+            rsl_contentManagerPage.focusDriverToLastTab();
+            rsl_contentManagerPage.waitForLoad();
+            Assert.assertTrue(rsl_contentManagerPage.getPath().contains(TestData.CONTENT_MANAGER_STANDARD_REDIRECT_PATH));
+            rsl_contentManagerPage.closeTab();
+        }
+
+        rsl_contentManagerPage.clickOnQuickViewButton(firstResource);
+        rsl_contentManagerPage.focusDriverToLastTab();
+
+        Assert.assertTrue(rrpPage.isTitleDisplayed());
+    }
+
+    public void testContentManagerSortBy() {
         reachContentManagerPage();
 
         rsl_contentManagerPage.clickOnSortByDropdown();
@@ -170,7 +189,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         return false;
     }
 
-    public void reachContentManagerPage(){
+    public void reachContentManagerPage() {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnAdminManagerButton();
         rsl_contentManagerPage.clickOnContentManagerTab();

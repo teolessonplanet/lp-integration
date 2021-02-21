@@ -1,7 +1,4 @@
-import com.lessonplanet.pages.AddAResourcePage;
-import com.lessonplanet.pages.CSL_ContentManagerPage;
-import com.lessonplanet.pages.LoginPage;
-import com.lessonplanet.pages.RemoveResourceModal;
+import com.lessonplanet.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,8 +6,7 @@ import util.TestData;
 
 import java.io.File;
 
-public class CSL_AddNewResourceTest extends BaseTest {
-
+public class CSL_ContentManagerTest extends BaseTest {
     private LoginPage loginPage;
     private CSL_ContentManagerPage csl_contentManagerPage;
     private RSL_ContentManagerTest rsl_contentManagerTest;
@@ -18,17 +14,46 @@ public class CSL_AddNewResourceTest extends BaseTest {
     private RemoveResourceModal removeResourceModal;
 
     @BeforeMethod
-    private void beforeMethod() {
+    public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        addAResourcePage = new AddAResourcePage(webDriver);
-        removeResourceModal = new RemoveResourceModal(webDriver);
         csl_contentManagerPage = new CSL_ContentManagerPage(webDriver);
         rsl_contentManagerTest = new RSL_ContentManagerTest();
+        addAResourcePage = new AddAResourcePage(webDriver);
+        removeResourceModal = new RemoveResourceModal(webDriver);
+        rsl_contentManagerTest.initTest(webDriver);
+    }
+
+    @Test(description = "Custom SL - Content Manager - lessonp-6003: Main Page")
+    public void testLessonp_6003() {
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        rsl_contentManagerTest.testContentManagerMainPage();
+    }
+
+    @Test(description = "Custom SL - Content Manager - lessonp-6004: Cards list")
+    public void testLessonp_6004() {
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        rsl_contentManagerTest.testContentManagerCardsList(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
+    }
+
+    @Test(description = "Custom SL - Content Manager - lessonp-6005: Search")
+    public void testLessonp_6005() {
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        rsl_contentManagerTest.testContentManagerSearch();
+    }
+
+    @Test(description = "Custom SL - Content Manager - lessonp-6006: Sort By")
+    public void testLessonp_6006() {
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        rsl_contentManagerTest.testContentManagerSortBy();
     }
 
     @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource")
     public void testLessonp_1692() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
+        testAddEditRemoveSiteSpecificResource();
+    }
+
+    public void testAddEditRemoveSiteSpecificResource() {
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnAddAResourceButton();
@@ -116,7 +141,7 @@ public class CSL_AddNewResourceTest extends BaseTest {
         Assert.assertEquals(addAResourcePage.getStateStandardDropdownPlaceholderText(), TestData.STATE_STANDARDS_PLACEHOLDER_TEXT);
         addAResourcePage.selectCCSSStandard(TestData.CCSS_STANDARDS);
         addAResourcePage.selectNGSSStandard(TestData.NGSS_STANDARDS);
-        addAResourcePage.selectGeorgiaStandard(TestData.STATE_STANDARDS);
+        addAResourcePage.selectStateSpecificStandard(TestData.STATE_STANDARDS);
 
         addAResourcePage.clickOnContinueButton();
         Assert.assertEquals(addAResourcePage.getAddResourceStep(), TestData.ADD_ADDITIONAL_INFO_TITLE);
