@@ -31,6 +31,7 @@ public class TestData {
     public static final String CUSTOM_MEMBERSHIP_PAGE_PATH = "cancellation/new";
     public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_PLAYER_PATH = "/player";
+    public static final String SEARCH_PAGE_SHARED_RESOURCES_PATH = "search?provider_ids[]=1&layout=thumbnail&type_ids[]=357927&subject_ids[]=196";
 
     //Collection Builder
     public static final String EXISTING_RESOURCE_COLLECTION_ERROR_TEXT = "Resource already in collection";
