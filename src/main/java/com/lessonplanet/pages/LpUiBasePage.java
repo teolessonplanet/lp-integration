@@ -26,7 +26,7 @@ public class LpUiBasePage {
     protected LpUiBasePage(WebDriver driver) {
         this.driver = driver;
         javascriptExecutor = (JavascriptExecutor) driver;
-        webDriverWait = new WebDriverWait(driver, TestData.TIMEOUT);
+        webDriverWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
         executionTimer = new ExecutionTimer();
     }
 
