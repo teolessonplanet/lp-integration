@@ -514,13 +514,8 @@ public class SearchTest extends BaseTest {
     }
 
     protected void testSharedResource() {
-        discoverResourcesPage.loadPage();
-        discoverResourcesPage.expandProvidersFacet();
-        discoverResourcesPage.checkLessonPlanetProvider();
+        discoverResourcesPage.loadPath(TestData.SEARCH_PAGE_SHARED_RESOURCES_PATH);
         discoverResourcesPage.clickOnThumbnailView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES);
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SOCIAL_STUDIES_AND_HISTORY);
-
         WebElement sharedResourceCard = discoverResourcesPage.getSharedResourcesCardsInThumbnailView().get(0);
 
         Assert.assertTrue(discoverResourcesPage.getGoToResourceButtonTextForSharedCard(sharedResourceCard).equals(TestData.LP_HOME_PAGE_PATH));

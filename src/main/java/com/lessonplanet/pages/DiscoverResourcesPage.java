@@ -33,6 +33,10 @@ public class DiscoverResourcesPage extends ResourcesPage {
         loadUrl(TestData.DISCOVER_RESOURCES_PAGE_PATH);
     }
 
+    public void loadPath(String path) {
+        loadUrl(path);
+    }
+
     public String getSearchMessage() {
         return getTextForElement(SEARCH_MESSAGE);
     }
