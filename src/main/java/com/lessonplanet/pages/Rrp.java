@@ -318,9 +318,10 @@ public class Rrp extends LpUiBasePage {
         clickElement(ADD_TO_FOLDER_BUTTON);
     }
 
-    public void waitForNotificationToDisappear() {
-        waitUntilElementIsHidden(NOTIFICATION_TEXT);
-    }
+//    Note: Notifications are not always working on Staging server
+//    public void waitForNotificationToDisappear() {
+//        waitUntilElementIsHidden(NOTIFICATION_TEXT);
+//    }
 
     public boolean isOpenFolderButtonDisplayed() {
         return isElementDisplayed(OPEN_FOLDER_BUTTON);

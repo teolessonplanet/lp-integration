@@ -7,7 +7,7 @@ import util.TestData;
 import java.util.List;
 
 public class CurriculumManagerPage extends LpUiBasePage {
-    private static final String ALERT_NOTIFICATION = "[class*='alert']";
+    private static final String ALERT_NOTIFICATION =  "div#notification";
     private static final String REFRESH_ICON = "[class*='fa-refresh']";
     private static final String ACTIONS_DROPDOWN = " .info.actions.persistent [class='action-dropdown']";
     private static final String MY_UPLOADS_FOLDER_ACTIONS_DROPDOWN = "#folder-2 [class*='actions'] i";

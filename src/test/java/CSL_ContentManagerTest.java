@@ -212,7 +212,7 @@ public class CSL_ContentManagerTest extends BaseTest {
 
         addAResourcePage.clickOnFinishButton();
         Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.ADD_RESOURCE_NOTIFICATION);
-        int noOfRefreshes = TestData.SHORT_TIMEOUT;
+        int noOfRefreshes = TestData.LONG_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
             noOfRefreshes--;
@@ -226,7 +226,7 @@ public class CSL_ContentManagerTest extends BaseTest {
         addAResourcePage.typeTitle(TestData.EDIT_TITLE);
         addAResourcePage.clickOnFinishButton();
         Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.UPDATE_RESOURCE_NOTIFICATION);
-        noOfRefreshes = TestData.SHORT_TIMEOUT;
+        noOfRefreshes = TestData.LONG_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
             noOfRefreshes--;
