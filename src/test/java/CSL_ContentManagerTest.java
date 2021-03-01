@@ -1,4 +1,5 @@
 import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,6 +22,11 @@ public class CSL_ContentManagerTest extends BaseTest {
         addAResourcePage = new AddAResourcePage(webDriver);
         removeResourceModal = new RemoveResourceModal(webDriver);
         rsl_contentManagerTest.initTest(webDriver);
+    }
+
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Custom SL - Content Manager - lessonp-6003: Main Page")
@@ -50,10 +56,10 @@ public class CSL_ContentManagerTest extends BaseTest {
     @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource")
     public void testLessonp_1692() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
-        testAddEditRemoveSiteSpecificResource();
+        testAddEditRemoveSiteSpecificResource(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
     }
 
-    public void testAddEditRemoveSiteSpecificResource() {
+    public void testAddEditRemoveSiteSpecificResource(String account) {
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnAddAResourceButton();
@@ -133,14 +139,16 @@ public class CSL_ContentManagerTest extends BaseTest {
 
         addAResourcePage.clickOnContinueButton();
         Assert.assertEquals(addAResourcePage.getAddResourceStep(), TestData.ADD_STANDARDS_INFO_STEP_TITLE);
-        Assert.assertTrue(addAResourcePage.isNGSStandardDropdownDisplayed());
-        Assert.assertTrue(addAResourcePage.isCCSSStandardDropdownDisplayed());
+        if (!account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            Assert.assertTrue(addAResourcePage.isNGSStandardDropdownDisplayed());
+            Assert.assertTrue(addAResourcePage.isCCSSStandardDropdownDisplayed());
+            Assert.assertEquals(addAResourcePage.getNGSSStandardDropdownPlaceholderText(), TestData.NGSS_STANDARDS_PLACEHOLDER_TEXT);
+            Assert.assertEquals(addAResourcePage.getCCSSStandardDropdownPlaceholderText(), TestData.CCSS_STANDARDS_PLACEHOLDER_TEXT);
+            addAResourcePage.selectCCSSStandard(TestData.CCSS_STANDARDS);
+            addAResourcePage.selectNGSSStandard(TestData.NGSS_STANDARDS);
+        }
         Assert.assertTrue(addAResourcePage.isStateStandardDropdownDisplayed());
-        Assert.assertEquals(addAResourcePage.getNGSSStandardDropdownPlaceholderText(), TestData.NGSS_STANDARDS_PLACEHOLDER_TEXT);
-        Assert.assertEquals(addAResourcePage.getCCSSStandardDropdownPlaceholderText(), TestData.CCSS_STANDARDS_PLACEHOLDER_TEXT);
         Assert.assertEquals(addAResourcePage.getStateStandardDropdownPlaceholderText(), TestData.STATE_STANDARDS_PLACEHOLDER_TEXT);
-        addAResourcePage.selectCCSSStandard(TestData.CCSS_STANDARDS);
-        addAResourcePage.selectNGSSStandard(TestData.NGSS_STANDARDS);
         addAResourcePage.selectStateSpecificStandard(TestData.STATE_STANDARDS);
 
         addAResourcePage.clickOnContinueButton();
