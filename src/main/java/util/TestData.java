@@ -8,7 +8,7 @@ import java.util.TimeZone;
 
 public class TestData {
 
-    public static final int TIMEOUT = 15;
+    public static final int LONG_TIMEOUT = 10;
     public static final int SHORT_TIMEOUT = 5;
     public static final String SERVER_URL = "https://staging.lessonplanet.com/";
     public static boolean IP_IS_WHITELISTED = true;
