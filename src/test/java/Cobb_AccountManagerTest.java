@@ -22,7 +22,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         addADistrictAdminModal = new AddADistrictAdminModal(webDriver);
     }
 
-    @Test(description = "Account Manager - lessonp-5465:District Page")
+    @Test(description = "Cobb - Account Manager - lessonp-5465:District Page")
     public void testLessonp_5465() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -31,7 +31,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         Assert.assertEquals(districtPage.getAddButtonPopoverText(), TestData.ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT);
     }
 
-    @Test(description = "Account Manager - lessonp-5466:Edit District, Search in District")
+    @Test(description = "Cobb - Account Manager - lessonp-5466:Edit District, Search in District")
     public void testLessonp_5466() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -42,7 +42,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_COBB_OWNER_FIRST_NAME + " " + TestData.CSL_COBB_OWNER_LAST_NAME, true, true);
     }
 
-    @Test(description = "Account Manager -  lessonp-5467:Manage District Admins Page: Add District Admins, Edit District Admin, Remove District Admins")
+    @Test(description = "Cobb - Account Manager -  lessonp-5467:Manage District Admins Page: Add District Admins, Edit District Admin, Remove District Admins")
     public void testLessonp_5467() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -59,7 +59,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testRemoveDistrictAdmin(TestData.CSL_COBB_SCHOOL_DISTRICT_NAME);
     }
 
-    @Test(description = "Account Manager - lessonp-5468:School Page: Add teacher, Edit Teacher, Remove Teacher")
+    @Test(description = "Cobb - Account Manager - lessonp-5468:School Page: Add teacher, Edit Teacher, Remove Teacher")
     public void testLessonp_5468() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -70,7 +70,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testEditTeacher(true);
     }
 
-    @Test(description = "Account Manager - lessonp-5469:Edit School, Search in school")
+    @Test(description = "Cobb - Account Manager - lessonp-5469:Edit School, Search in school")
     public void testLessonp_5469() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -82,7 +82,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_COBB_TEACHER_FIRST_NAME + " " + TestData.CSL_COBB_TEACHER_LAST_NAME, true, true);
     }
 
-    @Test(description = "Account Manager - lessonp-5470:Manage School Admins Page: Add School Admins, Edit School Admin Remove School Admins")
+    @Test(description = "Cobb - Account Manager - lessonp-5470:Manage School Admins Page: Add School Admins, Edit School Admin Remove School Admins")
     public void testLessonp_5470() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
@@ -91,7 +91,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testManageSchoolAdminPage(true, true);
     }
 
-    @Test(description = "Account Manager - lessonp-5963: Manage District Page")
+    @Test(description = "Cobb - Account Manager - lessonp-5963: Manage District Page")
     public void testLessonp_5963() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
