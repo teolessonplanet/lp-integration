@@ -130,7 +130,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
         if (!rrpModal.isFavoriteButtonDisabledDisplayed()) {
             rrpModal.clickOnFavoriteButton();
-            Assert.assertTrue(rrpModal.getNotificationText().equals(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));
+            Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));
         }
     }
 
