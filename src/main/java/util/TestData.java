@@ -351,7 +351,9 @@ public class TestData {
     public static final String CSL_QA_CUSTOM_OWNER_LAST_NAME = "Tracey";
     public static final String CSL_QA_CUSTOM_TEACHER_FIRST_NAME = "Jones";
     public static final String CSL_QA_CUSTOM_TEACHER_LAST_NAME = "Smith";
-    public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = " i_t_csl_cobb@lp.com";
+    public static final String CSL_COBB_SCHOOL_DISTRICT_NAME = "Cobb County School District";
+    public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Pearson Middle School";
+    public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = "i_t_csl_cobb@lp.com";
     public static final String CSL_COBB_OWNER_FIRST_NAME = "Jane";
     public static final String CSL_COBB_OWNER_LAST_NAME = "Maryland";
     public static final String CSL_COBB_TEACHER_FIRST_NAME = "Anthony";
