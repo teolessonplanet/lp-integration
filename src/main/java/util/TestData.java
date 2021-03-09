@@ -261,6 +261,7 @@ public class TestData {
     public static final String FACET_PROVIDERS = "Providers";
     public static final String FACET_PROVIDERS_LESSONPLANET = "Lesson Planet";
     public static final String FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS = "Henry County Schools";
+    public static final String FACET_PROVIDERS_COBB_COUNTRY_SCHOOLS = "CTLS";
     public static final String FACET_PROVIDERS_MCGRAW_HILL_EDUCATION = "McGraw-Hill Education";
     public static final String FACET_PROVIDERS_CLAIRMONT_PRESS = "Clairmont Press";
     public static final String FACET_CATEGORY_RESOURCES_TYPES = "Resource Types";

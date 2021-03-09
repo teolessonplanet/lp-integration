@@ -1,7 +1,5 @@
-import com.lessonplanet.pages.DiscoverResourcesPage;
-import com.lessonplanet.pages.LoginPage;
-import com.lessonplanet.pages.ResourcesPage;
-import com.lessonplanet.pages.Rrp;
+import com.lessonplanet.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,6 +13,8 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     private ResourcesPage resourcesPage;
     private Rrp rrp;
     private RrpSearchPageTest rrpSearchPageTest;
+    private RrpModal rrpModal;
+    private RrpPage rrpPage;
 
     @BeforeMethod
     private void beforeMethod() {
@@ -24,6 +24,13 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         rrp = new Rrp(webDriver);
         resourcesPage = new ResourcesPage(webDriver);
         rrpSearchPageTest = new RrpSearchPageTest();
+        rrpModal = new RrpModal(webDriver);
+        rrpPage = new RrpPage(webDriver);
+    }
+
+    public void initTest(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        beforeMethod();
     }
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-1311:LP Resource Modal Overview")
@@ -52,33 +59,33 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4951:Site Specific Resource Modal Overview")
     public void lessonp_4951() {
-        testSiteSpecificRrp(true);
+        testSiteSpecificRrp(true, TestData.VALID_EMAIL_CSL_HENRY, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4977:Site Specific Resource Static Page Overview")
     public void lessonp_4977() {
-        testSiteSpecificRrp(false);
+        testSiteSpecificRrp(false, TestData.VALID_EMAIL_CSL_HENRY, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4950:Proprietary Resource Modal Overview")
     public void lessonp_4950() {
 //        testProprietaryResource(false);
-        testProprietaryResource(true);
+        testProprietaryResource(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4979:Proprietary Resource Static Page Overview")
     public void lessonp_4979() {
-        testProprietaryResource(false);
+        testProprietaryResource(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview")
     public void lessonp_5569() {
-        testFolderHmhMcGraw(true);
+        testFolderHmhMcGraw(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview")
     public void lessonp_5570() {
-        testFolderHmhMcGraw(false);
+        testFolderHmhMcGraw(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5661:LP Resource Main Buttons")
@@ -107,23 +114,23 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4953:Site Specific Resource Main Buttons")
     public void lessonp_4953() {
-        testSiteSpecificRrpMainButtons(true);
+        testSiteSpecificRrpMainButtons(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4983:Site Specific Resource Main Buttons")
     public void lessonp_4983() {
-        testSiteSpecificRrpMainButtons(false);
+        testSiteSpecificRrpMainButtons(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5583:Folder (HMH/McGraw) Main Buttons")
     public void lessonp_5583() {
-        testFolderHmhRrpMainButton(true);
+        testFolderHmhRrpMainButton(true, TestData.VALID_EMAIL_CSL_HENRY);
 
     }
 
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5595:Folder (HMH/McGraw) Resource Main Buttons")
     public void lessonp_5595() {
-        testFolderHmhRrpMainButton(false);
+        testFolderHmhRrpMainButton(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     private void initTestAndLogin(String account) {
@@ -132,19 +139,24 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
     }
 
-    private void testSiteSpecificRrp(boolean inModal) {
-        initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
+    public void testSiteSpecificRrp(boolean inModal, String account, String provider) {
+        initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
-        discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, provider);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
-        Assert.assertEquals(TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS, rrp.getResourcePoolName());
+        if (inModal) {
+            rrpModal.waitForModal();
+            Assert.assertEquals(provider, rrpModal.getResourcePoolName());
+        } else {
+            Assert.assertEquals(provider, rrpPage.getResourcePoolName());
+        }
 
         testCommonProperties(inModal);
     }
 
-    private void testProprietaryResource(boolean inModal) {
-        initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
+    public void testProprietaryResource(boolean inModal, String account) {
+        initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
         resourcesPage.clickSeeFullReview(!inModal);
@@ -158,8 +170,8 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         testCommonProperties(inModal);
     }
 
-    private void testFolderHmhMcGraw(boolean inModal) {
-        initTestAndLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
+    public void testFolderHmhMcGraw(boolean inModal, String account) {
+        initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
@@ -185,11 +197,11 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         }
     }
 
-    private void testSiteSpecificRrpMainButtons(boolean inModal) {
-        initTestAndLogin(TestData.VALID_EMAIL_CSL_HENRY);
+    private void testSiteSpecificRrpMainButtons(boolean inModal, String account) {
+        initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
-        discoverResourcesPage. selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testRegularResourceRRPOverview(inModal, TestData.VALID_EMAIL_CSL_HENRY);
@@ -199,8 +211,8 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         rrpSearchPageTest.testAddToNewCollection(inModal);
     }
 
-    private void testFolderHmhRrpMainButton(boolean inModal) {
-        initTestAndLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
+    private void testFolderHmhRrpMainButton(boolean inModal, String account) {
+        initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
@@ -209,7 +221,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
         if (rrp.isFavoriteButtonDisplayed()) {
             rrp.clickOnFavoriteButton();
-            Assert.assertEquals(rrp.getNotificationText(), TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE);
+            Assert.assertTrue(rrp.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));
         } else {
             Assert.assertTrue(rrp.isFavoriteButtonDisabledDisplayed());
         }
