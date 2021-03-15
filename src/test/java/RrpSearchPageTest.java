@@ -408,7 +408,7 @@ public class RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(!inModal);
         testRegularResourceRRPOverview(inModal, account);
-        if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY))) {
+        if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB))) {
             testWhatMembersSayWidgetOverview(account);
         }
         testSimilarResourcesSectionOverview(account);
@@ -583,7 +583,7 @@ public class RrpSearchPageTest extends BaseTest {
             Assert.assertTrue(rrp.isAddACommentButtonDisplayed());
         }
 
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             Assert.assertTrue(rrp.isShareButtonDisplayed());
         }
         Assert.assertTrue(rrp.isThumbnailDisplayed());
@@ -729,7 +729,7 @@ public class RrpSearchPageTest extends BaseTest {
             Assert.assertTrue(collectionRrp.isPlayCollectionButtonDisplayed());
             Assert.assertTrue(collectionRrp.isSaveCollectionButtonActiveUserDisplayed());
         }
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
             Assert.assertTrue(collectionRrp.isShareButtonDisplayed());
         }
         Assert.assertTrue(collectionRrp.isSeeFullReviewsLinkVisible());
