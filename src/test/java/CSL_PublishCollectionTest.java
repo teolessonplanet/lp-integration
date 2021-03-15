@@ -17,28 +17,28 @@ public class CSL_PublishCollectionTest extends BaseTest {
     public void testLessonp_5799() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(false, false, TestData.VALID_EMAIL_CSL_HENRY, false);
+        publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_HENRY, 2, 0, 0, false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5800: With LP Resources & Uploaded Resources - include")
     public void testLessonp_5800() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(false, true, TestData.VALID_EMAIL_CSL_HENRY, false);
+        publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_HENRY, 2, 0, 1, false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5802: With LP Resources & Folders")
     public void testLessonp_5802() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(true, false, TestData.VALID_EMAIL_CSL_HENRY, false);
+        publishCollectionTest.testAddResourcesToPublishCollection( TestData.VALID_EMAIL_CSL_HENRY, 2,1,0,false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5803: With LP Resources & Folders & Uploaded Resources - include")
     public void testLessonp_5803() {
         publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        publishCollectionTest.testAddResourcesToPublishCollection(true, true, TestData.VALID_EMAIL_CSL_HENRY, false);
+        publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_HENRY, 2,1,1,false);
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-5805: Collection not published modal")
