@@ -48,18 +48,14 @@ public class PublishCollectionTest extends BaseTest {
 
     @Test(description = "Active User- Publish Collection - lessonp-986: With LP Resources & Uploaded Resources - include file")
     public void testLessonp_986() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        testAddResourcesToPublishCollection(TestData.PLAN_PRIME, 2, 0, 1, true);
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testAddResourcesToPublishCollection(TestData.PLAN_PRO, 2, 0, 1, true);
+        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        testAddResourcesToPublishCollection(TestData.PLAN_PRIME, 2, 0, 1, true);
     }
 
     @Test(description = "Active User - Publish Collection - lessonp-987: With LP Resources & Uploaded Resources - do not include file")
     public void testLessonp_987() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
-//        testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 0, 1, false);
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testAddResourcesToPublishCollection(TestData.PLAN_PRO, 2, 0, 1, false);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 0, 1, false);
     }
 
     @Test(description = "Active User - Publish Collection - lessonp-5827: With LP Resources & Folders")
