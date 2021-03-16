@@ -56,90 +56,36 @@ public class CollectionBuilderTest extends BaseTest {
 
     @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
     public void testLessonp_431() {
-        discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.PLAN_VISITOR);
-        testCollectionBuilderButtons(TestData.PLAN_VISITOR);
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testCollectionBuilderButtons(TestData.PLAN_VISITOR);
-        testMyResourcesButton(TestData.PLAN_VISITOR);
+        testCollectionBuilderButtonsAppearance(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
     public void testLessonp_4378() {
-        discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_VISITOR);
-        discoverResourcesPage.refreshPageAndDismissBrowserAlert();
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
-        testDragAndDropItem(TestData.PLAN_VISITOR);
-        dismissBecomeALessonPlanetFreeMemberModal();
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
-        testCollectionBuilderItem();
+        testCollectionBuilderItemsAppearance(TestData.PLAN_VISITOR, 3);
     }
 
     @Test(description = "Freemium - Collection Builder - lessonp-548: Collection Builder Buttons")
     public void testLessonp_548() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.PLAN_FREEMIUM);
-        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testMyResourcesButton(TestData.PLAN_FREEMIUM);
-        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
-        curriculumManagerPage.loadPage();
-        testCollectionBuilderButtons(TestData.PLAN_FREEMIUM);
-        testMaxCollectionCreated(TestData.PLAN_FREEMIUM);
+        testCollectionBuilderButtonsAppearance(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Freemium - Collection Builder - lessonp-4381: Collection Builder Items")
     public void testLessonp_4381() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_FREEMIUM);
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-        testDragAndDropItem(TestData.PLAN_FREEMIUM);
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-        curriculumManagerPage.loadPage();
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-        testCollectionBuilderItem();
+        testCollectionBuilderItemsAppearance(TestData.PLAN_FREEMIUM, 10);
     }
 
     @Test(description = "Active User - Collection Builder - Search - lessonp-4914: Collection Builder Buttons")
     public void testLessonp_4914() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
-        discoverResourcesPage.loadPage();
-        testMyResourcesButton(TestData.PLAN_STARTER);
-        testCollectionBuilderButtons(TestData.PLAN_STARTER);
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        testMyResourcesButton(TestData.PLAN_STARTER);
-        testCollectionBuilderButtons(TestData.PLAN_STARTER);
-        curriculumManagerPage.loadPage();
-        testCollectionBuilderButtons(TestData.PLAN_STARTER);
-        testMaxCollectionCreated(TestData.PLAN_STARTER);
+        testCollectionBuilderButtonsAppearance(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Active User - Collection Builder - Search - lessonp-4915: Collection Builder Items")
     public void testLessonp_4915() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
-        discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        testDragAndDropMaxItemsInsideCollection(TestData.PLAN_STARTER);
-        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 11);
-        testDragAndDropItem(TestData.PLAN_STARTER);
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 12);
-        curriculumManagerPage.loadPage();
-        Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 12);
-        testCollectionBuilderItem();
+        testCollectionBuilderItemsAppearance(TestData.PLAN_STARTER, 10);
     }
 
     public void testDragAndDropItem(String accountPlanText) {
@@ -190,6 +136,7 @@ public class CollectionBuilderTest extends BaseTest {
             case TestData.PLAN_STARTER:
             case TestData.VALID_EMAIL_RSL_SBCEO:
             case TestData.VALID_EMAIL_CSL_HENRY:
+            case TestData.VALID_EMAIL_CSL_COBB:
                 List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
                 for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFullReviewResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
@@ -310,5 +257,83 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.openResourceInANewTab(0);
         Assert.assertEquals(discoverResourcesPage.getUrl(), TestData.COLLECTION_BUILDER_LINK);
         discoverResourcesPage.closeTab();
+    }
+
+    public void testCollectionBuilderButtonsAppearance(String accountPlan) {
+        discoverResourcesPage.loadPage();
+        testMyResourcesButton(accountPlan);
+        testCollectionBuilderButtons(accountPlan);
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+        testCollectionBuilderButtons(accountPlan);
+        testMyResourcesButton(accountPlan);
+        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
+            curriculumManagerPage.loadPage();
+            testCollectionBuilderButtons(accountPlan);
+            testMaxCollectionCreated(accountPlan);
+        }
+        discoverResourcesPage.loadSearchPageInListView();
+        if (accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            discoverResourcesPage.expandProvidersFacet();
+            goToFolderNavigator(TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION, TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES);
+            testCollectionBuilderButtons(TestData.VALID_EMAIL_CSL_HENRY);
+            testMaxCollectionCreated(TestData.VALID_EMAIL_CSL_HENRY);
+        }
+    }
+
+    public void testCollectionBuilderItemsAppearance(String accountPlan, int itemNumber) {
+        discoverResourcesPage.loadSearchPageInListView();
+        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
+            curriculumManagerPageTest.initTest(webDriver);
+            curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_FOLDER_NAME);
+        }
+        if (!accountPlan.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            discoverResourcesPage.expandProvidersFacet();
+            discoverResourcesPage.checkLessonPlanetProvider();
+        }
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+        testDragAndDropMaxItemsInsideCollection(accountPlan);
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
+            discoverResourcesPage.refreshPageAndDismissBrowserAlert();
+        }
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+        if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
+        } else {
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 1);
+        }
+        testDragAndDropItem(accountPlan);
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
+            dismissBecomeALessonPlanetFreeMemberModal();
+        }
+        if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
+        } else {
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 2);
+        }
+
+        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
+            curriculumManagerPage.loadPage();
+            if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
+            } else {
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 2);
+            }
+        }
+        testCollectionBuilderItem();
+
+        if (accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            goToFolderNavigator(TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION, TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES);
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 1);
+            testCollectionBuilderItem();
+        }
+    }
+
+    public void goToFolderNavigator(String provider, String folderType) {
+        discoverResourcesPage.loadPage();
+        discoverResourcesPage.expandProvidersFacet();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, provider);
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, folderType);
+        discoverResourcesPage.clickOpenFolder(true);
+        Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
     }
 }
