@@ -26,6 +26,7 @@ public class CollectionBuilderTest extends BaseTest {
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private StepTwoPage stepTwoPage;
+    private AddALinkModal addALinkModal;
 
     public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -50,6 +51,7 @@ public class CollectionBuilderTest extends BaseTest {
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
+        addALinkModal = new AddALinkModal(webDriver);
     }
 
     @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
@@ -301,9 +303,10 @@ public class CollectionBuilderTest extends BaseTest {
 
     public void testAddLink() {
         collectionBuilderPage.clickAddALinkButton();
-        collectionBuilderPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
-        collectionBuilderPage.typeName(TestData.NEW_FOLDER_NAME);
-        collectionBuilderPage.clickAddToFolderButton();
+        addALinkModal.typeUrl(TestData.COLLECTION_BUILDER_LINK);
+        addALinkModal.waitUntilTitleFieldIsDisplayed();
+        addALinkModal.typeName(TestData.NEW_FOLDER_NAME);
+        addALinkModal.clickAddToFolderButton();
         collectionBuilderPage.openResourceInANewTab(0);
         Assert.assertEquals(discoverResourcesPage.getUrl(), TestData.COLLECTION_BUILDER_LINK);
         discoverResourcesPage.closeTab();

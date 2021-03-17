@@ -79,12 +79,6 @@ public class EditCollectionTest extends BaseTest {
         testEditFolderButtons(TestData.PLAN_STARTER, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
-    public void testLessonp_5639() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testEditFolderButtons(TestData.PLAN_PRIME, TestData.COPIED_FOLDER_NAME);
-    }
-
     @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
     public void testLessonp_5640() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);

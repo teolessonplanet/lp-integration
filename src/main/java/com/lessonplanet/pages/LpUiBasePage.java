@@ -417,6 +417,10 @@ public class LpUiBasePage {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
+    protected void waitUntilElementIsDisplayed(String cssSelector) {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+    }
+
     protected void waitUntilElementIsDisplayed(WebElement webElement) {
         logStart("Wait until webElement is displayed " + webElement);
         try {
