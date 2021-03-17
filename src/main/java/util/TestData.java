@@ -251,7 +251,7 @@ public class TestData {
 
     public static final String PLAN_VISITOR = "visitor";
     public static final String PLAN_FREEMIUM = "freemium";
-    public static final String PLAN_STARTER = "starter_36";
+    public static final String PLAN_STARTER = "starter_48_annual";
     public static final String PLAN_PRIME = "prime_5mo";
     public static final String PLAN_PRO = "video_pro_boclips_9";
 

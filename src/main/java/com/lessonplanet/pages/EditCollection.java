@@ -29,10 +29,10 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ACTIVE_FOLDER_TITLE = "[class*='manage-collections-dropdown'] [class='list-option active'] a";
 
     private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
-    private static final String ADD_A_LINK_OPTION = "#js-add-url-btn";
-    private static final String ADD_A_LINK_URL_INPUT = "#url";
-    private static final String ADD_A_LINK_NAME_FIELD = "[name='collection_item[title]']";
-    private static final String ADD_TO_FOLDER_BUTTON = "#js-create-item [class*='btn-warning']";
+    private static final String ADD_A_LINK_OPTION = "#edit-add-url-btn";
+    private static final String ADD_A_LINK_URL_INPUT = "#js-add-url-content [name='url']";
+    private static final String ADD_A_LINK_NAME_FIELD = "#js-add-url-content [name='title']";
+    private static final String ADD_TO_FOLDER_BUTTON = "#js-add-url-content [class='modal-footer'] [class='btn btn-warning']";
     private static final String UPLOAD_A_FILE_OPTION = "#upload-file-button";
     private static final String ADD_PIXABAY_IMAGE_OPTION = "#js-add-pixabay-image-btn";
     private static final String PIXABAY_SUBTITLE = "[class='pixabay-license-title']";
@@ -65,14 +65,14 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String FOLDER_ITEMS_COUNT = "[class='edit-folder-num-wrap'] [class='js-items-count']";
     private static final String FOLDER_ITEM_TITLE = "[class*='collection-item-title']";
     private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
-    private static final String ELLIPSIS_ACTIONS = "[class='show-actions']";
-    private static final String EDIT_PAGE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(1)";
+    private static final String ELLIPSIS_ACTIONS = "[class='show-actions dropdown-toggle']";
+    private static final String EDIT_PAGE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(1)";
     private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']";
-    private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(2)";
+    private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-actions-list'] li:nth-child(2)";
     private static final String HIDE_FROM_PLAYER_ICON = "[class*='lp-play-disabled']";
-    private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(3)";
+    private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(3)";
     private static final String TEACHER_NOTE_INPUT = "[name='collection_item[note]']";
-    private static final String DELETE_OPTION = "[class*='collection-item-action-popover'] ul li:nth-child(4)";
+    private static final String DELETE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(4)";
     private static final String DELETE_ITEM_BUTTON = "[class='modal-footer'] a";
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";

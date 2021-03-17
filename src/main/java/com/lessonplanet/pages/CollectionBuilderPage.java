@@ -26,11 +26,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
     private static final String UPLOAD_BUTTON = "div[class*='upload'] [class*='fa-upload']";
 
-    private static final String ADD_A_LINK_BUTON = "[class*='add-link']";
-    private static final String URL_FIELD = "[name='collection_item[url]']";
-    private static final String NAME_FIELD = "[name='collection_item[title]']";
-    private static final String ADD_TO_FOLDER_BUTTON = "#js-create-item [class='modal-footer'] [class*='btn-warning']";
-
+    private static final String ADD_A_LINK_BUTTON = "[class*='add-link']";
     private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
     private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class^='cb-item panel panel-default clickable clearfix']";
     private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel'] [class='cb-item-info text-primary']";
@@ -79,7 +75,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public boolean isMyResourcesButtonSignUpPopupLinkDisplayed() {
-       return isElementClickable(MY_RESOURCES_SIGN_UP_POPUP);
+        return isElementClickable(MY_RESOURCES_SIGN_UP_POPUP);
     }
 
     public boolean isSignUpPopupLinkDisplayed() {
@@ -92,7 +88,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public void clickAddALinkButton() {
-        clickElement(ADD_A_LINK_BUTON);
+        clickElement(ADD_A_LINK_BUTTON);
     }
 
     public boolean isMyResourcesButtonDisplayed() {
@@ -120,7 +116,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public boolean isAddALinkButtonDisplayed() {
-        return isElementDisplayed(ADD_A_LINK_BUTON);
+        return isElementDisplayed(ADD_A_LINK_BUTTON);
     }
 
     public String getCollectionBuilderItemTitle(int position) {
@@ -150,20 +146,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public String getCollectionBuilderAlertText() {
         return getTextForElement(COLLECTION_BUILDER_ALERT_TEXT);
-    }
-
-    public void clickAddToFolderButton() {
-        clickElement(ADD_TO_FOLDER_BUTTON);
-    }
-
-    public void typeUrl(String Url) {
-        clearText(URL_FIELD);
-        sendKeys(URL_FIELD, Url);
-    }
-
-    public void typeName(String name) {
-        clearText(NAME_FIELD);
-        sendKeys(NAME_FIELD, name);
     }
 
     public void waitForLoadingIconToDisappear() {
