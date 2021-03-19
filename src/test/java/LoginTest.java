@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality")
     public void testLessonp_5034() {
-        testLoginFlow(createNewUser(TestData.PLAN_PRIME));
+        testLoginFlow(createNewUser(TestData.PLAN_STARTER));
     }
 
     private void testLoginFlow(String email) {

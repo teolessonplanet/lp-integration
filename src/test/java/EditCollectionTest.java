@@ -2,6 +2,7 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
@@ -77,6 +78,13 @@ public class EditCollectionTest extends BaseTest {
     public void testLessonp_5272() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderButtons(TestData.PLAN_STARTER, TestData.COPIED_FOLDER_NAME);
+    }
+
+    @Ignore
+    @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
+    public void testLessonp_5639() {
+//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+//        testEditFolderButtons(TestData.PLAN_PRIME, TestData.COPIED_FOLDER_NAME);
     }
 
     @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")

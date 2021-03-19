@@ -248,13 +248,10 @@ public class TestData {
     public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
     public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
-
     public static final String PLAN_VISITOR = "visitor";
     public static final String PLAN_FREEMIUM = "freemium";
     public static final String PLAN_STARTER = "starter_48_annual";
-    public static final String PLAN_PRIME = "prime_5mo";
     public static final String PLAN_PRO = "video_pro_boclips_9";
-
 
     //Search Facet
     public static final String FACET_CONTENT_CURATORS = "Content Curators";
@@ -400,15 +397,13 @@ public class TestData {
     public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
 
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
-    public static final String STEP_ONE_MODAL_TITLE = "Discover 2.6 Million\n" + "Teacher Reviewed Resources";
+    public static final String STEP_ONE_MODAL_TITLE = "Discover 2.5 Million\n" + "Teacher Reviewed Resources";
 
     //Step 2
     public static final String SELECTED_TEXT = "Selected";
     public static final String SELECT_TEXT = "Select";
 
     public static final String STARTER_OPTION_TEXT = "Starter";
-    public static final String PRIME_OPTION_TEXT = "Prime";
-    public static final String PRO_PLUS_OPTION_TEXT = "Pro Plus";
     public static final String PRO_OPTION_TEXT = "Pro";
     public static final String THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE = "This field is required.";
     public static final String INVALID_CARD_NUMBER_ERROR_MESSAGE = "Please enter a valid credit card number";
@@ -424,18 +419,6 @@ public class TestData {
     public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
 
     public static final String THANK_YOU_FOR_UPDATING_TEXT = "Thank you for updating your profile! Enjoy using Lesson Planet.";
-
-    public static String GET_STARTER_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, STARTER_MONTHLY, STARTER_OPTION_TEXT, STARTER_ANNUALLY, STARTER_ANNUALLY);
-    }
-
-    public static String GET_PRIME_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRIME_MONTHLY, PRIME_OPTION_TEXT, PRIME_ANNUALLY, PRIME_ANNUALLY);
-    }
-
-    public static String GET_PRO_BILLING_TERMS_MESSAGE() {
-        return String.format(BILLING_TERMS_MESSAGE, PRO_MONTHLY, PRO_OPTION_TEXT, PRO_ANNUALLY, PRO_ANNUALLY);
-    }
 
     public static final String FREE_MEMBERSHIP_TEXT = "Free Membership";
 
@@ -465,7 +448,7 @@ public class TestData {
     }
 
     public static String GET_NEW_SCHOOL_NAME() {
-        return PRIME_OPTION_TEXT + GET_CURRENT_TIME();
+        return STARTER_OPTION_TEXT + GET_CURRENT_TIME();
     }
 
     public static String GET_CURRENT_TIME() {
@@ -550,10 +533,8 @@ public class TestData {
 
     //Discovery page
     public static final int TOTAL_RESOURCES_PER_PAGE = 24;
-    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED = 12;
-    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED = 12;
-    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED = 18;
-    public static final int TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED = 6;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED = 18;
+    public static final int TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED = 6;
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_TITLE = "Educational Resources by Subject";
     public static final String BROWSE_RESOURCE_DIRECTORY_PAGE_PATH = "lesson-plans";
     public static final String SEARCH_BY_STANDARD_PAGE_PATH = "state-standards";
@@ -744,11 +725,9 @@ public class TestData {
 
     public static final String CANCEL_MODAL_CHEAPER_TEXT = "Want to try a cheaper plan?";
     public static final String CANCEL_MODAL_TRIAL_TIME_TEXT = "10-Day\nFree Trial";
-    public static final String CANCEL_MODAL_FROM_PRIME_COLLECTION_NO_TEXT = "20\nCollections";
-    public static final String CANCEL_MODAL_FROM_PRIME_BILLED_ANNUALLY_TEXT = "* Billed annually at $36";
 
-    public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nCollections";
-    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $60";
+    public static final String CANCEL_MODAL_FROM_PRO_COLLECTION_NO_TEXT = "50\nLesson Collections";
+    public static final String CANCEL_MODAL_FROM_PRO_BILLED_ANNUALLY_TEXT = "* Billed annually at $48";
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";

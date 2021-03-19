@@ -29,7 +29,7 @@ public class ManageMembershipPage extends LpUiBasePage {
     }
 
     private void upgradeSubscription(String newSubscription) {
-        if (!(newSubscription.equals(TestData.PLAN_STARTER) || newSubscription.equals(TestData.PLAN_PRIME) || newSubscription.equals(TestData.PLAN_PRO))) {
+        if (!(newSubscription.equals(TestData.PLAN_STARTER) || newSubscription.equals(TestData.PLAN_PRO))) {
             throw new InvalidParameterException("The plan " + newSubscription + " is not valid");
         }
         String[] offerToSelect = newSubscription.split("_");

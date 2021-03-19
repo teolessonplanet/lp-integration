@@ -38,7 +38,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testEditDistrict(TestData.CSL_COBB_SCHOOL_DISTRICT_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.VALID_EMAIL_CSL_COBB, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.PLAN_VISITOR, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_COBB_TEACHER_FIRST_NAME, true, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_COBB_TEACHER_LAST_NAME, true, true);
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_COBB_OWNER_FIRST_NAME + " " + TestData.CSL_COBB_OWNER_LAST_NAME, true, true);
     }
 

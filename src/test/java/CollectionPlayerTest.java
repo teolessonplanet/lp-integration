@@ -54,7 +54,7 @@ public class CollectionPlayerTest extends BaseTest {
 
     @Test(description = "Active user - Collection player - lessonp-626:Appearance")
     public void testLessonp_626() {
-        testCollectionPlayerAppearance(TestData.PLAN_PRIME);
+        testCollectionPlayerAppearance(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Freemium - Collection player - lessonp-556:Collection Navigator")

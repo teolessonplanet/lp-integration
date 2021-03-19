@@ -142,7 +142,6 @@ public class HeaderTest extends BaseTest {
                 Assert.assertTrue(headerPage.isHenryCustomSlLogoDisplayed());
                 break;
             case TestData.PLAN_STARTER:
-            case TestData.PLAN_PRIME:
             case TestData.PLAN_PRO:
             case TestData.PLAN_FREEMIUM:
             case TestData.PLAN_VISITOR:
@@ -347,7 +346,6 @@ public class HeaderTest extends BaseTest {
                 headerPage.clickOnHenryCustomSlLogo();
                 break;
             case TestData.PLAN_STARTER:
-            case TestData.PLAN_PRIME:
             case TestData.PLAN_PRO:
             case TestData.PLAN_FREEMIUM:
             case TestData.PLAN_VISITOR:

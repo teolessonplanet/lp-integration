@@ -326,8 +326,8 @@ public class LpUiBasePage {
     }
 
     public void waitForAxiosRequests() {
-        String axiosReadyScript = "if (typeof(window.axios_requests) != 'undefined'){" +
-            "    return window.axios_requests == 0" +
+        String axiosReadyScript = "if (typeof(window.axiosRequests) != 'undefined'){" +
+            "    return window.axiosRequests == 0" +
             "  }else{" +
             "    return true;}";
         logStart("Wait for Axios to load");
@@ -622,11 +622,7 @@ public class LpUiBasePage {
     }
 
     public String getElementId(String cssSelector) {
-        try {
-            return driver.findElement(By.cssSelector(cssSelector)).getAttribute("id");
-        } catch (org.openqa.selenium.NoSuchElementException ex) {
-            return null;
-        }
+        return getElementAttribute(cssSelector,"id");
     }
 
     protected String getBackgroundColor(String cssSelector) {
@@ -636,18 +632,14 @@ public class LpUiBasePage {
 
     public String getElementAttribute(String cssSelector, String attributeName, int position) {
         try {
-            return driver.findElements(By.cssSelector(cssSelector)).get(position).getAttribute(attributeName);
-        } catch (org.openqa.selenium.NoSuchElementException ex) {
+            return findElements(cssSelector).get(position).getAttribute(attributeName);
+        } catch (org.openqa.selenium.NoSuchElementException | java.lang.IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     public String getElementAttribute(String cssSelector, String attributeName) {
-        try {
-            return driver.findElement(By.cssSelector(cssSelector)).getAttribute(attributeName);
-        } catch (org.openqa.selenium.NoSuchElementException ex) {
-            return null;
-        }
+        return getElementAttribute(cssSelector, attributeName, 0);
     }
 
     public boolean isElementDisplayed(String cssLocator, int position) {

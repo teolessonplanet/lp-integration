@@ -146,8 +146,6 @@ public class StepTwoModal extends LpHomePage {
             case 0:
                 return TestData.PLAN_STARTER;
             case 1:
-                return TestData.PLAN_PRIME;
-            case 2:
                 return TestData.PLAN_PRO;
             default:
                 logger.error("No option is selected");
@@ -161,11 +159,8 @@ public class StepTwoModal extends LpHomePage {
             case TestData.PLAN_STARTER:
                 clickElement(options, 0);
                 break;
-            case TestData.PLAN_PRIME:
-                clickElement(options, 1);
-                break;
             case TestData.PLAN_PRO:
-                clickElement(options, 2);
+                clickElement(options, 1);
                 break;
             default:
                 logger.error("No option is selected");
