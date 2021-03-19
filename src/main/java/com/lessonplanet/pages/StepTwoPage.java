@@ -104,11 +104,8 @@ public class StepTwoPage extends LpUiBasePage {
             case TestData.PLAN_STARTER:
                 clickElement(options, 0);
                 break;
-            case TestData.PLAN_PRIME:
-                clickElement(options, 1);
-                break;
             case TestData.PLAN_PRO:
-                clickElement(options, 2);
+                clickElement(options, 1);
                 break;
             default:
                 logger.error("No option is selected");
@@ -134,7 +131,7 @@ public class StepTwoPage extends LpUiBasePage {
     }
 
     public String createNewAccount(String accountPlan) throws InvalidParameterException {
-        if (!(accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO))) {
+        if (!(accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) ||  accountPlan.equals(TestData.PLAN_PRO))) {
             throw new InvalidParameterException("The plan " + accountPlan + " is not valid");
         }
         String email = TestData.GET_NEW_EMAIL();
@@ -145,7 +142,7 @@ public class StepTwoPage extends LpUiBasePage {
         }
 
         if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
-            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
+            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRO)) {
                 // creates freemium || starter || prime || pro via endpoint
                 driver.get(String.format(STAGING_CREATE_USER_URL, accountPlan, email));
                 lpHomePage.loadPage();
@@ -162,18 +159,16 @@ public class StepTwoPage extends LpUiBasePage {
         }
 
         if (!accountCreated || !STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
-            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
+            if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRO)) {
                 if (getUrl().equals(TestData.LP_HOME_PAGE_PATH) || getUrl().equals(TestData.EMPTY_URL)) {
                     lpHomePage.loadPage();
                 }
                 stepOnePage.completeStepOne(email, TestData.VALID_PASSWORD);
-                if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
-                    if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRIME) || accountPlan.equals(TestData.PLAN_PRO)) {
-                        final String currentPath = getPath();
-                        loadPage();
-                        completeStepTwoPageWith(accountPlan);
-                        loadUrl(currentPath);
-                    }
+                if (accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRO)) {
+                    final String currentPath = getPath();
+                    loadPage();
+                    completeStepTwoPageWith(accountPlan);
+                    loadUrl(currentPath);
                 }
                 logger.info("Account created via UI");
             } else {

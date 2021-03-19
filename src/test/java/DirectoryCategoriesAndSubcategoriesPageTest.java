@@ -95,10 +95,6 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
         testResourceTiles(TestData.PLAN_STARTER);
 
-        //upgrade to PRIME
-        manageMembershipPage.upgradeSubscriptionAndReturn(TestData.PLAN_PRIME);
-        testResourceTiles(TestData.PLAN_PRIME);
-
         //upgrade to PRO
         manageMembershipPage.upgradeSubscriptionAndReturn(TestData.PLAN_PRO);
         testResourceTiles(TestData.PLAN_PRO);
@@ -205,10 +201,6 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         } else if (account.equals(TestData.PLAN_STARTER)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
-            //TODO: check this
-        } else {
-            Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
-            Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
         }
 
         discoverResourcesPage.changeToTiledView();
@@ -218,9 +210,6 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         } else if (account.equals(TestData.PLAN_STARTER)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
-        } else {
-            Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
-            Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
         }
 
         discoverResourcesPage.changeToListView();
@@ -230,9 +219,6 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         } else if (account.equals(TestData.PLAN_STARTER)) {
             Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
-        } else {
-            Assert.assertEquals(browseBySubjectPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
-            Assert.assertEquals(browseBySubjectPage.getCountLockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
         }
 
 
@@ -243,10 +229,6 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_UNLOCKED);
             Assert.assertEquals(browseBySubjectPage.getCountUpgradeForAccessButton(), TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED);
-        } else if (account.equals(TestData.PLAN_PRIME)) {
-            Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
-            Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_UNLOCKED);
-            Assert.assertEquals(browseBySubjectPage.getCountUpgradeForAccessButton(), TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED);
         } else {
             Assert.assertEquals(browseBySubjectPage.getCountGoToResourceButtons(), TestData.TOTAL_RESOURCES_PER_PAGE);
             Assert.assertEquals(browseBySubjectPage.getCountSeeFullReviewButton(), TestData.TOTAL_RESOURCES_PER_PAGE);
@@ -269,7 +251,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
             Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
             rrpPage.closeTab();
         } else {
-            if ((account.equals(TestData.PLAN_STARTER) || account.equals(TestData.PLAN_PRIME))) {
+            if (account.equals(TestData.PLAN_STARTER)) {
                 browseBySubjectPage.clickUpgradeForAccess(true);
                 Assert.assertTrue(manageMembershipPage.getPath().startsWith(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
                 manageMembershipPage.closeTab();
@@ -439,7 +421,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     private boolean verifyRelatedTopics(String actual) {
         String[] actualWords = actual.split("\n");
 
-        if (actualWords.length == TestData.TOTAL_RESOURCES_PER_PAGE_PRIME_LOCKED) {
+        if (actualWords.length == TestData.TOTAL_RESOURCES_PER_PAGE_STARTER_LOCKED) {
             return true;
         }
         return false;

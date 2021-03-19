@@ -18,9 +18,6 @@ public class PricingPage extends LpUiBasePage {
             case TestData.PLAN_STARTER:
                 clickElement(SELECT_PLAN_STARTER_BUTTON);
                 break;
-            case TestData.PLAN_PRIME:
-                clickElement(SELECT_PLAN_PRIME_BUTTON);
-                break;
             case TestData.PLAN_PRO:
                 clickElement(SELECT_PLAN_PRO_BUTTON);
                 break;

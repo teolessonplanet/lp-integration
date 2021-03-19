@@ -76,8 +76,8 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-601: User clicks result card")
     public void testLessonp_601() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testUserClicksResultCard(TestData.PLAN_PRIME);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testUserClicksResultCard(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)")
@@ -127,7 +127,7 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)")
     public void testLessonp_603() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testSeePreviewButton();
     }
 
@@ -144,9 +144,9 @@ public class SearchTest extends BaseTest {
 
     @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)")
     public void testLessonp_602() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testGoToResourceButtonForSharedResource();
-        testGoToResourceButtonForRegularResource(TestData.PLAN_PRIME);
+        testGoToResourceButtonForRegularResource(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)")

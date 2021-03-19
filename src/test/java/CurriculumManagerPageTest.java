@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
@@ -85,7 +86,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "All Active Users - Curriculum Manager - lessonp-5554: Access Curriculum Manager Page")
     public void testLessonp_5554() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAccessCurriculumManagerPageFromHeader(true);
         testAccessCurriculumManagerPageFromSearchPage(true);
         testSortByDropdown();
@@ -118,11 +119,12 @@ public class CurriculumManagerPageTest extends BaseTest {
         testMyUploadsFolderActions(TestData.PLAN_STARTER);
     }
 
+    @Ignore
     @Test(description = "Prime membership - Curriculum Manager - lessonp- 5543: Upload Resource & My Uploads Folder")
     public void testLessonp_5543() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testUploadResourceFromMyResources(TestData.PLAN_PRIME, false);
-        testMyUploadsFolderActions(TestData.PLAN_PRIME);
+//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+//        testUploadResourceFromMyResources(TestData.PLAN_PRIME, false);
+//        testMyUploadsFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder")
@@ -146,11 +148,12 @@ public class CurriculumManagerPageTest extends BaseTest {
         testMyFavoritesFolderActions(TestData.PLAN_STARTER);
     }
 
+    @Ignore
     @Test(description = "Prime membership - Curriculum Manager - lessonp- 5546: Favorite Resource & My Favorites Folder")
     public void testLessonp_5546() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testFavoriteResources(TestData.PLAN_PRIME);
-        testMyFavoritesFolderActions(TestData.PLAN_PRIME);
+//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+//        testFavoriteResources(TestData.PLAN_PRIME);
+//        testMyFavoritesFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5547: Favorite Resource & My Favorites Folder")
@@ -178,13 +181,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_STARTER);
     }
 
+    @Ignore
     @Test(description = "Prime membership - Curriculum Manager - lessonp-5549: Collection: Actions Dropdown")
     public void testLessonp_5549() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        curriculumManagerPage.loadPage();
-        testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
-        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
-        testFolderActions(TestData.PLAN_PRIME);
+//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+//        curriculumManagerPage.loadPage();
+//        testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
+//        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
+//        testFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5550: Collection: Actions Dropdown")
@@ -214,13 +218,14 @@ public class CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_STARTER);
     }
 
+    @Ignore
     @Test(description = "Prime membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
     public void testLessonp_5276() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        curriculumManagerPage.loadPage();
-        testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
-        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
-        testFolderActions(TestData.PLAN_PRIME);
+//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
+//        curriculumManagerPage.loadPage();
+//        testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
+//        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
+//        testFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
@@ -254,8 +259,8 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5739:Drilled in view & functionality")
     public void testLessonp_5739() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-        testDrilledInViewAndFunctionality(TestData.PLAN_PRIME);
+        stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
+        testDrilledInViewAndFunctionality(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5964:Drag folders into the CB")
@@ -340,7 +345,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5741:Create Folders (Chapters)")
     public void testLessonp_5741() {
-        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[2]);
+        testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[2]);
     }
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5742:Create Folders (Lessons)")
@@ -350,7 +355,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)")
     public void testLessonp_5743() {
-        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[4]);
+        testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[4]);
     }
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)")
@@ -360,7 +365,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)")
     public void testLessonp_5745() {
-        testNestedFolders(TestData.PLAN_PRIME, TestData.FOLDER_TYPE[6]);
+        testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[6]);
     }
 
     @Test(description = "Active user - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)")

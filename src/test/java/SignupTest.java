@@ -32,7 +32,7 @@ public class SignupTest extends BaseTest {
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3850:Create a Prime Account - Try it Free button")
     public void testLessonp_3850() {
-        testCreateAccountViaTryItFree(TestData.PLAN_PRIME);
+        testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button")
@@ -51,7 +51,7 @@ public class SignupTest extends BaseTest {
     @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3882:Create a Prime Account - Pricing button")
     public void testLessonp_3882() {
-        testCreateAccountViaPricing(TestData.PLAN_PRIME);
+        testCreateAccountViaPricing(TestData.PLAN_STARTER);
     }
 
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n")
