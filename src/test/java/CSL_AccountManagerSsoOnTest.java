@@ -122,7 +122,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     }
 
     @Test(description = "Custom SL - Account Manager - lessonp-5115: Ability to Publish")
-    public void testLessonp_5102() {
+    public void testLessonp_5115() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         testOwnerPublisherRole();
