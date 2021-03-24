@@ -363,7 +363,9 @@ public class LpUiBasePage {
         waitForLoad();
         try {
             (new Actions(driver)).moveToElement(element).build().perform();
-        }catch (Exception ex){}
+        } catch (StaleElementReferenceException exception) {
+            logger.info("Element is stale " + element);
+        }
         waitForLoad();
     }
 
@@ -393,7 +395,11 @@ public class LpUiBasePage {
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForLoad();
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
+        try {
+            javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
+        } catch (StaleElementReferenceException staleElementReferenceException) {
+            logger.info("Element is stale " + element);
+        }
         waitForLoad();
     }
 
@@ -597,7 +603,7 @@ public class LpUiBasePage {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -609,7 +615,7 @@ public class LpUiBasePage {
             webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -641,7 +647,7 @@ public class LpUiBasePage {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
