@@ -41,8 +41,7 @@ public class LpUiBasePage {
         waitForLoad();
         logStart("Element is clickable? " + cssSelector);
         try {
-            WebDriverWait webDriverShortWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
-            webDriverShortWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
             logEnd("Element is clickable! " + cssSelector);
             return true;
         } catch (Exception e) {
@@ -61,11 +60,6 @@ public class LpUiBasePage {
             logEnd("Element " + cssSelector + " is not visible");
             return false;
         }
-    }
-
-    public WebElement findElementToBeVisible(String cssLocator) {
-        waitForElementToBeVisible(cssLocator);
-        return driver.findElement(By.cssSelector(cssLocator));
     }
 
     protected void waitForElementToBeVisible(String cssSelector) {
@@ -155,14 +149,12 @@ public class LpUiBasePage {
         waitForLoad();
         boolean elementWasClicked = false;
         int attempts = TestData.SHORT_TIMEOUT;
-//        logStart("Click on webElement " + webElement);
         logger.info("Click on webElement " + webElement);
         do {
             try {
                 waitUntilElementIsClickable(webElement);
                 webElement.click();
                 elementWasClicked = true;
-//                logEnd("Clicked on webElement " + webElement);
                 logger.info("Clicked on webElement " + webElement);
             } catch (Exception ex) {
                 logger.error("The element " + webElement + " still no clickable");
@@ -208,8 +200,6 @@ public class LpUiBasePage {
 
     protected String getTextForElement(WebElement element, String cssLocator) {
         waitForLoad();
-//        findElement(cssLocator);
-        //TODO: test if it works without it
         return findElements(element, cssLocator).get(0).getText();
     }
 
@@ -371,7 +361,11 @@ public class LpUiBasePage {
 
     public void hoverOverElement(WebElement element) {
         waitForLoad();
-        (new Actions(driver)).moveToElement(element).build().perform();
+        try {
+            (new Actions(driver)).moveToElement(element).build().perform();
+        } catch (StaleElementReferenceException exception) {
+            logger.info("Element is stale " + element);
+        }
         waitForLoad();
     }
 
@@ -401,7 +395,11 @@ public class LpUiBasePage {
     protected void scrollToElement(WebElement element) {
         logger.info("Scrolling to element");
         waitForLoad();
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
+        try {
+            javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
+        } catch (StaleElementReferenceException staleElementReferenceException) {
+            logger.info("Element is stale " + element);
+        }
         waitForLoad();
     }
 
@@ -600,11 +598,12 @@ public class LpUiBasePage {
     }
 
     public boolean isElementDisplayed(String cssLocator) {
+        waitForLoad();
         try {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -616,13 +615,13 @@ public class LpUiBasePage {
             webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
 
     public String getElementId(String cssSelector) {
-        return getElementAttribute(cssSelector,"id");
+        return getElementAttribute(cssSelector, "id");
     }
 
     protected String getBackgroundColor(String cssSelector) {
@@ -643,11 +642,12 @@ public class LpUiBasePage {
     }
 
     public boolean isElementDisplayed(String cssLocator, int position) {
+        waitForLoad();
         try {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            System.out.println("Element  is  not  displayed");
+            logger.info("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -696,5 +696,4 @@ public class LpUiBasePage {
     protected void logEnd(String message) {
         logger.info(executionTimer.toString() + message);
     }
-
 }

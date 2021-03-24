@@ -186,6 +186,7 @@ public class CollectionPlayerTest extends BaseTest {
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
 
         collectionBuilderPage.clickOnEditFolder(false);
+        editCollectionModal.waitForModal();
         editCollectionModal.clickPlayOption();
         editCollectionModal.focusDriverToLastTab();
 
