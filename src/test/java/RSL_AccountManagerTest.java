@@ -691,7 +691,9 @@ public class RSL_AccountManagerTest extends BaseTest {
             manageDistrictPage.hoverOverAddButton();
             Assert.assertEquals(manageDistrictPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
         }
-        for (int i = 0; i < manageDistrictPage.getTeachersNumber(); i++) {
+
+        final int noOfTeachers = Math.min(manageDistrictPage.getTeachersNumber(), 5);
+        for (int i = 0; i < noOfTeachers; i++) {
             manageDistrictPage.hoverOverEditButton(i);
             if (sso) {
                 Assert.assertTrue(manageDistrictPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || manageDistrictPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT));
@@ -702,14 +704,12 @@ public class RSL_AccountManagerTest extends BaseTest {
                     Assert.assertTrue(manageDistrictPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT));
                 }
             }
-        }
-        for (int j = 0; j < manageDistrictPage.getTeachersNumber(); j++) {
-            manageDistrictPage.hoverOverRemoveButton(j);
+
+            manageDistrictPage.hoverOverRemoveButton(i);
             Assert.assertTrue(manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT));
+            Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE));
         }
-        for (int k = 0; k < manageDistrictPage.getTeachersNumber(); k++) {
-            Assert.assertTrue(schoolPage.getTeacherRole(k).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(k).contains(TestData.ADMIN_ROLE));
-        }
+
         if (!roster) {
             manageDistrictPage.clickOnAddButton();
             testAddTeacher(TestData.GET_NEW_EMAIL());
