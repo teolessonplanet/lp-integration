@@ -15,7 +15,7 @@ public class CategoryModal extends LpUiBasePage {
 
     public String getModalTitle() {
         waitForReactModalToBeVisible();
-        return getTextForElement(findElementToBeVisible(MODAL_TITLE));
+        return getTextForElement(MODAL_TITLE);
     }
 
     public void clickOnFirstCaret() {
