@@ -3,11 +3,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
-
 public class EditCollection extends CreateNewFolderModal {
-
     private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
     private static final String FOLDER_TYPE = "#edit-folder-type";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
@@ -64,7 +60,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
     private static final String FOLDER_ITEMS_COUNT = "[class='edit-folder-num-wrap'] [class='js-items-count']";
     private static final String FOLDER_ITEM_TITLE = "[class*='collection-item-title']";
-    private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
+    //TODO - Note: Notifications are not reliable for automation - they are shown and hidden when the tests are waiting for JQuery/Axios load
+//    private static final String ALERT_NOTIFICATION = "[class='flash-messages-container']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions dropdown-toggle']";
     private static final String EDIT_PAGE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(1)";
     private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']";
@@ -204,9 +201,9 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(EDIT_PAGE_SAVE_BUTTON);
     }
 
-    public void waitForNotificationToDisappear() {
-        waitUntilElementIsHidden(ALERT_NOTIFICATION);
-    }
+//    public void waitForNotificationToDisappear() {
+//        waitUntilElementIsHidden(ALERT_NOTIFICATION);
+//    }
 
     public void clickDeleteOption() {
         clickElement(DELETE_OPTION);
@@ -362,9 +359,9 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(findElement(PIXABAY_VECTOR_BUTTON).getAttribute("value"));
     }
 
-    public void waitUntilNotificationIsDisplayed(String text) {
-        waitUntilTextIsDisplayed(ALERT_NOTIFICATION, text);
-    }
+//    public void waitUntilNotificationIsDisplayed(String text) {
+//        waitUntilTextIsDisplayed(ALERT_NOTIFICATION, text);
+//    }
 
     public void waitUntilItemIsAddedIntoFolder() {
         waitUntilElementIsDisplayed(findElements(FOLDER_ITEMS).get(0));

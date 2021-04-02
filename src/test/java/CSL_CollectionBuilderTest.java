@@ -20,12 +20,12 @@ public class CSL_CollectionBuilderTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Collection Builder - lessonp-4948: Collection Builder Buttons")
+    @Test(description = "Custom SL - Collection Builder - lessonp-4948: Collection Builder Buttons")
     public void testLessonp_4948() {
         collectionBuilderTest.testCollectionBuilderButtonsAppearance(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Collection Builder - lessonp-4949: Collection Builder Items")
+    @Test(description = "Custom SL - Collection Builder - lessonp-4949: Collection Builder Items")
     public void testLessonp_4949() {
         collectionBuilderTest.testCollectionBuilderItemsAppearance(TestData.VALID_EMAIL_CSL_HENRY, 10);
     }
