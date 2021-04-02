@@ -370,8 +370,8 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickTeacherNoteOption();
         editCollectionModal.typeTeacherNote(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH);
         editCollectionModal.clickSaveNoteButton();
-        editCollectionModal.waitUntilNotificationIsDisplayed(TestData.UPDATED_NOTIFICATION_TEXT);
-        editCollectionModal.waitForNotificationToDisappear();
+//        editCollectionModal.waitUntilNotificationIsDisplayed(TestData.UPDATED_NOTIFICATION_TEXT);
+//        editCollectionModal.waitForNotificationToDisappear();
 
         editCollectionModal.clickEllipsisActions(0);
         editCollectionModal.clickDeleteOption();

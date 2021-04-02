@@ -17,6 +17,10 @@ public class EditTeacherModal extends EditDistrictModal {
         super(driver);
     }
 
+    public void waitForModal() {
+        waitForReactModalToBeVisible();
+    }
+
     public void typeFirstName(String name) {
         clearText(FIRST_NAME_INPUT);
         sendKeys(FIRST_NAME_INPUT, name);
@@ -60,22 +64,22 @@ public class EditTeacherModal extends EditDistrictModal {
     }
 
     public boolean isPublishCheckboxChecked() {
-        String emailAttribute = getElementAttribute(PUBLISH_CHECKBOX, "checked", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(PUBLISH_CHECKBOX, "checked", 0).equals("true");
     }
 
     public boolean isEmailFieldDisabled() {
-        String emailAttribute = getElementAttribute(EMAIL_INPUT, "disabled", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(EMAIL_INPUT, "disabled", 0).equals("true");
     }
 
     public boolean isFirstNameFieldDisabled() {
-        String emailAttribute = getElementAttribute(FIRST_NAME_INPUT, "disabled", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(FIRST_NAME_INPUT, "disabled", 0).equals("true");
     }
 
     public boolean isLastNameFieldDisabled() {
-        String emailAttribute = getElementAttribute(LAST_NAME_INPUT, "disabled", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(LAST_NAME_INPUT, "disabled", 0).equals("true");
     }
 }

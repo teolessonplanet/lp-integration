@@ -224,6 +224,7 @@ public class TestData {
     public static final String LINKEDIN_URL = "linkedin.com";
     public static final String[] LESSON_PLANET_TEXT = {"lessonplanet", "lesson-planet", "LessonPlanet"};
     public static final String YOUTUBE_URL = "youtube.com";
+    public static final String YOUTUBE_CHANNEL_PATH = "channel/UCYEvQfQB9GAgCWUS7HsVh2A";
     public static final String PINTEREST_URL = "pinterest.com";
 
     public static final String SITE_MAP_PAGE_PATH = "content/site_map";

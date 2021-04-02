@@ -164,7 +164,7 @@ public class FooterTest extends BaseTest {
 
     @Test(description = "Active user - Footer - lessonp-4120: Newsletter")
     public void testLessonp_4120() {
-        String userEmail =stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSendEmailNewsletter(userEmail);
     }
 
@@ -316,7 +316,13 @@ public class FooterTest extends BaseTest {
         footerPage.waitForNewTab();
         footerPage.focusDriverToLastTab();
         footerPage.waitForLinkToLoad();
-        Assert.assertTrue(footerPage.getUrl().contains(url) && footerPage.getUrl().contains(lpText));
+        final String urlText = footerPage.getUrl();
+        Assert.assertTrue(urlText.contains(url));
+        if (url.equals(TestData.YOUTUBE_URL)) {
+            Assert.assertTrue(urlText.contains(lpText) || urlText.endsWith(TestData.YOUTUBE_CHANNEL_PATH));
+        } else {
+            Assert.assertTrue(urlText.contains(lpText));
+        }
         footerPage.closeTab();
     }
 

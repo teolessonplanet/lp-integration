@@ -22,6 +22,10 @@ public class EditDistrictModal extends AddADistrictAdminModal {
         super(driver);
     }
 
+    public void waitForModal() {
+        waitForReactModalToBeVisible();
+    }
+
     public String getDistrictName() {
         return getElementAttribute(ORGANIZATION_NAME_INPUT, "value", 0);
     }
@@ -92,22 +96,22 @@ public class EditDistrictModal extends AddADistrictAdminModal {
     }
 
     public boolean isAdminPublishCheckboxDisabled() {
-        String emailAttribute = getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "disabled", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "disabled", 0).equals("true");
     }
 
     public boolean isTeacherPublishCheckboxDisabled() {
-        String emailAttribute = getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "disabled", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "disabled", 0).equals("true");
     }
 
     public boolean isAdminPublishCheckboxChecked() {
-        String emailAttribute = getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "checked", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(ADMIN_PUBLISH_CHECKBOX, "checked", 0).equals("true");
     }
 
     public boolean isTeacherPublishCheckboxChecked() {
-        String emailAttribute = getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "checked", 0);
-        return emailAttribute.equals("true");
+        waitForModal();
+        return getElementAttribute(TEACHER_PUBLISH_CHECKBOX, "checked", 0).equals("true");
     }
 }
