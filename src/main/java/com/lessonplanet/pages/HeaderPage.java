@@ -7,7 +7,7 @@ import java.util.List;
 
 public class HeaderPage extends LpUiBasePage {
 
-    private static final String LP_LOGO_IMAGE = "[class='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/lessonplanet-logo@1x']";
+    private static final String LP_LOGO_IMAGE = "[class='lp-header'] [class='lp-logo-wrap lp-logo'] /*[name()='svg']";
     private static final String REGULAR_SL_LOGO_IMAGE = "[class*='lp-logo-wrap lp-logo'] #logo[src*='/assets/logos/learning-explorer-logo-'][src$='.png']";
     private static final String HENRY_CUSTOM_SL_LOGO = "[class*='custom-sl-logo-search-wrap'] #logo[src*='/assets/logos/whitelabel/henry_county_logo-'][src$='.png']";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
