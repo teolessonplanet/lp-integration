@@ -17,7 +17,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String DRAG_AND_DROP_TEXT = "#droppable [class*='new-empty-collection']";
 
     private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
-    private static final String EDIT_FOLDER_BUTTON = "[class*='cb-actions'] [class*='btn-primary']";
+    private static final String EDIT_FOLDER_BUTTON = "[class*='cb-actions'] [class*='action-button']";
 
     private static final String MY_RESOURCES_SIGN_IN_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold']";
     private static final String MY_RESOURCES_SIGN_UP_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold text-danger']";
