@@ -5,7 +5,7 @@ import util.TestData;
 
 public class FooterPage extends LpUiBasePage {
 
-    private static final String LP_LOGO_IMAGE = "[class*='img-responsive']";
+    private static final String LP_LOGO_IMAGE = "[class='lp-footer-logo'] #footer-logo /*[name()='svg']";
     private static final String REGULAR_SL_LOGO_IMAGE = "[class='lp-footer-logo'] [src*='/assets/logos/learning-explorer-logo-long-light']";
     private static final String COPY_RIGHT_TEXT = "[class='copyright-text']";
 
