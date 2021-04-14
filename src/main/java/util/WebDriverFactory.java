@@ -21,6 +21,7 @@ public class WebDriverFactory {
     private final static String HEADLESS_SYSTEM_VAR = "headless";
     private final static String FIREFOX_PROFILE = "ffprof";
     private final static String IP_WHITELISTED_SYSTEM_VAR = "ipwhitelisted";
+    private final static String SERVER_URL_SYSTEM_VAR = "server";
 
     private boolean headlessBrowser = false;
     private boolean firefoxDefaultProfile = false;
@@ -93,10 +94,17 @@ public class WebDriverFactory {
         try {
             if (System.getProperty(IP_WHITELISTED_SYSTEM_VAR).equals("false")) {
                 TestData.IP_IS_WHITELISTED = false;
-
             }
         } catch (NullPointerException ex) {
             logger.info("WFH is not set in VM options");
+        }
+
+        try {
+            if (System.getProperty(SERVER_URL_SYSTEM_VAR).equals("feature")) {
+                TestData.SERVER_URL = TestData.FEATURE_URL;
+            }
+        } catch (NullPointerException ex) {
+            logger.info("Server is not set in VM options - running on Staging by default");
         }
 
         return webDriver;
