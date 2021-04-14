@@ -215,7 +215,7 @@ public class LpUiBasePage {
         if (!isQaIntegrationCookieCreated) {
             try {
                 if (!TestData.IP_IS_WHITELISTED) {
-                    driver.get("https://demo:hqu5duYLqbyi6@staging.lessonplanet.com");
+                    driver.get(TestData.SERVER_URL.replace("://","://demo:hqu5duYLqbyi6@"));
                 } else {
                     driver.get(TestData.SERVER_URL + TestData.LP_HOME_PAGE_PATH);
                 }
