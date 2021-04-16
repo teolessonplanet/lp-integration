@@ -20,10 +20,10 @@ public class CollectionRrp extends Rrp {
     private static final String SHARE_BUTTON = "[class='top-buttons'] button[class*='rrp-share-resource']";
     private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
-    private static final String GRADES = "div.shared_collection span[class*='detail-grades'][title='Grades']";
+    private static final String GRADES = "span[class*='detail-grades'][title='Grades']";
     private static final String SUBJECTS = "div.shared_collection span[title='Subject']";
-    private static final String NUMBER_OF_VIEWS = "[class='col-xs-9 col-sm-10']" + " div.resource-details.small span:nth-child(3)";
-    private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-9 col-sm-10']" + " div.resource-details.small span:last-child";
+    private static final String NUMBER_OF_VIEWS = "[class='col-xs-12 pr60'] [class='resource-detail detail-views']";
+    private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-12 pr60'] [class='resource-detail detail-saves']";
     private static final String CONCEPTS_TAGS_LIST = "[class='col-sm-11 details-list concepts']";
     private static final String NEXT_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='right']";
     private static final String PREVIOUS_BUTTON_RRP = "[class*='panel-default panel-review'] div.panel-footer a[data-transition='left']";
@@ -35,7 +35,7 @@ public class CollectionRrp extends Rrp {
     private static final String EXPANDED_RRP = "[class='rrp-list'] li[class='rrp-content']";
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
-    private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view text-muted']";
+    private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view']";
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
     private static final String SAVED_COLLECTION_NOTIFICATION = "[class='alert alert-success alert-dismissible mb0']";
