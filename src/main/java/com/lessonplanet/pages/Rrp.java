@@ -31,7 +31,7 @@ public class Rrp extends LpUiBasePage {
     private static final String FULL_RRP_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.col-sm-12.pt5.pb5:nth-child(2) dd";
     private static final String FULL_RRP_SUBJECTS = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(2) div.col-sm-12.pt5.pb5:nth-child(3) dd";
     private static final String FULL_RRP_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class*='left-resource-details'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(1) dd";
-    private static final String LIGHT_RRP_GRADE = "[class*='middle-resource'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) dd";
+    private static final String LIGHT_RRP_GRADE = "[class='panel panel-default panel-review new-rrp'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) dd";
     private static final String LIGHT_RRP_SUBJECTS = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(2) dd";
     private static final String LIGHT_RRP_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(3) dd";
     private static final String NEXT_BUTTON_RRP = "[class='panel-footer hidden-xs'] [class='pull-right'] a";
