@@ -395,7 +395,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
         createNewFolderModal.clickOnCreateFolderButton();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), folderName);
         Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_STATUS);
@@ -435,7 +435,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.waitForModal();
         removeModal.clickOnRemoveButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -510,8 +510,8 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.clickOnRemoveButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
-        //curriculumManagerPage.waitForNotificationToDisappear();
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertFalse(curriculumManagerPage.isUploadResourceDisplayed());
     }
 
@@ -627,7 +627,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnUnFavoriteButton();
         removeModal.clickOnRemoveButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_FAVORITE_RESOURCE_MESSAGE));
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_FAVORITE_RESOURCE_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -697,8 +697,8 @@ public class CurriculumManagerPageTest extends BaseTest {
         moveToModal.waitForModal();
         moveToModal.clickOnMyResourcesChildDestinationFolder();
         moveToModal.clickOnMoveToSelectedFolderButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_MESSAGE));
-        // curriculumManagerPage.waitForNotificationToDisappear();
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_MESSAGE));
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber - 1);
     }
 
@@ -737,7 +737,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         rrpModal.clickOnAddToFolderDropdown();
         rrpModal.clickCollectionFromAddToCollectionDropdown();
         rrpModal.clickAddToFolderButton();
-        // Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
+        Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
     }
 
     public void testCheckResourceIsAddedInFolder(String itemNumber) {
@@ -837,8 +837,8 @@ public class CurriculumManagerPageTest extends BaseTest {
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
-        //curriculumManagerPage.waitForNotificationToDisappear();
+        Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), TestData.COPIED_FOLDER_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber + 1);
     }
@@ -966,7 +966,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         editCollectionModal.clickAddSelectedToFolderButton();
         editCollectionModal.clickOnCloseButton();
 
-        //ask Ionut
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();

@@ -99,13 +99,13 @@ public class WebDriverFactory {
             logger.info("WFH is not set in VM options");
         }
 
-      //  try {
-        //    if (System.getProperty(SERVER_URL_SYSTEM_VAR).equals("feature")) {
-      //          TestData.SERVER_URL = TestData.FEATURE_URL;
-    //        }
-   //     } catch (NullPointerException ex) {
-     //       logger.info("Server is not set in VM options - running on Staging by default");
-   //     }
+        try {
+            if (System.getProperty(SERVER_URL_SYSTEM_VAR).equals("feature")) {
+                TestData.SERVER_URL = TestData.FEATURE_URL;
+            }
+        } catch (NullPointerException ex) {
+            logger.info("Server is not set in VM options - running on Staging by default");
+        }
 
         return webDriver;
     }
