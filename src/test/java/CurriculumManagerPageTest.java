@@ -533,7 +533,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             discoverResourcesPage.clickSeeFullReview(false);
         }
-        testFavoriteButton(TestData.REGULAR_RESOURCE_STATUS, "Lesson Plan");
+        testFavoriteButton(TestData.REGULAR_RESOURCE_STATUS, TestData.RESOURCE_TYPE_LESSON);
     }
 
     public void testFavoriteButton(String resourceStatus, String resourceType) {
@@ -876,13 +876,13 @@ public class CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
-        testFavoriteButton(TestData.SHARED_RESOURCE_STATUS, "Article");
+        testFavoriteButton(TestData.SHARED_RESOURCE_STATUS, TestData.RESOURCE_TYPE_ARTICLE);
     }
 
     private void testFavoriteFreeSampleResource() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
-        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, "Presentation");
+        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_PRESENTATION);
     }
 
     protected void testDraggingFoldersIntoAnotherFolder(String accountPlan) {

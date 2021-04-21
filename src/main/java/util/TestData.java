@@ -289,6 +289,8 @@ public class TestData {
     public static final String RESOURCE_TYPE_GRAPHICS_AND_IMAGE = "Graphics & Image";
     public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
+    public static final String RESOURCE_TYPE_ARTICLE = "Article";
+    public static final String RESOURCE_TYPE_LESSON = "Lesson";
 
     //Account Manager
     public static final String DISTRICT_NAME_SL_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
