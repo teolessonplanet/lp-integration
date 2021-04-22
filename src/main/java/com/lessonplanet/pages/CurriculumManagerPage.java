@@ -73,7 +73,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     }
 
     public String getNotificationText() {
-        return getTextForElement(ALERT_NOTIFICATION);
+        return getTextForNotification(ALERT_NOTIFICATION);
     }
 
     public void waitForNotificationToDisappear() {

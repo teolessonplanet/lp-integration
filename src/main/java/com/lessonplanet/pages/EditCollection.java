@@ -394,7 +394,7 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public String getAlertNotificationText() {
-        return getTextForElement(PUBLISHED_COLLECTION_NOTIFICATION);
+        return getTextForNotification(PUBLISHED_COLLECTION_NOTIFICATION);
     }
 
     public boolean isEnabledPublishFolderButtonDisplayed() {
