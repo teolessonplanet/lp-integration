@@ -215,7 +215,7 @@ public class LpUiBasePage {
         if (!isQaIntegrationCookieCreated) {
             try {
                 if (!TestData.IP_IS_WHITELISTED) {
-                    driver.get(TestData.SERVER_URL.replace("://","://demo:hqu5duYLqbyi6@"));
+                    driver.get(TestData.SERVER_URL.replace("://", "://demo:hqu5duYLqbyi6@"));
                 } else {
                     driver.get(TestData.SERVER_URL + TestData.LP_HOME_PAGE_PATH);
                 }
@@ -413,6 +413,11 @@ public class LpUiBasePage {
 
     protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
+    }
+
+    protected void waitUntilElementIsHidden(String cssSelector, int seconds) {
+        WebDriverWait customWait = new WebDriverWait(driver, seconds);
+        customWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
 
     protected void waitUntilElementIsDisplayed(String cssSelector) {

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class UpgradeAssignModal extends LpUiBasePage {
     private static final String UPGRADE_MODAL = "#popup-modal";
     private static final String UPGRADE_MODAL_TEXT = "#popup-modal [class='modal-body']";
-    private static final String UPGRADE_ME_BUTTON = "#popup-modal [class='get-now-btn']";
+    private static final String UPGRADE_ME_BUTTON = "#popup-modal a[href^='/subscription/new']";
 
     public UpgradeAssignModal(WebDriver driver) {
         super(driver);

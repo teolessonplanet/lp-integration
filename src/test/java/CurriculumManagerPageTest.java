@@ -278,29 +278,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     @Test(description = "Free member - Curriculum Manager - lessonp-5893:Drilled in view")
     public void testLessonp_5893() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        createNestedFoldersRequirement();
-
-        curriculumManagerPage.clickOnFolder(0);
-        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), 2);
-
-        WebElement folder0 = curriculumManagerPage.getFolder(0);
-        curriculumManagerPage.clickOnActionsDropdownButton(folder0);
-        Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(folder0));
-        Assert.assertTrue(curriculumManagerPage.isCopyFolderToButtonDisplayed(folder0));
-        Assert.assertTrue(curriculumManagerPage.isMoveFolderToButtonDisplayed(folder0));
-        Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(folder0));
-
-        curriculumManagerPage.clickOnChild(0, 0);
-
-        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 2);
-        Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
-        Assert.assertEquals(TestData.NEW_FOLDER_NAME, curriculumManagerPage.getBreadcrumbLastItemText());
-        Assert.assertTrue(curriculumManagerPage.isActionsHeaderButtonDisplayed());
-
-        curriculumManagerPage.clickOnBreadcrumb(1);
-        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 1);
-        Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
-        Assert.assertEquals(curriculumManagerPage.getCountFolders(), 2);
+        testDrilledInViewAndFunctionality(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
@@ -505,6 +483,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnMyUploadsFolder();
         curriculumManagerPage.waitForRefreshIconToDisappear();
         Assert.assertTrue(curriculumManagerPage.isUploadResourceDisplayed());
+        curriculumManagerPage.clickOnUploadedFileInfoIcon();
         if (!publishedResource) {
             Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PRIVATE_STATUS);
             Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.UPLOAD_RESOURCE_TITLE);
@@ -554,10 +533,10 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             discoverResourcesPage.clickSeeFullReview(false);
         }
-        testFavoriteButton(TestData.REGULAR_RESOURCE_STATUS);
+        testFavoriteButton(TestData.REGULAR_RESOURCE_STATUS, TestData.RESOURCE_TYPE_LESSON);
     }
 
-    public void testFavoriteButton(String resourceStatus) {
+    public void testFavoriteButton(String resourceStatus, String resourceType) {
         rrpModal.waitForModal();
         rrpModal.clickOnFavoriteButton();
         rrpModal.clickOnViewFavoritesLink();
@@ -566,7 +545,9 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnMyFavoritesFolder();
         curriculumManagerPage.waitForRefreshIconToDisappear();
         Assert.assertTrue(curriculumManagerPage.isFavoriteResourceDisplayed());
+        curriculumManagerPage.clickOnFavoriteResourceInfoIcon();
         Assert.assertEquals(curriculumManagerPage.getFavoriteResourceStatus(), resourceStatus);
+        Assert.assertEquals(curriculumManagerPage.getFavoriteResourceType(), resourceType);
     }
 
     public void testPlayResource(String accountPlanText) {
@@ -644,7 +625,7 @@ public class CurriculumManagerPageTest extends BaseTest {
 
     public void testRemoveFavoriteResource() {
         curriculumManagerPage.clickOnActionsDropdown();
-        curriculumManagerPage.clickOnDeleteButton();
+        curriculumManagerPage.clickOnUnFavoriteButton();
         removeModal.clickOnRemoveButton();
         Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_FAVORITE_RESOURCE_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
@@ -767,6 +748,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     }
 
     public void testEditFolder() {
+        curriculumManagerPage.clickOnFolder(0);
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
         testEditFolderModalDetailsArea();
@@ -894,13 +876,13 @@ public class CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
-        testFavoriteButton(TestData.SHARED_RESOURCE_STATUS);
+        testFavoriteButton(TestData.SHARED_RESOURCE_STATUS, TestData.RESOURCE_TYPE_ARTICLE);
     }
 
     private void testFavoriteFreeSampleResource() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
-        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS);
+        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_PRESENTATION);
     }
 
     protected void testDraggingFoldersIntoAnotherFolder(String accountPlan) {
@@ -909,9 +891,8 @@ public class CurriculumManagerPageTest extends BaseTest {
         testCreateThreeFolders(TestData.FOLDER_TYPE[0]);
         Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 3);
         Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 0);
-        WebElement folder0 = curriculumManagerPage.getFolder(1);
-        WebElement folder1 = curriculumManagerPage.getFolder(2);
-        curriculumManagerPage.customDragAndDrop(folder0, folder1);
+        curriculumManagerPage.loadPage();
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), curriculumManagerPage.getFolder(2));
         curriculumManagerPage.loadPage();
         if (currentNoOfFolders + 2 <= TestData.CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS) {
             Assert.assertEquals(curriculumManagerPage.getCountFolders(), currentNoOfFolders + 2);
@@ -932,13 +913,9 @@ public class CurriculumManagerPageTest extends BaseTest {
     private void createNestedFoldersRequirement() {
         curriculumManagerPage.loadPage();
         testCreateThreeFolders(TestData.FOLDER_TYPE[0]);
-        WebElement folder0 = curriculumManagerPage.getFolder(0);
-        WebElement folder1 = curriculumManagerPage.getFolder(1);
-        curriculumManagerPage.customDragAndDrop(folder1, folder0);
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), curriculumManagerPage.getFolder(2));
         curriculumManagerPage.loadPage();
-        folder0 = curriculumManagerPage.getFolder(0);
-        folder1 = curriculumManagerPage.getFolder(1);
-        curriculumManagerPage.customDragAndDrop(folder1, folder0);
+        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(1), curriculumManagerPage.getFolder(0));
         curriculumManagerPage.loadPage();
     }
 
@@ -946,11 +923,24 @@ public class CurriculumManagerPageTest extends BaseTest {
         createNestedFoldersRequirement();
 
         curriculumManagerPage.clickOnFolder(0);
-        curriculumManagerPage.clickOnChild(0, 0);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), 2);
+        WebElement folder0 = curriculumManagerPage.getFolder(0);
+        curriculumManagerPage.clickOnActionsDropdownButton(folder0);
+        Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isCopyFolderToButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isMoveFolderToButtonDisplayed(folder0));
+        Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(folder0));
+
+        curriculumManagerPage.hoverOverChild(0);
+        curriculumManagerPage.clickOnViewFolderButton();
 
         curriculumManagerPage.waitForLoad();
+        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 3);
+        Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
+        Assert.assertEquals(TestData.NEW_FOLDER_NAME, curriculumManagerPage.getBreadcrumbLastItemText());
+        Assert.assertTrue(curriculumManagerPage.isActionsHeaderButtonDisplayed());
+
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
-        Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 2);
         Assert.assertTrue(curriculumManagerPage.isEditFolderButtonDisplayed(null));
         Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(null));
         Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisabled(null));
@@ -976,6 +966,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         editCollectionModal.clickAddSelectedToFolderButton();
         editCollectionModal.clickOnCloseButton();
 
+        curriculumManagerPage.refreshPageAndDismissBrowserAlert();
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
         curriculumManagerPage.clickOnPlayFolderButton(null);
@@ -1000,7 +991,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(TestData.DELETE_FOLDER_MODAL_TITLE_TEXT, deleteFolderModal.getTitleText());
         Assert.assertEquals(TestData.DELETE_FOLDER_MESSAGE_TEXT, deleteFolderModal.getContentText());
         deleteFolderModal.clickOnDeleteButton();
-        Assert.assertEquals(1, curriculumManagerPage.getCountBreadcrumbs());
+        Assert.assertEquals(2, curriculumManagerPage.getCountBreadcrumbs());
 
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[2]);
 
@@ -1023,7 +1014,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             uploadFileModal.waitForModal();
             testUpload(false, accountPlan, false);
             curriculumManagerPage.clickOnFolder(0);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), 1);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), 1);
             curriculumManagerPage.clickOnFolder(0);
         }
 
@@ -1097,7 +1088,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), numberOfFolders);
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), numberOfFolders);
         curriculumManagerPage.clickOnFolder(0);
-        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(0), numberOfFolders);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), numberOfFolders);
     }
 
     private void testDeleteItemsFromCollectionBuilder(int noOfFoldersExpectedToLeft) {

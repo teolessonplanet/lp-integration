@@ -2,6 +2,7 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import util.TestData;
 
 import java.util.List;
 
@@ -103,7 +104,7 @@ public class CollectionPlayerPage extends LpUiBasePage {
     }
 
     public void waitUntilNavigatorItemSliderIsHidden() {
-        waitUntilElementIsHidden(CLOSE_BUTTON);
+        waitUntilElementIsHidden(CLOSE_BUTTON, TestData.LONG_TIMEOUT);
     }
 
     public boolean isCloseButtonDisplayed() {
