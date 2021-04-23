@@ -211,6 +211,22 @@ public class LpUiBasePage {
         return getTextForElement(findElements(cssSelector).get(position));
     }
 
+    protected String getTextForNotification(String cssSelector) {
+        int counter = TestData.LONG_TIMEOUT;
+        while (counter > 0) {
+            counter--;
+            try {
+                waitUntilElementIsDisplayed(cssSelector);
+                String str = getTextForElement(cssSelector);
+                if (!str.equals(""))
+                    return str;
+            } catch (Exception ex) {
+                logger.info("The element is not displayed " + cssSelector + " " + ex.toString());
+            }
+        }
+        return "";
+    }
+
     protected void loadUrl(String pagePath) {
         if (!isQaIntegrationCookieCreated) {
             try {
