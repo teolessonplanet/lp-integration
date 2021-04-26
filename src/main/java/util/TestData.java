@@ -211,6 +211,22 @@ public class TestData {
     public static final String COLLECTION_FOLDER_TYPE = "Collection";
     public static final int CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS = 20;
 
+    public static final String SHARED_FOLDER_NAME = "Shared Folder";
+    public static final String SHARED_WITH_ME_PAGE_PERMISSION_VIEW_ONLY = "View only";
+    public static final String SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT = "is now shared.";
+    public static final String SHARED_WITH_ME_PAGE_EMPTY_TEXT = "When resources are shared with you, they will be listed here";
+    public static final String SHARED_WITH_ME_PAGE_PATH = "my/shared_with_me";
+    public static final String SHARED_WITH_ME_PAGE_FOLDER_STATUS = "Shared by";
+    public static final String SHARE_FOLDER_MODAL_FOLDER_PRIVATE_STATUS = "This folder is currently: Private";
+    public static final String SHARE_FOLDER_MODAL_FOLDER_SHARED_STATUS = "This folder is currently: Shared";
+    public static final String SHARE_FOLDER_MODAL_TITLE = "Share Folder";
+    public static final String SHARE_FOLDER_MODAL_SHARE_WITH_TEXT = "Share folder with these people:";
+    public static final String SHARE_FOLDER_MODAL_OWNER_ROLE = "Owner";
+    public static final String SHARE_FOLDER_MODAL_RSL_OWNER_NAME = "Connor Kyle";
+    public static final String SHARE_FOLDER_MODAL_ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "Start typing email address to select";
+    public static final String SHARE_FOLDER_MODAL_NO_USER_FOUND_TEXT = "No results found.";
+    public static final String SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT = "Can View";
+
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
     public static final String ASSIGN_TO_STUDENTS_PAGE_PATH = "us/videos?autoplay=how_to_share_collections";
@@ -338,6 +354,8 @@ public class TestData {
     public static final String RSL_SBCEO_OWNER_LAST_NAME = "Kyle";
     public static final String RSL_SBCEO_TEACHER_FIRST_NAME = "William";
     public static final String RSL_SBCEO_TEACHER_LAST_NAME = "Damian";
+    public static final String RSL_SBCEO_DA_FIRST_NAME = "Lisa";
+    public static final String RSL_SBCEO_DA_LAST_NAME = "Michaels";
     public static final String CSL_HENRY_DISTRICT_NAME = "Henry County Schools";
     public static final String CSL_HENRY_EXISTING_SCHOOL_NAME = "LP Elementary";
     public static final String CSL_HENRY_EXISTING_TEACHER_EMAIL = "i_t_csl_henry@lp.com";
