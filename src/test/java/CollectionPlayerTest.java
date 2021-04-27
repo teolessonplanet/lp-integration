@@ -1,5 +1,4 @@
 import com.lessonplanet.pages.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -20,11 +19,11 @@ public class CollectionPlayerTest extends BaseTest {
     private EditCollectionModal editCollectionModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
-    private PublishCollectionModal publishCollectionModal;
     private AssignFolderModalTest assignFolderModalTest;
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
+    private PublishCollectionModal publishCollectionModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -37,9 +36,9 @@ public class CollectionPlayerTest extends BaseTest {
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        publishCollectionModal = new PublishCollectionModal(webDriver);
         assignModal = new AssignModal(webDriver);
         assignFolderModalTest = new AssignFolderModalTest();
+        publishCollectionModal = new PublishCollectionModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -103,11 +102,16 @@ public class CollectionPlayerTest extends BaseTest {
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
-            publishCollectionModal.publishCollection(accountType);
-            //generate method to publish fast
+            //TODO: publish
+            editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
+            editCollectionModal.clickOnPublishFolder();
 
+            if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+                publishCollectionModal.clickOnCloseButton();
+            } else {
+              //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+            }
             editCollectionModal.clickOnCloseButton();
-
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
             curriculumManagerPage.clickActionsDropdown(curriculumManagerPage.getFolder(0));
             curriculumManagerPage.clickOnPlayFolderButton(curriculumManagerPage.getFolder(0));

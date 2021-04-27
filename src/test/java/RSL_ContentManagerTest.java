@@ -97,7 +97,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     public void testContentManagerCardsList(String account) {
         reachContentManagerPage();
         rsl_contentManagerPage.checkLessonPlanetProvider();
-        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
+        rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);
 
         WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
 

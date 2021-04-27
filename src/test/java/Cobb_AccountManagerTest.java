@@ -63,7 +63,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
     public void testLessonp_5468() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        districtPage.clickOnSchool(1);
+        districtPage.clickOnSchool(0);
         rsl_accountManagerTest.testSchoolPage(true, true, true);
         schoolPage.hoverOverAddButton();
         Assert.assertEquals(schoolPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);

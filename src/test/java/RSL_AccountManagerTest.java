@@ -440,7 +440,7 @@ public class RSL_AccountManagerTest extends BaseTest {
                     Assert.assertTrue(schoolPage.isAddLinkRemoveButtonDisplayed(i));
                 }
             } else {
-                Assert.assertFalse(schoolPage.isAddLinkDisplayed());
+                Assert.assertEquals(schoolPage.getAddLinkDisabledNumber(), 3);
             }
         }
     }

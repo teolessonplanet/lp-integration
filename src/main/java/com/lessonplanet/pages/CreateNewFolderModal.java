@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class CreateNewFolderModal extends LpUiBasePage {
 
     protected static final String CREATE_FOLDER_BUTTON = "[class*='modal-footer'] [type='submit']";
-    protected static final String CANCEL_BUTTON = "[class='modal-footer'] button[class='btn btn-default mr10']";
+    protected static final String CANCEL_BUTTON = "[class='modal-footer'] button[class='btn btn-default']";
     protected static final String NAME_INPUT = "[name='collection[title]']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
     private static final String CREATE_NEW_FOLDER_MODAL = "#js-create-collection-modal";

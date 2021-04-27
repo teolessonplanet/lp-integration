@@ -87,6 +87,8 @@ public class TestData {
     public static final String FOLDER_NOT_PUBLISHED_TEXT = "This folder has not been published.";
     public static final String FOLDER_DEFAULT_STATUS = "This folder is private ";
     public static final String FOLDER_PUBLISHED_TEXT = "This folder has been published on";
+    public static final String EDIT_FOLDER_UPGRADE_UPLOAD_TEXT = "Upgrade your membership  to upload your original curriculum to Lesson Planet.\n" +
+        "Uploaded files can be managed and shared in My Resources.";
 
     //Add a Resource
     public static final String ADD_A_RESOURCE_PATH = "/content-tool/resources/new";
@@ -200,7 +202,7 @@ public class TestData {
     public static final String FACEBOOK_URL = "https://www.facebook.com";
     public static final String TWITTER_URL = "https://twitter.com";
     public static final String GOOGLE_URL = "google.com";
-    public static final String RATING = "5.0";
+    public static final String RATING = "5";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
     public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules", "Course Folders", "Root Folders"};
@@ -306,7 +308,7 @@ public class TestData {
     public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
     public static final String RESOURCE_TYPE_ARTICLE = "Article";
-    public static final String RESOURCE_TYPE_LESSON = "Lesson";
+    public static final String RESOURCE_TYPE_LESSON = "Lesson Plan";
 
     //Account Manager
     public static final String DISTRICT_NAME_SL_POPOVER_TEXT = "If you'd like to change the district name, please contact Lesson Planet.";
@@ -372,7 +374,7 @@ public class TestData {
     public static final String CSL_QA_CUSTOM_TEACHER_FIRST_NAME = "Jones";
     public static final String CSL_QA_CUSTOM_TEACHER_LAST_NAME = "Smith";
     public static final String CSL_COBB_SCHOOL_DISTRICT_NAME = "Cobb County School District";
-    public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Project LIFE";
+    public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Cobb Online Learning Academy - HS";
     public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = "i_t_csl_cobb@lp.com";
     public static final String CSL_COBB_OWNER_FIRST_NAME = "Jane";
     public static final String CSL_COBB_OWNER_LAST_NAME = "Maryland";

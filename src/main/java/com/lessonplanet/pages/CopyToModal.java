@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 public class CopyToModal extends LpUiBasePage {
 
-    protected static final String CONFIRM_BUTTON = "[class*='modal-footer'] [class='btn btn-default btn-primary']";
-    private static final String NAME_INPUT = "[name='collectionTitle']";
+    protected static final String CONFIRM_BUTTON = "[class*='footer'] [class*='btn btn-default btn-primary']";
+    private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] li[class='list-option my-resources']";
 
     public CopyToModal(WebDriver driver) {

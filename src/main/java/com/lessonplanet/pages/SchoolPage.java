@@ -1,6 +1,9 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SchoolPage extends ManageDistrictPage {
 
@@ -9,6 +12,7 @@ public class SchoolPage extends ManageDistrictPage {
     private static final String TEACHER_FIRST_NAME_TEXT = "[class='group-table children'] div[class*='first-name']";
     private static final String TEACHER_LAST_NAME_TEXT = "[class='group-table children'] div[class*='last-name']";
     private static final String TEACHER_EMAIL_TEXT = "[class='group-table children']  div[class*='email']";
+    private static final String ADD_LINK_DISABLED = "[class='group-table children'] [class*='placeholder'] [class='bold disabled popup']";
 
     public SchoolPage(WebDriver driver) {
         super(driver);
@@ -44,5 +48,10 @@ public class SchoolPage extends ManageDistrictPage {
     public String getTeacherLastName(int position) {
         scrollToElement(TEACHER_LAST_NAME_TEXT, position);
         return getTextForElement(TEACHER_LAST_NAME_TEXT, position);
+    }
+
+    public int getAddLinkDisabledNumber() {
+        final List<WebElement> linkNumber = findElements(ADD_LINK_DISABLED);
+        return linkNumber.size();
     }
 }

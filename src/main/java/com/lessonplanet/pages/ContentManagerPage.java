@@ -26,7 +26,7 @@ public class ContentManagerPage extends DiscoverResourcesPage {
     private static final String RESOURCES_CARDS = "[class='resources'] [class*='resource']";
     private static final String RESOURCE_PROVIDER = "[class='pool-area'] [class*='pool']";
     private static final String RESOURCE_TITLE = "[class='main-panel'] [class*='resource-heading'] [href*='/']";
-    private static final String RESOURCE_THUMBNAIL = "[class*='resource'] img[class='thumbnail-img']";
+    private static final String RESOURCE_THUMBNAIL = "[class*='resource'] img[class*='thumbnail-img']";
     private static final String RESOURCE_TYPE = "[class='resource-content'] [class*='type-resource']";
     private static final String RESOURCE_GRADES = "[class='resource-content'] [class*='detail-grades']";
     private static final String RESOURCE_RATING = "[class='resource-content'] [class*='star-rating']";

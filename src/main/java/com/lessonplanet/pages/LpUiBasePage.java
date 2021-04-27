@@ -427,6 +427,23 @@ public class LpUiBasePage {
         scrollToElement(findElements(cssSelector).get(index));
     }
 
+    protected void scrollElementWithOffset(WebElement scrollableElement, WebElement referenceElement) {
+        int heightToScroll = (int) (Integer.parseInt(referenceElement.getAttribute("height")) * 2.40) + scrollableElement.getLocation().getY() - referenceElement.getLocation().getY();
+        javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
+    }
+
+    protected void scrollWithOffsetForEditCollection(WebElement referenceElement) {
+        WebElement scrollableElement = findElement("[class='edit-folder-panel publish-folder']");
+        int heightToScroll = (int) (referenceElement.getLocation().getY() * 0.5 + scrollableElement.findElement(By.cssSelector("#content-root")).getLocation().getY() * 2.1);
+        if (heightToScroll > 0) {
+            javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
+        }
+    }
+
+    protected void scrollWithOffsetForEditCollection(String cssSelector) {
+        scrollWithOffsetForEditCollection(findElement(cssSelector));
+    }
+
     protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
@@ -569,6 +586,24 @@ public class LpUiBasePage {
         }
         if (!optionWasFound) {
             logger.error("The option " + option + " was not found.");
+        }
+        waitForLoad();
+    }
+
+    public void selectFromDropdownWithSearch(String dropdownCssSelector, String optionsCssSelector, String textToSearch) {
+        boolean optionWasFound = false;
+        waitForLoad();
+        sendKeys(dropdownCssSelector, textToSearch);
+        List<WebElement> results = findElements(optionsCssSelector);
+        for (WebElement result : results) {
+            if (result.getText().startsWith(textToSearch)) {
+                clickElement(result);
+                optionWasFound = true;
+                break;
+            }
+        }
+        if (!optionWasFound) {
+            logger.error("The text " + textToSearch + " was not found.");
         }
         waitForLoad();
     }
