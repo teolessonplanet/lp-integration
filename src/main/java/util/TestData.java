@@ -229,6 +229,7 @@ public class TestData {
     public static final String SHARE_FOLDER_MODAL_SHARE_WITH_TEXT = "Share folder with these people:";
     public static final String SHARE_FOLDER_MODAL_OWNER_ROLE = "Owner";
     public static final String SHARE_FOLDER_MODAL_RSL_OWNER_NAME = "Connor Kyle";
+    public static final String SHARE_FOLDER_MODAL_CSL_OWNER_NAME = "Henry Thomas";
     public static final String SHARE_FOLDER_MODAL_ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "Start typing email address to select";
     public static final String SHARE_FOLDER_MODAL_NO_USER_FOUND_TEXT = "No results found.";
     public static final String SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT = "Can View";
@@ -365,8 +366,11 @@ public class TestData {
     public static final String CSL_HENRY_DISTRICT_NAME = "Henry County Schools";
     public static final String CSL_HENRY_EXISTING_SCHOOL_NAME = "LP Elementary";
     public static final String CSL_HENRY_EXISTING_TEACHER_EMAIL = "i_t_csl_henry@lp.com";
-    public static final String CSL_HENRY_OWNER_FIRST_NAME = "Henry";
+    public static final String CSL_HENRY_EXISTING_DA_EMAIL = "i_da_csl_henry@lp.com";
+    public static final String CSL_HENRY_OWNER_FIRST_NAME =  "Henry";
     public static final String CSL_HENRY_OWNER_LAST_NAME = "Thomas";
+    public static final String CSL_HENRY_DA_FIRST_NAME = "Borris";
+    public static final String CSL_HENRY_DA_LAST_NAME = "Thompson";
     public static final String CSL_HENRY_TEACHER_FIRST_NAME = "George";
     public static final String CSL_HENRY_TEACHER_LAST_NAME = "Reese";
     public static final String CSL_QA_CUSTOM_DISTRICT_NAME = "QA Custom SL Test";
