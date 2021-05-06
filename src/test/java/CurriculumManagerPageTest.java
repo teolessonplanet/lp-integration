@@ -26,7 +26,6 @@ public class CurriculumManagerPageTest extends BaseTest {
     private RrpPage rrpPage;
     private RemoveModal removeModal;
     private PublishResourceModal publishResourceModal;
-    private PublishCollectionModal publishCollectionModal;
     private UploadFileModal uploadFileModal;
     private AssignModal assignModal;
     private StepTwoPage stepTwoPage;
@@ -34,6 +33,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     private MoveToModal moveToModal;
     private DeleteFolderModal deleteFolderModal;
     private DeleteCollectionBuilderResourceModal deleteCollectionBuilderResourceModal;
+    private PublishedFolderModal publishedFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -55,12 +55,12 @@ public class CurriculumManagerPageTest extends BaseTest {
         copyToModal = new CopyToModal(webDriver);
         removeModal = new RemoveModal(webDriver);
         publishResourceModal = new PublishResourceModal(webDriver);
-        publishCollectionModal = new PublishCollectionModal(webDriver);
         uploadFileModal = new UploadFileModal(webDriver);
         assignModal = new AssignModal(webDriver);
         moveToModal = new MoveToModal(webDriver);
         deleteFolderModal = new DeleteFolderModal(webDriver);
         deleteCollectionBuilderResourceModal = new DeleteCollectionBuilderResourceModal(webDriver);
+        publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -592,7 +592,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             curriculumManagerPage.clickOnAFolder();
         }
         curriculumManagerPage.hoverOverActionsDropdown();
-        curriculumManagerPage.clickOnActionsDropdown();
+//        curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             testAssignModal(assignBodyText);
@@ -700,7 +700,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         moveToModal.waitForModal();
         moveToModal.clickOnMyResourcesChildDestinationFolder();
         moveToModal.clickOnMoveToSelectedFolderButton();
-       // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_MESSAGE));
+        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber - 1);
     }
@@ -770,13 +770,22 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnAFolder();
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
-        curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.waitForModal();
-        editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-        editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
-        editCollectionModal.clickOnPublishFolder();
+        curriculumManagerPage.hoverOverPublishButton();
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_FOLDER_WITH_ITEMS_POPOVER_TEXT);
+        curriculumManagerPage.clickOnPublishButton();
+        testPublishFolderModal(accountPlanText);
+        curriculumManagerPage.waitForRefreshIconToDisappear();
+        Assert.assertEquals(TestData.PRIVATE_AND_PUBLISHED_STATUS, curriculumManagerPage.getFolderStatus());
+    }
+
+    public void testPublishFolderModal(String accountPlanText) {
+        editCollectionModal.chooseRating();
+        editCollectionModal.chooseAudience();
+        editCollectionModal.chooseConcepts();
+        editCollectionModal.clickOnPublishCollectionButton();
+
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
+            publishedFolderModal.clickOnCloseButton();
         } else {
             //   Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
         }

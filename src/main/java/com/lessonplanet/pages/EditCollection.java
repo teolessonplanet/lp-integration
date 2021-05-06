@@ -82,6 +82,9 @@ public class EditCollection extends CreateNewFolderModal {
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
 
+    private static final String PUBLISH_COLLECTION_MODAL = "#share-collection-modal";
+    private static final String PUBLISH_COLLECTION_BUTTON = "button[class$='btn-success']";
+    private static final String CLOSE_BUTTON = "button[class$='edit-collection-modal-close']";
     private static final String RATING_FIELD = "[class^='rating-dropdown__indicators']";
     private static final String RATING_OPTIONS = "[class^='rating-dropdown__option']";
     private static final String AUDIENCE_FIELD = "[class^='audience-dropdown__indicators']";
@@ -92,8 +95,15 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADDITIONAL_TAGS_FIELD = "[class='additional-tags-dropdown__input'] [id^='react-select-']";
     private static final String ADDITIONAL_TAGS_OPTIONS = "[class^='additional-tags-dropdown__option']";
 
+    private PublishedFolderModal publishedFolderModal;
+
     public EditCollection(WebDriver driver) {
         super(driver);
+        publishedFolderModal = new PublishedFolderModal(driver);
+    }
+
+    public void clickOnCloseButton() {
+        clickElement(CLOSE_BUTTON);
     }
 
     public String getEditFolderTitle() {
@@ -433,18 +443,6 @@ public class EditCollection extends CreateNewFolderModal {
         } else return String.format("%01d", TestData.getCurrentMonth());
     }
 
-    public void publishCollection(String collectionTitle, String grade, String subject, String description) {
-        clickMoreDropdown();
-        clickOnPublishOption();
-        typeTitle(collectionTitle);
-        typeDescription(description);
-        selectGrade(grade);
-        selectSubject(subject);
-        chooseRating();
-        chooseAudience();
-        chooseConcepts();
-    }
-
     public void waitUntilCopiedCollectionIsDisplayed() {
         waitUntilTextIsDisplayed(EDIT_FOLDER_TITLE, TestData.COPIED_FOLDER_NAME);
     }
@@ -537,7 +535,29 @@ public class EditCollection extends CreateNewFolderModal {
         selectFromDropdownWithSearch(ADDITIONAL_TAGS_FIELD, ADDITIONAL_TAGS_OPTIONS, "auto");
     }
 
+    //TODO: remove this or update
     public void waitUntilNotifDiss() {
         waitUntilElementIsHidden("[class='details-updated-message success']");
+    }
+
+    public void clickOnPublishCollectionButton() {
+        clickElement(PUBLISH_COLLECTION_BUTTON);
+    }
+
+    public void publishCollection(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
+        clickMoreDropdown();
+        clickOnPublishOption();
+        typeTitle(collectionTitle);
+        typeDescription(description);
+        selectGrade(grade);
+        selectSubject(subject);
+        chooseRating();
+        chooseAudience();
+        chooseConcepts();
+        chooseAdditionalTags();
+        clickOnPublishCollectionButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            publishedFolderModal.clickOnCloseButton();
+        }
     }
 }

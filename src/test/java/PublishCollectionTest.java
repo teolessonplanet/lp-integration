@@ -19,7 +19,7 @@ public class PublishCollectionTest extends BaseTest {
     private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
     private CollectionNotPublishedModal collectionNotPublishedModal;
     private PrivateDocumentsModal privateDocumentsModal;
-    private PublishCollectionModal publishCollectionModal;
+    private PublishedFolderModal publishedFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,7 +34,7 @@ public class PublishCollectionTest extends BaseTest {
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
         privateDocumentsModal = new PrivateDocumentsModal(webDriver);
-        publishCollectionModal = new PublishCollectionModal(webDriver);
+        publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -168,7 +168,7 @@ public class PublishCollectionTest extends BaseTest {
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editCollectionModal.publishCollection(accountPlan, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
         if (noOfUploadedResources > 0) {
             for (int i = 0; i < noOfUploadedResources; i++) {
@@ -176,12 +176,12 @@ public class PublishCollectionTest extends BaseTest {
                 editCollectionModal.clickFileUploadButton();
                 curriculumManagerPageTest.testUpload(true, accountPlan, false);
             }
-                editCollectionModal.clickMoreDropdown();
-                editCollectionModal.clickOnPublishOption();
-                editCollectionModal.chooseAudience();
-                editCollectionModal.chooseRating();
-                editCollectionModal.chooseAdditionalTags();
-                editCollectionModal.clickOnPublishFolder();
+            editCollectionModal.clickMoreDropdown();
+            editCollectionModal.clickOnPublishOption();
+            editCollectionModal.chooseAudience();
+            editCollectionModal.chooseRating();
+            editCollectionModal.chooseAdditionalTags();
+            editCollectionModal.clickOnPublishFolder();
 
             if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && (!accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB))) {
                 if (includeUploadedFiles) {
@@ -206,7 +206,7 @@ public class PublishCollectionTest extends BaseTest {
             collectionNotPublishedModal.clickOnOkButton();
         } else {
             if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-                publishCollectionModal.clickOnCloseButton();
+                publishedFolderModal.clickOnCloseButton();
             }
             editCollectionModal.clickOnCloseButton();
             curriculumManagerPage.waitUntilPublishedStatusIsDisplayed();
@@ -231,7 +231,7 @@ public class PublishCollectionTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
 
-        editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editCollectionModal.publishCollection(account, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickOnCreatePageOption();
