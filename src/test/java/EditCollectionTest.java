@@ -12,7 +12,6 @@ public class EditCollectionTest extends BaseTest {
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
-    private PublishCollectionModal publishCollectionModal;
     private EditCollectionPage editCollectionPage;
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
@@ -28,7 +27,6 @@ public class EditCollectionTest extends BaseTest {
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        publishCollectionModal = new PublishCollectionModal(webDriver);
         editCollectionPage = new EditCollectionPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
@@ -147,24 +145,18 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertEquals(editCollectionModal.getFolderStatus(), TestData.FOLDER_DEFAULT_STATUS);
     }
 
+    //TODO: check this method
     public void testPublishFromEditFolder(String accountPlanText) {
         testCreateCollectionSearchPage(TestData.NEW_COLLECTION_NAME);
         collectionBuilderPage.clickOnEditFolder(false);
         for (int i = 0; i < 2; i++) {
             testCreateAPage();
         }
-        editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-
-        editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
-        editCollectionModal.clickOnPublishFolder();
-
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
-        } else {
-            editCollectionModal.waitUntilNotifDiss();
-        }
 
         editCollectionModal.clickEditDetails();
+        editCollectionModal.publishCollection(accountPlanText,TestData.NEW_COLLECTION_NAME,TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+
+//TODO: publish -> from here - test 5261
         editCollectionModal.isEnabledPublishFolderButtonDisplayed();
         editCollectionModal.typeTitle(TestData.EDIT_TITLE);
         editCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
@@ -172,9 +164,15 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
         editCollectionModal.clickOnPublishFolder();
 
+        //TODO: publish
+//        publishCollectionModal.clickOnPublishCollectionButton();
+        editCollectionModal.clickOnPublishCollectionButton();
         replaceExistingFolderModal.clickOnPublishNewButton();
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
+            //TODO: publish
+//            publishCollectionModal.clickOnCloseButton();
+        } else {
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
         }
 
         editCollectionModal.waitUntilNotifDiss();
@@ -184,9 +182,14 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
         editCollectionModal.waitUntilNotifDiss();
         editCollectionModal.clickOnPublishFolder();
+        //TODO: publish
+//        publishCollectionModal.clickOnPublishCollectionButton();
         replaceExistingFolderModal.clickOnPublishAndReplaceButton();
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
+            //TODO: publish
+//            publishCollectionModal.clickOnCloseButton();
+        } else {
+            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
         }
 
         editCollectionModal.waitUntilNotifDiss();

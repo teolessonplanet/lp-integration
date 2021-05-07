@@ -23,7 +23,7 @@ public class CollectionPlayerTest extends BaseTest {
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
-    private PublishCollectionModal publishCollectionModal;
+    private PublishedFolderModal publishedFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -38,7 +38,7 @@ public class CollectionPlayerTest extends BaseTest {
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
         assignFolderModalTest = new AssignFolderModalTest();
-        publishCollectionModal = new PublishCollectionModal(webDriver);
+        publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -86,6 +86,7 @@ public class CollectionPlayerTest extends BaseTest {
         testStudentView(TestData.PLAN_PRO);
     }
 
+    //TODO: update THIS
     protected void testCollectionPlayerAppearance(String accountType) {
         createRequirementForCollectionPlayer(accountType);
 
@@ -100,14 +101,11 @@ public class CollectionPlayerTest extends BaseTest {
         // publish is available only for Active & SLs
         if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
             collectionBuilderPage.clickOnEditFolder(false);
-            editCollectionModal.publishCollection(TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-
-            //TODO: publish
-            editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
-            editCollectionModal.clickOnPublishFolder();
+            editCollectionModal.publishCollection(accountType,TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+            //generate method to publish fast
 
             if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-                publishCollectionModal.clickOnCloseButton();
+                //publishedFolderModal.clickOnCloseButton(); -> this should be deleted
             } else {
               //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
             }
