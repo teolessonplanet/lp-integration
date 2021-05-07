@@ -435,7 +435,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.waitForModal();
         removeModal.clickOnRemoveButton();
-    //    Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
+        //    Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -592,7 +592,7 @@ public class CurriculumManagerPageTest extends BaseTest {
             curriculumManagerPage.clickOnAFolder();
         }
         curriculumManagerPage.hoverOverActionsDropdown();
-//        curriculumManagerPage.clickOnActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnAssignButton();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             testAssignModal(assignBodyText);
@@ -771,7 +771,23 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.hoverOverPublishButton();
+        Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_FOLDER_ADDITIONAL_INFORMATION_TEXT);
+
+        //from here:
+        curriculumManagerPage.clickOnEditButton();
+        editCollectionModal.clickMoreDropdown();
+        editCollectionModal.clickOnPublishOption();
+        editCollectionModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editCollectionModal.clickOnCloseButton();
+
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
+        curriculumManagerPage.hoverOverPublishButton();
         Assert.assertEquals(curriculumManagerPage.getPopoverText(), TestData.PUBLISH_FOLDER_WITH_ITEMS_POPOVER_TEXT);
+
+
+        //
+
         curriculumManagerPage.clickOnPublishButton();
         testPublishFolderModal(accountPlanText);
         curriculumManagerPage.waitForRefreshIconToDisappear();
@@ -826,7 +842,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
-       // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
+        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), TestData.COPIED_FOLDER_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber + 1);

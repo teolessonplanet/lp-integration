@@ -191,6 +191,7 @@ public class TestData {
     public static final String PLAY_FOLDER_WITH_ITEMS_POPOVER_TEXT = "Play Folder";
     public static final String PUBLISH_FOLDER_WITH_NO_ITEMS_POPOVER_TEXT = "This folder needs additional information in order to publish. Select the Edit button to continue.";
     public static final String PUBLISH_FOLDER_WITH_ITEMS_POPOVER_TEXT = "Publish to make visible to others";
+    public static final String PUBLISH_FOLDER_ADDITIONAL_INFORMATION_TEXT = "This folder needs additional information in order to publish. Select the Edit button to continue.";
     public static final String COPIED_POPOVER_TEXT = "Copied!";
     public static final String PUBLISHED_STATUS = "Published";
     public static final String PRIVATE_STATUS = "Private";
