@@ -547,6 +547,16 @@ public class EditCollection extends CreateNewFolderModal {
     public void publishCollection(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
         clickMoreDropdown();
         clickOnPublishOption();
+
+        completePublishCollectionRequirements(collectionTitle,grade,subject,description);
+
+        clickOnPublishCollectionButton();
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+            publishedFolderModal.clickOnCloseButton();
+        }
+    }
+
+    public void completePublishCollectionRequirements(String collectionTitle, String grade, String subject, String description){
         typeTitle(collectionTitle);
         typeDescription(description);
         selectGrade(grade);
@@ -555,9 +565,5 @@ public class EditCollection extends CreateNewFolderModal {
         chooseAudience();
         chooseConcepts();
         chooseAdditionalTags();
-        clickOnPublishCollectionButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
-            publishedFolderModal.clickOnCloseButton();
-        }
     }
 }
