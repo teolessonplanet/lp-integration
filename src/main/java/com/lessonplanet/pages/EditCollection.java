@@ -7,6 +7,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
     private static final String FOLDER_TYPE = "#edit-folder-type";
     private static final String FOLDER_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='default-text']";
+    private static final String FOLDER_PUBLISHED_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='text']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
     private static final String FOLDER_PUBLISH_STATUS_TEXT = "[class='publish-status']";
@@ -14,6 +15,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_DETAILS_OPTION = "[class='edit-folder-actions'] [class='edit-folder-details edit-folder-action-item']";
 
     private static final String FOLDER_TITLE_INPUT = "#content-root [name='title']";
+    private static final String EDIT_COLLECTION_SCROLLABLE_ZONE = "[class^='edit-folder-panel']";
+    private static final String EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT = "#content-root";
     private static final String GRADE_LIST_DROPDOWN = "[class*='grade-level-dropdown__dropdown-indicator']";
     private static final String GRADE_OPTIONS = "[class*='grade-level-dropdown__option']";
     private static final String SUBJECT_LIST_DROPDOWN = "[class*='subjects-dropdown__dropdown-indicator']";
@@ -72,7 +75,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ALERT_NOTIFICATION = "[class='details-updated-message success']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions dropdown-toggle']";
     private static final String EDIT_PAGE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(1)";
-    private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']";
+    private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']:not([disabled=''])";
     private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-actions-list'] li:nth-child(2)";
     private static final String HIDE_FROM_PLAYER_ICON = "[class*='lp-play-disabled']";
     private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(3)";
@@ -160,12 +163,12 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void selectGrade(String grade) {
-        scrollWithOffsetForEditCollection(GRADE_LIST_DROPDOWN);
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, GRADE_LIST_DROPDOWN);
         selectFromDropdown(GRADE_LIST_DROPDOWN, GRADE_OPTIONS, grade);
     }
 
     public void selectSubject(String subject) {
-        scrollWithOffsetForEditCollection(SUBJECT_LIST_DROPDOWN);
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, SUBJECT_LIST_DROPDOWN);
         selectFromDropdown(SUBJECT_LIST_DROPDOWN, SUBJECT_OPTIONS, subject);
     }
 
@@ -227,6 +230,10 @@ public class EditCollection extends CreateNewFolderModal {
 
     public void waitForNotificationToDisappear() {
         waitUntilElementIsHidden(ALERT_NOTIFICATION);
+    }
+
+    public String getUpdatedNotificationText() {
+        return getTextForNotification(ALERT_NOTIFICATION);
     }
 
     public void clickDeleteOption() {
@@ -467,6 +474,10 @@ public class EditCollection extends CreateNewFolderModal {
         return getTextForElement(FOLDER_STATUS);
     }
 
+    public String getFolderPublishedStatus() {
+        return getTextForElement(FOLDER_PUBLISHED_STATUS);
+    }
+
     public boolean isFolderTypeDisplayed() {
         return isElementDisplayed(FOLDER_TYPE);
     }
@@ -516,28 +527,23 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void chooseRating() {
-        scrollWithOffsetForEditCollection(findElement(RATING_FIELD));
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, RATING_FIELD);
         selectFromDropdown(RATING_FIELD, RATING_OPTIONS, TestData.RATING);
     }
 
     public void chooseAudience() {
-        scrollWithOffsetForEditCollection(findElement(AUDIENCE_FIELD));
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, AUDIENCE_FIELD);
         selectFromDropdown(AUDIENCE_FIELD, AUDIENCE_OPTIONS, TestData.AUDIENCE);
     }
 
     public void chooseConcepts() {
-        scrollWithOffsetForEditCollection(findElement(CONCEPTS_FIELD));
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, CONCEPTS_FIELD);
         selectFromDropdownWithSearch(CONCEPTS_FIELD, CONCEPTS_OPTIONS, TestData.CONCEPT);
     }
 
     public void chooseAdditionalTags() {
-        scrollWithOffsetForEditCollection(findElement(ADDITIONAL_TAGS_FIELD));
-        selectFromDropdownWithSearch(ADDITIONAL_TAGS_FIELD, ADDITIONAL_TAGS_OPTIONS, "auto");
-    }
-
-    //TODO: remove this or update
-    public void waitUntilNotifDiss() {
-        waitUntilElementIsHidden("[class='details-updated-message success']");
+        scrollWithOffsetForEditCollection(EDIT_COLLECTION_SCROLLABLE_ZONE, EDIT_COLLECTION_SCROLLABLE_ZONE_CONTENT_ROOT, ADDITIONAL_TAGS_FIELD);
+        selectFromDropdownWithSearch(ADDITIONAL_TAGS_FIELD, ADDITIONAL_TAGS_OPTIONS, TestData.ADDITIONAL_TAGS);
     }
 
     public void clickOnPublishCollectionButton() {
@@ -545,18 +551,23 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void publishCollection(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
-        clickMoreDropdown();
-        clickOnPublishOption();
 
-        completePublishCollectionRequirements(collectionTitle,grade,subject,description);
 
+        completeCollectionForPublish(accountPlanText, collectionTitle, grade, subject, description);
         clickOnPublishCollectionButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
+        if (!(accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB))) {
             publishedFolderModal.clickOnCloseButton();
         }
     }
 
-    public void completePublishCollectionRequirements(String collectionTitle, String grade, String subject, String description){
+    public void completeCollectionForPublish(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
+        clickMoreDropdown();
+        clickOnPublishOption();
+
+        completePublishCollectionRequirements(collectionTitle, grade, subject, description);
+    }
+
+    public void completePublishCollectionRequirements(String collectionTitle, String grade, String subject, String description) {
         typeTitle(collectionTitle);
         typeDescription(description);
         selectGrade(grade);

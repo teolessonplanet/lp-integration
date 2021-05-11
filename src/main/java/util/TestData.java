@@ -85,8 +85,9 @@ public class TestData {
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
     public static final String FOLDER_NOT_PUBLISHED_TEXT = "This folder has not been published.";
-    public static final String FOLDER_DEFAULT_STATUS = "This folder is private ";
-    public static final String FOLDER_PUBLISHED_TEXT = "This folder has been published on";
+    public static final String FOLDER_DEFAULT_STATUS = "This folder is private";
+    public static final String FOLDER_PUBLISHED_STATUS_TEXT = "A version of it was published on ";
+    public static final String FOLDER_CHANGES_SAVED_TEXT = "Changes saved";
     public static final String EDIT_FOLDER_UPGRADE_UPLOAD_TEXT = "Upgrade your membership  to upload your original curriculum to Lesson Planet.\n" +
         "Uploaded files can be managed and shared in My Resources.";
 
@@ -175,6 +176,7 @@ public class TestData {
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
     public static final String NEW_COLLECTION_NAME = "Test Collection";
+    public static final String REPLACED_COLLECTION_NAME = "ReplacedColection";
     public static final String NEW_FOLDER_NAME = "Test Folder";
     public static final String EDIT_TITLE = "-edit";
     public static final String UPLOAD_RESOURCE_TITLE = "test-upload-file";
@@ -206,6 +208,7 @@ public class TestData {
     public static final String RATING = "5";
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
+    public static final String ADDITIONAL_TAGS = "auto";
     public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules", "Course Folders", "Root Folders"};
     public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
