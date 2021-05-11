@@ -432,18 +432,15 @@ public class LpUiBasePage {
         javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
     }
 
-    //TODO: update or remove this
-    protected void scrollWithOffsetForEditCollection(/*WebElement scrollableElement,*/ WebElement referenceElement) {
-//        WebElement scrollableElement = findElement("[class='edit-folder-panel publish-folder']");
-        WebElement scrollableElement = findElement("[class^='edit-folder-panel']");
-        int heightToScroll = (int) (referenceElement.getLocation().getY() * 0.5 + scrollableElement.findElement(By.cssSelector("#content-root")).getLocation().getY() * 2.1);
+    private void scrollWithOffsetForEditCollection(WebElement scrollableElement, WebElement scrollableElementContentRoot, WebElement referenceElement) {
+        int heightToScroll = (int) (referenceElement.getLocation().getY() * 0.5 + scrollableElementContentRoot.getLocation().getY() * 2.1);
         if (heightToScroll > 0) {
             javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
         }
     }
 
-    protected void scrollWithOffsetForEditCollection(String cssSelector) {
-        scrollWithOffsetForEditCollection(findElement(cssSelector));
+    protected void scrollWithOffsetForEditCollection(String scrollableElement, String scrollableElementContentRoot, String referenceElement) {
+        scrollWithOffsetForEditCollection(findElement(scrollableElement), findElement(scrollableElementContentRoot), findElement(referenceElement));
     }
 
     protected void waitUntilElementIsHidden(String cssSelector) {

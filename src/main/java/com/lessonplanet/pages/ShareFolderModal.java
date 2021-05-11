@@ -7,13 +7,13 @@ public class ShareFolderModal extends LpUiBasePage {
     private static final String SHARE_FOLDER_MODAL = "#share-modal-content-container";
     private static final String SHARE_FOLDER_MODAL_TEXT = "[class='share-with-title']";
     private static final String SHARE_FOLDER_MODAL_TITLE_TEXT = "[class='header'] h3";
-    private static final String CANCEL_BUTTON = "[class='btn btn-default mr10']";
+    private static final String CANCEL_BUTTON = "[class='footer'] [class*='btn btn-default']";
     private static final String FOLDER_STATUS = "[class='folder-share-status']";
     private static final String ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "[class='email-container add-user-input'] input";
     private static final String DEFAULT_PERMISSION_TEXT = "#permissions-select-container [class='mr5']";
     private static final String MATCHING_OPTION = "[class='search-results'] li";
     private static final String ADD_EMAIL_INPUT = "[class='email-container add-user-input'] input";
-    private static final String SHARE_FOLDER_BUTTON = "[class='footer'] [class='btn btn-default btn-primary']";
+    private static final String SHARE_FOLDER_BUTTON = "[class='footer'] [class*='btn btn-default btn-primary']";
     private static final String USER_NAME = "[class='users-container enabled'] [class='sw-user-container'] [class='sw-user']";
     private static final String USER_EMAIL = "[class='users-container enabled'] [class='sw-user-container'] [class='sw-user'] [class='sw-user-email']";
     private static final String OWNER_ROLE = "[class='users-container enabled'] [class='sw-user-container']:nth-child(1) [class*='sw-owner']";
