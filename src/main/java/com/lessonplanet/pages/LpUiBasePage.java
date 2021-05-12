@@ -148,7 +148,7 @@ public class LpUiBasePage {
     public void clickElement(WebElement webElement) {
         waitForLoad();
         boolean elementWasClicked = false;
-        int attempts = TestData.SHORT_TIMEOUT;
+        int attempts = TestData.LONG_TIMEOUT;
         logger.info("Click on webElement " + webElement);
         do {
             try {
