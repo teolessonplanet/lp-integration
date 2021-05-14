@@ -292,9 +292,9 @@ public class CollectionBuilderTest extends BaseTest {
         }
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(accountPlan);
-        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
-            discoverResourcesPage.refreshPageAndDismissBrowserAlert();
-        }
+      //  if (accountPlan.equals(TestData.PLAN_VISITOR)) {
+     //       discoverResourcesPage.refreshPageAndDismissBrowserAlert();
+     //   }
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);

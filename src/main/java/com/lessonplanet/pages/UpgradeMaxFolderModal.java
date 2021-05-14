@@ -7,7 +7,7 @@ public class UpgradeMaxFolderModal extends LpUiBasePage {
     private static final String UPGRADE_MODAL = "#collection-limit-hit-modal";
     private static final String UPGRADE_MODAL_TEXT = "#collection-limit-hit-modal [class='modal-body']";
     private static final String UPGRADE_ME_BUTTON = "#collection-limit-hit-modal [href='/subscription/new']";
-    private static final String CLOSE_BUTTON = "#collection-limit-hit-modal [class='lp-react-modal react-modal modal-content '] [class='modal-footer'] [class='close']";
+    private static final String CLOSE_BUTTON = "#collection-limit-hit-modal [class='close']";
 
     public UpgradeMaxFolderModal(WebDriver driver) {
         super(driver);

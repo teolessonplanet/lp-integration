@@ -478,8 +478,12 @@ public class AccountManagementTest extends BaseTest {
         collectionBuilderPage.clickOnEditFolder(false);
         editCollectionModal.waitForModal();
         editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickUploadAFileButton();
-        curriculumManagerTest.testUpgradeModalFromUploadButton();
+        editCollectionModal.clickFileUploadButton();
+        Assert.assertEquals(editCollectionModal.getUpgradeModalText(), TestData.EDIT_FOLDER_UPGRADE_UPLOAD_TEXT);
+        editCollectionModal.clickOnUpgradeNowButton();
+        Assert.assertTrue(editCollectionModal.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
+        stepTwoPage.goBackOnePage();
     }
 
     private void testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage() {

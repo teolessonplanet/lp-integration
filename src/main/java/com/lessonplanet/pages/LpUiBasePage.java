@@ -148,7 +148,7 @@ public class LpUiBasePage {
     public void clickElement(WebElement webElement) {
         waitForLoad();
         boolean elementWasClicked = false;
-        int attempts = TestData.SHORT_TIMEOUT;
+        int attempts = TestData.LONG_TIMEOUT;
         logger.info("Click on webElement " + webElement);
         do {
             try {
@@ -427,6 +427,22 @@ public class LpUiBasePage {
         scrollToElement(findElements(cssSelector).get(index));
     }
 
+    protected void scrollElementWithOffset(WebElement scrollableElement, WebElement referenceElement) {
+        int heightToScroll = (int) (Integer.parseInt(referenceElement.getAttribute("height")) * 2.40) + scrollableElement.getLocation().getY() - referenceElement.getLocation().getY();
+        javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
+    }
+
+    private void scrollWithOffsetForEditCollection(WebElement scrollableElement, WebElement scrollableElementContentRoot, WebElement referenceElement) {
+        int heightToScroll = (int) (referenceElement.getLocation().getY() * 0.5 + scrollableElementContentRoot.getLocation().getY() * 2.1);
+        if (heightToScroll > 0) {
+            javascriptExecutor.executeScript("arguments[0].scroll(0,arguments[1])", scrollableElement, heightToScroll);
+        }
+    }
+
+    protected void scrollWithOffsetForEditCollection(String scrollableElement, String scrollableElementContentRoot, String referenceElement) {
+        scrollWithOffsetForEditCollection(findElement(scrollableElement), findElement(scrollableElementContentRoot), findElement(referenceElement));
+    }
+
     protected void waitUntilElementIsHidden(String cssSelector) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
     }
@@ -569,6 +585,24 @@ public class LpUiBasePage {
         }
         if (!optionWasFound) {
             logger.error("The option " + option + " was not found.");
+        }
+        waitForLoad();
+    }
+
+    public void selectFromDropdownWithSearch(String dropdownCssSelector, String optionsCssSelector, String textToSearch) {
+        boolean optionWasFound = false;
+        waitForLoad();
+        sendKeys(dropdownCssSelector, textToSearch);
+        List<WebElement> results = findElements(optionsCssSelector);
+        for (WebElement result : results) {
+            if (result.getText().startsWith(textToSearch)) {
+                clickElement(result);
+                optionWasFound = true;
+                break;
+            }
+        }
+        if (!optionWasFound) {
+            logger.error("The text " + textToSearch + " was not found.");
         }
         waitForLoad();
     }

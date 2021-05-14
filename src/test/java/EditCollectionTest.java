@@ -2,40 +2,39 @@ import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
 public class EditCollectionTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
-    private CreateNewFolderModal createNewFolderModal;
     private CurriculumManagerPageTest curriculumManagerTest;
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
-    private PublishCollectionModal publishCollectionModal;
     private EditCollectionPage editCollectionPage;
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpSearchPageTest rrpSearchPageTest;
     private ReplaceExistingFolderModal replaceExistingFolderModal;
+    private UpgradeMaxFolderModal upgradeMaxFolderModal;
+    private PublishedFolderModal publishedFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        createNewFolderModal = new CreateNewFolderModal(webDriver);
         curriculumManagerTest = new CurriculumManagerPageTest();
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        publishCollectionModal = new PublishCollectionModal(webDriver);
         editCollectionPage = new EditCollectionPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpSearchPageTest = new RrpSearchPageTest();
         replaceExistingFolderModal = new ReplaceExistingFolderModal(webDriver);
+        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
+        publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
     @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
@@ -78,13 +77,6 @@ public class EditCollectionTest extends BaseTest {
     public void testLessonp_5272() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderButtons(TestData.PLAN_STARTER, TestData.COPIED_FOLDER_NAME);
-    }
-
-    @Ignore
-    @Test(description = "Prime - Edit Collection - lessonp-5639: Edit Collection Buttons")
-    public void testLessonp_5639() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        testEditFolderButtons(TestData.PLAN_PRIME, TestData.COPIED_FOLDER_NAME);
     }
 
     @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
@@ -150,50 +142,47 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionModal.isAddDropdownDisplayed());
         Assert.assertTrue(editCollectionModal.isPlayOptionDisplayed());
         Assert.assertTrue(editCollectionModal.isMoreDropdownDisplayed());
-        Assert.assertEquals(editCollectionModal.getFolderStatus(), TestData.FOLDER_DEFAULT_STATUS);
+        Assert.assertTrue(editCollectionModal.isEditDetailsOptionDisplayed());
+        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
     }
 
     public void testPublishFromEditFolder(String accountPlanText) {
-        testCreateCollectionSearchPage(TestData.NEW_COLLECTION_NAME);
+        final String collectionName = TestData.GET_CURRENT_TIME();
+        testCreateCollectionSearchPage(collectionName);
         collectionBuilderPage.clickOnEditFolder(false);
-        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), TestData.FOLDER_NOT_PUBLISHED_TEXT);
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
-        }
         for (int i = 0; i < 2; i++) {
             testCreateAPage();
         }
-        curriculumManagerTest.testEditFolderModalDetailsArea();
-        editCollectionModal.waitUntilPublishFolderButtonIsEnabled();
-        editCollectionModal.clickOnPublishFolder();
-        curriculumManagerTest.testPublishFolderModal(accountPlanText);
-        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
-        editCollectionModal.typeTitle(TestData.EDIT_TITLE);
-        editCollectionModal.clickOnPublishFolder();
-        publishCollectionModal.clickOnPublishCollectionButton();
-        replaceExistingFolderModal.clickOnPublishNewButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
-        } else {
-            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+
+        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
+        Assert.assertEquals(editCollectionModal.getFolderPublishedStatus(), "");
+        editCollectionModal.clickEditDetails();
+        editCollectionModal.publishCollection(accountPlanText, collectionName, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        Assert.assertTrue(editCollectionModal.getFolderPublishedStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
+
+        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
+            editCollectionModal.waitForNotificationToDisappear();
         }
-        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
-        editCollectionModal.typeTitle(TestData.EDIT_TITLE);
-        editCollectionModal.clickOnPublishFolder();
-        publishCollectionModal.clickOnPublishCollectionButton();
+        editCollectionModal.clickEditDetails();
+        editCollectionModal.typeTitle(TestData.REPLACED_COLLECTION_NAME + collectionName);
+        editCollectionModal.typeDescription(TestData.REPLACED_COLLECTION_NAME + TestData.NEW_COLLECTION_DESCRIPTION);
+        Assert.assertEquals(editCollectionModal.getUpdatedNotificationText(), TestData.FOLDER_CHANGES_SAVED_TEXT);
+        editCollectionModal.waitForNotificationToDisappear();
+        editCollectionModal.clickOnPublishCollectionButton();
+
         replaceExistingFolderModal.clickOnPublishAndReplaceButton();
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            publishCollectionModal.clickOnCloseButton();
+
+        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+//            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+            editCollectionModal.getAlertNotificationText();
+            //notification is not always displayed
         } else {
-            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+            publishedFolderModal.clickOnCloseButton();
         }
-        editCollectionModal.isEnabledPublishFolderButtonDisplayed();
-        editCollectionModal.clickOnCloseButton();
-        collectionBuilderPage.clickOnEditFolder(false);
-        Assert.assertEquals(editCollectionModal.getFolderPublishStatusText(), (TestData.FOLDER_PUBLISHED_TEXT) + " " + editCollectionPage.getPublishedFolderMonth() + "/" + TestData.getCurrentDateWithTimezone() + "/" + TestData.getCurrentYear() + ".");
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            Assert.assertTrue(editCollectionModal.isWhatIsPublishingLinkDisplayed());
-        }
+
+        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
+        Assert.assertTrue(editCollectionModal.getFolderPublishedStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
     }
 
     public void testEditFolderButtons(String accountPlanText, String copiedFolderName) {
@@ -202,12 +191,16 @@ public class EditCollectionTest extends BaseTest {
         testAddDropdown(accountPlanText);
         testPlayButton();
         testMoreDropdown(accountPlanText, copiedFolderName);
-        testNavigateFolderDropdown(copiedFolderName);
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            testNavigateFolderDropdown(copiedFolderName);
+        } else {
+            testNavigateFolderDropdown(TestData.NEW_COLLECTION_NAME);
+        }
     }
 
     public void testCreateAPage() {
         editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickOnCreateAPageOption();
+        editCollectionModal.clickOnCreatePageOption();
         editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
         editCollectionModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
         editCollectionModal.clickSaveButton();
@@ -216,13 +209,14 @@ public class EditCollectionTest extends BaseTest {
 
     public void testAddDropdown(String accountPlanText) {
         editCollectionPage.clickOnAddItemsDropdown();
-        Assert.assertTrue(editCollectionPage.isAddALinkOptionDisplayed());
-        Assert.assertTrue(editCollectionPage.isUploadAFileOptionDisplayed());
-        Assert.assertTrue(editCollectionPage.isAddPixabayImageOptionDisplayed());
-        Assert.assertTrue(editCollectionPage.isCreateAPageOptionDisplayed());
-        Assert.assertTrue(editCollectionPage.isSearchResourcesOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isWebLinkOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isFileUploadOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isPixabayImageOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isCreatePageOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isNewFolderOptionDisplayed());
+        Assert.assertTrue(editCollectionPage.isResourceLibraryOptionDisplayed());
 
-        editCollectionPage.clickAddALinkOption();
+        editCollectionPage.clickWebLinkOption();
         editCollectionPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
         editCollectionPage.waitUntilNameFieldIsDisplayed();
         editCollectionPage.typeUrlName(TestData.PRIVATE_STATUS);
@@ -232,16 +226,19 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
 
         editCollectionPage.clickOnAddItemsDropdown();
-        editCollectionPage.clickUploadAFileButton();
+        editCollectionPage.clickFileUploadButton();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            curriculumManagerTest.testUpgradeModalFromUploadButton();
+            editCollectionModal.clickOnUpgradeNowButton();
+            Assert.assertTrue(editCollectionModal.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
+            Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
+            stepTwoPage.goBackOnePage();
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText, false);
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 2);
         }
         editCollectionPage.clickOnAddItemsDropdown();
-        editCollectionPage.clickOnAddPixabayImageOption();
+        editCollectionPage.clickOnPixabayImageOption();
         editCollectionModal.isPixabayLinkDisplayed();
         editCollectionModal.isLearnMoreLinkDisplayed();
         editCollectionModal.isAddPixabayImageSubtitleDisplayed();
@@ -261,6 +258,9 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.waitUntilAddSelectedToFolderButtonIsDisplayed();
         for (int i = 0; i <= 10; i++) {
             editCollectionPage.clickOnPixabayImage(i);
+            if (i % 3 == 2) {
+                editCollectionPage.scrollPixabayPanel();
+            }
         }
         Assert.assertTrue(editCollectionPage.getPixabayAlertText().contains(TestData.LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT));
         editCollectionPage.clickAddSelectedToFolderButton();
@@ -272,7 +272,7 @@ public class EditCollectionTest extends BaseTest {
         }
 
         editCollectionPage.clickOnAddItemsDropdown();
-        editCollectionPage.clickOnAddPixabayImageOption();
+        editCollectionPage.clickOnPixabayImageOption();
         editCollectionPage.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
         editCollectionPage.clickPixabaySearchButton();
         editCollectionPage.clickOnPixabayImage(0);
@@ -294,6 +294,17 @@ public class EditCollectionTest extends BaseTest {
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
         }
         editCollectionPage.clickOnAddItemsDropdown();
+        editCollectionPage.clickOnNewFolderOption();
+        editCollectionPage.typeNewFolderName();
+        editCollectionPage.clickOnCreateFolderButton();
+
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
+        } else {
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 15);
+        }
+
+        editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnSearchResourcesOption();
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.DISCOVER_RESOURCES_PAGE_PATH));
     }
@@ -308,6 +319,9 @@ public class EditCollectionTest extends BaseTest {
 
     public void testMoreDropdown(String accountPlanText, String copiedFolderName) {
         editCollectionPage.clickMoreDropdown();
+        if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertTrue(editCollectionPage.isPublishOptionDisplayed());
+        }
         Assert.assertTrue(editCollectionPage.isAssignOptionDisplayed());
         Assert.assertTrue(editCollectionPage.isCopyToOptionDisplayed());
         editCollectionPage.clickAssignOption();
@@ -321,25 +335,26 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.typeName(copiedFolderName);
         editCollectionPage.clickMyResourcesDestinationFolder();
         editCollectionPage.clickOnCopyToSelectedFolderButton();
-        editCollectionPage.waitUntilCopiedCollectionIsDisplayed();
-        Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
+            upgradeMaxFolderModal.waitForModal();
+            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
+            upgradeMaxFolderModal.clickOnCloseButton();
         } else {
-            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
+            editCollectionPage.waitUntilCopiedCollectionIsDisplayed();
+            Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
+        }
+        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
+        } else {
+            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 15);
         }
     }
 
     public void testNavigateFolderDropdown(String folderName) {
-        Assert.assertEquals(editCollectionPage.getEditFolderTitle(), folderName);
-        Assert.assertTrue(editCollectionPage.isFolderItemsCountDisplayed());
         editCollectionPage.clickNavigateFolderDropdown();
-        Assert.assertTrue(editCollectionPage.isCreateNewFolderButtonDisplayed());
+        Assert.assertEquals(editCollectionPage.getNavigateFolderTitle(), "My Resources");
         Assert.assertTrue(editCollectionPage.isActiveFolderDisplayed());
         Assert.assertEquals(editCollectionPage.getActiveFolderTitle(), folderName);
-        editCollectionPage.clickCreateNewFolderButton();
-        createNewFolderModal.waitForModal();
-        Assert.assertEquals(createNewFolderModal.getCreateNewFolderModalTitleFromEditCollection(), TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE);
     }
 
     public void testItemOptions() {
@@ -370,8 +385,8 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickTeacherNoteOption();
         editCollectionModal.typeTeacherNote(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH);
         editCollectionModal.clickSaveNoteButton();
-//        editCollectionModal.waitUntilNotificationIsDisplayed(TestData.UPDATED_NOTIFICATION_TEXT);
-//        editCollectionModal.waitForNotificationToDisappear();
+        editCollectionModal.waitUntilNotificationIsDisplayed(TestData.UPDATED_NOTIFICATION_TEXT);
+        editCollectionModal.waitForNotificationToDisappear();
 
         editCollectionModal.clickEllipsisActions(0);
         editCollectionModal.clickDeleteOption();
