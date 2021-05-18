@@ -15,6 +15,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     private RrpSearchPageTest rrpSearchPageTest;
     private RrpModal rrpModal;
     private RrpPage rrpPage;
+    private CollectionRrp collectionRrp;
 
     @BeforeMethod
     private void beforeMethod() {
@@ -26,6 +27,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         rrpSearchPageTest = new RrpSearchPageTest();
         rrpModal = new RrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
+        collectionRrp = new CollectionRrp(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -69,7 +71,6 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
     @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4950:Proprietary Resource Modal Overview")
     public void lessonp_4950() {
-//        testProprietaryResource(false);
         testProprietaryResource(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
@@ -125,7 +126,6 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5583:Folder (HMH/McGraw) Main Buttons")
     public void lessonp_5583() {
         testFolderHmhRrpMainButton(true, TestData.VALID_EMAIL_CSL_HENRY);
-
     }
 
     @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5595:Folder (HMH/McGraw) Resource Main Buttons")
@@ -152,7 +152,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
             Assert.assertEquals(provider, rrpPage.getResourcePoolName());
         }
 
-        testCommonProperties(inModal);
+        testCommonProperties(inModal, account);
     }
 
     public void testProprietaryResource(boolean inModal, String account) {
@@ -167,7 +167,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         Assert.assertFalse(rrp.isFullReviewDisplayed());
         Assert.assertEquals(rrp.getResourcePoolName(), TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
 
-        testCommonProperties(inModal);
+        testCommonProperties(inModal, account);
     }
 
     public void testFolderHmhMcGraw(boolean inModal, String account) {
@@ -177,24 +177,25 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
         discoverResourcesPage.clickFolderDetails(!inModal);
 
-        Assert.assertTrue(rrp.isOpenFolderButtonDisplayed());
-        Assert.assertTrue(rrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
+        Assert.assertTrue(collectionRrp.isOpenFolderButtonDisplayed());
+        Assert.assertTrue(collectionRrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
 
-        Assert.assertTrue(rrp.isBreadcrumbsContainerDisplayed());
-        Assert.assertEquals(rrp.getResourcePoolName(), TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
+        Assert.assertTrue(collectionRrp.isBreadcrumbsContainerDisplayed());
+        Assert.assertEquals(collectionRrp.getResourcePoolName(), TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
 
-        testCommonProperties(inModal);
+        testCommonProperties(inModal, account);
     }
 
-    private void testCommonProperties(boolean inModal) {
+    private void testCommonProperties(boolean inModal, String account) {
         Assert.assertFalse(rrp.isShareButtonDisplayed());
-        Assert.assertTrue(rrp.isReviewerRatingDisplayed());
-        Assert.assertFalse(rrp.isAddACommentButtonDisplayed());
         if (inModal) {
             Assert.assertTrue(rrp.isNextButtonDisplayed());
         } else {
             Assert.assertFalse(rrp.isNextButtonDisplayed());
         }
+
+        rrpSearchPageTest.initTest(webDriver);
+        rrpSearchPageTest.testEducatorRatingSection(account);
     }
 
     private void testSiteSpecificRrpMainButtons(boolean inModal, String account) {
@@ -203,12 +204,25 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
         discoverResourcesPage.clickSeeFullReview(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(inModal, TestData.VALID_EMAIL_CSL_HENRY);
+        rrpPage.clickOnThumbnail();
+        testNewTabSiteSpecificResourceUrl(inModal);
+
+        rrpPage.clickGoToResourceButton(inModal);
+        testNewTabSiteSpecificResourceUrl(inModal);
+
         if (inModal) {
             Assert.assertTrue(rrp.isNextButtonDisplayed());
         }
+        rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testAddToNewCollection(inModal);
+    }
+
+    public void testNewTabSiteSpecificResourceUrl(boolean modal) {
+        discoverResourcesPage.waitForNewTab();
+        discoverResourcesPage.focusDriverToLastTab();
+        discoverResourcesPage.waitForLinkToLoad();
+        Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
+        discoverResourcesPage.closeTab();
     }
 
     private void testFolderHmhRrpMainButton(boolean inModal, String account) {
