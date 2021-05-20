@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
+import java.util.List;
+
 public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
@@ -175,21 +177,13 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         Assert.assertTrue(browseBySubjectPage.isBannerImageDisplayed());
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
 
-        if (account.equals(TestData.PLAN_VISITOR)) {
-            Assert.assertTrue(browseBySubjectPage.isSeeAllButtonDisplayed());
-        } else {
-            Assert.assertFalse(browseBySubjectPage.isSeeAllButtonDisplayed());
-        }
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_FIRST_PAGE_PATH);
-        browseBySubjectPage.clickOnNextButton();
-        Assert.assertTrue(browseBySubjectPage.isPreviousButtonDisplayed());
-        Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_SECOND_PAGE_PATH);
+        Assert.assertFalse(browseBySubjectPage.isSeeAllButtonDisplayed());
+        Assert.assertFalse(browseBySubjectPage.isNextButtonDisplayed());
+        Assert.assertFalse(browseBySubjectPage.isPreviousButtonDisplayed());
 
-        if (account.equals(TestData.PLAN_VISITOR)) {
-            browseBySubjectPage.clickOnSeeAllButton();
-            Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
-            Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH + TestData.PAGINATION_ALL_ITEMS_PATH);
-        }
+        final int noOfCardsBeforeScroll = browseBySubjectPage.getCountOfAllResources();
+        browseBySubjectPage.scrollAndFetchResourcesList();
+        Assert.assertTrue(browseBySubjectPage.getCountOfAllResources() > noOfCardsBeforeScroll);
     }
 
     protected void testResourceTiles(String account) {
