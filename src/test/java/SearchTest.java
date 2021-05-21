@@ -54,13 +54,13 @@ public class SearchTest extends BaseTest {
     public void testLessonp_487() {
         lpHomePage.loadPage();
         headerPage.clickOnSearchButton();
-        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         discoverResourcesPage.clickOnTiledView();
-        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInTiledMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInTiledMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         discoverResourcesPage.clickOnListView();
-        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInListMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInListMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         discoverResourcesPage.clickOnThumbnailView();
-        Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+        Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-4747: User clicks result card")
@@ -280,10 +280,10 @@ public class SearchTest extends BaseTest {
             headerPage.clickOnDiscoverResourcesButton();
             Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_RESOURCES_MESSAGE);
             discoverResourcesPage.clickOnThumbnailView();
-            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+            Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         } else {
             Assert.assertEquals(discoverResourcesPage.getSearchMessage(), TestData.SHOWING_ALL_REVIEWED_RESOURCES_MESSAGE);
-            Assert.assertEquals(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode(), TestData.TOTAL_RESOURCES_PER_PAGE);
+            Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         }
     }
 

@@ -183,6 +183,10 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
+    public int getCountOfAllResources(){
+        return getAllResources().size();
+    }
+
     public void clickSeeCollection(boolean inANewTab) {
         clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
@@ -240,7 +244,7 @@ public class ResourcesPage extends LpUiBasePage {
                 webElementWasFound = true;
             } catch (Exception ex) {
                 // element was not found on the current page, click next page
-                clickOnNextButton();
+                scrollAndFetchResourcesList();
                 attempts--;
             }
         } while (!webElementWasFound && attempts > 0);
@@ -261,11 +265,20 @@ public class ResourcesPage extends LpUiBasePage {
                     webElementWasFound = true;
                 }
             } catch (Exception ex) {
-                clickOnNextButton();
+                scrollAndFetchResourcesList();
                 attempts--;
             }
         } while (!webElementWasFound && attempts > 0);
         return collection;
+    }
+
+    public void scrollAndFetchResourcesList() {
+        List<WebElement> cards = getAllResources();
+        for (int i = cards.size() / 2; i < cards.size(); i++) {
+            if (!cards.get(i).getText().equals("")) {
+                scrollToElement(cards.get(i));
+            }
+        }
     }
 
     public int getCountFreeAccessButtons() {
@@ -291,24 +304,16 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(UPGRADE_FOR_ACCESS_BUTTON).size();
     }
 
-    public void clickOnPreviousButton() {
-        clickElement(PREVIOUS_BUTTON);
-    }
-
     public boolean isPreviousButtonDisplayed() {
         return isElementClickable(PREVIOUS_BUTTON);
     }
 
-    public void clickOnNextButton() {
-        clickElement(NEXT_BUTTON);
+    public boolean isNextButtonDisplayed() {
+        return isElementClickable(NEXT_BUTTON);
     }
 
     public boolean isSeeAllButtonDisplayed() {
         return isElementClickable(SEE_ALL_BUTTON);
-    }
-
-    public void clickOnSeeAllButton() {
-        clickElement(SEE_ALL_BUTTON);
     }
 
     public void clickOnUpgradeMeNowButton() {
