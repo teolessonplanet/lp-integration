@@ -28,9 +28,9 @@ public class Rrp extends LpUiBasePage {
     private static final String NUMBER_OF_DOWNLOADS = "[class*='detail-downloads']";
     private static final String CONCEPTS_TAGS_LIST = "[class*='concepts']";
     private static final String RATING = "[itemprop='reviewRating']";
-    private static final String FULL_RRP_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.col-sm-12.pt5.pb5:nth-child(2) dd";
-    private static final String FULL_RRP_SUBJECTS = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(2) div.col-sm-12.pt5.pb5:nth-child(3) dd";
-    private static final String FULL_RRP_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class*='left-resource-details'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(1) dd";
+    private static final String FULL_RRP_GRADE = "[class*='panel-review new-rrp'] [class='left-resource-details mt15'] div.row:nth-child(2) div.col-sm-12.pt5.pb5:nth-child(3) dd";
+    private static final String FULL_RRP_SUBJECTS = "[class*='panel-review new-rrp'] [class*='left-resource-details'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(1) dd";
+    private static final String FULL_RRP_RESOURCE_TYPES = "[class*='panel-review new-rrp'] [class*='left-resource-details'] div.row:nth-child(3) div.col-sm-12.pt5.pb5:nth-child(2) dd";
     private static final String LIGHT_RRP_GRADE = "[class='panel panel-default panel-review new-rrp'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(1) [itemprop='typicalAgeRange']";
     private static final String LIGHT_RRP_SUBJECTS = "[class*='panel-default panel-review new-rrp'] div.col-sm-4.pt10.pb5:nth-child(2) dd";
     private static final String LIGHT_RRP_RESOURCE_TYPES = "[class*='panel-default panel-review new-rrp'] [class='pl5 mt10'] div.row:nth-child(1) div.col-sm-4.pt10.pb5:nth-child(3) dd";
@@ -41,9 +41,6 @@ public class Rrp extends LpUiBasePage {
     private static final String BLANK_LEFT_SECTION = "[class='panel-body'] [class=row] [class='col-sm-3 hidden-xs'] [class='blank-rrp-left-resource-details mt15']";
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-goto-resource']";
     private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='add-to-new-collection js-ajax-modal']";
-    private static final String ADD_A_COMMENT_LINK = "[class='add-a-comment']";
-    private static final String USER_CONVERSATION_PANEL = "[class*='user-conversation'] h4";
-    private static final String ADD_A_COMMENT_BUTTON = "[class*='add-comment-btn']";
     private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
@@ -53,6 +50,18 @@ public class Rrp extends LpUiBasePage {
     private static final String BREADCRUMBS_CONTAINER = "#breadcrumbs-container";
     private static final String BREADCRUMB_ITEMS = "#breadcrumbs-container li a";
     private static final String FOLDER_DETAILS_DROPDOWN = "div[class*='resource-details'] [class*='detail-collections']";
+
+    private static final String EDUCATOR_RATING_SECTION_DETAILS = "[class='educator-rating-details']";
+    private static final String EDUCATOR_RATING_NOT_YET_RATED_TEXT = "[class='not-yet-rated']";
+    private static final String EDUCATOR_RATING_ICONS_SECTION = "[class='educator-rating-wrap']";
+    private static final String RATE_THIS_RESOURCE_LINK = "[class='user-rating-link']";
+    private static final String UPGRADE_YOUR_MEMBERSHIP_POPOVER = "[class='react-popover undefined']";
+
+    private static final String ADD_A_REVIEW_SECTION = "#educator-rating-form-root";
+    private static final String ADD_A_REVIEW_TITLE = "#educator-rating-form-root h4";
+    private static final String ADD_A_REVIEW_SUBTITLE = "#educator-rating-form-root [class='subtitle']";
+    private static final String ADD_A_REVIEW_RATING_ICONS = "[class='rating-selector']";
+    private static final String ADD_A_REVIEW_PANEL = "#comment-text-area";
 
     public Rrp(WebDriver driver) {
         super(driver);
@@ -285,22 +294,6 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(UPGRADE_FOR_FULL_REVIEW_BUTTON);
     }
 
-    public boolean isAddACommentLinkDisplayed() {
-        return isElementDisplayed(ADD_A_COMMENT_LINK);
-    }
-
-    public void clickAddACommentLink() {
-        clickElement(ADD_A_COMMENT_LINK);
-    }
-
-    public String getUserConversationPanelText() {
-        return getTextForElement(USER_CONVERSATION_PANEL);
-    }
-
-    public boolean isAddACommentButtonDisplayed() {
-        return isElementDisplayed(ADD_A_COMMENT_BUTTON);
-    }
-
     public void clickAddToNewCollection() {
         clickElement(ADD_TO_NEW_COLLECTION_BUTTON);
     }
@@ -341,5 +334,45 @@ public class Rrp extends LpUiBasePage {
 
     public boolean isFolderDetailsDropdownDisplayed() {
         return isElementDisplayed(FOLDER_DETAILS_DROPDOWN);
+    }
+
+    public String getEducatorRatingDetails() {
+        return getTextForElement(EDUCATOR_RATING_SECTION_DETAILS);
+    }
+
+    public boolean isNotYetRatedTextDisplayed() {
+        return isElementDisplayed(EDUCATOR_RATING_NOT_YET_RATED_TEXT);
+    }
+
+    public boolean isEducatorRatingIconsSectionDisplayed() {
+        return isElementDisplayed(EDUCATOR_RATING_ICONS_SECTION);
+    }
+
+    public void clickOnRateThisResourceLink() {
+        clickElement(RATE_THIS_RESOURCE_LINK);
+    }
+
+    public boolean isUpgradeYourMembershipPopoverDisplayed() {
+        return isElementDisplayed(UPGRADE_YOUR_MEMBERSHIP_POPOVER);
+    }
+
+    public boolean isAddAReviewSectionDisplayed() {
+        return isElementDisplayed(ADD_A_REVIEW_SECTION);
+    }
+
+    public String getAddAReviewSectionTitle() {
+        return getTextForElement(ADD_A_REVIEW_TITLE);
+    }
+
+    public String getAddAReviewSectionSubtitle() {
+        return getTextForElement(ADD_A_REVIEW_SUBTITLE);
+    }
+
+    public boolean isAddAReviewPanelDisplayed() {
+        return isElementDisplayed(ADD_A_REVIEW_PANEL);
+    }
+
+    public boolean isAddAReviewRatingIconsSectionDisplayed() {
+        return isElementDisplayed(ADD_A_REVIEW_RATING_ICONS);
     }
 }

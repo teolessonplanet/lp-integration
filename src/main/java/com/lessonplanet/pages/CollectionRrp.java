@@ -42,7 +42,7 @@ public class CollectionRrp extends Rrp {
     private static final String COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='join-btn']";
     private static final String PLAY_COLLECTION_BUTTON = "[class*='panel-default panel-review'] [class='play-collection-btn']";
 
-    protected CollectionRrp(WebDriver driver) {
+    public CollectionRrp(WebDriver driver) {
         super(driver);
     }
 
