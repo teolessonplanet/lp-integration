@@ -6,8 +6,8 @@ public class ConfirmPublishUploadFileModal extends LpUiBasePage {
 
     private static final String AGREEMENT_CHECKBOX = "[class='boolean rights-checkbox']";
     private static final String PUBLISH_COLLECTION_BUTTON = "[class='modal-footer'] [class='btn btn-success']";
-    private static final String DO_NOT_INCLUDE_FILE_OPTION =  "[class*='radio-row'] div[class='pt15']:nth-child(3) input";
-    private static final String INCLUDE_FILE_OPTION =  "[class*='radio-row'] div[class='pt15']:nth-child(2) input";
+    private static final String DO_NOT_INCLUDE_FILE_OPTION = "[class*='radio-row'] div[class='pt15']:nth-child(3) input";
+    private static final String INCLUDE_FILE_OPTION = "[class*='radio-row'] div[class='pt15']:nth-child(2) input";
 
     public ConfirmPublishUploadFileModal(WebDriver driver) {
         super(driver);

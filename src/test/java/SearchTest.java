@@ -498,19 +498,19 @@ public class SearchTest extends BaseTest {
         discoverResourcesPage.hoverOverElement(collectionResourceCard, true);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
         testCommonItemsInThumbnailView(collectionResourceCard);
-        Assert.assertEquals(discoverResourcesPage.getSeeCollectionInThumbnailViewButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionInThumbnailViewButtonTextForCard(collectionResourceCard), TestData.SEE_FOLDER_BUTTON_TEXT);
 
         discoverResourcesPage.clickOnTiledView();
         collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
         testCommonItems(collectionResourceCard);
-        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_FOLDER_BUTTON_TEXT);
 
         discoverResourcesPage.clickOnListView();
         collectionResourceCard = discoverResourcesPage.getCollectionCards().get(0);
         Assert.assertNotEquals(TestData.LP_HOME_PAGE_PATH, discoverResourcesPage.getCardDescription(collectionResourceCard));
         testCommonItems(collectionResourceCard);
-        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_COLLECTION_BUTTON_TEXT);
+        Assert.assertEquals(discoverResourcesPage.getSeeCollectionButtonTextForCard(collectionResourceCard), TestData.SEE_FOLDER_BUTTON_TEXT);
     }
 
     protected void testSharedResource() {

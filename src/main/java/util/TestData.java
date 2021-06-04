@@ -382,7 +382,7 @@ public class TestData {
     public static final String CSL_QA_CUSTOM_TEACHER_FIRST_NAME = "Jones";
     public static final String CSL_QA_CUSTOM_TEACHER_LAST_NAME = "Smith";
     public static final String CSL_COBB_SCHOOL_DISTRICT_NAME = "Cobb County School District";
-    public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Cobb Online Learning Academy - HS";
+    public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Pearson Middle School";
     public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = "i_t_csl_cobb@lp.com";
     public static final String CSL_COBB_OWNER_FIRST_NAME = "Jane";
     public static final String CSL_COBB_OWNER_LAST_NAME = "Maryland";
@@ -767,7 +767,7 @@ public class TestData {
 
     public static final String GET_FREE_ACCESS_BUTTON_TEXT = "Get Free Access";
     public static final String SEE_REVIEW_BUTTON_TEXT = "See Review";
-    public static final String SEE_COLLECTION_BUTTON_TEXT = "See Collection";
+    public static final String SEE_FOLDER_BUTTON_TEXT = "See Folder";
     public static final String GO_TO_RESOURCE_BUTTON_TEXT = "Go to Resource";
     public static final String SEE_PREVIEW_BUTTON_TEXT = "See Preview";
     public static final String SEE_FULL_REVIEW_BUTTON_TEXT = "See Full Review";

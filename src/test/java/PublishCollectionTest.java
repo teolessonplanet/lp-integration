@@ -20,6 +20,7 @@ public class PublishCollectionTest extends BaseTest {
     private CollectionNotPublishedModal collectionNotPublishedModal;
     private PrivateDocumentsModal privateDocumentsModal;
     private PublishedFolderModal publishedFolderModal;
+    private HeaderPage headerPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -35,6 +36,7 @@ public class PublishCollectionTest extends BaseTest {
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
         privateDocumentsModal = new PrivateDocumentsModal(webDriver);
         publishedFolderModal = new PublishedFolderModal(webDriver);
+        headerPage = new HeaderPage(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -164,24 +166,27 @@ public class PublishCollectionTest extends BaseTest {
             }
         }
 
-        curriculumManagerPage.loadPage();
+        headerPage.hoverOverDiscoverButton();
+        headerPage.clickOnCurriculumManagerButton();
+
+        curriculumManagerPage.waitForLoad();
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
-//        editCollectionModal.publishCollection(accountPlan, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
         editCollectionModal.completeCollectionForPublish(accountPlan, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
         if (noOfUploadedResources > 0) {
             for (int i = 0; i < noOfUploadedResources; i++) {
+                curriculumManagerPage.refreshPageAndDismissBrowserAlert();
+                curriculumManagerPage.hoverOverActionsDropdown();
+                curriculumManagerPage.clickOnActionsDropdown();
+                curriculumManagerPage.clickOnEditButton();
                 editCollectionModal.clickOnAddItemsDropdown();
                 editCollectionModal.clickFileUploadButton();
                 curriculumManagerPageTest.testUpload(true, accountPlan, false);
             }
             editCollectionModal.clickMoreDropdown();
             editCollectionModal.clickOnPublishOption();
-            editCollectionModal.chooseAudience();
-            editCollectionModal.chooseRating();
-            editCollectionModal.chooseAdditionalTags();
             editCollectionModal.clickOnPublishFolder();
 
             if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && (!accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB))) {
@@ -210,7 +215,6 @@ public class PublishCollectionTest extends BaseTest {
                 publishedFolderModal.clickOnCloseButton();
             }
             editCollectionModal.clickOnCloseButton();
-            curriculumManagerPage.waitUntilPublishedStatusIsDisplayed();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
         }
     }
@@ -232,10 +236,14 @@ public class PublishCollectionTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
 
-//        editCollectionModal.publishCollection(account, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
         editCollectionModal.completeCollectionForPublish(account, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
+        curriculumManagerPage.refreshPageAndDismissBrowserAlert();
+        curriculumManagerPage.hoverOverActionsDropdown();
+        curriculumManagerPage.clickOnActionsDropdown();
+        curriculumManagerPage.clickOnEditButton();
         editCollectionModal.clickOnAddItemsDropdown();
+
         editCollectionModal.clickOnCreatePageOption();
         editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
         editCollectionModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
@@ -247,9 +255,6 @@ public class PublishCollectionTest extends BaseTest {
 
         editCollectionModal.clickMoreDropdown();
         editCollectionModal.clickOnPublishOption();
-        editCollectionModal.chooseAudience();
-        editCollectionModal.chooseRating();
-        editCollectionModal.chooseAdditionalTags();
         editCollectionModal.clickOnPublishFolder();
 
         if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
