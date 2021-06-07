@@ -3,6 +3,7 @@ package com.lessonplanet.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
@@ -80,6 +81,11 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW = "span[class*='resource-grade']";
     private static final String COLLECTION_CARD_ITEMS_COUNT = "#search-results [class*='search-result-item'] [class='items-count'] [class='count']";
 
+    private static final String RESOURCE_TYPE_SELECTOR_WEBSITE = "[class='type-resource type-website']";
+    private static final String RESOURCE_TYPE_SELECTOR_GRAPHIC = "[class='type-resource type-graphics-image']";
+    private static final String RESOURCE_TYPE_SELECTOR_VIDEO = "[class='type-resource type-video']";
+    private static final String RESOURCE_TYPE_SELECTOR_PRESENTATION = "[class='type-resource type-presentation']";
+
     private static final Logger logger = LogManager.getRootLogger();
 
     public ResourcesPage(WebDriver driver) {
@@ -147,6 +153,10 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(GET_FREE_ACCESS_BUTTON);
     }
 
+    public List<WebElement> getAllFreeAccessButtonsForResourceType(String resourceCategory, boolean onlyOneElementToFind) {
+        return getResourceButtonForASpecificType(GET_FREE_ACCESS_BUTTON, resourceCategory, onlyOneElementToFind);
+    }
+
     public List<WebElement> getAllSeeCollectionsButtons() {
         return findElements(SEE_COLLECTION_BUTTON);
     }
@@ -157,6 +167,47 @@ public class ResourcesPage extends LpUiBasePage {
 
     public List<WebElement> getAllSeeFullReviewButtons() {
         return findElements(SEE_FULL_REVIEW_BUTTON);
+    }
+
+    public List<WebElement> getAllSeeFullReviewButtonsForResourceType(String resourceCategory, boolean onlyOneElementToFind) {
+        return getResourceButtonForASpecificType(SEE_FULL_REVIEW_BUTTON, resourceCategory, onlyOneElementToFind);
+    }
+
+    public List<WebElement> getResourceButtonForASpecificType(String resourceButton, String resourceCategory, boolean onlyOneElementToFind) {
+
+        List<WebElement> toReturn = new ArrayList<>();
+        String selectorForType = "";
+
+        switch (resourceCategory) {
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES:
+                selectorForType = RESOURCE_TYPE_SELECTOR_WEBSITE;
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
+                selectorForType = RESOURCE_TYPE_SELECTOR_GRAPHIC;
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
+                selectorForType = RESOURCE_TYPE_SELECTOR_VIDEO;
+                break;
+            case TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS:
+                selectorForType = RESOURCE_TYPE_SELECTOR_PRESENTATION;
+                break;
+            default:
+                logger.error("Resource type " + resourceCategory + " was not defined!");
+        }
+
+        List<WebElement> elements = findElements(resourceButton);
+        for (WebElement element : elements) {
+            try {
+                element.findElement(By.xpath("../..")).findElement(By.cssSelector(selectorForType));
+                toReturn.add(element);
+                if (onlyOneElementToFind) {
+                    return toReturn;
+                }
+            } catch (NoSuchElementException exception) {
+                logger.info("Element of type " + selectorForType + " was not found in webElement " + exception);
+            }
+        }
+        return toReturn;
     }
 
     public int getCountUnlockedResourcesInListMode() {
@@ -183,7 +234,7 @@ public class ResourcesPage extends LpUiBasePage {
         return findElements(LOCKED_RESOURCES_IN_THUMBNAIL_VIEW).size();
     }
 
-    public int getCountOfAllResources(){
+    public int getCountOfAllResources() {
         return getAllResources().size();
     }
 
