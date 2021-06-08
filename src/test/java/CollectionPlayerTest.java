@@ -268,9 +268,9 @@ public class CollectionPlayerTest extends BaseTest {
 
         List<WebElement> resources;
         if (accountType.equals(TestData.PLAN_FREEMIUM)) {
-            resources = discoverResourcesPage.getAllFreeAccessButtons();
+            resources = discoverResourcesPage.getAllFreeAccessButtonsForResourceType(resourceCategory, true);
         } else {
-            resources = discoverResourcesPage.getAllSeeFullReviewButtons();
+            resources = discoverResourcesPage.getAllSeeFullReviewButtonsForResourceType(resourceCategory, true);
         }
         discoverResourcesPage.dragAndDrop(resources.get(0), collectionBuilderPage.getCollectionDroppableZone());
     }
