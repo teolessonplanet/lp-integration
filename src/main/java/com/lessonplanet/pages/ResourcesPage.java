@@ -325,7 +325,7 @@ public class ResourcesPage extends LpUiBasePage {
 
     public void scrollAndFetchResourcesList() {
         List<WebElement> cards = getAllResources();
-        for (int i = cards.size() / 2; i < cards.size(); i++) {
+        for (int i = 0; i < cards.size(); i++) {
             if (!cards.get(i).getText().equals("")) {
                 scrollToElement(cards.get(i));
             }
