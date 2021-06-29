@@ -76,7 +76,7 @@ public class CalendarPageTest extends BaseTest {
         Assert.assertEquals(calendarPage.getMonthLinkText(), TestData.MONTH[index] + " " + TestData.getCurrentYear());
         calendarPage.clickOnMonthLink();
         calendarPage.waitForPageLoad();
-        Assert.assertEquals(calendarPage.getPath(), TestData.SEARCH_PAGE_PATH + TestData.KEYWORD[index].replace(" ", "+").replace("'", "%27"));
+        Assert.assertEquals(calendarPage.getPath(), TestData.SEARCH_PAGE_WITH_KEYWORD_PATH + TestData.KEYWORD[index].replace(" ", "+").replace("'", "%27"));
         Assert.assertEquals(headerPage.getSearchText(), TestData.KEYWORD[index]);
         if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB) || account.equalsIgnoreCase(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(discoverResourcesPage.getSearchMessage().contains(TestData.SEARCH_MESSAGE_FOUND_1));

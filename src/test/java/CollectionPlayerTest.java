@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import util.TestData;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CollectionPlayerTest extends BaseTest {
@@ -86,7 +87,6 @@ public class CollectionPlayerTest extends BaseTest {
         testStudentView(TestData.PLAN_PRO);
     }
 
-    //TODO: update THIS
     protected void testCollectionPlayerAppearance(String accountType) {
         createRequirementForCollectionPlayer(accountType);
 
@@ -101,7 +101,7 @@ public class CollectionPlayerTest extends BaseTest {
         // publish is available only for Active & SLs
         if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
             collectionBuilderPage.clickOnEditFolder(false);
-            editCollectionModal.publishCollection(accountType,TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+            editCollectionModal.publishCollection(accountType, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
             //generate method to publish fast
 
             if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
@@ -126,8 +126,8 @@ public class CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.loadPage();
 
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+        discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
+
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
@@ -240,29 +240,26 @@ public class CollectionPlayerTest extends BaseTest {
     private void addResourceOfType(String accountType, String resourceCategory) {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.checkLessonPlanetProvider();
 
         switch (resourceCategory) {
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES:
                 //WebPage
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
+                discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES)));
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES:
                 //Images
                 if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
-                    discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH);
+                    discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_SUBJECTS_TYPE_MATH)));
                 }
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
+                discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES)));
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS:
                 //VIDEO
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SPECIAL_EDUCATION_AND_PROGRAMS);
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
+                discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_SUBJECTS_TYPE_SPECIAL_EDUCATION_AND_PROGRAMS, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS)));
                 break;
             case TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS:
                 //PDF - PPT
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_SUBJECTS, TestData.FACET_CATEGORY_SUBJECTS_CLASSROOM_SUPPORT);
-                discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
+                discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_SUBJECTS_CLASSROOM_SUPPORT, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS)));
                 break;
         }
 
