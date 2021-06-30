@@ -255,12 +255,10 @@ public class ResourcesPage extends LpUiBasePage {
     }
 
     public void clickSeePreview(boolean inANewTab) {
-        scrollToElement(SEE_PREVIEW_BUTTON);
         clickFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
     }
 
     public void clickGoToResourceForSharedResource(boolean inANewTab) {
-        scrollToElement(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE);
         clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
     }
 

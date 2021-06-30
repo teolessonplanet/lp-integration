@@ -404,6 +404,7 @@ public class RrpSearchPageTest extends BaseTest {
     public void testResourcePageOverview(String account, boolean inModal) {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
+        //TODO: remove check LP prov
         discoverResourcesPage.clickSeeReview(!inModal);
         testRegularResourceRRPOverview(inModal, account);
         if (!(account.equals(TestData.VALID_EMAIL_RSL_SBCEO) || account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_CSL_COBB))) {

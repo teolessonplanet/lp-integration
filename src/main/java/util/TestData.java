@@ -13,6 +13,7 @@ public class TestData {
     public static String SERVER_URL = "https://staging.lessonplanet.com/";
     public static final String FEATURE_URL = "https://feature.lessonplanet.com/";
     public static boolean IP_IS_WHITELISTED = true;
+    public static boolean SKIP_FACET_FILTERS = false;
     public static final String EMPTY_URL = "about:blank";
     public static final Locale LOCALE = java.util.Locale.US;
     public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integration";
@@ -48,7 +49,8 @@ public class TestData {
     public static final String COLLECTION_PLAYER_PAGE_PATH_3 = "/player";
 
     //Curriculum Calendar Page
-    public static final String SEARCH_PAGE_PATH = "search?keywords=";
+    public static final String SEARCH_PAGE_PATH = "search";
+    public static final String SEARCH_PAGE_WITH_KEYWORD_PATH = "search?keywords=";
     public static final String CALENDAR_TITLE = " Curriculum Calendar - Lesson Plan Ideas by Date";
     public static final String CALENDAR_DECRIPTION = "Enhance your current curriculum with this fun reference calendar. Whether you want to highlight historic events, honor birthdays of significant people, or celebrate holidays, this is a valuable tool for every teacher. Click on any event to find a breadth of related teaching resources that will spark new ideas to spice up your daily lessons. There's something worth celebrating every day!";
     public static final String[] MONTH = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};

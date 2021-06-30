@@ -7,6 +7,8 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AccountManagementTest extends BaseTest {
@@ -92,7 +94,7 @@ public class AccountManagementTest extends BaseTest {
     public void testLessonp_692() {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
+        discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
         List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
         discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
         becomeALessonPlanetFreeMemberModal.waitForModal();

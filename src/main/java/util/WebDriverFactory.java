@@ -22,6 +22,7 @@ public class WebDriverFactory {
     private final static String FIREFOX_PROFILE = "ffprof";
     private final static String IP_WHITELISTED_SYSTEM_VAR = "ipwhitelisted";
     private final static String SERVER_URL_SYSTEM_VAR = "server";
+    private final static String SKIP_FACETS = "skipfacets";
 
     private boolean headlessBrowser = false;
     private boolean firefoxDefaultProfile = false;
@@ -105,6 +106,14 @@ public class WebDriverFactory {
             }
         } catch (NullPointerException ex) {
             logger.info("Server is not set in VM options - running on Staging by default");
+        }
+
+        try{
+            if (System.getProperty(SKIP_FACETS).equals("true")) {
+                TestData.SKIP_FACET_FILTERS = true;
+            }
+        } catch (NullPointerException ex) {
+            logger.info("SKIP facet filter is not set in VM options");
         }
 
         return webDriver;
