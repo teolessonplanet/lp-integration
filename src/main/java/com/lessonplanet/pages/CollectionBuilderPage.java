@@ -163,7 +163,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public int getNumberOfItemsInCollection() {
-        return Integer.parseInt(getTextForElement(CREATE_OR_OPEN_DROPDOWN).replaceAll("\\D+", ""));
+        String[] noOfItems = getTextForElement(CREATE_OR_OPEN_DROPDOWN).split("\n");
+        return Integer.parseInt(noOfItems[1].replaceAll("\\D+", ""));
     }
 
     public boolean isGetStartedTextDisplayed() {

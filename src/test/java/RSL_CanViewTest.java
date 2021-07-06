@@ -37,25 +37,25 @@ public class RSL_CanViewTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5965: Main Page")
+    @Test(description = "RSL - Shared With Me - lessonp-5965: Main Page", priority = 0)
     public void testLessonp_5965() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testSharedWithMePage();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5966: Share a folder - Can View Permission")
+    @Test(description = "RSL - Shared With Me - lessonp-5966: Share a folder - Can View Permission", priority = 1)
     public void testLessonp_5966() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testShareFolder(TestData.VALID_EMAIL_RSL_SBCEO, TestData.SHARE_FOLDER_MODAL_RSL_OWNER_NAME, TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.RSL_SBCEO_TEACHER_FIRST_NAME, TestData.RSL_SBCEO_TEACHER_LAST_NAME, TestData.RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL, TestData.RSL_SBCEO_DA_FIRST_NAME, TestData.RSL_SBCEO_DA_LAST_NAME);
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5989: Drag-and-drop items - Can View Permission")
+    @Test(description = "RSL - Shared With Me - lessonp-5989: Drag-and-drop items - Can View Permission", priority = 2)
     public void testLessonp_5989() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testDragAndDrop();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-6012: Verify shared folder - Can View Permission")
+    @Test(description = "RSL - Shared With Me - lessonp-6012: Verify shared folder - Can View Permission", priority = 3)
     public void testLessonp_6012() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testVerifyFolder();
@@ -75,7 +75,7 @@ public class RSL_CanViewTest extends BaseTest {
     public void testShareFolder(String ownerEmail, String ownerName, String teacherEmail, String teacherFirstName, String teacherLastName, String districtAdminEmail, String districtAdminFirstName, String districtAdminLastName) {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
+        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.GET_CURRENT_TIME()+TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
@@ -135,12 +135,14 @@ public class RSL_CanViewTest extends BaseTest {
         //drag & drop a resource from a Shared Folder into a shared folder from Collection Builder
         curriculumManagerPage.clickOnFolder(0);
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getExpandedFolderChild(0), collectionBuilderPage.getCollectionDroppableZone());
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber);
         Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber);
 
         //drag & drop a Shared folder into the same shared folder from Collection Builder
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
 
@@ -152,13 +154,16 @@ public class RSL_CanViewTest extends BaseTest {
         //drag&drop shared folder resource inside the collection in the Collection Builder
         curriculumManagerPage.clickOnFolder(0);
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getExpandedFolderChild(0), collectionBuilderPage.getCollectionDroppableZone());
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), 1);
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getExpandedFolderChild(1), collectionBuilderPage.getCollectionDroppableZone());
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), 2);
 
         //drag&drop a shared folder inside the collection in the Collection Builder
         curriculumManagerPage.clickOnFolder(0);
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
+        curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), 3);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
     }
