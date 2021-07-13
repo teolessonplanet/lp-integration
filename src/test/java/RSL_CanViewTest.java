@@ -75,7 +75,7 @@ public class RSL_CanViewTest extends BaseTest {
     public void testShareFolder(String ownerEmail, String ownerName, String teacherEmail, String teacherFirstName, String teacherLastName, String districtAdminEmail, String districtAdminFirstName, String districtAdminLastName) {
         curriculumManagerPage.loadPage();
         curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.GET_CURRENT_TIME()+TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
+        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.GET_CURRENT_TIME() + TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
@@ -112,7 +112,7 @@ public class RSL_CanViewTest extends BaseTest {
         shareFolderModal.removeUser();
         Assert.assertEquals(shareFolderModal.getUserName(), teacherFirstName + " " + teacherLastName);
         shareFolderModal.clickOnShareFolderButton();
-       // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT));
+        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT));
 
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -173,7 +173,7 @@ public class RSL_CanViewTest extends BaseTest {
         curriculumManagerPage.clickOnSharedWithMeTabButton();
         Assert.assertEquals(curriculumManagerPage.getPath(), TestData.SHARED_WITH_ME_PAGE_PATH);
         int foldersNumber = curriculumManagerPage.getFoldersNumber();
-        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
+        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.FOLDER_TYPE[0]);
         Assert.assertTrue(curriculumManagerPage.getFolderStatus().contains(TestData.SHARED_WITH_ME_PAGE_FOLDER_STATUS));
 
         curriculumManagerPage.clickOnActionsDropdown();

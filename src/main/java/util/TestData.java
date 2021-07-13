@@ -211,12 +211,9 @@ public class TestData {
     public static final String AUDIENCE = "For Teacher Use";
     public static final String CONCEPT = "Articles";
     public static final String ADDITIONAL_TAGS = "auto";
-    public static final String[] FOLDER_TYPE = {"Collections", "Curriculum Sets", "Chapters", "Lessons", "Assessment Sets", "Unit Modules", "Course Folders", "Root Folders"};
+    public static final String[] FOLDER_TYPE = {"Collection", "Curriculum Set", "Chapter", "Lesson", "Assessment Set", "Unit Module", "Course Folder", "Root Folder"};
     public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
-    public static final String LESSON_FOLDER_TYPE = "Lesson";
-    public static final String CHAPTER_FOLDER_TYPE = "Chapter";
-    public static final String COLLECTION_FOLDER_TYPE = "Collection";
     public static final int CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS = 20;
 
     public static final String SHARED_FOLDER_NAME = "Shared Folder";
@@ -348,7 +345,6 @@ public class TestData {
     public static final String ADD_SCHOOL_ADMIN_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school admin.";
     public static final String ADD_DISTRICT_ADMIN_ROSTER_ON_NOTIFICATION_TEXT = "You cannot add admins to an organization if they're not a teacher first";
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
-
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
     public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "i_t_rsl_laguna@lp.com";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Stephen";
@@ -369,7 +365,7 @@ public class TestData {
     public static final String CSL_HENRY_EXISTING_SCHOOL_NAME = "LP Elementary";
     public static final String CSL_HENRY_EXISTING_TEACHER_EMAIL = "i_t_csl_henry@lp.com";
     public static final String CSL_HENRY_EXISTING_DA_EMAIL = "i_da_csl_henry@lp.com";
-    public static final String CSL_HENRY_OWNER_FIRST_NAME =  "Henry";
+    public static final String CSL_HENRY_OWNER_FIRST_NAME = "Henry";
     public static final String CSL_HENRY_OWNER_LAST_NAME = "Thomas";
     public static final String CSL_HENRY_DA_FIRST_NAME = "Borris";
     public static final String CSL_HENRY_DA_LAST_NAME = "Thompson";
@@ -616,7 +612,7 @@ public class TestData {
     public static final String HEALTH_CATEGORY_MODAL_TITLE = "Health";
     public static final String HEALTH_CATEGORY_MODAL_DEFAULT_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String HEALTH_CATEGORY_MODAL_FIRST_CARET_EXPANDED_TEXT = "Wellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
+    public static final String HEALTH_CATEGORY_MODAL_SECOND_CARET_EXPANDED_TEXT = "Wellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfulness\nEquity & Access\nGrowth and Development\nSex Education";
 
     public static final String HEALTH_PAGE_TITLE = "Health Teacher Resources";
     public static final String LANGUAGE_ARTS_PAGE_TITLE = "Language Arts Teacher Resources";
@@ -667,7 +663,7 @@ public class TestData {
 
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nCommunication\nDisorders\nMental Disorders\nSocial and Emotional Learning\nNutrition\nConflict Resolution\nInjury Prevention and Safety\nPhysical Health\nSocial and Emotional Learning\nGrowth and Development\nSex Education";
-    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfullness\nEquity & Access\nGrowth and Development\nSex Education";
+    public static final String BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT = "Browse by Subject\nHealth\nWellness & Safety\nSocial and Emotional Learning\nAdverse Childhood Experiences\nSchool Culture & Climate\nCASEL Competencies\nMindfulness\nEquity & Access\nGrowth and Development\nSex Education";
     public static final String BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT = "Browse by Subject\nPhysical Health\nAutoimmune disease\nDental Health\nDental and Personal Hygiene\nHeart Condition\nPhysical Activity\nPersonal Health Management\nHospital\nSubstance Abuse";
     public static final String BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT = "\nSuggest a Category";
 

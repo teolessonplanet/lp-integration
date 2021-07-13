@@ -214,7 +214,6 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.isPixabayImageOptionDisplayed());
         Assert.assertTrue(editCollectionPage.isCreatePageOptionDisplayed());
         Assert.assertTrue(editCollectionPage.isNewFolderOptionDisplayed());
-        Assert.assertTrue(editCollectionPage.isResourceLibraryOptionDisplayed());
 
         editCollectionPage.clickWebLinkOption();
         editCollectionPage.typeUrl(TestData.COLLECTION_BUILDER_LINK);
@@ -304,13 +303,9 @@ public class EditCollectionTest extends BaseTest {
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 15);
         }
 
-        editCollectionPage.clickOnAddItemsDropdown();
-        editCollectionPage.clickOnSearchResourcesOption();
-        Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.DISCOVER_RESOURCES_PAGE_PATH));
     }
 
     public void testPlayButton() {
-        collectionBuilderPage.clickOnEditFolder(true);
         Assert.assertTrue(editCollectionPage.isPlayOptionDisplayed());
         editCollectionPage.clickPlayOption();
         rrpSearchPageTest.initTest(webDriver);

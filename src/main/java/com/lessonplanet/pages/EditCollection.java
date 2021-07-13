@@ -58,7 +58,6 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String NEW_FOLDER_BUTTON = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(5)";
     private static final String CREATE_FOLDER_BUTTON = "[class*='modal-footer'] [class='btn btn-default btn-primary ml10']";
     private static final String FOLDER_NAME = "[class='create-new-folder-container'] [name='title']";
-    private static final String RESOURCE_LIBRARY_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(6)";
 
     private static final String PLAY_OPTION = "[class='edit-folder-action-item button play-folder']";
     private static final String MORE_DROPDOWN = "#collection-actions-wrap";
@@ -81,7 +80,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(3)";
     private static final String TEACHER_NOTE_INPUT = "[name='collection_item[note]']";
     private static final String DELETE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(4)";
-    private static final String DELETE_ITEM_BUTTON = "[class='modal-footer'] a";
+    private static final String DELETE_ITEM_BUTTON = "#updated-edit [class='modal-footer'] a";
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
 
@@ -265,10 +264,6 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(CREATE_PAGE_OPTION);
     }
 
-    public boolean isSearchResourcesOptionDisplayed() {
-        return isElementDisplayed(RESOURCE_LIBRARY_OPTION);
-    }
-
     public void clickFileUploadButton() {
         clickElement(FILE_UPLOAD_OPTION);
     }
@@ -302,20 +297,12 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(SAVE_BUTTON);
     }
 
-    public void clickOnSearchResourcesOption() {
-        clickElement(RESOURCE_LIBRARY_OPTION);
-    }
-
     public void clickNavigateFolderDropdown() {
         clickElement(NAVIGATE_FOLDER_DROPDOWN);
     }
 
     public boolean isNewFolderOptionDisplayed() {
         return isElementDisplayed(NEW_FOLDER_BUTTON);
-    }
-
-    public boolean isResourceLibraryOptionDisplayed() {
-        return isElementDisplayed(RESOURCE_LIBRARY_OPTION);
     }
 
     public void clickNewFolderButton() {
