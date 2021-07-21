@@ -9,26 +9,19 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LoginPage loginPage;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
-    private RrpSearchPageTest rrpSearchPageTest;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpModal rrpModal;
     private DiscoverResourcesPage discoverResourcesPage;
-
-    private CreateNewCollectionModal createNewCollectionModal;
-
-    private SearchTest searchTest;
+    private CreateNewFolderModal createNewFolderModal;
     private LimitedResourceAccessModal limitedResourceAccessModal;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         directoryCategoriesAndSubcategoriesPageTest = new DirectoryCategoriesAndSubcategoriesPageTest();
-        rrpSearchPageTest = new RrpSearchPageTest();
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpModal = new RrpModal(webDriver);
-        searchTest = new SearchTest();
-
-        createNewCollectionModal = new CreateNewCollectionModal(webDriver);
+        createNewFolderModal = new CreateNewFolderModal(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
     }
@@ -125,8 +118,9 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         browseBySubjectPage.clickSeeFullReview(rrpStatic);
         rrpModal.clickOnAddToFolderDropdown();
         rrpModal.clickAddToNewCollection();
-        createNewCollectionModal.typeName(TestData.GET_NEW_EMAIL());
-        createNewCollectionModal.clickOnCreateCollection();
+        createNewFolderModal.waitForModal();
+        createNewFolderModal.typeName(TestData.GET_NEW_EMAIL());
+        createNewFolderModal.clickOnCreateFolderButton();
         Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
         if (!rrpModal.isFavoriteButtonDisabledDisplayed()) {
             rrpModal.clickOnFavoriteButton();
@@ -157,7 +151,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
                 Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
                 limitedResourceAccessModal.clickOnSaveButton();
             }
-          //  Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER));
+            //  Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER));
         }
 
         collectionRrpModal.clickPlayCollectionButton();

@@ -40,7 +40,7 @@ public class Rrp extends LpUiBasePage {
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
     private static final String BLANK_LEFT_SECTION = "[class='panel-body'] [class=row] [class='col-sm-3 hidden-xs'] [class='blank-rrp-left-resource-details mt15']";
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-goto-resource']";
-    private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='add-to-new-collection js-ajax-modal']";
+    private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='resource-title-wrap pt5'] [class='create-new-folder-btn']";
     private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
@@ -55,7 +55,7 @@ public class Rrp extends LpUiBasePage {
     private static final String EDUCATOR_RATING_NOT_YET_RATED_TEXT = "[class='not-yet-rated']";
     private static final String EDUCATOR_RATING_ICONS_SECTION = "[class='educator-rating-wrap']";
     private static final String RATE_THIS_RESOURCE_LINK = "[class='user-rating-link']";
-    private static final String UPGRADE_YOUR_MEMBERSHIP_POPOVER = "[class='react-popover undefined']";
+    private static final String UPGRADE_YOUR_MEMBERSHIP_POPOVER = "[class='react-popover educator-rating-restricted-popover']";
 
     private static final String ADD_A_REVIEW_SECTION = "#educator-rating-form-root";
     private static final String ADD_A_REVIEW_TITLE = "#educator-rating-form-root h4";

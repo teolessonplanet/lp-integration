@@ -19,7 +19,6 @@ public class RrpSearchPageTest extends BaseTest {
     private StepOneModal stepOneModal;
     private SignInPage signInPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
-    private CreateNewCollectionModal createNewCollectionModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
     private CurriculumManagerPageTest curriculumManagerTest;
@@ -28,6 +27,7 @@ public class RrpSearchPageTest extends BaseTest {
     private CollectionRrp collectionRrp;
     private Rrp rrp;
     private LimitedResourceAccessModal limitedResourceAccessModal;
+    private CreateNewFolderModal createNewFolderModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -40,7 +40,6 @@ public class RrpSearchPageTest extends BaseTest {
         stepOneModal = new StepOneModal(webDriver);
         signInPage = new SignInPage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
-        createNewCollectionModal = new CreateNewCollectionModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
         curriculumManagerTest = new CurriculumManagerPageTest();
@@ -49,6 +48,7 @@ public class RrpSearchPageTest extends BaseTest {
         collectionRrp = new CollectionRrpModal(webDriver);
         rrp = new Rrp(webDriver);
         limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
+        createNewFolderModal = new CreateNewFolderModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -630,12 +630,12 @@ public class RrpSearchPageTest extends BaseTest {
 
     public void testEducatorRatingSection(String account) {
         Assert.assertTrue(rrp.getEducatorRatingDetails().contains(TestData.RATE_THIS_RESOURCE) || rrp.getEducatorRatingDetails().contains(TestData.UPDATE_YOUR_RATING));
-        if(!rrp.isNotYetRatedTextDisplayed()) {
+        if (!rrp.isNotYetRatedTextDisplayed()) {
             Assert.assertTrue(rrp.isEducatorRatingIconsSectionDisplayed());
         }
 
         rrp.clickOnRateThisResourceLink();
-        if(account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
+        if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertTrue(rrp.isUpgradeYourMembershipPopoverDisplayed());
         } else {
             Assert.assertTrue(rrp.isAddAReviewSectionDisplayed());
@@ -1131,9 +1131,10 @@ public class RrpSearchPageTest extends BaseTest {
     protected void testAddToNewCollection(boolean modal) {
         rrp.clickOnAddToFolderDropdown();
         rrp.clickAddToNewCollection();
-        createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-        createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        createNewCollectionModal.clickOnCreateCollection();
+        createNewFolderModal.waitForModal();
+        createNewFolderModal.typeName(TestData.NEW_COLLECTION_NAME);
+        createNewFolderModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
+        createNewFolderModal.clickOnCreateFolderButton();
         //TODO: add check for notification
     }
 
@@ -1148,9 +1149,9 @@ public class RrpSearchPageTest extends BaseTest {
             Assert.assertEquals(upgradeMaxFolderModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
             upgradeMaxFolderModal.clickOnCloseButton();
         } else {
-            createNewCollectionModal.typeName(TestData.NEW_COLLECTION_NAME);
-            createNewCollectionModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-            createNewCollectionModal.clickOnCreateCollection();
+            createNewFolderModal.typeName(TestData.NEW_COLLECTION_NAME);
+            createNewFolderModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
+            createNewFolderModal.clickOnCreateFolderButton();
         }
     }
 }
