@@ -181,7 +181,6 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager")
     public void testLessonp_686() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder();
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
     }
@@ -467,15 +466,9 @@ public class AccountManagementTest extends BaseTest {
         checkStepTwoPageSameTab();
     }
 
-    private void testUpgradeFreeMemberFromUploadButtonFromCollectionBuilder() {
-        discoverResourcesPage.loadPage();
-        collectionBuilderPage.clickUploadButton();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testUpgradeModalFromUploadButton();
-    }
-
     private void testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal() {
         discoverResourcesPage.loadPage();
+        curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         collectionBuilderPage.clickOnEditFolder(false);
         editCollectionModal.waitForModal();

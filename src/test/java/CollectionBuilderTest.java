@@ -26,7 +26,6 @@ public class CollectionBuilderTest extends BaseTest {
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private StepTwoPage stepTwoPage;
-    private AddALinkModal addALinkModal;
 
     public void initTest(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -51,7 +50,6 @@ public class CollectionBuilderTest extends BaseTest {
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        addALinkModal = new AddALinkModal(webDriver);
     }
 
     @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
@@ -160,7 +158,6 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderPage.clickOnMyResources();
             Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
             Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
-            collectionBuilderPage.clickOnCollectionDroppableZone();
         } else {
             collectionBuilderPage.clickOnMyResources();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
@@ -171,17 +168,11 @@ public class CollectionBuilderTest extends BaseTest {
     public void testCollectionBuilderButtons(String accountPlanText) {
         collectionBuilderPage.isMyCollectionDropdownDisplayed();
         collectionBuilderPage.isEditFolderButtonDisplayed();
-        collectionBuilderPage.isUploadButtonDisplayed();
-        collectionBuilderPage.isAddALinkButtonDisplayed();
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
             collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickOnEditFolder(false);
-            testSignInOrJoinNowModal();
-            collectionBuilderPage.clickUploadButton();
-            testSignInOrJoinNowModal();
-            collectionBuilderPage.clickAddALinkButton();
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickOnCollectionBuilderVideoBanner();
             collectionBuilderVideoModal.waitForModal();
@@ -192,20 +183,6 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
-            testAddLink();
-            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
-            testUploadResourceFromCollectionBuilder(accountPlanText, false, TestData.UPLOAD_RESOURCE_TITLE);
-        }
-    }
-
-    public void testUploadResourceFromCollectionBuilder(String accountPlanText, boolean publishedResource, String uploadedFileName) {
-        collectionBuilderPage.clickUploadButton();
-        curriculumManagerPageTest.initTest(webDriver);
-        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            curriculumManagerPageTest.testUpgradeModalFromUploadButton();
-        } else {
-            curriculumManagerPageTest.testUpload(false, accountPlanText, publishedResource);
-            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemTitle(0), uploadedFileName);
         }
     }
 
@@ -248,21 +225,10 @@ public class CollectionBuilderTest extends BaseTest {
         }
     }
 
-    public void testAddLink() {
-        collectionBuilderPage.clickAddALinkButton();
-        addALinkModal.typeUrl(TestData.COLLECTION_BUILDER_LINK);
-        addALinkModal.waitUntilTitleFieldIsDisplayed();
-        addALinkModal.typeName(TestData.NEW_FOLDER_NAME);
-        addALinkModal.clickAddToFolderButton();
-        collectionBuilderPage.openResourceInANewTab(0);
-        Assert.assertEquals(discoverResourcesPage.getUrl(), TestData.COLLECTION_BUILDER_LINK);
-        discoverResourcesPage.closeTab();
-    }
-
     public void testCollectionBuilderButtonsAppearance(String accountPlan) {
         discoverResourcesPage.loadPage();
-        testMyResourcesButton(accountPlan);
         testCollectionBuilderButtons(accountPlan);
+        testMyResourcesButton(accountPlan);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testCollectionBuilderButtons(accountPlan);
         testMyResourcesButton(accountPlan);
@@ -277,6 +243,7 @@ public class CollectionBuilderTest extends BaseTest {
             goToFolderNavigator(TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION, TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES);
             testCollectionBuilderButtons(TestData.VALID_EMAIL_CSL_HENRY);
             testMaxCollectionCreated(TestData.VALID_EMAIL_CSL_HENRY);
+            testMyResourcesButton(accountPlan);
         }
     }
 
@@ -292,9 +259,6 @@ public class CollectionBuilderTest extends BaseTest {
         }
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(accountPlan);
-      //  if (accountPlan.equals(TestData.PLAN_VISITOR)) {
-     //       discoverResourcesPage.refreshPageAndDismissBrowserAlert();
-     //   }
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);

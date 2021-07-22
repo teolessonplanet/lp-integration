@@ -11,7 +11,6 @@ import java.util.List;
 public class PublishCollectionTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private CurriculumManagerPageTest curriculumManagerPageTest;
-    private CollectionBuilderTest collectionBuilderTest;
     private CurriculumManagerPage curriculumManagerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private EditCollectionModal editCollectionModal;
@@ -25,7 +24,6 @@ public class PublishCollectionTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         stepTwoPage = new StepTwoPage(webDriver);
-        collectionBuilderTest = new CollectionBuilderTest();
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
@@ -91,16 +89,6 @@ public class PublishCollectionTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         curriculumManagerPageTest.initTest(webDriver);
         curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.PLAN_PRO, true);
-    }
-
-    @Test(description = "Active User - Publish Resource - lessonp-5616: Publish Uploaded FIle - from Collection Builder")
-    public void testLessonp_5616() {
-        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        collectionBuilderTest.initTest(webDriver);
-        collectionBuilderTest.testUploadResourceFromCollectionBuilder(TestData.PLAN_PRO, true, TestData.PUBLISH_RESOURCE_TITLE);
     }
 
     @Test(description = "Active User - Publish Resource - lessonp-5863:Publish Curriculum Sets folder w lp resources")
