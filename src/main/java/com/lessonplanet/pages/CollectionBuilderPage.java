@@ -24,9 +24,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
-    private static final String UPLOAD_BUTTON = "div[class*='upload'] [class*='fa-upload']";
 
-    private static final String ADD_A_LINK_BUTTON = "[class*='add-link']";
     private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
     private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class^='cb-item panel panel-default clickable clearfix']";
     private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel'] [class='cb-item-info text-primary']";
@@ -52,10 +50,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public WebElement getCollectionDroppableZone() {
         return findElement(COLLECTION_DROPPABLE_ZONE);
-    }
-
-    public void clickOnCollectionDroppableZone() {
-        clickElement(COLLECTION_DROPPABLE_ZONE);
     }
 
     public void clickOnMyResources() {
@@ -84,15 +78,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
-    public void clickUploadButton() {
-        scrollToElement(UPLOAD_BUTTON);
-        clickElement(UPLOAD_BUTTON);
-    }
-
-    public void clickAddALinkButton() {
-        clickElement(ADD_A_LINK_BUTTON);
-    }
-
     public boolean isMyResourcesButtonDisplayed() {
         return isElementDisplayed(MY_RESOURCES_BUTTON);
     }
@@ -111,14 +96,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnCollectionBuilderVideoBanner() {
         clickElement(COLLECTION_BUILDER_VIDEO);
-    }
-
-    public boolean isUploadButtonDisplayed() {
-        return isElementDisplayed(UPLOAD_BUTTON);
-    }
-
-    public boolean isAddALinkButtonDisplayed() {
-        return isElementDisplayed(ADD_A_LINK_BUTTON);
     }
 
     public String getCollectionBuilderItemTitle(int position) {
