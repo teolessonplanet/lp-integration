@@ -17,7 +17,6 @@ public class PublishCollectionTest extends BaseTest {
     private CollectionBuilderPage collectionBuilderPage;
     private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
     private CollectionNotPublishedModal collectionNotPublishedModal;
-    private PrivateDocumentsModal privateDocumentsModal;
     private PublishedFolderModal publishedFolderModal;
     private HeaderPage headerPage;
 
@@ -32,7 +31,6 @@ public class PublishCollectionTest extends BaseTest {
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
-        privateDocumentsModal = new PrivateDocumentsModal(webDriver);
         publishedFolderModal = new PublishedFolderModal(webDriver);
         headerPage = new HeaderPage(webDriver);
     }
@@ -177,17 +175,14 @@ public class PublishCollectionTest extends BaseTest {
             editCollectionModal.clickOnPublishOption();
             editCollectionModal.clickOnPublishFolder();
 
-            if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && (!accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB))) {
-                if (includeUploadedFiles) {
-                    confirmPublishUploadFileModal.clickOnIncludeFileOption();
-                } else {
-                    confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
-                }
-                confirmPublishUploadFileModal.checkAgreementOption();
-                confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+            if (includeUploadedFiles) {
+                confirmPublishUploadFileModal.clickOnIncludeFileOption();
             } else {
-                testPrivateDocumentsModal();
+                confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
             }
+            confirmPublishUploadFileModal.checkAgreementOption();
+            confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+
         } else {
             editCollectionModal.clickOnPublishFolder();
         }
@@ -245,13 +240,9 @@ public class PublishCollectionTest extends BaseTest {
         editCollectionModal.clickOnPublishOption();
         editCollectionModal.clickOnPublishFolder();
 
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
-            confirmPublishUploadFileModal.checkAgreementOption();
-            confirmPublishUploadFileModal.clickOnPublishCollectionButton();
-        } else {
-            testPrivateDocumentsModal();
-        }
+        confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
+        confirmPublishUploadFileModal.checkAgreementOption();
+        confirmPublishUploadFileModal.clickOnPublishCollectionButton();
 
         collectionNotPublishedModal.waitForModal();
         Assert.assertEquals(collectionNotPublishedModal.getModalTitle(), TestData.COLLECTION_NOT_PUBLISHED_MODAL_TITLE);
@@ -259,11 +250,5 @@ public class PublishCollectionTest extends BaseTest {
         collectionNotPublishedModal.clickOnOkButton();
         editCollectionModal.clickOnCloseButton();
         Assert.assertTrue(curriculumManagerPage.getFolderStatus().contains(TestData.PRIVATE_STATUS));
-    }
-
-    private void testPrivateDocumentsModal() {
-        privateDocumentsModal.waitForModal();
-        Assert.assertEquals(privateDocumentsModal.getModalTitleText(), TestData.PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT);
-        privateDocumentsModal.clickOnContinueButton();
     }
 }

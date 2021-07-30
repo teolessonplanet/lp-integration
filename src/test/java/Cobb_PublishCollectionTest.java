@@ -24,23 +24,33 @@ public class Cobb_PublishCollectionTest extends BaseTest {
         publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2,0, 0, false);
     }
 
-    @Test(description = "Publish Collection - lessonp-5959: With LP Resources & Uploaded Resources - include")
-    public void testLessonp_5959() {
+    @Test(description = "Publish Collection - lessonp-6128: With LP Resources & Uploaded Resources - include")
+    public void testLessonp_6128() {
+        publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB,2,0, 1 , true);
+    }
+
+    @Test(description = "Publish Collection - lessonp-6131: With LP Resources & Uploaded Resources - do not include")
+    public void testLessonp_6131() {
         publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB,2,0, 1 , false);
     }
 
-    @Test(description = "Publish Collection - lessonp-5960: With LP Resources & Folders")
-    public void testLessonp_5960() {
+    @Test(description = "Publish Collection - lessonp-5961: With LP Resources & Folders")
+    public void testLessonp_5961() {
         publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB,2,1, 0 , false);
     }
 
-    @Test(description = "Publish Collection - lessonp-5961: With LP Resources & Folders & Uploaded Resources - include")
-    public void testLessonp_5961() {
+    @Test(description = "Publish Collection - lessonp-5962: With LP Resources & Folders & Uploaded Resources - include")
+    public void testLessonp_5962() {
+        publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB,2,1, 1, true);
+    }
+
+    @Test(description = "Publish Collection - lessonp-6132: With LP Resources & Folders & Uploaded Resources - do not include")
+    public void testLessonp_6132() {
         publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB,2,1, 1, false);
     }
 
-    @Test(description = "Publish Collection - lessonp-5962: Collection not published modal")
-    public void testLessonp_5962() {
+    @Test(description = "Publish Collection - lessonp-6130: Collection not published modal")
+    public void testLessonp_6130() {
         publishCollectionTest.testCollectionNotPublishedModal(TestData.VALID_EMAIL_CSL_COBB);
     }
 }
