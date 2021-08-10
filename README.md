@@ -32,3 +32,7 @@ This project runs the automated tests for the LP website.
             For this, go to: Menu -> Addons -> Extensions -> change Enable toggle to Disable and back to Enable
       -Dserver=feature (to run on Feature server, by default Staging is set)
       -Dskipfacets=true ( instead of facets, it will use URL keywords)
+
+    Suggested versions:
+      - Java 11.0.3
+      - Maven 3.6.3
