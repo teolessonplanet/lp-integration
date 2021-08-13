@@ -220,7 +220,7 @@ public class TestData {
     public static final String SHARED_WITH_ME_PAGE_PERMISSION_VIEW_ONLY = "View only";
     public static final String SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT = "is now shared.";
     public static final String SHARED_WITH_ME_PAGE_EMPTY_TEXT = "When resources are shared with you, they will be listed here";
-    public static final String SHARED_WITH_ME_PAGE_PATH = "my/shared_with_me";
+    public static final String SHARED_WITH_ME_PAGE_PATH = "my/shared_with_me/by_users";
     public static final String SHARED_WITH_ME_PAGE_FOLDER_STATUS = "Shared by";
     public static final String SHARE_FOLDER_MODAL_FOLDER_PRIVATE_STATUS = "This folder is currently: Private";
     public static final String SHARE_FOLDER_MODAL_FOLDER_SHARED_STATUS = "This folder is currently: Shared";
@@ -334,9 +334,7 @@ public class TestData {
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
-    public static final String SHARING_PRIVILEGES_DISTRICT_POPOVER_TEXT = "This privilege gives a user the ability to publish collections to the learning object repository. The following options grant this privilege to users district-wide. To apply this privilege more selectively use the school-level or user-level settings.";
-    public static final String SHARING_PRIVILEGES_SCHOOL_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository. If the options below are unavailable, they have been preset at the district level.";
-    public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this privilege gives a user the ability to publish collections to the learning object repository";
+    public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this role gives a user the ability to publish collections to the learning object repository";
     public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed because it is managed by the Automated Rostering";
     public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT = "District Admin cannot be removed because it is managed by the Automated Rostering";
@@ -390,6 +388,7 @@ public class TestData {
     public static final String ADMIN_ROLE = "Admin";
     public static final String OWNER_ROLE = "Owner";
     public static final String PUBLISHER_ROLE = "Publisher";
+    public static final String CURRICULUM_LEAD_ROLE = "Curriculum Lead";
     public static final String MANAGE_DISTRICT_ADMINS_TITLE = "Manage District Admins";
     public static final String MANAGE_SCHOOL_ADMINS_TITLE = "Manage School Admins";
     public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
@@ -418,13 +417,10 @@ public class TestData {
     public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is no longer a School Admin";
     public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
     public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
-    public static final String ADMIN_PUBLISH_SCHOOL_OPTION_TEXT = "All admins at this school have the ability to publish";
-    public static final String TEACHER_PUBLISH_SCHOOL_OPTION_TEXT = "All teachers at this school have the ability to publish";
-    public static final String ADMIN_PUBLISH_DISTRICT_OPTION_TEXT = "All admins in this district have the ability to publish";
-    public static final String TEACHER_PUBLISH_DISTRICT_OPTION_TEXT = "All teachers in this district have the ability to publish";
-    public static final String OWNER_PUBLISH_OPTION_TEXT = "This owner may publish collections to the learning object repository";
-    public static final String DISTRICT_ADMIN_PUBLISH_OPTION_TEXT = "This district admin may publish collections to the learning object repository";
-    public static final String SCHOOL_ADMIN_PUBLISH_OPTION_TEXT = "This school admin may publish collections to the learning object repository";
+    public static final String ADMIN_PUBLISH_SCHOOL_OPTION_TEXT = "All admins in this school are also Publishers";
+    public static final String TEACHER_PUBLISH_SCHOOL_OPTION_TEXT = "All teachers in this school are also Publishers";
+    public static final String ADMIN_PUBLISH_DISTRICT_OPTION_TEXT = "All admins in this district are also Publishers";
+    public static final String TEACHER_PUBLISH_DISTRICT_OPTION_TEXT = "All teachers in this district are also Publishers";
 
     public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
     public static final String STEP_ONE_MODAL_TITLE = "Discover 2.5 Million\n" + "Teacher Reviewed Resources";
@@ -547,7 +543,7 @@ public class TestData {
     public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2021 Learning Explorer";
     public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
     public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms";
-    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center";
+    public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center?admin";
 
     //RRPs
     public static final String DISABLED_TEXT = "more...";
@@ -774,7 +770,7 @@ public class TestData {
     public static final String FOLDER_DETAILS_BUTTON_TEXT = "Folder Details";
 
     public static final String CONTENT_MANAGER_PAGE_TITLE_TEXT = "Content Manager";
-    public static final String CONTENT_MANAGER_PAGE_SUBTITLE_TEXT = "View and manage your learning object repository";
+    public static final String CONTENT_MANAGER_PAGE_SUBTITLE_TEXT = "Add, edit and manage the learning object repository (LOR)";
     public static final String CONTENT_MANAGER_SORT_BY_DEFAULT_TEXT = "Sort By: Newest";
 
     public static final String CONTENT_MANAGER_RESOURCE_REDIRECT_PATH = "teachers/";

@@ -59,7 +59,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         rsl_contentManagerPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.PRIMARY_SOURCES_TYPE);
 
         Assert.assertEquals(rsl_contentManagerPage.getTitleText(), TestData.CONTENT_MANAGER_PAGE_TITLE_TEXT);
-        Assert.assertEquals(rsl_contentManagerPage.getPageSubtitleText(), TestData.CONTENT_MANAGER_PAGE_SUBTITLE_TEXT);
+        Assert.assertTrue(rsl_contentManagerPage.getPageSubtitleText().contains(TestData.CONTENT_MANAGER_PAGE_SUBTITLE_TEXT));
         Assert.assertTrue(rsl_contentManagerPage.isSearchTextFieldTextDisplayed());
         Assert.assertTrue(rsl_contentManagerPage.getTotalResourcesFound() > TestData.ZERO_RESOURCES_FOUND);
         Assert.assertEquals(rsl_contentManagerPage.getSortByOptionDropdownText(), TestData.CONTENT_MANAGER_SORT_BY_DEFAULT_TEXT);

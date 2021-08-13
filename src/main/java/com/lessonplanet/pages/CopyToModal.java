@@ -7,6 +7,7 @@ public class CopyToModal extends LpUiBasePage {
     protected static final String CONFIRM_BUTTON = "[class*='footer'] [class*='btn btn-default btn-primary']";
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='folder-list'] li[class='list-option my-resources']";
+    private static final String MY_RESOURCES_TAB = "[class='content modal-body transfer-modal'] [class='root-option']:nth-child(2)";
 
     public CopyToModal(WebDriver driver) {
         super(driver);
@@ -28,5 +29,13 @@ public class CopyToModal extends LpUiBasePage {
 
     public void clickMyResourcesDestinationFolder() {
         clickElement(MY_RESOURCES_DESTINATION_FOLDER);
+    }
+
+    public void chooseMyResourcesTab() {
+        clickElement(MY_RESOURCES_TAB);
+    }
+
+    public boolean isMyResourcesTabDisplayed() {
+        return isElementDisplayed(MY_RESOURCES_TAB);
     }
 }

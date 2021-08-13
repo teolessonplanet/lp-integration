@@ -1,4 +1,7 @@
-import com.lessonplanet.pages.*;
+import com.lessonplanet.pages.AddADistrictAdminModal;
+import com.lessonplanet.pages.DistrictPage;
+import com.lessonplanet.pages.ManageDistrictAdminsPage;
+import com.lessonplanet.pages.SchoolPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -64,10 +67,10 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         districtPage.clickOnSchool(0);
-        rsl_accountManagerTest.testSchoolPage(true, true, true);
+        rsl_accountManagerTest.testSchoolPage(true, true);
         schoolPage.hoverOverAddButton();
         Assert.assertEquals(schoolPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
-        rsl_accountManagerTest.testEditTeacher(true);
+        rsl_accountManagerTest.testEditTeacher(false, false);
     }
 
     @Test(description = "Cobb - Account Manager - lessonp-5469:Edit School, Search in school")
