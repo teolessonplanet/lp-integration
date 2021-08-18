@@ -28,7 +28,7 @@ public class DistrictPage extends LpUiBasePage {
     private static final String REMOVE_ACTION_BUTTON = "[class='group-table children']  [class*='btn-danger']";
     private static final String REMOVE_ACTION_BUTTON_POPOVER_TEXT = "[class='group-table children'] [class*='btn-danger'] [class='popuptext show']";
 
-    private static final String NOTIFICATION_TEXT = "#notification";
+    private static final String NOTIFICATION_TEXT = "[class*='alert alert-dismissible']";
     private static final String NOTIFICATION_X_BUTTON = "#notification [class='close']";
 
     private static final String SEARCH_TEXT_FIELD = "#input-field";

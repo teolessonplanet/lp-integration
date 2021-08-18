@@ -13,11 +13,11 @@ public class ContentManagerPage extends DiscoverResourcesPage {
 
     private static final String CONTENT_MANAGER_TAB_BUTTON = "[href$='/content-tool']";
     private static final String PAGE_TITLE_TEXT = "[class*='content-manager-header'] h2";
-    private static final String PAGE_SUBTITLE_TEXT = "[class*='content-manager-header'] [class='text-xl mb-3']";
+    private static final String PAGE_SUBTITLE_TEXT = "[class*='content-manager-header'] [class*='text-lg']";
 
     private static final String SEARCH_TEXT_FIELD_TEXT = "#resources-heading";
     private static final String TOTAL_RESOURCES_FOUND_TEXT = "#resources-heading strong";
-    private static final String SORT_BY_OPTION_DROPDOWN = "[class*='sort'] [class='text']";
+    private static final String SORT_BY_OPTION_DROPDOWN = "[class*='sort'] [class='text text-blue-700']";
     private static final String SORT_DROPDOWN_AZ_OPTION = "[class*='sort'] #titleAZ";
     private static final String SORT_DROPDOWN_ZA_OPTION = "[class*='sort'] #titleZA";
     private static final String SORT_DROPDOWN_NEWEST_OPTION = "[class*='sort'] #newest";

@@ -52,7 +52,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
     private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
-    private static final String HELP_BUTTON = "[href='https://www.learningexplorer.com/help-center/']";
+    private static final String HELP_BUTTON = "[href*='https://www.learningexplorer.com/help-center/']";
 
     private static final String RESOURCES_HEADER_TEXT = "[class='lp-header-title']";
 

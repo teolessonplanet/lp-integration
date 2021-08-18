@@ -10,8 +10,10 @@ public class EditTeacherModal extends EditDistrictModal {
     private static final String ERROR_TEXT = "[class*='has-error'] [class*='help-block']";
     private static final String PUBLISHING_OPTION_INFO_ICON = "[class='form-group publishing'] [class*='popup']";
     private static final String PUBLISHING_OPTION_INFO_ICON_POPOVER_TEXT = "[class='form-group publishing'] [class*='popup'] [class*='popuptext']";
-    private static final String PUBLISH_CHECKBOX = "[name='can_publish']";
+    private static final String PUBLISH_CHECKBOX = "[name='publisher']";
+    private static final String CURRICULUM_LEAD_CHECKBOX = "[name='site_license_curriculum_lead']";
     private static final String PUBLISH_OPTION_TEXT = "[class='form-group publishing'] div div";
+    private static final String CURRICULUM_LEAD_OPTION_TEXT = "[class='form-group publishing'] div div:nth-child(3)";
 
     public EditTeacherModal(WebDriver driver) {
         super(driver);
@@ -81,5 +83,22 @@ public class EditTeacherModal extends EditDistrictModal {
     public boolean isLastNameFieldDisabled() {
         waitForModal();
         return getElementAttribute(LAST_NAME_INPUT, "disabled", 0).equals("true");
+    }
+
+    public boolean isCurriculumLeadCheckboxChecked() {
+        waitForModal();
+        return getElementAttribute(CURRICULUM_LEAD_CHECKBOX, "checked", 0).equals("true");
+    }
+
+    public boolean isCurriculumLeadCheckboxDisplayed() {
+        return isElementDisplayed(CURRICULUM_LEAD_CHECKBOX);
+    }
+
+    public String getCurriculumLeadOptionText() {
+        return getTextForElement(CURRICULUM_LEAD_OPTION_TEXT);
+    }
+
+    public void clickCurriculumLeadCheckbox() {
+        clickElement(CURRICULUM_LEAD_CHECKBOX);
     }
 }

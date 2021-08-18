@@ -67,6 +67,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String COPY_TO_SELECTED_FOLDER_BUTTON = "[class*='btn btn-default btn-primary']";
     private static final String NAME_INPUT = "[name='collection[title]']";
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='list-option my-resources']";
+    private static final String MY_RESOURCES_TAB = "[class='content modal-body transfer-modal'] [class='root-option']:nth-child(2)";
 
     private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
     private static final String FOLDER_ITEMS_COUNT = "[class='ef-number-of-items']";
@@ -563,5 +564,13 @@ public class EditCollection extends CreateNewFolderModal {
         chooseAudience();
         chooseConcepts();
         chooseAdditionalTags();
+    }
+
+    public void chooseMyResourcesTab() {
+        clickElement(MY_RESOURCES_TAB);
+    }
+
+    public boolean isMyResourcesTabDisplayed() {
+        return isElementDisplayed(MY_RESOURCES_TAB);
     }
 }

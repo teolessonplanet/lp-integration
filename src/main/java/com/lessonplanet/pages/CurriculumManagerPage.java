@@ -66,7 +66,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     private static final String VIEW_FOLDER_BUTTON = " .view-folder-btn";
 
-    private static final String SHARED_WITH_ME_TAB_BUTTON = "[class='nav nav-tabs'] [href='/my/shared_with_me']";
+    private static final String SHARED_WITH_ME_TAB_BUTTON = "[href='/my/shared_with_me/by_users']";
     private static final String SHARED_WITH_ME_TAB_EMPTY_MESSAGE_TEXT = "[class='no-resources-shared-message']";
     private static final String REMOVE_SHARED_FOLDER_BUTTON = "[class='options actions'] button[class^='action-item remove']";
     private static final String FOLDER_LAST_CHILD = "div[id^='collection-item-']:last-child";

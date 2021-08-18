@@ -327,6 +327,9 @@ public class EditCollectionTest extends BaseTest {
         }
         editCollectionPage.clickMoreDropdown();
         editCollectionPage.clickCopyToOption();
+        if(editCollectionPage.isMyResourcesTabDisplayed()) {
+            editCollectionPage.chooseMyResourcesTab();
+        }
         editCollectionPage.typeName(copiedFolderName);
         editCollectionPage.clickMyResourcesDestinationFolder();
         editCollectionPage.clickOnCopyToSelectedFolderButton();

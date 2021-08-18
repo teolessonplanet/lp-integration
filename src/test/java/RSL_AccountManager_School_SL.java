@@ -1,4 +1,4 @@
-import com.lessonplanet.pages.*;
+import com.lessonplanet.pages.SchoolPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
@@ -17,9 +17,9 @@ public class RSL_AccountManager_School_SL extends BaseTest {
     public void testLessonp_5875() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testSchoolPage(false, false, false);
+        rsl_accountManagerTest.testSchoolPage(false, false);
         rsl_accountManagerTest.testAddTeacherFromAddButton();
-        rsl_accountManagerTest.testEditTeacher(false);
+        rsl_accountManagerTest.testEditTeacher(true, true);
         rsl_accountManagerTest.testRemoveTeacher(false);
         rsl_accountManagerTest.testAddTeacherFromAddLink(TestData.GET_NEW_EMAIL());
         rsl_accountManagerTest.testRemoveTeacher(false);

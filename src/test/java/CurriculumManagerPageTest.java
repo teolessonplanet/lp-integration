@@ -834,6 +834,9 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testCopyFolder() {
         int foldersNumber = curriculumManagerPage.getFoldersNumber();
         copyToModal.waitForModal();
+        if(copyToModal.isMyResourcesTabDisplayed()) {
+            copyToModal.chooseMyResourcesTab();
+        }
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
@@ -1027,6 +1030,9 @@ public class CurriculumManagerPageTest extends BaseTest {
             upgradeMaxFolderModal.clickOnCloseButton();
         } else {
             copyToModal.waitForModal();
+            if(copyToModal.isMyResourcesTabDisplayed()) {
+                copyToModal.chooseMyResourcesTab();
+            }
             copyToModal.clickMyResourcesDestinationFolder();
             copyToModal.clickOnCopyToSelectedFolderButton();
         }

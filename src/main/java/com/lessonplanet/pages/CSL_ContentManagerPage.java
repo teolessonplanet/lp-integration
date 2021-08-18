@@ -8,7 +8,7 @@ public class CSL_ContentManagerPage extends ContentManagerPage {
     private static final String RESOURCE_EDIT_BUTTON = "[class='resources'] [class*='resource'] [class='action-panel'] [href*='/edit']";
 
     private static final String ADD_A_RESOURCE_BUTTON = "[class*='content-manager-header'] [class*='add-resource lp-button']";
-    private static final String NOTIFICATION_TEXT = "div#notification";
+    private static final String NOTIFICATION_TEXT = "[class='alert-success alert alert-dismissible']";
 
     public CSL_ContentManagerPage(WebDriver driver) {
         super(driver);
