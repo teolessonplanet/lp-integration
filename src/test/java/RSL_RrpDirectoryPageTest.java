@@ -37,21 +37,21 @@ public class RSL_RrpDirectoryPageTest extends BaseTest {
 
     @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5625:LP Resources Main Buttons")
     public void testLessonp_5625() {
-        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(true);
+        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO,true);
     }
 
     @Test(description = "Regular SL - Directory Page - Rrp Static - lessonp-5631:LP Resources Main Buttons")
     public void testLessonp_5631() {
-        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(false);
+        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO,false);
     }
 
     @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5624:Collection Main Buttons")
     public void testLessonp_5624() {
-        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(true);
+        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO,true);
     }
 
     @Test(description = "Regular SL - Directory Page - Rrp Static - lessonp-5630:Collection Main Buttons")
     public void testLessonp_5630() {
-        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(false);
+        rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO,false);
     }
 }

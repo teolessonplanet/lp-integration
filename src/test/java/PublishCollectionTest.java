@@ -194,7 +194,7 @@ public class PublishCollectionTest extends BaseTest {
             Assert.assertEquals(collectionNotPublishedModal.getModalText(), TestData.COLLECTION_NOT_PUBLISHED_MODAL_TEXT);
             collectionNotPublishedModal.clickOnOkButton();
         } else {
-            if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB) && !accountPlan.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
                 publishedFolderModal.clickOnCloseButton();
             }
             editCollectionModal.clickOnCloseButton();

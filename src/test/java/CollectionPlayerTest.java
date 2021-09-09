@@ -109,6 +109,14 @@ public class CollectionPlayerTest extends BaseTest {
             } else {
               //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
             }
+            //TODO: refactor above!
+           switch (accountType){
+               case TestData.PLAN_STARTER:
+               case TestData.PLAN_PRO:
+                   publishedFolderModal.clickOnCloseButton();
+                   break;
+           }
+
             editCollectionModal.clickOnCloseButton();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
             curriculumManagerPage.clickActionsDropdown(curriculumManagerPage.getFolder(0));

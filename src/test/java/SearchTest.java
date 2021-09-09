@@ -181,7 +181,7 @@ public class SearchTest extends BaseTest {
     @Test(description = "Active user - Search Page - lessonp-604: User clicks 'See Full Review' footer button")
     public void testLessonp_604() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testSeeFullReviewButton();
+        testSeeFullReviewButton(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Search Page - lessonp-3956: Cards details - LP resource")
@@ -590,14 +590,22 @@ public class SearchTest extends BaseTest {
         }
     }
 
-    protected void testSeeFullReviewButton() {
+    protected void testSeeFullReviewButton(String account) {
         reachSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeFullReview(true);
-        checkRrpSample(false, false, true);
+        if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            checkRrpSample(false, false, false);
+        } else {
+            checkRrpSample(false, false, true);
+        }
         rrpPage.closeTab();
         discoverResourcesPage.clickSeeFullReview(false);
         rrpModal.waitForModal();
-        checkRrpSample(false, false, true);
+        if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+            checkRrpSample(false, false, false);
+        } else {
+            checkRrpSample(false, false, true);
+        }
     }
 }

@@ -104,9 +104,7 @@ public class RSL_ContentManagerTest extends BaseTest {
         rsl_contentManagerPage.clickOnResourceTitle(firstResource);
         rsl_contentManagerPage.focusDriverToLastTab();
         rsl_contentManagerPage.waitForLinkToLoad();
-        if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            Assert.assertTrue(rrpPage.isFullReviewDisplayed());
-        }
+
         Assert.assertTrue(rsl_contentManagerPage.getUrl().contains(TestData.SERVER_URL + TestData.CONTENT_MANAGER_RESOURCE_REDIRECT_PATH));
         rsl_contentManagerPage.closeTab();
 
