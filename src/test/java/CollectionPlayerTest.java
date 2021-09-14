@@ -231,7 +231,9 @@ public class CollectionPlayerTest extends BaseTest {
         if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             Assert.assertTrue(collectionPlayerPage.isHenryLogoDisplayed());
             collectionPlayerPage.clickOnHenryLogo();
-            checkCollectionPlayerTab();
+            collectionPlayerPage.focusDriverToLastTab();
+            Assert.assertTrue(collectionBuilderPage.getPath().contains(TestData.SEARCH_PAGE_PATH));
+            collectionPlayerPage.closeTab();
         } else {
             if (accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
                 collectionPlayerPage.clickOnLearningExplorerLogo();

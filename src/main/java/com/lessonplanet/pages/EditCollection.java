@@ -78,8 +78,12 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']:not([disabled='disabled'])";
     private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-actions-list'] li:nth-child(2)";
     private static final String HIDE_FROM_PLAYER_ICON = "[class*='lp-play-disabled']";
-    private static final String TEACHER_NOTE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(3)";
-    private static final String TEACHER_NOTE_INPUT = "[name='collection_item[note]']";
+    private static final String ADD_A_NOTE_OPTION = "[class*='collection-item-actions-list'] #js-add-a-note-btn";
+    private static final String NOTE_TO_TEACHERS_OPTION = "[class*='notes-container'] [class*='note-container']:nth-child(2)";
+    private static final String NOTE_TO_TEACHERS_INPUT = "[class='note-editable']";
+    private static final String ADD_A_NOTE_COUNT = "[class='item-viewer-notes-btn pop-out-visible'] [class='notes-count']";
+    private static final String SAVE_NOTE_BUTTON = "#note-content [class='btn btn-primary']";
+    private static final String CLOSE_ADD_NOTE = "#inline-close";
     private static final String DELETE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(4)";
     private static final String DELETE_ITEM_BUTTON = "#updated-edit [class='modal-footer'] a";
 
@@ -154,6 +158,14 @@ public class EditCollection extends CreateNewFolderModal {
         return findElements(FOLDER_ITEM_TITLE).get(index).getText();
     }
 
+    public void clickOnItem(int index) {
+        findElements(FOLDER_ITEM_TITLE).get(index).click();
+    }
+
+    public int getAddANoteCount() {
+        return Integer.parseInt(getTextForElement(ADD_A_NOTE_COUNT).replaceAll("\\D+", ""));
+    }
+
     public void clickAddToFolderButton() {
         clickElement(ADD_TO_FOLDER_BUTTON);
     }
@@ -200,8 +212,8 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementVisible(HIDE_FROM_PLAYER_ICON);
     }
 
-    public boolean isTeacherNoteOptionDisplayed() {
-        return isElementDisplayed(TEACHER_NOTE_OPTION);
+    public boolean isAddANoteOptionDisplayed() {
+        return isElementDisplayed(ADD_A_NOTE_OPTION);
     }
 
     public boolean isDeleteOptionDisplayed() {
@@ -212,8 +224,12 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(EDIT_PAGE_OPTION);
     }
 
-    public void clickTeacherNoteOption() {
-        clickElement(TEACHER_NOTE_OPTION);
+    public void clickAddANoteOption() {
+        clickElement(ADD_A_NOTE_OPTION);
+    }
+
+    public void clickOnNoteToTeachersOption() {
+        clickElement(NOTE_TO_TEACHERS_OPTION);
     }
 
     public void clickHideFromPlayerOption() {
@@ -221,11 +237,15 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void typeTeacherNote(String teacherNote) {
-        findElement(TEACHER_NOTE_INPUT).sendKeys(teacherNote);
+        findElement(NOTE_TO_TEACHERS_INPUT).sendKeys(teacherNote);
     }
 
     public void clickSaveNoteButton() {
-        clickElement(EDIT_PAGE_SAVE_BUTTON);
+        clickElement(SAVE_NOTE_BUTTON);
+    }
+
+    public void clickOnCloseAddANoteButton(){
+        clickElement(CLOSE_ADD_NOTE);
     }
 
     public void waitForNotificationToDisappear() {
@@ -422,6 +442,10 @@ public class EditCollection extends CreateNewFolderModal {
 
     public String getAlertNotificationText() {
         return getTextForNotification(PUBLISHED_COLLECTION_NOTIFICATION);
+    }
+
+    public boolean isNotificationDisplayed(){
+        return isElementDisplayed(PUBLISHED_COLLECTION_NOTIFICATION);
     }
 
     public boolean isEnabledPublishFolderButtonDisplayed() {
