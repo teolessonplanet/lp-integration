@@ -12,6 +12,7 @@ public class TestData {
     public static final int SHORT_TIMEOUT = 5;
     public static String SERVER_URL = "https://staging.lessonplanet.com/";
     public static final String FEATURE_URL = "https://feature.lessonplanet.com/";
+    public static final String PRODUCTION_URL = "https://www.lessonplanet.com/";
     public static boolean IP_IS_WHITELISTED = true;
     public static boolean SKIP_FACET_FILTERS = false;
     public static final String EMPTY_URL = "about:blank";
@@ -784,4 +785,22 @@ public class TestData {
     public static final String DELETE_FOLDER_MESSAGE_TEXT = "Are you sure you want to delete this Folder?";
 
     public static final String INCORRECT_ACCESS_KEY_MESSAGE_TEXT = "Sorry, this access key is incorrect. Need help?";
+
+    public static final String HOMEPAGE_GET_STARTED_BUTTON_TEXT = "Get Started";
+    public static final String HOMEPAGE_START_SEARCHING_BUTTON_TEXT = "Start Searching";
+    public static final String HOMEPAGE_WATCH_VIDEO_BUTTON_TEXT = "Watch Video";
+    public static final String HOMEPAGE_DISCOVER_TAB_TEXT = "Discover";
+    public static final String HOMEPAGE_DISCOVER_TITLE = "Discover a Treasure Trove of Learning Resources";
+    public static final String HOMEPAGE_DISCOVER_TEXT = "Search over 550,000 teacher-curated reviews to free and open educational resources (OER).";
+
+    public static final String HOMEPAGE_DISCOVER_CARD_1_TEXT = "Unit\n" + "Amazing Birds\n" + "For Teachers K - 4th NGSS";
+    public static final String HOMEPAGE_DISCOVER_CARD_1_PATH = "teachers/amazing-birds-k-4th";
+    public static final String HOMEPAGE_DISCOVER_CARD_2_TEXT = "Video\n" + "Rosa Parks - Mini Biography\n" + "For Teachers 8th - 12th CCSS";
+    public static final String HOMEPAGE_DISCOVER_CARD_2_PATH = "teachers/rosa-parks-mini-biography";
+    public static final String HOMEPAGE_DISCOVER_CARD_3_TEXT = "Activity\n" + "How to Write a Haiku\n" + "For Students 3rd - 8th CCSS";
+    public static final String HOMEPAGE_DISCOVER_CARD_3_PATH = "teachers/how-to-write-a-haiku";
+    public static final String HOMEPAGE_DISCOVER_CARD_4_TEXT = "Interactive\n" + "Recursive Formulas:\n" + "Fibonacci Sequence\n" + "For Students 11th Up CCSS";
+    public static final String HOMEPAGE_DISCOVER_CARD_4_PATH = "teachers/recursive-formulas-fibonacci-sequence";
+
+    public static final String HOMEPAGE_VIDEO_SRC = "https://player.vimeo.com/video/67310740?title=0&byline=0&portrait=0";
 }
