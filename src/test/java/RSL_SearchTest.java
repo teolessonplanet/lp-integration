@@ -76,7 +76,7 @@ public class RSL_SearchTest extends BaseTest {
     protected void testSeeFullReview(String account) {
         searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.testSeeFullReviewButton();
+        searchTest.testSeeFullReviewButton(account);
     }
 
     protected void testCardDetailsLpResource(String account) {

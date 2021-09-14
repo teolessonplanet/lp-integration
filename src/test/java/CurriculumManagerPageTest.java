@@ -795,7 +795,7 @@ public class CurriculumManagerPageTest extends BaseTest {
     public void testPublishFolderModal(String accountPlanText) {
         editCollectionModal.clickOnPublishCollectionButton();
 
-        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+        if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB) && !accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             publishedFolderModal.clickOnCloseButton();
         } else {
             //   Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));

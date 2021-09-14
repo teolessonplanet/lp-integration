@@ -160,9 +160,13 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.publishCollection(accountPlanText, collectionName, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
         Assert.assertTrue(editCollectionModal.getFolderPublishedStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
 
-        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-            editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
-            editCollectionModal.waitForNotificationToDisappear();
+        switch (accountPlanText) {
+            case TestData.VALID_EMAIL_CSL_HENRY:
+            case TestData.VALID_EMAIL_CSL_COBB:
+            case TestData.VALID_EMAIL_RSL_SBCEO:
+                editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
+                editCollectionModal.waitForNotificationToDisappear();
+                break;
         }
         editCollectionModal.clickEditDetails();
         editCollectionModal.typeTitle(TestData.REPLACED_COLLECTION_NAME + collectionName);
@@ -172,13 +176,17 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickOnPublishCollectionButton();
 
         replaceExistingFolderModal.clickOnPublishAndReplaceButton();
-
-        if (accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB)) {
-//            Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
-            editCollectionModal.getAlertNotificationText();
-            //notification is not always displayed
-        } else {
-            publishedFolderModal.clickOnCloseButton();
+        switch (accountPlanText) {
+            case TestData.VALID_EMAIL_CSL_HENRY:
+            case TestData.VALID_EMAIL_CSL_COBB:
+            case TestData.VALID_EMAIL_RSL_SBCEO:
+                //Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+                editCollectionModal.getAlertNotificationText();
+                //notification is not always displayed
+                break;
+            default:
+                publishedFolderModal.clickOnCloseButton();
+                break;
         }
 
         Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
@@ -327,7 +335,7 @@ public class EditCollectionTest extends BaseTest {
         }
         editCollectionPage.clickMoreDropdown();
         editCollectionPage.clickCopyToOption();
-        if(editCollectionPage.isMyResourcesTabDisplayed()) {
+        if (editCollectionPage.isMyResourcesTabDisplayed()) {
             editCollectionPage.chooseMyResourcesTab();
         }
         editCollectionPage.typeName(copiedFolderName);

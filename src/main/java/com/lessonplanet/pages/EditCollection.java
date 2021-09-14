@@ -539,13 +539,8 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void publishCollection(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
-
-
         completeCollectionForPublish(accountPlanText, collectionTitle, grade, subject, description);
         clickOnPublishCollectionButton();
-        if (!(accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB))) {
-            publishedFolderModal.clickOnCloseButton();
-        }
     }
 
     public void completeCollectionForPublish(String accountPlanText, String collectionTitle, String grade, String subject, String description) {

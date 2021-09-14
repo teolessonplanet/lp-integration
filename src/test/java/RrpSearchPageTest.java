@@ -570,7 +570,9 @@ public class RrpSearchPageTest extends BaseTest {
         }
         if (account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
-            Assert.assertTrue(rrp.isFullReviewDisplayed());
+            if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
+                Assert.assertTrue(rrp.isFullReviewDisplayed());
+            }
         }
 
         if (account.equals(TestData.PLAN_PRO) || account.equals(TestData.PLAN_FREEMIUM) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
@@ -578,7 +580,7 @@ public class RrpSearchPageTest extends BaseTest {
             Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
         }
 
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB) && !account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(rrp.isShareButtonDisplayed());
         }
         Assert.assertTrue(rrp.isThumbnailDisplayed());
@@ -740,11 +742,13 @@ public class RrpSearchPageTest extends BaseTest {
         if (account.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertTrue(collectionRrp.isUpgradeForFullReviewButtonDisplayed());
         }
+        //TODO:editions - add CSL to check Play/Save ?
         if (account.equals(TestData.PLAN_FREEMIUM) || account.equals(TestData.PLAN_PRO) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(collectionRrp.isPlayCollectionButtonDisplayed());
             Assert.assertTrue(collectionRrp.isSaveCollectionButtonActiveUserDisplayed());
         }
-        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+
+        if (!account.equals(TestData.VALID_EMAIL_CSL_HENRY) && !account.equals(TestData.VALID_EMAIL_CSL_COBB) && !account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(collectionRrp.isShareButtonDisplayed());
         }
         Assert.assertTrue(collectionRrp.isSeeFullReviewsLinkVisible());

@@ -129,13 +129,13 @@ public class RrpDirectoryPageTest extends BaseTest {
     @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4849:Main Buttons")
     public void testLessonp_4849() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testLpResourceMainButtonsForActiveUser(true);
+        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO,true);
     }
 
     @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - Lp Resources - lessonp-4827:Main Buttons")
     public void testLessonp_4827() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testLpResourceMainButtonsForActiveUser(false);
+        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO,false);
     }
 
     @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons")
@@ -216,11 +216,11 @@ public class RrpDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testLpResourceMainButtons(inModal, false);
     }
 
-    protected void testLpResourceMainButtonsForActiveUser(boolean inModal) {
+    protected void testLpResourceMainButtonsForActiveUser(String accountPlan, boolean inModal) {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(!inModal);
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(inModal, TestData.PLAN_PRO);
+        rrpSearchPageTest.testRegularResourceRRPOverview(inModal, accountPlan);
     }
 
     private void testLpResourceMainButtonsForVisitor(boolean inModal) {

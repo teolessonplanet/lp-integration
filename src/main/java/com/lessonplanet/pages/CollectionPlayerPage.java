@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CollectionPlayerPage extends LpUiBasePage {
     private static final String LESSON_PLANET_LOGO = "#player-wrap [class^='lp-player-logo']";
-    private static final String LEARNING_EXPLORER_LOGO = "#player-wrap [class^='se-player-logo']";
+    private static final String LEARNING_EXPLORER_LOGO = "#player-wrap [src*='lessonplanet.com/assets/logos/learning-explorer-square-logo']";
     private static final String HENRY_LOGO = "#player-wrap #logo[src*='henry_county_logo']";
     private static final String NEXT_ITEM = "#player-view-port-slider-next";
     private static final String PREVIOUS_ITEM = "#player-view-port-slider-prev";
