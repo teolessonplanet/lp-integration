@@ -24,9 +24,10 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String FOLDER_ROW = "div.collection.group-row";
     private static final String FOLDER_TYPE = " .info.type.persistent";
     private static final String FOLDER_STATUS = " .info.status";
-    private static final String FOLDER_TITLE = " .resource-title-text";
+    private static final String FOLDER_TITLE = " .resource-title-text.folder";
 
     private static final String RESOURCE_ROW = " div.resource.group-row";
+    private static final String UPLOADED_RESOURCE_TITLE = "[class*='group-row resource user-added'] [class='resource-title-text-wrap']";
     private static final String RESOURCE_TITLE = " .resource-title-text:nth-child(1)";
     private static final String RESOURCE_TYPE = " div.info.type.persistent";
     private static final String RESOURCE_STATUS = " div.info.status";
@@ -547,5 +548,13 @@ public class CurriculumManagerPage extends LpUiBasePage {
         } else {
             clickElement(findElements(folder, REMOVE_SHARED_FOLDER_BUTTON).get(0));
         }
+    }
+
+    public String getUploadedResourceTitle(int position) {
+        return findElements(UPLOADED_RESOURCE_TITLE).get(position).getText();
+    }
+
+    public int getUploadedResourcesNumber() {
+        return findElements(UPLOAD_RESOURCE_ROW + RESOURCE_TITLE).size();
     }
 }

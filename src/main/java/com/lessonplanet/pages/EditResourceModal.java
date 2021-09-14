@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class EditResourceModal extends LpUiBasePage {
 
     private static final String EDIT_RESOURCE_MODAL = "#edit-file-modal";
-    private static final String TITLE_INPUT = "[name='document[title]']";
+    private static final String TITLE_INPUT = "[class='required form-control']";
     private static final String UPDATE_BUTTON = "[class*='textin 19']";
 
     public EditResourceModal(WebDriver driver) {

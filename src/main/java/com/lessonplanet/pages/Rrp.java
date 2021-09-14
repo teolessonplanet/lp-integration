@@ -40,7 +40,7 @@ public class Rrp extends LpUiBasePage {
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
     private static final String BLANK_LEFT_SECTION = "[class='panel-body'] [class=row] [class='col-sm-3 hidden-xs'] [class='blank-rrp-left-resource-details mt15']";
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-goto-resource']";
-    private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='resource-title-wrap pt5'] [class='create-new-folder-btn']";
+    private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='resource-title-wrap pt5'] [class*='create-new-folder-btn']";
     private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";

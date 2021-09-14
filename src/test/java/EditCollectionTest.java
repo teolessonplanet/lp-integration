@@ -167,6 +167,14 @@ public class EditCollectionTest extends BaseTest {
                 editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
                 editCollectionModal.waitForNotificationToDisappear();
                 break;
+            default:
+                publishedFolderModal.clickOnCloseButton();
+                if(editCollectionModal.isNotificationDisplayed()) {
+                    editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
+                    editCollectionModal.waitForNotificationToDisappear();
+                }
+                break;
+
         }
         editCollectionModal.clickEditDetails();
         editCollectionModal.typeTitle(TestData.REPLACED_COLLECTION_NAME + collectionName);
@@ -235,10 +243,8 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickFileUploadButton();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            editCollectionModal.clickOnUpgradeNowButton();
-            Assert.assertTrue(editCollectionModal.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
-            Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
-            stepTwoPage.goBackOnePage();
+            curriculumManagerTest.initTest(webDriver);
+            curriculumManagerTest.testUpgradeModalFromUploadButton();
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
         } else {
             curriculumManagerTest.testUpload(true, accountPlanText, false);
@@ -296,9 +302,9 @@ public class EditCollectionTest extends BaseTest {
 
         testCreateAPage();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 13);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 13);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
         }
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickOnNewFolderOption();
@@ -306,9 +312,9 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickOnCreateFolderButton();
 
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 15);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 15);
         }
 
     }
@@ -350,9 +356,9 @@ public class EditCollectionTest extends BaseTest {
             Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 14);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
         } else {
-            Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 15);
+            Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 15);
         }
     }
 
@@ -371,7 +377,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionModal.clickEllipsisActions(0);
         Assert.assertTrue(editCollectionModal.isEditPageOptionDisplayed());
         Assert.assertTrue(editCollectionModal.isHideFromPlayerOptionDisplayed());
-        Assert.assertTrue(editCollectionModal.isTeacherNoteOptionDisplayed());
+        Assert.assertTrue(editCollectionModal.isAddANoteOptionDisplayed());
         Assert.assertTrue(editCollectionModal.isDeleteOptionDisplayed());
 
         editCollectionModal.clickEditPageOption();
@@ -388,11 +394,13 @@ public class EditCollectionTest extends BaseTest {
         Assert.assertFalse(editCollectionModal.isHideFromPlayerIconDisplayed());
 
         editCollectionModal.clickEllipsisActions(0);
-        editCollectionModal.clickTeacherNoteOption();
+        editCollectionModal.clickAddANoteOption();
+        editCollectionModal.clickOnNoteToTeachersOption();
         editCollectionModal.typeTeacherNote(TestData.LESSON_PLANNING_ARTICLES_PAGE_PATH);
         editCollectionModal.clickSaveNoteButton();
-        editCollectionModal.waitUntilNotificationIsDisplayed(TestData.UPDATED_NOTIFICATION_TEXT);
-        editCollectionModal.waitForNotificationToDisappear();
+        editCollectionModal.clickOnCloseAddANoteButton();
+        editCollectionModal.clickOnItem(0);
+        Assert.assertEquals(editCollectionModal.getAddANoteCount(), 1);
 
         editCollectionModal.clickEllipsisActions(0);
         editCollectionModal.clickDeleteOption();

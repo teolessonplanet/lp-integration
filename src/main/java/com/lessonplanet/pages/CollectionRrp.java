@@ -1,13 +1,11 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import util.TestData;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
-
-import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class CollectionRrp extends Rrp {
@@ -28,7 +26,7 @@ public class CollectionRrp extends Rrp {
     private static final String NEXT_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='right']";
     private static final String PREVIOUS_BUTTON_RRP = "[class*='panel-default panel-review'] div.panel-footer a[data-transition='left']";
     private static final String PANEL_ITEMS_LIST = "[class='panel-items'] [class='item-list'] li";
-    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li.panel.shared-collection-item div.panel-flip .item-rrp-link";
+    private static final String PANEL_ITEM = "[class='panel-items'] ul[class='item-list'] li [class='item-panel'] [class='item-rrp-link']";
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";

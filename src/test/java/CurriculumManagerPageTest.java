@@ -460,10 +460,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         uploadFileModal.waitForModal();
         File file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "images" + File.separator + "test-upload-file.png");
         uploadFileModal.uploadUsingTextInput(file.getPath());
-        uploadFileModal.selectGrade(TestData.UPLOAD_YOUR_FILE_GRADE);
-        uploadFileModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
-        uploadFileModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
-        uploadFileModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
         if (!editCollection) {
             uploadFileModal.selectFolder();
         }
@@ -503,17 +499,15 @@ public class CurriculumManagerPageTest extends BaseTest {
         stepTwoPage.goBackOnePage();
     }
 
-    public void testRemoveUploadResource(String accountPlanText) {
-        if (!accountPlanText.equals(TestData.PLAN_PRO)) {
-            curriculumManagerPage.clickOnMyUploadsFolder();
-        }
+    public void testRemoveUploadResource() {
+        int uploadedResources = curriculumManagerPage.getUploadedResourcesNumber();
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.clickOnRemoveButton();
         //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
         curriculumManagerPage.waitForNotificationToDisappear();
-        Assert.assertFalse(curriculumManagerPage.isUploadResourceDisplayed());
+        Assert.assertEquals(curriculumManagerPage.getUploadedResourcesNumber(), uploadedResources - 1);
     }
 
     public void testMyFavoritesFolderActions(String accountPlanText) {
@@ -648,7 +642,7 @@ public class CurriculumManagerPageTest extends BaseTest {
                 testPublishUploadResourceFromActionsDropdown();
             }
             testAssignResource(accountPlanText, TestData.ASSIGN_RESOURCE_MODAL_TEXT);
-            testRemoveUploadResource(accountPlanText);
+            testRemoveUploadResource();
         }
     }
 
@@ -667,13 +661,18 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnPublishButton();
         publishResourceModal();
         curriculumManagerPage.waitForRefreshIconToDisappear();
-        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_STATUS);
         Assert.assertEquals(curriculumManagerPage.getUploadResourceTitle(), TestData.PUBLISH_RESOURCE_TITLE);
+        curriculumManagerPage.clickOnUploadedFileInfoIcon();
+        Assert.assertEquals(curriculumManagerPage.getUploadResourceStatus(), TestData.PUBLISHED_STATUS);
     }
 
     public void publishResourceModal() {
         publishResourceModal.waitForModal();
         publishResourceModal.typeTitle(TestData.PUBLISH_RESOURCE_TITLE);
+        publishResourceModal.selectGrade(TestData.UPLOAD_YOUR_FILE_GRADE);
+        publishResourceModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
+        publishResourceModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
+        publishResourceModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
         publishResourceModal.clickAgreementOption();
         publishResourceModal.clickOnPublishResourceButton();
     }
@@ -1017,9 +1016,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             uploadFileModal.waitForModal();
             testUpload(false, accountPlan, false);
-            curriculumManagerPage.clickOnFolder(0);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), 1);
-            curriculumManagerPage.clickOnFolder(0);
+            Assert.assertEquals(curriculumManagerPage.getUploadedResourceTitle(0), "test-upload-file");
         }
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
