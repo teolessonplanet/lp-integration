@@ -1,3 +1,4 @@
+
 # lp-integration
 
 This project runs the automated tests for the LP website.
@@ -22,7 +23,7 @@ This project runs the automated tests for the LP website.
   **NOTES:**
 
     Mandatory flag:
-      -Dbrowser={firefox,chrome}
+      -Dbrowser={firefox,chrome,edge}
     Optional flags:
       -Dheadless=true (to run tests in headless mode)
       -Dipwhitelisted=false (bypasses the staging username and password if the IP is not whitelisted)
@@ -32,6 +33,7 @@ This project runs the automated tests for the LP website.
             For this, go to: Menu -> Addons -> Extensions -> change Enable toggle to Disable and back to Enable
       -Dserver=feature (to run on Feature server, by default Staging is set)
       -Dskipfacets=true ( instead of facets, it will use URL keywords)
+      -Ddriverversion=version (e.g: for FF: "0.29.0", for Chrome: "93.0.4577.63", for Microsoft Edge: "95.0.997.1")
 
     Suggested versions:
       - Java 11.0.3

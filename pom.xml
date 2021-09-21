@@ -108,6 +108,13 @@
         <version>3.8.1</version>
       </dependency>
 
+      <!-- https://mvnrepository.com/artifact/com.microsoft.edge/msedge-selenium-tools-java -->
+      <dependency>
+        <groupId>com.microsoft.edge</groupId>
+        <artifactId>msedge-selenium-tools-java</artifactId>
+        <version>3.141.0</version>
+      </dependency>
+
     </dependencies>
 
 </project>
