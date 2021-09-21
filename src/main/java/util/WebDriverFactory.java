@@ -1,5 +1,7 @@
 package util;
 
+import com.microsoft.edge.seleniumtools.EdgeDriver;
+import com.microsoft.edge.seleniumtools.EdgeOptions;
 import helpers.BrowserName;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.StringUtils;
@@ -23,19 +25,61 @@ public class WebDriverFactory {
     private final static String IP_WHITELISTED_SYSTEM_VAR = "ipwhitelisted";
     private final static String SERVER_URL_SYSTEM_VAR = "server";
     private final static String SKIP_FACETS = "skipfacets";
+    private final static String DRIVER_VERSION = "driverversion";
+    private static String browserName;
+    private static String driverVersion = "";
 
-    private boolean headlessBrowser = false;
-    private boolean firefoxDefaultProfile = false;
+    private static boolean headlessBrowser = false;
+    private static boolean firefoxDefaultProfile = false;
     protected static final Logger logger = LogManager.getRootLogger();
 
-    public WebDriver getInstance() {
+
+    public static void getDriverFromInternet() {
+        if (StringUtils.isBlank(System.getProperty(BROWSER_SYSTEM_VAR))) {
+            throw new IllegalArgumentException("Browser name is not set in VM options. " +
+                "Please make sure you're setting the <browser> value before starting the tests " +
+                "-- https://www.screencast.com/t/CGYCEL6bc3U --");
+        }
+
+        browserName = System.getProperty(BROWSER_SYSTEM_VAR).toLowerCase();
+
+        if (StringUtils.isNoneEmpty(System.getProperty(DRIVER_VERSION))) {
+            driverVersion = System.getProperty(DRIVER_VERSION);
+        }
+
+        if (browserName.equals(BrowserName.CHROME.getName())) {
+            //https://chromedriver.chromium.org/downloads
+            if (!driverVersion.isEmpty()) {
+                WebDriverManager.chromedriver().driverVersion(driverVersion);
+            }
+            WebDriverManager.chromedriver().setup();
+        }
+
+        if (browserName.equals(BrowserName.FIREFOX.getName())) {
+            //https://github.com/mozilla/geckodriver/releases
+            if (!driverVersion.isEmpty()) {
+                WebDriverManager.firefoxdriver().driverVersion(driverVersion);
+            }
+            WebDriverManager.firefoxdriver().setup();
+        }
+
+        if (browserName.equals(BrowserName.EDGE.getName())) {
+            //https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+            //https://msedgewebdriverstorage.z22.web.core.windows.net/
+            if (!driverVersion.isEmpty()) {
+                WebDriverManager.edgedriver().driverVersion(driverVersion);
+            }
+            WebDriverManager.edgedriver().setup();
+        }
+    }
+
+    public static WebDriver getInstance() {
 
         if (StringUtils.isBlank(System.getProperty(BROWSER_SYSTEM_VAR))) {
             throw new IllegalArgumentException("Browser name is not set in VM options. " +
                 "Please make sure you're setting the <browser> value before starting the tests " +
                 "-- https://www.screencast.com/t/CGYCEL6bc3U --");
         }
-        final String browserVariable = System.getProperty(BROWSER_SYSTEM_VAR).toLowerCase();
 
         try {
             if (System.getProperty(HEADLESS_SYSTEM_VAR).equals("true")) {
@@ -55,19 +99,19 @@ public class WebDriverFactory {
 
         WebDriver webDriver;
 
-        if (browserVariable.equals(BrowserName.CHROME.getName())) {
+        if (browserName.equals(BrowserName.CHROME.getName())) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
             options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
             options.setExperimentalOption("useAutomationExtension", false);
             options.addArguments("disable-infobars");
+
             if (headlessBrowser) {
                 options.addArguments("headless");
                 options.addArguments("window-size=1920x2160");
             }
-            WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver(options);
-        } else if (browserVariable.equals(BrowserName.FIREFOX.getName())) {
+        } else if (browserName.equals(BrowserName.FIREFOX.getName())) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
 
             if (firefoxDefaultProfile) {
@@ -79,15 +123,17 @@ public class WebDriverFactory {
             if (headlessBrowser) {
                 firefoxOptions.addArguments("--headless");
             }
-            WebDriverManager.firefoxdriver().setup();
+
             webDriver = new FirefoxDriver(firefoxOptions);
             if (headlessBrowser) {
                 webDriver.manage().window().setSize(new Dimension(1920, 2160));
             }
+        } else if (browserName.equals(BrowserName.EDGE.getName())) {
+            webDriver = new EdgeDriver();
         } else {
             throw new IllegalArgumentException("Browser name is incorrectly set in VM options");
         }
-        if (!headlessBrowser) {
+        if (!headlessBrowser || browserName.equals(BrowserName.EDGE.getName())) {
             webDriver.manage().window().maximize();
         }
         webDriver.manage().timeouts().implicitlyWait(TestData.SHORT_TIMEOUT, TimeUnit.SECONDS);
@@ -108,7 +154,7 @@ public class WebDriverFactory {
             logger.info("Server is not set in VM options - running on Staging by default");
         }
 
-        try{
+        try {
             if (System.getProperty(SKIP_FACETS).equals("true")) {
                 TestData.SKIP_FACET_FILTERS = true;
             }
