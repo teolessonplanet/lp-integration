@@ -50,7 +50,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String PIXABAY_LEARN_MORE_LINK = "a[href='https://pixabay.com/service/faq']";
     private static final String PIXABAY_IMAGES = "#add-pixabay-image-wrap [class*='pixabay-image-container'] img";
     private static final String ADD_SELECTED_TO_FOLDER_BUTTON = "[class*='add-selected']";
-    private static final String PIXABAY_ALERT_TEXT = "[class*='alert-info']";
+    private static final String PIXABAY_ALERT_TEXT = "[class='details-updated-message danger']";
     private static final String CREATE_PAGE_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(4)";
     private static final String PAGE_TITLE_INPUT = "[name='page_resource[title]']";
     private static final String PAGE_CONTENT_INPUT = "[class='add-a-page-body'] [class*='note-editable']";
