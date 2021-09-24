@@ -292,7 +292,7 @@ public class EditCollectionTest extends BaseTest {
         editCollectionPage.clickAddSelectedToFolderButton();
         editCollectionPage.refreshPageAndDismissBrowserAlert();
         for (int i = 0; i < 11; i++) {
-            Assert.assertEquals(editCollectionPage.getFolderItemTitle(i), TestData.PIXABAY_IMAGE_TITLE);
+            Assert.assertTrue(editCollectionPage.getFolderItemTitle(i).contains(TestData.PIXABAY_IMAGE_TITLE) || editCollectionPage.getFolderItemTitle(i).contains(TestData.PIXABAY_IMAGE_TITLE.toLowerCase()));
         }
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 12);
