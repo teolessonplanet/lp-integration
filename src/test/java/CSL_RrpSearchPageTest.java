@@ -12,7 +12,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private ResourcesPage resourcesPage;
     private Rrp rrp;
-    private RrpSearchPageTest rrpSearchPageTest;
+    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
     private RrpModal rrpModal;
     private RrpPage rrpPage;
     private CollectionRrp collectionRrp;
@@ -24,7 +24,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         rrp = new Rrp(webDriver);
         resourcesPage = new ResourcesPage(webDriver);
-        rrpSearchPageTest = new RrpSearchPageTest();
+        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
         rrpModal = new RrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         collectionRrp = new CollectionRrp(webDriver);
@@ -214,7 +214,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
             Assert.assertTrue(rrp.isNextButtonDisplayed());
         }
         rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testAddToNewCollection(inModal);
+        rrpSearchPageTest.testAddToNewCollection();
     }
 
     public void testNewTabSiteSpecificResourceUrl(boolean modal) {
@@ -235,7 +235,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
 
         if (rrp.isFavoriteButtonDisplayed()) {
             rrp.clickOnFavoriteButton();
-            Assert.assertTrue(rrp.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));
+            Assert.assertTrue(rrp.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_NOTIFICATION_TEXT));
         } else {
             Assert.assertTrue(rrp.isFavoriteButtonDisabledDisplayed());
         }

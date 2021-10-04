@@ -6,7 +6,6 @@ import util.TestData;
 public class PricingPage extends LpUiBasePage {
 
     private static final String SELECT_PLAN_STARTER_BUTTON = "#starter-btn a";
-    private static final String SELECT_PLAN_PRIME_BUTTON = "#prime-btn a";
     private static final String SELECT_PLAN_PRO_BUTTON = "#pro-btn a";
 
     public PricingPage(WebDriver driver) {

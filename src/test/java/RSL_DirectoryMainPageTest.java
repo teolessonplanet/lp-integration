@@ -7,12 +7,12 @@ import util.TestData;
 public class RSL_DirectoryMainPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private DirectoryMainPageTest directoryMainPageTest;
+    private Regular_User_DirectoryMainPageTest directoryMainPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        directoryMainPageTest = new DirectoryMainPageTest();
+        directoryMainPageTest = new Regular_User_DirectoryMainPageTest();
     }
 
     public void initTest(WebDriver webDriver) {

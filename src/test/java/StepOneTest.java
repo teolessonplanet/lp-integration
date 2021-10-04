@@ -32,7 +32,7 @@ public class StepOneTest extends BaseTest {
         headerPage.clickOnTryItFree(false);
         stepOneModal.typeEmail(TestData.NEW_EMAIL_PREFIX);
         stepOneModal.clickOnGetStartedToday();
-        Assert.assertEquals(TestData.INVALID_EMAIL_MESSAGE, stepOneModal.getErrorMessage());
+        Assert.assertEquals(TestData.INVALID_EMAIL_NOTIFICATION_TEXT, stepOneModal.getErrorMessage());
     }
 
     @Test(description = "LP - User Visits Step 1 - lessonp-5:User supplies valid form data")

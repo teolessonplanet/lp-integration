@@ -8,9 +8,9 @@ import util.TestData;
 
 import java.util.List;
 
-public class PublishCollectionTest extends BaseTest {
+public class Regular_User_PublishCollectionTest extends BaseTest {
     private StepTwoPage stepTwoPage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private EditCollectionModal editCollectionModal;
@@ -26,7 +26,7 @@ public class PublishCollectionTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);

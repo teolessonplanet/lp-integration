@@ -219,7 +219,7 @@ public class CSL_ContentManagerTest extends BaseTest {
         addAResourcePage.pasteIncludedMaterialResourceUrl(TestData.COLLECTION_BUILDER_LINK);
 
         addAResourcePage.clickOnFinishButton();
-        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.ADD_RESOURCE_NOTIFICATION);
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.ADD_RESOURCE_NOTIFICATION_TEXT);
         int noOfRefreshes = TestData.LONG_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
@@ -233,7 +233,7 @@ public class CSL_ContentManagerTest extends BaseTest {
         Assert.assertEquals(addAResourcePage.getEditResourcePageTitle(), TestData.EDIT_RESOURCE_PAGE_TITLE);
         addAResourcePage.typeTitle(TestData.EDIT_TITLE);
         addAResourcePage.clickOnFinishButton();
-        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.UPDATE_RESOURCE_NOTIFICATION);
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.UPDATE_RESOURCE_NOTIFICATION_TEXT);
         noOfRefreshes = TestData.LONG_TIMEOUT;
         do {
             csl_contentManagerPage.refreshPageAndDismissBrowserAlert();
@@ -243,7 +243,7 @@ public class CSL_ContentManagerTest extends BaseTest {
 
         csl_contentManagerPage.clickOnRemoveButton(0);
         removeResourceModal.clickOnRemoveButton();
-        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.REMOVE_RESOURCE_NOTIFICATION);
+        Assert.assertEquals(csl_contentManagerPage.getNotificationText(), TestData.REMOVE_RESOURCE_NOTIFICATION_TEXT);
         csl_contentManagerPage.waitForNotificationToDisappear();
 
         csl_contentManagerPage.refreshPageAndDismissBrowserAlert();

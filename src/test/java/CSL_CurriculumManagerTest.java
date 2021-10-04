@@ -7,14 +7,14 @@ public class CSL_CurriculumManagerTest extends BaseTest {
 
     private LoginPage loginPage;
     private LpHomePage lpHomePage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         lpHomePage = new LpHomePage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         initCurriculumManagerPageAndLogin();
     }

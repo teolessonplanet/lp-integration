@@ -6,12 +6,12 @@ import util.TestData;
 
 public class RSL_PublishCollection extends BaseTest {
     private LoginPage loginPage;
-    private PublishCollectionTest publishCollectionTest;
+    private Regular_User_PublishCollectionTest publishCollectionTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        publishCollectionTest = new PublishCollectionTest();
+        publishCollectionTest = new Regular_User_PublishCollectionTest();
     }
 
     public void initTest(WebDriver webDriver) {

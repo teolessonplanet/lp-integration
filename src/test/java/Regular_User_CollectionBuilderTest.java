@@ -8,7 +8,7 @@ import util.TestData;
 
 import java.util.List;
 
-public class CollectionBuilderTest extends BaseTest {
+public class Regular_User_CollectionBuilderTest extends BaseTest {
 
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
@@ -18,9 +18,9 @@ public class CollectionBuilderTest extends BaseTest {
     private RrpModal rrpModal;
     private RrpPage rrpPage;
     private BrowseBySubjectPage browseBySubjectPage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
-    private AccountManagementTest accountManagementTest;
+    private Regular_User_AccountManagementTest accountManagementTest;
     private CreateNewFolderModal createNewFolderModal;
     private EditCollectionModal editCollectionModal;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
@@ -42,9 +42,9 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderVideoModal = new CollectionBuilderVideoModal(webDriver);
         becomeALessonPlanetFreeMemberModal = new BecomeALessonPlanetFreeMemberModal(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        accountManagementTest = new AccountManagementTest();
+        accountManagementTest = new Regular_User_AccountManagementTest();
         createNewFolderModal = new CreateNewFolderModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
@@ -62,13 +62,13 @@ public class CollectionBuilderTest extends BaseTest {
         testCollectionBuilderItemsAppearance(TestData.PLAN_VISITOR, 3);
     }
 
-    @Test(description = "Freemium - Collection Builder - lessonp-548: Collection Builder Buttons")
+    @Test(description = "Free Member - Collection Builder - lessonp-548: Collection Builder Buttons")
     public void testLessonp_548() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderButtonsAppearance(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Freemium - Collection Builder - lessonp-4381: Collection Builder Items")
+    @Test(description = "Free Member - Collection Builder - lessonp-4381: Collection Builder Items")
     public void testLessonp_4381() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderItemsAppearance(TestData.PLAN_FREEMIUM, 10);

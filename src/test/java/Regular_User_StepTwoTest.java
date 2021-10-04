@@ -7,7 +7,7 @@ import util.TestData;
 
 import java.util.Random;
 
-public class StepTwoTest extends BaseTest {
+public class Regular_User_StepTwoTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class RSL_CanViewTest extends BaseTest {
     private LoginPage loginPage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private ShareFolderModal shareFolderModal;
     private CopyToModal copyToModal;
@@ -22,7 +22,7 @@ public class RSL_CanViewTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         shareFolderModal = new ShareFolderModal(webDriver);
         copyToModal = new CopyToModal(webDriver);
@@ -37,25 +37,25 @@ public class RSL_CanViewTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5965: Main Page", priority = 1)
+    @Test(description = "Regular SL - Shared With Me - lessonp-5965: Main Page", priority = 1)
     public void testLessonp_5965() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testSharedWithMePage();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5966: Share a folder - Can View Permission", priority = 2)
+    @Test(description = "Regular SL - Shared With Me - lessonp-5966: Share a folder - Can View Permission", priority = 2)
     public void testLessonp_5966() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testShareFolder(TestData.VALID_EMAIL_RSL_SBCEO, TestData.SHARE_FOLDER_MODAL_RSL_OWNER_NAME, TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.RSL_SBCEO_TEACHER_FIRST_NAME, TestData.RSL_SBCEO_TEACHER_LAST_NAME, TestData.RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL, TestData.RSL_SBCEO_DA_FIRST_NAME, TestData.RSL_SBCEO_DA_LAST_NAME);
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-5989: Drag-and-drop items - Can View Permission", priority = 3)
+    @Test(description = "Regular SL - Shared With Me - lessonp-5989: Drag-and-drop items - Can View Permission", priority = 3)
     public void testLessonp_5989() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testDragAndDrop();
     }
 
-    @Test(description = "RSL - Shared With Me - lessonp-6012: Verify shared folder - Can View Permission", priority = 4)
+    @Test(description = "Regular SL - Shared With Me - lessonp-6012: Verify shared folder - Can View Permission", priority = 4)
     public void testLessonp_6012() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testVerifyFolder();
@@ -112,7 +112,7 @@ public class RSL_CanViewTest extends BaseTest {
         shareFolderModal.removeUser();
         Assert.assertEquals(shareFolderModal.getUserName(), teacherFirstName + " " + teacherLastName);
         shareFolderModal.clickOnShareFolderButton();
-        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.SHARED_NOTIFICATION_TEXT));
 
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();

@@ -5,12 +5,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class RrpDirectoryPageTest extends BaseTest {
+public class Regular_User_RrpDirectoryPageTest extends BaseTest {
     private BrowseBySubjectPage browseBySubjectPage;
     private CollectionRrpModal collectionRrpModal;
     private CollectionRrpPage collectionRrpPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private RrpSearchPageTest rrpSearchPageTest;
+    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
 
@@ -21,7 +21,7 @@ public class RrpDirectoryPageTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         collectionRrpPage = new CollectionRrpPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        rrpSearchPageTest = new RrpSearchPageTest();
+        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -45,13 +45,13 @@ public class RrpDirectoryPageTest extends BaseTest {
         testLpResourceOverview(TestData.PLAN_VISITOR, false);
     }
 
-    @Test(description = "Freemium - Directory Page - RRP Modal - RRP Overview - lessonp-4674:LP Resource Modal Overview")
+    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4674:LP Resource Modal Overview")
     public void testLessonp_4674() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResourceOverview(TestData.PLAN_FREEMIUM, true);
     }
 
-    @Test(description = "Freemium - Directory Page - RRP Static - RRP Overview - lessonp-4703:Resource Static Page Overview")
+    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4703:Resource Static Page Overview")
     public void testLessonp_4703() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResourceOverview(TestData.PLAN_FREEMIUM, false);
@@ -79,13 +79,13 @@ public class RrpDirectoryPageTest extends BaseTest {
         testCollectionOverview(TestData.PLAN_VISITOR, false);
     }
 
-    @Test(description = "Freemium - Directory Page - RRP Modal - RRP Overview - lessonp-4677:Collection Modal Overview")
+    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4677:Collection Modal Overview")
     public void testLessonp_4677() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionOverview(TestData.PLAN_FREEMIUM, true);
     }
 
-    @Test(description = "Freemium - Directory Page - RRP Static - RRP Overview - lessonp-4705:Collection Static Page Overview")
+    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4705:Collection Static Page Overview")
     public void testLessonp_4705() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionOverview(TestData.PLAN_FREEMIUM, false);
@@ -148,9 +148,9 @@ public class RrpDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testSaveCollectionButton(true, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
         collectionRrpModal.clickPanelItem(0);
-        rrpSearchPageTest.testItemViewerSection(true);
+        rrpSearchPageTest.testItemViewerSection();
         collectionRrpModal.clickSeeFullReviewsLink();
-        rrpSearchPageTest.testItemViewerSection(true);
+        rrpSearchPageTest.testItemViewerSection();
     }
 
     @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons")
@@ -161,9 +161,9 @@ public class RrpDirectoryPageTest extends BaseTest {
         rrpSearchPageTest.testSaveCollectionButton(false, TestData.PLAN_VISITOR);
         rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
         collectionRrpPage.clickPanelItem(0);
-        rrpSearchPageTest.testItemViewerSection(false);
+        rrpSearchPageTest.testItemViewerSection();
         collectionRrpPage.clickSeeFullReviewsLink();
-        rrpSearchPageTest.testItemViewerSection(false);
+        rrpSearchPageTest.testItemViewerSection();
     }
 
     @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4696:Main Buttons")
@@ -192,7 +192,7 @@ public class RrpDirectoryPageTest extends BaseTest {
         browseBySubjectPage.clickSeeCollection(true);
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testCollectionRRPOverview(false, TestData.PLAN_PRO);
-        rrpSearchPageTest.testPanelItemsOverview(false);
+        rrpSearchPageTest.testPanelItemsOverview();
     }
 
     protected void testLpResourceOverview(String accountPlan, boolean inModal) {
@@ -249,6 +249,6 @@ public class RrpDirectoryPageTest extends BaseTest {
         browseBySubjectPage.clickSeeCollection(!inModal);
         rrpSearchPageTest.initTest(webDriver);
         rrpSearchPageTest.testCollectionRRPOverview(inModal, accountPlan);
-        rrpSearchPageTest.testPanelItemsOverview(inModal);
+        rrpSearchPageTest.testPanelItemsOverview();
     }
 }

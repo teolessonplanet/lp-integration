@@ -143,7 +143,7 @@ public class StepTwoPage extends LpUiBasePage {
 
         if (STAGING_CREATE_USER_URL.startsWith(TestData.SERVER_URL)) {
             if (accountPlan.equals(TestData.PLAN_FREEMIUM) || accountPlan.equals(TestData.PLAN_STARTER) || accountPlan.equals(TestData.PLAN_PRO)) {
-                // creates freemium || starter || prime || pro via endpoint
+                // creates freemium || starter || pro via endpoint
                 driver.get(String.format(STAGING_CREATE_USER_URL, accountPlan, email));
                 lpHomePage.loadPage();
                 if (headerPage.isUsernameDropDownDisplayed()) {

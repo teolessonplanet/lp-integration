@@ -131,10 +131,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
         waitUntilElementIsHidden(LOADING_ICON);
     }
 
-    public boolean isCollectionBuilderDisplayed() {
-        return isElementDisplayed(COLLECTION_DROPPABLE_ZONE);
-    }
-
     public String getCreateOrOpenDropdownText() {
         return getTextForElement(CREATE_OR_OPEN_DROPDOWN);
     }

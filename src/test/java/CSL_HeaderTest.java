@@ -5,12 +5,12 @@ import util.TestData;
 
 public class CSL_HeaderTest extends BaseTest {
     private LoginPage loginPage;
-    private HeaderTest headerTest;
+    private Regular_User_HeaderTest headerTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        headerTest = new HeaderTest();
+        headerTest = new Regular_User_HeaderTest();
     }
 
     @Test(description = "Custom SL - Header - lessonp-5793: Header buttons")

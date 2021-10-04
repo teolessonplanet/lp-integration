@@ -6,12 +6,12 @@ import util.TestData;
 public class Cobb_CollectionBuilderTest extends BaseTest {
 
     private LoginPage loginPage;
-    private CollectionBuilderTest collectionBuilderTest;
+    private Regular_User_CollectionBuilderTest collectionBuilderTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        collectionBuilderTest = new CollectionBuilderTest();
+        collectionBuilderTest = new Regular_User_CollectionBuilderTest();
         initCollectionBuilderTestAndLogin();
     }
 

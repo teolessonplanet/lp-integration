@@ -10,7 +10,6 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String FOLDER_PUBLISHED_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='text']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
-    private static final String FOLDER_PUBLISH_STATUS_TEXT = "[class='publish-status']";
 
     private static final String EDIT_DETAILS_OPTION = "[class='edit-folder-actions'] [class='edit-folder-details edit-folder-action-item']";
 
@@ -35,8 +34,6 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADD_A_LINK_NAME_FIELD = "#js-create-item [name='title']";
     private static final String ADD_TO_FOLDER_BUTTON = "[class='modal-footer'] [class='btn btn-warning']";
     private static final String FILE_UPLOAD_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(2)";
-    private static final String UPGRADE_UPLOAD_TEXT = "[class='mt25 mb25 ml30 subtext']";
-    private static final String UPGRADE_NOW_BUTTON = "#upload-modal-root [class='btn btn-success']";
     private static final String PIXABAY_PANEL = "[class='edit-folder-panel add-pixabay-image']";
     private static final String PIXABAY_IMAGE_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(3)";
     private static final String PIXABAY_SUBTITLE = "[class='pixabay-license-title']";
@@ -69,13 +66,11 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String MY_RESOURCES_DESTINATION_FOLDER = "[class='list-option my-resources']";
     private static final String MY_RESOURCES_TAB = "[class='content modal-body transfer-modal'] [class='root-option']:nth-child(2)";
 
-    private static final String FOLDER_ITEMS = "[class='collection-item-panel panel']";
     private static final String FOLDER_ITEMS_COUNT = "[class='ef-number-of-items']";
     private static final String FOLDER_ITEM_TITLE = "[class*='collection-item-title']";
     private static final String ALERT_NOTIFICATION = "[class='details-updated-message success']";
     private static final String ELLIPSIS_ACTIONS = "[class='show-actions dropdown-toggle']";
     private static final String EDIT_PAGE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(1)";
-    private static final String EDIT_PAGE_SAVE_BUTTON = "[class*='btn btn-primary'][value='Save']:not([disabled='disabled'])";
     private static final String HIDE_FROM_PLAYER_OPTION = "[class*='collection-item-actions-list'] li:nth-child(2)";
     private static final String HIDE_FROM_PLAYER_ICON = "[class*='lp-play-disabled']";
     private static final String ADD_A_NOTE_OPTION = "[class*='collection-item-actions-list'] #js-add-a-note-btn";
@@ -88,8 +83,6 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String DELETE_ITEM_BUTTON = "#updated-edit [class='modal-footer'] a";
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
-
-    private static final String PUBLISH_COLLECTION_MODAL = "#share-collection-modal";
     private static final String PUBLISH_COLLECTION_BUTTON = "button[class$='btn-success']";
     private static final String CLOSE_BUTTON = "button[class$='edit-collection-modal-close']";
     private static final String RATING_FIELD = "[class^='rating-dropdown__indicators']";
@@ -102,11 +95,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADDITIONAL_TAGS_FIELD = "[class='additional-tags-dropdown__input'] [id^='react-select-']";
     private static final String ADDITIONAL_TAGS_OPTIONS = "[class^='additional-tags-dropdown__option']";
 
-    private PublishedFolderModal publishedFolderModal;
-
     public EditCollection(WebDriver driver) {
         super(driver);
-        publishedFolderModal = new PublishedFolderModal(driver);
     }
 
     public void clickOnCloseButton() {
@@ -190,10 +180,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public void clickOnPublishFolder() {
         clickElement(ENABLED_PUBLISH_FOLDER_BUTTON);
-    }
-
-    public void waitUntilPublishFolderButtonIsEnabled() {
-        waitUntilElementIsDisplayed(findElement(ENABLED_PUBLISH_FOLDER_BUTTON));
     }
 
     public void clickEllipsisActions(int index) {
@@ -326,10 +312,6 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(NEW_FOLDER_BUTTON);
     }
 
-    public void clickNewFolderButton() {
-        clickElement(NEW_FOLDER_BUTTON);
-    }
-
     public void clickOnPixabayImageOption() {
         clickElement(PIXABAY_IMAGE_OPTION);
     }
@@ -410,10 +392,6 @@ public class EditCollection extends CreateNewFolderModal {
         waitUntilTextIsDisplayed(ALERT_NOTIFICATION, text);
     }
 
-    public void waitUntilItemIsAddedIntoFolder() {
-        waitUntilElementIsDisplayed(findElements(FOLDER_ITEMS).get(0));
-    }
-
     public void waitUntilNameFieldIsDisplayed() {
         waitUntilElementIsDisplayed(findElement(ADD_A_LINK_NAME_FIELD));
     }
@@ -446,20 +424,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public boolean isNotificationDisplayed(){
         return isElementDisplayed(PUBLISHED_COLLECTION_NOTIFICATION);
-    }
-
-    public boolean isEnabledPublishFolderButtonDisplayed() {
-        return isElementDisplayed(ENABLED_PUBLISH_FOLDER_BUTTON);
-    }
-
-    public String getFolderPublishStatusText() {
-        return getTextForElement(FOLDER_PUBLISH_STATUS_TEXT);
-    }
-
-    public String getPublishedFolderMonth() {
-        if (TestData.getCurrentMonth() < 10) {
-            return String.format("%02d", TestData.getCurrentMonth());
-        } else return String.format("%01d", TestData.getCurrentMonth());
     }
 
     public void waitUntilCopiedCollectionIsDisplayed() {
@@ -528,14 +492,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public void clickEditDetails() {
         clickElement(EDIT_DETAILS_OPTION);
-    }
-
-    public void clickOnUpgradeNowButton() {
-        clickElement(UPGRADE_NOW_BUTTON);
-    }
-
-    public String getUpgradeModalText() {
-        return getTextForElement(UPGRADE_UPLOAD_TEXT);
     }
 
     public void chooseRating() {

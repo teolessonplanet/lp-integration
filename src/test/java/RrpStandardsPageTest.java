@@ -6,13 +6,13 @@ import util.TestData;
 @Ignore
 @Deprecated
 public class RrpStandardsPageTest extends BaseTest {
-    private RrpSearchPageTest rrpSearchPageTest;
+    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
     private CorrelatedResourcesPage correlatedResourcesPage;
     private DiscoverResourcesPage discoverResourcesPage;
 
     @BeforeMethod
     public void beforeMethod() {
-        rrpSearchPageTest = new RrpSearchPageTest();
+        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
         correlatedResourcesPage = new CorrelatedResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }

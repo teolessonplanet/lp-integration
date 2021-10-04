@@ -6,12 +6,12 @@ import util.TestData;
 
 public class RSL_SearchTest extends BaseTest {
 
-    private SearchTest searchTest;
+    private Regular_User_SearchTest searchTest;
     private LoginPage loginPage;
 
     @BeforeMethod
     public void beforeMethod() {
-        searchTest = new SearchTest();
+        searchTest = new Regular_User_SearchTest();
         loginPage = new LoginPage(webDriver);
     }
 

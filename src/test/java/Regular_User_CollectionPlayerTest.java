@@ -10,17 +10,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CollectionPlayerTest extends BaseTest {
+public class Regular_User_CollectionPlayerTest extends BaseTest {
     private LoginPage loginPage;
     private StepTwoPage stepTwoPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
-    private CollectionBuilderTest collectionBuilderTest;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
     private EditCollectionModal editCollectionModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
-    private AssignFolderModalTest assignFolderModalTest;
+    private Regular_User_AssignFolderModalTest assignFolderModalTest;
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
@@ -32,13 +31,12 @@ public class CollectionPlayerTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        collectionBuilderTest = new CollectionBuilderTest();
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
-        assignFolderModalTest = new AssignFolderModalTest();
+        assignFolderModalTest = new Regular_User_AssignFolderModalTest();
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
@@ -47,7 +45,7 @@ public class CollectionPlayerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-554:Appearance")
+    @Test(description = "Free Member - Collection player - lessonp-554:Appearance")
     public void testLessonp_554() {
         testCollectionPlayerAppearance(TestData.PLAN_FREEMIUM);
     }
@@ -57,7 +55,7 @@ public class CollectionPlayerTest extends BaseTest {
         testCollectionPlayerAppearance(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-556:Collection Navigator")
+    @Test(description = "Free Member - Collection player - lessonp-556:Collection Navigator")
     public void testLessonp_556() {
         testCollectionNavigator(TestData.PLAN_FREEMIUM);
     }
@@ -67,7 +65,7 @@ public class CollectionPlayerTest extends BaseTest {
         testCollectionNavigator(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-555:Resource Viewer")
+    @Test(description = "Free Member - Collection player - lessonp-555:Resource Viewer")
     public void testLessonp_555() {
         testResourceViewer(TestData.PLAN_FREEMIUM);
     }
@@ -284,7 +282,7 @@ public class CollectionPlayerTest extends BaseTest {
 
     private void checkButtons(String accountPlan, String resourceType) {
         if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-//            Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden()); TODO: uncomment when BC-3497 is fixed
+            Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonHidden());
             Assert.assertTrue(collectionPlayerPage.isPopOutButtonHidden());
         } else {

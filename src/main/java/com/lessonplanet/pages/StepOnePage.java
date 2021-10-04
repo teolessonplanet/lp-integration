@@ -7,10 +7,8 @@ public class StepOnePage extends LpUiBasePage {
 
     private static final String EMAIL_INPUT = "#user_email";
     private static final String PASSWORD_INPUT = "[class*='password optional'] #user_password";
-    private static final String PRIVACY_POLICY_BUTTON = "[class='help-block text-muted'] a";
     private static final String GET_FREE_TRIAL_BUTTON = "#qa";
     private static final String ALREADY_A_MEMBER_BUTTON = "#login-link-no-underline";
-    private static final String EMAIL_ERROR = "#user_email-error";
     private static final String TITLE_TEXT = "h4[class='panel-title']";
 
     public StepOnePage(WebDriver driver) {

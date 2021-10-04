@@ -7,12 +7,12 @@ import util.TestData;
 @Deprecated
 public class RSL_FooterTest extends BaseTest {
     private LoginPage loginPage;
-    private FooterTest footerTest;
+    private Regular_User_FooterTest footerTest;
     @Ignore
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        footerTest = new FooterTest();
+        footerTest = new Regular_User_FooterTest();
         reachRslLoginPage();
     }
 

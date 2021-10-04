@@ -19,7 +19,6 @@ public class CollectionPlayerPage extends LpUiBasePage {
     private static final String POP_OUT_BUTTON = "#player-action-pop-out";
     private static final String HIDDEN_POP_OUT_BUTTON = "#player-action-pop-out[class$='hide']";
     private static final String ASSIGN_FOLDER_BUTTON = "#assign-to-student";
-    private static final String SHOW_OR_HIDE_NAVIGATOR_SLIDER = "#player-navigator [class='player-navigator-toggle']";
     private static final String CURRENT_POSITION_IN_LIST_TEXT = "#player-navigator div[class='player-navigator-position']";
     private static final String CLOSE_BUTTON = "[class='player-navigator-toggle'] [class*='close']";
     private static final String UP_ARROW_BUTTON = "[class='player-navigator-toggle'] [class*='fa-angle-up']";
@@ -31,28 +30,12 @@ public class CollectionPlayerPage extends LpUiBasePage {
         super(driver);
     }
 
-    public boolean isCollectionItemDisplayed() {
-        return isElementDisplayed(COLLECTION_ITEM);
-    }
-
-    public boolean isNextItemButtonDisplayed() {
-        return isElementDisplayed(NEXT_ITEM);
-    }
-
     public void clickOnNextItemButton() {
         clickElement(NEXT_ITEM);
     }
 
-    public boolean isPreviousButtonDisplayed() {
-        return isElementDisplayed(PREVIOUS_ITEM);
-    }
-
     public void clickOnPreviousButton() {
         clickElement(PREVIOUS_ITEM);
-    }
-
-    public boolean isLessonPlanetLogoDisplayed() {
-        return isElementDisplayed(LESSON_PLANET_LOGO);
     }
 
     public void clickOnLessonPlanetLogo() {
@@ -69,10 +52,6 @@ public class CollectionPlayerPage extends LpUiBasePage {
 
     public void clickOnHenryLogo() {
         clickElement(HENRY_LOGO);
-    }
-
-    public boolean isDownloadButtonDisplayed() {
-        return isElementDisplayed(DOWNLOAD_BUTTON);
     }
 
     public boolean isDownloadButtonHidden() {
@@ -107,10 +86,6 @@ public class CollectionPlayerPage extends LpUiBasePage {
         waitUntilElementIsHidden(CLOSE_BUTTON, TestData.LONG_TIMEOUT);
     }
 
-    public boolean isCloseButtonDisplayed() {
-        return isElementDisplayed(CLOSE_BUTTON);
-    }
-
     public void clickOnCloseButton() {
         clickElement(CLOSE_BUTTON);
     }
@@ -119,16 +94,8 @@ public class CollectionPlayerPage extends LpUiBasePage {
         return isElementDisplayed(CURRENT_POSITION_IN_LIST_TEXT);
     }
 
-    public boolean isAssignFolderButtonDisplayed() {
-        return isElementDisplayed(ASSIGN_FOLDER_BUTTON);
-    }
-
     public void clickAssignFolderButton(){
         clickElement(ASSIGN_FOLDER_BUTTON);
-    }
-
-    public boolean isCollectionItemsListDisplayed() {
-        return isElementDisplayed(COLLECTION_ITEMS_LIST);
     }
 
     public List<WebElement> getCollectionItemsList() {
@@ -147,5 +114,37 @@ public class CollectionPlayerPage extends LpUiBasePage {
 
     public String getCollectionItemType(WebElement collectionItem) {
         return findElements(collectionItem, COLLECTION_ITEMS_TYPE).get(0).getText();
+    }
+
+    public boolean isDownloadButtonDisplayed() {
+        return isElementDisplayed(DOWNLOAD_BUTTON);
+    }
+
+    public boolean isLessonPlanetLogoDisplayed() {
+        return isElementDisplayed(LESSON_PLANET_LOGO);
+    }
+
+    public boolean isCollectionItemDisplayed() {
+        return isElementDisplayed(COLLECTION_ITEM);
+    }
+
+    public boolean isNextItemButtonDisplayed() {
+        return isElementDisplayed(NEXT_ITEM);
+    }
+
+    public boolean isPreviousButtonDisplayed() {
+        return isElementDisplayed(PREVIOUS_ITEM);
+    }
+
+    public boolean isCollectionItemsListDisplayed() {
+        return isElementDisplayed(COLLECTION_ITEMS_LIST);
+    }
+
+    public boolean isAssignFolderButtonDisplayed() {
+        return isElementDisplayed(ASSIGN_FOLDER_BUTTON);
+    }
+
+    public boolean isCloseButtonDisplayed() {
+        return isElementDisplayed(CLOSE_BUTTON);
     }
 }

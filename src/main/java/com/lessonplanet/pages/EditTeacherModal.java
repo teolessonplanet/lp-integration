@@ -13,7 +13,6 @@ public class EditTeacherModal extends EditDistrictModal {
     private static final String PUBLISH_CHECKBOX = "[name='publisher']";
     private static final String CURRICULUM_LEAD_CHECKBOX = "[name='site_license_curriculum_lead']";
     private static final String PUBLISH_OPTION_TEXT = "[class='form-group publishing'] div div";
-    private static final String CURRICULUM_LEAD_OPTION_TEXT = "[class='form-group publishing'] div div:nth-child(3)";
 
     public EditTeacherModal(WebDriver driver) {
         super(driver);
@@ -88,14 +87,6 @@ public class EditTeacherModal extends EditDistrictModal {
     public boolean isCurriculumLeadCheckboxChecked() {
         waitForModal();
         return getElementAttribute(CURRICULUM_LEAD_CHECKBOX, "checked", 0).equals("true");
-    }
-
-    public boolean isCurriculumLeadCheckboxDisplayed() {
-        return isElementDisplayed(CURRICULUM_LEAD_CHECKBOX);
-    }
-
-    public String getCurriculumLeadOptionText() {
-        return getTextForElement(CURRICULUM_LEAD_OPTION_TEXT);
     }
 
     public void clickCurriculumLeadCheckbox() {

@@ -8,7 +8,7 @@ import util.TestData;
 public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
+    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpModal rrpModal;
     private DiscoverResourcesPage discoverResourcesPage;
@@ -18,7 +18,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        directoryCategoriesAndSubcategoriesPageTest = new DirectoryCategoriesAndSubcategoriesPageTest();
+        directoryCategoriesAndSubcategoriesPageTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         createNewFolderModal = new CreateNewFolderModal(webDriver);
@@ -80,7 +80,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     protected void testPageUi(String account) {
         initDirectoryTestAndLogin(account);
-        directoryCategoriesAndSubcategoriesPageTest.testPageUi(account);
+        directoryCategoriesAndSubcategoriesPageTest.testPageUi();
     }
 
     protected void testResourceTiles(String account) {
@@ -119,10 +119,10 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         createNewFolderModal.waitForModal();
         createNewFolderModal.typeName(TestData.GET_NEW_EMAIL());
         createNewFolderModal.clickOnCreateFolderButton();
-        Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
+        Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_NOTIFICATION_TEXT));
         if (!rrpModal.isFavoriteButtonDisabledDisplayed()) {
             rrpModal.clickOnFavoriteButton();
-            Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_MESSAGE));
+            Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FAVORITES_NOTIFICATION_TEXT));
         }
     }
 
@@ -146,7 +146,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
                 Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
                 limitedResourceAccessModal.clickOnSaveButton();
             }
-            //  Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER));
+              //Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER_NOTIFICATION_TEXT));
         }
 
         collectionRrpModal.clickPlayCollectionButton();

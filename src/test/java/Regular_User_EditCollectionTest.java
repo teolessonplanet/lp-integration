@@ -5,9 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class EditCollectionTest extends BaseTest {
+public class Regular_User_EditCollectionTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
-    private CurriculumManagerPageTest curriculumManagerTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerTest;
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
@@ -15,7 +15,7 @@ public class EditCollectionTest extends BaseTest {
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
     private BrowseBySubjectPage browseBySubjectPage;
-    private RrpSearchPageTest rrpSearchPageTest;
+    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
     private ReplaceExistingFolderModal replaceExistingFolderModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private PublishedFolderModal publishedFolderModal;
@@ -23,7 +23,7 @@ public class EditCollectionTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        curriculumManagerTest = new CurriculumManagerPageTest();
+        curriculumManagerTest = new Regular_User_CurriculumManagerPageTest();
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
@@ -31,7 +31,7 @@ public class EditCollectionTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        rrpSearchPageTest = new RrpSearchPageTest();
+        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
         replaceExistingFolderModal = new ReplaceExistingFolderModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         publishedFolderModal = new PublishedFolderModal(webDriver);
@@ -364,7 +364,7 @@ public class EditCollectionTest extends BaseTest {
 
     public void testNavigateFolderDropdown(String folderName) {
         editCollectionPage.clickNavigateFolderDropdown();
-        Assert.assertEquals(editCollectionPage.getNavigateFolderTitle(), "My Resources");
+        Assert.assertEquals(editCollectionPage.getNavigateFolderTitle(), TestData.MY_RESOURCES_PAGE_TITLE);
         Assert.assertTrue(editCollectionPage.isActiveFolderDisplayed());
         Assert.assertEquals(editCollectionPage.getActiveFolderTitle(), folderName);
     }

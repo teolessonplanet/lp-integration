@@ -5,13 +5,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class CalendarPageTest extends BaseTest {
+public class Regular_User_CalendarPageTest extends BaseTest {
     private CalendarPage calendarPage;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private LpHomePage lpHomePage;
-    private LoginPage loginPage;
-    private  StepTwoPage stepTwoPage;
+    private StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -19,7 +18,6 @@ public class CalendarPageTest extends BaseTest {
         headerPage = new HeaderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         lpHomePage = new LpHomePage(webDriver);
-        loginPage = new LoginPage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -33,7 +31,7 @@ public class CalendarPageTest extends BaseTest {
         testCurriculumCalendarPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Calendar Page - lessonp-5259:Buttons/Links")
+    @Test(description = "Free Member - Calendar Page - lessonp-5259:Buttons/Links")
     public void testLessonp_5259() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCurriculumCalendarPage(TestData.PLAN_FREEMIUM);

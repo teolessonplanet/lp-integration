@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccountManagementTest extends BaseTest {
+public class Regular_User_AccountManagementTest extends BaseTest {
     private static final int expectedDaysToExpire = 11;
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
@@ -21,7 +21,7 @@ public class AccountManagementTest extends BaseTest {
     private BecomeALessonPlanetFreeMemberModal becomeALessonPlanetFreeMemberModal;
     private FreeMemberLimitedAccessModal freeMemberLimitedAccessModal;
     private ThanksForJoiningModal thanksForJoiningModal;
-    private StepTwoTest stepTwoTest;
+    private Regular_User_StepTwoTest stepTwoTest;
     private MyAccountPage myAccountPage;
     private CustomMembershipPage customMembershipPage;
     private StepOnePage stepOnePage;
@@ -35,14 +35,13 @@ public class AccountManagementTest extends BaseTest {
     private TestimonialsPage testimonialsPage;
     private WhatMembersSayWidget whatMembersSayWidget;
     private ContactUsPage contactUsPage;
-    private FAQPage faqPage;
     private EditCollectionModal editCollectionModal;
     private CollectionRrpModal collectionRrpModal;
     private RrpPage rrpPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
     private UpgradeAssignModal upgradeAssignModal;
-    private CurriculumManagerPageTest curriculumManagerTest;
+    private Regular_User_CurriculumManagerPageTest curriculumManagerTest;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -67,14 +66,13 @@ public class AccountManagementTest extends BaseTest {
         testimonialsPage = new TestimonialsPage(webDriver);
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         contactUsPage = new ContactUsPage(webDriver);
-        faqPage = new FAQPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
-        curriculumManagerTest = new CurriculumManagerPageTest();
+        curriculumManagerTest = new Regular_User_CurriculumManagerPageTest();
     }
 
     public void reachAccountManagementPage(WebDriver webDriver) {
@@ -107,7 +105,7 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Create a Free Member account - lessonp-693: Quitting Step 2 registration process")
     public void testLessonp_693() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.goBackOnePage();
         Assert.assertEquals(headerPage.getUpgradeMeButtonBackgroundColor(), TestData.TRY_IT_FREE_BUTTON_BACKGROUND_COLOR);
@@ -117,7 +115,7 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Create a Free Member account - lessonp-694: After membership is canceled")
     public void testLessonp_694() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -153,12 +151,6 @@ public class AccountManagementTest extends BaseTest {
     @Test(description = "Account management - Downgrade - lessonp-948: From Pro membership")
     public void testLessonp_948() {
         testDowngrade(TestData.PLAN_PRO, TestData.PLAN_STARTER);
-    }
-
-    @Ignore
-    @Test(description = "Account management - Downgrade - lessonp-947: From Prime membership")
-    public void testLessonp_947() {
-//        testDowngrade(TestData.PLAN_PRIME, TestData.PLAN_STARTER);
     }
 
     @Test(description = "Account management - Downgrade - lessonp-683: From Starter membership")
@@ -225,7 +217,7 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Pro membership - lessonp-673: No upgrade possible (Pro $72)")
     public void testLessonp_673() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_PRO);
 
@@ -240,7 +232,7 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-675: From Search page")
     public void testLessonp_675() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -254,7 +246,7 @@ public class AccountManagementTest extends BaseTest {
 
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-676: From My Account page")
     public void testLessonp_676() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -270,7 +262,7 @@ public class AccountManagementTest extends BaseTest {
     @Ignore
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-677: From the Assign modal")
     public void testLessonp_677() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -296,7 +288,7 @@ public class AccountManagementTest extends BaseTest {
     @Ignore
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page")
     public void testLessonp_678() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -305,14 +297,13 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
-//        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
 
     @Ignore
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-679: From My Account page")
     public void testLessonp_679() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -321,7 +312,6 @@ public class AccountManagementTest extends BaseTest {
 
         Assert.assertEquals(manageMembershipPage.getNumberOfDisplayedOffers(), 3);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.STARTER_OPTION_TEXT);
-//        Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRIME_OPTION_TEXT);
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(2), TestData.PRO_OPTION_TEXT);
     }
 
@@ -329,7 +319,7 @@ public class AccountManagementTest extends BaseTest {
     @Ignore
     @Test(description = "Account management - Upgrade a Starter membership - lessonp-680: From the Assign modal")
     public void testLessonp_680() {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
         stepTwoPage.completeStepTwoPageWith(TestData.PLAN_STARTER);
 
@@ -355,7 +345,7 @@ public class AccountManagementTest extends BaseTest {
     }
 
     private void testDowngrade(String subscriptionToTest, String lowerSubscription) {
-        stepTwoTest = new StepTwoTest();
+        stepTwoTest = new Regular_User_StepTwoTest();
         stepTwoTest.initAndReachStepTwoPage(webDriver);
 
         stepTwoPage.completeStepTwoPageWith(subscriptionToTest);

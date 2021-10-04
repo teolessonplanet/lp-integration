@@ -247,36 +247,6 @@ public class HeaderPage extends LpUiBasePage {
         return getBackgroundColor(UPGRADE_ME_BUTTON);
     }
 
-    public boolean isSearchBarDisplayed() {
-        return isElementDisplayed(SEARCH_INPUT) &&
-            isElementDisplayed(SEARCH_BUTTON) &&
-            isElementDisplayed(SEARCH_FILTER);
-    }
-
-    public boolean isDiscoverDropdownDisplayed() {
-        return isElementDisplayed(DISCOVER_BUTTON);
-    }
-
-    public boolean isSolutionDropdownDisplayed() {
-        return isElementDisplayed(SOLUTIONS_BUTTON);
-    }
-
-    public boolean isAboutDropdownDisplayed() {
-        return isElementDisplayed(ABOUT_BUTTON);
-    }
-
-    public boolean isPricingButtonDisplayed() {
-        return isElementDisplayed(PRICING_BUTTON);
-    }
-
-    public boolean isTryItFreeButtonDisplayed() {
-        return isElementDisplayed(TRY_IT_FREE_BUTTON);
-    }
-
-    public boolean isMyAccountDropdownDisplayed() {
-        return isElementDisplayed(MY_ACCOUNT_BUTTON);
-    }
-
     public String getSearchBoxPlaceholder() {
         return findElement(SEARCH_INPUT).getAttribute("placeholder");
     }

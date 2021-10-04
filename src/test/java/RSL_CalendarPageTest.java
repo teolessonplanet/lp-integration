@@ -7,12 +7,12 @@ import util.TestData;
 public class RSL_CalendarPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private CalendarPageTest calendarPageTest;
+    private Regular_User_CalendarPageTest calendarPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        calendarPageTest = new CalendarPageTest();
+        calendarPageTest = new Regular_User_CalendarPageTest();
     }
 
     protected void initTest(WebDriver webDriver) {

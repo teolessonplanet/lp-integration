@@ -1,25 +1,28 @@
-import com.lessonplanet.pages.*;
+import com.lessonplanet.pages.ArticlesPage;
+import com.lessonplanet.pages.HeaderPage;
+import com.lessonplanet.pages.LpHomePage;
+import com.lessonplanet.pages.StepTwoPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class ArticlesPageTest extends BaseTest {
+public class Regular_User_ArticlesPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private ArticlesPage articlesPage;
-    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
-    private RrpSearchPageTest rrpSearchPageTest;
+    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
+    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
     private StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
         headerPage = new HeaderPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
-        directoryCategoriesAndSubcategoriesTest = new DirectoryCategoriesAndSubcategoriesPageTest();
+        directoryCategoriesAndSubcategoriesTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        rrpSearchPageTest = new RrpSearchPageTest();
+        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
     }
 
     @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
@@ -27,7 +30,7 @@ public class ArticlesPageTest extends BaseTest {
         testArticlesMainPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Lesson Planet Articles - lessonp-5256: Articles Main Page")
+    @Test(description = "Free Member - Lesson Planet Articles - lessonp-5256: Articles Main Page")
     public void testLessonp_5256() {
         testArticlesMainPage(TestData.PLAN_FREEMIUM);
     }
@@ -42,7 +45,7 @@ public class ArticlesPageTest extends BaseTest {
         testArticlesPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Lesson Planet Articles -  lessonp-5255: Article Page")
+    @Test(description = "Free Member - Lesson Planet Articles -  lessonp-5255: Article Page")
     public void testLessonp_5255() {
         testArticlesPage(TestData.PLAN_FREEMIUM);
     }

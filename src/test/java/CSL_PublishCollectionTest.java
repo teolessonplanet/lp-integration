@@ -5,12 +5,12 @@ import util.TestData;
 
 public class CSL_PublishCollectionTest extends BaseTest {
     private LoginPage loginPage;
-    private PublishCollectionTest publishCollectionTest;
+    private Regular_User_PublishCollectionTest publishCollectionTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        publishCollectionTest = new PublishCollectionTest();
+        publishCollectionTest = new Regular_User_PublishCollectionTest();
     }
 
     @Test(description = "Custom SL - Publish Collection - lessonp-6133: With LP Resources")

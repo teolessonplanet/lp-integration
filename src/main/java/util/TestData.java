@@ -27,7 +27,6 @@ public class TestData {
     public static final String STEP_ONE_PAGE_PATH = "subscription/new";
     public static final String STEP_TWO_PAGE_PATH = "subscription/new";
     public static final String LOGIN_PAGE_PATH = "auth/users/sign_in";
-    public static final String SUBSCRIPTION_SUCCESS_PATH = "subscription/success";
     public static final String MY_ACCOUNT_PAGE_PATH = "profile/account";
     public static final String DISCOVER_RESOURCES_PAGE_PATH = "search";
     public static final String MANAGE_MEMBERSHIP_PAGE_PATH = "subscription/edit";
@@ -35,6 +34,39 @@ public class TestData {
     public static final String CURRICULUM_MANAGER_PATH = "my/curriculum_manager";
     public static final String CURRICULUM_PLAYER_PATH = "/player";
     public static final String SEARCH_PAGE_SHARED_RESOURCES_PATH = "search?provider_ids[]=1&layout=thumbnail&type_ids[]=357927&subject_ids[]=196";
+
+    //Notifications
+    public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
+    public static final String IMAGES_ADDED_NOTIFICATION_TEXT = "Images added to collection.";
+    public static final String IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT = "Image already in collection";
+    public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Folder has been added to";
+    public static final String FOLDER_NOT_PUBLISHED_NOTIFICATION_TEXT = "This folder has not been published.";
+    public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER_NOTIFICATION_TEXT = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
+    public static final String REMOVED_FAVORITE_RESOURCE_NOTIFICATION_TEXT = "was removed from \"My Favorites\"";
+    public static final String CREATED_NOTIFICATION_TEXT = "was created";
+    public static final String COPIED_NOTIFICATION_TEXT = "was copied";
+    public static final String REMOVED_NOTIFICATION_TEXT = "was removed";
+    public static final String MOVED_NOTIFICATION_TEXT = "was moved";
+    public static final String SHARED_NOTIFICATION_TEXT = "is now shared.";
+    public static final String LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT = "You can't add more than 10 images at once";
+    public static final String ADD_RESOURCE_NOTIFICATION_TEXT = "Resource is currently being processed\n" + "×";
+    public static final String UPDATE_RESOURCE_NOTIFICATION_TEXT = "Resource was successfully updated\n" + "×";
+    public static final String REMOVE_RESOURCE_NOTIFICATION_TEXT = "Resource scheduled for removal\n" + "×";
+    public static final String ADD_DISTRICT_ADMIN_ROSTER_ON_NOTIFICATION_TEXT = "You cannot add admins to an organization if they're not a teacher first";
+    public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
+    public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
+    public static final String CREATED_SCHOOL_NOTIFICATION_TEXT = "has been added to your district.";
+    public static final String REMOVED_SCHOOL_NOTIFICATION_TEXT = "was removed from your district";
+    public static final String CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "has been added as a District Admin";
+    public static final String REMOVED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "is no longer a District Admin";
+    public static final String CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "has been added as a School Admin";
+    public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is no longer a School Admin";
+    public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
+    public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
+    public static final String RESOURCE_ADDED_TO_FOLDER_NOTIFICATION_TEXT = "Resource(s) added to your folder. Click here to Edit your Folder.";
+    public static final String RESOURCE_ADDED_TO_FAVORITES_NOTIFICATION_TEXT = "This resource review was added to your Favorites. Click here to view your Favorites.";
+    public static final String INVALID_LOGIN_OR_PASSWORD_NOTIFICATION_TEXT = "Invalid login or password.";
+    public static final String INVALID_EMAIL_NOTIFICATION_TEXT = "Please provide a valid email address.";
 
     //Collection Builder
     public static final String EXISTING_RESOURCE_COLLECTION_ERROR_TEXT = "Resource already in collection";
@@ -57,10 +89,6 @@ public class TestData {
     public static final String[] MONTH = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     public static final String[] KEYWORD = {"", "Creativity", "Black History", "Women's History", "Poetry", "Mental Health", "Dairy", "Watermelon", "Immunization", "Hispanic Heritage", "Bullying", "Native Americans", "Human Rights"};
 
-    //Publish Modal
-    public static final String PRIVATE_DOCUMENTS_MODAL_TITLE_TEXT = "Private Documents";
-    public static final String PUBLISH_FOLDER_WITH_FOLDER_MODAL_TEXT = "This Folder contains other Folder items, which are currently not supported with publishing. Select “Continue” to publish the folder without these items.";
-
     //Articles Page
     public static final String LESSON_PLANNING_ARTICLES_TITLE = "Lesson Planning Articles";
     public static final String ART_AND_MUSIC_TOPIC_PATH = "articles/art-and-music";
@@ -73,26 +101,16 @@ public class TestData {
     public static final String LIMITED_RESOURCE_ACCESS_MODAL_TEXT = "Your access is limited to";
 
     //Edit collection
-    public static final String EDIT_COLLECTION_TITLE = "Edit Folder";
-    public static final String CREATE_A_NEW_COLLECTION_TITLE = "Create a New Collection";
     public static final String PIXABAY_IMAGE_TITLE = "Mango";
     public static final String PAGE_TITLE = "Page Title";
-    public static final String UPDATED_NOTIFICATION_TEXT = "was successfully updated.";
-    public static final String IMAGES_ADDED_NOTIFICATION_TEXT = "Images added to collection.";
-    public static final String LIMIT_ALERT_PIXABAY_NOTIFICATION_TEXT = "You can't add more than 10 images at once";
-    public static final String IMAGE_ALREADY_IN_COLLECTION_NOTIFICATION_TEXT = "Image already in collection";
     public static final String PIXABAY_IMAGE_LINK = "https://pixabay.com/";
     public static final String LEARN_MORE_LINK = "https://pixabay.com/service/faq/";
-    public static final String CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT = "Folder has been added to";
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
-    public static final String FOLDER_NOT_PUBLISHED_TEXT = "This folder has not been published.";
     public static final String FOLDER_DEFAULT_STATUS = "This folder is private";
     public static final String FOLDER_PUBLISHED_STATUS_TEXT = "A version of it was published on ";
     public static final String FOLDER_CHANGES_SAVED_TEXT = "Changes saved";
-    public static final String EDIT_FOLDER_UPGRADE_UPLOAD_TEXT = "Upgrade your membership  to upload your original curriculum to Lesson Planet.\n" +
-        "Uploaded files can be managed and shared in My Resources.";
 
     //Add a Resource
     public static final String ADD_A_RESOURCE_PATH = "/content-tool/resources/new";
@@ -118,9 +136,6 @@ public class TestData {
     public static final String ADD_ADDITIONAL_INFO_TITLE = "Add Additional Info";
     public static final String UPLOADED_FILE_TITLE_TEXT = "test-upload-file.png";
     public static final String THUMBNAIL_IMAGE_URL = "https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-    public static final String ADD_RESOURCE_NOTIFICATION = "Resource is currently being processed\n" + "×";
-    public static final String UPDATE_RESOURCE_NOTIFICATION = "Resource was successfully updated\n" + "×";
-    public static final String REMOVE_RESOURCE_NOTIFICATION = "Resource scheduled for removal\n" + "×";
     public static final String NGSS_STANDARDS = "PS2";
     public static final String NGSS_STANDARDS_PLACEHOLDER_TEXT = "Select NGSS identifiers";
     public static final String CCSS_STANDARDS = "CCRA.R.1";
@@ -166,15 +181,7 @@ public class TestData {
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
     public static final String ASSIGN_RESOURCE_MODAL_TEXT = "Resource Player to students or share with colleagues, please enter a case-sensitive access key below";
     public static final String ASSIGN_FOLDER_PLAYER_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below.";
-
     public static final String ASSIGN_FOLDER_MODAL_TEXT = "Folder Player to students or share with colleagues, please enter a case-sensitive access key below";
-    public static final String RESOURCE_ADDED_TO_FOLDER_MESSAGE = "Resource(s) added to your folder. Click here to Edit your Folder.";
-    public static final String RESOURCE_ADDED_TO_FAVORITES_MESSAGE = "This resource review was added to your Favorites. Click here to view your Favorites.";
-    public static final String COLLECTION_ADDED_TO_CURRICULUM_MANAGER = "This Collection was added to your Curriculum Manager. Click here to view and remix this Collection.";
-    public static final String REMOVED_FAVORITE_RESOURCE_MESSAGE = "was removed from \"My Favorites\"";
-    public static final String CREATED_MESSAGE = "was created";
-    public static final String COPIED_MESSAGE = "was copied";
-    public static final String REMOVED_MESSAGE = "was removed";
     public static final String ZERO_RESOURCES = "(0)";
     public static final String ONE_RESOURCES = "(1)";
     public static final String TWO_RESOURCES = "(2)";
@@ -213,13 +220,12 @@ public class TestData {
     public static final String CONCEPT = "Articles";
     public static final String ADDITIONAL_TAGS = "auto";
     public static final String[] FOLDER_TYPE = {"Collection", "Curriculum Set", "Chapter", "Lesson", "Assessment Set", "Unit Module", "Course Folder", "Root Folder"};
-    public static final String MOVED_MESSAGE = "was moved";
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
     public static final int CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS = 20;
+    public static final String PLEASE_CREATE_COLLECTION_TEXT = "please create a folder in My Resources";
 
     public static final String SHARED_FOLDER_NAME = "Shared Folder";
     public static final String SHARED_WITH_ME_PAGE_PERMISSION_VIEW_ONLY = "View only";
-    public static final String SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT = "is now shared.";
     public static final String SHARED_WITH_ME_PAGE_EMPTY_TEXT = "When resources are shared with you, they will be listed here";
     public static final String SHARED_WITH_ME_PAGE_PATH = "my/shared_with_me/by_users";
     public static final String SHARED_WITH_ME_PAGE_FOLDER_STATUS = "Shared by";
@@ -270,8 +276,6 @@ public class TestData {
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
     public static final String VALID_EMAIL_CSL_COBB = "i_o_csl_cobb@lp.com";
-    public static final String INVALID_LOGIN_OR_PASSWORD_MESSAGE = "Invalid login or password.";
-    public static final String INVALID_EMAIL_MESSAGE = "Please provide a valid email address.";
 
     public static final String PLAN_VISITOR = "visitor";
     public static final String PLAN_FREEMIUM = "freemium";
@@ -304,11 +308,9 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES = "Graphics & Images";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_VIDEOS = "Videos";
     public static final String FACET_CATEGORY_SUBJECTS_CLASSROOM_SUPPORT = "Classroom Support";
-    public static final String FACET_CATEGORY_SUBJECTS_WORLD_LANGUAGES = "World Languages";
 
     public static final String RESOURCE_TYPE_PRESENTATION = "Presentation";
     public static final String RESOURCE_TYPE_VIDEO = "Video";
-    public static final String RESOURCE_TYPE_AP_TEST_PREP = "AP Test Prep";
     public static final String RESOURCE_TYPE_GRAPHICS_AND_IMAGE = "Graphics & Image";
     public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
@@ -342,14 +344,12 @@ public class TestData {
     public static final String ADD_SCHOOLS_ROSTER_ON_BUTTON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school.";
     public static final String ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new teacher.";
     public static final String ADD_SCHOOL_ADMIN_BUTTON_ROSTER_ON_POPOVER_TEXT = "Automated rostering is enabled. Please contact your system administrator to add a new school admin.";
-    public static final String ADD_DISTRICT_ADMIN_ROSTER_ON_NOTIFICATION_TEXT = "You cannot add admins to an organization if they're not a teacher first";
     public static final String STAR_ICON_ROSTER_ON_POPOVER_TEXT = "This user was individually added to this list by an administrator, not as part of an automatic roster update.";
     public static final String RSL_LAGUNA_SCHOOL_NAME = "Laguna Blanca School";
     public static final String RSL_LAGUNA_SCHOOL_EXISTING_TEACHER_EMAIL = "i_t_rsl_laguna@lp.com";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME = "Stephen";
     public static final String RSL_LAGUNA_SCHOOL_TEACHER_LAST_NAME = "Carl";
     public static final String RSL_LAGUNA_SCHOOL_OWNER_FIRST_NAME = "Abbey";
-    public static final String RSL_LAGUNA_SCHOOL_LAST_NAME = "Lilian";
     public static final String RSL_SBCEO_DISTRICT_NAME = "SBCEO";
     public static final String RSL_SBCEO_EXISTING_SCHOOL_NAME = "All SBCEO";
     public static final String RSL_SBCEO_EXISTING_TEACHER_EMAIL = "i_t_rsl_sbceo@lp.com";
@@ -389,7 +389,6 @@ public class TestData {
     public static final String ADMIN_ROLE = "Admin";
     public static final String OWNER_ROLE = "Owner";
     public static final String PUBLISHER_ROLE = "Publisher";
-    public static final String CURRICULUM_LEAD_ROLE = "Curriculum Lead";
     public static final String MANAGE_DISTRICT_ADMINS_TITLE = "Manage District Admins";
     public static final String MANAGE_SCHOOL_ADMINS_TITLE = "Manage School Admins";
     public static final String UNREGISTERED_TEACHER_STATUS = "Not Active";
@@ -408,27 +407,12 @@ public class TestData {
     public static final String EXISTING_USER_ANOTHER_SL_ERROR_TEXT = "User present in another site license";
     public static final String EXISTING_DISTRICT_ADMIN_ERROR_TEXT = "The user is already a District Admin";
     public static final String VALID_EMAIL_FORMAT_ERROR_TEXT = "Please enter a valid email";
-    public static final String NO_TEACHER_ADDED_NOTIFICATION_TEXT = "Welcome to School Edition. Let's get started by adding the first Teacher to your School";
-    public static final String NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT = "This school doesn't have a School Admin assigned. To assign one, please click here";
-    public static final String CREATED_SCHOOL_NOTIFICATION_TEXT = "has been added to your district.";
-    public static final String REMOVED_SCHOOL_NOTIFICATION_TEXT = "was removed from your district";
-    public static final String CREATED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "has been added as a District Admin";
-    public static final String REMOVED_DISTRICT_ADMIN_NOTIFICATION_TEXT = "is no longer a District Admin";
-    public static final String CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "has been added as a School Admin";
-    public static final String REMOVED_SCHOOL_ADMIN_NOTIFICATION_TEXT = "is no longer a School Admin";
-    public static final String CREATED_TEACHER_NOTIFICATION_TEXT = "has been added to your school";
-    public static final String REMOVED_TEACHER_NOTIFICATION_TEXT = "was removed from your school";
     public static final String ADMIN_PUBLISH_SCHOOL_OPTION_TEXT = "All admins in this school are also Publishers";
     public static final String TEACHER_PUBLISH_SCHOOL_OPTION_TEXT = "All teachers in this school are also Publishers";
     public static final String ADMIN_PUBLISH_DISTRICT_OPTION_TEXT = "All admins in this district are also Publishers";
     public static final String TEACHER_PUBLISH_DISTRICT_OPTION_TEXT = "All teachers in this district are also Publishers";
 
-    public static final String STEP_ONE_PAGE_TITLE = "Ready to start your Free 10 Days?";
     public static final String STEP_ONE_MODAL_TITLE = "Discover 2.5 Million\n" + "Teacher Reviewed Resources";
-
-    //Step 2
-    public static final String SELECTED_TEXT = "Selected";
-    public static final String SELECT_TEXT = "Select";
 
     public static final String STARTER_OPTION_TEXT = "Starter";
     public static final String PRO_OPTION_TEXT = "Pro";
@@ -436,13 +420,6 @@ public class TestData {
     public static final String INVALID_CARD_NUMBER_ERROR_MESSAGE = "Please enter a valid credit card number";
     public static final String INVALID_CARD_EXPIRATION_ERROR_MESSAGE = "Please enter a valid expiration date";
     public static final String INVALID_CARD_CVV_ERROR_MESSAGE = "Please enter a valid security code";
-    private static final String BILLING_TERMS_MESSAGE = "By clicking the Get Your Risk-Free Trial button, I agree to the Lesson Planet Terms of Use. To ensure your full, uninterrupted access to Lesson Planet, your credit card will be charged the 12-Month ($%s/mo.) %s Membership price of $%s after your risk-free 10-Day Free Trial. Your membership comes with convenient automatic renewal at $%s on your anniversary date. You may cancel at any time via Contact Us.";
-    private static final String STARTER_MONTHLY = "2";
-    private static final String STARTER_ANNUALLY = "24";
-    private static final String PRIME_MONTHLY = "3";
-    private static final String PRIME_ANNUALLY = "36";
-    private static final String PRO_MONTHLY = "6";
-    private static final String PRO_ANNUALLY = "72";
     public static final String STEP_TWO_TITLE_MESSAGE = "Select Your Membership";
 
     public static final String THANK_YOU_FOR_UPDATING_TEXT = "Thank you for updating your profile! Enjoy using Lesson Planet.";
@@ -512,12 +489,6 @@ public class TestData {
         return cal.get(Calendar.YEAR);
     }
 
-    public static String getCurrentDateWithTimezone() {
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("America/Los_Angeles"));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
-        return dateFormat.format(cal.getTime());
-    }
-
     //Search data
     public static final String VALID_SEARCH_WORD = "math";
     public static final String INVALID_SEARCH_WORD = "maeybdhth";
@@ -525,7 +496,6 @@ public class TestData {
     public static final String INVALID_SEARCH_MESSAGE = "We found 0 reviewed resources for " + INVALID_SEARCH_WORD;
     public static final int ZERO_RESOURCES_FOUND = 0;
     public static final String SEARCH_MESSAGE = "reviewed resources for ";
-    public static final String VALID_SEARCH_MESSAGE = "We found %s reviewed resources for " + VALID_SEARCH_WORD;
     public static final String SEARCH_MESSAGE_FOUND_1 = "We found ";
     public static final String SEARCH_MESSAGE_FOUND_2 = " resources for ";
     public static final String SUGGESTIONS_BLOCK_MESSAGE = "Suggestions\nTry more general keywords\nClear all selections";
@@ -542,7 +512,6 @@ public class TestData {
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
     public static final String COPYRIGHT_TEXT = "© 1999-2021 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
     public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2021 Learning Explorer";
-    public static final String LEARNING_EXPLORER_PRIVACY_POLICY_URL = "https://www.learningexplorer.com/privacy-policy/";
     public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms";
     public static final String LEARNING_EXPLORER_HELP_URL = "https://www.learningexplorer.com/help-center?admin";
 
@@ -594,9 +563,7 @@ public class TestData {
     public static final String HEALTH_PAGE_PATH = "lesson-plans/health";
     public static final String DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH = "lesson-plans/developmental-and-behavioral-disorders";
     public static final String LANGUAGE_ARTS_PAGE_PATH = "lesson-plans/language-arts";
-    public static final String LANGUAGE_ARTS_RESEAERCH_PAGE_2_PATH = "lesson-plans/research/2";
     public static final String SOCIAL_AND_EMOTIONAL_LEARNING_PATH = "lesson-plans/social-and-emotional-learning";
-    public static final String LITERATURE_PAGE_PATH = "lesson-plans/literature";
     public static final String LANGUAGES_PAGE_PATH = "lesson-plans/languages";
     public static final String MATH_PAGE_PATH = "lesson-plans/math";
     public static final String PHYSICAL_EDUCATION_PAGE_PATH = "lesson-plans/physical-education";
@@ -684,10 +651,6 @@ public class TestData {
     public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
 
     public static final String FEEDBACKS_PAGE_PATH = "feedbacks/new";
-
-    public static final String PAGINATION_FIRST_PAGE_PATH = "";
-    public static final String PAGINATION_SECOND_PAGE_PATH = "/2";
-    public static final String PAGINATION_ALL_ITEMS_PATH = "/all";
 
     public static final String ENGLISH_LANGUAGE_ARTS_PAGE_PATH = "standards/common-core/english-language-arts";
     public static final String MATHEMATICS_PAGE_PATH = "standards/common-core/mathematics";
@@ -786,7 +749,6 @@ public class TestData {
 
     public static final String INCORRECT_ACCESS_KEY_MESSAGE_TEXT = "Sorry, this access key is incorrect. Need help?";
 
-    public static final String HOMEPAGE_GET_STARTED_BUTTON_TEXT = "Get Started";
     public static final String HOMEPAGE_START_SEARCHING_BUTTON_TEXT = "Start Searching";
     public static final String HOMEPAGE_WATCH_VIDEO_BUTTON_TEXT = "Watch Video";
     public static final String HOMEPAGE_DISCOVER_TAB_TEXT = "Discover";

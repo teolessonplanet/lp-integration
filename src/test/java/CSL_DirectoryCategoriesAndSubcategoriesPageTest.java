@@ -6,13 +6,13 @@ import util.TestData;
 public class CSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     private LoginPage loginPage;
     private RSL_DirectoryCategoriesAndSubcategoriesPageTest rsl_directoryCategoriesAndSubcategoriesPageTest;
-    private DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
+    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
 
     @BeforeMethod
     private void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest = new RSL_DirectoryCategoriesAndSubcategoriesPageTest();
-        directoryCategoriesAndSubcategoriesPageTest = new DirectoryCategoriesAndSubcategoriesPageTest();
+        directoryCategoriesAndSubcategoriesPageTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
     }
 
     @Test(description = "Custom SL - Directory Page - Categories and subcategories - lessonp-1730: Page UI")

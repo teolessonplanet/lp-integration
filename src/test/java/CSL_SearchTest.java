@@ -14,7 +14,7 @@ public class CSL_SearchTest extends BaseTest {
     private RSL_SearchTest rsl_searchTest;
     private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private SearchTest searchTest;
+    private Regular_User_SearchTest searchTest;
     private Rrp rrp;
 
     @BeforeMethod
@@ -23,7 +23,7 @@ public class CSL_SearchTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         rrp = new Rrp(webDriver);
-        searchTest = new SearchTest();
+        searchTest = new Regular_User_SearchTest();
     }
 
     public void initTest(WebDriver webDriver) {

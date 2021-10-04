@@ -5,7 +5,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class SignupTest extends BaseTest {
+public class Regular_User_SignupTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private StepOneModal stepOneModal;
@@ -30,11 +30,6 @@ public class SignupTest extends BaseTest {
         testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3850:Create a Prime Account - Try it Free button")
-    public void testLessonp_3850() {
-        testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
-    }
-
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button")
     public void testLessonp_3851() {
         testCreateAccountViaTryItFree(TestData.PLAN_PRO);
@@ -44,13 +39,6 @@ public class SignupTest extends BaseTest {
     @Deprecated
     @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button")
     public void testLessonp_3881() {
-        testCreateAccountViaPricing(TestData.PLAN_STARTER);
-    }
-
-    @Ignore
-    @Deprecated
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3882:Create a Prime Account - Pricing button")
-    public void testLessonp_3882() {
         testCreateAccountViaPricing(TestData.PLAN_STARTER);
     }
 

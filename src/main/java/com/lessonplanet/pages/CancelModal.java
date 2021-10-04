@@ -6,7 +6,6 @@ public class CancelModal extends LpUiBasePage {
 
     private static final String MODAL_ID = "#cancel_modal";
     private static final String MODAL_TITLE_TEXT = "#cancel_modal [class='modal-title']";
-    private static final String MODAL_QUESTION_TEXT = "#cancel_modal [class='medium-type']";
     private static final String MODAL_YOUR_CURRENT_MEMBERSHIP_TEXT = "#cancel_modal [class*='lead']";
     private static final String MODAL_INDIVIDUAL_MEMBERSHIP_TEXT = "#cancel_modal [class*='modal-body'] h4";
     private static final String MODAL_CONTENT_ITEMS_TEXT = "#cancel_modal [class*='modal-body'] p";
@@ -30,10 +29,6 @@ public class CancelModal extends LpUiBasePage {
 
     public String getModalTitleText() {
         return getTextForElement(MODAL_TITLE_TEXT);
-    }
-
-    public String getModalQuestionText() {
-        return getTextForElement(MODAL_QUESTION_TEXT);
     }
 
     public String getModalYourCurrentMembershipText() {

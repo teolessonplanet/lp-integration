@@ -5,12 +5,12 @@ import util.TestData;
 
 public class RSL_EditCollectionTest extends BaseTest {
     private LoginPage loginPage;
-    private EditCollectionTest editCollectionTest;
+    private Regular_User_EditCollectionTest editCollectionTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        editCollectionTest = new EditCollectionTest();
+        editCollectionTest = new Regular_User_EditCollectionTest();
         initEditCollectionTestAndLogin();
     }
 

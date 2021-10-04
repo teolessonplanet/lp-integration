@@ -5,12 +5,12 @@ import util.TestData;
 
 public class RSL_RrpDirectoryPageTest extends BaseTest {
     private LoginPage loginPage;
-    private RrpDirectoryPageTest rrpDirectoryPageTest;
+    private Regular_User_RrpDirectoryPageTest rrpDirectoryPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        rrpDirectoryPageTest = new RrpDirectoryPageTest();
+        rrpDirectoryPageTest = new Regular_User_RrpDirectoryPageTest();
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         rrpDirectoryPageTest.initTest(webDriver);
     }

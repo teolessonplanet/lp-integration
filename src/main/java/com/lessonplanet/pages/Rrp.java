@@ -184,11 +184,6 @@ public class Rrp extends LpUiBasePage {
         return subjects.size();
     }
 
-    public int getFullRrpGradeNumber() {
-        final List<WebElement> grade = findElements(FULL_RRP_GRADE);
-        return grade.size();
-    }
-
     public int getLightRrpGradeNumber() {
         final List<WebElement> grade = findElements(LIGHT_RRP_GRADE);
         return grade.size();
