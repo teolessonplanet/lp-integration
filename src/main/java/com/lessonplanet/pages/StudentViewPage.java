@@ -16,10 +16,6 @@ public class StudentViewPage extends LpUiBasePage {
         sendKeys(PASSWORD_FIELD, password);
     }
 
-    public String getPasswordText(){
-        return findElement(PASSWORD_FIELD).getAttribute("value");
-    }
-
     public void clearPasswordField(){
         clearText(PASSWORD_FIELD);
     }

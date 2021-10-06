@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import util.TestData;
 
-public class AssignFolderModalTest extends BaseTest {
+public class User_AssignFolderModalTest extends BaseTest {
     private AssignModal assignModal;
 
     @BeforeMethod

@@ -14,7 +14,7 @@ public class CSL_SearchTest extends BaseTest {
     private RSL_SearchTest rsl_searchTest;
     private LoginPage loginPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private SearchTest searchTest;
+    private User_SearchTest user_searchTest;
     private Rrp rrp;
 
     @BeforeMethod
@@ -23,7 +23,7 @@ public class CSL_SearchTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         rrp = new Rrp(webDriver);
-        searchTest = new SearchTest();
+        user_searchTest = new User_SearchTest();
     }
 
     public void initTest(WebDriver webDriver) {
@@ -76,7 +76,7 @@ public class CSL_SearchTest extends BaseTest {
 
     @Test(description = "Custom SL - Search Page - lessonp-5664:Cards details - Folder: HMH/McGraw")
     public void testLessonp_5664() {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_HENRY);
         testCardDetailsFolder();
     }
@@ -93,8 +93,8 @@ public class CSL_SearchTest extends BaseTest {
     private void testFolderResourceCardInThumbnailView(WebElement folderResourceCard) {
         Assert.assertTrue(discoverResourcesPage.getOpenFolderInThumbnailViewButtonTextForCard(folderResourceCard).equals(TestData.OPEN_FOLDER_BUTTON_TEXT));
         Assert.assertTrue(discoverResourcesPage.getFolderDetailsInThumbnailViewButtonTextForCard(folderResourceCard).equals(TestData.FOLDER_DETAILS_BUTTON_TEXT));
-        searchTest.initTest(webDriver);
-        searchTest.testCommonItemsInThumbnailView(folderResourceCard);
+        user_searchTest.initTest(webDriver);
+        user_searchTest.testCommonItemsInThumbnailView(folderResourceCard);
         Assert.assertTrue(discoverResourcesPage.isCardProviderDisplayed(folderResourceCard));
     }
 

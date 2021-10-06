@@ -80,8 +80,4 @@ public class CommonCorePage extends LpUiBasePage {
     public int getSeeResourcesNoOfItems() {
         return Integer.valueOf(getSeeResourcesButtonText().split(" ")[1]);
     }
-
-    public void clickOnSeeResourcesButton() {
-        clickElement(STANDARD_SEE_RESOURCES_BUTTON);
-    }
 }

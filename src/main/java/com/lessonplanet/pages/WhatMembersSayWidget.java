@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import util.TestData;
 
 public class WhatMembersSayWidget extends BrowseBySubjectPage {
-    private static final String TESTIMONIALS_THUMBNAIL = "[class='img-thumbnail']";
     private static final String TESTIMONIALS_TEXT = "div[class='clearfix']";
     private static final String SEE_MORE_TESTIMONIALS_LINK = "[class='more'] a[href='/us/testimonials']";
     private static final String SUBMIT_YOUR_OWN_LINK = "[class='more'] a[href='/feedbacks/new']";

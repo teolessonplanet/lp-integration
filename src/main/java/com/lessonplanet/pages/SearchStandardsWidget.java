@@ -47,10 +47,6 @@ public class SearchStandardsWidget extends LpUiBasePage {
         sendKeys(KEYWORD_TEXTBOX, keyword);
     }
 
-    public void clearKeywordSearch() {
-        clearText(KEYWORD_TEXTBOX);
-    }
-
     public void clickOnSearchButton() {
         clickElement(SEARCH_BUTTON);
     }

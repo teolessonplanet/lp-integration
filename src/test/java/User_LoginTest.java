@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class LoginTest extends BaseTest {
+public class User_LoginTest extends BaseTest {
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
     private HeaderPage headerPage;
@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
         signInModal.typePassword(TestData.INVALID_PASSWORD);
         signInModal.clickOnSignInButton();
 
-        Assert.assertEquals(loginPage.getContentAlertMessage(), TestData.INVALID_LOGIN_OR_PASSWORD_MESSAGE);
+        Assert.assertEquals(loginPage.getContentAlertMessage(), TestData.INVALID_LOGIN_OR_PASSWORD_NOTIFICATION_TEXT);
         loginPage.typeEmail(email);
         loginPage.typePassword(TestData.VALID_PASSWORD);
         loginPage.clickOnSignInButton();

@@ -7,12 +7,12 @@ import util.TestData;
 public class RSL_CalendarPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private CalendarPageTest calendarPageTest;
+    private User_CalendarPageTest user_calendarPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        calendarPageTest = new CalendarPageTest();
+        user_calendarPageTest = new User_CalendarPageTest();
     }
 
     protected void initTest(WebDriver webDriver) {
@@ -27,7 +27,7 @@ public class RSL_CalendarPageTest extends BaseTest {
 
     protected void testCurriculumCalendarPage(String account) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        calendarPageTest.initTest(webDriver);
-        calendarPageTest.testCurriculumCalendarPage(account);
+        user_calendarPageTest.initTest(webDriver);
+        user_calendarPageTest.testCurriculumCalendarPage(account);
     }
 }

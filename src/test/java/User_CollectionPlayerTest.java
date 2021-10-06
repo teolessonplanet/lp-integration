@@ -10,17 +10,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CollectionPlayerTest extends BaseTest {
+public class User_CollectionPlayerTest extends BaseTest {
     private LoginPage loginPage;
     private StepTwoPage stepTwoPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
-    private CollectionBuilderTest collectionBuilderTest;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private EditCollectionModal editCollectionModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
-    private AssignFolderModalTest assignFolderModalTest;
+    private User_AssignFolderModalTest user_assignFolderModalTest;
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
@@ -32,13 +31,12 @@ public class CollectionPlayerTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        collectionBuilderTest = new CollectionBuilderTest();
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
-        assignFolderModalTest = new AssignFolderModalTest();
+        user_assignFolderModalTest = new User_AssignFolderModalTest();
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
@@ -47,7 +45,7 @@ public class CollectionPlayerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-554:Appearance")
+    @Test(description = "Free Member - Collection player - lessonp-554:Appearance")
     public void testLessonp_554() {
         testCollectionPlayerAppearance(TestData.PLAN_FREEMIUM);
     }
@@ -57,7 +55,7 @@ public class CollectionPlayerTest extends BaseTest {
         testCollectionPlayerAppearance(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-556:Collection Navigator")
+    @Test(description = "Free Member - Collection player - lessonp-556:Collection Navigator")
     public void testLessonp_556() {
         testCollectionNavigator(TestData.PLAN_FREEMIUM);
     }
@@ -67,7 +65,7 @@ public class CollectionPlayerTest extends BaseTest {
         testCollectionNavigator(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Freemium - Collection player - lessonp-555:Resource Viewer")
+    @Test(description = "Free Member - Collection player - lessonp-555:Resource Viewer")
     public void testLessonp_555() {
         testResourceViewer(TestData.PLAN_FREEMIUM);
     }
@@ -107,15 +105,15 @@ public class CollectionPlayerTest extends BaseTest {
             if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
                 //publishedFolderModal.clickOnCloseButton(); -> this should be deleted
             } else {
-              //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+                //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
             }
             //TODO: refactor above!
-           switch (accountType){
-               case TestData.PLAN_STARTER:
-               case TestData.PLAN_PRO:
-                   publishedFolderModal.clickOnCloseButton();
-                   break;
-           }
+            switch (accountType) {
+                case TestData.PLAN_STARTER:
+                case TestData.PLAN_PRO:
+                    publishedFolderModal.clickOnCloseButton();
+                    break;
+            }
 
             editCollectionModal.clickOnCloseButton();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
@@ -136,8 +134,8 @@ public class CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
 
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
         List<WebElement> resources;
         if (accountType.equals(TestData.PLAN_FREEMIUM)) {
@@ -187,8 +185,8 @@ public class CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
 
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.GET_CURRENT_TIME());
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.GET_CURRENT_TIME());
 
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
@@ -284,7 +282,7 @@ public class CollectionPlayerTest extends BaseTest {
 
     private void checkButtons(String accountPlan, String resourceType) {
         if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-//            Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden()); TODO: uncomment when BC-3497 is fixed
+            Assert.assertTrue(collectionPlayerPage.isDownloadButtonHidden());
             Assert.assertTrue(collectionPlayerPage.isFullScreenButtonHidden());
             Assert.assertTrue(collectionPlayerPage.isPopOutButtonHidden());
         } else {
@@ -310,8 +308,8 @@ public class CollectionPlayerTest extends BaseTest {
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
 
-        assignFolderModalTest.initTest(webDriver);
-        assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
+        user_assignFolderModalTest.initTest(webDriver);
+        user_assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
     }
 
     protected void testStudentView(String accountType) {

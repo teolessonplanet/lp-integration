@@ -8,7 +8,7 @@ import util.TestData;
 
 import java.util.List;
 
-public class CollectionBuilderTest extends BaseTest {
+public class User_CollectionBuilderTest extends BaseTest {
 
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
@@ -18,9 +18,9 @@ public class CollectionBuilderTest extends BaseTest {
     private RrpModal rrpModal;
     private RrpPage rrpPage;
     private BrowseBySubjectPage browseBySubjectPage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
-    private AccountManagementTest accountManagementTest;
+    private User_AccountManagementTest user_accountManagementTest;
     private CreateNewFolderModal createNewFolderModal;
     private EditCollectionModal editCollectionModal;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
@@ -42,9 +42,9 @@ public class CollectionBuilderTest extends BaseTest {
         collectionBuilderVideoModal = new CollectionBuilderVideoModal(webDriver);
         becomeALessonPlanetFreeMemberModal = new BecomeALessonPlanetFreeMemberModal(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        accountManagementTest = new AccountManagementTest();
+        user_accountManagementTest = new User_AccountManagementTest();
         createNewFolderModal = new CreateNewFolderModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
@@ -62,13 +62,13 @@ public class CollectionBuilderTest extends BaseTest {
         testCollectionBuilderItemsAppearance(TestData.PLAN_VISITOR, 3);
     }
 
-    @Test(description = "Freemium - Collection Builder - lessonp-548: Collection Builder Buttons")
+    @Test(description = "Free Member - Collection Builder - lessonp-548: Collection Builder Buttons")
     public void testLessonp_548() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderButtonsAppearance(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Freemium - Collection Builder - lessonp-4381: Collection Builder Items")
+    @Test(description = "Free Member - Collection Builder - lessonp-4381: Collection Builder Items")
     public void testLessonp_4381() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderItemsAppearance(TestData.PLAN_FREEMIUM, 10);
@@ -125,8 +125,8 @@ public class CollectionBuilderTest extends BaseTest {
                 }
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                accountManagementTest.reachAccountManagementPage(webDriver);
-                accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
+                user_accountManagementTest.reachAccountManagementPage(webDriver);
+                user_accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
                 discoverResourcesPage.goBackOnePage();
                 collectionBuilderPage.waitForLoadingIconToDisappear();
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
@@ -178,8 +178,8 @@ public class CollectionBuilderTest extends BaseTest {
             collectionBuilderVideoModal.waitForModal();
             collectionBuilderVideoModal.clickOnXButton();
         } else {
-            curriculumManagerPageTest.initTest(webDriver);
-            curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+            user_curriculumManagerPageTest.initTest(webDriver);
+            user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
             collectionBuilderPage.clickOnEditFolder(false);
             editCollectionModal.waitForModal();
             editCollectionModal.clickOnCloseButton();
@@ -250,8 +250,8 @@ public class CollectionBuilderTest extends BaseTest {
     public void testCollectionBuilderItemsAppearance(String accountPlan, int itemNumber) {
         discoverResourcesPage.loadSearchPageInListView();
         if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
-            curriculumManagerPageTest.initTest(webDriver);
-            curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_FOLDER_NAME);
+            user_curriculumManagerPageTest.initTest(webDriver);
+            user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_FOLDER_NAME);
         }
         if (!accountPlan.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             discoverResourcesPage.expandProvidersFacet();

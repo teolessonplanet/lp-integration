@@ -5,9 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-import java.util.List;
-
-public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
+public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
@@ -47,19 +45,19 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020: Page UI")
     public void testLessonp_1020() {
-        testPageUi(TestData.PLAN_VISITOR);
+        testPageUi();
     }
 
     @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1197: Page UI")
     public void testLessonp_1197() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testPageUi(TestData.PLAN_FREEMIUM);
+        testPageUi();
     }
 
     @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1209: Page UI")
     public void testLessonp_1209() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testPageUi(TestData.PLAN_PRO);
+        testPageUi();
     }
 
     @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1022: Resource Tiles")
@@ -169,7 +167,7 @@ public class DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         testTestimonials(TestData.PLAN_PRO);
     }
 
-    protected void testPageUi(String account) {
+    protected void testPageUi() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);

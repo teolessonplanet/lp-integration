@@ -3,13 +3,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
 import java.io.File;
 
-public class CurriculumManagerPageTest extends BaseTest {
+public class User_CurriculumManagerPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private CurriculumManagerPage curriculumManagerPage;
@@ -119,14 +118,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         testMyUploadsFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Ignore
-    @Test(description = "Prime membership - Curriculum Manager - lessonp- 5543: Upload Resource & My Uploads Folder")
-    public void testLessonp_5543() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        testUploadResourceFromMyResources(TestData.PLAN_PRIME, false);
-//        testMyUploadsFolderActions(TestData.PLAN_PRIME);
-    }
-
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder")
     public void testLessonp_5544() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
@@ -146,14 +137,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testFavoriteResources(TestData.PLAN_STARTER);
         testMyFavoritesFolderActions(TestData.PLAN_STARTER);
-    }
-
-    @Ignore
-    @Test(description = "Prime membership - Curriculum Manager - lessonp- 5546: Favorite Resource & My Favorites Folder")
-    public void testLessonp_5546() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        testFavoriteResources(TestData.PLAN_PRIME);
-//        testMyFavoritesFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp- 5547: Favorite Resource & My Favorites Folder")
@@ -181,16 +164,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Ignore
-    @Test(description = "Prime membership - Curriculum Manager - lessonp-5549: Collection: Actions Dropdown")
-    public void testLessonp_5549() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        curriculumManagerPage.loadPage();
-//        testCreateFolderFromCurriculumManager(TestData.NEW_COLLECTION_NAME, TestData.FOLDER_TYPE[0]);
-//        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.COLLECTION_FOLDER_TYPE);
-//        testFolderActions(TestData.PLAN_PRIME);
-    }
-
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5550: Collection: Actions Dropdown")
     public void testLessonp_5550() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
@@ -216,16 +189,6 @@ public class CurriculumManagerPageTest extends BaseTest {
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.FOLDER_TYPE[3]);
         testFolderActions(TestData.PLAN_STARTER);
-    }
-
-    @Ignore
-    @Test(description = "Prime membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
-    public void testLessonp_5276() {
-//        stepTwoPage.createNewAccount(TestData.PLAN_PRIME);
-//        curriculumManagerPage.loadPage();
-//        testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
-//        Assert.assertEquals(curriculumManagerPage.getFolderType(), TestData.LESSON_FOLDER_TYPE);
-//        testFolderActions(TestData.PLAN_PRIME);
     }
 
     @Test(description = "Pro membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
@@ -395,7 +358,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
         createNewFolderModal.clickOnCreateFolderButton();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.CREATED_NOTIFICATION_TEXT));
         //curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), folderName);
         Assert.assertEquals(curriculumManagerPage.getFolderType(), folderType);
@@ -436,7 +399,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.waitForModal();
         removeModal.clickOnRemoveButton();
-        //    Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_NOTIFICATION_TEXT));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -505,7 +468,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnDeleteButton();
         removeModal.clickOnRemoveButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_NOTIFICATION_TEXT));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getUploadedResourcesNumber(), uploadedResources - 1);
     }
@@ -625,7 +588,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnUnFavoriteButton();
         removeModal.clickOnRemoveButton();
-        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_FAVORITE_RESOURCE_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.REMOVED_FAVORITE_RESOURCE_NOTIFICATION_TEXT));
         curriculumManagerPage.waitForNotificationToDisappear();
     }
 
@@ -700,7 +663,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         moveToModal.waitForModal();
         moveToModal.clickOnDestinationFolder();
         moveToModal.clickOnMoveToSelectedFolderButton();
-        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.MOVED_NOTIFICATION_TEXT));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber - 1);
     }
@@ -739,7 +702,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         rrpModal.clickOnAddToFolderDropdown();
         rrpModal.clickCollectionFromAddToCollectionDropdown();
         rrpModal.clickAddToFolderButton();
-        //Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_MESSAGE));
+        //Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_NOTIFICATION_TEXT));
     }
 
     public void testCheckResourceIsAddedInFolder(String itemNumber) {
@@ -839,7 +802,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
-        // Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_MESSAGE));
+        //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_NOTIFICATION_TEXT));
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), TestData.COPIED_FOLDER_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber + 1);
@@ -1016,7 +979,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         } else {
             uploadFileModal.waitForModal();
             testUpload(false, accountPlan, false);
-            Assert.assertEquals(curriculumManagerPage.getUploadedResourceTitle(0), "test-upload-file");
+            Assert.assertEquals(curriculumManagerPage.getUploadedResourceTitle(0), TestData.UPLOAD_RESOURCE_TITLE);
         }
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
@@ -1038,7 +1001,7 @@ public class CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnMoveFolderToButton(null);
 
         if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertTrue(moveToModal.getMoveToModalBodyText().contains("please create a folder in My Resources"));
+            Assert.assertTrue(moveToModal.getMoveToModalBodyText().contains(TestData.PLEASE_CREATE_COLLECTION_TEXT));
             moveToModal.clickOnCancelButton();
         } else {
             moveToModal.clickOnDestinationFolder();

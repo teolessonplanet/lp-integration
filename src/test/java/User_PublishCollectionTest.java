@@ -8,9 +8,9 @@ import util.TestData;
 
 import java.util.List;
 
-public class PublishCollectionTest extends BaseTest {
+public class User_PublishCollectionTest extends BaseTest {
     private StepTwoPage stepTwoPage;
-    private CurriculumManagerPageTest curriculumManagerPageTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private EditCollectionModal editCollectionModal;
@@ -26,7 +26,7 @@ public class PublishCollectionTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        curriculumManagerPageTest = new CurriculumManagerPageTest();
+        user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
@@ -85,8 +85,8 @@ public class PublishCollectionTest extends BaseTest {
     @Test(description = "Active User - Publish Resource - lessonp-995: Publish Uploaded File - from My Resources")
     public void testLessonp_995() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.PLAN_PRO, true);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.PLAN_PRO, true);
     }
 
     @Test(description = "Active User - Publish Resource - lessonp-5863:Publish Curriculum Sets folder w lp resources")
@@ -122,8 +122,8 @@ public class PublishCollectionTest extends BaseTest {
     private void createRequirementAndTestPublishFolders(String accountPlan, String folderType, int noOfResources, int noOfFolders, int noOfUploadedResources, boolean includeUploadedFiles) {
         final String username = stepTwoPage.createNewAccount(accountPlan);
         curriculumManagerPage.loadPage();
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(folderType + username, folderType);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateFolderFromCurriculumManager(folderType + username, folderType);
         discoverResourcesPage.loadSearchPageInListView();
         testPublishFolders(accountPlan, noOfResources, noOfFolders, noOfUploadedResources, includeUploadedFiles);
     }
@@ -169,7 +169,7 @@ public class PublishCollectionTest extends BaseTest {
                 curriculumManagerPage.clickOnEditButton();
                 editCollectionModal.clickOnAddItemsDropdown();
                 editCollectionModal.clickFileUploadButton();
-                curriculumManagerPageTest.testUpload(true, accountPlan, false);
+                user_curriculumManagerPageTest.testUpload(true, accountPlan, false);
             }
             editCollectionModal.clickMoreDropdown();
             editCollectionModal.clickOnPublishOption();
@@ -204,15 +204,15 @@ public class PublishCollectionTest extends BaseTest {
 
     public void testAddResourcesToPublishCollection(String accountPlan, int noOfResources, int noOfFolders, int noOfUploadedResources, boolean includedFile) {
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         testPublishFolders(accountPlan, noOfResources, noOfFolders, noOfUploadedResources, includedFile);
     }
 
     public void testCollectionNotPublishedModal(String account) {
         discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
         curriculumManagerPage.loadPage();
         curriculumManagerPage.hoverOverActionsDropdown();
@@ -234,7 +234,7 @@ public class PublishCollectionTest extends BaseTest {
 
         editCollectionModal.clickOnAddItemsDropdown();
         editCollectionModal.clickFileUploadButton();
-        curriculumManagerPageTest.testUpload(true, account, false);
+        user_curriculumManagerPageTest.testUpload(true, account, false);
 
         editCollectionModal.clickMoreDropdown();
         editCollectionModal.clickOnPublishOption();

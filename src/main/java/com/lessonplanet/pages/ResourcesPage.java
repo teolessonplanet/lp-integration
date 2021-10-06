@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +19,6 @@ public class ResourcesPage extends LpUiBasePage {
     protected static final String GET_FREE_ACCESS_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='free-access-btn']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE = "[class*='trk-goto-resource'][href^='/goto/']";
     protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [href^='/goto/']";
-    protected static final String GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE_OTHER_POOL = "[class*='trk-goto-resource'][href^='/pr/goto/']";
     protected static final String SEE_FULL_REVIEW_BUTTON = "[class*='panel-footer'] [class*='trk-show-resource']";
     protected static final String SEE_FULL_REVIEW_BUTTON_IN_THUMBNAIL_VIEW = "[class='resource-actions'] [class*='trk-show-resource']";
     protected static final String FOLDER_DETAILS_BUTTON = "[class='panel-footer'] [class*='trk-show-resource'][href*='lessonplanet.com/pr/teachers/']";
@@ -66,9 +63,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_ICON = "[class*='file-icon']";
     private static final String CARD_RESOURCE_TYPE = "div[class*='resource-icon']";
     private static final String CARD_TITLE_TEXT = "h4[class*='resource-title']";
-    private static final String CARD_STAR_RATING = "span[class='star-rating']";
     private static final String CARD_FA_GRADUATION = "span[class*='detail-grades']";
-    private static final String CARD_CSS_OPTIONAL = "span[class*='details-ccss']";
     private static final String CARD_DESCRIPTION_TEXT = "div[class='resource-description']";
     private static final String CARD_UNIVERSITY_TEXT = "span[class*='detail-subject']";
     private static final String CARD_SHARED_RESOURCE_TAG = "span[class*='shared-resource-tag']";
@@ -79,7 +74,6 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String CARD_ICON_IN_THUMBNAIL_VIEW = "div[class='thumb-img-wrap']";
     private static final String CARD_RESOURCE_TYPE_IN_THUMBNAIL_VIEW = "div[class*='resource-type-banner']";
     private static final String CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW = "span[class*='resource-grade']";
-    private static final String COLLECTION_CARD_ITEMS_COUNT = "#search-results [class*='search-result-item'] [class='items-count'] [class='count']";
 
     private static final String RESOURCE_TYPE_SELECTOR_WEBSITE = "[class='type-resource type-website']";
     private static final String RESOURCE_TYPE_SELECTOR_GRAPHIC = "[class='type-resource type-graphics-image']";
@@ -142,11 +136,6 @@ public class ResourcesPage extends LpUiBasePage {
         }
         logger.error("The option " + optionName + " from category " + widgetName + " was not found.");
         return null;
-    }
-
-    public WebElement getFreeAccessResource() {
-        waitForPageLoad();
-        return findElement(GET_FREE_ACCESS_BUTTON);
     }
 
     public List<WebElement> getAllFreeAccessButtons() {
@@ -301,24 +290,6 @@ public class ResourcesPage extends LpUiBasePage {
             logger.error("The button " + cssSelector + " was not found on the first " + TestData.SHORT_TIMEOUT + " pages");
         }
         openInANewTabOrClick(button, inANewTab);
-    }
-
-    public WebElement findFirstCollectionWithLess10Items() {
-        boolean webElementWasFound = false;
-        int attempts = TestData.SHORT_TIMEOUT;
-        WebElement collection = null;
-        do {
-            try {
-                collection = findElements(SEE_COLLECTION_BUTTON).get(1);
-                if (getCollectionCardItemsCount(1) < 10) {
-                    webElementWasFound = true;
-                }
-            } catch (Exception ex) {
-                scrollAndFetchResourcesList();
-                attempts--;
-            }
-        } while (!webElementWasFound && attempts > 0);
-        return collection;
     }
 
     public void scrollAndFetchResourcesList() {
@@ -649,20 +620,12 @@ public class ResourcesPage extends LpUiBasePage {
         return isElementDisplayed(card, CARD_TITLE_TEXT);
     }
 
-    public boolean isCardStarRatingDisplayed(WebElement card) {
-        return isElementDisplayed(card, CARD_STAR_RATING);
-    }
-
     public boolean isCardGraduationDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_FA_GRADUATION);
     }
 
     public boolean isCardGraduationInThumbnailViewDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_FA_GRADUATION_IN_THUMBNAIL_VIEW);
-    }
-
-    public boolean isCardCssDisplayed(WebElement card) {
-        return isElementDisplayed(card, CARD_CSS_OPTIONAL);
     }
 
     public String getCardDescription(WebElement card) {
@@ -687,16 +650,5 @@ public class ResourcesPage extends LpUiBasePage {
 
     public boolean isCardProviderDisplayed(WebElement card) {
         return isElementDisplayed(card, CARD_PROVIDER_TEXT);
-    }
-
-    public int getCollectionCardItemsCount(int position) {
-        String rawNumber = getTextForElement(COLLECTION_CARD_ITEMS_COUNT, position);
-        int number;
-        try {
-            number = NumberFormat.getNumberInstance(TestData.LOCALE).parse(rawNumber).intValue();
-        } catch (ParseException e) {
-            throw new Error("The number " + rawNumber + " cannot be parsed");
-        }
-        return number;
     }
 }

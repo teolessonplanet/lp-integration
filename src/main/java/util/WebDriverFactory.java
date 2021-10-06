@@ -1,7 +1,6 @@
 package util;
 
 import com.microsoft.edge.seleniumtools.EdgeDriver;
-import com.microsoft.edge.seleniumtools.EdgeOptions;
 import helpers.BrowserName;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.StringUtils;

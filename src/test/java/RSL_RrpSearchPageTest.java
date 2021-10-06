@@ -8,13 +8,13 @@ import util.TestData;
 public class RSL_RrpSearchPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private RrpSearchPageTest rrpSearchPageTest;
+    private User_RrpSearchPageTest user_rrpSearchPageTest;
     DiscoverResourcesPage discoverResourcesPage;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        rrpSearchPageTest = new RrpSearchPageTest();
+        user_rrpSearchPageTest = new User_RrpSearchPageTest();
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
     }
 
@@ -25,32 +25,32 @@ public class RSL_RrpSearchPageTest extends BaseTest {
 
     @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5158:Resource Static Page Overview")
     public void testLessonp_5158() {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         testResourcePageOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5143:Resource Modal Overview")
     public void testLessonp_5143() {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         testResourcePageOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5159:Collection Static Page Overview")
     public void testLessonp_5159() {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5144:Collection Modal Overview")
     public void testLessonp_5144() {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5562:Unit Module Modal Overview")
     public void testLessonp_5562() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollectionUnit(false);
@@ -60,7 +60,7 @@ public class RSL_RrpSearchPageTest extends BaseTest {
     @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5563:Unit Module Static Page Overview")
     public void testLessonp_5563() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollectionUnit(true);
@@ -99,42 +99,42 @@ public class RSL_RrpSearchPageTest extends BaseTest {
 
     protected void testResourcePageOverview(String account, boolean inModal) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testResourcePageOverview(account, inModal);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testResourcePageOverview(account, inModal);
     }
 
     protected void testCollectionPageOverview(String account, boolean inModal) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionStaticPageOverview(account, inModal);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionStaticPageOverview(account, inModal);
     }
 
     protected void testLpMainButtons(String account, boolean inModal) {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
-        if(account.equals(TestData.VALID_EMAIL_CSL_HENRY)){
+        if (account.equals(TestData.VALID_EMAIL_CSL_HENRY)) {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeFullReview(!inModal);
-        rrpSearchPageTest.testLpResourceCommonButtons(inModal, account);
+        user_rrpSearchPageTest.testLpResourceCommonButtons(inModal, account);
     }
 
     protected void testCollectionMainButtons(String account, boolean inModal) {
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.testCollectionMainButtons(inModal, account);
+        user_rrpSearchPageTest.testCollectionMainButtons(inModal, account);
     }
 
     protected void testCollectionUnitMainButtons(String account, boolean inModal) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollectionUnit(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionOrUnitMainButtons(inModal, account);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionOrUnitMainButtons(inModal, account);
     }
 }

@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class HomePageTest extends BaseTest {
+public class User_HomePageTest extends BaseTest {
 
     private HomePage homePage;
     private StepTwoPage stepTwoPage;
@@ -27,13 +27,13 @@ public class HomePageTest extends BaseTest {
         testDiscoverTab();
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5306:Discover")
+    @Test(description = "Free Member - Homepage - lessonp-5306:Discover")
     public void testLessonp_5306() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDiscoverTab();
     }
 
-    @Test(description = "Activer User - Homepage - lessonp-5322:Discover")
+    @Test(description = "Active User - Homepage - lessonp-5322:Discover")
     public void testLessonp_5322() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDiscoverTab();

@@ -9,9 +9,6 @@ public class StateStandardsPage extends LpUiBasePage {
     private static final String MATHEMATICS_BUTTON = "[href*='/mathematics']";
     private static final String NGSS_BUTTON = "[href*='/nrcdsc']";
 
-    private static final String MAP = "#us-map-relative";
-    private static final String MAP_GEORGIA_STATE = "#georgia";
-
     public StateStandardsPage(WebDriver driver) {
         super(driver);
     }

@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class SearchTest extends BaseTest {
+public class User_SearchTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private DiscoverResourcesPage discoverResourcesPage;
@@ -17,7 +17,6 @@ public class SearchTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private CollectionRrpPage collectionRrpPage;
     private CollectionRrpModal collectionRrpModal;
-    private LoginPage loginPage;
     private HeaderPage headerPage;
 
     @BeforeMethod
@@ -31,7 +30,6 @@ public class SearchTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         collectionRrpPage = new CollectionRrpPage(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
-        loginPage = new LoginPage(webDriver);
         headerPage = new HeaderPage(webDriver);
     }
 

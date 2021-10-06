@@ -264,10 +264,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
         clickElement(MOVE_FOLDER_TO_BUTTON);
     }
 
-    public void hoverOverPlayButton() {
-        hoverOverElement(PLAY_FOLDER_BUTTON);
-    }
-
     public void hoverOverActionsDropdown() {
         hoverOverElement(ACTIONS_DROPDOWN_BUTTON);
     }
@@ -281,20 +277,12 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return foldersNumber.size();
     }
 
-    public void hoverOverAssignButton() {
-        hoverOverElement(ASSIGN_FOLDER_BUTTON, false);
-    }
-
     public boolean isActionsDropdownOptionsDisplayed() {
         return isElementDisplayed(ACTIONS_DROPDOWN_BUTTON);
     }
 
     public String getTitle() {
         return getTextForElement(CURRICULUM_MANAGER_PAGE_TITLE);
-    }
-
-    public void waitUntilPublishedStatusIsDisplayed() {
-        waitUntilTextIsDisplayed('#' + getElementId(FOLDER_ROW) + FOLDER_STATUS, TestData.PUBLISHED_STATUS);
     }
 
     public int getCountFolders() {
@@ -313,24 +301,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return findElements(FOLDERS_CHILDS).size();
     }
 
-    public WebElement getChild(WebElement folder, int childPosition) {
-        return findElements(folder, FOLDERS_CHILDS).get(childPosition);
-    }
-
-    public WebElement getBreadcrumbs(int breadcrumbPosition) {
-        return findElements(BREADCRUMBS_ITEMS).get(breadcrumbPosition);
-    }
-
-    public void clickOnBreadcrumb(int breadcrumbPosition) {
-        clickElement(getBreadcrumbs(breadcrumbPosition));
-    }
-
     public int getCountBreadcrumbs() {
         return findElements(BREADCRUMBS_ITEMS).size();
-    }
-
-    public String getBreadcrumbText(int breadcrumbPosition) {
-        return getTextForElement(getBreadcrumbs(breadcrumbPosition));
     }
 
     public String getBreadcrumbLastItemText() {
@@ -375,13 +347,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
             return isElementDisplayed(ASSIGN_FOLDER_BUTTON);
         }
         return isElementDisplayed(folder, ASSIGN_FOLDER_BUTTON);
-    }
-
-    public boolean isAssignButtonDisabled(WebElement folder) {
-        if (folder == null) {
-            return isElementDisplayed(ASSIGN_FOLDER_DISABLED_BUTTON);
-        }
-        return isElementDisplayed(folder, ASSIGN_FOLDER_DISABLED_BUTTON);
     }
 
     public boolean isPublishFolderButtonDisplayed(WebElement folder) {
@@ -433,14 +398,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
             clickElement(ASSIGN_FOLDER_BUTTON);
         } else {
             clickElement(findElements(folder, ASSIGN_FOLDER_BUTTON).get(0));
-        }
-    }
-
-    public void clickOnPublishFolderButton(WebElement folder) {
-        if (folder == null) {
-            clickElement(PUBLISH_FOLDER_BUTTON);
-        } else {
-            clickElement(findElements(folder, PUBLISH_FOLDER_BUTTON).get(0));
         }
     }
 

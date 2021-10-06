@@ -15,13 +15,11 @@ public class ArticlesPage extends LpUiBasePage {
     private static final String ARTICLES_CARD_SECTION = "[class*='panel-default']";
     private static final String ARTICLE_CARD_TITLE = "[class*='panel-default'] [class='media-heading title']";
     private static final String ARTICLE_CARD_PHOTO = "[class*='panel-default'] [class='media-object img-responsive']";
-    private static final String ARTICLE_CARD_DATE = "[class*='panel-default'] [class='fa fa-calendar']";
     private static final String ARTICLE_CARD_DESCRIPTION = "[class*='panel-default'] [class='article-body mt5']";
 
     private static final String ARTICLE_PAGE_TITLE = "[class='article'] [itemprop='name']";
     private static final String ARTICLE_PAGE_DESCRIPTION = "[class='article'] [itemprop='description']";
     private static final String ARTICLE_PAGE_AUTHOR = "[class='article'] [class='mt10 mb10'] p";
-    private static final String ARTICLE_PAGE_DATE = "[class='article'] [itemprop='datePublished']";
     private static final String FACEBOOK_SHARE_BUTTON = "[class*='fa-facebook-square']";
     private static final String TWITTER_SHARE_BUTTON = "[class*='fa-twitter-square']";
     private static final String PINTEREST_SHARE_BUTTON = "[class*='fa-pinterest-square']";
@@ -75,10 +73,6 @@ public class ArticlesPage extends LpUiBasePage {
         return isElementDisplayed(ARTICLE_PAGE_AUTHOR);
     }
 
-    public boolean isArticlePageDateDisplayed() {
-        return isElementDisplayed(ARTICLE_PAGE_DATE);
-    }
-
     public int getArticlesCardNumber() {
         final List<WebElement> relatedArticles = findElements(ARTICLES_CARD_SECTION);
         return relatedArticles.size();
@@ -98,10 +92,6 @@ public class ArticlesPage extends LpUiBasePage {
 
     public boolean isArticleCardPhotoDisplayed() {
         return isElementDisplayed(ARTICLE_CARD_PHOTO);
-    }
-
-    public boolean isArticleCardDateDisplayed() {
-        return isElementDisplayed(ARTICLE_CARD_DATE);
     }
 
     public boolean isArticleCardDescriptionDisplayed() {
