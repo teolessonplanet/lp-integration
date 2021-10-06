@@ -5,12 +5,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_RrpDirectoryPageTest extends BaseTest {
+public class User_RrpDirectoryPageTest extends BaseTest {
     private BrowseBySubjectPage browseBySubjectPage;
     private CollectionRrpModal collectionRrpModal;
     private CollectionRrpPage collectionRrpPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
+    private User_RrpSearchPageTest user_rrpSearchPageTest;
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
 
@@ -21,7 +21,7 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         collectionRrpPage = new CollectionRrpPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
+        user_rrpSearchPageTest = new User_RrpSearchPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -111,9 +111,9 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
     @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4610: LP Resource Main Buttons")
     public void testLessonp_4610() {
         testLpResourceMainButtonsForVisitor(false);
-        rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
-        rrpSearchPageTest.testSeeSimilarResourcesDropdown();
-        rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
+        user_rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
+        user_rrpSearchPageTest.testSeeSimilarResourcesDropdown();
+        user_rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
     }
 
     @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4684:Main Buttons")
@@ -129,13 +129,13 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
     @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4849:Main Buttons")
     public void testLessonp_4849() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO,true);
+        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO, true);
     }
 
     @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - Lp Resources - lessonp-4827:Main Buttons")
     public void testLessonp_4827() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO,false);
+        testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO, false);
     }
 
     @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons")
@@ -144,26 +144,26 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         String firstCollectionCardTitle = browseBySubjectPage.getCollectionCardTitle(0);
         browseBySubjectPage.clickSeeCollection(false);
         Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), firstCollectionCardTitle);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(true, TestData.PLAN_VISITOR);
-        rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testSaveCollectionButton(true, TestData.PLAN_VISITOR);
+        user_rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(true);
         collectionRrpModal.clickPanelItem(0);
-        rrpSearchPageTest.testItemViewerSection();
+        user_rrpSearchPageTest.testItemViewerSection();
         collectionRrpModal.clickSeeFullReviewsLink();
-        rrpSearchPageTest.testItemViewerSection();
+        user_rrpSearchPageTest.testItemViewerSection();
     }
 
     @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons")
     public void testLessonp_4613() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testSaveCollectionButton(false, TestData.PLAN_VISITOR);
-        rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testSaveCollectionButton(false, TestData.PLAN_VISITOR);
+        user_rrpSearchPageTest.testCollectionGetFreeAccessForTenDaysButton(false);
         collectionRrpPage.clickPanelItem(0);
-        rrpSearchPageTest.testItemViewerSection();
+        user_rrpSearchPageTest.testItemViewerSection();
         collectionRrpPage.clickSeeFullReviewsLink();
-        rrpSearchPageTest.testItemViewerSection();
+        user_rrpSearchPageTest.testItemViewerSection();
     }
 
     @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4696:Main Buttons")
@@ -181,8 +181,8 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionMainButtons(true, TestData.PLAN_PRO);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionMainButtons(true, TestData.PLAN_PRO);
     }
 
     @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - lessonp-5627:Collection Main Buttons")
@@ -190,21 +190,21 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(false, TestData.PLAN_PRO);
-        rrpSearchPageTest.testPanelItemsOverview();
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionRRPOverview(false, TestData.PLAN_PRO);
+        user_rrpSearchPageTest.testPanelItemsOverview();
     }
 
     protected void testLpResourceOverview(String accountPlan, boolean inModal) {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(inModal, accountPlan);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testRegularResourceRRPOverview(inModal, accountPlan);
         if (!inModal) {
             if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-                rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, accountPlan);
+                user_rrpSearchPageTest.testStartYourFreeTrialWidgetOverview(TestData.START_YOUR_FREE_TRIAL_TEXT_LP_RESOURCE, accountPlan);
             }
-            rrpSearchPageTest.testSimilarResourcesSectionOverview(accountPlan);
+            user_rrpSearchPageTest.testSimilarResourcesSectionOverview(accountPlan);
         }
     }
 
@@ -212,15 +212,15 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testLpResourceMainButtons(inModal, false);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testLpResourceMainButtons(inModal, false);
     }
 
     protected void testLpResourceMainButtonsForActiveUser(String accountPlan, boolean inModal) {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeReview(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testRegularResourceRRPOverview(inModal, accountPlan);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testRegularResourceRRPOverview(inModal, accountPlan);
     }
 
     private void testLpResourceMainButtonsForVisitor(boolean inModal) {
@@ -229,10 +229,10 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         if (inModal) {
             Assert.assertTrue(rrpModal.getModalId().contains(browseBySubjectPage.getRegularResourceCardDataId(0)));
         }
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testFavoriteButton(inModal);
-        rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(inModal);
-        rrpSearchPageTest.testThumbnailForRegularResource(inModal, TestData.PLAN_VISITOR);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testFavoriteButton(inModal);
+        user_rrpSearchPageTest.testResourceGetFreeAccessForTenDaysButton(inModal);
+        user_rrpSearchPageTest.testThumbnailForRegularResource(inModal, TestData.PLAN_VISITOR);
     }
 
     private void testCollectionButtonsForFreemium(boolean inModal) {
@@ -240,15 +240,15 @@ public class Regular_User_RrpDirectoryPageTest extends BaseTest {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(!inModal);
 
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionMainButtonsForFreemium(inModal);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionMainButtonsForFreemium(inModal);
     }
 
     protected void testCollectionOverview(String accountPlan, boolean inModal) {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(!inModal);
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testCollectionRRPOverview(inModal, accountPlan);
-        rrpSearchPageTest.testPanelItemsOverview();
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testCollectionRRPOverview(inModal, accountPlan);
+        user_rrpSearchPageTest.testPanelItemsOverview();
     }
 }

@@ -8,7 +8,7 @@ import util.TestData;
 
 import java.io.File;
 
-public class Regular_User_CurriculumManagerPageTest extends BaseTest {
+public class User_CurriculumManagerPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private CurriculumManagerPage curriculumManagerPage;

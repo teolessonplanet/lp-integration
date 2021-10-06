@@ -5,9 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_EditCollectionTest extends BaseTest {
+public class User_EditCollectionTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
-    private Regular_User_CurriculumManagerPageTest curriculumManagerTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerTest;
     private CollectionBuilderPage collectionBuilderPage;
     private EditCollectionModal editCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
@@ -15,7 +15,7 @@ public class Regular_User_EditCollectionTest extends BaseTest {
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
     private BrowseBySubjectPage browseBySubjectPage;
-    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
+    private User_RrpSearchPageTest user_rrpSearchPageTest;
     private ReplaceExistingFolderModal replaceExistingFolderModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private PublishedFolderModal publishedFolderModal;
@@ -23,7 +23,7 @@ public class Regular_User_EditCollectionTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
-        curriculumManagerTest = new Regular_User_CurriculumManagerPageTest();
+        user_curriculumManagerTest = new User_CurriculumManagerPageTest();
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
@@ -31,7 +31,7 @@ public class Regular_User_EditCollectionTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
-        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
+        user_rrpSearchPageTest = new User_RrpSearchPageTest();
         replaceExistingFolderModal = new ReplaceExistingFolderModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         publishedFolderModal = new PublishedFolderModal(webDriver);
@@ -104,8 +104,8 @@ public class Regular_User_EditCollectionTest extends BaseTest {
 
     public void testCreateCollectionSearchPage(String folderName) {
         discoverResourcesPage.loadPage();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCreateCollectionFromCollectionBuilder(folderName);
+        user_curriculumManagerTest.initTest(webDriver);
+        user_curriculumManagerTest.testCreateCollectionFromCollectionBuilder(folderName);
     }
 
     public void testEditFolderAppearance(String accountPlanText, boolean inANewTab, String folderName) {
@@ -128,7 +128,7 @@ public class Regular_User_EditCollectionTest extends BaseTest {
             browseBySubjectPage.loadPage(TestData.SOCIAL_STUDIES_PAGE_PATH);
             collectionBuilderPage.clickOnEditFolder(true);
             testEditFolderOverview(folderName, 0);
-            curriculumManagerTest.testAddRegularResourceToFolder(accountPlanText);
+            user_curriculumManagerTest.testAddRegularResourceToFolder(accountPlanText);
             rrpModal.clickEditYourCollectionLink(true);
             testEditFolderOverview(folderName, 1);
         }
@@ -169,7 +169,7 @@ public class Regular_User_EditCollectionTest extends BaseTest {
                 break;
             default:
                 publishedFolderModal.clickOnCloseButton();
-                if(editCollectionModal.isNotificationDisplayed()) {
+                if (editCollectionModal.isNotificationDisplayed()) {
                     editCollectionModal.getAlertNotificationText(); // sometimes notification is not displayed
                     editCollectionModal.waitForNotificationToDisappear();
                 }
@@ -243,11 +243,11 @@ public class Regular_User_EditCollectionTest extends BaseTest {
         editCollectionPage.clickOnAddItemsDropdown();
         editCollectionPage.clickFileUploadButton();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            curriculumManagerTest.initTest(webDriver);
-            curriculumManagerTest.testUpgradeModalFromUploadButton();
+            user_curriculumManagerTest.initTest(webDriver);
+            user_curriculumManagerTest.testUpgradeModalFromUploadButton();
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 1);
         } else {
-            curriculumManagerTest.testUpload(true, accountPlanText, false);
+            user_curriculumManagerTest.testUpload(true, accountPlanText, false);
             Assert.assertEquals(editCollectionModal.getFolderItemsCount(), 2);
         }
         editCollectionPage.clickOnAddItemsDropdown();
@@ -262,10 +262,10 @@ public class Regular_User_EditCollectionTest extends BaseTest {
         editCollectionModal.isPixabayIllustrationButtonDisplayed();
         editCollectionModal.isPixabayVectorButtonDisplayed();
         editCollectionModal.clickOnPixabayLink();
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testNewTabUrl(TestData.PIXABAY_IMAGE_LINK);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testNewTabUrl(TestData.PIXABAY_IMAGE_LINK);
         editCollectionModal.clickOnLearnMoreLink();
-        rrpSearchPageTest.testNewTabUrl(TestData.LEARN_MORE_LINK);
+        user_rrpSearchPageTest.testNewTabUrl(TestData.LEARN_MORE_LINK);
         editCollectionPage.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
         editCollectionPage.clickPixabaySearchButton();
         editCollectionPage.waitUntilAddSelectedToFolderButtonIsDisplayed();
@@ -322,8 +322,8 @@ public class Regular_User_EditCollectionTest extends BaseTest {
     public void testPlayButton() {
         Assert.assertTrue(editCollectionPage.isPlayOptionDisplayed());
         editCollectionPage.clickPlayOption();
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testNewTabUrl(TestData.CURRICULUM_PLAYER_PATH);
     }
 
     public void testMoreDropdown(String accountPlanText, String copiedFolderName) {
@@ -335,9 +335,9 @@ public class Regular_User_EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionPage.isCopyToOptionDisplayed());
         editCollectionPage.clickAssignOption();
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            curriculumManagerTest.testAssignModal(TestData.ASSIGN_FOLDER_MODAL_TEXT);
+            user_curriculumManagerTest.testAssignModal(TestData.ASSIGN_FOLDER_MODAL_TEXT);
         } else {
-            curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
+            user_curriculumManagerTest.testUpgradeModalFromAssignButton(accountPlanText, TestData.UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON);
         }
         editCollectionPage.clickMoreDropdown();
         editCollectionPage.clickCopyToOption();

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class RSL_CanViewTest extends BaseTest {
     private LoginPage loginPage;
-    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private ShareFolderModal shareFolderModal;
     private CopyToModal copyToModal;
@@ -22,7 +22,7 @@ public class RSL_CanViewTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
+        user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         shareFolderModal = new ShareFolderModal(webDriver);
         copyToModal = new CopyToModal(webDriver);
@@ -74,8 +74,8 @@ public class RSL_CanViewTest extends BaseTest {
 
     public void testShareFolder(String ownerEmail, String ownerName, String teacherEmail, String teacherFirstName, String teacherLastName, String districtAdminEmail, String districtAdminFirstName, String districtAdminLastName) {
         curriculumManagerPage.loadPage();
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.GET_CURRENT_TIME() + TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.GET_CURRENT_TIME() + TestData.SHARED_FOLDER_NAME + TestData.SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT, TestData.FOLDER_TYPE[0]);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
@@ -147,8 +147,8 @@ public class RSL_CanViewTest extends BaseTest {
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
 
         //create a new collection: it won't be displayed on Shared with me Page
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
 
         //drag&drop shared folder resource inside the collection in the Collection Builder
@@ -184,8 +184,8 @@ public class RSL_CanViewTest extends BaseTest {
         Assert.assertTrue(curriculumManagerPage.isRemoveFolderToButtonDisplayed(null));
 
         curriculumManagerPage.clickOnPlayFolderButton(null);
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCurriculumPlayerURL();
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCurriculumPlayerURL();
         curriculumManagerPage.focusDriverToLastTab();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.SHARED_WITH_ME_PAGE_PATH));
 

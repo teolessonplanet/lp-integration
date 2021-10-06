@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_CalendarPageTest extends BaseTest {
+public class User_CalendarPageTest extends BaseTest {
     private CalendarPage calendarPage;
     private HeaderPage headerPage;
     private DiscoverResourcesPage discoverResourcesPage;

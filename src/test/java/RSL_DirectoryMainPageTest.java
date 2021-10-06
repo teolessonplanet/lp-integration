@@ -7,12 +7,12 @@ import util.TestData;
 public class RSL_DirectoryMainPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private Regular_User_DirectoryMainPageTest directoryMainPageTest;
+    private User_DirectoryMainPageTest user_directoryMainPageTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        directoryMainPageTest = new Regular_User_DirectoryMainPageTest();
+        user_directoryMainPageTest = new User_DirectoryMainPageTest();
     }
 
     public void initTest(WebDriver webDriver) {
@@ -47,31 +47,31 @@ public class RSL_DirectoryMainPageTest extends BaseTest {
 
     private void initDirectoryTestAndLogin(String account) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        directoryMainPageTest.initTest(webDriver);
+        user_directoryMainPageTest.initTest(webDriver);
     }
 
     protected void testPageUi(String account) {
         initDirectoryTestAndLogin(account);
-        directoryMainPageTest.testPageUi();
+        user_directoryMainPageTest.testPageUi();
     }
 
     protected void testThumbnails(String account) {
         initDirectoryTestAndLogin(account);
-        directoryMainPageTest.testThumbnails();
+        user_directoryMainPageTest.testThumbnails();
     }
 
     protected void testLinks(String account) {
         initDirectoryTestAndLogin(account);
-        directoryMainPageTest.testLinks();
+        user_directoryMainPageTest.testLinks();
     }
 
     protected void testShowAllButton(String account) {
         initDirectoryTestAndLogin(account);
-        directoryMainPageTest.testShowAllButton();
+        user_directoryMainPageTest.testShowAllButton();
     }
 
     protected void testCategoriesModal(String account) {
         initDirectoryTestAndLogin(account);
-        directoryMainPageTest.testCategoriesModal();
+        user_directoryMainPageTest.testCategoriesModal();
     }
 }

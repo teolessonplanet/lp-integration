@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
+public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LpHomePage lpHomePage;
     private LoginPage loginPage;

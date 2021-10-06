@@ -3,11 +3,11 @@ import org.testng.annotations.Test;
 import util.TestData;
 
 public class CSL_CollectionPlayerTest extends BaseTest {
-    private Regular_User_CollectionPlayerTest collectionPlayerTest;
+    private User_CollectionPlayerTest collectionPlayerTest;
 
     @BeforeMethod
     public void beforeMethod() {
-        collectionPlayerTest = new Regular_User_CollectionPlayerTest();
+        collectionPlayerTest = new User_CollectionPlayerTest();
         collectionPlayerTest.initTest(webDriver);
     }
 

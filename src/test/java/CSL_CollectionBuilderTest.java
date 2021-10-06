@@ -6,12 +6,12 @@ import util.TestData;
 public class CSL_CollectionBuilderTest extends BaseTest {
 
     private LoginPage loginPage;
-    private Regular_User_CollectionBuilderTest collectionBuilderTest;
+    private User_CollectionBuilderTest collectionBuilderTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        collectionBuilderTest = new Regular_User_CollectionBuilderTest();
+        collectionBuilderTest = new User_CollectionBuilderTest();
         initCollectionBuilderTestAndLogin();
     }
 

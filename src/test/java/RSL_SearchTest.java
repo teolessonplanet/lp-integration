@@ -6,12 +6,12 @@ import util.TestData;
 
 public class RSL_SearchTest extends BaseTest {
 
-    private Regular_User_SearchTest searchTest;
+    private User_SearchTest user_searchTest;
     private LoginPage loginPage;
 
     @BeforeMethod
     public void beforeMethod() {
-        searchTest = new Regular_User_SearchTest();
+        user_searchTest = new User_SearchTest();
         loginPage = new LoginPage(webDriver);
     }
 
@@ -22,16 +22,16 @@ public class RSL_SearchTest extends BaseTest {
 
     @Test(description = "Regular SL - Search Page - lessonp-5173:Keywordless search")
     public void testLessonp_5173() {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_RSL_SBCEO);
+        user_searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Search Page - lessonp-5174:Keyword search")
     public void testLessonp_5174() {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        searchTest.testKeywordSearch(TestData.VALID_EMAIL_RSL_SBCEO);
+        user_searchTest.testKeywordSearch(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Search Page - lessonp-4016: Cards details - LP resource")
@@ -60,34 +60,34 @@ public class RSL_SearchTest extends BaseTest {
     }
 
     protected void testSeeCollection(String account) {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.reachSearchPageInListView();
-        searchTest.testSeeCollection();
+        user_searchTest.reachSearchPageInListView();
+        user_searchTest.testSeeCollection();
     }
 
     protected void testGoToResource(String account) {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.reachSearchPageInListView();
-        searchTest.testGoToResourceButtonForRegularResource(account);
+        user_searchTest.reachSearchPageInListView();
+        user_searchTest.testGoToResourceButtonForRegularResource(account);
     }
 
     protected void testSeeFullReview(String account) {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.testSeeFullReviewButton(account);
+        user_searchTest.testSeeFullReviewButton(account);
     }
 
     protected void testCardDetailsLpResource(String account) {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.testLpResource(account, false);
+        user_searchTest.testLpResource(account, false);
     }
 
     protected void testCardDetailsCollection(String account) {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        searchTest.testCollectionResource();
+        user_searchTest.testCollectionResource();
     }
 }

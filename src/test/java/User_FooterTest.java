@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_FooterTest extends BaseTest {
+public class User_FooterTest extends BaseTest {
 
     private StepTwoPage stepTwoPage;
     private LpHomePage lpHomePage;

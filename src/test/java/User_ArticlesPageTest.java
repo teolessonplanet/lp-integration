@@ -7,22 +7,22 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_ArticlesPageTest extends BaseTest {
+public class User_ArticlesPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private ArticlesPage articlesPage;
-    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
-    private Regular_User_RrpSearchPageTest rrpSearchPageTest;
+    private User_DirectoryCategoriesAndSubcategoriesPageTest user_directoryCategoriesAndSubcategoriesTest;
+    private User_RrpSearchPageTest user_rrpSearchPageTest;
     private StepTwoPage stepTwoPage;
 
     @BeforeMethod
     public void beforeMethod() {
         headerPage = new HeaderPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
-        directoryCategoriesAndSubcategoriesTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
+        user_directoryCategoriesAndSubcategoriesTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
         lpHomePage = new LpHomePage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        rrpSearchPageTest = new Regular_User_RrpSearchPageTest();
+        user_rrpSearchPageTest = new User_RrpSearchPageTest();
     }
 
     @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
@@ -80,8 +80,8 @@ public class Regular_User_ArticlesPageTest extends BaseTest {
             Assert.assertEquals(articlesPage.getArticlePageTitle(), recentArticleTitle);
         }
         if (!account.equals(TestData.PLAN_PRO)) {
-            directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-            directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
+            user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+            user_directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
     }
 
@@ -96,17 +96,17 @@ public class Regular_User_ArticlesPageTest extends BaseTest {
         Assert.assertTrue(articlesPage.getArticlesCardNumber() > 1);
         testArticleCard();
         Assert.assertEquals(articlesPage.getArticleTopics(), TestData.ARTICLE_TOPICS);
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
         if (!account.equals(TestData.PLAN_PRO)) {
-            directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
+            user_directoryCategoriesAndSubcategoriesTest.testStartYourTenDayFreeTrial(account);
         }
         if (account.equals(TestData.PLAN_FREEMIUM)) {
             lpHomePage.goBackOnePage();
         }
-        rrpSearchPageTest.initTest(webDriver);
-        rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(account);
+        user_rrpSearchPageTest.initTest(webDriver);
+        user_rrpSearchPageTest.testWhatMembersSayWidgetOverview(account);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(account);
         if (!account.equals(TestData.PLAN_PRO)) {
             articlesPage.closeTab();
         }

@@ -5,7 +5,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_SignupTest extends BaseTest {
+public class User_SignupTest extends BaseTest {
     private LpHomePage lpHomePage;
     private HeaderPage headerPage;
     private StepOneModal stepOneModal;

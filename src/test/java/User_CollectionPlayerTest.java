@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Regular_User_CollectionPlayerTest extends BaseTest {
+public class User_CollectionPlayerTest extends BaseTest {
     private LoginPage loginPage;
     private StepTwoPage stepTwoPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
-    private Regular_User_CurriculumManagerPageTest curriculumManagerPageTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private EditCollectionModal editCollectionModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
-    private Regular_User_AssignFolderModalTest assignFolderModalTest;
+    private User_AssignFolderModalTest user_assignFolderModalTest;
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
@@ -31,12 +31,12 @@ public class Regular_User_CollectionPlayerTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
-        curriculumManagerPageTest = new Regular_User_CurriculumManagerPageTest();
+        user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         editCollectionModal = new EditCollectionModal(webDriver);
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
-        assignFolderModalTest = new Regular_User_AssignFolderModalTest();
+        user_assignFolderModalTest = new User_AssignFolderModalTest();
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
@@ -105,15 +105,15 @@ public class Regular_User_CollectionPlayerTest extends BaseTest {
             if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
                 //publishedFolderModal.clickOnCloseButton(); -> this should be deleted
             } else {
-              //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+                //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
             }
             //TODO: refactor above!
-           switch (accountType){
-               case TestData.PLAN_STARTER:
-               case TestData.PLAN_PRO:
-                   publishedFolderModal.clickOnCloseButton();
-                   break;
-           }
+            switch (accountType) {
+                case TestData.PLAN_STARTER:
+                case TestData.PLAN_PRO:
+                    publishedFolderModal.clickOnCloseButton();
+                    break;
+            }
 
             editCollectionModal.clickOnCloseButton();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
@@ -134,8 +134,8 @@ public class Regular_User_CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
 
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
 
         List<WebElement> resources;
         if (accountType.equals(TestData.PLAN_FREEMIUM)) {
@@ -185,8 +185,8 @@ public class Regular_User_CollectionPlayerTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
 
-        curriculumManagerPageTest.initTest(webDriver);
-        curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.GET_CURRENT_TIME());
+        user_curriculumManagerPageTest.initTest(webDriver);
+        user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.GET_CURRENT_TIME());
 
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_WEBSITES);
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_GRAPHICS_AND_IMAGES);
@@ -308,8 +308,8 @@ public class Regular_User_CollectionPlayerTest extends BaseTest {
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
 
-        assignFolderModalTest.initTest(webDriver);
-        assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
+        user_assignFolderModalTest.initTest(webDriver);
+        user_assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
     }
 
     protected void testStudentView(String accountType) {

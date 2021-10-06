@@ -5,42 +5,42 @@ import util.TestData;
 
 public class CSL_EditCollectionTest extends BaseTest {
     private LoginPage loginPage;
-    private Regular_User_EditCollectionTest editCollectionTest;
+    private User_EditCollectionTest user_editCollectionTest;
 
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        editCollectionTest = new Regular_User_EditCollectionTest();
+        user_editCollectionTest = new User_EditCollectionTest();
         initEditCollectionTestAndLogin();
     }
 
     private void initEditCollectionTestAndLogin() {
-        editCollectionTest.initTest(webDriver);
+        user_editCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
     }
 
     @Test(description = "Custom SL - Edit Collection - lessonp-5731: Edit Collection Modal Appearance")
     public void testLessonp_5731() {
-        editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_HENRY, false, TestData.NEW_COLLECTION_NAME);
+        user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_HENRY, false, TestData.NEW_COLLECTION_NAME);
     }
 
     @Test(description = "Custom SL - Edit Collection - lessonp-5732: Edit Collection Static Page Appearance")
     public void testLessonp_5732() {
-        editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_HENRY, true, TestData.NEW_COLLECTION_NAME);
+        user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_HENRY, true, TestData.NEW_COLLECTION_NAME);
     }
 
     @Test(description = "Custom SL - Edit Collection - lessonp-5733: Publish. Republish")
     public void testLessonp_5733() {
-        editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_CSL_HENRY);
+        user_editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Edit Collection - lessonp-5734: Edit Collection Buttons")
     public void testLessonp_5734() {
-        editCollectionTest.testEditFolderButtons(TestData.VALID_EMAIL_CSL_HENRY, TestData.COPIED_FOLDER_NAME);
+        user_editCollectionTest.testEditFolderButtons(TestData.VALID_EMAIL_CSL_HENRY, TestData.COPIED_FOLDER_NAME);
     }
 
     @Test(description = "Custom SL - Edit Collection - lessonp-5735: Item Options")
     public void testLessonp_5735() {
-        editCollectionTest.testItemOptions();
+        user_editCollectionTest.testItemOptions();
     }
 }

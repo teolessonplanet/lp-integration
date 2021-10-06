@@ -6,13 +6,13 @@
 
     <classes>
 
-      <class name="Regular_User_HeaderTest">
+      <class name="User_HeaderTest">
         <methods>
           <include name="testLessonp_4565"></include>
         </methods>
       </class>
 
-      <class name="Regular_User_FooterTest">
+      <class name="User_FooterTest">
         <methods>
           <include name="testLessonp_656"></include>
         </methods>

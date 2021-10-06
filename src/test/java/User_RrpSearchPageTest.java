@@ -8,7 +8,7 @@ import util.TestData;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Regular_User_RrpSearchPageTest extends BaseTest {
+public class User_RrpSearchPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private RrpModal rrpModal;
     private RrpPage rrpPage;
@@ -19,8 +19,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
     private SignInPage signInPage;
     private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
-    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesTest;
-    private Regular_User_CurriculumManagerPageTest curriculumManagerTest;
+    private User_DirectoryCategoriesAndSubcategoriesPageTest user_directoryCategoriesAndSubcategoriesTest;
+    private User_CurriculumManagerPageTest user_curriculumManagerTest;
     private StepTwoPage stepTwoPage;
     private ResourcePreviewPage resourcePreviewPage;
     private CollectionRrp collectionRrp;
@@ -40,8 +40,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         signInPage = new SignInPage(webDriver);
         upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
-        directoryCategoriesAndSubcategoriesTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
-        curriculumManagerTest = new Regular_User_CurriculumManagerPageTest();
+        user_directoryCategoriesAndSubcategoriesTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
+        user_curriculumManagerTest = new User_CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
         resourcePreviewPage = new ResourcePreviewPage(webDriver);
         collectionRrp = new CollectionRrpModal(webDriver);
@@ -161,8 +161,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         testGoToResourceButtonForSharedResource(false);
         testThumbnailForSharedResource(false);
         testStartYourFreeTrialTryItFreeButton();
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_VISITOR);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_VISITOR);
         discoverResourcesPage.closeTab();
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesTryItFreeButton();
@@ -312,8 +312,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection();
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCurriculumPlayerURL();
+        user_curriculumManagerTest.initTest(webDriver);
+        user_curriculumManagerTest.testCurriculumPlayerURL();
         testCollectionUpgradeForFullReviewButton(inModal);
         testSaveCollectionButton(inModal, TestData.PLAN_FREEMIUM);
         if (inModal) {
@@ -340,8 +340,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
         testFreeSampleStartYourFreeTrialUpgradeMeButton();
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons  - lessonp-4671: Shared Resource Main Buttons")
@@ -356,8 +356,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
         testSeeSimilarResourcesUpgradeMeButton();
         testStartYourFreeTrialUpgradeMeButton();
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4668: Collection Main buttons")
@@ -489,8 +489,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection();
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCurriculumPlayerURL();
+        user_curriculumManagerTest.initTest(webDriver);
+        user_curriculumManagerTest.testCurriculumPlayerURL();
         testSaveCollectionButton(inModal, account);
     }
 
@@ -503,8 +503,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         collectionRrpModal.clickSeeFullReviewsLink();
         testItemViewerSection();
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCurriculumPlayerURL();
+        user_curriculumManagerTest.initTest(webDriver);
+        user_curriculumManagerTest.testCurriculumPlayerURL();
         testSaveCollectionButton(inModal, account);
     }
 
@@ -517,8 +517,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         testThumbnailForRegularResource(false, TestData.PLAN_PRO);
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForRegularResource(false);
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_PRO);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_PRO);
         testSeeSimilarResourcesDropdown();
     }
 
@@ -531,8 +531,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         testThumbnailForSharedResource(false);
         testAddToCollectionDropdown(false);
         testGoToResourceButtonForSharedResource(false);
-        directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_PRO);
+        user_directoryCategoriesAndSubcategoriesTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_PRO);
         testSeeSimilarResourcesDropdown();
     }
 
@@ -542,8 +542,8 @@ public class Regular_User_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         collectionRrpModal.clickPlayCollectionButton();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCurriculumPlayerURL();
+        user_curriculumManagerTest.initTest(webDriver);
+        user_curriculumManagerTest.testCurriculumPlayerURL();
         collectionRrpModal.clickPanelItem(0);
         testItemViewerSection();
         collectionRrpModal.clickSeeFullReviewsLink();

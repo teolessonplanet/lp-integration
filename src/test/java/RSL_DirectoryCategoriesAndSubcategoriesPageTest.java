@@ -8,7 +8,7 @@ import util.TestData;
 public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
     private LoginPage loginPage;
-    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
+    private User_DirectoryCategoriesAndSubcategoriesPageTest user_directoryCategoriesAndSubcategoriesPageTest;
     private BrowseBySubjectPage browseBySubjectPage;
     private RrpModal rrpModal;
     private DiscoverResourcesPage discoverResourcesPage;
@@ -18,7 +18,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        directoryCategoriesAndSubcategoriesPageTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
+        user_directoryCategoriesAndSubcategoriesPageTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         rrpModal = new RrpModal(webDriver);
         createNewFolderModal = new CreateNewFolderModal(webDriver);
@@ -64,28 +64,28 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5189:Browse by Subject")
     public void testLessonp_5189() {
         initDirectoryTestAndLogin(TestData.VALID_EMAIL_RSL_SBCEO);
-        directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_RSL_SBCEO);
+        user_directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
     @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5190:Related Topics")
     public void testLessonp_5190() {
         initDirectoryTestAndLogin(TestData.VALID_EMAIL_RSL_SBCEO);
-        directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();
+        user_directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();
     }
 
     protected void initDirectoryTestAndLogin(String account) {
         loginPage.performLogin(account, TestData.VALID_PASSWORD);
-        directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
     }
 
     protected void testPageUi(String account) {
         initDirectoryTestAndLogin(account);
-        directoryCategoriesAndSubcategoriesPageTest.testPageUi();
+        user_directoryCategoriesAndSubcategoriesPageTest.testPageUi();
     }
 
     protected void testResourceTiles(String account) {
         initDirectoryTestAndLogin(account);
-        directoryCategoriesAndSubcategoriesPageTest.testResourceTiles(account);
+        user_directoryCategoriesAndSubcategoriesPageTest.testResourceTiles(account);
     }
 
     protected void testRrpIndividualResource(String account, boolean rrpStatic) {
@@ -146,7 +146,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
                 Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
                 limitedResourceAccessModal.clickOnSaveButton();
             }
-              //Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER_NOTIFICATION_TEXT));
+            //Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER_NOTIFICATION_TEXT));
         }
 
         collectionRrpModal.clickPlayCollectionButton();

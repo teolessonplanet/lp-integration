@@ -6,13 +6,13 @@ import util.TestData;
 public class CSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     private LoginPage loginPage;
     private RSL_DirectoryCategoriesAndSubcategoriesPageTest rsl_directoryCategoriesAndSubcategoriesPageTest;
-    private Regular_User_DirectoryCategoriesAndSubcategoriesPageTest directoryCategoriesAndSubcategoriesPageTest;
+    private User_DirectoryCategoriesAndSubcategoriesPageTest user_directoryCategoriesAndSubcategoriesPageTest;
 
     @BeforeMethod
     private void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest = new RSL_DirectoryCategoriesAndSubcategoriesPageTest();
-        directoryCategoriesAndSubcategoriesPageTest = new Regular_User_DirectoryCategoriesAndSubcategoriesPageTest();
+        user_directoryCategoriesAndSubcategoriesPageTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
     }
 
     @Test(description = "Custom SL - Directory Page - Categories and subcategories - lessonp-1730: Page UI")
@@ -54,14 +54,14 @@ public class CSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     @Test(description = "Custom SL - Directory Page - Categories and subcategories - lessonp-1734: Browse by Subject")
     public void testLessonp_1734() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_CSL_HENRY);
+        user_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
     @Test(description = "Custom SL - Directory Page - Categories and subcategories - lessonp-1735: Related Topics")
     public void testLessonp_1735() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
-        directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();
+        user_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
+        user_directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();
     }
 }

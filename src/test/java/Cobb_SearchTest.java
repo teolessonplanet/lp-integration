@@ -6,14 +6,14 @@ import util.TestData;
 public class Cobb_SearchTest extends BaseTest {
     private RSL_SearchTest rsl_searchTest;
     private CSL_SearchTest csl_searchTest;
-    private Regular_User_SearchTest searchTest;
+    private User_SearchTest user_searchTest;
     private LoginPage loginPage;
 
     @BeforeMethod
     public void beforeMethod() {
         rsl_searchTest = new RSL_SearchTest();
         csl_searchTest = new CSL_SearchTest();
-        searchTest = new Regular_User_SearchTest();
+        user_searchTest = new User_SearchTest();
         loginPage = new LoginPage(webDriver);
     }
 
@@ -70,15 +70,15 @@ public class Cobb_SearchTest extends BaseTest {
 
     @Test(description = "Cobb SL - Search Page - lessonp-5999: Keyword search")
     public void testLessonp_5999() {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        searchTest.testKeywordSearch(TestData.VALID_EMAIL_CSL_COBB);
+        user_searchTest.testKeywordSearch(TestData.VALID_EMAIL_CSL_COBB);
     }
 
     @Test(description = "Cobb SL - Search Page - lessonp-6000: Keywordless search")
     public void testLessonp_6000() {
-        searchTest.initTest(webDriver);
+        user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
-        searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_CSL_COBB);
+        user_searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_CSL_COBB);
     }
 }

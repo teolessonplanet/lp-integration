@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import util.TestData;
 
-public class Regular_User_LoginTest extends BaseTest {
+public class User_LoginTest extends BaseTest {
     private LpHomePage lpHomePage;
     private LoginPage loginPage;
     private HeaderPage headerPage;
