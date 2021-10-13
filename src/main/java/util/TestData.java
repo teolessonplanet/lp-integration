@@ -749,6 +749,7 @@ public class TestData {
 
     public static final String INCORRECT_ACCESS_KEY_MESSAGE_TEXT = "Sorry, this access key is incorrect. Need help?";
 
+    public static final String HOMEPAGE_GET_STARTED_BUTTON_TEXT = "Get Started";
     public static final String HOMEPAGE_START_SEARCHING_BUTTON_TEXT = "Start Searching";
     public static final String HOMEPAGE_WATCH_VIDEO_BUTTON_TEXT = "Watch Video";
     public static final String HOMEPAGE_DISCOVER_TAB_TEXT = "Discover";
@@ -765,4 +766,24 @@ public class TestData {
     public static final String HOMEPAGE_DISCOVER_CARD_4_PATH = "teachers/recursive-formulas-fibonacci-sequence";
 
     public static final String HOMEPAGE_VIDEO_SRC = "https://player.vimeo.com/video/67310740?title=0&byline=0&portrait=0";
+
+    public static final String HOMEPAGE_COLLECT_TAB_TEXT = "Collect";
+    public static final String HOMEPAGE_COLLECT_TEXT = "Create playlists of resources using the Collection Builder.";
+    public static final String HOMEPAGE_COLLECT_CARD_1_TEXT = "Video\nChanges of State\nFor Students 9th - 12th NGSS";
+    public static final String HOMEPAGE_COLLECT_CARD_2_TEXT = "Activity\nWater Cycle: Building a Diagram\nFor Students 6th - 12th NGSS";
+    public static final String HOMEPAGE_COLLECT_INCOMPLETE_COLLECTION = "My Water Cycle Lesson\nThe Anatomy of a Raindrop\nVideo\nEvaporation and Condensation\nLesson\nDrag & drop your favorite resources";
+    public static final String HOMEPAGE_COLLECT_COMPLETED_COLLECTION = "My Water Cycle Lesson\nChanges of State\nVideo\nWater Cycle: Building a Diagram\nActivity\nThe Anatomy of a Raindrop\nVideo\nEvaporation and Condensation\nLesson\nNice work!";
+
+    public static final String HOMEPAGE_DESIGN_TAB_TEXT = "Design";
+    public static final String HOMEPAGE_DESIGN_TEXT = "Design and organize personalized, standards-based curriculum with the drag and drop Curriculum Manager.";
+
+    public static final String HOMEPAGE_DELIVER_TAB_TEXT = "Deliver";
+    public static final String HOMEPAGE_DELIVER_TEXT = "Deliver custom collections directly to students or share curriculum with colleagues using the Collection Player.";
+
+    public static final String WHICH_SOLUTION_TITLE_TEXT = "Which solution best fits your needs?";
+    public static final String PARENT_EDITION_PAGE_PATH = "parent-edition";
+    public static final String PARENT_BOX_TEXT = "Parent\nYou are a parent or homeschool teacher looking to support your child's learning.\nSelect Solution";
+    public static final String EDUCATOR_BOX_TEXT = "Educator\nYou are a PreK-12 teacher or tutor looking for resources to inspire your students.\nSelect Solution";
+    public static final String SCHOOL_OR_DISTRICT_BOX_TEXT = "School or District\nYou are an administrator or curriculum specialist looking for a way to manage your organization's curriculum.\nSelect Solution";
+
 }
