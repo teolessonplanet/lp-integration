@@ -1,6 +1,7 @@
 import com.lessonplanet.pages.HomePage;
 import com.lessonplanet.pages.StepTwoPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,6 +38,102 @@ public class User_HomePageTest extends BaseTest {
     public void testLessonp_5322() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDiscoverTab();
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5296:Collect")
+    public void testLessonp_5296() {
+        testCollectTab();
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5307:Collect")
+    public void testLessonp_5307() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testCollectTab();
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5323:Collect")
+    public void testLessonp_5323() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testCollectTab();
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5297:Design")
+    public void testLessonp_5297() {
+        testDesignTab();
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5308:Design")
+    public void testLessonp_5308() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testDesignTab();
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5324:Design")
+    public void testLessonp_5324() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testDesignTab();
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5298:Deliver")
+    public void testLessonp_5298() {
+        testDeliverTab();
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5309:Deliver")
+    public void testLessonp_5309() {
+        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
+        testDeliverTab();
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5325:Deliver")
+    public void testLessonp_5325() {
+        stepTwoPage.createNewAccount(TestData.PLAN_PRO);
+        testDeliverTab();
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5286:Parent")
+    public void testLessonp_5286() {
+        testParentEdition(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5311:Parent")
+    public void testLessonp_5311() {
+        testParentEdition(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5327:Parent")
+    public void testLessonp_5327() {
+        testParentEdition(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5300:Educator")
+    public void testLessonp_5300() {
+        testEducatorSection(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5312:Educator")
+    public void testLessonp_5312() {
+        testEducatorSection(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5328:Educator")
+    public void testLessonp_5328() {
+        testEducatorSection(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5301:School or District")
+    public void testLessonp_5301() {
+        testSchoolOrDistrictSection(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5313:School or District")
+    public void testLessonp_5313() {
+        testSchoolOrDistrictSection(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5329:School or District")
+    public void testLessonp_5329() {
+        testSchoolOrDistrictSection(TestData.PLAN_PRO);
     }
 
     protected void testDiscoverTab() {
@@ -95,5 +192,104 @@ public class User_HomePageTest extends BaseTest {
 
         homePage.clickOnCardFromDiscoverArea(4);
         Assert.assertEquals(TestData.PRODUCTION_URL + TestData.HOMEPAGE_DISCOVER_CARD_4_PATH, homePage.getUrl());
+    }
+
+    private void testWatchVideoAndGetStartedButtons(String tabToTest, String blueButtonText) {
+        final String discoverBlueButtonText = homePage.getHeroButtonText();
+        final String discoverWatchVideoButtonText = homePage.getWatchVideoButtonText();
+
+        Assert.assertEquals(blueButtonText, discoverBlueButtonText.replace("\"", ""));
+        Assert.assertEquals(TestData.HOMEPAGE_WATCH_VIDEO_BUTTON_TEXT, discoverWatchVideoButtonText);
+
+        homePage.clickOnBlueButton();
+        Assert.assertEquals(TestData.SEARCH_PAGE_PATH, homePage.getPath());
+        homePage.goBackOnePage();
+
+        homePage.clickOnTab(tabToTest);
+
+        homePage.clickOnWatchVideoButton();
+        homePage.clickOnStartVideo();
+        Assert.assertEquals(TestData.HOMEPAGE_VIDEO_SRC, homePage.getVideoSourceText());
+        homePage.clickOnCloseVideoButton();
+    }
+
+    private void testCollectTab() {
+        homePage.loadPage();
+        homePage.clickOnCollectTab();
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_TAB_TEXT, homePage.getCollectTabText());
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_TEXT, homePage.getCollectText());
+        String card1Text = homePage.getCollectCardText(1);
+        String card2Text = homePage.getCollectCardText(2);
+        String incompleteCollection = homePage.getCollectCollectionBuilderText();
+        WebElement card1 = homePage.getCollectCardElement(1);
+        WebElement card2 = homePage.getCollectCardElement(2);
+        WebElement dropZone = homePage.getCollectCollectionDropZone();
+        homePage.customDragAndDrop(card1, dropZone);
+        homePage.customDragAndDrop(card2, dropZone);
+        String completeCollection = homePage.getCollectCollectionBuilderText();
+
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_CARD_1_TEXT, card1Text);
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_CARD_2_TEXT, card2Text);
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_INCOMPLETE_COLLECTION, incompleteCollection);
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_COMPLETED_COLLECTION, completeCollection);
+
+        //change position for the first item
+        homePage.customDragAndDrop(homePage.getCollectItemFromCollection(1), dropZone);
+        Assert.assertNotEquals(completeCollection, homePage.getCollectCollectionBuilderText());
+
+        testWatchVideoAndGetStartedButtons(TestData.HOMEPAGE_COLLECT_TAB_TEXT, TestData.HOMEPAGE_GET_STARTED_BUTTON_TEXT);
+        //page is refreshed, so the collection should be incomplete
+        Assert.assertEquals(TestData.HOMEPAGE_COLLECT_INCOMPLETE_COLLECTION, homePage.getCollectCollectionBuilderText());
+    }
+
+    private void testDesignTab() {
+        homePage.loadPage();
+        homePage.clickOnDesignTab();
+        Assert.assertEquals(TestData.HOMEPAGE_DESIGN_TAB_TEXT, homePage.getDesignTabText());
+        Assert.assertEquals(TestData.HOMEPAGE_DESIGN_TEXT, homePage.getDesignText());
+        Assert.assertTrue(homePage.isDesignImageDisplayed());
+        testWatchVideoAndGetStartedButtons(TestData.HOMEPAGE_DESIGN_TAB_TEXT, TestData.HOMEPAGE_GET_STARTED_BUTTON_TEXT);
+    }
+
+    private void testDeliverTab() {
+        homePage.loadPage();
+        homePage.clickOnDeliverTab();
+        Assert.assertEquals(TestData.HOMEPAGE_DELIVER_TAB_TEXT, homePage.getDeliverTabText());
+        Assert.assertEquals(TestData.HOMEPAGE_DELIVER_TEXT, homePage.getDeliverText());
+        Assert.assertTrue(homePage.areDeliverImagesDisplayed());
+        testWatchVideoAndGetStartedButtons(TestData.HOMEPAGE_DELIVER_TAB_TEXT, TestData.HOMEPAGE_GET_STARTED_BUTTON_TEXT);
+    }
+
+    private void testParentEdition(String accountPlan) {
+        testWhichSolutionFirstPart(accountPlan);
+        Assert.assertEquals(TestData.PARENT_BOX_TEXT, homePage.getParentBoxText());
+        Assert.assertTrue(homePage.isParentPictureDisplayed());
+        homePage.clickOnSelectSolutionForParent();
+        Assert.assertEquals(TestData.PARENT_EDITION_PAGE_PATH, homePage.getPath());
+    }
+
+    private void testEducatorSection(String accountPlan) {
+        testWhichSolutionFirstPart(accountPlan);
+        Assert.assertEquals(TestData.EDUCATOR_BOX_TEXT, homePage.getEducatorBoxText());
+        Assert.assertTrue(homePage.isEducatorPictureDisplayed());
+        homePage.clickOnSelectSolutionForEducator();
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_PAGE_PATH, homePage.getPath());
+    }
+
+    private void testSchoolOrDistrictSection(String accountPlan) {
+        testWhichSolutionFirstPart(accountPlan);
+        Assert.assertEquals(TestData.SCHOOL_OR_DISTRICT_BOX_TEXT, homePage.getSchoolOrDistrictBoxText());
+        Assert.assertTrue(homePage.isSchoolOrDistrictPictureDisplayed());
+        homePage.clickOnSelectSolutionForSchoolOrDistrict();
+        Assert.assertEquals(TestData.LEARNING_EXPLORER_URL, homePage.getUrl());
+    }
+
+    private void testWhichSolutionFirstPart(String accountPlan) {
+        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
+            stepTwoPage.createNewAccount(accountPlan);
+        }
+        homePage.loadPage();
+        homePage.scrollToParentSolutionSection();
+        Assert.assertEquals(TestData.WHICH_SOLUTION_TITLE_TEXT, homePage.getWhichSolutionTitleText());
     }
 }
