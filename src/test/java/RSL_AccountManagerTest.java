@@ -304,7 +304,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             Assert.assertTrue(districtPage.getSearchResultsText().contains(districtPage.getTeachersNumber() + " " + TestData.SEARCH_RESULTS_TEXT) && districtPage.getSearchResultsText().contains(text));
             for (int i = 0; i < districtPage.getTeachersNumber(); i++) {
                 Assert.assertTrue(districtPage.getTeacherFirstName(i).contains(text) || districtPage.getTeacherLastName(i).contains(text) || districtPage.getTeacherEmail(i).contains(text));
-                Assert.assertTrue(districtPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || districtPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || districtPage.getTeacherRole(i).contains(TestData.OWNER_ROLE));
+                Assert.assertTrue(districtPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || districtPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || districtPage.getTeacherRole(i).contains(TestData.OWNER_ROLE));
                 Assert.assertTrue(districtPage.isTeacherSchoolDisplayed(i));
                 if (!districtPage.getTeacherSchoolName(i).equals(TestData.CSL_PARENTS_SCHOOL_NAME)) {
                     districtPage.hoverOverEditButton(i);
@@ -388,7 +388,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             if (district) {
                 for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
                     Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
-                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
+                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
                     schoolPage.hoverOverEditButton(i);
                     Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
                     schoolPage.hoverOverRemoveButton(i);
@@ -401,7 +401,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             } else {
                 for (int i = 0; i < 4; i++) {
                     Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
-                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
+                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
                     schoolPage.hoverOverEditButton(i);
                     if (!schoolPage.getTeacherJoinedDate(i).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
                         Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
@@ -528,7 +528,6 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
         Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
         Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isPublishCheckboxDisplayed());
         Assert.assertEquals(editTeacherModal.getPublishOptionText(), TestData.PUBLISHER_ROLE);
         editTeacherModal.hoverOverPublishingOptionInfoIcon();
         Assert.assertEquals(editTeacherModal.getPublishingOptionInfoIconPopoverText(), TestData.PUBLISHING_PRIVILEGES_POPOVER_TEXT);
@@ -648,7 +647,7 @@ public class RSL_AccountManagerTest extends BaseTest {
             Assert.assertTrue(schoolPage.getSearchResultsText().contains(schoolPage.getTeachersNumber() + " " + TestData.SEARCH_RESULTS_TEXT) && schoolPage.getSearchResultsText().contains(text));
             for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
                 Assert.assertTrue(schoolPage.getTeacherFirstName(i).contains(text) || schoolPage.getTeacherLastName(i).contains(text) || schoolPage.getTeacherEmail(i).contains(text));
-                Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.OWNER_ROLE));
+                Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.OWNER_ROLE));
                 schoolPage.hoverOverEditButton(i);
                 if (district) {
                     Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
@@ -710,7 +709,7 @@ public class RSL_AccountManagerTest extends BaseTest {
 
             manageDistrictPage.hoverOverRemoveButton(i);
             Assert.assertTrue(manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT) || manageDistrictPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT));
-            Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.ADMIN_ROLE));
+            Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.DISTRICT_ADMIN_ROLE));
         }
 
         if (!roster) {

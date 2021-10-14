@@ -6,11 +6,11 @@ public class EditTeacherModal extends EditDistrictModal {
 
     private static final String FIRST_NAME_INPUT = "[name='firstname']";
     private static final String LAST_NAME_INPUT = "[name='lastname']";
-    private static final String EMAIL_INPUT = "div.row:nth-child(2) [class='form-control']";
+    private static final String EMAIL_INPUT = "[name='email']";
     private static final String ERROR_TEXT = "[class*='has-error'] [class*='help-block']";
     private static final String PUBLISHING_OPTION_INFO_ICON = "[class='form-group publishing'] [class*='popup']";
     private static final String PUBLISHING_OPTION_INFO_ICON_POPOVER_TEXT = "[class='form-group publishing'] [class*='popup'] [class*='popuptext']";
-    private static final String PUBLISH_CHECKBOX = "[name='publisher']";
+    private static final String PUBLISH_CHECKBOX = "[name='site_license_publisher']";
     private static final String CURRICULUM_LEAD_CHECKBOX = "[name='site_license_curriculum_lead']";
     private static final String PUBLISH_OPTION_TEXT = "[class='form-group publishing'] div div";
     private static final String CURRICULUM_LEAD_OPTION_TEXT = "[class='form-group publishing'] div div:nth-child(3)";

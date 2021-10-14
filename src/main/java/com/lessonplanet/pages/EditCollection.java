@@ -52,8 +52,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADD_SELECTED_TO_FOLDER_BUTTON = "[class*='add-selected']";
     private static final String PIXABAY_ALERT_TEXT = "[class='details-updated-message danger']";
     private static final String CREATE_PAGE_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(4)";
-    private static final String PAGE_TITLE_INPUT = "[name='page_resource[title]']";
-    private static final String PAGE_CONTENT_INPUT = "[class='add-a-page-body'] [class*='note-editable']";
+    private static final String PAGE_TITLE_INPUT = "[class='required form-control']";
+    private static final String PAGE_CONTENT_INPUT = "[class*='note-editable']";
     private static final String SAVE_BUTTON = "[class*='modal-footer'] [class='btn btn-primary']";
     private static final String NEW_FOLDER_BUTTON = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(5)";
     private static final String CREATE_FOLDER_BUTTON = "[class*='modal-footer'] [class='btn btn-default btn-primary ml10']";

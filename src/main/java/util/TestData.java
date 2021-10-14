@@ -386,7 +386,8 @@ public class TestData {
     public static final String CSL_COBB_TEACHER_FIRST_NAME = "Anthony";
     public static final String CSL_COBB_TEACHER_LAST_NAME = "Simpson";
     public static final String TEACHER_ROLE = "Teacher";
-    public static final String ADMIN_ROLE = "Admin";
+    public static final String SCHOOL_ADMIN_ROLE = "School Admin";
+    public static final String DISTRICT_ADMIN_ROLE = "District Admin";
     public static final String OWNER_ROLE = "Owner";
     public static final String PUBLISHER_ROLE = "Publisher";
     public static final String CURRICULUM_LEAD_ROLE = "Curriculum Lead";
