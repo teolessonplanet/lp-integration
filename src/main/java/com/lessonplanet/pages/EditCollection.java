@@ -95,6 +95,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADDITIONAL_TAGS_FIELD = "[class='additional-tags-dropdown__input'] [id^='react-select-']";
     private static final String ADDITIONAL_TAGS_OPTIONS = "[class^='additional-tags-dropdown__option']";
 
+    private static final String EDIT_FOLDER_STATUS = "[class='edit-folder-status-wrap'] [class='status alone']";
+
     public EditCollection(WebDriver driver) {
         super(driver);
     }
@@ -460,6 +462,10 @@ public class EditCollection extends CreateNewFolderModal {
 
     public boolean isNavigateFolderDropdownDisplayed() {
         return isElementDisplayed(NAVIGATE_FOLDER_DROPDOWN);
+    }
+
+    public String getEditFolderStatus() {
+        return getTextForElement(EDIT_FOLDER_STATUS);
     }
 
     public void clickOnNewFolderOption() {
