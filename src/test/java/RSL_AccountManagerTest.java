@@ -58,7 +58,6 @@ public class RSL_AccountManagerTest extends BaseTest {
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-901: Edit District, Search in district")
-    //TODO: try to remove static account
     public void testLessonp_901() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false, true);
@@ -70,7 +69,6 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin")
     public void testLessonp_904() {
-        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
         testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER, false, TestData.EXISTING_DISTRICT_ADMIN_ERROR_TEXT);
@@ -80,7 +78,7 @@ public class RSL_AccountManagerTest extends BaseTest {
     @Test(description = "Regular SL - Account Manager - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher")
     public void testLessonp_920() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
+        testAddSchool();
         districtPage.clickOnSchool(0);
         testSchoolPage(false, true);
         Assert.assertTrue(schoolPage.getFlashNotificationText().contains(TestData.NO_TEACHER_ADDED_NOTIFICATION_TEXT));
@@ -97,9 +95,8 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-895: Edit School, Search in School")
     public void testLessonp_895() {
-        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
+        testAddSchool();
         testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
         testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
         schoolPage.clickOnAccountManagerBreadcrumbs();
@@ -114,9 +111,8 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin")
     public void testLessonp_924() {
-        //TODO: try to remove static account
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
+        testAddSchool();
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
         testManageSchoolAdminPage(false, false);
@@ -263,16 +259,6 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     public void testAddDistrictAdmin(String adminEmail, boolean roster, String notification) {
         manageDistrictAdminsPage.clickOnAddAdminLink();
-        addADistrictAdminModal.typeEmail(TestData.INVALID_EMAIL);
-        addADistrictAdminModal.clearEmail();
-        addADistrictAdminModal.waitForNotificationToBeDisplayed(TestData.REQUIRED_FIELD_ERROR_TEXT);
-        addADistrictAdminModal.typeEmail(TestData.RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL);
-        addADistrictAdminModal.clickOnAddButton();
-        addADistrictAdminModal.waitForNotificationToBeDisplayed(notification);
-        addADistrictAdminModal.clearEmail();
-        addADistrictAdminModal.typeEmail(TestData.NEW_COLLECTION_NAME);
-        addADistrictAdminModal.waitForNotificationToBeDisplayed(TestData.VALID_EMAIL_FORMAT_ERROR_TEXT);
-        addADistrictAdminModal.clearEmail();
         addADistrictAdminModal.typeEmail(adminEmail);
         addADistrictAdminModal.clickOnAddButton();
         Assert.assertEquals(manageDistrictAdminsPage.getAdminEmail(1), adminEmail);
@@ -365,6 +351,12 @@ public class RSL_AccountManagerTest extends BaseTest {
         testAddSchoolsModal(newName, existingName);
     }
 
+    public void testAddSchool() {
+        districtPage.clickOnAddButton();
+        addSchoolsModal.typeSchoolName(TestData.GET_NEW_SCHOOL_NAME());
+        addSchoolsModal.clickOnAddButton();
+    }
+
     public void testRemoveSchool() {
         int schoolNumbers = districtPage.getSchoolsNumber();
         districtPage.clickRemoveActionButton(0);
@@ -437,12 +429,6 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertEquals(editSchoolModal.getOrganizationShortNameInfoIconPopoverText(), TestData.SCHOOL_SHORT_NAME_POPOVER_TEXT);
         if (!roster) {
             editSchoolModal.clearSchoolName();
-            editSchoolModal.clickOnSaveButton();
-            editSchoolModal.waitForNotificationToBeDisplayed(TestData.REQUIRED_FIELD_ERROR_TEXT);
-            editSchoolModal.typeSchoolName(existingName);
-            editSchoolModal.clickOnSaveButton();
-            editSchoolModal.waitForNotificationToBeDisplayed(TestData.EXISTING_SCHOOL_ERROR_TEXT);
-            editSchoolModal.clearSchoolName();
             editSchoolModal.typeSchoolName(newName);
             editSchoolModal.typeOrganizationShortName(TestData.CONCEPT);
         } else {
@@ -482,7 +468,17 @@ public class RSL_AccountManagerTest extends BaseTest {
         }
     }
 
-    public void testAddTeacher(String teacherEmail) {
+    public void testAddTeacherFromAddButton() {
+        schoolPage.clickOnAddButton();
+        testAddTeacherModal(TestData.GET_NEW_EMAIL());
+    }
+
+    public void testAddTeacherFromAddLink(String teacherEmail) {
+        schoolPage.clickOnAddLink();
+        testAddTeacherModal(teacherEmail);
+    }
+
+    public void testAddTeacherModal(String teacherEmail) {
         addTeachersModal.typeEmail(TestData.INVALID_EMAIL);
         addTeachersModal.clearEmail();
         addTeachersModal.waitForNotificationToBeDisplayed(TestData.REQUIRED_FIELD_ERROR_TEXT);
@@ -501,18 +497,13 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertTrue(schoolPage.getTeacherRole(0).contains(TestData.TEACHER_ROLE));
     }
 
-    public void testAddTeacherFromAddButton() {
-        schoolPage.clickOnAddButton();
-        testAddTeacher(TestData.GET_NEW_EMAIL());
-    }
-
-    public void testAddTeacherFromAddLink(String teacherEmail) {
+    public void testAddTeacher() {
         schoolPage.clickOnAddLink();
-        testAddTeacher(teacherEmail);
+        addTeachersModal.typeEmail(TestData.GET_NEW_EMAIL());
+        addTeachersModal.clickOnAddButton();
     }
 
     public void testRemoveTeacher(boolean district) {
-        int teachersNumber = schoolPage.getTeachersNumber();
         schoolPage.clickRemoveActionButton(0);
         if (district) {
             Assert.assertEquals(removeTeacherModal.getModalText(), TestData.REMOVE_TEACHER_MODAL_TEXT);
@@ -524,7 +515,25 @@ public class RSL_AccountManagerTest extends BaseTest {
         schoolPage.dismissNotification();
     }
 
-    public void testEditJoinedUser() {
+    public void testEditTeacher(boolean regularSL, boolean schoolOrg) {
+        schoolPage.clickEditActionButton(0);
+        if (!regularSL) {
+            testEditActiveTeacher();
+        } else {
+            if (schoolOrg) {
+                if (!schoolPage.getTeacherJoinedDate(0).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
+                    schoolPage.hoverOverEditButton(0);
+                    Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_TEACHER_POPOVER_TEXT));
+                } else {
+                    testEditNotActiveTeacher();
+                }
+            } else {
+                testEditNotActiveTeacher();
+            }
+        }
+    }
+
+    public void testEditActiveTeacher() {
         Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
         Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
         Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
@@ -534,42 +543,17 @@ public class RSL_AccountManagerTest extends BaseTest {
         editTeacherModal.clickOnSaveButton();
     }
 
-    public void testEditTeacher(boolean regularSL, boolean schoolOrg) {
-        if (!regularSL) {
-            schoolPage.clickEditActionButton(0);
-            testEditJoinedUser();
-        } else {
-            if (schoolOrg) {
-                if (!schoolPage.getTeacherJoinedDate(0).equals(TestData.UNREGISTERED_TEACHER_STATUS)) {
-                    schoolPage.hoverOverEditButton(0);
-                    Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.DISABLED_EDIT_TEACHER_POPOVER_TEXT));
-                } else {
-                    schoolPage.clickEditActionButton(0);
-                    editTeacherModal.clearEmail();
-                    Assert.assertEquals(editTeacherModal.getErrorText(), TestData.REQUIRED_FIELD_ERROR_TEXT);
-                    editTeacherModal.typeEmail(TestData.INVALID_EMAIL);
-                    editTeacherModal.typeFirstName(TestData.CONCEPT);
-                    editTeacherModal.typeLastName(TestData.REGULAR_RESOURCE_TYPE);
-                    editTeacherModal.clickOnSaveButton();
-                    schoolPage.refreshPageAndDismissBrowserAlert();
-                    Assert.assertEquals(schoolPage.getTeacherEmail(0), TestData.INVALID_EMAIL);
-                    Assert.assertEquals(schoolPage.getTeacherFirstName(0), TestData.CONCEPT);
-                    Assert.assertEquals(schoolPage.getTeacherLastName(0), TestData.REGULAR_RESOURCE_TYPE);
-                }
-            } else {
-                schoolPage.clickEditActionButton(0);
-                editTeacherModal.clearEmail();
-                Assert.assertEquals(editTeacherModal.getErrorText(), TestData.REQUIRED_FIELD_ERROR_TEXT);
-                editTeacherModal.typeEmail(TestData.INVALID_EMAIL);
-                editTeacherModal.typeFirstName(TestData.CONCEPT);
-                editTeacherModal.typeLastName(TestData.REGULAR_RESOURCE_TYPE);
-                editTeacherModal.clickOnSaveButton();
-                schoolPage.refreshPageAndDismissBrowserAlert();
-                Assert.assertEquals(schoolPage.getTeacherEmail(0), TestData.INVALID_EMAIL);
-                Assert.assertEquals(schoolPage.getTeacherFirstName(0), TestData.CONCEPT);
-                Assert.assertEquals(schoolPage.getTeacherLastName(0), TestData.REGULAR_RESOURCE_TYPE);
-            }
-        }
+    public void testEditNotActiveTeacher() {
+        editTeacherModal.clearEmail();
+        Assert.assertEquals(editTeacherModal.getErrorText(), TestData.REQUIRED_FIELD_ERROR_TEXT);
+        editTeacherModal.typeEmail(TestData.INVALID_EMAIL);
+        editTeacherModal.typeFirstName(TestData.CONCEPT);
+        editTeacherModal.typeLastName(TestData.REGULAR_RESOURCE_TYPE);
+        editTeacherModal.clickOnSaveButton();
+        schoolPage.refreshPageAndDismissBrowserAlert();
+        Assert.assertEquals(schoolPage.getTeacherEmail(0), TestData.INVALID_EMAIL);
+        Assert.assertEquals(schoolPage.getTeacherFirstName(0), TestData.CONCEPT);
+        Assert.assertEquals(schoolPage.getTeacherLastName(0), TestData.REGULAR_RESOURCE_TYPE);
     }
 
     public void testManageSchoolAdminPage(boolean sso, boolean roster) {
@@ -616,12 +600,6 @@ public class RSL_AccountManagerTest extends BaseTest {
 
     public void testAddSchoolAdmin(String adminEmail) {
         manageSchoolAdminsPage.clickOnAddAdminLink();
-        addASchoolAdminModal.typeEmail(TestData.INVALID_EMAIL);
-        addASchoolAdminModal.clearEmail();
-        addASchoolAdminModal.waitForNotificationToBeDisplayed(TestData.REQUIRED_FIELD_ERROR_TEXT);
-        addASchoolAdminModal.typeEmail(TestData.NEW_COLLECTION_NAME);
-        addASchoolAdminModal.waitForNotificationToBeDisplayed(TestData.VALID_EMAIL_FORMAT_ERROR_TEXT);
-        addASchoolAdminModal.clearEmail();
         addASchoolAdminModal.typeEmail(adminEmail);
         addASchoolAdminModal.clickOnAddButton();
         Assert.assertTrue(schoolPage.getNotificationText().contains(TestData.CREATED_SCHOOL_ADMIN_NOTIFICATION_TEXT));
@@ -714,10 +692,10 @@ public class RSL_AccountManagerTest extends BaseTest {
 
         if (!roster) {
             manageDistrictPage.clickOnAddButton();
-            testAddTeacher(TestData.GET_NEW_EMAIL());
+            testAddTeacherModal(TestData.GET_NEW_EMAIL());
             testRemoveTeacher(true);
             manageDistrictPage.clickOnAddLink();
-            testAddTeacher(TestData.GET_NEW_EMAIL());
+            testAddTeacherModal(TestData.GET_NEW_EMAIL());
             testRemoveTeacher(true);
         }
     }

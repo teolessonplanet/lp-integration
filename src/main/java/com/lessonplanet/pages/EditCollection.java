@@ -79,7 +79,7 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String ADD_A_NOTE_COUNT = "[class='item-viewer-notes-btn pop-out-visible'] [class='notes-count']";
     private static final String SAVE_NOTE_BUTTON = "#note-content [class='btn btn-primary']";
     private static final String CLOSE_ADD_NOTE = "#inline-close";
-    private static final String DELETE_OPTION = "[class*='collection-item-actions-list'] li:nth-child(4)";
+    private static final String DELETE_OPTION = "[class='delete collection-action-item-content']";
     private static final String DELETE_ITEM_BUTTON = "#updated-edit [class='modal-footer'] a";
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
