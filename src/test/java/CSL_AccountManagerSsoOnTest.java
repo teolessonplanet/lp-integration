@@ -76,7 +76,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testLessonp_1287() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
+        rsl_accountManagerTest.testAddSchool();
         districtPage.clickOnSchool(0);
         rsl_accountManagerTest.testSchoolPage(false, true);
         Assert.assertTrue(schoolPage.getFlashNotificationText().contains(TestData.NO_TEACHER_ADDED_NOTIFICATION_TEXT));
@@ -93,7 +93,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testLessonp_1288() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
+        rsl_accountManagerTest.testAddSchool();
         rsl_accountManagerTest.testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME, true, false);
         rsl_accountManagerTest.testEditSchoolFromEditOrganizationButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME, true, false);
         schoolPage.clickOnAccountManagerBreadcrumbs();
@@ -109,7 +109,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testLessonp_1289() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
+        rsl_accountManagerTest.testAddSchool();
         districtPage.clickOnSchool(0);
         schoolPage.clickOnManageAdminsButton();
         rsl_accountManagerTest.testManageSchoolAdminPage(true, false);
@@ -145,19 +145,19 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testEditDistrictAdmin() {
         manageDistrictAdminsPage.clickOnEditButton(1);
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditJoinedUser();
+        rsl_accountManagerTest.testEditActiveTeacher();
     }
 
     public void testEditOwner() {
         manageDistrictAdminsPage.clickOnEditButton(0);
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditJoinedUser();
+        rsl_accountManagerTest.testEditActiveTeacher();
     }
 
     public void testEditSchoolAdmin() {
         manageSchoolAdminsPage.clickOnEditButton(0);
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditJoinedUser();
+        rsl_accountManagerTest.testEditActiveTeacher();
     }
 
     public void testOwnerPublisherRole() {
@@ -185,7 +185,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testSchoolAdminPublisherRole() {
         headerPage.hoverOverUserDropDownButton();
         headerPage.clickOnAdminManagerButton();
-        rsl_accountManagerTest.testAddSchoolFromAddLink(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
+        rsl_accountManagerTest.testAddSchool();
         districtPage.clickEditActionButton(0);
         Assert.assertTrue(editSchoolModal.isAdminPublishCheckboxChecked());
         Assert.assertTrue(editSchoolModal.isAdminPublishCheckboxDisabled());
@@ -214,13 +214,13 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         editDistrictModal.clickTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
         manageDistrictPage.clickOnAccountManagerBreadcrumbs();
-        rsl_accountManagerTest.testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
+        rsl_accountManagerTest.testAddSchool();
         districtPage.clickEditActionButton(0);
         Assert.assertTrue(editSchoolModal.isTeacherPublishCheckboxDisabled());
         Assert.assertTrue(editSchoolModal.isTeacherPublishCheckboxChecked());
         editSchoolModal.clickOnCancelButton();
         districtPage.clickOnSchool(0);
-        rsl_accountManagerTest.testAddTeacherFromAddLink(TestData.GET_NEW_EMAIL());
+        rsl_accountManagerTest. testAddTeacher();
         schoolPage.clickEditActionButton(0);
         Assert.assertTrue(editTeacherModal.isPublishCheckboxChecked());
         editDistrictModal.clickOnCancelButton();
