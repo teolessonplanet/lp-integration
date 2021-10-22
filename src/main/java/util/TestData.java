@@ -236,6 +236,7 @@ public class TestData {
     public static final String SHARE_FOLDER_MODAL_OWNER_ROLE = "Owner";
     public static final String SHARE_FOLDER_MODAL_RSL_OWNER_NAME = "Connor Kyle";
     public static final String SHARE_FOLDER_MODAL_CSL_OWNER_NAME = "Henry Thomas";
+    public static final String SHARE_FOLDER_MODAL_COBB_OWNER_NAME = "Jane Maryland";
     public static final String SHARE_FOLDER_MODAL_ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "Start typing email address to select";
     public static final String SHARE_FOLDER_MODAL_NO_USER_FOUND_TEXT = "No results found.";
     public static final String SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT = "Can View";
@@ -381,6 +382,9 @@ public class TestData {
     public static final String CSL_COBB_SCHOOL_DISTRICT_NAME = "Cobb County School District";
     public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Adult Education @ Hawthorne";
     public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = "i_t_csl_cobb@lp.com";
+    public static final String CSL_COBB_EXISTING_DA_EMAIL = "i_da_csl_cobb@lp.com";
+    public static final String CSL_COBB_DA_FIRST_NAME = "David";
+    public static final String CSL_COBB_DA_LAST_NAME = "Morrison";
     public static final String CSL_COBB_OWNER_FIRST_NAME = "Jane";
     public static final String CSL_COBB_OWNER_LAST_NAME = "Maryland";
     public static final String CSL_COBB_TEACHER_FIRST_NAME = "Anthony";
