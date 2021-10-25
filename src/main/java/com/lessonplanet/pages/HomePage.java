@@ -52,6 +52,32 @@ public class HomePage extends LpUiBasePage {
     private static final String EXPLORE_OUR_SOLUTIONS_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='lpip-hp-section-subtext']";
     private static final String EXPLORE_OUR_SOLUTIONS_LINK = "[class='lpip-hp-section']:nth-child(3) [href='/us/contact']";
 
+    private static final String EDUCATOR_EDITION_AREA = "[class$='lpip-learning-explorer-section']";
+    private static final String EDUCATOR_EDITION_IPAD_IMAGE = "[class='lpip-hp-section']:nth-child(3) img[src*='lessonplanet.com/packs/media/homepage/resource-review-tablet']";
+    private static final String EDUCATOR_EDITION_ICON = "[class='lpip-hp-section']:nth-child(3) i[class$='fa-globe']";
+    private static final String EDUCATOR_EDITION_TITLE_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='lpip-hp-large-title']";
+    private static final String EDUCATOR_EDITION_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='text']";
+    private static final String EDUCATOR_EDITION_GIVE_A_TRY_BUTTON = "[class='lpip-hp-section']:nth-child(3) [href='/search']";
+    private static final String EDUCATOR_EDITION_LEARN_MORE_BUTTON = "[class='lpip-hp-section']:nth-child(3) [href='/educator-edition']";
+
+    private static final String LEARNING_EXPLORER_AREA = "[class$='lpip-learning-explorer-section']";
+    private static final String LEARNING_EXPLORER_LAPTOP_IMAGE = "[class$='lpip-learning-explorer-section'] [src*='lessonplanet.com/packs/media/homepage/learning-explorer-search-and-filter']";
+    private static final String LEARNING_EXPLORER_ICON = "[class$='lpip-learning-explorer-section'] img[src*='lessonplanet.com/packs/media/homepage/le-icon']";
+    private static final String LEARNING_EXPLORER_TITLE_TEXT = "[class$='lpip-learning-explorer-section'] div[class$='large-title']";
+    private static final String LEARNING_EXPLORER_TEXT = "[class$='lpip-learning-explorer-section'] div[class='text']";
+    private static final String LEARNING_EXPLORER_LEARN_MORE_BUTTON = "[class$='lpip-learning-explorer-section'] [href='https://www.learningexplorer.com']";
+
+    private static final String PD_LEARNING_AREA = "[class='lpip-hp-section']:nth-child(5)";
+    private static final String PD_LEARNING_IPHONE_IMAGE = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-course-mobile']";
+    private static final String PD_LEARNING_FLIPPED_CLASSROOM_IMAGE = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-flipped-classroom-badge']";
+    private static final String PD_LEARNING_CITIZENSHIP_IMAGE = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-digital-citizenship-badge']";
+    private static final String PD_LEARNING_GOOGLE_CLASSROOM_IMAGE = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-google-classroom-badge']";
+    private static final String PD_LEARNING_CHROMEBOOK_IMAGE = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-chromebook-essentials-badge']";
+    private static final String PD_LEARNING_ICON = "[class='lpip-hp-section']:nth-child(5) [src*='lessonplanet.com/packs/media/homepage/pdln-icon']";
+    private static final String PD_LEARNING_TITLE_TEXT = "[class='lpip-hp-section']:nth-child(5) [class='lpip-hp-large-title']";
+    private static final String PD_LEARNING_TEXT = "[class='lpip-hp-section']:nth-child(5) [class='text']";
+    private static final String PD_LEARNING_LEARN_MORE_BUTTON = "[class='lpip-hp-section']:nth-child(5) [href='/pdln']";
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -71,7 +97,6 @@ public class HomePage extends LpUiBasePage {
     public void clickOnDiscoverTab() {
         clickElement(DISCOVER_TAB);
     }
-
 
     public String getDiscoverTabText() {
         return getTextForElement(DISCOVER_TAB);
@@ -210,10 +235,6 @@ public class HomePage extends LpUiBasePage {
         return isElementDisplayed(DELIVER_IMAGE_0) && isElementDisplayed(DELIVER_IMAGE_1);
     }
 
-    public boolean isWhichSolutionAreaDisplayed() {
-        return isElementDisplayed(WHICH_SOLUTION_AREA);
-    }
-
     public String getWhichSolutionTitleText() {
         return getTextForElement(WHICH_SOLUTION_TITLE);
     }
@@ -256,5 +277,109 @@ public class HomePage extends LpUiBasePage {
 
     public void clickOnSelectSolutionForSchoolOrDistrict() {
         clickElement(SCHOOL_OR_DISTRICT_BOX, SELECT_SOLUTION, 0);
+    }
+
+    public boolean isExplorerOurSolutionAreaDisplayed() {
+        return isElementDisplayed(EXPLORE_OUR_SOLUTION_AREA);
+    }
+
+    public void scrollToExploreOurSolutionArea() {
+        scrollToElement(EXPLORE_OUR_SOLUTION_AREA);
+    }
+
+    public String getExploreOurSolutionsTitleText() {
+        return getTextForElement(EXPLORE_OUR_SOLUTIONS_TITLE);
+    }
+
+    public String getExploreOurSolutionsText() {
+        return getTextForElement(EXPLORE_OUR_SOLUTIONS_TEXT);
+    }
+
+    public void clickOnContactUsAnytime() {
+        clickElement(EXPLORE_OUR_SOLUTIONS_LINK);
+    }
+
+    public boolean isEducatorEditionAreaDisplayed() {
+        return isElementVisible(EDUCATOR_EDITION_AREA);
+    }
+
+    public void scrollToEducatorEditionArea() {
+        scrollToElement(EDUCATOR_EDITION_AREA);
+    }
+
+    public boolean areEducatorEditionImagesDisplayed() {
+        return isElementVisible(EDUCATOR_EDITION_IPAD_IMAGE) && isElementVisible(EDUCATOR_EDITION_ICON);
+    }
+
+    public String getEducatorEditionTitleText() {
+        return getTextForElement(EDUCATOR_EDITION_TITLE_TEXT);
+    }
+
+    public String getEducatorEditionText() {
+        return getTextForElement(EDUCATOR_EDITION_TEXT);
+    }
+
+    public void clickOnEducatorEditionGiveATryButton() {
+        clickElement(EDUCATOR_EDITION_GIVE_A_TRY_BUTTON);
+    }
+
+    public String getEducatorEditionGiveATryButtonText() {
+        return getTextForElement(EDUCATOR_EDITION_GIVE_A_TRY_BUTTON);
+    }
+
+    public void clickOnEducatorEditionLearnMoreButton() {
+        clickElement(EDUCATOR_EDITION_LEARN_MORE_BUTTON);
+    }
+
+    public String getEducatorEditionLearnMoreButtonText() {
+        return getTextForElement(EDUCATOR_EDITION_LEARN_MORE_BUTTON);
+    }
+
+    public void scrollToLearningExplorerArea() {
+        scrollToElement(LEARNING_EXPLORER_AREA);
+    }
+
+    public boolean areLearningExplorerImagesDisplayed() {
+        return isElementVisible(LEARNING_EXPLORER_LAPTOP_IMAGE) && isElementVisible(LEARNING_EXPLORER_ICON);
+    }
+
+    public String getLearningExplorerTitleText() {
+        return getTextForElement(LEARNING_EXPLORER_TITLE_TEXT);
+    }
+
+    public String getLearningExplorerText() {
+        return getTextForElement(LEARNING_EXPLORER_TEXT);
+    }
+
+    public String getLearningExplorerLearnMoreButtonText() {
+        return getTextForElement(LEARNING_EXPLORER_LEARN_MORE_BUTTON);
+    }
+
+    public void clickOnLearningExplorerLearnMoreButton() {
+        clickElement(LEARNING_EXPLORER_LEARN_MORE_BUTTON);
+    }
+
+    public void scrollToPdLearningArea() {
+        scrollToElement(PD_LEARNING_AREA);
+    }
+
+    public boolean arePdLearningImagesDisplayed() {
+        return isElementVisible(PD_LEARNING_IPHONE_IMAGE) && isElementVisible(PD_LEARNING_FLIPPED_CLASSROOM_IMAGE) && isElementVisible(PD_LEARNING_CITIZENSHIP_IMAGE) && isElementVisible(PD_LEARNING_GOOGLE_CLASSROOM_IMAGE) && isElementVisible(PD_LEARNING_CHROMEBOOK_IMAGE) && isElementVisible(PD_LEARNING_ICON);
+    }
+
+    public String getPdLearningTitleText() {
+        return getTextForElement(PD_LEARNING_TITLE_TEXT);
+    }
+
+    public String getPdLearningText() {
+        return getTextForElement(PD_LEARNING_TEXT);
+    }
+
+    public String getPdLearningLearnMoreButtonText() {
+        return getTextForElement(PD_LEARNING_LEARN_MORE_BUTTON);
+    }
+
+    public void clickOnPdLearningLearnMoreButton() {
+        clickElement(PD_LEARNING_LEARN_MORE_BUTTON);
     }
 }
