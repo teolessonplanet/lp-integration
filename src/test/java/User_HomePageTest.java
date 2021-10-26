@@ -136,6 +136,66 @@ public class User_HomePageTest extends BaseTest {
         testSchoolOrDistrictSection(TestData.PLAN_PRO);
     }
 
+    @Test(description = "Visitor - Homepage - lessonp-5302:Explore our solutions")
+    public void testLessonp_5302() {
+        testExploreOurSolution(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5314:Explore our solutions")
+    public void testLessonp_5314() {
+        testExploreOurSolution(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5330:Explore our solutions")
+    public void testLessonp_5330() {
+        testExploreOurSolution(TestData.PLAN_PRO);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5288:Educator Edition section")
+    public void testLessonp_5288() {
+        testEducatorEdition(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5315:Educator Edition section")
+    public void testLessonp_5315() {
+        testEducatorEdition(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5331:Educator Edition section")
+    public void testLessonp_5331() {
+        testEducatorEdition(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5289:Learning Explorer section")
+    public void testLessonp_5289() {
+        testLearningExplorerArea(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5316:Learning Explorer section")
+    public void testLessonp_5316() {
+        testLearningExplorerArea(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5332:Learning Explorer section")
+    public void testLessonp_5332() {
+        testLearningExplorerArea(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5290:PD Learning Network section")
+    public void testLessonp_5290() {
+        testPdLearningArea(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Freemium - Homepage - lessonp-5317:PD Learning Network section")
+    public void testLessonp_5317() {
+        testPdLearningArea(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Active user - Homepage - lessonp-5333:PD Learning Network section")
+    public void testLessonp_5333() {
+        testPdLearningArea(TestData.PLAN_PRO);
+    }
+
     protected void testDiscoverTab() {
         homePage.loadPage();
         Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, homePage.getPath());
@@ -291,5 +351,65 @@ public class User_HomePageTest extends BaseTest {
         homePage.loadPage();
         homePage.scrollToParentSolutionSection();
         Assert.assertEquals(TestData.WHICH_SOLUTION_TITLE_TEXT, homePage.getWhichSolutionTitleText());
+    }
+
+    private void loginInAndReachHomepage(String accountPlan) {
+        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
+            stepTwoPage.createNewAccount(accountPlan);
+        }
+        homePage.loadPage();
+    }
+
+    private void testExploreOurSolution(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+        Assert.assertTrue(homePage.isExplorerOurSolutionAreaDisplayed());
+        Assert.assertEquals(TestData.EXPLORE_OUR_SOLUTION_TITLE_TEXT, homePage.getExploreOurSolutionsTitleText());
+        Assert.assertEquals(TestData.EXPLORE_OUR_SOLUTION_TEXT, homePage.getExploreOurSolutionsText());
+        homePage.clickOnContactUsAnytime();
+        Assert.assertEquals(TestData.CONTACT_US_PAGE_PATH, homePage.getPath());
+        homePage.goBackOnePage();
+        Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, homePage.getPath());
+        Assert.assertTrue(homePage.isDiscoverAreaDisplayed());
+    }
+
+    private void testEducatorEdition(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+        homePage.scrollToEducatorEditionArea();
+        homePage.scrollToExploreOurSolutionArea();
+        Assert.assertTrue(homePage.isEducatorEditionAreaDisplayed());
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_TITLE_TEXT, homePage.getEducatorEditionTitleText());
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_TEXT, homePage.getEducatorEditionText());
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON_TEXT, homePage.getEducatorEditionGiveATryButtonText());
+        Assert.assertEquals(TestData.LEARN_MORE_BUTTON_TEXT, homePage.getEducatorEditionLearnMoreButtonText());
+        Assert.assertTrue(homePage.areEducatorEditionImagesDisplayed());
+        homePage.clickOnEducatorEditionGiveATryButton();
+        Assert.assertEquals(TestData.SEARCH_PAGE_PATH, homePage.getPath());
+        homePage.goBackOnePage();
+        homePage.clickOnEducatorEditionLearnMoreButton();
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_PAGE_PATH, homePage.getPath());
+    }
+
+    private void testLearningExplorerArea(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+        homePage.scrollToExploreOurSolutionArea();
+        homePage.scrollToLearningExplorerArea();
+        Assert.assertTrue(homePage.areLearningExplorerImagesDisplayed());
+        Assert.assertEquals(TestData.LEARNING_EXPLORER_TITLE_TEXT, homePage.getLearningExplorerTitleText());
+        Assert.assertEquals(TestData.LEARNING_EXPLORER_TEXT, homePage.getLearningExplorerText());
+        Assert.assertEquals(TestData.LEARN_MORE_BUTTON_TEXT, homePage.getLearningExplorerLearnMoreButtonText());
+        homePage.clickOnLearningExplorerLearnMoreButton();
+        Assert.assertEquals(TestData.LEARNING_EXPLORER_URL, homePage.getUrl());
+    }
+
+    private void testPdLearningArea(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+        homePage.scrollToLearningExplorerArea();
+        homePage.scrollToPdLearningArea();
+        Assert.assertEquals(TestData.PD_LEARNING_TITLE_TEXT, homePage.getPdLearningTitleText());
+        Assert.assertEquals(TestData.PD_LEARNING_TEXT, homePage.getPdLearningText());
+        Assert.assertTrue(homePage.arePdLearningImagesDisplayed());
+        Assert.assertEquals(TestData.LEARN_MORE_BUTTON_TEXT, homePage.getPdLearningLearnMoreButtonText());
+        homePage.clickOnPdLearningLearnMoreButton();
+        Assert.assertEquals(TestData.PD_LEARNING_NETWORK_PATH, homePage.getPath());
     }
 }

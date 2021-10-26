@@ -791,4 +791,18 @@ public class TestData {
     public static final String EDUCATOR_BOX_TEXT = "Educator\nYou are a PreK-12 teacher or tutor looking for resources to inspire your students.\nSelect Solution";
     public static final String SCHOOL_OR_DISTRICT_BOX_TEXT = "School or District\nYou are an administrator or curriculum specialist looking for a way to manage your organization's curriculum.\nSelect Solution";
 
+    public static final String EXPLORE_OUR_SOLUTION_TITLE_TEXT = "Explore our solutions.";
+    public static final String EXPLORE_OUR_SOLUTION_TEXT = "We're here to help. Contact us anytime.";
+
+    public static final String EDUCATOR_EDITION_TITLE_TEXT = "Educator Edition";
+    public static final String EDUCATOR_EDITION_TEXT = "Members gain access to Lesson Planet's extensive library of teacher reviews to open educational resources as well as time-saving curriculum planning and management tools.";
+    public static final String EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON_TEXT = "Give it a Try";
+    public static final String LEARN_MORE_BUTTON_TEXT = "Learn More";
+
+    public static final String LEARNING_EXPLORER_TITLE_TEXT = "Learning Explorer";
+    public static final String LEARNING_EXPLORER_TEXT = "Learning Explorer is a learning object repository and curriculum management platform that combines Lesson Planet’s library of educator reviews to open educational resources with district materials and district-licensed publisher content—making it an all-in-one solution for discovering and organizing standards-aligned resources.";
+
+    public static final String PD_LEARNING_TITLE_TEXT = "PD Learning Network";
+    public static final String PD_LEARNING_TEXT = "A comprehensive online edtech PD solution for schools and districts. Educators earn digital badges that certify knowledge, skill, and experience with the option to earn university credit.";
+
 }
