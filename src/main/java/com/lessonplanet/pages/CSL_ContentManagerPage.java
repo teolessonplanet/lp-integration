@@ -10,6 +10,8 @@ public class CSL_ContentManagerPage extends ContentManagerPage {
     private static final String ADD_A_RESOURCE_BUTTON = "[class*='content-manager-header'] [class*='add-resource lp-button']";
     private static final String NOTIFICATION_TEXT = "[class='alert-success alert alert-dismissible']";
 
+    private static final String DISTRICT_SHARED_TAB = "[class='nav nav-tabs'] a[href='/my/admin-manager/account/1595391/content-tool/shared-with-my-district']";
+
     public CSL_ContentManagerPage(WebDriver driver) {
         super(driver);
     }
@@ -32,5 +34,9 @@ public class CSL_ContentManagerPage extends ContentManagerPage {
 
     public void clickOnEditResourceButton(int index) {
         findElements(RESOURCE_EDIT_BUTTON).get(index).click();
+    }
+
+    public void clickOnDistrictSharedTab() {
+        clickElement(DISTRICT_SHARED_TAB);
     }
 }
