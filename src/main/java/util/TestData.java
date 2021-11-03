@@ -240,6 +240,10 @@ public class TestData {
     public static final String SHARE_FOLDER_MODAL_ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "Start typing email address to select";
     public static final String SHARE_FOLDER_MODAL_NO_USER_FOUND_TEXT = "No results found.";
     public static final String SHARE_FOLDER_MODAL_DEFAULT_PERMISSION_TEXT = "Can View";
+    public static final String SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT = "is now shared.";
+    public static final String SHARED_FOLDER_SHARED_STATUS = "Shared";
+    public static final String SHARE_FOLDER_MODAL_CAN_EDIT_PERMISSION_TEXT = "Can Edit";
+    public static final String EDIT_COLLECTION_CAN_EDIT_STATUS = "This folder is shared: You are the only person editing";
 
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";

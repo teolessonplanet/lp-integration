@@ -401,6 +401,14 @@ public class CurriculumManagerPage extends LpUiBasePage {
         }
     }
 
+    public void clickOnPublishFolderButton(WebElement folder) {
+        if (folder == null) {
+            clickElement(PUBLISH_FOLDER_BUTTON);
+        } else {
+            clickElement(findElements(folder, PUBLISH_FOLDER_BUTTON).get(0));
+        }
+    }
+
     public void clickOnCopyFolderToButton(WebElement folder) {
         if (folder == null) {
             clickElement(COPY_FOLDER_TO_BUTTON);

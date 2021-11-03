@@ -197,6 +197,10 @@ public class LpUiBasePage {
         clickElement(findElements(findElement(parentCssSelector), childCssSelector).get(childPosition));
     }
 
+    protected void clickElementUsingJavaScriptExecutor(String cssSelector) {
+        javascriptExecutor.executeScript("arguments[0].click();", findElement(cssSelector));
+    }
+
     protected String getTextForElement(WebElement element) {
         waitForLoad();
         return element.getText();

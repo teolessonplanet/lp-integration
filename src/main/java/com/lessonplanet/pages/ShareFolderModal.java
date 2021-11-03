@@ -19,6 +19,8 @@ public class ShareFolderModal extends LpUiBasePage {
     private static final String OWNER_ROLE = "[class='users-container enabled'] [class='sw-user-container']:nth-child(1) [class*='sw-owner']";
     private static final String X_BUTTON = "[class='users-container enabled'] [class='sw-user-container'] [class='remove-user-button']";
     private static final String PERMISSION_OPTION_TEXT = "[class='users-container enabled'] [class='sw-user-container'] [class='permissions-container'] #permissions-select-container";
+    private static final String PERMISSIONS_DROPDOWN = "#permissions-select-container i";
+    private static final String CAN_EDIT_PERMISSION = "[data-permission='can_edit']";
 
     public ShareFolderModal(WebDriver driver) {
         super(driver);
@@ -111,5 +113,10 @@ public class ShareFolderModal extends LpUiBasePage {
 
     public void removeUser() {
         clickElement(X_BUTTON, 0);
+    }
+
+    public void chooseCanEditPermissions() {
+        clickElement(PERMISSIONS_DROPDOWN);
+        clickElementUsingJavaScriptExecutor(CAN_EDIT_PERMISSION);
     }
 }
