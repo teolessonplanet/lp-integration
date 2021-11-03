@@ -352,14 +352,14 @@ public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     protected void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText()));
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION, true);
-        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION.toLowerCase());
-        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH);
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_OPTION, true);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_REDIRECT_PATH);
 
         discoverResourcesPage.closeTab();
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION, false);
-        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMENT_OPTION.toLowerCase());
-        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_STRESS_MANAGEMEMT_REDIRECT_PATH);
+        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_OPTION, false);
+        Assert.assertEquals(headerPage.getSearchText(), TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_OPTION.toLowerCase());
+        Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_REDIRECT_PATH);
     }
 
     public void testTestimonials(String account) {
