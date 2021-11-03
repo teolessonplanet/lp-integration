@@ -651,8 +651,8 @@ public class TestData {
     public static final String SIDE_WIDGET_START_YOUR_TEN_DAYS_FREE_TRIAL_FREEMIUM_TEXT = "Start Your 10-Day Free Trial\nSearch 350,000+ online teacher resources.\nFind lesson plans, worksheets, videos, and more.\nInspire your students with great lessons.\nGet Full Access";
 
     public static final String SIDE_WIDGET_RELATED_TOPICS = "Related Topics";
-    public static final String SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_OPTION = "Class Introduction";
-    public static final String SIDE_WIDGET_RELATED_TOPICS_CLASS_INTRODUCTION_REDIRECT_PATH = "search?keywords=class+introduction";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_OPTION = "Health Lesson Plans";
+    public static final String SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_REDIRECT_PATH = "search?keywords=Health";
     public static final String SIDE_WIDGET_WHAT_MEMBERS_SAY = "What Members Say";
 
     public static final String FEEDBACKS_PAGE_PATH = "feedbacks/new";
