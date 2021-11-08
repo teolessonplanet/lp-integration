@@ -803,11 +803,11 @@ public class User_RrpSearchPageTest extends BaseTest {
         //TODO: above line was removed by mistake in PR 76?  https://github.com/LessonPlanet/lp-integration/pull/76
         //TODO: check if stable in all tests and then remove the comments
         if (discoverResourcesPage.getUrl().contains(TestData.SERVER_URL)) {
-            Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+            Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
             Assert.assertTrue(resourcePreviewPage.isDownloadResourceButtonDisplayed());
             Assert.assertTrue(resourcePreviewPage.isIframeResourceDisplayed());
         } else {
-            Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+            Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
         }
         discoverResourcesPage.closeTab();
     }
@@ -894,7 +894,7 @@ public class User_RrpSearchPageTest extends BaseTest {
             rrpModal.waitForModal();
         }
         rrpPage.clickOnThumbnail();
-        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
+        testNewTabUrl(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
     public void testGoToResourceButtonForFreeSampleResource(boolean modal) {
@@ -902,7 +902,7 @@ public class User_RrpSearchPageTest extends BaseTest {
             rrpModal.waitForModal();
         }
         rrpPage.clickGoToResourceButton(true);
-        testNewTabUrl(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
+        testNewTabUrl(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
     public void testSharedResourceRRPNavigationButtonsSearchPage() {

@@ -376,7 +376,7 @@ public class User_SearchTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         discoverResourcesPage.clickGoToResourceForRegularResource(true);
         String currentUrl = discoverResourcesPage.getUrl();
-        boolean assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
+        boolean assertResult = currentUrl.contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
         Assert.assertTrue(assertResult);
         discoverResourcesPage.closeTab();
         discoverResourcesPage.clickGoToResourceForRegularResource(false);
@@ -384,7 +384,7 @@ public class User_SearchTest extends BaseTest {
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
         currentUrl = discoverResourcesPage.getUrl();
-        assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
+        assertResult = currentUrl.contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
         Assert.assertTrue(assertResult);
     }
 

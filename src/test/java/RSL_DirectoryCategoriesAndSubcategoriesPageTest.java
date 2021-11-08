@@ -109,7 +109,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
 
         browseBySubjectPage.clickGoToResourceForRegularResource(true);
         String currentUrl = browseBySubjectPage.getUrl();
-        boolean assertResult = currentUrl.contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
+        boolean assertResult = currentUrl.contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
         Assert.assertTrue(assertResult);
         browseBySubjectPage.closeTab();
 

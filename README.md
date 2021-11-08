@@ -31,7 +31,7 @@ This project runs the automated tests for the LP website.
             Note 1: ONLY FOR DEBUGGING!!!
             Note 2: Sometimes the extensions are not active.
             For this, go to: Menu -> Addons -> Extensions -> change Enable toggle to Disable and back to Enable
-      -Dserver=feature (to run on Feature server, by default Staging is set)
+      -Dserver= {staging,feature,r5} (by default Staging is set)
       -Dskipfacets=true ( instead of facets, it will use URL keywords)
       -Ddriverversion=version (e.g: for FF: "0.29.0", for Chrome: "93.0.4577.63", for Microsoft Edge: "95.0.997.1")
 
