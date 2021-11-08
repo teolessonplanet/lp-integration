@@ -11,7 +11,6 @@ public class TestData {
     public static final int LONG_TIMEOUT = 10;
     public static final int SHORT_TIMEOUT = 5;
     public static String SERVER_URL = "https://staging.lessonplanet.com/";
-    public static final String FEATURE_URL = "https://feature.lessonplanet.com/";
     public static final String PRODUCTION_URL = "https://www.lessonplanet.com/";
     public static boolean IP_IS_WHITELISTED = true;
     public static boolean SKIP_FACET_FILTERS = false;
@@ -20,7 +19,7 @@ public class TestData {
     public static final String STAGING_SERVER_QA_INTEGRATION_COOKIE_NAME = "qa_integration";
     public static final String STAGING_SERVER_SHARED_RESOURCE_REDIRECT_URL = "https://staging.lessonplanet.com/drive/documents/";
     public static final String STAGING_SERVER_SHARED_RESOURCE_URL = "https://s3.amazonaws.com/dev-lessonplanet-files/drive/";
-    public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "https://staging.lessonplanet.com/goto/";
+    public static final String STAGING_SERVER_SHARED_RESOURCE_URL_2 = "goto/";
 
     //Paths
     public static final String LP_HOME_PAGE_PATH = "";

@@ -146,8 +146,10 @@ public class WebDriverFactory {
         }
 
         try {
-            if (System.getProperty(SERVER_URL_SYSTEM_VAR).equals("feature")) {
-                TestData.SERVER_URL = TestData.FEATURE_URL;
+            String serverUrlArgument = System.getProperty(SERVER_URL_SYSTEM_VAR);
+            // add as argument -Dserver=  staging || feature || r5
+            if (!serverUrlArgument.equals("")) {
+                TestData.SERVER_URL = TestData.SERVER_URL.replace("staging", serverUrlArgument);
             }
         } catch (NullPointerException ex) {
             logger.info("Server is not set in VM options - running on Staging by default");
