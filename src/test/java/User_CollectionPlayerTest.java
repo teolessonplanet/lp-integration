@@ -298,12 +298,7 @@ public class User_CollectionPlayerTest extends BaseTest {
     }
 
     protected void testTeacherView(String accountType) {
-        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            loginPage.performLogin(accountType, TestData.VALID_PASSWORD);
-        } else {
-            stepTwoPage.createNewAccount(accountType);
-        }
-        createRequirementForCollectionPlayer(TestData.PLAN_PRO);
+        createRequirementForCollectionPlayer(accountType);
 
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
@@ -313,12 +308,7 @@ public class User_CollectionPlayerTest extends BaseTest {
     }
 
     protected void testStudentView(String accountType) {
-        if (accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) || accountType.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
-            loginPage.performLogin(accountType, TestData.VALID_PASSWORD);
-        } else {
-            stepTwoPage.createNewAccount(accountType);
-        }
-        createRequirementForCollectionPlayer(TestData.PLAN_PRO);
+        createRequirementForCollectionPlayer(accountType);
 
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
