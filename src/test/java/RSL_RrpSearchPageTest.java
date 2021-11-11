@@ -54,7 +54,8 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollectionUnit(false);
-        testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
+        user_rrpSearchPageTest.testCollectionRRPOverview(true, TestData.VALID_EMAIL_RSL_SBCEO);
+        user_rrpSearchPageTest.testPanelItemsOverview();
     }
 
     @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5563:Unit Module Static Page Overview")
@@ -64,7 +65,8 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollectionUnit(true);
-        testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
+        user_rrpSearchPageTest.testCollectionRRPOverview(false, TestData.VALID_EMAIL_RSL_SBCEO);
+        user_rrpSearchPageTest.testPanelItemsOverview();
     }
 
     @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5145:LP Main Buttons")
