@@ -50,9 +50,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnDropdown() {
         scrollToElement(CREATE_OR_OPEN_DROPDOWN);
-//        hoverOverElement(EDIT_FOLDER_BUTTON, true);
-        //TODO:oslo - update this!
-        hoverOverElement("[class*='lp-logo-wrap']", true);
         clickElement(CREATE_OR_OPEN_DROPDOWN);
         //TODO:oslo - Teo - imi face figuri a doua oara cand incerc sa fac click pe asta, poti sa testezi cu 4914 ?
     }
