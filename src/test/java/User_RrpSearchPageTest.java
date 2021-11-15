@@ -914,6 +914,7 @@ public class User_RrpSearchPageTest extends BaseTest {
         }
         Assert.assertTrue(rrpModal.isNextButtonDisplayed());
         rrpModal.clickNextButton();
+        rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.getModalId().contains(discoverResourcesPage.getSharedResourceCardDataId(1)));
         rrpModal.clickPreviousButton();
         Assert.assertTrue(rrpModal.getModalId().contains(discoverResourcesPage.getSharedResourceCardDataId(0)));

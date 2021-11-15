@@ -340,8 +340,8 @@ public class LpUiBasePage {
     }
 
     public void waitForAxiosRequests() {
-        String axiosReadyScript = "if (typeof(window.axiosRequests) != 'undefined'){" +
-            "    return window.axiosRequests == 0" +
+        String axiosReadyScript = "if (!Number.isNaN(window.axiosRequests) && window.axiosRequests !== null && typeof(window.axiosRequests) != 'undefined'){" +
+            "    return window.axiosRequests <= 0" +
             "  }else{" +
             "    return true;}";
         logStart("Wait for Axios to load");

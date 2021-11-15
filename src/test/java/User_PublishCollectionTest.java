@@ -197,7 +197,11 @@ public class User_PublishCollectionTest extends BaseTest {
             if (!accountPlan.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlan.equals(TestData.VALID_EMAIL_CSL_COBB) && !accountPlan.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
                 publishedFolderModal.clickOnCloseButton();
             }
-            editCollectionModal.clickOnCloseButton();
+
+            curriculumManagerPage.loadPage();
+            curriculumManagerPage.refreshPageAndDismissBrowserAlert();
+            curriculumManagerPage.waitForPageLoad();
+            curriculumManagerPage.waitForLinkToLoad();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
         }
     }
