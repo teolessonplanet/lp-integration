@@ -249,7 +249,12 @@ public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
                 manageMembershipPage.closeTab();
             }
             browseBySubjectPage.clickGoToResourceForRegularResource(true);
-            Assert.assertTrue(!browseBySubjectPage.getUrl().contains(TestData.SERVER_URL));
+
+            if (discoverResourcesPage.getUrl().contains(TestData.SERVER_URL)) {
+                Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+            } else {
+                Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
+            }
             browseBySubjectPage.closeTab();
             browseBySubjectPage.clickSeeFullReview(true);
 

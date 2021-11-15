@@ -89,6 +89,12 @@ public class RSL_CanViewTest extends BaseTest {
         List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
         discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES);
+
+        if (ownerEmail.equals(TestData.VALID_EMAIL_CSL_HENRY) || ownerEmail.equals(TestData.VALID_EMAIL_CSL_COBB)) {
+            discoverResourcesPage.expandProvidersFacet();
+        }
+        discoverResourcesPage.checkLessonPlanetProvider();
+
         List<WebElement> getSeeCollectionResources = discoverResourcesPage.getAllSeeCollectionsButtons();
         discoverResourcesPage.dragAndDrop(getSeeCollectionResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
 
