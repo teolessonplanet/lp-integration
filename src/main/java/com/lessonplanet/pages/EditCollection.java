@@ -6,10 +6,8 @@ import util.TestData;
 public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
     private static final String FOLDER_TYPE = "#edit-folder-type";
-//    private static final String FOLDER_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='default-text']";
-    private static final String FOLDER_STATUS = "[class='status '] [class='default-text']";
-//    private static final String FOLDER_PUBLISHED_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='text']";
-    private static final String FOLDER_PUBLISHED_STATUS = "[class='status '] [class='text']";
+    private static final String FOLDER_DEFAULT_STATUS = "[class='folder-activity-feeds'] [class='default-text']";
+    private static final String FOLDER_DETAILED_STATUS = "[class='folder-activity-feeds'] [class='text']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
 
@@ -451,12 +449,12 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(MORE_DROPDOWN);
     }
 
-    public String getFolderStatus() {
-        return getTextForElement(FOLDER_STATUS);
+    public String getDefaultFolderStatus() {
+        return getTextForElement(FOLDER_DEFAULT_STATUS);
     }
 
-    public String getFolderPublishedStatus() {
-        return getTextForElement(FOLDER_PUBLISHED_STATUS);
+    public String getDetailedFolderStatus() {
+        return getTextForElement(FOLDER_DETAILED_STATUS);
     }
 
     public boolean isFolderTypeDisplayed() {
@@ -465,10 +463,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public boolean isNavigateFolderDropdownDisplayed() {
         return isElementDisplayed(NAVIGATE_FOLDER_DROPDOWN);
-    }
-
-    public String getEditFolderStatus() {
-        return getTextForElement(EDIT_FOLDER_STATUS);
     }
 
     public void clickOnNewFolderOption() {
