@@ -8,28 +8,37 @@ import java.util.List;
 
 public class CollectionBuilderPage extends LpUiBasePage {
 
-    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
-    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='create-new-collection']";
+    //    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
+    private static final String CREATE_OR_OPEN_DROPDOWN = "div[class^='dropdown cb-dropdown']";
+    //    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='create-new-collection']";
+    private static final String CREATE_NEW_COLLECTION_OPTION = "div[class='create-folder-button ']";
     private static final String FOLDERS_OPTIONS = "[class*='cb-dropdown'] li[class='list-option']";
 
-    private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
+    //    private static final String COLLECTION_DROPPABLE_ZONE = "#droppable";
+    private static final String COLLECTION_DROPPABLE_ZONE = "[class='builder-dropzone ']";
     private static final String GET_STARTED_TEXT = "#not-droppable [class='text']";
     private static final String DRAG_AND_DROP_TEXT = "#droppable [class*='new-empty-collection']";
 
-    private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
-    private static final String EDIT_FOLDER_BUTTON = "[class='cb-action-button edit']";
+    //    private static final String MY_RESOURCES_BUTTON = "#collection-builder-area-inner #collection-builder-button";
+    private static final String MY_RESOURCES_BUTTON = "[class='view-manage-button']";
+    //    private static final String EDIT_FOLDER_BUTTON = "[class='cb-action-button edit']";
+    private static final String EDIT_FOLDER_BUTTON = "[class='edit-folder-button']";
 
     private static final String MY_RESOURCES_SIGN_IN_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold']";
     private static final String MY_RESOURCES_SIGN_UP_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold text-danger']";
 
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
-
-    private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
-    private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class^='cb-item panel panel-default clickable clearfix']";
-    private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel'] [class='cb-item-info text-primary']";
-    private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "#collection-items-list [class='cb-remove-item']";
-    private static final String COLLECTION_BUILDER_ALERT_TEXT = "[class='contents'] [class*='alert alert-danger']";
+    //TODO:oslo - was removed
+//    private static final String COLLECTION_BUILDER_VIDEO = "[class*='fa-play-circle-o']";
+//    private static final String COLLECTION_BUILDER_ITEMS = "#collection-items-list [class^='cb-item panel panel-default clickable clearfix']";
+    private static final String COLLECTION_BUILDER_ITEMS = "[class='ui-droppable'] div[class^='builder-item ']";
+    //    private static final String COLLECTION_BUILDER_ITEM_TITLE = "#collection-items-list [class*='cb-item panel'] [class='cb-item-info text-primary']";
+    private static final String COLLECTION_BUILDER_ITEM_TITLE = "[class='ui-droppable'] div[class^='builder-item '] [class='builder-item-title']";
+    //    private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "#collection-items-list [class='cb-remove-item']";
+    private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "[class='ui-droppable'] div[class^='builder-item '] [class='builder-close-x']";
+    //TODO:oslo - was removed
+//    private static final String COLLECTION_BUILDER_ALERT_TEXT = "[class='contents'] [class*='alert alert-danger']";
 
     private static final String LOADING_ICON = "[class*='cb-item panel'] [class*='panel-body'] [class*='spinner'] i";
 
@@ -41,7 +50,11 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnDropdown() {
         scrollToElement(CREATE_OR_OPEN_DROPDOWN);
+//        hoverOverElement(EDIT_FOLDER_BUTTON, true);
+        //TODO:oslo - update this!
+        hoverOverElement("[class*='lp-logo-wrap']", true);
         clickElement(CREATE_OR_OPEN_DROPDOWN);
+        //TODO:oslo - Teo - imi face figuri a doua oara cand incerc sa fac click pe asta, poti sa testezi cu 4914 ?
     }
 
     public void clickOnCreateNewCollection() {
@@ -49,6 +62,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     }
 
     public WebElement getCollectionDroppableZone() {
+        scrollToElement(COLLECTION_DROPPABLE_ZONE);
         return findElement(COLLECTION_DROPPABLE_ZONE);
     }
 
@@ -90,13 +104,13 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementDisplayed(EDIT_FOLDER_BUTTON);
     }
 
-    public boolean isCollectionVideoBannerDisplayed() {
-        return isElementDisplayed(COLLECTION_BUILDER_VIDEO);
-    }
-
-    public void clickOnCollectionBuilderVideoBanner() {
-        clickElement(COLLECTION_BUILDER_VIDEO);
-    }
+//    public boolean isCollectionVideoBannerDisplayed() {
+//        return isElementDisplayed(COLLECTION_BUILDER_VIDEO);
+//    }
+//
+//    public void clickOnCollectionBuilderVideoBanner() {
+//        clickElement(COLLECTION_BUILDER_VIDEO);
+//    }
 
     public String getCollectionBuilderItemTitle(int position) {
         return getTextForElement(COLLECTION_BUILDER_ITEM_TITLE, position);
@@ -123,9 +137,9 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return collectionBuilderItems.size();
     }
 
-    public String getCollectionBuilderAlertText() {
-        return getTextForElement(COLLECTION_BUILDER_ALERT_TEXT);
-    }
+//    public String getCollectionBuilderAlertText() {
+//        return getTextForElement(COLLECTION_BUILDER_ALERT_TEXT);
+//    }
 
     public void waitForLoadingIconToDisappear() {
         waitUntilElementIsHidden(LOADING_ICON);

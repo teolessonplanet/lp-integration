@@ -1039,11 +1039,12 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         checkItems(1);
 
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT);
-        } else {
+        //TODO:oslo - can be added multiple times
+//        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+//            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT);
+//        } else {
             checkItems(2);
-        }
+//        }
 
         if (!accountPlan.equals(TestData.PLAN_FREEMIUM)) {
             testDeleteItemsFromCollectionBuilder(1);

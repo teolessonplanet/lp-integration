@@ -6,8 +6,10 @@ import util.TestData;
 public class EditCollection extends CreateNewFolderModal {
     private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
     private static final String FOLDER_TYPE = "#edit-folder-type";
-    private static final String FOLDER_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='default-text']";
-    private static final String FOLDER_PUBLISHED_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='text']";
+//    private static final String FOLDER_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='default-text']";
+    private static final String FOLDER_STATUS = "[class='status '] [class='default-text']";
+//    private static final String FOLDER_PUBLISHED_STATUS = "[class='edit-folder-items'] [class='edit-folder-status-wrap'] [class='text']";
+    private static final String FOLDER_PUBLISHED_STATUS = "[class='status '] [class='text']";
     private static final String FOLDER_TYPE_DROPDOWN = "[class='select optional collection_resource_type_list']";
     private static final String FOLDER_TYPE_OPTIONS = "#select2-drop [class='select2-results'] li";
 

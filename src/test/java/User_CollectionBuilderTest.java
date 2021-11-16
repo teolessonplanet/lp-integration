@@ -107,9 +107,10 @@ public class User_CollectionBuilderTest extends BaseTest {
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 dismissBecomeALessonPlanetFreeMemberModal();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT);
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 1);
-                for (int i = 1; i <= 2; i++) {
+                //TODO:oslo - can be added multiple times
+//                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT);
+                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 2);
+                for (int i = 2; i <= 2; i++) {
                     discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                     if (becomeALessonPlanetFreeMemberModal.isModalDisplayed()) {
                         dismissBecomeALessonPlanetFreeMemberModal();
@@ -169,14 +170,16 @@ public class User_CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.isMyCollectionDropdownDisplayed();
         collectionBuilderPage.isEditFolderButtonDisplayed();
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
-            collectionBuilderPage.isCollectionVideoBannerDisplayed();
+            //TODO:oslo - was removed
+//            collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickOnEditFolder(false);
             testSignInOrJoinNowModal();
-            collectionBuilderPage.clickOnCollectionBuilderVideoBanner();
-            collectionBuilderVideoModal.waitForModal();
-            collectionBuilderVideoModal.clickOnXButton();
+            //TODO:oslo - was removed
+//            collectionBuilderPage.clickOnCollectionBuilderVideoBanner();
+//            collectionBuilderVideoModal.waitForModal();
+//            collectionBuilderVideoModal.clickOnXButton();
         } else {
             user_curriculumManagerPageTest.initTest(webDriver);
             user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
