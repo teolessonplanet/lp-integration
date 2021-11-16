@@ -11,6 +11,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
     //    private static final String CREATE_OR_OPEN_DROPDOWN = "[class*='cb-panel'] [class*='dropdown']";
     private static final String CREATE_OR_OPEN_DROPDOWN = "div[class^='dropdown cb-dropdown']";
     //    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='create-new-collection']";
+    //TODO:oslo - Teo - selectorii sunt ok atat pentru CreateNewCollection button cat si pentru optiunile din dropdown, e de vina serveru/axios load...
     private static final String CREATE_NEW_COLLECTION_OPTION = "div[class='create-folder-button ']";
     private static final String FOLDERS_OPTIONS = "[class*='cb-dropdown'] li[class='list-option']";
 
@@ -50,9 +51,6 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnDropdown() {
         scrollToElement(CREATE_OR_OPEN_DROPDOWN);
-//        hoverOverElement(EDIT_FOLDER_BUTTON, true);
-        //TODO:oslo - update this!
-        hoverOverElement("[class*='lp-logo-wrap']", true);
         clickElement(CREATE_OR_OPEN_DROPDOWN);
         //TODO:oslo - Teo - imi face figuri a doua oara cand incerc sa fac click pe asta, poti sa testezi cu 4914 ?
     }

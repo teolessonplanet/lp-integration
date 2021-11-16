@@ -28,7 +28,8 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String NAVIGATE_FOLDER_DROPDOWN = "[class='navigator-toggle ']";
     private static final String NAVIGATE_FOLDER_TITLE = "#folder-navigator [class='edit-folder-navigator-title']";
     private static final String ACTIVE_FOLDER = "#folder-navigator [class='list-option active']";
-    private static final String ACTIVE_FOLDER_TITLE = "#folder-navigator [class='list-option active'] a";
+//    private static final String ACTIVE_FOLDER_TITLE = "#folder-navigator [class='list-option active'] a";
+    private static final String ACTIVE_FOLDER_TITLE = "h1[class*='edit-folder-title']";
 
     private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
     private static final String WEB_LINK_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(1)";
