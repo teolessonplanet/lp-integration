@@ -261,7 +261,8 @@ public class RSL_CanViewTest extends BaseTest {
             curriculumManagerPage.clickOnActionsDropdown();
             curriculumManagerPage.clickOnEditButton();
             editCollectionModal.waitForModal();
-            Assert.assertEquals(editCollectionModal.getEditFolderStatus(), TestData.EDIT_COLLECTION_CAN_EDIT_STATUS);
+            Assert.assertEquals(editCollectionModal.getDefaultFolderStatus(), TestData.FOLDER_PUBLISHED_STATUS);
+            Assert.assertEquals(editCollectionModal.getDetailedFolderStatus(), TestData.FOLDER_EDITING_STATUS_TEXT);
 
             editCollectionModal.clickMoreDropdown();
             editCollectionModal.clickOnPublishOption();

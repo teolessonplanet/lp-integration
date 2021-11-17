@@ -107,7 +107,9 @@ public class TestData {
     public static final String CREATE_A_NEW_FOLDER_MODAL_TITLE = "Create a New Folder";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TEXT = "Sorry, your folder was not published because it does not include at least two resources.";
     public static final String COLLECTION_NOT_PUBLISHED_MODAL_TITLE = "Folder not published!";
-    public static final String FOLDER_DEFAULT_STATUS = "This folder is private";
+    public static final String FOLDER_PRIVATE_STATUS = "This folder is private";
+    public static final String FOLDER_PUBLISHED_STATUS = "This folder is shared: ";
+    public static final String FOLDER_EDITING_STATUS_TEXT = "You are the only person editing";
     public static final String FOLDER_PUBLISHED_STATUS_TEXT = "A version of it was published on ";
     public static final String FOLDER_CHANGES_SAVED_TEXT = "Changes saved";
 
@@ -242,7 +244,6 @@ public class TestData {
     public static final String SHARED_WITH_ME_PAGE_NOTIFICATION_TEXT = "is now shared.";
     public static final String SHARED_FOLDER_SHARED_STATUS = "Shared";
     public static final String SHARE_FOLDER_MODAL_CAN_EDIT_PERMISSION_TEXT = "Can Edit";
-    public static final String EDIT_COLLECTION_CAN_EDIT_STATUS = "This folder is shared: You are the only person editing";
 
     //Footer
     public static final String EDIT_A_COLLECTION_PAGE_PATH = "us/videos?autoplay=collections_edit";
