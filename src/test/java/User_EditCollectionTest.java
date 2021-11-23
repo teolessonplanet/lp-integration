@@ -197,8 +197,8 @@ public class User_EditCollectionTest extends BaseTest {
                 break;
         }
 
-        Assert.assertTrue(editCollectionModal.getDefaultFolderStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS));
-        Assert.assertTrue(editCollectionModal.getDetailedFolderStatus().startsWith(TestData.FOLDER_EDITING_STATUS_TEXT));
+        Assert.assertTrue(editCollectionModal.getDefaultFolderStatus().startsWith(TestData.FOLDER_PRIVATE_STATUS));
+        Assert.assertTrue(editCollectionModal.getDetailedFolderStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
     }
 
     public void testEditFolderButtons(String accountPlanText, String copiedFolderName) {

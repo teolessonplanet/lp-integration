@@ -20,8 +20,8 @@ public class CollectionRrp extends Rrp {
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
     private static final String GRADES = "span[class*='detail-grades'][title='Grades']";
     private static final String SUBJECTS = "div.shared_collection span[title='Subject']";
-    private static final String NUMBER_OF_VIEWS = "[class='col-xs-12 pr60'] [class='resource-detail detail-views']";
-    private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-12 pr60'] [class='resource-detail detail-saves']";
+    private static final String NUMBER_OF_VIEWS = "[class='col-xs-12 pr80'] [class='resource-detail detail-views']";
+    private static final String NUMBER_OF_DOWNLOADS = "[class='col-xs-12 pr80'] [class='resource-detail detail-saves']";
     private static final String CONCEPTS_TAGS_LIST = "[class='col-sm-11 details-list concepts']";
     private static final String NEXT_BUTTON_RRP = "div.shared_collection div.panel-footer a[data-transition='right']";
     private static final String PREVIOUS_BUTTON_RRP = "[class*='panel-default panel-review'] div.panel-footer a[data-transition='left']";

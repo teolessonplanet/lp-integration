@@ -7,7 +7,7 @@ import util.TestData;
 import java.util.List;
 
 public class CurriculumManagerPage extends LpUiBasePage {
-    private static final String ALERT_NOTIFICATION = "div#notification";
+    private static final String ALERT_NOTIFICATION = "[class='alert mb5 alert-danger']";
     private static final String REFRESH_ICON = "[class*='fa-refresh']";
     private static final String CURRICULUM_MANAGER_PAGE_TITLE = "#curriculum_manager h1";
     private static final String POPOVER_TEXT = "[class*='popuptext show']";

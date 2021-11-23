@@ -13,7 +13,6 @@ public class User_CollectionBuilderTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
     private DeleteCollectionBuilderResourceModal deleteCollectionBuilderResourceModal;
-    private CollectionBuilderVideoModal collectionBuilderVideoModal;
     private BecomeALessonPlanetFreeMemberModal becomeALessonPlanetFreeMemberModal;
     private RrpModal rrpModal;
     private RrpPage rrpPage;
@@ -39,7 +38,6 @@ public class User_CollectionBuilderTest extends BaseTest {
         rrpModal = new RrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         deleteCollectionBuilderResourceModal = new DeleteCollectionBuilderResourceModal(webDriver);
-        collectionBuilderVideoModal = new CollectionBuilderVideoModal(webDriver);
         becomeALessonPlanetFreeMemberModal = new BecomeALessonPlanetFreeMemberModal(webDriver);
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
@@ -116,7 +114,6 @@ public class User_CollectionBuilderTest extends BaseTest {
                         dismissBecomeALessonPlanetFreeMemberModal();
                     }
                 }
-                collectionBuilderPage.waitForLoadingIconToDisappear();
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
                 break;
             case TestData.PLAN_FREEMIUM:
@@ -129,7 +126,7 @@ public class User_CollectionBuilderTest extends BaseTest {
                 user_accountManagementTest.reachAccountManagementPage(webDriver);
                 user_accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
                 discoverResourcesPage.goBackOnePage();
-                collectionBuilderPage.waitForLoadingIconToDisappear();
+
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 break;
             case TestData.PLAN_STARTER:
@@ -140,7 +137,7 @@ public class User_CollectionBuilderTest extends BaseTest {
                 for (int i = 0; i <= 9; i++) {
                     discoverResourcesPage.dragAndDrop(getFullReviewResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
                 }
-                collectionBuilderPage.waitForLoadingIconToDisappear();
+
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
                 discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 11);
@@ -170,16 +167,10 @@ public class User_CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.isMyCollectionDropdownDisplayed();
         collectionBuilderPage.isEditFolderButtonDisplayed();
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
-            //TODO:oslo - was removed
-//            collectionBuilderPage.isCollectionVideoBannerDisplayed();
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
             collectionBuilderPage.clickOnEditFolder(false);
             testSignInOrJoinNowModal();
-            //TODO:oslo - was removed
-//            collectionBuilderPage.clickOnCollectionBuilderVideoBanner();
-//            collectionBuilderVideoModal.waitForModal();
-//            collectionBuilderVideoModal.clickOnXButton();
         } else {
             user_curriculumManagerPageTest.initTest(webDriver);
             user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);

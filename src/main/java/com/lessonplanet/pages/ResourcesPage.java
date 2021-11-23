@@ -56,7 +56,7 @@ public class ResourcesPage extends LpUiBasePage {
     private static final String COLLECTION_CARD_TITLE = "#search-results [class*='list-card']  [title*='Collection'][href*='/collections'] div h4";
     private static final String COLLECTION_OR_UNIT_CARD_TITLE = "#search-results [class*='list-card'] [href*='/collections'] div h4";
     private static final String REGULAR_RESOURCE_CARD = "#search-results [data-type='Resource']";
-    private static final String SHARED_RESOURCE_CARD = "#search-results [data-type='Drive::Document']";
+    private static final String SHARED_RESOURCE_CARD = "#search-results  [class*='search-result-item list-card ui-draggable ui-draggable-handle'] [data-type='Drive::Document']";
     private static final String FREE_SAMPLE_RESOURCE_CARD = "#search-results [data-type='Resource'] [class='panel panel-default panel-resource free-sample'] h4";
 
     private static final String ALL_RESOURCES_CARDS = "#search-results [class*='panel-resource']";
