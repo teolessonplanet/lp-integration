@@ -344,7 +344,6 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     public void testCreateCollectionFromCollectionBuilder(String folderName) {
         collectionBuilderPage.clickOnDropdown();
-        //TODO:oslo - test 4948 ?
         collectionBuilderPage.clickOnCreateNewCollection();
         createNewFolderModal.waitForModal();
         createNewFolderModal.typeName(folderName);

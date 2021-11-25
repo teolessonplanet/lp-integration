@@ -105,7 +105,6 @@ public class User_CollectionBuilderTest extends BaseTest {
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
                 dismissBecomeALessonPlanetFreeMemberModal();
                 discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                //TODO:oslo - can be added multiple times
 //                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.EXISTING_RESOURCE_COLLECTION_ERROR_TEXT);
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 2);
                 for (int i = 2; i <= 2; i++) {
