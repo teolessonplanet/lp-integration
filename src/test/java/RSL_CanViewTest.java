@@ -175,7 +175,7 @@ public class RSL_CanViewTest extends BaseTest {
         } else {
             curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getExpandedFolderChild(2), collectionBuilderPage.getCollectionDroppableZone());
         }
-        curriculumManagerPage.waitForNotificationToDisappear();
+
         if (canView) {
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber);
             Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber);
@@ -185,6 +185,7 @@ public class RSL_CanViewTest extends BaseTest {
         }
 
         //drag & drop a Shared folder into the same shared folder from Collection Builder
+        //Todo: add wait until loading lines are not displayed (the item is visible inside CB)
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
         curriculumManagerPage.waitForNotificationToDisappear();
@@ -199,11 +200,10 @@ public class RSL_CanViewTest extends BaseTest {
             Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber + 3);
         }
         //create a new collection: it won't be displayed on Shared with me Page
+        curriculumManagerPage.refreshPageAndDismissBrowserAlert();
         user_curriculumManagerPageTest.initTest(webDriver);
         user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        if(!canView) {
-            curriculumManagerPage.clickOnFolder(0);
-        }
+
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
 
         //drag&drop shared folder resource inside the collection in the Collection Builder
@@ -261,7 +261,8 @@ public class RSL_CanViewTest extends BaseTest {
             curriculumManagerPage.clickOnActionsDropdown();
             curriculumManagerPage.clickOnEditButton();
             editCollectionModal.waitForModal();
-            Assert.assertEquals(editCollectionModal.getEditFolderStatus(), TestData.EDIT_COLLECTION_CAN_EDIT_STATUS);
+            Assert.assertEquals(editCollectionModal.getDefaultFolderStatus(), TestData.FOLDER_PUBLISHED_STATUS);
+            Assert.assertEquals(editCollectionModal.getDetailedFolderStatus(), TestData.FOLDER_EDITING_STATUS_TEXT);
 
             editCollectionModal.clickMoreDropdown();
             editCollectionModal.clickOnPublishOption();

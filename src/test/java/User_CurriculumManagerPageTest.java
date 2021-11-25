@@ -803,7 +803,8 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
         //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_NOTIFICATION_TEXT));
-        curriculumManagerPage.waitForNotificationToDisappear();
+        //curriculumManagerPage.waitForNotificationToDisappear();
+        curriculumManagerPage.loadPage();
         Assert.assertEquals(curriculumManagerPage.getFolderTitle(), TestData.COPIED_FOLDER_NAME);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber + 1);
     }
@@ -1024,14 +1025,9 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnDeleteFolderButton(curriculumManagerPage.getFolder(0));
         deleteFolderModal.clickOnDeleteButton();
 
-        collectionBuilderPage.waitForLoadingIconToDisappear();
-        collectionBuilderPage.waitUntilGetStartedTextIsDisplayed();
-        Assert.assertTrue(collectionBuilderPage.isGetStartedTextDisplayed());
-        Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), TestData.COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT);
+        curriculumManagerPage.refreshPageAndDismissBrowserAlert();
 
-        curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getGetStartedNonDroppableArea());
-        Assert.assertTrue(collectionBuilderPage.isGetStartedTextDisplayed());
-        Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), TestData.COLLECTION_BUILDER_CREATE_OR_OPEN_DROPDOWN_TEXT);
+        Assert.assertEquals(collectionBuilderPage.getCreateOrOpenDropdownText(), "Select Existing");
 
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnFolderFromDropdown(0);
@@ -1040,7 +1036,9 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
         if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderAlertText(), TestData.COLLECTION_BUILDER_UPGRADE_YOUR_MEMBERSHIP_TEXT);
+           Assert.assertTrue(upgradeMaxFolderModal.isModalDisplayed());
+           upgradeMaxFolderModal.clickOnCloseButton();
+            checkItems(1);
         } else {
             checkItems(2);
         }
@@ -1066,8 +1064,5 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         deleteCollectionBuilderResourceModal.waitForModal();
         deleteCollectionBuilderResourceModal.clickOnDeleteResourceButton();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), noOfFoldersExpectedToLeft);
-        if (noOfFoldersExpectedToLeft == 0) {
-            Assert.assertEquals(collectionBuilderPage.getDragAndDropText(), TestData.COLLECTION_BUILDER_DRAG_AND_DROP_TEXT);
-        }
     }
 }

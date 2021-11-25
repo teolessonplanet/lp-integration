@@ -143,7 +143,7 @@ public class User_EditCollectionTest extends BaseTest {
         Assert.assertTrue(editCollectionModal.isPlayOptionDisplayed());
         Assert.assertTrue(editCollectionModal.isMoreDropdownDisplayed());
         Assert.assertTrue(editCollectionModal.isEditDetailsOptionDisplayed());
-        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
+        Assert.assertTrue(editCollectionModal.getDefaultFolderStatus().startsWith(TestData.FOLDER_PRIVATE_STATUS));
     }
 
     public void testPublishFromEditFolder(String accountPlanText) {
@@ -154,11 +154,11 @@ public class User_EditCollectionTest extends BaseTest {
             testCreateAPage();
         }
 
-        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
-        Assert.assertEquals(editCollectionModal.getFolderPublishedStatus(), "");
+        Assert.assertTrue(editCollectionModal.getDefaultFolderStatus().startsWith(TestData.FOLDER_PRIVATE_STATUS));
+        Assert.assertEquals(editCollectionModal.getDetailedFolderStatus(), "");
         editCollectionModal.clickEditDetails();
         editCollectionModal.publishCollection(accountPlanText, collectionName, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-        Assert.assertTrue(editCollectionModal.getFolderPublishedStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
+        Assert.assertTrue(editCollectionModal.getDetailedFolderStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
 
         switch (accountPlanText) {
             case TestData.VALID_EMAIL_CSL_HENRY:
@@ -197,8 +197,8 @@ public class User_EditCollectionTest extends BaseTest {
                 break;
         }
 
-        Assert.assertTrue(editCollectionModal.getFolderStatus().startsWith(TestData.FOLDER_DEFAULT_STATUS));
-        Assert.assertTrue(editCollectionModal.getFolderPublishedStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
+        Assert.assertTrue(editCollectionModal.getDefaultFolderStatus().startsWith(TestData.FOLDER_PRIVATE_STATUS));
+        Assert.assertTrue(editCollectionModal.getDetailedFolderStatus().startsWith(TestData.FOLDER_PUBLISHED_STATUS_TEXT));
     }
 
     public void testEditFolderButtons(String accountPlanText, String copiedFolderName) {
