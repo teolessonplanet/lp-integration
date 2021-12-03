@@ -101,12 +101,17 @@ public class User_HeaderTest extends BaseTest {
 
         if (account.equals(TestData.VALID_EMAIL_CSL_HENRY) || account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             lpHomePage.loadPage();
-            headerPage.clickOnHelpButton();
+            headerPage.hoverOverHelpButton();
+            headerPage.clickOnHelpCenterButton();
             headerPage.waitForNewTab();
             headerPage.focusDriverToLastTab();
             headerPage.waitForLinkToLoad();
             Assert.assertEquals(headerPage.getUrl(), TestData.LEARNING_EXPLORER_HELP_URL);
             headerPage.closeTab();
+            headerPage.hoverOverHelpButton();
+            headerPage.clickOnContactUsButton();
+            Assert.assertTrue(headerPage.getUrl().contains(TestData.CONTACT_US_PAGE_PATH));
+            headerPage.goBackOnePage();
         }
 
         if (account.equals(TestData.PLAN_VISITOR)) {
@@ -232,7 +237,7 @@ public class User_HeaderTest extends BaseTest {
         lpHomePage.loadPage();
         headerPage.hoverOverAboutButton();
         if (!account.equals(TestData.PLAN_VISITOR)) {
-            headerPage.clickOnHelpCenterFaqButton();
+            headerPage.clickOnHelpCenterButton();
             Assert.assertEquals(headerPage.getPath(), TestData.HELP_CENTER_FAQ_PATH);
         } else {
             headerPage.clickOnFrequentlyAskedQuestionsButton();
@@ -248,6 +253,7 @@ public class User_HeaderTest extends BaseTest {
             headerPage.hoverOverAboutButton();
             headerPage.clickOnContactUsButton();
             Assert.assertEquals(headerPage.getPath(), TestData.CONTACT_US_PAGE_PATH);
+            headerPage.goBackOnePage();
         }
     }
 

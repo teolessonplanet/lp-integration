@@ -544,7 +544,6 @@ public class User_AccountManagementTest extends BaseTest {
         testUpgradeFromRrpPage();
         testUpgradeFromWhatMembersSayWidgetDirectoryPage();
         testUpgradeFromWhatMembersSayWidgetArticlesPage();
-        testUpgradeFromWhatMembersSayWidgetContactUsPage();
         testUpgradeFromWhatMembersSayWidgetTestimonialsPage();
     }
 
@@ -586,11 +585,6 @@ public class User_AccountManagementTest extends BaseTest {
 
     private void testUpgradeFromWhatMembersSayWidgetArticlesPage() {
         articlesPage.loadPage();
-        testClickSubscriptionButtonFromWhatMembersSayWidget();
-    }
-
-    private void testUpgradeFromWhatMembersSayWidgetContactUsPage() {
-        contactUsPage.loadPage();
         testClickSubscriptionButtonFromWhatMembersSayWidget();
     }
 

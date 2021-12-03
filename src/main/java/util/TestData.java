@@ -557,7 +557,7 @@ public class TestData {
     public static final String LEARNING_EXPLORER_URL = "https://www.learningexplorer.com/";
     public static final String PD_LEARNING_NETWORK_PATH = "pdln";
 
-    public static final String CONTACT_US_PAGE_PATH = "us/contact";
+    public static final String CONTACT_US_PAGE_PATH = "contact-us";
     public static final String OUR_STORY_PAGE_PATH = "about";
     public static final String FAQ_PAGE_PATH = "faq";
     public static final String HELP_CENTER_FAQ_PATH = "help-center";

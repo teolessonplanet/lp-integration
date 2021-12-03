@@ -318,7 +318,6 @@ public class RSL_AccountManagerTest extends BaseTest {
             Assert.assertTrue(districtPage.getNoSearchResultsText().contains(TestData.NO_SEARCH_RESULTS_TEXT) && districtPage.getNoSearchResultsText().contains(text));
             districtPage.clickOnSearchButton();
         }
-        districtPage.clearSearchText();
     }
 
     public void testAddSchoolsModal(String newName, String existingName) {

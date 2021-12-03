@@ -50,7 +50,7 @@ public class HomePage extends LpUiBasePage {
     private static final String EXPLORE_OUR_SOLUTION_AREA = "[class='lpip-hp-section']:nth-child(3)";
     private static final String EXPLORE_OUR_SOLUTIONS_TITLE = "[class='lpip-hp-section']:nth-child(3) [class='lpip-hp-section-title']";
     private static final String EXPLORE_OUR_SOLUTIONS_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='lpip-hp-section-subtext']";
-    private static final String EXPLORE_OUR_SOLUTIONS_LINK = "[class='lpip-hp-section']:nth-child(3) [href='/us/contact']";
+    private static final String EXPLORE_OUR_SOLUTIONS_LINK = "[class='lpip-hp-section']:nth-child(3) [href='/contact-us']";
 
     private static final String EDUCATOR_EDITION_AREA = "[class$='lpip-learning-explorer-section']";
     private static final String EDUCATOR_EDITION_IPAD_IMAGE = "[class='lpip-hp-section']:nth-child(3) img[src*='lessonplanet.com/packs/media/homepage/resource-review-tablet']";
