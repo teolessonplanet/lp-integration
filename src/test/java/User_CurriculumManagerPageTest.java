@@ -547,7 +547,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     public void testAssignResource(String accountPlanText, String assignBodyText) {
         if (assignBodyText.equals(TestData.ASSIGN_FOLDER_MODAL_TEXT)) {
-            curriculumManagerPage.clickOnAFolder();
+            curriculumManagerPage.clickOnFirstFolder();
         }
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -708,7 +708,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     public void testCheckResourceIsAddedInFolder(String itemNumber) {
         curriculumManagerPage.loadPage();
         Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), Integer.parseInt(itemNumber.replaceAll("[()]", "")));
-        curriculumManagerPage.clickOnAFolder();
+        curriculumManagerPage.clickOnFirstFolder();
         Assert.assertTrue(curriculumManagerPage.isResourceInFolderDisplayed());
     }
 
@@ -730,7 +730,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     }
 
     public void testPublishFolderWithItems(String accountPlanText) {
-        curriculumManagerPage.clickOnAFolder();
+        curriculumManagerPage.clickOnFirstFolder();
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.hoverOverPublishButton();
@@ -760,7 +760,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB) && !accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             publishedFolderModal.clickOnCloseButton();
         } else {
-            //   Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+            editCollectionModal.waitUntilPublishFolderSectionIsNotDisplayed();
         }
         editCollectionModal.clickOnCloseButton();
         curriculumManagerPage.waitForRefreshIconToDisappear();
@@ -802,6 +802,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
+        curriculumManagerPage.waitUntilSpinnerIsNotDisplayed();
         //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_NOTIFICATION_TEXT));
         //curriculumManagerPage.waitForNotificationToDisappear();
         curriculumManagerPage.loadPage();
@@ -865,7 +866,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         } else {
             Assert.assertEquals(curriculumManagerPage.getCountFolders(), TestData.CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS);
         }
-        curriculumManagerPage.clickOnAFolder();
+        curriculumManagerPage.clickOnFirstFolder();
         Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 1);
         curriculumManagerPage.clickOnCreateAFolderButton();
         if (accountPlan.endsWith(TestData.PLAN_FREEMIUM)) {

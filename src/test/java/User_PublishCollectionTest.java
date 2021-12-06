@@ -185,6 +185,7 @@ public class User_PublishCollectionTest extends BaseTest {
 
         } else {
             editCollectionModal.clickOnPublishFolder();
+            editCollectionModal.waitUntilPublishFolderSectionIsNotDisplayed();
         }
 
         if (noOfResources == 0 & noOfFolders == 0 && !includeUploadedFiles) {
@@ -199,9 +200,7 @@ public class User_PublishCollectionTest extends BaseTest {
             }
 
             curriculumManagerPage.loadPage();
-            curriculumManagerPage.refreshPageAndDismissBrowserAlert();
             curriculumManagerPage.waitForPageLoad();
-            curriculumManagerPage.waitForLinkToLoad();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
         }
     }

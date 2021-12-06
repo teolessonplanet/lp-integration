@@ -384,6 +384,7 @@ public class User_EditCollectionTest extends BaseTest {
         editCollectionModal.clearPageTitle();
         editCollectionModal.typePageTitle(TestData.PUBLISHED_STATUS);
         editCollectionModal.clickSaveButton();
+        editCollectionModal.waitUntilUpdatedTitleIsDisplayed(TestData.PUBLISHED_STATUS);
         Assert.assertEquals(editCollectionModal.getFolderItemTitle(0), TestData.PUBLISHED_STATUS);
 
         editCollectionModal.clickEllipsisActions(0);

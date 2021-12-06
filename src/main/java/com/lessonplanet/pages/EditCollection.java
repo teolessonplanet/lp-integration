@@ -85,6 +85,7 @@ public class EditCollection extends CreateNewFolderModal {
 
     private static final String PUBLISHED_COLLECTION_NOTIFICATION = "[class*='alert alert-success alert-dismissible']";
     private static final String PUBLISH_COLLECTION_BUTTON = "button[class$='btn-success']";
+    private static final String PUBLISH_FOLDER_SECTION = "[class='edit-folder-panel publish-folder']";
     private static final String CLOSE_BUTTON = "button[class$='edit-collection-modal-close']";
     private static final String RATING_FIELD = "[class^='rating-dropdown__indicators']";
     private static final String RATING_OPTIONS = "[class^='rating-dropdown__option']";
@@ -550,5 +551,13 @@ public class EditCollection extends CreateNewFolderModal {
 
     public boolean isMyResourcesTabDisplayed() {
         return isElementDisplayed(MY_RESOURCES_TAB);
+    }
+
+    public void waitUntilPublishFolderSectionIsNotDisplayed() {
+        waitUntilElementIsHidden("[class='fa fa-circle-o-notch fa-spin']");
+    }
+
+    public void waitUntilUpdatedTitleIsDisplayed(String title) {
+        waitUntilTextIsDisplayed(FOLDER_ITEM_TITLE, title);
     }
 }

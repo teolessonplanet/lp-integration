@@ -27,6 +27,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
     private static final String COLLECTION_BUILDER_ITEM_TITLE = "[class='ui-droppable'] div[class^='builder-item '] [class='builder-item-title']";
     private static final String COLLECTION_BUILDER_ITEM_X_BUTTON = "[class='ui-droppable'] div[class^='builder-item '] [class='builder-close-x']";
 
+    private static final String ITEM_LOADER_ICON = "[class='loader']";
+
     public CollectionBuilderPage(WebDriver driver) {
         super(driver);
     }
@@ -127,5 +129,9 @@ public class CollectionBuilderPage extends LpUiBasePage {
 
     public void clickOnSharedFolderFromCollectionBuilder() {
         clickElement(SHARED_FOLDER_CB);
+    }
+
+    public void waitUntilItemIsDisplayed() {
+        waitUntilElementIsHidden(ITEM_LOADER_ICON);
     }
 }

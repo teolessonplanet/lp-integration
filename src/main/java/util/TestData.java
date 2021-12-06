@@ -234,6 +234,11 @@ public class TestData {
     public static final String SHARE_FOLDER_MODAL_SHARE_WITH_TEXT = "Share folder with these people:";
     public static final String SHARE_FOLDER_MODAL_OWNER_ROLE = "Owner";
     public static final String SHARE_FOLDER_MODAL_RSL_OWNER_NAME = "Connor Kyle";
+    public static final String SHARED_FOLDER_STATUS_RSL_OWNER = "Connor K.";
+    public static final String SHARED_FOLDER_STATUS_CSL_OWNER = "Henry T.";
+    public static final String SHARED_FOLDER_STATUS_COBB_OWNER = "Jane M.";
+    public static final String SHARED_FOLDER_STATUS_QA_CUSTOM_OWNER = "Michelle T.";
+    public static final String SHARE_FOLDER_MODAL_QA_CUSTOM_OWNER_NAME = "Michelle Tracy";
     public static final String SHARE_FOLDER_MODAL_CSL_OWNER_NAME = "Henry Thomas";
     public static final String SHARE_FOLDER_MODAL_COBB_OWNER_NAME = "Jane Maryland";
     public static final String SHARE_FOLDER_MODAL_ADD_EMAIL_INPUT_PLACEHOLDER_TEXT = "Start typing email address to select";
@@ -381,6 +386,9 @@ public class TestData {
     public static final String CSL_QA_CUSTOM_OWNER_LAST_NAME = "Tracey";
     public static final String CSL_QA_CUSTOM_TEACHER_FIRST_NAME = "Jones";
     public static final String CSL_QA_CUSTOM_TEACHER_LAST_NAME = "Smith";
+    public static final String CSL_QA_CUSTOM_EXISTING_DISTRICT_ADMIN_EMAIL = "i_da_csl_qa_custom@lp.com";
+    public static final String CSL_QA_CUSTOM_EXISTING_DISTRICT_ADMIN_FIRST_NAME = "Joseph";
+    public static final String CSL_QA_CUSTOM_EXISTING_DISTRICT_ADMIN_LAST_NAME = "Martin";
     public static final String CSL_COBB_SCHOOL_DISTRICT_NAME = "Cobb County School District";
     public static final String CSL_COBB_SCHOOL_DISTRICT_EXISTING_SCHOOL_NAME = "Adult Education @ Hawthorne";
     public static final String CSL_COBB_EXISTING_TEACHER_EMAIL = "i_t_csl_cobb@lp.com";

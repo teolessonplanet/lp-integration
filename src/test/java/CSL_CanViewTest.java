@@ -38,6 +38,6 @@ public class CSL_CanViewTest extends BaseTest {
     public void testLessonp_6012() {
         loginPage.performLogin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         rsl_canViewTest.initTest(webDriver);
-        rsl_canViewTest.testVerifyFolder(TestData.VALID_EMAIL_CSL_HENRY, true);
+        rsl_canViewTest.testVerifyFolder(TestData.VALID_EMAIL_CSL_HENRY, true, TestData.SHARED_FOLDER_STATUS_CSL_OWNER);
     }
 }
