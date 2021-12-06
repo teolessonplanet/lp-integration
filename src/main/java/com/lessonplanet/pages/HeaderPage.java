@@ -31,10 +31,10 @@ public class HeaderPage extends LpUiBasePage {
     private static final String PD_LEARNING_NETWORK_SOLUTIONS_BUTTON = "[class='lp-solutions-se-pd']";
 
     private static final String ABOUT_BUTTON = "[class='lp-about']";
-    private static final String CONTACT_US_BUTTON = "[class='lp-about'] [href='/us/contact']";
+    private static final String CONTACT_US_BUTTON = "[href*='/contact-us']";
     private static final String OUR_STORY_BUTTON = "[class='lp-about'] [href='/about']";
     private static final String FREQUENTLY_ASKED_QUESTIONS_BUTTON = "[class='lp-about'] [href='/faq']";
-    private static final String HELP_CENTER_FAQ_BUTTON = "[class='lp-about'] [href='/help-center/']";
+    private static final String HELP_CENTER_BUTTON = "[href*='/help-center/']";
     private static final String TESTIMONIALS_BUTTON = "[class='lp-about'] [href='/us/testimonials']";
 
     private static final String PRICING_BUTTON = "[class='lp-pricing']";
@@ -52,7 +52,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SEARCH_FILTER_DROPDOWN_OPTIONS = "[class*='search-filter-item']";
     private static final String SEARCH_FILTER_DROPDOWN_SELECTED_OPTION = "[class*='search-filter-item selected']";
     private static final String SEARCH_CLEAR_SEARCH_BUTTON = "[class*='lp-header-clear-search']";
-    private static final String HELP_BUTTON = "[href*='https://www.learningexplorer.com/help-center/']";
+    private static final String HELP_BUTTON = "[class='lp-help']";
 
     private static final String RESOURCES_HEADER_TEXT = "[class='lp-header-title']";
 
@@ -279,12 +279,12 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(HENRY_CUSTOM_SL_LOGO);
     }
 
-    public void clickOnHelpButton() {
-        clickElement(HELP_BUTTON);
+    public void hoverOverHelpButton() {
+        hoverOverElement(HELP_BUTTON);
     }
 
-    public void clickOnHelpCenterFaqButton() {
-        clickElement(HELP_CENTER_FAQ_BUTTON);
+    public void clickOnHelpCenterButton() {
+        clickElement(HELP_CENTER_BUTTON);
     }
 
     public boolean isResourcesHeaderTextDisplayed() {

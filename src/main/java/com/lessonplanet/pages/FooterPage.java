@@ -12,7 +12,7 @@ public class FooterPage extends LpUiBasePage {
     private static final String SUBSCRIPTION_EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
     private static final String SEND_BUTTON = "[class*='lp-newsletter-email-submit']";
 
-    private static final String CONTACT_US_BUTTON = "[class*='footer-container'] [href='/us/contact']";
+    private static final String CONTACT_US_BUTTON = "[class*='footer-container'] [href='/contact-us']";
     private static final String SITE_MAP_BUTTON = "[class*='footer-container'] [href='/content/site_map']";
     private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/privacy-policy']";
     private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href*='/terms-of-use']";
