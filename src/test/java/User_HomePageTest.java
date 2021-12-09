@@ -196,6 +196,21 @@ public class User_HomePageTest extends BaseTest {
         testPdLearningArea(TestData.PLAN_PRO);
     }
 
+    @Test(description = "Visitor - Homepage - lessonp-5291:What educators and parents are saying: section")
+    public void testLessonp_5291() {
+        testTestimonials(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5318:What educators and parents are saying: section")
+    public void testLessonp_5318() {
+        testTestimonials(TestData.PLAN_FREEMIUM);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5334:What educators and parents are saying: section")
+    public void testLessonp_5334() {
+        testTestimonials(TestData.PLAN_STARTER);
+    }
+
     protected void testDiscoverTab() {
         homePage.loadPage();
         Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, homePage.getPath());
@@ -411,5 +426,60 @@ public class User_HomePageTest extends BaseTest {
         Assert.assertEquals(TestData.LEARN_MORE_BUTTON_TEXT, homePage.getPdLearningLearnMoreButtonText());
         homePage.clickOnPdLearningLearnMoreButton();
         Assert.assertEquals(TestData.PD_LEARNING_NETWORK_PATH, homePage.getPath());
+    }
+
+    private void testTestimonials(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+        homePage.scrollToPdLearningArea();
+        homePage.scrollToTestimonialsArea();
+
+        WebElement firstVisibleTestimonial = homePage.getTestimonialBox(1);
+        WebElement secondVisibleTestimonial = homePage.getTestimonialBox(2);
+        WebElement thirdVisibleTestimonial = homePage.getTestimonialBox(3);
+
+        testTestimonialsStrings(firstVisibleTestimonial, 1);
+        testTestimonialsStrings(secondVisibleTestimonial, 2);
+        testTestimonialsStrings(thirdVisibleTestimonial, 3);
+
+        homePage.clickOnTestimonialsPreviousButton();
+        waitUntilTestimonialsAnimationIsDone(firstVisibleTestimonial);
+        firstVisibleTestimonial = homePage.getTestimonialBox(1);
+        secondVisibleTestimonial = homePage.getTestimonialBox(2);
+        thirdVisibleTestimonial = homePage.getTestimonialBox(3);
+
+        testTestimonialsStrings(firstVisibleTestimonial, 0);
+        testTestimonialsStrings(secondVisibleTestimonial, 1);
+        testTestimonialsStrings(thirdVisibleTestimonial, 2);
+
+        homePage.loadPage();
+        homePage.scrollToPdLearningArea();
+        homePage.scrollToTestimonialsArea();
+        firstVisibleTestimonial = homePage.getTestimonialBox(1);
+        homePage.clickOnTestimonialsNextButton();
+        waitUntilTestimonialsAnimationIsDone(firstVisibleTestimonial);
+        firstVisibleTestimonial = homePage.getTestimonialBox(1);
+        secondVisibleTestimonial = homePage.getTestimonialBox(2);
+        thirdVisibleTestimonial = homePage.getTestimonialBox(3);
+        testTestimonialsStrings(firstVisibleTestimonial, 2);
+        testTestimonialsStrings(secondVisibleTestimonial, 3);
+        testTestimonialsStrings(thirdVisibleTestimonial, 4);
+    }
+
+    private void testTestimonialsStrings(WebElement testimonialBox, int expectedPosition) {
+        Assert.assertTrue(homePage.isTestimonialRatingDisplayed(testimonialBox));
+        Assert.assertTrue(homePage.isTestimonialImageDisplayed(testimonialBox));
+        Assert.assertEquals(homePage.getTestimonialText(testimonialBox), TestData.TESTIMONIAL_TITLES[expectedPosition]);
+        Assert.assertEquals(homePage.getTestimonialNameText(testimonialBox), TestData.TESTIMONIAL_NAMES[expectedPosition]);
+        Assert.assertEquals(homePage.getTestimonialRoleText(testimonialBox), TestData.TESTIMONIAL_ROLES[expectedPosition]);
+    }
+
+    private void waitUntilTestimonialsAnimationIsDone(WebElement oldFirstTestimonial) {
+        int noOfAttempts = TestData.SHORT_TIMEOUT;
+        String oldFirstTestimonialText = homePage.getTestimonialText(oldFirstTestimonial);
+        boolean testimonialWasChanged = false;
+        while (noOfAttempts > 0 && !testimonialWasChanged) {
+            testimonialWasChanged = !homePage.getTestimonialText(homePage.getTestimonialBox(1)).equals(oldFirstTestimonialText);
+            noOfAttempts--;
+        }
     }
 }

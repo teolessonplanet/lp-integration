@@ -78,6 +78,18 @@ public class HomePage extends LpUiBasePage {
     private static final String PD_LEARNING_TEXT = "[class='lpip-hp-section']:nth-child(5) [class='text']";
     private static final String PD_LEARNING_LEARN_MORE_BUTTON = "[class='lpip-hp-section']:nth-child(5) [href='/pdln']";
 
+    private static final String TESTIMONIALS_AREA = "[class$='lpip-testimonial-section']";
+    private static final String TESTIMONIALS_TITLE_TEXT = "[class$='lpip-testimonial-section'] [class='lpip-hp-section-title']";
+    private static final String TESTIMONIALS_PREVIOUS_BUTTON = "[class$='lpip-testimonial-section'] #prev";
+    private static final String TESTIMONIALS_NEXT_BUTTON = "[class$='lpip-testimonial-section'] #next";
+    private static final String TESTIMONIALS_BOXES = "[class$='lpip-testimonial-section'] #carousel [class^='lpip-testimonial-member']";
+
+    private static final String TESTIMONIAL_RATING = "[class='lpip-testimonial-rating']";
+    private static final String TESTIMONIAL_TEXT = "[class='text']";
+    private static final String TESTIMONIAL_IMAGE = "[class='image-wrap']";
+    private static final String TESTIMONIAL_NAME = "[class='name']";
+    private static final String TESTIMONIAL_ROLE = "[class='role']";
+    
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -381,5 +393,49 @@ public class HomePage extends LpUiBasePage {
 
     public void clickOnPdLearningLearnMoreButton() {
         clickElement(PD_LEARNING_LEARN_MORE_BUTTON);
+    }
+
+    public void scrollToTestimonialsArea() {
+        scrollToElement(TESTIMONIALS_AREA);
+    }
+
+    public boolean isInspireAreaDisplayed() {
+        return isElementDisplayed(TESTIMONIALS_AREA);
+    }
+
+    public boolean getTestimonialTitleText() {
+        return isElementDisplayed(TESTIMONIALS_TITLE_TEXT);
+    }
+
+    public void clickOnTestimonialsPreviousButton() {
+        clickElement(TESTIMONIALS_PREVIOUS_BUTTON);
+    }
+
+    public void clickOnTestimonialsNextButton() {
+        clickElement(TESTIMONIALS_NEXT_BUTTON);
+    }
+
+    public WebElement getTestimonialBox(int testimonialPosition) {
+        return findElements(TESTIMONIALS_BOXES).get(testimonialPosition);
+    }
+
+    public boolean isTestimonialRatingDisplayed(WebElement testimonialBox) {
+        return isElementDisplayed(testimonialBox, TESTIMONIAL_RATING);
+    }
+
+    public String getTestimonialText(WebElement testimonialBox) {
+        return getTextForElement(testimonialBox, TESTIMONIAL_TEXT);
+    }
+
+    public boolean isTestimonialImageDisplayed(WebElement testimonialBox) {
+        return isElementDisplayed(testimonialBox, TESTIMONIAL_IMAGE);
+    }
+
+    public String getTestimonialNameText(WebElement testimonialBox) {
+        return getTextForElement(testimonialBox, TESTIMONIAL_NAME);
+    }
+
+    public String getTestimonialRoleText(WebElement testimonialBox) {
+        return getTextForElement(testimonialBox, TESTIMONIAL_ROLE);
     }
 }
