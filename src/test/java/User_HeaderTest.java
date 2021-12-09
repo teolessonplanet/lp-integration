@@ -141,7 +141,7 @@ public class User_HeaderTest extends BaseTest {
             case TestData.VALID_EMAIL_RSL_SBCEO:
                 Assert.assertTrue(headerPage.isRegularSlLogoClickable());
                 headerPage.clickOnRegularSlLogo(false);
-                Assert.assertEquals(lpHomePage.getPath(), TestData.LP_HOME_PAGE_PATH);
+                Assert.assertEquals(lpHomePage.getPath(), TestData.SEARCH_PAGE_PATH);
                 break;
             case TestData.VALID_EMAIL_CSL_HENRY:
                 Assert.assertTrue(headerPage.isHenryCustomSlLogoDisplayed());
@@ -253,7 +253,7 @@ public class User_HeaderTest extends BaseTest {
             headerPage.hoverOverAboutButton();
             headerPage.clickOnContactUsButton();
             Assert.assertEquals(headerPage.getPath(), TestData.CONTACT_US_PAGE_PATH);
-            headerPage.goBackOnePage();
+            lpHomePage.loadPage();
         }
     }
 
