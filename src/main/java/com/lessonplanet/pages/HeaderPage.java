@@ -34,7 +34,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String CONTACT_US_BUTTON = "[href*='/contact-us']";
     private static final String OUR_STORY_BUTTON = "[class='lp-about'] [href='/about']";
     private static final String FREQUENTLY_ASKED_QUESTIONS_BUTTON = "[class='lp-about'] [href='/faq']";
-    private static final String HELP_CENTER_BUTTON = "[href*='/help-center/']";
+    private static final String HELP_CENTER_BUTTON = "[href*='/help-center']";
     private static final String TESTIMONIALS_BUTTON = "[class='lp-about'] [href='/us/testimonials']";
 
     private static final String PRICING_BUTTON = "[class='lp-pricing']";
