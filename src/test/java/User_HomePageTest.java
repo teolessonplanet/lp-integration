@@ -1,4 +1,6 @@
 import com.lessonplanet.pages.HomePage;
+import com.lessonplanet.pages.StepOneModal;
+import com.lessonplanet.pages.StepTwoModal;
 import com.lessonplanet.pages.StepTwoPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +12,16 @@ import util.TestData;
 public class User_HomePageTest extends BaseTest {
 
     private HomePage homePage;
+    private StepOneModal stepOneModal;
     private StepTwoPage stepTwoPage;
+    private StepTwoModal stepTwoModal;
 
     @BeforeMethod
     public void beforeMethod() {
         homePage = new HomePage(webDriver);
+        stepOneModal = new StepOneModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
+        stepTwoModal = new StepTwoModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -209,6 +215,16 @@ public class User_HomePageTest extends BaseTest {
     @Test(description = "Visitor - Homepage - lessonp-5334:What educators and parents are saying: section")
     public void testLessonp_5334() {
         testTestimonials(TestData.PLAN_STARTER);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5292:Discover.Create.Inspire section")
+    public void testLessonp_5292() {
+        testInspireArea(TestData.PLAN_VISITOR);
+    }
+
+    @Test(description = "Visitor - Homepage - lessonp-5319:Discover.Create.Inspire section")
+    public void testLessonp_5319() {
+        testInspireArea(TestData.PLAN_FREEMIUM);
     }
 
     protected void testDiscoverTab() {
@@ -481,5 +497,63 @@ public class User_HomePageTest extends BaseTest {
             testimonialWasChanged = !homePage.getTestimonialText(homePage.getTestimonialBox(1)).equals(oldFirstTestimonialText);
             noOfAttempts--;
         }
+    }
+
+    private void testInspireArea(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
+
+        homePage.scrollToTestimonialsArea();
+        homePage.scrollToInspireArea();
+
+        Assert.assertEquals(TestData.INSPIRE_TITLE_TEXT, homePage.getInspireTitleText());
+        Assert.assertEquals(TestData.INSPIRE_SUBTEXT_TEXT, homePage.getInspireSubtextText());
+
+        homePage.clickOnInspireParentTab();
+        Assert.assertEquals(TestData.INSPIRE_AREA_PARENT_TAB_TEXT, homePage.getInspireParentTabText());
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
+            Assert.assertEquals(TestData.INSPIRE_AREA_START_YOUR_10_DAYS_BUTTON_TEXT, homePage.getParentTabStartYouTenDaysButtonText());
+            Assert.assertEquals(TestData.INSPIRE_AREA_SEE_PRICING_BUTTON_TEXT, homePage.getParentTabSeePricingButtonText());
+
+            homePage.clickOnParentTabStartYouTenDaysButton();
+            Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
+            stepOneModal.clickCloseModal();
+            homePage.clickOnParentTabSeePricingButton();
+            Assert.assertEquals(TestData.PRICING_PAGE_PATH, homePage.getPath());
+
+        } else {
+            Assert.assertEquals(TestData.INSPIRE_UPGRADE_YOUR_ACCOUNT_BUTTON_TEXT, homePage.getParentTabUpgradeYourAccountButtonText());
+            homePage.clickOnParentTabUpgradeYourAccountButton();
+            stepTwoModal.waitForModal();
+            Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoModal.getTitleText());
+        }
+
+        homePage.loadPage();
+        homePage.scrollToTestimonialsArea();
+        homePage.scrollToInspireArea();
+
+        Assert.assertEquals(TestData.INSPIRE_AREA_EDUCATOR_TAB_TEXT, homePage.getInspireEducatorTabText());
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
+            Assert.assertEquals(TestData.INSPIRE_AREA_START_YOUR_10_DAYS_BUTTON_TEXT, homePage.getEducatorTabStartYouTenDaysButtonText());
+            Assert.assertEquals(TestData.INSPIRE_AREA_SEE_PRICING_BUTTON_TEXT, homePage.getEducatorTabSeePricingButtonText());
+            homePage.clickOnEducatorTabStartYouTenDaysButton();
+            Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
+            stepOneModal.clickCloseModal();
+            homePage.clickOnEducatorTabSeePricingButton();
+            Assert.assertEquals(TestData.PRICING_PAGE_PATH, homePage.getPath());
+        } else {
+            Assert.assertEquals(TestData.INSPIRE_UPGRADE_YOUR_ACCOUNT_BUTTON_TEXT, homePage.getEducatorTabUpgradeYourAccountButtonText());
+            homePage.clickOnEducatorTabUpgradeYourAccountButton();
+            Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoModal.getTitleText());
+        }
+
+        homePage.loadPage();
+        homePage.scrollToTestimonialsArea();
+        homePage.scrollToInspireArea();
+
+        homePage.clickOnInspireSchoolOrDistrictTab();
+        Assert.assertEquals(TestData.INSPIRE_AREA_SCHOOL_OR_DISTRICT_TAB_TEXT, homePage.getInspireSchoolOrDistrictTabText());
+        Assert.assertEquals(TestData.INSPIRE_AREA_REQUEST_A_DEMO_BUTTON_TEXT, homePage.getInspireSchoolOrDistrictRequestADemoButtonText());
+        homePage.clickOnInspireSchoolOrDistrictRequestADemoButton();
+        Assert.assertEquals(TestData.LEARNING_EXPLORER_DEMO_REQUESTED_URL, homePage.getUrl());
     }
 }

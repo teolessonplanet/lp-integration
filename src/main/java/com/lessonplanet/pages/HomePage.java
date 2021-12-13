@@ -89,7 +89,21 @@ public class HomePage extends LpUiBasePage {
     private static final String TESTIMONIAL_IMAGE = "[class='image-wrap']";
     private static final String TESTIMONIAL_NAME = "[class='name']";
     private static final String TESTIMONIAL_ROLE = "[class='role']";
-    
+
+    private static final String INSPIRE_AREA = "[class$='lpip-hp-inspire-section']";
+    private static final String INSPIRE_TITLE_TEXT = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-title']";
+    private static final String INSPIRE_SUBTEXT_TEXT = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-subtext']";
+    private static final String INSPIRE_PARENT_TAB = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-inspire-section-option parent']";
+    private static final String INSPIRE_PARENT_TAB_START_YOUR_BUTTON = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-section-actions parent active'] [class='lpip-button']";
+    private static final String INSPIRE_PARENT_TAB_SEE_PRICING_BUTTON = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-section-actions parent active'] [class='lpip-action-link']";
+    private static final String INSPIRE_PARENT_UPGRADE_YOUR_ACCOUNT_BUTTON = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-section-actions parent active'] [href='/subscription/new']";
+    private static final String INSPIRE_EDUCATOR_TAB = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-inspire-section-option educator']";
+    private static final String INSPIRE_EDUCATOR_TAB_START_YOUR_10_DAYS_BUTTON = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-actions educator active'] [class='lpip-button']";
+    private static final String INSPIRE_EDUCATOR_TAB_PRICING_BUTTON = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-actions educator active'] [class='lpip-action-link']";
+    private static final String INSPIRE_EDUCATOR_UPGRADE_YOUR_ACCOUNT_BUTTON = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-actions educator active'] [href='/subscription/new']";
+    private static final String INSPIRE_SCHOOL_OR_DISTRICT_TAB = "[class$='lpip-hp-inspire-section'] [class^='lpip-hp-inspire-section-option admin']";
+    private static final String INSPIRE_SCHOOL_OR_DISTRICT_REQUEST_A_DEMO_BUTTON = "[class$='lpip-hp-inspire-section'] [class='lpip-hp-section-actions admin active'] [class='lpip-button'][href^='https://www.learningexplorer.com']";
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -399,14 +413,6 @@ public class HomePage extends LpUiBasePage {
         scrollToElement(TESTIMONIALS_AREA);
     }
 
-    public boolean isInspireAreaDisplayed() {
-        return isElementDisplayed(TESTIMONIALS_AREA);
-    }
-
-    public boolean getTestimonialTitleText() {
-        return isElementDisplayed(TESTIMONIALS_TITLE_TEXT);
-    }
-
     public void clickOnTestimonialsPreviousButton() {
         clickElement(TESTIMONIALS_PREVIOUS_BUTTON);
     }
@@ -438,4 +444,98 @@ public class HomePage extends LpUiBasePage {
     public String getTestimonialRoleText(WebElement testimonialBox) {
         return getTextForElement(testimonialBox, TESTIMONIAL_ROLE);
     }
+
+    public void scrollToInspireArea() {
+        scrollToElement(INSPIRE_AREA);
+    }
+
+    public String getInspireTitleText() {
+        return getTextForElement(INSPIRE_TITLE_TEXT);
+    }
+
+    public String getInspireSubtextText() {
+        return getTextForElement(INSPIRE_SUBTEXT_TEXT);
+    }
+
+    public String getInspireParentTabText() {
+        return getTextForElement(INSPIRE_PARENT_TAB);
+    }
+
+    public void clickOnInspireParentTab() {
+        clickElement(INSPIRE_PARENT_TAB);
+    }
+
+    public String getParentTabStartYouTenDaysButtonText() {
+        return getTextForElement(INSPIRE_PARENT_TAB_START_YOUR_BUTTON);
+    }
+
+    public void clickOnParentTabStartYouTenDaysButton() {
+        clickElement(INSPIRE_PARENT_TAB_START_YOUR_BUTTON);
+    }
+
+    public String getParentTabSeePricingButtonText() {
+        return getTextForElement(INSPIRE_PARENT_TAB_SEE_PRICING_BUTTON);
+    }
+
+    public void clickOnParentTabSeePricingButton() {
+        clickElement(INSPIRE_PARENT_TAB_SEE_PRICING_BUTTON);
+    }
+
+    public String getParentTabUpgradeYourAccountButtonText() {
+        return getTextForElement(INSPIRE_PARENT_UPGRADE_YOUR_ACCOUNT_BUTTON);
+    }
+
+    public void clickOnParentTabUpgradeYourAccountButton() {
+        clickElement(INSPIRE_PARENT_UPGRADE_YOUR_ACCOUNT_BUTTON);
+    }
+
+    public String getInspireEducatorTabText() {
+        return getTextForElement(INSPIRE_EDUCATOR_TAB);
+    }
+
+    public void clickOnEducatorTab() {
+        clickElement(INSPIRE_EDUCATOR_TAB);
+    }
+
+    public String getEducatorTabStartYouTenDaysButtonText() {
+        return getTextForElement(INSPIRE_EDUCATOR_TAB_START_YOUR_10_DAYS_BUTTON);
+    }
+
+    public void clickOnEducatorTabStartYouTenDaysButton() {
+        clickElement(INSPIRE_EDUCATOR_TAB_START_YOUR_10_DAYS_BUTTON);
+    }
+
+    public String getEducatorTabSeePricingButtonText() {
+        return getTextForElement(INSPIRE_EDUCATOR_TAB_PRICING_BUTTON);
+    }
+
+    public void clickOnEducatorTabSeePricingButton() {
+        clickElement(INSPIRE_EDUCATOR_TAB_PRICING_BUTTON);
+    }
+
+    public String getEducatorTabUpgradeYourAccountButtonText() {
+        return getTextForElement(INSPIRE_EDUCATOR_UPGRADE_YOUR_ACCOUNT_BUTTON);
+    }
+
+    public void clickOnEducatorTabUpgradeYourAccountButton() {
+        clickElement(INSPIRE_EDUCATOR_UPGRADE_YOUR_ACCOUNT_BUTTON);
+    }
+
+    public void clickOnInspireSchoolOrDistrictTab() {
+        clickElement(INSPIRE_SCHOOL_OR_DISTRICT_TAB);
+    }
+
+    public String getInspireSchoolOrDistrictTabText() {
+        return getTextForElement(INSPIRE_SCHOOL_OR_DISTRICT_TAB);
+    }
+
+    public void clickOnInspireSchoolOrDistrictRequestADemoButton() {
+        clickElement(INSPIRE_SCHOOL_OR_DISTRICT_REQUEST_A_DEMO_BUTTON);
+    }
+
+    public String getInspireSchoolOrDistrictRequestADemoButtonText() {
+        return getTextForElement(INSPIRE_SCHOOL_OR_DISTRICT_REQUEST_A_DEMO_BUTTON);
+    }
+
+
 }
