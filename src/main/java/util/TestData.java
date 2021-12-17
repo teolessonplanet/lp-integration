@@ -810,4 +810,19 @@ public class TestData {
     public static final String[] TESTIMONIAL_TITLES = {"\"Lesson Planet has allowed me to build on many lessons that I have done in the past. It's always nice to see how other educators are teaching a concept.\"", "\"As headteacher in an elementary school and one who has a fair amount of dealing with high school students, Lesson Planet has been a dependable resource. The variety of material available suits a whole range subjects and levels.\"", "\"I just completed my student teaching in Newark New Jersey. Creating unit plans became a breeze once I joined Lesson Planet. There was a plethora of resources for every teaching standard. Thank you. I had veteran teachers asking me where did I get my resources. I am now teaching at my cooperative school. Yeah!!!!!!!!!\"", "\"I have been extremely happy with the materials I've located. I'm always looking for new ways to spice things up with my high school students. I use group activities quite often to help my students so finding other ideas is a time-saver for sure. Member since 2010.\"", "\"I really love Lesson Planet and the hundreds of ideas and resources available. For me, your site is a must because I am a first-year teacher and I love all the wonderful lesson plans, worksheets, and volumes of wisdom provided by so many wonderful experienced educators. Thanks!\""};
     public static final String[] TESTIMONIAL_NAMES = {"India B.", "Jacqueline M.", "Leisa B.", "Lori H.", "Debbie T."};
     public static final String[] TESTIMONIAL_ROLES = {"Whitslett, NC", "USA", "Newark, NJ", "Phoenix, AZ", "Lindale, TX"};
+
+    public static final String INSPIRE_TITLE_TEXT = "Discover. Create. Inspire.";
+    public static final String INSPIRE_SUBTEXT_TEXT = "Start your journey today.";
+
+    public static final String INSPIRE_AREA_PARENT_TAB_TEXT = "Parent";
+    public static final String INSPIRE_AREA_EDUCATOR_TAB_TEXT = "Educator";
+    public static final String INSPIRE_AREA_SCHOOL_OR_DISTRICT_TAB_TEXT = "School or District";
+    public static final String INSPIRE_AREA_START_YOUR_10_DAYS_BUTTON_TEXT = "Start your 10-day Free Trial";
+    public static final String INSPIRE_AREA_SEE_PRICING_BUTTON_TEXT = "See Pricing";
+    public static final String INSPIRE_UPGRADE_YOUR_ACCOUNT_BUTTON_TEXT = "Upgrade Your Account";
+    public static final String INSPIRE_AREA_REQUEST_A_DEMO_BUTTON_TEXT = "Request a Demo";
+
+    public static final String LEARNING_EXPLORER_DEMO_REQUESTED_URL = LEARNING_EXPLORER_URL + "?demo-requested";
+
+
 }
