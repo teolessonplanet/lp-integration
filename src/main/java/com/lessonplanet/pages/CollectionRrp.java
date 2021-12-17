@@ -30,7 +30,7 @@ public class CollectionRrp extends Rrp {
     private static final String NEXT_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_PANEL_ITEMS = "[class='panel-items'] a[class='bx-prev']";
     private static final String SEE_FULL_REVIEWS_LINK = "[class='see-full-reviews-link'] h4";
-    private static final String EXPANDED_RRP = "[class='rrp-list'] li[class='rrp-content']";
+    private static final String EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='rrp-container'] li[class*='rrp-content']";
     private static final String NEXT_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-next']";
     private static final String PREVIOUS_BUTTON_ITEM_VIEWER = "[class='expanded-item-rrps'] a[class='bx-prev']";
     private static final String X_BUTTON_EXPANDED_RRP = "[class='expanded-item-rrps'] [class*='close-item-rrp-view']";
