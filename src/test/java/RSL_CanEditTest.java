@@ -31,6 +31,6 @@ public class RSL_CanEditTest extends BaseTest {
     public void testLessonp_6117() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         rsl_canViewTest.initTest(webDriver);
-        rsl_canViewTest.testVerifyFolder(TestData.VALID_EMAIL_RSL_SBCEO,false);
+        rsl_canViewTest.testVerifyFolder(TestData.VALID_EMAIL_RSL_SBCEO,false, TestData.SHARED_FOLDER_STATUS_RSL_OWNER);
     }
 }

@@ -20,6 +20,7 @@ public class RSL_CanViewTest extends BaseTest {
     private AssignModal assignModal;
     private EditCollectionModal editCollectionModal;
     private ConfirmCopySharedFolderModal confirmCopySharedFolderModal;
+    private LimitedResourceAccessModal limitedResourceAccessModal;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,6 +35,7 @@ public class RSL_CanViewTest extends BaseTest {
         assignModal = new AssignModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
         confirmCopySharedFolderModal = new ConfirmCopySharedFolderModal(webDriver);
+        limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -62,7 +64,7 @@ public class RSL_CanViewTest extends BaseTest {
     @Test(description = "Regular SL - Shared With Me - Can View - lessonp-6012: Verify shared folder - Can View Permission")
     public void testLessonp_6012() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
-        testVerifyFolder(TestData.VALID_EMAIL_RSL_SBCEO, true);
+        testVerifyFolder(TestData.VALID_EMAIL_RSL_SBCEO, true, TestData.SHARED_FOLDER_STATUS_RSL_OWNER);
     }
 
     public void testSharedWithMePage() {
@@ -98,7 +100,17 @@ public class RSL_CanViewTest extends BaseTest {
         List<WebElement> getSeeCollectionResources = discoverResourcesPage.getAllSeeCollectionsButtons();
         discoverResourcesPage.dragAndDrop(getSeeCollectionResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
 
+        if (limitedResourceAccessModal.isModalDisplayed()) {
+            limitedResourceAccessModal.clickOnSaveButton();
+        }
+
         curriculumManagerPage.loadPage();
+
+        curriculumManagerPage.clickOnSortByDropdown();
+        curriculumManagerPage.sortByDate();
+        curriculumManagerPage.clickOnSortByDropdown();
+        curriculumManagerPage.sortByDescending();
+
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnShareFolderButton();
@@ -220,12 +232,13 @@ public class RSL_CanViewTest extends BaseTest {
         //drag&drop a shared folder inside the collection in the Collection Builder
         curriculumManagerPage.clickOnFolder(0);
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
+        collectionBuilderPage.waitUntilItemIsDisplayed();
         curriculumManagerPage.waitForNotificationToDisappear();
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), 3);
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
     }
 
-    public void testVerifyFolder(String accountPlanText, boolean canView) {
+    public void testVerifyFolder(String accountPlanText, boolean canView, String ownerName) {
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnSharedWithMeTabButton();
         Assert.assertEquals(curriculumManagerPage.getPath(), TestData.SHARED_WITH_ME_PAGE_PATH);
@@ -267,7 +280,11 @@ public class RSL_CanViewTest extends BaseTest {
             editCollectionModal.clickMoreDropdown();
             editCollectionModal.clickOnPublishOption();
             editCollectionModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+            editCollectionModal.clickOnPublishFolder();
             editCollectionModal.clickOnCloseButton();
+
+            curriculumManagerPage.waitForRefreshIconToDisappear();
+            Assert.assertEquals(TestData.SHARED_WITH_ME_PAGE_FOLDER_STATUS + " " + ownerName, curriculumManagerPage.getFolderStatus());
         }
 
         curriculumManagerPage.hoverOverActionsDropdown();
@@ -280,6 +297,7 @@ public class RSL_CanViewTest extends BaseTest {
         }
         copyToModal.clickMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
+        curriculumManagerPage.waitUntilSpinnerIsNotDisplayed();
 
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber);
 
@@ -289,16 +307,6 @@ public class RSL_CanViewTest extends BaseTest {
         assignModal.typeAccessKey(TestData.VALID_PASSWORD);
         assignModal.clickOnSaveButton();
         assignModal.clickOnCloseButton();
-
-        if (!canView) {
-            curriculumManagerPage.hoverOverActionsDropdown();
-            curriculumManagerPage.clickOnActionsDropdown();
-            curriculumManagerPage.clickOnPublishFolderButton(null);
-            editCollectionModal.clickOnPublishCollectionButton();
-            editCollectionModal.clickOnCloseButton();
-            curriculumManagerPage.waitForRefreshIconToDisappear();
-            Assert.assertEquals(TestData.SHARED_WITH_ME_PAGE_FOLDER_STATUS + " " + "Connor K.", curriculumManagerPage.getFolderStatus());
-        }
 
         curriculumManagerPage.clickOnFolder(0);
         if (canView) {
@@ -332,10 +340,12 @@ public class RSL_CanViewTest extends BaseTest {
         }
         curriculumManagerPage.clickOnActionsDropdownButton(resource1);
 
+        curriculumManagerPage.clickOnFirstFolder();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnRemoveFolderButton(null);
         removeSharedFolderModal.waitForModal();
         removeSharedFolderModal.clickOnContinueButton();
+        curriculumManagerPage.waitUntilSpinnerIsNotDisplayed();
         Assert.assertEquals(curriculumManagerPage.getFoldersNumber(), foldersNumber - 1);
     }
 }

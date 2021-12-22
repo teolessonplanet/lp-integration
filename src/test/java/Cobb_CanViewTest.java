@@ -38,6 +38,6 @@ public class Cobb_CanViewTest extends BaseTest {
     public void testLessonp_6163() {
         loginPage.performLogin(TestData.CSL_COBB_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         rsl_canViewTest.initTest(webDriver);
-        rsl_canViewTest.testVerifyFolder(TestData.CSL_COBB_EXISTING_TEACHER_EMAIL, true);
+        rsl_canViewTest.testVerifyFolder(TestData.CSL_COBB_EXISTING_TEACHER_EMAIL, true, TestData.SHARED_FOLDER_STATUS_COBB_OWNER);
     }
 }
