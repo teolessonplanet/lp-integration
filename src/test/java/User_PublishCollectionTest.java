@@ -182,6 +182,7 @@ public class User_PublishCollectionTest extends BaseTest {
             }
             confirmPublishUploadFileModal.checkAgreementOption();
             confirmPublishUploadFileModal.clickOnPublishCollectionButton();
+            confirmPublishUploadFileModal.waitUntilConfirmPublishModalIsNotDisplayed();
 
         } else {
             editCollectionModal.clickOnPublishFolder();
