@@ -8,6 +8,7 @@ public class ConfirmPublishUploadFileModal extends LpUiBasePage {
     private static final String PUBLISH_COLLECTION_BUTTON = "[class='modal-footer'] [class='btn btn-success']";
     private static final String DO_NOT_INCLUDE_FILE_OPTION = "[class*='radio-row'] div[class='pt15']:nth-child(3) input";
     private static final String INCLUDE_FILE_OPTION = "[class*='radio-row'] div[class='pt15']:nth-child(2) input";
+    private static final String SPINNER_ICON = "[class='fa fa-circle-o-notch fa-spin']";
 
     public ConfirmPublishUploadFileModal(WebDriver driver) {
         super(driver);
@@ -27,5 +28,9 @@ public class ConfirmPublishUploadFileModal extends LpUiBasePage {
 
     public void clickOnIncludeFileOption() {
         clickElement(INCLUDE_FILE_OPTION);
+    }
+
+    public void waitUntilConfirmPublishModalIsNotDisplayed() {
+        waitUntilElementIsHidden(SPINNER_ICON, 15);
     }
 }

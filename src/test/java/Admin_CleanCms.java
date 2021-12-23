@@ -23,6 +23,9 @@ public class Admin_CleanCms extends BaseTest {
         cleanCmForAccount(TestData.VALID_EMAIL_CSL_COBB);
         cleanCmForAccount(TestData.VALID_EMAIL_CSL_COBB);
         cleanCmForAccount(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL);
+        cleanCmForAccount(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL);
+        cleanCmForAccount(TestData.CSL_QA_CUSTOM_EXISTING_TEACHER_EMAIL);
+        cleanCmForAccount(TestData.CSL_COBB_EXISTING_TEACHER_EMAIL);
     }
 
     private void cleanCmForAccount(String emailAccount){
