@@ -14,7 +14,6 @@ public class Admin_CleanCms extends BaseTest {
         loginPage = new LoginPage(webDriver);
     }
 
-    @Ignore
     @Test
     public void cleanCmsForAllAccountFromTestData() {
         cleanCmForAccount(TestData.VALID_EMAIL_RSL_SBCEO);
