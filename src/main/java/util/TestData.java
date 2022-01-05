@@ -525,8 +525,8 @@ public class TestData {
     public static final String SIGN_UP_HINT_TEXT = "Sign up for the Lesson Planet Monthly Newsletter";
     public static final String REQUIRED_EMAIL_ERROR_TEXT = "This field is required.";
     public static final String VALID_EMAIL_ERROR_TEXT = "Please enter a valid email address.";
-    public static final String COPYRIGHT_TEXT = "© 1999-2021 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
-    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2021 Learning Explorer";
+    public static final String COPYRIGHT_TEXT = "© 1999-2022 Education Planet, Inc.\n" + "Teacher Lesson Plans, Worksheets and Resources";
+    public static final String RSL_IFRAME_COPYRIGHT_TEXT = "© 2022 Learning Explorer";
     public static final String LEARNING_EXPLORER_TERMS_URL = "https://www.learningexplorer.com/terms";
     public static final String LEARNING_EXPLORER_HELP_URL = "https://staging.lessonplanet.com/help-center?admin";
 
