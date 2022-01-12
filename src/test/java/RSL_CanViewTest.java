@@ -107,9 +107,9 @@ public class RSL_CanViewTest extends BaseTest {
         curriculumManagerPage.loadPage();
 
         curriculumManagerPage.clickOnSortByDropdown();
-        curriculumManagerPage.sortByDate();
+        curriculumManagerPage.clickOnSortByDate();
         curriculumManagerPage.clickOnSortByDropdown();
-        curriculumManagerPage.sortByDescending();
+        curriculumManagerPage.clickOnSortByDescending();
 
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();

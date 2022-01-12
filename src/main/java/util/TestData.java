@@ -78,6 +78,21 @@ public class TestData {
     public static final String COLLECTION_PLAYER_PAGE_PATH_2 = "/collections/";
     public static final String COLLECTION_PLAYER_PAGE_PATH_3 = "/player";
 
+    //District Shared Tab
+    public static final String EMPTY_DISTRICT_SHARED_TAB = "This folder is empty";
+    public static final String POSTED_STATUS = "Posted";
+    public static final String UNPOSTED_STATUS = "Not Posted";
+    public static final String SORT_BY_DISTRICT_ORDER = "District Order";
+    public static final String SORT_BY_DATE_POSTED = "Date Posted";
+    public static final String DISTRICT_SHARED_PATH = "shared-with-my-district";
+    public static final String POST_TO_MODAL_TITLE = "Post to Shared by Articles Tab";
+    public static final String POST_TO_MODAL_BODY = "You are about to post";
+    public static final String SHARED_WITH_FOLDER = "Shared Folder District";
+
+    //Shared By District
+    public static final String SHARED_BY_EMPTY_TEXT = "When resources are shared with you, they will be listed here";
+    public static final String SHARED_BY_PATH = "/my/shared_with_me/by_district";
+
     //Curriculum Calendar Page
     public static final String SEARCH_PAGE_PATH = "search";
     public static final String SEARCH_PAGE_WITH_KEYWORD_PATH = "search?keywords=";

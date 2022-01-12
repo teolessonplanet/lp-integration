@@ -823,9 +823,12 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     public void testSortByDropdown() {
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnSortByDropdown();
-        Assert.assertTrue(curriculumManagerPage.isResourceTitleOptionDisplayed());
-        Assert.assertTrue(curriculumManagerPage.isStatusOptionDisplayed());
-        Assert.assertTrue(curriculumManagerPage.isDateOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortByTitleOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortByStatusOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortByDateUpdatedOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortByMyOrderOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortAscendingOptionDisplayed());
+        Assert.assertTrue(curriculumManagerPage.isSortDescendingOptionDisplayed());
     }
 
     public void testFavoriteResources(String accountPlanText) {
@@ -899,7 +902,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(folder0));
 
         curriculumManagerPage.hoverOverChild(0);
-        curriculumManagerPage.clickOnViewFolderButton();
+        curriculumManagerPage.clickOnViewChildFolderButton();
 
         curriculumManagerPage.waitForLoad();
         Assert.assertEquals(curriculumManagerPage.getCountBreadcrumbs(), 3);

@@ -41,11 +41,14 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String STATUS_COLUMN = "[class='info status']";
     private static final String DATE_COLUMN = "[class='info date']";
     private static final String SORT_BY_DROPDOWN = "#sort-widget";
-    private static final String SORT_BY_DESCENDING = "[class='cm-sort-descending']";
-    private static final String SORT_BY_DATE = "#sort-dropdown-updated_at";
-    private static final String STATUS_SORT_BY_OPTION = "#sort-dropdown-license_enum";
-    private static final String DATE_SORT_BY_OPTION = "#sort-dropdown-updated_at";
-    private static final String RESOURCE_TITLE_SORT_BY_OPTION = "#sort-dropdown-title";
+    private static final String SORT_BY_VALUE_TEXT = "[class='sort-by-value']";
+
+    private static final String SORT_BY_TITLE_OPTION = "#sort-dropdown-title";
+    private static final String SORT_BY_STATUS_OPTION = "#sort-dropdown-license_enum";
+    private static final String SORT_BY_DATE_UPDATED_OPTION = "#sort-dropdown-updated_at";
+    private static final String SORT_BY_MY_ORDER_OPTION = "#sort-dropdown-sequence";
+    private static final String SORT_BY_ASCENDING_OPTION = "[class='cm-sort-ascending']";
+    private static final String SORT_BY_DESCENDING_OPTION = "[class='cm-sort-descending']";
 
     private static final String ACTIONS_DROPDOWN_BUTTON = "[class*='group-info'] [class='action-dropdown']";
     private static final String EDIT_FOLDER_BUTTON = "[class='options actions'] button[class*='action-item edit']";
@@ -75,6 +78,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
     private static final String FOLDER_LAST_CHILD = "div[id^='collection-item-']:last-child";
 
     private static final String SPINNER_ICON = "[class='fa fa-circle-o-notch fa-spin']";
+    private static final String SHARED_BY_DISTRICT_TAB = "[href='/my/shared_with_me/by_district']";
 
     public CurriculumManagerPage(WebDriver driver) {
         super(driver);
@@ -246,18 +250,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     public void clickOnSortByDropdown() {
         clickElement(SORT_BY_DROPDOWN);
-    }
-
-    public boolean isStatusOptionDisplayed() {
-        return isElementDisplayed(STATUS_SORT_BY_OPTION);
-    }
-
-    public boolean isResourceTitleOptionDisplayed() {
-        return isElementDisplayed(RESOURCE_TITLE_SORT_BY_OPTION);
-    }
-
-    public boolean isDateOptionDisplayed() {
-        return isElementDisplayed(DATE_SORT_BY_OPTION);
     }
 
     public boolean isPublishButtonDisplayed() {
@@ -449,7 +441,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
         hoverOverElement(FOLDERS_CHILDS, index);
     }
 
-    public void clickOnViewFolderButton() {
+    public void clickOnViewChildFolderButton() {
         clickElement(FOLDERS_CHILDS + VIEW_FOLDER_BUTTON);
     }
 
@@ -527,15 +519,75 @@ public class CurriculumManagerPage extends LpUiBasePage {
         return findElements(UPLOAD_RESOURCE_ROW + RESOURCE_TITLE).size();
     }
 
-    public void sortByDescending() {
-        clickElement(SORT_BY_DESCENDING);
-    }
-
-    public void sortByDate() {
-        clickElement(SORT_BY_DATE);
-    }
-
     public void waitUntilSpinnerIsNotDisplayed() {
         waitUntilElementIsHidden(SPINNER_ICON);
+    }
+
+    public boolean isCreateAFolderButtonDisplayed() {
+        return isElementDisplayed(CREATE_A_FOLDER_BUTTON);
+    }
+
+    public void clickOnSharedByDistrictTab() {
+        clickElement(SHARED_BY_DISTRICT_TAB);
+    }
+
+    public boolean isShowHideDetailsButtonDisplayed() {
+        return isElementDisplayed(SHOW_AND_HIDE_DETAILS_BUTTON);
+    }
+
+    public boolean isSortByDropdownDisplayed() {
+        return isElementDisplayed(SORT_BY_DROPDOWN);
+    }
+
+    public void hoverOverFolder(int i) {
+        hoverOverElement(FOLDERS, i);
+    }
+
+    public String getSortByValue() {
+        return getTextForElement(SORT_BY_VALUE_TEXT);
+    }
+
+    public boolean isSortByStatusOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_STATUS_OPTION);
+    }
+
+    public boolean isSortByTitleOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_TITLE_OPTION);
+    }
+
+    public boolean isSortByDateUpdatedOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_DATE_UPDATED_OPTION);
+    }
+
+    public boolean isSortByMyOrderOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_MY_ORDER_OPTION);
+    }
+
+    public boolean isSortAscendingOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_ASCENDING_OPTION);
+    }
+
+    public boolean isSortDescendingOptionDisplayed() {
+        return isElementDisplayed(SORT_BY_ASCENDING_OPTION);
+    }
+
+    public void clickOnSortByDescending() {
+        clickElement(SORT_BY_DESCENDING_OPTION);
+    }
+
+    public void clickOnSortByDate() {
+        clickElement(SORT_BY_DATE_UPDATED_OPTION);
+    }
+
+    public boolean isUploadResourceButtonDisplayed() {
+        return isElementDisplayed(UPLOAD_RESOURCE_BUTTON);
+    }
+
+    public void clickOnFolderInfoIcon(int index) {
+        findElements(FOLDERS + RESOURCE_DETAILS_ICON).get(index).click();
+    }
+
+    public void clickOnViewFolderButton() {
+        clickElement(FOLDERS + VIEW_FOLDER_BUTTON);
     }
 }

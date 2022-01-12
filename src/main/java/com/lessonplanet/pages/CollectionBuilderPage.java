@@ -134,4 +134,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
     public void waitUntilItemIsDisplayed() {
         waitUntilElementIsHidden(ITEM_LOADER_ICON);
     }
+
+    public boolean isCreateNewCollectionButtonDisplayed() {
+        return isElementDisplayed(CREATE_NEW_COLLECTION_OPTION);
+    }
 }
