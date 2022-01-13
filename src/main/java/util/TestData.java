@@ -3,7 +3,7 @@ package util;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class TestData {
+public final class TestData {
 
     public static final int LONG_TIMEOUT = 10;
     public static final int SHORT_TIMEOUT = 5;

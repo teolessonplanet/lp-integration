@@ -5,6 +5,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import util.WebDriverFactory;
@@ -17,7 +18,7 @@ public class BaseTest {
     protected WebDriver webDriver;
     private StepTwoPage stepTwoPage;
 
-    @BeforeSuite
+    @BeforeClass(alwaysRun = true)
     public void beforeSuite() {
         WebDriverFactory.getDriverFromInternet();
     }

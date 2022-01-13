@@ -19,7 +19,7 @@ public class User_HeaderTest extends BaseTest {
     private CalendarPage calendarPage;
     private ArticlesPage articlesPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -40,47 +40,47 @@ public class User_HeaderTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Header - lessonp-4565: Header buttons")
+    @Test(description = "Visitor - Header - lessonp-4565: Header buttons", groups = {"visitor"})
     public void testLessonp_4565() {
         testHeaderButtons(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Header - lessonp-4602: Header buttons")
+    @Test(description = "Free member - Header - lessonp-4602: Header buttons", groups = {"freemium"})
     public void testLessonp_4602() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testHeaderButtons(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Header - lessonp-4617: Header buttons")
+    @Test(description = "Active user - Header - lessonp-4617: Header buttons", groups = {"activeUser"})
     public void testLessonp_4617() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testHeaderButtons(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Admin - Header - lessonp-5660: Header buttons")
+    @Test(description = "Admin - Header - lessonp-5660: Header buttons", groups = {"activeUser"})
     public void testLessonp_5660() {
         loginPage.performLogin(TestData.VALID_EMAIL_ADMIN, TestData.VALID_PASSWORD);
         testHeaderButtons(TestData.VALID_EMAIL_ADMIN);
     }
 
-    @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)")
+    @Test(description = "Visitor - Header - lessonp-4004: Search box (keyword functionality)", groups = {"visitor"})
     public void testLessonp_4004() {
         testSearchBoxKeywordFunctionality(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Header - lessonp-4107: Search box (keyword functionality)")
+    @Test(description = "Free member - Header - lessonp-4107: Search box (keyword functionality)", groups = {"freemium"})
     public void testLessonp_4107() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSearchBoxKeywordFunctionality(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Header - lessonp-4111: Search box (keyword functionality)")
+    @Test(description = "Active user - Header - lessonp-4111: Search box (keyword functionality)", groups = {"activeUser"})
     public void testLessonp_4111() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSearchBoxKeywordFunctionality(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Admin - Header - lessonp-5366: Search box (keyword functionality)")
+    @Test(description = "Admin - Header - lessonp-5366: Search box (keyword functionality)", groups = {"activeUser"})
     public void testLessonp_5366() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSearchBoxKeywordFunctionality(TestData.PLAN_PRO);

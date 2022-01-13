@@ -14,7 +14,7 @@ public class User_RrpDirectoryPageTest extends BaseTest {
     private RrpModal rrpModal;
     private StepTwoPage stepTwoPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         collectionRrpModal = new CollectionRrpModal(webDriver);
@@ -35,80 +35,80 @@ public class User_RrpDirectoryPageTest extends BaseTest {
         browseBySubjectPage.loadPage(TestData.SOCIAL_AND_EMOTIONAL_LEARNING_PATH);
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3284: Resource Modal Overview")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3284: Resource Modal Overview", groups = {"visitor"})
     public void testLessonp_3284() {
         testLpResourceOverview(TestData.PLAN_VISITOR, true);
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Static - RRP Overview: lessonp-3308: Resource Static Page Overview)")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Overview: lessonp-3308: Resource Static Page Overview)", groups = {"visitor"})
     public void testLessonp_3308() {
         testLpResourceOverview(TestData.PLAN_VISITOR, false);
     }
 
-    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4674:LP Resource Modal Overview")
+    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4674:LP Resource Modal Overview", groups = {"freemium"})
     public void testLessonp_4674() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResourceOverview(TestData.PLAN_FREEMIUM, true);
     }
 
-    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4703:Resource Static Page Overview")
+    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4703:Resource Static Page Overview", groups = {"freemium"})
     public void testLessonp_4703() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResourceOverview(TestData.PLAN_FREEMIUM, false);
     }
 
-    @Test(description = "Active - Directory Page - RRP Modal - RRP Overview - lessonp-4846:Resource Modal Overview")
+    @Test(description = "Active - Directory Page - RRP Modal - RRP Overview - lessonp-4846:Resource Modal Overview", groups = {"activeUser"})
     public void testLessonp_4846() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResourceOverview(TestData.PLAN_PRO, true);
     }
 
-    @Test(description = "Active - Directory Page - RRP Static - RRP Overview - lessonp-4824:Resource Static Page Overview")
+    @Test(description = "Active - Directory Page - RRP Static - RRP Overview - lessonp-4824:Resource Static Page Overview", groups = {"activeUser"})
     public void testLessonp_4824() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResourceOverview(TestData.PLAN_PRO, false);
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3285: Collection Modal Overview")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3285: Collection Modal Overview", groups = {"visitor"})
     public void testLessonp_3285() {
         testCollectionOverview(TestData.PLAN_VISITOR, true);
     }
 
-    @Test(description = "Visitor - Directory Page  - RRP Static - RRP Overview: lessonp-3309: Collection Static Page Overview")
+    @Test(description = "Visitor - Directory Page  - RRP Static - RRP Overview: lessonp-3309: Collection Static Page Overview", groups = {"visitor"})
     public void testLessonp_3309() {
         testCollectionOverview(TestData.PLAN_VISITOR, false);
     }
 
-    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4677:Collection Modal Overview")
+    @Test(description = "Free Member - Directory Page - RRP Modal - RRP Overview - lessonp-4677:Collection Modal Overview", groups = {"freemium"})
     public void testLessonp_4677() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionOverview(TestData.PLAN_FREEMIUM, true);
     }
 
-    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4705:Collection Static Page Overview")
+    @Test(description = "Free Member - Directory Page - RRP Static - RRP Overview - lessonp-4705:Collection Static Page Overview", groups = {"freemium"})
     public void testLessonp_4705() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionOverview(TestData.PLAN_FREEMIUM, false);
     }
 
-    @Test(description = "Active user - Directory Page - RRP Modal - RRP Overview - lessonp-4847:Collection Modal Overview")
+    @Test(description = "Active user - Directory Page - RRP Modal - RRP Overview - lessonp-4847:Collection Modal Overview", groups = {"activeUser"})
     public void testLessonp_4847() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionOverview(TestData.PLAN_PRO, true);
     }
 
-    @Test(description = "Active user - Directory Page - RRP Static - RRP Overview - lessonp-4826:Collection Static Page Overview")
+    @Test(description = "Active user - Directory Page - RRP Static - RRP Overview - lessonp-4826:Collection Static Page Overview", groups = {"activeUser"})
     public void testLessonp_4826() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionOverview(TestData.PLAN_PRO, false);
     }
 
-    @Test(description = " Visitor - Directory Page - RRP Modal - RRP Buttons: lessonp-4612: LP Resource Main Buttons")
+    @Test(description = " Visitor - Directory Page - RRP Modal - RRP Buttons: lessonp-4612: LP Resource Main Buttons", groups = {"visitor"})
     public void testLessonp_4612() {
         testLpResourceMainButtonsForVisitor(true);
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4610: LP Resource Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4610: LP Resource Main Buttons", groups = {"visitor"})
     public void testLessonp_4610() {
         testLpResourceMainButtonsForVisitor(false);
         user_rrpSearchPageTest.testStartYourFreeTrialTryItFreeButton();
@@ -116,29 +116,29 @@ public class User_RrpDirectoryPageTest extends BaseTest {
         user_rrpSearchPageTest.testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4684:Main Buttons")
+    @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4684:Main Buttons", groups = {"freemium"})
     public void testLessonp_4684() {
         testLpResourceMainButtons(true);
     }
 
-    @Test(description = "Freemium - Directory page - Rrp Static - Rrp Buttons - Lp resources - lessonp-4713:Main Buttons")
+    @Test(description = "Freemium - Directory page - Rrp Static - Rrp Buttons - Lp resources - lessonp-4713:Main Buttons", groups = {"freemium"})
     public void testLessonp_4713() {
         testLpResourceMainButtons(false);
     }
 
-    @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4849:Main Buttons")
+    @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Lp resources - lessonp-4849:Main Buttons", groups = {"activeUser"})
     public void testLessonp_4849() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO, true);
     }
 
-    @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - Lp Resources - lessonp-4827:Main Buttons")
+    @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - Lp Resources - lessonp-4827:Main Buttons", groups = {"activeUser"})
     public void testLessonp_4827() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResourceMainButtonsForActiveUser(TestData.PLAN_PRO, false);
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons", groups = {"visitor"})
     public void testLessonp_4611() {
         reachDirectoryPage();
         String firstCollectionCardTitle = browseBySubjectPage.getCollectionCardTitle(0);
@@ -153,7 +153,7 @@ public class User_RrpDirectoryPageTest extends BaseTest {
         user_rrpSearchPageTest.testItemViewerSection();
     }
 
-    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons")
+    @Test(description = "Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons", groups = {"visitor"})
     public void testLessonp_4613() {
         reachDirectoryPage();
         browseBySubjectPage.clickSeeCollection(true);
@@ -166,17 +166,17 @@ public class User_RrpDirectoryPageTest extends BaseTest {
         user_rrpSearchPageTest.testItemViewerSection();
     }
 
-    @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4696:Main Buttons")
+    @Test(description = "Freemium - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4696:Main Buttons", groups = {"freemium"})
     public void testLessonp_4696() {
         testCollectionButtonsForFreemium(true);
     }
 
-    @Test(description = "Freemium - Directory page - Rrp Static - Rrp Buttons - Collections - lessonp-4725:Main Buttons")
+    @Test(description = "Freemium - Directory page - Rrp Static - Rrp Buttons - Collections - lessonp-4725:Main Buttons", groups = {"freemium"})
     public void testLessonp_4725() {
         testCollectionButtonsForFreemium(false);
     }
 
-    @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4825:Main Buttons")
+    @Test(description = "Active user - Directory page - Rrp Modal - Rrp Buttons - Collections - lessonp-4825:Main Buttons", groups = {"activeUser"})
     public void testLessonp_4825() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();
@@ -185,7 +185,7 @@ public class User_RrpDirectoryPageTest extends BaseTest {
         user_rrpSearchPageTest.testCollectionMainButtons(true, TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - lessonp-5627:Collection Main Buttons")
+    @Test(description = "Active user - Directory page - Rrp Static - Rrp Buttons - lessonp-5627:Collection Main Buttons", groups = {"activeUser"})
     public void testLessonp_5627() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();

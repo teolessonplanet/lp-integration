@@ -21,7 +21,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     private HeaderPage headerPage;
     private ManageDistrictPage manageDistrictPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         schoolPage = new SchoolPage(webDriver);
         districtPage = new DistrictPage(webDriver);
@@ -39,7 +39,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         manageDistrictPage = new ManageDistrictPage(webDriver);
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1297: District Page, Add School, Remove School")
+    @Test(description = "Custom SL - Account Manager - lessonp-1297: District Page, Add School, Remove School", groups = {"csl"})
     public void testLessonp_1297() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -50,7 +50,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testRemoveSchool();
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1298: Edit District, Search in district")
+    @Test(description = "Custom SL - Account Manager - lessonp-1298: Edit District, Search in district", groups = {"csl"})
     public void testLessonp_1298() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -61,7 +61,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_HENRY_OWNER_FIRST_NAME + " " + TestData.CSL_HENRY_OWNER_LAST_NAME, true, true);
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1299: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin")
+    @Test(description = "Custom SL - Account Manager - lessonp-1299: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin", groups = {"csl"})
     public void testLessonp_1299() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -72,7 +72,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testRemoveDistrictAdmin(TestData.CSL_HENRY_DISTRICT_NAME);
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1287: School Page, Add Teacher, Edit Teacher, Remove Teacher")
+    @Test(description = "Custom SL - Account Manager - lessonp-1287: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"csl"})
     public void testLessonp_1287() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -89,7 +89,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testRemoveSchool();
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1288: Edit School, Search in School")
+    @Test(description = "Custom SL - Account Manager - lessonp-1288: Edit School, Search in School", groups = {"csl"})
     public void testLessonp_1288() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -105,7 +105,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME + " " + TestData.CSL_HENRY_TEACHER_LAST_NAME, true, true);
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-1289: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin")
+    @Test(description = "Custom SL - Account Manager - lessonp-1289: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin", groups = {"csl"})
     public void testLessonp_1289() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -121,7 +121,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testRemoveSchool();
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-5115: Ability to Publish")
+    @Test(description = "Custom SL - Account Manager - lessonp-5115: Ability to Publish", groups = {"csl"})
     public void testLessonp_5115() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
@@ -130,7 +130,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         testTeacherPublisherRole();
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-5870: Manage District Page")
+    @Test(description = "Custom SL - Account Manager - lessonp-5870: Manage District Page", groups = {"csl"})
     public void testLessonp_5870() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);

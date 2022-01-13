@@ -34,7 +34,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     private DeleteCollectionBuilderResourceModal deleteCollectionBuilderResourceModal;
     private PublishedFolderModal publishedFolderModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
@@ -67,14 +67,14 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page")
+    @Test(description = "Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page", groups = {"visitor"})
     public void testLessonp_3258() {
         lpHomePage.loadPage();
         testAccessCurriculumManagerPageFromHeader(false);
         testAccessCurriculumManagerPageFromSearchPage(false);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5538: Access Curriculum Manager Page")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5538: Access Curriculum Manager Page", groups = {"freemium"})
     public void testLessonp_5538() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testAccessCurriculumManagerPageFromHeader(true);
@@ -83,7 +83,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testListView();
     }
 
-    @Test(description = "All Active Users - Curriculum Manager - lessonp-5554: Access Curriculum Manager Page")
+    @Test(description = "All Active Users - Curriculum Manager - lessonp-5554: Access Curriculum Manager Page", groups = {"activeUser"})
     public void testLessonp_5554() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAccessCurriculumManagerPageFromHeader(true);
@@ -92,61 +92,61 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testListView();
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5614: Create Collections")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5614: Create Collections", groups = {"freemium"})
     public void testLessonp_5614() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
-    @Test(description = "All Active Users - Curriculum Manager - lessonp-5615: Create Collections")
+    @Test(description = "All Active Users - Curriculum Manager - lessonp-5615: Create Collections", groups = {"activeUser"})
     public void testLessonp_5615() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5535: Upload Resource & My Uploads Folder")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5535: Upload Resource & My Uploads Folder", groups = {"freemium"})
     public void testLessonp_5535() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUploadResourceFromMyResources(TestData.PLAN_FREEMIUM, false);
         testMyUploadsFolderActions(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Starter membership - Curriculum Manager - lessonp- 5542: Upload Resource & My Uploads Folder")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp- 5542: Upload Resource & My Uploads Folder", groups = {"activeUser"})
     public void testLessonp_5542() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testUploadResourceFromMyResources(TestData.PLAN_STARTER, false);
         testMyUploadsFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp- 5544: Upload Resource & My Uploads Folder", groups = {"activeUser"})
     public void testLessonp_5544() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testUploadResourceFromMyResources(TestData.PLAN_PRO, false);
         testMyUploadsFolderActions(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5536: Favorite Resource & My Favorites Folder")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5536: Favorite Resource & My Favorites Folder", groups = {"freemium"})
     public void testLessonp_5536() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testFavoriteResources(TestData.PLAN_FREEMIUM);
         testMyFavoritesFolderActions(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Starter membership - Curriculum Manager - lessonp- 5545: Favorite Resource & My Favorites Folder")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp- 5545: Favorite Resource & My Favorites Folder", groups = {"activeUser"})
     public void testLessonp_5545() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testFavoriteResources(TestData.PLAN_STARTER);
         testMyFavoritesFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Pro membership - Curriculum Manager - lessonp- 5547: Favorite Resource & My Favorites Folder")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp- 5547: Favorite Resource & My Favorites Folder", groups = {"activeUser"})
     public void testLessonp_5547() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testFavoriteResources(TestData.PLAN_PRO);
         testMyFavoritesFolderActions(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5537: Collection: Actions Dropdown")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5537: Collection: Actions Dropdown", groups = {"freemium"})
     public void testLessonp_5537() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
@@ -155,7 +155,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Starter membership - Curriculum Manager - lessonp-5548: Collection: Actions Dropdown")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp-5548: Collection: Actions Dropdown", groups = {"activeUser"})
     public void testLessonp_5548() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         curriculumManagerPage.loadPage();
@@ -164,7 +164,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Pro membership - Curriculum Manager - lessonp-5550: Collection: Actions Dropdown")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp-5550: Collection: Actions Dropdown", groups = {"activeUser"})
     public void testLessonp_5550() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         curriculumManagerPage.loadPage();
@@ -173,7 +173,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5539: Folder Actions Dropdown")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5539: Folder Actions Dropdown", groups = {"freemium"})
     public void testLessonp_5539() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
@@ -182,7 +182,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Starter membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
+    @Test(description = "Starter membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown", groups = {"activeUser"})
     public void testLessonp_5991() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         curriculumManagerPage.loadPage();
@@ -191,7 +191,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Pro membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown")
+    @Test(description = "Pro membership - Curriculum Manager - lessonp-5552: Folder Actions Dropdown", groups = {"activeUser"})
     public void testLessonp_5022() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         curriculumManagerPage.loadPage();
@@ -200,116 +200,116 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testFolderActions(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5677:Dragging folders into another folder")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5677:Dragging folders into another folder", groups = {"freemium"})
     public void testLessonp_5677() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         curriculumManagerPage.loadPage();
         testDraggingFoldersIntoAnotherFolder(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5738:Dragging folders into another folder")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5738:Dragging folders into another folder", groups = {"activeUser"})
     public void testLessonp_5738() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         curriculumManagerPage.loadPage();
         testDraggingFoldersIntoAnotherFolder(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5681:Drilled in functionality & buttons")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5681:Drilled in functionality & buttons", groups = {"freemium"})
     public void testLessonp_5681() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDrilledInViewAndFunctionality(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5739:Drilled in view & functionality")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5739:Drilled in view & functionality", groups = {"activeUser"})
     public void testLessonp_5739() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testDrilledInViewAndFunctionality(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5964:Drag folders into the CB")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5964:Drag folders into the CB", groups = {"freemium"})
     public void testLessonp_5964() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDragAndDrop(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5747:Drag folders into the CB")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5747:Drag folders into the CB", groups = {"activeUser"})
     public void testLessonp_5747() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDragAndDrop(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5893:Drilled in view")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5893:Drilled in view", groups = {"freemium"})
     public void testLessonp_5893() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDrilledInViewAndFunctionality(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5670:Create Folders (Curriculum Sets)", groups = {"freemium"})
     public void testLessonp_5670() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[1]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Chapters)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Chapters)", groups = {"freemium"})
     public void testLessonp_5671() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[2]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Lessons)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Lessons)", groups = {"freemium"})
     public void testLessonp_5672() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[3]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Assessment Sets)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5671:Create Folders (Assessment Sets)", groups = {"freemium"})
     public void testLessonp_5673() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[4]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5674:Create Folders (Unit Modules)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5674:Create Folders (Unit Modules)", groups = {"freemium"})
     public void testLessonp_5674() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[5]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5675:Create Folders (Course Folders)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5675:Create Folders (Course Folders)", groups = {"freemium"})
     public void testLessonp_5675() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[6]);
     }
 
-    @Test(description = "Free member - Curriculum Manager - lessonp-5676:Create Folders (Root Folders)")
+    @Test(description = "Free member - Curriculum Manager - lessonp-5676:Create Folders (Root Folders)", groups = {"freemium"})
     public void testLessonp_5676() {
         testNestedFolders(TestData.PLAN_FREEMIUM, TestData.FOLDER_TYPE[7]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5737:Create Folders (Curriculum Sets)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5737:Create Folders (Curriculum Sets)", groups = {"activeUser"})
     public void testLessonp_5737() {
         testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[1]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5741:Create Folders (Chapters)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5741:Create Folders (Chapters)", groups = {"activeUser"})
     public void testLessonp_5741() {
         testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[2]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5742:Create Folders (Lessons)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5742:Create Folders (Lessons)", groups = {"activeUser"})
     public void testLessonp_5742() {
         testNestedFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[3]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)", groups = {"activeUser"})
     public void testLessonp_5743() {
         testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[4]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)", groups = {"activeUser"})
     public void testLessonp_5744() {
         testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[5]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)", groups = {"activeUser"})
     public void testLessonp_5745() {
         testNestedFolders(TestData.PLAN_STARTER, TestData.FOLDER_TYPE[6]);
     }
 
-    @Test(description = "Active user - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)")
+    @Test(description = "Active user - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)", groups = {"activeUser"})
     public void testLessonp_5746() {
         testNestedFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[7]);
     }

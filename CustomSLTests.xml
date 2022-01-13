@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="lp-integration">
+  <test name="Custom SL">
+    <groups>
+      <run>
+        <include name="csl"></include>
+      </run>
+    </groups>
+    <classes>
+      <class name="CSL_AccountManagerRosterOnTest">
+      </class>
+      <class name="CSL_AccountManagerSsoOnTest">
+      </class>
+      <class name="CSL_CalendarPageTest">
+      </class>
+      <class name="CSL_CanEditTest">
+      </class>
+      <class name="CSL_CanViewTest">
+      </class>
+      <class name="CSL_CollectionBuilderTest">
+      </class>
+      <class name="CSL_CollectionPlayerTest">
+      </class>
+      <class name="CSL_ContentManagerTest">
+      </class>
+      <class name="CSL_CurriculumManagerTest">
+      </class>
+      <class name="CSL_DirectoryCategoriesAndSubcategoriesPageTest">
+      </class>
+      <class name="CSL_DirectoryMainPageTest">
+      </class>
+      <class name="CSL_EditCollectionTest">
+      </class>
+      <class name="CSL_HeaderTest">
+      </class>
+      <class name="CSL_PublishCollectionTest">
+      </class>
+      <class name="CSL_RrpSearchPageTest">
+      </class>
+      <class name="CSL_SearchTest">
+      </class>
+      <class name="CSL_SharedByMyDistrictTest">
+      </class>
+    </classes>
+  </test>
+</suite>

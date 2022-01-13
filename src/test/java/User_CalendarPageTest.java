@@ -12,7 +12,7 @@ public class User_CalendarPageTest extends BaseTest {
     private LpHomePage lpHomePage;
     private StepTwoPage stepTwoPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         calendarPage = new CalendarPage(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -26,18 +26,18 @@ public class User_CalendarPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Calendar Page - lessonp-4196:Buttons/Links")
+    @Test(description = "Visitor - Calendar Page - lessonp-4196:Buttons/Links", groups = {"visitor"})
     public void testLessonp_4196() {
         testCurriculumCalendarPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Calendar Page - lessonp-5259:Buttons/Links")
+    @Test(description = "Free Member - Calendar Page - lessonp-5259:Buttons/Links", groups = {"freemium"})
     public void testLessonp_5259() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCurriculumCalendarPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Calendar Page - lessonp-5260:Buttons/Links")
+    @Test(description = "Active user - Calendar Page - lessonp-5260:Buttons/Links", groups = {"activeUser"})
     public void testLessonp_5260() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCurriculumCalendarPage(TestData.PLAN_PRO);

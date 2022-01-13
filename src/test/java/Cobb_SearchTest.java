@@ -9,7 +9,7 @@ public class Cobb_SearchTest extends BaseTest {
     private User_SearchTest user_searchTest;
     private LoginPage loginPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         rsl_searchTest = new RSL_SearchTest();
         csl_searchTest = new CSL_SearchTest();
@@ -17,65 +17,65 @@ public class Cobb_SearchTest extends BaseTest {
         loginPage = new LoginPage(webDriver);
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-5918: User clicks 'See Collection' footer button")
+    @Test(description = "Cobb SL - Search Page - lessonp-5918: User clicks 'See Collection' footer button", groups = {"cobb"})
     public void testLessonp_5918() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testSeeCollection(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page -  lessonp-5919: User clicks 'Go to Resource' footer button")
+    @Test(description = "Cobb SL - Search Page -  lessonp-5919: User clicks 'Go to Resource' footer button", groups = {"cobb"})
     public void testLessonp_5919() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testGoToResource(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page -  lessonp-5920: User clicks 'See Full Review' footer button")
+    @Test(description = "Cobb SL - Search Page -  lessonp-5920: User clicks 'See Full Review' footer button", groups = {"cobb"})
     public void testLessonp_5920() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testGoToResource(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page -  lessonp-5940: User clicks 'Open Folder' footer button")
+    @Test(description = "Cobb SL - Search Page -  lessonp-5940: User clicks 'Open Folder' footer button", groups = {"cobb"})
     public void testLessonp_5940() {
         csl_searchTest.initTest(webDriver);
         csl_searchTest.loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_COBB);
         csl_searchTest.testOpenFolderButton();
     }
 
-    @Test(description = "Cobb SL - Search Page -  lessonp-5941: User clicks 'Folder Details' footer button")
+    @Test(description = "Cobb SL - Search Page -  lessonp-5941: User clicks 'Folder Details' footer button", groups = {"cobb"})
     public void testLessonp_5941() {
         csl_searchTest.initTest(webDriver);
         csl_searchTest.loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_COBB);
         csl_searchTest.testFolderDetailsButton();
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-5944: Cards details - Folder: HMH/McGraw Hill")
+    @Test(description = "Cobb SL - Search Page - lessonp-5944: Cards details - Folder: HMH/McGraw Hill", groups = {"cobb"})
     public void testLessonp_5944() {
         csl_searchTest.initTest(webDriver);
         csl_searchTest.loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_COBB);
         csl_searchTest.testCardDetailsFolder();
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-5916: Cards details - LP resource")
+    @Test(description = "Cobb SL - Search Page - lessonp-5916: Cards details - LP resource", groups = {"cobb"})
     public void testLessonp_5916() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testCardDetailsLpResource(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-5917: Cards details - Collection")
+    @Test(description = "Cobb SL - Search Page - lessonp-5917: Cards details - Collection", groups = {"cobb"})
     public void testLessonp_5917() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testCardDetailsCollection(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-5999: Keyword search")
+    @Test(description = "Cobb SL - Search Page - lessonp-5999: Keyword search", groups = {"cobb"})
     public void testLessonp_5999() {
         user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         user_searchTest.testKeywordSearch(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Search Page - lessonp-6000: Keywordless search")
+    @Test(description = "Cobb SL - Search Page - lessonp-6000: Keywordless search", groups = {"cobb"})
     public void testLessonp_6000() {
         user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);

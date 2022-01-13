@@ -1,0 +1,48 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="lp-integration">
+  <test name="Regular SL">
+    <groups>
+      <run>
+        <include name="rsl"></include>
+      </run>
+    </groups>
+    <classes>
+      <class name="RSL_AccountManager_School_SL">
+      </class>
+      <class name="RSL_AccountManagerTest">
+      </class>
+      <class name="RSL_CalendarPageTest">
+      </class>
+      <class name="RSL_CanEditTest">
+      </class>
+      <class name="RSL_CanViewTest">
+      </class>
+      <class name="RSL_CollectionBuilderTest">
+      </class>
+      <class name="RSL_ContentManagerTest">
+      </class>
+      <class name="RSL_CollectionPlayerTest">
+      </class>
+      <class name="RSL_CurriculumManagerTest">
+      </class>
+      <class name="RSL_DirectoryCategoriesAndSubcategoriesPageTest">
+      </class>
+      <class name="RSL_DirectoryMainPageTest">
+      </class>
+      <class name="RSL_EditCollectionTest">
+      </class>
+      <class name="RSL_HeaderTest">
+      </class>
+      <class name="RSL_Iframe_FooterTest">
+      </class>
+      <class name="RSL_PublishCollection">
+      </class>
+      <class name="RSL_RrpSearchPageTest">
+      </class>
+      <class name="RSL_RrpDirectoryPageTest">
+      </class>
+      <class name="RSL_SearchTest">
+      </class>
+    </classes>
+  </test>
+</suite>

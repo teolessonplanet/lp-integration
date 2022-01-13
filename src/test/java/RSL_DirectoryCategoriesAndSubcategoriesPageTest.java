@@ -15,7 +15,7 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
     private CreateNewFolderModal createNewFolderModal;
     private LimitedResourceAccessModal limitedResourceAccessModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_directoryCategoriesAndSubcategoriesPageTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
@@ -31,43 +31,43 @@ public class RSL_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5183: Page UI")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5183: Page UI", groups = {"rsl"})
     public void testLessonp_5183() {
         testPageUi(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5184: Resource Tiles")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5184: Resource Tiles", groups = {"rsl"})
     public void testLessonp_5184() {
         testResourceTiles(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5185:RRP modal (Individual resources)")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5185:RRP modal (Individual resources)", groups = {"rsl"})
     public void testLessonp_5185() {
         testRrpIndividualResource(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5186:RRP modal (Collections)")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5186:RRP modal (Collections)", groups = {"rsl"})
     public void testLessonp_5186() {
         testRrpCollection(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5187:RRP static (Individual resources)")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5187:RRP static (Individual resources)", groups = {"rsl"})
     public void testLessonp_5187() {
         testRrpIndividualResource(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5188:RRP static (Collections)")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5188:RRP static (Collections)", groups = {"rsl"})
     public void testLessonp_5188() {
         testRrpCollection(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5189:Browse by Subject")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5189:Browse by Subject", groups = {"rsl"})
     public void testLessonp_5189() {
         initDirectoryTestAndLogin(TestData.VALID_EMAIL_RSL_SBCEO);
         user_directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5190:Related Topics")
+    @Test(description = "Regular SL - Directory Page - Categories and subcategories - lessonp-5190:Related Topics", groups = {"rsl"})
     public void testLessonp_5190() {
         initDirectoryTestAndLogin(TestData.VALID_EMAIL_RSL_SBCEO);
         user_directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();

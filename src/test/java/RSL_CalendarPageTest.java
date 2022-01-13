@@ -9,7 +9,7 @@ public class RSL_CalendarPageTest extends BaseTest {
     private LoginPage loginPage;
     private User_CalendarPageTest user_calendarPageTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_calendarPageTest = new User_CalendarPageTest();
@@ -20,7 +20,7 @@ public class RSL_CalendarPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Calendar Page - lessonp-5125:Buttons/Links")
+    @Test(description = "Regular SL - Calendar Page - lessonp-5125:Buttons/Links", groups = {"rsl"})
     public void testLessonp_5125() {
         testCurriculumCalendarPage(TestData.VALID_EMAIL_RSL_SBCEO);
     }

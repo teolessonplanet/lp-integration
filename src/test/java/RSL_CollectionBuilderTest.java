@@ -8,7 +8,7 @@ public class RSL_CollectionBuilderTest extends BaseTest {
     private LoginPage loginPage;
     private User_CollectionBuilderTest user_collectionBuilderTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_collectionBuilderTest = new User_CollectionBuilderTest();
@@ -20,12 +20,12 @@ public class RSL_CollectionBuilderTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Regular SL - Collection Builder - lessonp-5141: Collection Builder Buttons")
+    @Test(description = "Regular SL - Collection Builder - lessonp-5141: Collection Builder Buttons", groups = {"rsl"})
     public void testLessonp_5141() {
         user_collectionBuilderTest.testCollectionBuilderButtonsAppearance(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection Builder - lessonp-5142: Collection Builder Items")
+    @Test(description = "Regular SL - Collection Builder - lessonp-5142: Collection Builder Items", groups = {"rsl"})
     public void testLessonp_5142() {
         user_collectionBuilderTest.testCollectionBuilderItemsAppearance(TestData.VALID_EMAIL_RSL_SBCEO, 10);
     }

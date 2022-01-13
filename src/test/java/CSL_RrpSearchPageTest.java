@@ -17,7 +17,7 @@ public class CSL_RrpSearchPageTest extends BaseTest {
     private RrpPage rrpPage;
     private CollectionRrp collectionRrp;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     private void beforeMethod() {
         rsl_rrpSearchPageTest = new RSL_RrpSearchPageTest();
         loginPage = new LoginPage(webDriver);
@@ -35,100 +35,100 @@ public class CSL_RrpSearchPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-1311:LP Resource Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-1311:LP Resource Modal Overview", groups = {"csl"})
     public void lessonp_1311() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testResourcePageOverview(TestData.VALID_EMAIL_CSL_HENRY, true);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-1363:LP Resource Static Page Overview")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-1363:LP Resource Static Page Overview", groups = {"csl"})
     public void lessonp_1363() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testResourcePageOverview(TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4479:Collection Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4479:Collection Modal Overview", groups = {"csl"})
     public void lessonp_4479() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testCollectionPageOverview(TestData.VALID_EMAIL_CSL_HENRY, true);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4480:Collection Static Page Overview")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4480:Collection Static Page Overview", groups = {"csl"})
     public void lessonp_4480() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testCollectionPageOverview(TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4951:Site Specific Resource Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4951:Site Specific Resource Modal Overview", groups = {"csl"})
     public void lessonp_4951() {
         testSiteSpecificRrp(true, TestData.VALID_EMAIL_CSL_HENRY, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4977:Site Specific Resource Static Page Overview")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4977:Site Specific Resource Static Page Overview", groups = {"csl"})
     public void lessonp_4977() {
         testSiteSpecificRrp(false, TestData.VALID_EMAIL_CSL_HENRY, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4950:Proprietary Resource Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4950:Proprietary Resource Modal Overview", groups = {"csl"})
     public void lessonp_4950() {
         testProprietaryResource(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4979:Proprietary Resource Static Page Overview")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4979:Proprietary Resource Static Page Overview", groups = {"csl"})
     public void lessonp_4979() {
         testProprietaryResource(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview", groups = {"csl"})
     public void lessonp_5569() {
         testFolderHmhMcGraw(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview", groups = {"csl"})
     public void lessonp_5570() {
         testFolderHmhMcGraw(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5661:LP Resource Main Buttons")
+    @Test(description = "Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5661:LP Resource Main Buttons", groups = {"csl"})
     public void lessonp_5661() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testLpMainButtons(TestData.VALID_EMAIL_CSL_HENRY, true);
     }
 
-    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4955:LP Resource Main Buttons")
+    @Test(description = "Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4955:LP Resource Main Buttons", groups = {"csl"})
     public void lessonp_4955() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testLpMainButtons(TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4956:Collection Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4956:Collection Main Buttons", groups = {"csl"})
     public void lessonp_4956() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testCollectionMainButtons(TestData.VALID_EMAIL_CSL_HENRY, true);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Static - RRP Overview - lessonp-4956:Collection Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Static - RRP Overview - lessonp-4956:Collection Main Buttons", groups = {"csl"})
     public void lessonp_4982() {
         rsl_rrpSearchPageTest.initTest(webDriver);
         rsl_rrpSearchPageTest.testCollectionMainButtons(TestData.VALID_EMAIL_CSL_HENRY, false);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4953:Site Specific Resource Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4953:Site Specific Resource Main Buttons", groups = {"csl"})
     public void lessonp_4953() {
         testSiteSpecificRrpMainButtons(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4983:Site Specific Resource Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4983:Site Specific Resource Main Buttons", groups = {"csl"})
     public void lessonp_4983() {
         testSiteSpecificRrpMainButtons(false, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5583:Folder (HMH/McGraw) Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5583:Folder (HMH/McGraw) Main Buttons", groups = {"csl"})
     public void lessonp_5583() {
         testFolderHmhRrpMainButton(true, TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5595:Folder (HMH/McGraw) Resource Main Buttons")
+    @Test(description = "Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5595:Folder (HMH/McGraw) Resource Main Buttons", groups = {"csl"})
     public void lessonp_5595() {
         testFolderHmhRrpMainButton(false, TestData.VALID_EMAIL_CSL_HENRY);
     }

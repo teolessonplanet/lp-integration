@@ -31,7 +31,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         beforeMethod();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
@@ -50,35 +50,35 @@ public class User_CollectionBuilderTest extends BaseTest {
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
-    @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons")
+    @Test(description = "Visitor: Collection Builder - lessonp-431: Collection Builder Buttons", groups = {"visitor"})
     public void testLessonp_431() {
         testCollectionBuilderButtonsAppearance(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items")
+    @Test(description = "Visitor: Collection Builder - lessonp-4378: Collection Builder Items", groups = {"visitor"})
     public void testLessonp_4378() {
         testCollectionBuilderItemsAppearance(TestData.PLAN_VISITOR, 3);
     }
 
-    @Test(description = "Free Member - Collection Builder - lessonp-548: Collection Builder Buttons")
+    @Test(description = "Free Member - Collection Builder - lessonp-548: Collection Builder Buttons", groups = {"freemium"})
     public void testLessonp_548() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderButtonsAppearance(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free Member - Collection Builder - lessonp-4381: Collection Builder Items")
+    @Test(description = "Free Member - Collection Builder - lessonp-4381: Collection Builder Items", groups = {"freemium"})
     public void testLessonp_4381() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionBuilderItemsAppearance(TestData.PLAN_FREEMIUM, 10);
     }
 
-    @Test(description = "Active User - Collection Builder - Search - lessonp-4914: Collection Builder Buttons")
+    @Test(description = "Active User - Collection Builder - Search - lessonp-4914: Collection Builder Buttons", groups = {"activeUser"})
     public void testLessonp_4914() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testCollectionBuilderButtonsAppearance(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Active User - Collection Builder - Search - lessonp-4915: Collection Builder Items")
+    @Test(description = "Active User - Collection Builder - Search - lessonp-4915: Collection Builder Items", groups = {"activeUser"})
     public void testLessonp_4915() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testCollectionBuilderItemsAppearance(TestData.PLAN_STARTER, 10);

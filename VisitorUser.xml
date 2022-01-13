@@ -1,0 +1,44 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="lp-integration">
+  <test name="Visitor">
+    <groups>
+      <run>
+        <include name="visitor"></include>
+      </run>
+    </groups>
+    <classes>
+      <class name="User_ArticlesPageTest">
+      </class>
+      <class name="User_CalendarPageTest">
+      </class>
+      <class name="User_CollectionBuilderTest">
+      </class>
+      <class name="User_CollectionPlayerTest">
+      </class>
+      <class name="User_CurriculumManagerPageTest">
+      </class>
+      <class name="User_DirectoryMainPageTest">
+      </class>
+      <class name="User_DirectoryCategoriesAndSubcategoriesPageTest">
+      </class>
+      <class name="User_EditCollectionTest">
+      </class>
+      <class name="User_HeaderTest">
+      </class>
+      <class name="User_FooterTest">
+      </class>
+      <class name="User_HomePageTest">
+      </class>
+      <class name="User_PublishCollectionTest">
+      </class>
+      <class name="User_SearchTest">
+      </class>
+      <class name="User_RrpSearchPageTest">
+      </class>
+      <class name="User_RrpDirectoryPageTest">
+      </class>
+      <class name="User_PublishCollectionTest">
+      </class>
+    </classes>
+  </test>
+</suite>

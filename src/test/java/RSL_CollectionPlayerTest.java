@@ -5,33 +5,33 @@ import util.TestData;
 public class RSL_CollectionPlayerTest extends BaseTest {
     private User_CollectionPlayerTest user_collectionPlayerTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         user_collectionPlayerTest = new User_CollectionPlayerTest();
         user_collectionPlayerTest.initTest(webDriver);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5088:Appearance")
+    @Test(description = "Regular SL - Collection player - lessonp-5088:Appearance", groups = {"rsl"})
     public void testLessonp_5129() {
         user_collectionPlayerTest.testCollectionPlayerAppearance(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5127:Collection Navigator")
+    @Test(description = "Regular SL - Collection player - lessonp-5127:Collection Navigator", groups = {"rsl"})
     public void testLessonp_5127() {
         user_collectionPlayerTest.testCollectionNavigator(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5128:Resource Viewer")
+    @Test(description = "Regular SL - Collection player - lessonp-5128:Resource Viewer", groups = {"rsl"})
     public void testLessonp_5128() {
         user_collectionPlayerTest.testResourceViewer(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5130:Teacher View")
+    @Test(description = "Regular SL - Collection player - lessonp-5130:Teacher View", groups = {"rsl"})
     public void testLessonp_5130() {
         user_collectionPlayerTest.testTeacherView(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection player - lessonp-5126:Student View")
+    @Test(description = "Regular SL - Collection player - lessonp-5126:Student View", groups = {"rsl"})
     public void testLessonp_5126() {
         user_collectionPlayerTest.testStudentView(TestData.VALID_EMAIL_RSL_SBCEO);
     }

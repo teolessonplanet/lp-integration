@@ -7,7 +7,7 @@ public class RSL_Iframe_FooterTest extends BaseTest {
     private LoginPage loginPage;
     private User_FooterTest user_footerTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_footerTest = new User_FooterTest();
@@ -19,17 +19,17 @@ public class RSL_Iframe_FooterTest extends BaseTest {
         user_footerTest.initTest(webDriver);
     }
 
-    @Test(description = "Regular SL - Footer - lessonp-4150:Footer structure")
+    @Test(description = "Regular SL - Footer - lessonp-4150:Footer structure", groups = {"rsl"})
     public void testLessonp_4150() {
         user_footerTest.testFooterContainer(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links")
+    @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links", groups = {"rsl"})
     public void testLessonp_4154() {
         user_footerTest.testBottomFooterLinks(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Footer -  lessonp-4156:LE Logo")
+    @Test(description = "Regular SL - Footer -  lessonp-4156:LE Logo", groups = {"rsl"})
     public void testLessonp_4156() {
         user_footerTest.testRegularSlLogo();
     }

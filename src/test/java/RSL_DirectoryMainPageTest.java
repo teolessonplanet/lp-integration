@@ -9,7 +9,7 @@ public class RSL_DirectoryMainPageTest extends BaseTest {
     private LoginPage loginPage;
     private User_DirectoryMainPageTest user_directoryMainPageTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_directoryMainPageTest = new User_DirectoryMainPageTest();
@@ -20,27 +20,27 @@ public class RSL_DirectoryMainPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5178: Page UI")
+    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5178: Page UI", groups = {"rsl"})
     public void testLessonp_5178() {
         testPageUi(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5179: Thumbnails")
+    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5179: Thumbnails", groups = {"rsl"})
     public void testLessonp_5179() {
         testThumbnails(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5180: Links")
+    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5180: Links", groups = {"rsl"})
     public void testLessonp_5180() {
         testLinks(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5181: Show All button")
+    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5181: Show All button", groups = {"rsl"})
     public void testLessonp_5181() {
         testShowAllButton(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5182: Categories modal")
+    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5182: Categories modal", groups = {"rsl"})
     public void testLessonp_5182() {
         testCategoriesModal(TestData.VALID_EMAIL_RSL_SBCEO);
     }
