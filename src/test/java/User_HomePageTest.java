@@ -16,7 +16,7 @@ public class User_HomePageTest extends BaseTest {
     private StepTwoPage stepTwoPage;
     private StepTwoModal stepTwoModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         homePage = new HomePage(webDriver);
         stepOneModal = new StepOneModal(webDriver);
@@ -29,200 +29,200 @@ public class User_HomePageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5295:Discover")
+    @Test(description = "Visitor - Homepage - lessonp-5295:Discover", groups = {"visitor"})
     public void testLessonp_5295() {
         testDiscoverTab();
     }
 
-    @Test(description = "Free Member - Homepage - lessonp-5306:Discover")
+    @Test(description = "Free Member - Homepage - lessonp-5306:Discover", groups = {"freemium"})
     public void testLessonp_5306() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDiscoverTab();
     }
 
-    @Test(description = "Active User - Homepage - lessonp-5322:Discover")
+    @Test(description = "Active User - Homepage - lessonp-5322:Discover", groups = {"activeUser"})
     public void testLessonp_5322() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDiscoverTab();
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5296:Collect")
+    @Test(description = "Visitor - Homepage - lessonp-5296:Collect", groups = {"visitor"})
     public void testLessonp_5296() {
         testCollectTab();
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5307:Collect")
+    @Test(description = "Freemium - Homepage - lessonp-5307:Collect", groups = {"freemium"})
     public void testLessonp_5307() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectTab();
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5323:Collect")
+    @Test(description = "Active user - Homepage - lessonp-5323:Collect", groups = {"activeUser"})
     public void testLessonp_5323() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectTab();
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5297:Design")
+    @Test(description = "Visitor - Homepage - lessonp-5297:Design", groups = {"visitor"})
     public void testLessonp_5297() {
         testDesignTab();
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5308:Design")
+    @Test(description = "Freemium - Homepage - lessonp-5308:Design", groups = {"freemium"})
     public void testLessonp_5308() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDesignTab();
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5324:Design")
+    @Test(description = "Active user - Homepage - lessonp-5324:Design", groups = {"activeUser"})
     public void testLessonp_5324() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDesignTab();
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5298:Deliver")
+    @Test(description = "Visitor - Homepage - lessonp-5298:Deliver", groups = {"visitor"})
     public void testLessonp_5298() {
         testDeliverTab();
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5309:Deliver")
+    @Test(description = "Freemium - Homepage - lessonp-5309:Deliver", groups = {"freemium"})
     public void testLessonp_5309() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDeliverTab();
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5325:Deliver")
+    @Test(description = "Active user - Homepage - lessonp-5325:Deliver", groups = {"activeUser"})
     public void testLessonp_5325() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDeliverTab();
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5286:Parent")
+    @Test(description = "Visitor - Homepage - lessonp-5286:Parent", groups = {"visitor"})
     public void testLessonp_5286() {
         testParentEdition(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5311:Parent")
+    @Test(description = "Freemium - Homepage - lessonp-5311:Parent", groups = {"freemium"})
     public void testLessonp_5311() {
         testParentEdition(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5327:Parent")
+    @Test(description = "Active user - Homepage - lessonp-5327:Parent", groups = {"activeUser"})
     public void testLessonp_5327() {
         testParentEdition(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5300:Educator")
+    @Test(description = "Visitor - Homepage - lessonp-5300:Educator", groups = {"visitor"})
     public void testLessonp_5300() {
         testEducatorSection(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5312:Educator")
+    @Test(description = "Freemium - Homepage - lessonp-5312:Educator", groups = {"freemium"})
     public void testLessonp_5312() {
         testEducatorSection(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5328:Educator")
+    @Test(description = "Active user - Homepage - lessonp-5328:Educator", groups = {"activeUser"})
     public void testLessonp_5328() {
         testEducatorSection(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5301:School or District")
+    @Test(description = "Visitor - Homepage - lessonp-5301:School or District", groups = {"visitor"})
     public void testLessonp_5301() {
         testSchoolOrDistrictSection(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5313:School or District")
+    @Test(description = "Freemium - Homepage - lessonp-5313:School or District", groups = {"freemium"})
     public void testLessonp_5313() {
         testSchoolOrDistrictSection(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5329:School or District")
+    @Test(description = "Active user - Homepage - lessonp-5329:School or District", groups = {"activeUser"})
     public void testLessonp_5329() {
         testSchoolOrDistrictSection(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5302:Explore our solutions")
+    @Test(description = "Visitor - Homepage - lessonp-5302:Explore our solutions", groups = {"visitor"})
     public void testLessonp_5302() {
         testExploreOurSolution(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5314:Explore our solutions")
+    @Test(description = "Freemium - Homepage - lessonp-5314:Explore our solutions", groups = {"freemium"})
     public void testLessonp_5314() {
         testExploreOurSolution(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5330:Explore our solutions")
+    @Test(description = "Active user - Homepage - lessonp-5330:Explore our solutions", groups = {"activeUser"})
     public void testLessonp_5330() {
         testExploreOurSolution(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5288:Educator Edition section")
+    @Test(description = "Visitor - Homepage - lessonp-5288:Educator Edition section", groups = {"visitor"})
     public void testLessonp_5288() {
         testEducatorEdition(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5315:Educator Edition section")
+    @Test(description = "Freemium - Homepage - lessonp-5315:Educator Edition section", groups = {"freemium"})
     public void testLessonp_5315() {
         testEducatorEdition(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5331:Educator Edition section")
+    @Test(description = "Active user - Homepage - lessonp-5331:Educator Edition section", groups = {"activeUser"})
     public void testLessonp_5331() {
         testEducatorEdition(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5289:Learning Explorer section")
+    @Test(description = "Visitor - Homepage - lessonp-5289:Learning Explorer section", groups = {"visitor"})
     public void testLessonp_5289() {
         testLearningExplorerArea(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5316:Learning Explorer section")
+    @Test(description = "Freemium - Homepage - lessonp-5316:Learning Explorer section", groups = {"freemium"})
     public void testLessonp_5316() {
         testLearningExplorerArea(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5332:Learning Explorer section")
+    @Test(description = "Active user - Homepage - lessonp-5332:Learning Explorer section", groups = {"activeUser"})
     public void testLessonp_5332() {
         testLearningExplorerArea(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5290:PD Learning Network section")
+    @Test(description = "Visitor - Homepage - lessonp-5290:PD Learning Network section", groups = {"visitor"})
     public void testLessonp_5290() {
         testPdLearningArea(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Freemium - Homepage - lessonp-5317:PD Learning Network section")
+    @Test(description = "Freemium - Homepage - lessonp-5317:PD Learning Network section", groups = {"freemium"})
     public void testLessonp_5317() {
         testPdLearningArea(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Homepage - lessonp-5333:PD Learning Network section")
+    @Test(description = "Active user - Homepage - lessonp-5333:PD Learning Network section", groups = {"activeUser"})
     public void testLessonp_5333() {
         testPdLearningArea(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5291:What educators and parents are saying: section")
+    @Test(description = "Visitor - Homepage - lessonp-5291:What educators and parents are saying: section", groups = {"visitor"})
     public void testLessonp_5291() {
         testTestimonials(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5318:What educators and parents are saying: section")
+    @Test(description = "Visitor - Homepage - lessonp-5318:What educators and parents are saying: section", groups = {"visitor"})
     public void testLessonp_5318() {
         testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5334:What educators and parents are saying: section")
+    @Test(description = "Visitor - Homepage - lessonp-5334:What educators and parents are saying: section", groups = {"visitor"})
     public void testLessonp_5334() {
         testTestimonials(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5292:Discover.Create.Inspire section")
+    @Test(description = "Visitor - Homepage - lessonp-5292:Discover.Create.Inspire section", groups = {"visitor"})
     public void testLessonp_5292() {
         testInspireArea(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Homepage - lessonp-5319:Discover.Create.Inspire section")
+    @Test(description = "Visitor - Homepage - lessonp-5319:Discover.Create.Inspire section", groups = {"visitor"})
     public void testLessonp_5319() {
         testInspireArea(TestData.PLAN_FREEMIUM);
     }

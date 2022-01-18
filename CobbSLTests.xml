@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="lp-integration">
+  <test name="Cobb SL">
+    <groups>
+      <run>
+        <include name="cobb"></include>
+      </run>
+    </groups>
+    <classes>
+      <class name="Cobb_AccountManagerTest">
+      </class>
+      <class name="Cobb_CalendarPageTest">
+      </class>
+      <class name="Cobb_CanViewTest">
+      </class>
+      <class name="Cobb_CollectionBuilderTest">
+      </class>
+      <class name="Cobb_ContentManagerTest">
+      </class>
+      <class name="Cobb_CurriculumManagerTest">
+      </class>
+      <class name="Cobb_DirectoryCategoriesAndSubcategoriesPageTest">
+      </class>
+      <class name="Cobb_DirectoryMainPage">
+      </class>
+      <class name="Cobb_EditCollectionTest">
+      </class>
+      <class name="Cobb_HeaderTest">
+      </class>
+      <class name="Cobb_PublishCollectionTest">
+      </class>
+      <class name="Cobb_RrpSearchPageTest">
+      </class>
+      <class name="Cobb_SearchTest">
+      </class>
+    </classes>
+  </test>
+</suite>

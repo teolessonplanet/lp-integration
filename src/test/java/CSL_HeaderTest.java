@@ -7,20 +7,20 @@ public class CSL_HeaderTest extends BaseTest {
     private LoginPage loginPage;
     private User_HeaderTest user_headerTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         user_headerTest = new User_HeaderTest();
     }
 
-    @Test(description = "Custom SL - Header - lessonp-5793: Header buttons")
+    @Test(description = "Custom SL - Header - lessonp-5793: Header buttons", groups = {"csl"})
     public void testLessonp_5793() {
         user_headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         user_headerTest.testHeaderButtons(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Header - lessonp-4176: Search box (keyword functionality)")
+    @Test(description = "Custom SL - Header - lessonp-4176: Search box (keyword functionality)", groups = {"csl"})
     public void testLessonp_4176() {
         user_headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);

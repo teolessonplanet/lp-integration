@@ -20,7 +20,7 @@ public class User_EditCollectionTest extends BaseTest {
     private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private PublishedFolderModal publishedFolderModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         user_curriculumManagerTest = new User_CurriculumManagerPageTest();
@@ -37,61 +37,61 @@ public class User_EditCollectionTest extends BaseTest {
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
-    @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance")
+    @Test(description = "Free member - Edit Collection - lessonp-5279: Edit Collection Modal Appearance", groups = {"freemium"})
     public void testLessonp_5279() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderAppearance(TestData.PLAN_FREEMIUM, false, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Active Users - Edit Collection - lessonp-5280: Edit Collection Modal Appearance")
+    @Test(description = "Active Users - Edit Collection - lessonp-5280: Edit Collection Modal Appearance", groups = {"activeUser"})
     public void testLessonp_5280() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderAppearance(TestData.PLAN_STARTER, false, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance")
+    @Test(description = "Free member - Edit Collection - lessonp-495: Edit Collection Static Page Appearance", groups = {"freemium"})
     public void testLessonp_495() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderAppearance(TestData.PLAN_FREEMIUM, true, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Active Users - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance")
+    @Test(description = "Active Users - Edit Collection - lessonp-5169: Edit Collection Static Page Appearance", groups = {"activeUser"})
     public void testLessonp_5169() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderAppearance(TestData.PLAN_STARTER, true, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish")
+    @Test(description = "Active Users - Edit Collection - lessonp-5261: Publish. Republish", groups = {"activeUser"})
     public void testLessonp_5261() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPublishFromEditFolder(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons")
+    @Test(description = "Free member - Edit Collection - lessonp-497: Edit Collection Buttons", groups = {"freemium"})
     public void testLessonp_497() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testEditFolderButtons(TestData.PLAN_FREEMIUM, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons")
+    @Test(description = "Starter - Edit Collection - lessonp-5272: Edit Collection Buttons", groups = {"activeUser"})
     public void testLessonp_5272() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testEditFolderButtons(TestData.PLAN_STARTER, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons")
+    @Test(description = "Pro - Edit Collection - lessonp-5640: Edit Collection Buttons", groups = {"activeUser"})
     public void testLessonp_5640() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testEditFolderButtons(TestData.PLAN_PRO, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options")
+    @Test(description = "Free member - Edit Collection - lessonp-5263: Item Options", groups = {"freemium"})
     public void testLessonp_5263() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testItemOptions();
     }
 
-    @Test(description = "Active Users - Edit Collection - lessonp-5264: Item Options")
+    @Test(description = "Active Users - Edit Collection - lessonp-5264: Item Options", groups = {"activeUser"})
     public void testLessonp_5264() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testItemOptions();

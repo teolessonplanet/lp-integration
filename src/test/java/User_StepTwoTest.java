@@ -18,7 +18,7 @@ public class User_StepTwoTest extends BaseTest {
     private SubscriptionSuccessPage subscriptionSuccessPage;
     private StepOneModal stepOneModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -42,7 +42,7 @@ public class User_StepTwoTest extends BaseTest {
         headerPage.clickOnUpgradeMeButton(false);
     }
 
-    @Test(description = "Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data")
+    @Test(description = "Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data", groups = {"accountManagement"})
     public void testLessonp_5252() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(false);
@@ -88,7 +88,7 @@ public class User_StepTwoTest extends BaseTest {
         Assert.assertTrue(offerToSelect.contains(myAccountPage.getPlan().toLowerCase()));
     }
 
-    @Test(description = "Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data")
+    @Test(description = "Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data", groups = {"accountManagement"})
     public void testLessonp_5253() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(true);

@@ -7,13 +7,13 @@ public class RSL_AccountManager_School_SL extends BaseTest {
     private SchoolPage schoolPage;
     private RSL_AccountManagerTest rsl_accountManagerTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         schoolPage = new SchoolPage(webDriver);
         rsl_accountManagerTest = new RSL_AccountManagerTest();
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5875: School Page, Add Teacher, Edit Teacher, Remove Teacher")
+    @Test(description = "Regular School SL - Account Manager - lessonp-5875: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"rsl"})
     public void testLessonp_5875() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
@@ -25,7 +25,7 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest.testRemoveTeacher(false);
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5876: Edit School, Search in School")
+    @Test(description = "Regular School SL - Account Manager - lessonp-5876: Edit School, Search in School", groups = {"rsl"})
     public void testLessonp_5876() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
@@ -36,7 +36,7 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME + " " + TestData.RSL_LAGUNA_SCHOOL_TEACHER_LAST_NAME, false, false);
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5879: Manage School Admins Page, Add School Admin, Remove School Admin")
+    @Test(description = "Regular School SL - Account Manager - lessonp-5879: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
     public void testLessonp_5879() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);

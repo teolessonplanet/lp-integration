@@ -25,7 +25,7 @@ public class User_CollectionPlayerTest extends BaseTest {
     private LpHomePage lpHomePage;
     private PublishedFolderModal publishedFolderModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
@@ -45,42 +45,42 @@ public class User_CollectionPlayerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-554:Appearance")
+    @Test(description = "Free Member - Collection player - lessonp-554:Appearance", groups = {"freemium"})
     public void testLessonp_554() {
         testCollectionPlayerAppearance(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-626:Appearance")
+    @Test(description = "Active user - Collection player - lessonp-626:Appearance", groups = {"activeUser"})
     public void testLessonp_626() {
         testCollectionPlayerAppearance(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-556:Collection Navigator")
+    @Test(description = "Free Member - Collection player - lessonp-556:Collection Navigator", groups = {"freemium"})
     public void testLessonp_556() {
         testCollectionNavigator(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-624:Collection Navigator")
+    @Test(description = "Active user - Collection player - lessonp-624:Collection Navigator", groups = {"activeUser"})
     public void testLessonp_624() {
         testCollectionNavigator(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-555:Resource Viewer")
+    @Test(description = "Free Member - Collection player - lessonp-555:Resource Viewer", groups = {"freemium"})
     public void testLessonp_555() {
         testResourceViewer(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-625:Resource Viewer")
+    @Test(description = "Active user - Collection player - lessonp-625:Resource Viewer", groups = {"activeUser"})
     public void testLessonp_625() {
         testResourceViewer(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-629:Teacher View")
+    @Test(description = "Active user - Collection player - lessonp-629:Teacher View", groups = {"activeUser"})
     public void testLessonp_629() {
         testTeacherView(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-557:Student View")
+    @Test(description = "Active user - Collection player - lessonp-557:Student View", groups = {"activeUser"})
     public void testLessonp_557() {
         testStudentView(TestData.PLAN_PRO);
     }

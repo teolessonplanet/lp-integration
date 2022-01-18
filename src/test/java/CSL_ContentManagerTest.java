@@ -14,7 +14,7 @@ public class CSL_ContentManagerTest extends BaseTest {
     private AddAResourcePage addAResourcePage;
     private RemoveResourceModal removeResourceModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         csl_contentManagerPage = new CSL_ContentManagerPage(webDriver);
@@ -29,31 +29,31 @@ public class CSL_ContentManagerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6003: Main Page")
+    @Test(description = "Custom SL - Content Manager - lessonp-6003: Main Page", groups = {"csl"})
     public void testLessonp_6003() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerMainPage();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6004: Cards list")
+    @Test(description = "Custom SL - Content Manager - lessonp-6004: Cards list", groups = {"csl"})
     public void testLessonp_6004() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerCardsList(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6005: Search")
+    @Test(description = "Custom SL - Content Manager - lessonp-6005: Search", groups = {"csl"})
     public void testLessonp_6005() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerSearch();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6006: Sort By")
+    @Test(description = "Custom SL - Content Manager - lessonp-6006: Sort By", groups = {"csl"})
     public void testLessonp_6006() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerSortBy();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource")
+    @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource", groups = {"csl"})
     public void testLessonp_1692() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         testAddEditRemoveSiteSpecificResource(TestData.VALID_EMAIL_CSL_QA_CUSTOM);

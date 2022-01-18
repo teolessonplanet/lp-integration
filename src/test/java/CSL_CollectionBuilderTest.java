@@ -8,7 +8,7 @@ public class CSL_CollectionBuilderTest extends BaseTest {
     private LoginPage loginPage;
     private User_CollectionBuilderTest collectionBuilderTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         collectionBuilderTest = new User_CollectionBuilderTest();
@@ -20,12 +20,12 @@ public class CSL_CollectionBuilderTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Custom SL - Collection Builder - lessonp-4948: Collection Builder Buttons")
+    @Test(description = "Custom SL - Collection Builder - lessonp-4948: Collection Builder Buttons", groups = {"csl"})
     public void testLessonp_4948() {
         collectionBuilderTest.testCollectionBuilderButtonsAppearance(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Collection Builder - lessonp-4949: Collection Builder Items")
+    @Test(description = "Custom SL - Collection Builder - lessonp-4949: Collection Builder Items", groups = {"csl"})
     public void testLessonp_4949() {
         collectionBuilderTest.testCollectionBuilderItemsAppearance(TestData.VALID_EMAIL_CSL_HENRY, 10);
     }

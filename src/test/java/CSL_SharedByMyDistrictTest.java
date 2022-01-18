@@ -19,8 +19,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
     private DistrictSharedPage districtSharedPage;
     private SharedByMyDistrictPage sharedByMyDistrictPage;
 
-
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     private void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         rsl_contentManagerTest = new RSL_ContentManagerTest();
@@ -40,9 +39,9 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Custom SL - Shared By My District -  lessonp-6141:Content Manager Tab", priority = 1)
+    @Test(description = "Custom SL - Shared By My District -  lessonp-6141:Content Manager Tab", priority = 1, groups = {"csl"})
     public void testLessonp_6141() {
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();
@@ -155,9 +154,9 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         districtSharedPage.clickOnActionsDropdownButton(resource1);
     }
 
-    @Test(description = "Custom SL - Shared By My District -  lessonp-6140:Curriculum Manager Tab", priority = 2)
+    @Test(description = "Custom SL - Shared By My District -  lessonp-6140:Curriculum Manager Tab", priority = 2, groups = {"csl"})
     public void testLessonp_6140() {
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnSharedByDistrictTab();
         Assert.assertEquals(districtSharedPage.getFolderTitle(), TestData.SHARED_WITH_FOLDER);
@@ -212,9 +211,9 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         sharedByMyDistrictPage.clickOnActionsDropdownButton(resource1);
     }
 
-    @Test(description = "Custom SL - Shared By My District -  lessonp-6166: Unpost", priority = 3)
+    @Test(description = "Custom SL - Shared By My District -  lessonp-6166: Unpost", priority = 3, groups = {"csl"})
     public void testLessonp_6166() {
-        loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
+        loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.initTest(webDriver);
         rsl_contentManagerTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();

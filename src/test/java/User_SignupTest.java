@@ -14,7 +14,7 @@ public class User_SignupTest extends BaseTest {
     private MyAccountPage myAccountPage;
     private PricingPage pricingPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -25,24 +25,24 @@ public class User_SignupTest extends BaseTest {
         pricingPage = new PricingPage(webDriver);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3849:Create a Starter Account - Try it Free button")
+    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3849:Create a Starter Account - Try it Free button", groups = {"accountManagement"})
     public void testLessonp_3849() {
         testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button")
+    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button", groups = {"accountManagement"})
     public void testLessonp_3851() {
         testCreateAccountViaTryItFree(TestData.PLAN_PRO);
     }
 
     @Ignore
     @Deprecated
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button")
+    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button", groups = {"accountManagement"})
     public void testLessonp_3881() {
         testCreateAccountViaPricing(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n")
+    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n", groups = {"accountManagement"})
     public void testLessonp_3883() {
         testCreateAccountViaPricing(TestData.PLAN_PRO);
     }

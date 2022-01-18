@@ -14,7 +14,7 @@ public class User_FooterTest extends BaseTest {
     private VideoContentModal videoContentModal;
     private BrowseBySubjectPage browseBySubjectPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         stepTwoPage = new StepTwoPage(webDriver);
         lpHomePage = new LpHomePage(webDriver);
@@ -24,145 +24,145 @@ public class User_FooterTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-656: Footer structure")
+    @Test(description = "Visitor - Footer - lessonp-656: Footer structure", groups = {"visitor"})
     public void testLessonp_656() {
         lpHomePage.loadPage();
         testFooterContainer(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-665: Footer structure")
+    @Test(description = "Free member - Footer - lessonp-665: Footer structure", groups = {"freemium"})
     public void testLessonp_665() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testFooterContainer(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-669: Footer structure")
+    @Test(description = "Active user - Footer - lessonp-669: Footer structure", groups = {"activeUser"})
     public void testLessonp_669() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testFooterContainer(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-659: Open Educational Resources")
+    @Test(description = "Visitor - Footer - lessonp-659: Open Educational Resources", groups = {"visitor"})
     public void testLessonp_659() {
         lpHomePage.loadPage();
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-667: Open Educational Resources")
+    @Test(description = "Free member - Footer - lessonp-667: Open Educational Resources", groups = {"freemium"})
     public void testLessonp_667() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-671: Open Educational Resources")
+    @Test(description = "Active user - Footer - lessonp-671: Open Educational Resources", groups = {"activeUser"})
     public void testLessonp_671() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-660: Discover Resources")
+    @Test(description = "Visitor - Footer - lessonp-660: Discover Resources", groups = {"visitor"})
     public void testLessonp_660() {
         lpHomePage.loadPage();
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-668: Discover Resources")
+    @Test(description = "Free member - Footer - lessonp-668: Discover Resources", groups = {"freemium"})
     public void testLessonp_668() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp672: Discover Resources")
+    @Test(description = "Active user - Footer - lessonp672: Discover Resources", groups = {"activeUser"})
     public void testLessonp_672() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-658: Manage Curriculum")
+    @Test(description = "Visitor - Footer - lessonp-658: Manage Curriculum", groups = {"visitor"})
     public void testLessonp_658() {
         lpHomePage.loadPage();
         testManageCurriculumSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-666: Manage Curriculum")
+    @Test(description = "Free member - Footer - lessonp-666: Manage Curriculum", groups = {"freemium"})
     public void testLessonp_666() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-670: Manage Curriculum")
+    @Test(description = "Active user - Footer - lessonp-670: Manage Curriculum", groups = {"activeUser"})
     public void testLessonp_670() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4033: Bottom footer links")
+    @Test(description = "Visitor - Footer - lessonp-4033: Bottom footer links", groups = {"visitor"})
     public void testLessonp_4033() {
         lpHomePage.loadPage();
         testBottomFooterLinks(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-4112: Bottom footer links")
+    @Test(description = "Free member - Footer - lessonp-4112: Bottom footer links", groups = {"freemium"})
     public void testLessonp_4112() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testBottomFooterLinks(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links")
+    @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links", groups = {"activeUser"})
     public void testLessonp_4117() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testBottomFooterLinks(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4034: Social links")
+    @Test(description = "Visitor - Footer - lessonp-4034: Social links", groups = {"visitor"})
     public void testLessonp_4034() {
         lpHomePage.loadPage();
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Free member - Footer - lessonp-4114: Social links")
+    @Test(description = "Free member - Footer - lessonp-4114: Social links", groups = {"freemium"})
     public void testLessonp_4114() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4118: Social links")
+    @Test(description = "Active user - Footer - lessonp-4118: Social links", groups = {"activeUser"})
     public void testLessonp_4118() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4035: LP logo")
+    @Test(description = "Visitor - Footer - lessonp-4035: LP logo", groups = {"visitor"})
     public void testLessonp_4035() {
         lpHomePage.loadPage();
         testLpLogo();
     }
 
-    @Test(description = "Free member - Footer - lessonp-4115: LP logo")
+    @Test(description = "Free member - Footer - lessonp-4115: LP logo", groups = {"freemium"})
     public void testLessonp_4115() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpLogo();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4119: LP logo")
+    @Test(description = "Active user - Footer - lessonp-4119: LP logo", groups = {"activeUser"})
     public void testLessonp_4119() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpLogo();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4036: Newsletter")
+    @Test(description = "Visitor - Footer - lessonp-4036: Newsletter", groups = {"visitor"})
     public void testLessonp_4036() {
         lpHomePage.loadPage();
         testSendEmailNewsletter(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-4116: Newsletter")
+    @Test(description = "Free member - Footer - lessonp-4116: Newsletter", groups = {"freemium"})
     public void testLessonp_4116() {
         String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSendEmailNewsletter(userEmail);
     }
 
-    @Test(description = "Active user - Footer - lessonp-4120: Newsletter")
+    @Test(description = "Active user - Footer - lessonp-4120: Newsletter", groups = {"activeUser"})
     public void testLessonp_4120() {
         String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSendEmailNewsletter(userEmail);

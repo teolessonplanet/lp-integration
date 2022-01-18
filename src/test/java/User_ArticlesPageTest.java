@@ -15,7 +15,7 @@ public class User_ArticlesPageTest extends BaseTest {
     private User_RrpSearchPageTest user_rrpSearchPageTest;
     private StepTwoPage stepTwoPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         headerPage = new HeaderPage(webDriver);
         articlesPage = new ArticlesPage(webDriver);
@@ -25,32 +25,32 @@ public class User_ArticlesPageTest extends BaseTest {
         user_rrpSearchPageTest = new User_RrpSearchPageTest();
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page")
+    @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page", groups = {"visitor"})
     public void testLessonp_3331() {
         testArticlesMainPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Lesson Planet Articles - lessonp-5256: Articles Main Page")
+    @Test(description = "Free Member - Lesson Planet Articles - lessonp-5256: Articles Main Page", groups = {"freemium"})
     public void testLessonp_5256() {
         testArticlesMainPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active - Lesson Planet Articles - lessonp-5258: Articles Main Page")
+    @Test(description = "Active - Lesson Planet Articles - lessonp-5258: Articles Main Page", groups = {"activeUser"})
     public void testLessonp_5258() {
         testArticlesMainPage(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page")
+    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page", groups = {"visitor"})
     public void testLessonp_3398() {
         testArticlesPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Lesson Planet Articles -  lessonp-5255: Article Page")
+    @Test(description = "Free Member - Lesson Planet Articles -  lessonp-5255: Article Page", groups = {"freemium"})
     public void testLessonp_5255() {
         testArticlesPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active - Lesson Planet Articles -  lessonp-5257: Article Page")
+    @Test(description = "Active - Lesson Planet Articles -  lessonp-5257: Article Page", groups = {"activeUser"})
     public void testLessonp_5257() {
         testArticlesPage(TestData.PLAN_PRO);
     }

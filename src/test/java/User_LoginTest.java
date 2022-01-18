@@ -10,7 +10,7 @@ public class User_LoginTest extends BaseTest {
     private HeaderPage headerPage;
     private SignInModal signInModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         loginPage = new LoginPage(webDriver);
@@ -18,12 +18,12 @@ public class User_LoginTest extends BaseTest {
         signInModal = new SignInModal(webDriver);
     }
 
-    @Test(description = "Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality")
+    @Test(description = "Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality", groups = {"accountManagement"})
     public void testLessonp_5033() {
         testLoginFlow(createNewUser(TestData.PLAN_FREEMIUM));
     }
 
-    @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality")
+    @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality", groups = {"accountManagement"})
     public void testLessonp_5034() {
         testLoginFlow(createNewUser(TestData.PLAN_STARTER));
     }

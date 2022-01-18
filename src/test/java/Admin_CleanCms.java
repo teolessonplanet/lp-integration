@@ -9,6 +9,7 @@ public class Admin_CleanCms extends BaseTest {
     private static final String STAGING_CLEAR_CM_URL = "https://staging.lessonplanet.com/users/auto/clear_cm?user_email=%s";
     private LoginPage loginPage;
 
+    @Ignore
     @BeforeMethod
     private void beforeMethod() {
         loginPage = new LoginPage(webDriver);

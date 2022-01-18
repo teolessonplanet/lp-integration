@@ -43,7 +43,7 @@ public class User_AccountManagementTest extends BaseTest {
     private UpgradeAssignModal upgradeAssignModal;
     private User_CurriculumManagerPageTest curriculumManagerTest;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         lpHomePage = new LpHomePage(webDriver);
         headerPage = new HeaderPage(webDriver);
@@ -80,7 +80,7 @@ public class User_AccountManagementTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-717: Try It Free button")
+    @Test(description = "Account management - Create a Free Member account - lessonp-717: Try It Free button", groups = {"accountManagement"})
     public void testLessonp_717() {
         lpHomePage.loadPage();
         Assert.assertEquals(headerPage.getTryItFreeButtonBackgroundColor(), TestData.TRY_IT_FREE_BUTTON_BACKGROUND_COLOR);
@@ -88,7 +88,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-692: Through the 'Become a Lesson Planet Free Member' modal")
+    @Test(description = "Account management - Create a Free Member account - lessonp-692: Through the 'Become a Lesson Planet Free Member' modal", groups = {"accountManagement"})
     public void testLessonp_692() {
         discoverResourcesPage.loadPage();
         discoverResourcesPage.changeToListView();
@@ -103,7 +103,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertEquals(thanksForJoiningModal.getModalText(), TestData.THANKS_FOR_JOINING_MODAL_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-693: Quitting Step 2 registration process")
+    @Test(description = "Account management - Create a Free Member account - lessonp-693: Quitting Step 2 registration process", groups = {"accountManagement"})
     public void testLessonp_693() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -113,7 +113,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertEquals(myAccountPage.getPlan(), TestData.FREE_MEMBERSHIP_TEXT);
     }
 
-    @Test(description = "Account management - Create a Free Member account - lessonp-694: After membership is canceled")
+    @Test(description = "Account management - Create a Free Member account - lessonp-694: After membership is canceled", groups = {"accountManagement"})
     public void testLessonp_694() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -135,7 +135,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertTrue(TestData.COMPARE_EQUAL_DATES(myAccountPage.getStatusDate(), TestData.ADD_DAYS_TO_DATE(TestData.GET_CURRENT_DATE(), expectedDaysToExpire)));
     }
 
-    @Test(description = "Account management - Downgrade - lessonp-682: From Freemium membership")
+    @Test(description = "Account management - Downgrade - lessonp-682: From Freemium membership", groups = {"accountManagement"})
     public void testLessonp_682() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
@@ -148,7 +148,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertTrue(stepTwoPage.getTitleText().equals(TestData.STEP_TWO_TITLE_MESSAGE));
     }
 
-    @Test(description = "Account management - Downgrade - lessonp-948: From Pro membership")
+    @Test(description = "Account management - Downgrade - lessonp-948: From Pro membership", groups = {"accountManagement"})
     public void testLessonp_948() {
         testDowngrade(TestData.PLAN_PRO, TestData.PLAN_STARTER);
     }
@@ -158,64 +158,64 @@ public class User_AccountManagementTest extends BaseTest {
         testDowngrade(TestData.PLAN_STARTER, TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-687: From <Get Free Access> button on a resource card")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-687: From <Get Free Access> button on a resource card", groups = {"accountManagement"})
     public void testLessonp_687() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromGetFreeAccessButton();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-688: From <Upgrade for Full Review> button on the RRP")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-688: From <Upgrade for Full Review> button on the RRP", groups = {"accountManagement"})
     public void testLessonp_688() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUpgradeForFullReviewButton();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager", groups = {"accountManagement"})
     public void testLessonp_686() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUploadButtonFromEditCollectionModal();
         testUpgradeFreeMemberFromUploadButtonFromCurriculumManagerPage();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-684: Free members exceeds the allowed number of collections created")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-684: Free members exceeds the allowed number of collections created", groups = {"accountManagement"})
     public void testLessonp_684() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-1000: Free member tries to save a 4th collection")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-1000: Free member tries to save a 4th collection", groups = {"accountManagement"})
     public void testLessonp_1000() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromSaving4thCollection();
     }
 
-    @Test(description = "AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection")
+    @Test(description = "AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection", groups = {"accountManagement"})
     public void testLessonp_690() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromAssignResourceButton();
         testUpgradeFreeMemberFromAssignFolderButton();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection", groups = {"accountManagement"})
     public void testLessonp_685() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-689: Free member tries to save a collection containing more than 10 items")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-689: Free member tries to save a collection containing more than 10 items", groups = {"accountManagement"})
     public void testLessonp_689() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons")
+    @Test(description = "Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons", groups = {"accountManagement"})
     public void testLessonp_3884() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromUpgradeMeButtons();
         testUpgradeFreeMemberFromGetFullAccessButtons();
     }
 
-    @Test(description = "Account management - Upgrade a Pro membership - lessonp-673: No upgrade possible (Pro $72)")
+    @Test(description = "Account management - Upgrade a Pro membership - lessonp-673: No upgrade possible (Pro $72)", groups = {"accountManagement"})
     public void testLessonp_673() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -230,7 +230,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(0), TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-675: From Search page")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-675: From Search page", groups = {"accountManagement"})
     public void testLessonp_675() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -244,7 +244,7 @@ public class User_AccountManagementTest extends BaseTest {
         Assert.assertEquals(manageMembershipPage.getDisplayedOffers().get(1), TestData.PRO_OPTION_TEXT);
     }
 
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-676: From My Account page")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-676: From My Account page", groups = {"accountManagement"})
     public void testLessonp_676() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -260,7 +260,7 @@ public class User_AccountManagementTest extends BaseTest {
 
     //TODO: temporary all active users have assign privileges
     @Ignore
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-677: From the Assign modal")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-677: From the Assign modal", groups = {"accountManagement"})
     public void testLessonp_677() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -286,7 +286,7 @@ public class User_AccountManagementTest extends BaseTest {
     }
 
     @Ignore
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-678: From Search page", groups = {"accountManagement"})
     public void testLessonp_678() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -301,7 +301,7 @@ public class User_AccountManagementTest extends BaseTest {
     }
 
     @Ignore
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-679: From My Account page")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-679: From My Account page", groups = {"accountManagement"})
     public void testLessonp_679() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);
@@ -317,7 +317,7 @@ public class User_AccountManagementTest extends BaseTest {
 
     //TODO: temporary all active users have assign privileges
     @Ignore
-    @Test(description = "Account management - Upgrade a Starter membership - lessonp-680: From the Assign modal")
+    @Test(description = "Account management - Upgrade a Starter membership - lessonp-680: From the Assign modal", groups = {"accountManagement"})
     public void testLessonp_680() {
         user_stepTwoTest = new User_StepTwoTest();
         user_stepTwoTest.initAndReachStepTwoPage(webDriver);

@@ -7,7 +7,7 @@ import util.TestData;
 public class User_AssignFolderModalTest extends BaseTest {
     private AssignModal assignModal;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         assignModal = new AssignModal(webDriver);
     }

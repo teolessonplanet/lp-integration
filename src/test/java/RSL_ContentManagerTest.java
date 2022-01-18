@@ -16,7 +16,7 @@ public class RSL_ContentManagerTest extends BaseTest {
     private RrpPage rrpPage;
     private HeaderPage headerPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         loginPage = new LoginPage(webDriver);
         rsl_contentManagerPage = new RSL_ContentManagerPage(webDriver);
@@ -29,25 +29,25 @@ public class RSL_ContentManagerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page")
+    @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page", groups = {"rsl"})
     public void testLessonp_1270() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerMainPage();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list")
+    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list", groups = {"rsl"})
     public void testLessonp_1271() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerCardsList(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search")
+    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search", groups = {"rsl"})
     public void testLessonp_5076() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerSearch();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By")
+    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By", groups = {"rsl"})
     public void testLessonp_5078() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerSortBy();
