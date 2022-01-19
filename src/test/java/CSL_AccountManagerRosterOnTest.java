@@ -71,7 +71,7 @@ public class CSL_AccountManagerRosterOnTest extends BaseTest {
         rsl_accountManagerTest.testSchoolPage(true, true);
         schoolPage.hoverOverAddButton();
         Assert.assertEquals(schoolPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
-        rsl_accountManagerTest.testEditTeacher(false, false);
+        rsl_accountManagerTest.testEditTeacher();
     }
 
     @Test(description = "Custom SL - Account Manager - lessonp-5104: Edit School, Search in School", groups = {"csl"})

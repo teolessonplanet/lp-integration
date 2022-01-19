@@ -19,7 +19,7 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testSchoolPage(false, false);
         rsl_accountManagerTest.testAddTeacherFromAddButton();
-        rsl_accountManagerTest.testEditTeacher(true, true);
+        rsl_accountManagerTest.testEditTeacher();
         rsl_accountManagerTest.testRemoveTeacher(false);
         rsl_accountManagerTest.testAddTeacherFromAddLink(TestData.GET_NEW_EMAIL());
         rsl_accountManagerTest.testRemoveTeacher(false);

@@ -83,7 +83,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testAddTeacherFromAddLink(TestData.GET_NEW_EMAIL());
         rsl_accountManagerTest.testSchoolPage(false, true);
         Assert.assertTrue(schoolPage.getFlashNotificationText().contains(TestData.NO_SCHOOL_ADMIN_ADDED_NOTIFICATION_TEXT));
-        rsl_accountManagerTest.testEditTeacher(false, false);
+        rsl_accountManagerTest.testEditTeacher();
         rsl_accountManagerTest.testRemoveTeacher(true);
         schoolPage.clickOnAccountManagerBreadcrumbs();
         rsl_accountManagerTest.testRemoveSchool();
@@ -121,6 +121,13 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.testRemoveSchool();
     }
 
+    @Test(description = "Custom SL - Account Manager - lessonp-5870: Manage District Page", groups = {"csl"})
+    public void testLessonp_5870() {
+        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
+        rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
+        rsl_accountManagerTest.testManageDistrictPage(false, true);
+    }
+
     @Test(description = "Custom SL - Account Manager - lessonp-5115: Ability to Publish", groups = {"csl"})
     public void testLessonp_5115() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
@@ -130,13 +137,6 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         testTeacherPublisherRole();
     }
 
-    @Test(description = "Custom SL - Account Manager - lessonp-5870: Manage District Page", groups = {"csl"})
-    public void testLessonp_5870() {
-        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testManageDistrictPage(false, true);
-    }
-
     public void initAndReachCSLAccountManagerSsoOnTest(WebDriver webDriver) {
         this.webDriver = webDriver;
         beforeMethod();
@@ -144,20 +144,31 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
 
     public void testEditDistrictAdmin() {
         manageDistrictAdminsPage.clickOnEditButton(1);
-        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditActiveTeacher();
+        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isDistrictAdminRoleChecked());
+        editTeacherModal.clickOnSaveButton();
     }
 
     public void testEditOwner() {
         manageDistrictAdminsPage.clickOnEditButton(0);
-        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditActiveTeacher();
+        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isTeacherRoleDisabled());
+        Assert.assertTrue(editTeacherModal.isDistrictAdminRoleDisabled());
+        Assert.assertTrue(editTeacherModal.isSchoolAdminRoleDisabled());
+        editTeacherModal.clickOnSaveButton();
     }
 
     public void testEditSchoolAdmin() {
         manageSchoolAdminsPage.clickOnEditButton(0);
-        rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
-        rsl_accountManagerTest.testEditActiveTeacher();
+        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editTeacherModal.isSchoolAdminRoleChecked());
+        editTeacherModal.clickOnSaveButton();
     }
 
     public void testOwnerPublisherRole() {

@@ -70,7 +70,7 @@ public class Cobb_AccountManagerTest extends BaseTest {
         rsl_accountManagerTest.testSchoolPage(true, true);
         schoolPage.hoverOverAddButton();
         Assert.assertEquals(schoolPage.getAddButtonPopoverText(), TestData.ADD_TEACHERS_BUTTON_ROSTER_ON_POPOVER_TEXT);
-        rsl_accountManagerTest.testEditTeacher(false, false);
+        rsl_accountManagerTest.testEditTeacher();
     }
 
     @Test(description = "Cobb SL - Account Manager - lessonp-5469:Edit School, Search in school", groups = {"cobb"})

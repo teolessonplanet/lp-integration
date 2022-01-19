@@ -347,11 +347,8 @@ public final class TestData {
     public static final String DISTRICT_SL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your district's initials or a shorter version of your district's name. 20 characters max.";
     public static final String SCHOOL_SL_SHORT_NAME_POPOVER_TEXT = "This is a name your teachers and staff are used to seeing. It could be your school's initials or a shorter version of your school's name. 20 characters max.";
     public static final String ENABLED_EDIT_TEACHER_POPOVER_TEXT = "Edit Teacher";
-    public static final String DISABLED_EDIT_TEACHER_POPOVER_TEXT = "Teacher has already joined, and information cannot be edited.";
     public static final String ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "Edit School Admin";
-    public static final String DISABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT = "School Admin has already joined, and information cannot be edited.";
     public static final String ENABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT = "Edit District Admin";
-    public static final String DISABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT = "District Admin has already joined, and information cannot be edited.";
     public static final String ENABLED_EDIT_OWNER_POPOVER_TEXT = "Edit Owner";
     public static final String DISABLED_EDIT_OWNER_POPOVER_TEXT = "Owner has already joined, and information cannot be edited.";
     public static final String REMOVE_TEACHER_POPOVER_TEXT = "Remove Teacher";
@@ -360,7 +357,6 @@ public final class TestData {
     public static final String REMOVE_OWNER_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String BULK_UPLOAD_SCHOOLS_POPOVER_TEXT = "To bulk upload multiple schools at once, download the CSV template here and add each school to the file. Once you're finished, upload the file here.";
     public static final String BULK_UPLOAD_TEACHERS_POPOVER_TEXT = "To bulk upload multiple Teachers at once, download the CSV template here and add each Teacher's email, first name, and last name. Once you're finished, upload the file here.";
-    public static final String PUBLISHING_PRIVILEGES_POPOVER_TEXT = "Applying this role gives a user the ability to publish collections to the learning object repository";
     public static final String REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT = "Teacher cannot be removed because it is managed by the Automated Rostering";
     public static final String REMOVE_OWNER_ROSTER_ON_POPOVER_TEXT = "Please contact Lesson Planet Member Services if you want to be removed from this organization";
     public static final String REMOVE_DISTRICT_ADMIN_ROSTER_ON_POPOVER_TEXT = "District Admin cannot be removed because it is managed by the Automated Rostering";
@@ -442,6 +438,7 @@ public final class TestData {
     public static final String ADMIN_PUBLISH_DISTRICT_OPTION_TEXT = "All admins in this district are also Publishers";
     public static final String TEACHER_PUBLISH_DISTRICT_OPTION_TEXT = "All teachers in this district are also Publishers";
 
+    //Step1
     public static final String STEP_ONE_MODAL_TITLE = "Discover 2.5 Million\n" + "Teacher Reviewed Resources";
 
     public static final String STARTER_OPTION_TEXT = "Starter";
