@@ -19,11 +19,8 @@ public class User_CollectionBuilderTest extends BaseTest {
     private BrowseBySubjectPage browseBySubjectPage;
     private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
-    private User_AccountManagementTest user_accountManagementTest;
     private CreateNewFolderModal createNewFolderModal;
     private EditCollectionModal editCollectionModal;
-    private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
-    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private StepTwoPage stepTwoPage;
 
     public void initTest(WebDriver webDriver) {
@@ -42,11 +39,8 @@ public class User_CollectionBuilderTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
-        user_accountManagementTest = new User_AccountManagementTest();
         createNewFolderModal = new CreateNewFolderModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
-        upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
-        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -88,10 +82,6 @@ public class User_CollectionBuilderTest extends BaseTest {
         if (accountPlanText.equals(TestData.PLAN_VISITOR) || accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             List<WebElement> getFreeAccessResources = browseBySubjectPage.getAllFreeAccessButtons();
             browseBySubjectPage.dragAndDrop(getFreeAccessResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
-            if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-                upgradeMaxItemsCollectionModal.waitForModal();
-                upgradeMaxItemsCollectionModal.clickOnCloseModalButton();
-            }
         } else {
             List<WebElement> getFullReviewResources = discoverResourcesPage.getAllSeeFullReviewButtons();
             discoverResourcesPage.dragAndDrop(getFullReviewResources.get(0), collectionBuilderPage.getCollectionDroppableZone());
@@ -115,20 +105,8 @@ public class User_CollectionBuilderTest extends BaseTest {
                 }
                 Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 3);
                 break;
-            case TestData.PLAN_FREEMIUM:
-                List<WebElement> getFreeAccessResources1 = discoverResourcesPage.getAllFreeAccessButtons();
-                for (int i = 0; i <= 9; i++) {
-                    discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(i), collectionBuilderPage.getCollectionDroppableZone());
-                }
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-                discoverResourcesPage.dragAndDrop(getFreeAccessResources1.get(0), collectionBuilderPage.getCollectionDroppableZone());
-                user_accountManagementTest.reachAccountManagementPage(webDriver);
-                user_accountManagementTest.testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
-                discoverResourcesPage.goBackOnePage();
-
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), 10);
-                break;
             case TestData.PLAN_STARTER:
+            case TestData.PLAN_FREEMIUM:
             case TestData.VALID_EMAIL_RSL_SBCEO:
             case TestData.VALID_EMAIL_CSL_HENRY:
             case TestData.VALID_EMAIL_CSL_COBB:
@@ -209,13 +187,8 @@ public class User_CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
         collectionBuilderPage.clickOnCreateNewCollection();
-        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            upgradeMaxFolderModal.waitForModal();
-            upgradeMaxFolderModal.clickOnCloseButton();
-        } else {
-            createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
-            createNewFolderModal.clickOnCreateFolderButton();
-        }
+        createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
+        createNewFolderModal.clickOnCreateFolderButton();
     }
 
     public void testCollectionBuilderButtonsAppearance(String accountPlan) {
@@ -253,7 +226,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         testDragAndDropMaxItemsInsideCollection(accountPlan);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
-        if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
         } else {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 1);
@@ -262,7 +235,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         if (accountPlan.equals(TestData.PLAN_VISITOR)) {
             dismissBecomeALessonPlanetFreeMemberModal();
         }
-        if (accountPlan.equals(TestData.PLAN_VISITOR) || accountPlan.equals(TestData.PLAN_FREEMIUM)) {
+        if (accountPlan.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
         } else {
             Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 2);
@@ -270,11 +243,7 @@ public class User_CollectionBuilderTest extends BaseTest {
 
         if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
             curriculumManagerPage.loadPage();
-            if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber);
-            } else {
-                Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 2);
-            }
+            Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), itemNumber + 2);
         }
         testCollectionBuilderItem();
 

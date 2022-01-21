@@ -187,9 +187,6 @@ public final class TestData {
     //Curriculum Manager
     public static final String CURRICULUM_MANAGER_PAGE_TITLE = "Curriculum Manager";
     public static final String MY_RESOURCES_PAGE_TITLE = "My Resources";
-    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER = "You've reached your 10-resource limit for this folder, but don't let that stop you!\n" + "Upgrade today to create more folders of any size and enjoy the benefits of full membership.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER = "As a Free Member you can only save folders with up to 10 items...but don't let that stop you!\n" + "Upgrade today to save unlimited folders, and enjoy the benefits of a Full Membership.";
-    public static final String UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT = "You've reached your 3-folder limit, but don't let that stop you!\n" + "Upgrade today to create more folders and enjoy the benefits of full membership.";
     public static final String UPGRADE_MODAL_TEXT_FROM_UPLOAD_BUTTON = "Uploading and storing files are not supported by your Free Membership.\n" + "Upgrade today to upload and store your own materials on Lesson Planet.\n" + "For access anytime, anywhere!";
     public static final String UPGRADE_MODAL_TEXT_FROM_ASSIGN_BUTTON = "You`re ready to go PRO.\n" + "Upgrade to a Pro Membership to unleash the power of assigning!";
     public static final String UPGRADE_MODAL_TEXT_FROM_PLAY_BUTTON = "Let's do it!\n" + "Upgrade your membership to unleash the power of the Resource Player.";
@@ -236,7 +233,6 @@ public final class TestData {
     public static final String[] FOLDER_TYPE = {"Collection", "Curriculum Set", "Chapter", "Lesson", "Assessment Set", "Unit Module", "Course Folder", "Root Folder"};
     public static final String NEW_FOLDER_DESCRIPTION = "testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123 testAutomation 123";
     public static final int CURRICULUM_MANAGER_PAGINATION_MAX_FOLDERS = 20;
-    public static final String PLEASE_CREATE_COLLECTION_TEXT = "please create a folder in My Resources";
 
     public static final String SHARED_FOLDER_NAME = "Shared Folder";
     public static final String SHARED_WITH_ME_PAGE_PERMISSION_VIEW_ONLY = "View only";

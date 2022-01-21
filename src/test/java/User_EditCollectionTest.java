@@ -17,7 +17,6 @@ public class User_EditCollectionTest extends BaseTest {
     private BrowseBySubjectPage browseBySubjectPage;
     private User_RrpSearchPageTest user_rrpSearchPageTest;
     private ReplaceExistingFolderModal replaceExistingFolderModal;
-    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private PublishedFolderModal publishedFolderModal;
 
     @BeforeMethod(alwaysRun = true)
@@ -33,7 +32,6 @@ public class User_EditCollectionTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
         user_rrpSearchPageTest = new User_RrpSearchPageTest();
         replaceExistingFolderModal = new ReplaceExistingFolderModal(webDriver);
-        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
@@ -209,8 +207,6 @@ public class User_EditCollectionTest extends BaseTest {
         testMoreDropdown(accountPlanText, copiedFolderName);
         if (!accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             testNavigateFolderDropdown(copiedFolderName);
-        } else {
-            testNavigateFolderDropdown(TestData.NEW_COLLECTION_NAME);
         }
     }
 
@@ -347,14 +343,8 @@ public class User_EditCollectionTest extends BaseTest {
         editCollectionPage.typeName(copiedFolderName);
         editCollectionPage.clickMyResourcesDestinationFolder();
         editCollectionPage.clickOnCopyToSelectedFolderButton();
-        if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            upgradeMaxFolderModal.waitForModal();
-            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
-            upgradeMaxFolderModal.clickOnCloseButton();
-        } else {
-            editCollectionPage.waitUntilCopiedCollectionIsDisplayed();
-            Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
-        }
+        editCollectionPage.waitUntilCopiedCollectionIsDisplayed();
+        Assert.assertEquals(editCollectionPage.getFolderTitle(), copiedFolderName);
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertEquals(editCollectionPage.getFolderItemsCount(), 14);
         } else {
