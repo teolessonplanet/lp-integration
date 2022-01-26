@@ -265,8 +265,4 @@ public class DistrictPage extends LpUiBasePage {
     public boolean isClearSearchButtonDisplayed() {
         return isElementVisible(CLEAR_SEARCH_BUTTON);
     }
-
-    public void clearSearchText() {
-        clearText(SEARCH_TEXT_FIELD);
-    }
 }
