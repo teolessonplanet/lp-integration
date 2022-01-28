@@ -19,7 +19,7 @@ public class SchoolPage extends ManageDistrictPage {
     }
 
     public boolean isTeachersListDisplayed() {
-        return isElementDisplayed(TEACHERS_LIST);
+        return isElementVisible(TEACHERS_LIST);
     }
 
     public String getFlashNotificationText() {

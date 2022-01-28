@@ -1,9 +1,12 @@
 package util;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
-public final class TestData {
+public class TestData {
 
     public static final int LONG_TIMEOUT = 10;
     public static final int SHORT_TIMEOUT = 5;
