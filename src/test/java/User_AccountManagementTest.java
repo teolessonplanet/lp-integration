@@ -1,5 +1,4 @@
 import com.lessonplanet.pages.*;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -34,11 +33,8 @@ public class User_AccountManagementTest extends BaseTest {
     private ArticlesPage articlesPage;
     private TestimonialsPage testimonialsPage;
     private WhatMembersSayWidget whatMembersSayWidget;
-    private ContactUsPage contactUsPage;
     private EditCollectionModal editCollectionModal;
-    private CollectionRrpModal collectionRrpModal;
     private RrpPage rrpPage;
-    private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
     private CurriculumManagerPage curriculumManagerPage;
     private UpgradeAssignModal upgradeAssignModal;
     private User_CurriculumManagerPageTest curriculumManagerTest;
@@ -65,19 +61,11 @@ public class User_AccountManagementTest extends BaseTest {
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
-        contactUsPage = new ContactUsPage(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
-        collectionRrpModal = new CollectionRrpModal(webDriver);
         rrpPage = new RrpPage(webDriver);
-        upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
         curriculumManagerTest = new User_CurriculumManagerPageTest();
-    }
-
-    public void reachAccountManagementPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        beforeMethod();
     }
 
     @Test(description = "Account management - Create a Free Member account - lessonp-717: Try It Free button", groups = {"accountManagement"})
@@ -183,29 +171,11 @@ public class User_AccountManagementTest extends BaseTest {
         testUpgradeFreeMemberFromExceededNumberOfCollectionsCreated();
     }
 
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-1000: Free member tries to save a 4th collection", groups = {"accountManagement"})
-    public void testLessonp_1000() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testUpgradeFreeMemberFromSaving4thCollection();
-    }
-
     @Test(description = "AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection", groups = {"accountManagement"})
     public void testLessonp_690() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUpgradeFreeMemberFromAssignResourceButton();
         testUpgradeFreeMemberFromAssignFolderButton();
-    }
-
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-685: Free member exceeds the allowed number of items inside a created collection", groups = {"accountManagement"})
-    public void testLessonp_685() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection();
-    }
-
-    @Test(description = "Account management - Upgrade a Free Member - lessonp-689: Free member tries to save a collection containing more than 10 items", groups = {"accountManagement"})
-    public void testLessonp_689() {
-        stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection();
     }
 
     @Test(description = "Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons", groups = {"accountManagement"})
@@ -477,18 +447,6 @@ public class User_AccountManagementTest extends BaseTest {
         curriculumManagerTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
-    private void testUpgradeFreeMemberFromSaving4thCollection() {
-        discoverResourcesPage.loadSearchPageInListView();
-        curriculumManagerTest.initTest(webDriver);
-        for (int i = 0; i <= 2; i++) {
-            curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        }
-        discoverResourcesPage.clickSeeCollection(false);
-        collectionRrpModal.waitForModal();
-        collectionRrpModal.clickSaveCollectionButtonActiveUser();
-        curriculumManagerTest.testUpgradeModalFromMaxFolderLimit();
-    }
-
     private void testUpgradeFreeMemberFromAssignResourceButton() {
         curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testFavoriteRegularResource(TestData.PLAN_FREEMIUM);
@@ -502,40 +460,6 @@ public class User_AccountManagementTest extends BaseTest {
         curriculumManagerTest.testAddSharedResourceToFolder();
         curriculumManagerPage.loadPage();
         curriculumManagerTest.testAssignResource(TestData.PLAN_FREEMIUM, TestData.ASSIGN_FOLDER_MODAL_TEXT);
-    }
-
-    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideACreatedCollection() {
-        discoverResourcesPage.loadPage();
-        curriculumManagerTest.initTest(webDriver);
-        curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        discoverResourcesPage.clickOnListView();
-        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.LESSON_PLANS_RESOURCE_TYPE);
-        List<WebElement> getFreeAccessResources = discoverResourcesPage.getAllFreeAccessButtons();
-        for (int i = 0; i <= 10; i++) {
-            discoverResourcesPage.dragAndDrop(getFreeAccessResources.get(i), collectionBuilderPage.getCollectionDroppableZone());
-        }
-        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_CREATED_FOLDER);
-    }
-
-    private void testUpgradeFreeMemberFromExceededNumberOfItemsInsideASavedCollection() {
-        discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeCollection(false);
-        List<WebElement> getCollectionResources = discoverResourcesPage.getAllSeeCollectionsButtons();
-        for (int i = 1; i < 24; i++) {
-            if (collectionRrpModal.getCollectionItemsCount() <= 10) {
-                collectionRrpModal.clickCloseModal();
-                discoverResourcesPage.openInANewTabOrClick(getCollectionResources.get(i), false);
-            }
-        }
-        collectionRrpModal.clickSaveCollectionButtonActiveUser();
-        testUpgradeModalFromMaxItemsInsideCollection(TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER);
-    }
-
-    public void testUpgradeModalFromMaxItemsInsideCollection(String bodyText) {
-        upgradeMaxItemsCollectionModal.waitForModal();
-        Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), bodyText);
-        upgradeMaxItemsCollectionModal.clickOnUpgradeMeButton(false);
-        checkStepTwoPageSameTab();
     }
 
     private void testUpgradeFreeMemberFromUpgradeMeButtons() {

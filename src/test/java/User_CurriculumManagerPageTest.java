@@ -18,7 +18,6 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
     private CopyToModal copyToModal;
-    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private UpgradeAssignModal upgradeAssignModal;
     private UpgradeUploadModal upgradeUploadModal;
     private RrpModal rrpModal;
@@ -46,7 +45,6 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         createNewFolderModal = new CreateNewFolderModal(webDriver);
-        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
         upgradeUploadModal = new UpgradeUploadModal(webDriver);
         editCollectionModal = new EditCollectionModal(webDriver);
@@ -368,14 +366,10 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     public void testMaxLimitOfFoldersCreated(String folderType) {
         testCreateThreeFolders(folderType);
         curriculumManagerPage.clickOnCreateAFolderButton();
-        if (upgradeMaxFolderModal.isModalDisplayed()) {
-            testUpgradeModalFromMaxFolderLimit();
-        } else {
-            createNewFolderModal.chooseFolderType(folderType);
-            createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
-            createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
-            createNewFolderModal.clickOnCreateFolderButton();
-        }
+        createNewFolderModal.chooseFolderType(folderType);
+        createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
+        createNewFolderModal.typeDescription(TestData.NEW_FOLDER_DESCRIPTION);
+        createNewFolderModal.clickOnCreateFolderButton();
     }
 
     public void testCreateThreeFolders(String folderType) {
@@ -383,15 +377,6 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         for (int i = 0; i <= 2; i++) {
             testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, folderType);
         }
-    }
-
-    public void testUpgradeModalFromMaxFolderLimit() {
-        upgradeMaxFolderModal.waitForModal();
-        Assert.assertEquals(upgradeMaxFolderModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
-        upgradeMaxFolderModal.clickOnUpgradeMeButton();
-        Assert.assertTrue(lpHomePage.getUrl().contains(TestData.STEP_ONE_PAGE_PATH));
-        Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
-        stepTwoPage.goBackOnePage();
     }
 
     public void testDeleteFolder() {
@@ -778,14 +763,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
             testCopyFolder();
         }
         testCopyToButton();
-        if (!upgradeMaxFolderModal.isModalDisplayed()) {
-            testCopyFolder();
-        } else {
-            testUpgradeModalFromMaxFolderLimit();
-            if (curriculumManagerPage.getFoldersNumber() == 0 || curriculumManagerPage.getFoldersNumber() == 1) {
-                curriculumManagerPage.refreshPageAndDismissBrowserAlert();
-            }
-        }
+        testCopyFolder();
     }
 
     public void testCopyToButton() {
@@ -872,12 +850,8 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnFirstFolder();
         Assert.assertEquals(curriculumManagerPage.getFolderItemNumber(), 1);
         curriculumManagerPage.clickOnCreateAFolderButton();
-        if (accountPlan.endsWith(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
-        } else {
-            createNewFolderModal.waitForModal();
-            Assert.assertEquals(TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE, createNewFolderModal.getCreateNewFolderModalTitleFromMyResources());
-        }
+        createNewFolderModal.waitForModal();
+        Assert.assertEquals(TestData.CREATE_A_NEW_FOLDER_MODAL_TITLE, createNewFolderModal.getCreateNewFolderModalTitleFromMyResources());
     }
 
     private void createNestedFoldersRequirement() {
@@ -967,14 +941,8 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[2]);
 
         curriculumManagerPage.clickOnCreateAFolderButton();
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            upgradeUploadModal.waitForModal();
-            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
-            upgradeMaxFolderModal.clickOnCloseButton();
-        } else {
-            createNewFolderModal.waitForModal();
-            createNewFolderModal.clickOnCancelButton();
-        }
+        createNewFolderModal.waitForModal();
+        createNewFolderModal.clickOnCancelButton();
 
         curriculumManagerPage.clickOnUploadResourceButton();
         if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
@@ -989,35 +957,20 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
         curriculumManagerPage.clickOnCopyFolderToButton(null);
-
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertEquals(TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT, upgradeMaxFolderModal.getUpgradeModalText());
-            upgradeMaxFolderModal.clickOnCloseButton();
-        } else {
-            copyToModal.waitForModal();
-            if(copyToModal.isMyResourcesTabDisplayed()) {
-                copyToModal.chooseMyResourcesTab();
-            }
-            copyToModal.clickMyResourcesDestinationFolder();
-            copyToModal.clickOnCopyToSelectedFolderButton();
+        copyToModal.waitForModal();
+        if (copyToModal.isMyResourcesTabDisplayed()) {
+            copyToModal.chooseMyResourcesTab();
         }
+        copyToModal.clickMyResourcesDestinationFolder();
+        copyToModal.clickOnCopyToSelectedFolderButton();
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
         curriculumManagerPage.clickOnMoveFolderToButton(null);
+        moveToModal.clickOnDestinationFolder();
+        moveToModal.clickOnMoveToSelectedFolderButton();
 
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertTrue(moveToModal.getMoveToModalBodyText().contains(TestData.PLEASE_CREATE_COLLECTION_TEXT));
-            moveToModal.clickOnCancelButton();
-        } else {
-            moveToModal.clickOnDestinationFolder();
-            moveToModal.clickOnMoveToSelectedFolderButton();
-        }
+        Assert.assertEquals(curriculumManagerPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
 
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            Assert.assertTrue(curriculumManagerPage.getPath().startsWith(TestData.CURRICULUM_MANAGER_PAGE_PATH + TestData.CURRICULUM_MANAGER_FOLDERS_SUFIX_PATH));
-        } else {
-            Assert.assertEquals(curriculumManagerPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
-        }
     }
 
     protected void testDragAndDrop(String accountPlan) {
@@ -1039,18 +992,10 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         checkItems(1);
 
         curriculumManagerPage.customDragAndDrop(curriculumManagerPage.getFolder(0), collectionBuilderPage.getCollectionDroppableZone());
-        if (accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-           Assert.assertTrue(upgradeMaxFolderModal.isModalDisplayed());
-           upgradeMaxFolderModal.clickOnCloseButton();
-            checkItems(1);
-        } else {
-            checkItems(2);
-        }
+        checkItems(2);
 
-        if (!accountPlan.equals(TestData.PLAN_FREEMIUM)) {
-            testDeleteItemsFromCollectionBuilder(1);
-            curriculumManagerPage.loadPage();
-        }
+        testDeleteItemsFromCollectionBuilder(1);
+        curriculumManagerPage.loadPage();
         testDeleteItemsFromCollectionBuilder(0);
     }
 

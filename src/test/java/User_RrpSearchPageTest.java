@@ -17,8 +17,6 @@ public class User_RrpSearchPageTest extends BaseTest {
     private WhatMembersSayWidget whatMembersSayWidget;
     private StepOneModal stepOneModal;
     private SignInPage signInPage;
-    private UpgradeMaxItemsCollectionModal upgradeMaxItemsCollectionModal;
-    private UpgradeMaxFolderModal upgradeMaxFolderModal;
     private User_DirectoryCategoriesAndSubcategoriesPageTest user_directoryCategoriesAndSubcategoriesTest;
     private User_CurriculumManagerPageTest user_curriculumManagerTest;
     private StepTwoPage stepTwoPage;
@@ -38,8 +36,6 @@ public class User_RrpSearchPageTest extends BaseTest {
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
         stepOneModal = new StepOneModal(webDriver);
         signInPage = new SignInPage(webDriver);
-        upgradeMaxItemsCollectionModal = new UpgradeMaxItemsCollectionModal(webDriver);
-        upgradeMaxFolderModal = new UpgradeMaxFolderModal(webDriver);
         user_directoryCategoriesAndSubcategoriesTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
         user_curriculumManagerTest = new User_CurriculumManagerPageTest();
         stepTwoPage = new StepTwoPage(webDriver);
@@ -955,14 +951,6 @@ public class User_RrpSearchPageTest extends BaseTest {
             collectionRrpModal.clickSaveCollectionButton();
             collectionRrpModal.clickSignInPopupLink(true);
             testSignInPage();
-        } else if (account.equals(TestData.PLAN_FREEMIUM)) {
-            collectionRrpModal.clickSaveCollectionButtonActiveUser();
-            if (collectionRrpModal.getCollectionItemsCount() > 10) {
-                Assert.assertEquals(upgradeMaxItemsCollectionModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_EXCEEDED_ITEMS_INSIDE_SAVED_FOLDER);
-            }
-            if (collectionRrpModal.getCollectionItemsCount() < 10) {
-                Assert.assertTrue(collectionRrpModal.isSavedCollectionNotificationDisplayed());
-            }
         } else { // ACTIVE & SLs
             collectionRrpModal.clickSaveCollectionButtonActiveUser();
 
@@ -1148,14 +1136,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         }
         rrp.clickOnAddToFolderDropdown();
         rrp.clickAddToNewCollection();
-
-        if (upgradeMaxFolderModal.isModalDisplayed()) {
-            Assert.assertEquals(upgradeMaxFolderModal.getUpgradeModalText(), TestData.UPGRADE_MODAL_TEXT_FROM_MAX_FOLDER_LIMIT);
-            upgradeMaxFolderModal.clickOnCloseButton();
-        } else {
-            createNewFolderModal.typeName(TestData.NEW_COLLECTION_NAME);
-            createNewFolderModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-            createNewFolderModal.clickOnCreateFolderButton();
-        }
+        createNewFolderModal.typeName(TestData.NEW_COLLECTION_NAME);
+        createNewFolderModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
+        createNewFolderModal.clickOnCreateFolderButton();
     }
 }
