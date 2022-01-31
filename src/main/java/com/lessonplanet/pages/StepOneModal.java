@@ -10,8 +10,6 @@ public class StepOneModal extends LpUiBasePage {
     private static final String GET_STARTED_TODAY_BUTTON = "#submit-signup";
     private static final String CLOSE_MODAL_BUTTON = "[class*='text-center'] [class='close']";
 
-    private static final String EMAIL_ERROR_MESSAGE = "#user_email-error";
-
     public StepOneModal(WebDriver driver) {
         super(driver);
     }
@@ -26,10 +24,6 @@ public class StepOneModal extends LpUiBasePage {
 
     public void clickOnGetStartedToday() {
         clickElement(GET_STARTED_TODAY_BUTTON);
-    }
-
-    public String getErrorMessage() {
-        return getTextForElement(EMAIL_ERROR_MESSAGE);
     }
 
     public boolean isTitleTextDisplayed() {

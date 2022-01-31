@@ -9,12 +9,10 @@ import util.TestData;
 import java.util.List;
 
 public class StepTwoModal extends LpHomePage {
+
     private static final String STEP_TWO_MODAL = "#step2-modal";
     private static final String TITLE_TEXT = "[class*='modal-header'] h3";
-    private static final String CLOSE_MODAL_BUTTON = "[class*='button close']";
-
     private static final String SELECT_OFFER_BUTTON = "[class*='btn-offer']";
-
     private static final String FIRSTNAME_INPUT = "#firstname";
     private static final String LASTNAME_INPUT = "#lastname";
     private static final String CARD_NUMBER_INPUT = "#cc_number";
@@ -37,10 +35,6 @@ public class StepTwoModal extends LpHomePage {
     public String getTitleText() {
         waitForModal();
         return getTextForElement(TITLE_TEXT);
-    }
-
-    public void clickOnCloseModal() {
-        clickElement(CLOSE_MODAL_BUTTON);
     }
 
     public void typeFirstName(String firstName) {

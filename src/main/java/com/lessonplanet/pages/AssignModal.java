@@ -19,7 +19,6 @@ public class AssignModal extends LpUiBasePage {
     private static final String HIDE_ACCESS_KEY_BUTTON = "#hide-player-password";
     private static final String SHARE_LINK_TEXT = "input[class$='share-link-input']";
 
-
     public AssignModal(WebDriver driver) {
         super(driver);
     }
