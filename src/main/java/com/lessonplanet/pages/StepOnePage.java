@@ -40,10 +40,6 @@ public class StepOnePage extends LpUiBasePage {
         loadUrl(currentPath);
     }
 
-    public void clickOnAlreadyAMember() {
-        clickElement(ALREADY_A_MEMBER_BUTTON);
-    }
-
     public boolean isAlreadyAMemberButtonDisplayed() {
         return isElementClickable(ALREADY_A_MEMBER_BUTTON);
     }

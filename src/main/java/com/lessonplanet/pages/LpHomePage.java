@@ -16,11 +16,6 @@ public class LpHomePage extends LpUiBasePage {
         loadUrl(TestData.LP_HOME_PAGE_PATH);
     }
 
-    public void clickOnUpgradeMeButton(boolean inANewTab) {
-        openInANewTabOrClick(UPGRADE_ME_BUTTON, inANewTab);
-        //TODO: remove this - not a homepage component
-    }
-
     public String getAlertMessageText() {
         return getTextForElement(ALERT_MESSAGE_TEXT);
     }
