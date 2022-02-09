@@ -93,7 +93,7 @@ public class RSL_BrowseResourceDirectory_SubjectsTest extends BaseTest {
 
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         discoverResourcesPage.changeToListView();
-        browseBySubjectPage.clickSeeFullReview(rrpStatic);
+        browseBySubjectPage.clickOnSeeFullReview(rrpStatic);
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrpModal.isAddToFolderDropdownDisplayed());
@@ -104,18 +104,18 @@ public class RSL_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         if (rrpStatic) {
             rrpModal.closeTab();
         } else {
-            rrpModal.clickCloseModal();
+            rrpModal.clickOnRrpModalXButton();
         }
 
-        browseBySubjectPage.clickGoToResourceForRegularResource(true);
+        browseBySubjectPage.clickOnGoToResourceForRegularResource(true);
         String currentUrl = browseBySubjectPage.getUrl();
         boolean assertResult = currentUrl.contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
         Assert.assertTrue(assertResult);
         browseBySubjectPage.closeTab();
 
-        browseBySubjectPage.clickSeeFullReview(rrpStatic);
+        browseBySubjectPage.clickOnSeeFullReview(rrpStatic);
         rrpModal.clickOnAddToFolderDropdown();
-        rrpModal.clickAddToNewCollection();
+        rrpModal.clickOnAddToNewFolderLink();
         createNewFolderModal.waitForModal();
         createNewFolderModal.typeName(TestData.GET_NEW_EMAIL());
         createNewFolderModal.clickOnCreateFolderButton();
@@ -131,7 +131,7 @@ public class RSL_BrowseResourceDirectory_SubjectsTest extends BaseTest {
 
         browseBySubjectPage.loadPage(TestData.DEVELOPMENT_AND_BEHAVIORAL_DISORDERS_PATH);
         discoverResourcesPage.changeToListView();
-        browseBySubjectPage.clickSeeCollection(rrpStatic);
+        browseBySubjectPage.clickOnSeeCollection(rrpStatic);
         CollectionRrpModal collectionRrpModal = new CollectionRrpModal(webDriver);
 
         Assert.assertTrue(collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed() || collectionRrpModal.isSavedCollectionButtonDisabled());
@@ -140,7 +140,7 @@ public class RSL_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         Assert.assertFalse(collectionRrpModal.isShareButtonDisplayed());
 
         if (collectionRrpModal.isSaveCollectionButtonActiveUserDisplayed()) {
-            collectionRrpModal.clickSaveCollectionButtonActiveUser();
+            collectionRrpModal.clickOnSaveCollectionButtonActiveUser();
             if (limitedResourceAccessModal.isModalDisplayed()) {
                 Assert.assertEquals(limitedResourceAccessModal.getLimitedResourceAccessModalTitleText(), TestData.LIMITED_RESOURCE_ACCESS_TITLE);
                 Assert.assertTrue(limitedResourceAccessModal.getLimitedResourceAccessModalBodyText().contains(TestData.LIMITED_RESOURCE_ACCESS_MODAL_TEXT));
@@ -149,7 +149,7 @@ public class RSL_BrowseResourceDirectory_SubjectsTest extends BaseTest {
             //Assert.assertTrue(collectionRrpModal.getNotificationText().contains(TestData.COLLECTION_ADDED_TO_CURRICULUM_MANAGER_NOTIFICATION_TEXT));
         }
 
-        collectionRrpModal.clickPlayCollectionButton();
+        collectionRrpModal.clickOnPlayCollectionButton();
         collectionRrpModal.focusDriverToLastTab();
         collectionRrpModal.waitForLoad();
         Assert.assertTrue(collectionRrpModal.getUrl().contains(TestData.CURRICULUM_PLAYER_PATH));

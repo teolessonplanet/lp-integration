@@ -23,7 +23,7 @@ public class User_AccountManagement_CreateFreeMemberAccountTest extends BaseTest
     private MyAccountPage myAccountPage;
     private CustomMembershipPage customMembershipPage;
     private StepTwoPage stepTwoPage;
-    private CancelModal cancelModal;
+    private CancelMembershipModal cancelMembershipModal;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -38,7 +38,7 @@ public class User_AccountManagement_CreateFreeMemberAccountTest extends BaseTest
         myAccountPage = new MyAccountPage(webDriver);
         customMembershipPage = new CustomMembershipPage(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
-        cancelModal = new CancelModal(webDriver);
+        cancelMembershipModal = new CancelMembershipModal(webDriver);
     }
 
     @Test(description = "Account management - Create a Free Member account - C2443: Try It Free button", groups = {"accountManagement"})
@@ -88,7 +88,7 @@ public class User_AccountManagement_CreateFreeMemberAccountTest extends BaseTest
         customMembershipPage.clickOnReasonsDropdown();
         customMembershipPage.selectOptionFromDropDown(TestData.THE_MEMBERSHIP_FEE_WAS_TOO_EXPENSIVE_FOR_ME_TEXT);
         customMembershipPage.clickOnContinueInput();
-        cancelModal.clickOnNoThanksConfirmCancellationButton();
+        cancelMembershipModal.clickOnNoThanksConfirmCancellationLink();
         Assert.assertTrue(myAccountPage.isRenewNowButtonDisplayed());
         Assert.assertTrue(myAccountPage.isStatusDateDisplayed());
         Assert.assertTrue(TestData.PLAN_STARTER.startsWith(myAccountPage.getPlan().toLowerCase()));

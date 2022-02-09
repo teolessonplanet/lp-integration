@@ -18,7 +18,7 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
     private CollectionBuilderPage collectionBuilderPage;
     private DiscoverResourcesPage discoverResourcesPage;
     private AssignModal assignModal;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private ConfirmCopySharedFolderModal confirmCopySharedFolderModal;
     private LimitedResourceAccessModal limitedResourceAccessModal;
 
@@ -33,7 +33,7 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         assignModal = new AssignModal(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         confirmCopySharedFolderModal = new ConfirmCopySharedFolderModal(webDriver);
         limitedResourceAccessModal = new LimitedResourceAccessModal(webDriver);
     }
@@ -175,11 +175,11 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
         curriculumManagerPage.waitForNotificationToDisappear();
         if (canView) {
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), sharedFolderChildrenNumber);
         } else {
             confirmCopySharedFolderModal.clickOnContinueButton();
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber + 1);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber + 1);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), sharedFolderChildrenNumber + 1);
         }
         //drag & drop a resource from a Shared Folder into a shared folder from Collection Builder
         if(canView) {
@@ -190,10 +190,10 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
 
         if (canView) {
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), sharedFolderChildrenNumber);
         } else {
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber + 2);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber + 2);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), sharedFolderChildrenNumber + 2);
         }
 
         //drag & drop a Shared folder into the same shared folder from Collection Builder
@@ -209,7 +209,7 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
             confirmCopySharedFolderModal.clickOnContinueButton();
             Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), sharedFolderChildrenNumber + 3);
             curriculumManagerPage.clickOnFolder(0);
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), sharedFolderChildrenNumber + 3);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), sharedFolderChildrenNumber + 3);
         }
         //create a new collection: it won't be displayed on Shared with me Page
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
@@ -273,15 +273,15 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
             curriculumManagerPage.hoverOverActionsDropdown();
             curriculumManagerPage.clickOnActionsDropdown();
             curriculumManagerPage.clickOnEditButton();
-            editCollectionModal.waitForModal();
-            Assert.assertEquals(editCollectionModal.getDefaultFolderStatus(), TestData.FOLDER_PUBLISHED_STATUS);
-            Assert.assertEquals(editCollectionModal.getDetailedFolderStatus(), TestData.FOLDER_EDITING_STATUS_TEXT);
+            editFolderModal.waitForModal();
+            Assert.assertEquals(editFolderModal.getDefaultFolderStatus(), TestData.FOLDER_PUBLISHED_STATUS);
+            Assert.assertEquals(editFolderModal.getDetailedFolderStatus(), TestData.FOLDER_EDITING_STATUS_TEXT);
 
-            editCollectionModal.clickMoreDropdown();
-            editCollectionModal.clickOnPublishOption();
-            editCollectionModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-            editCollectionModal.clickOnPublishFolder();
-            editCollectionModal.clickOnCloseButton();
+            editFolderModal.clickOnMoreDropdown();
+            editFolderModal.clickOnPublishOption();
+            editFolderModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+            editFolderModal.clickOnPublishFolder();
+            editFolderModal.clickOnCloseButton();
 
             curriculumManagerPage.waitForRefreshIconToDisappear();
             Assert.assertEquals(TestData.SHARED_WITH_ME_PAGE_FOLDER_STATUS + " " + ownerName, curriculumManagerPage.getFolderStatus());
@@ -295,7 +295,7 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
         if(copyToModal.isMyResourcesTabDisplayed()) {
             copyToModal.chooseMyResourcesTab();
         }
-        copyToModal.clickMyResourcesDestinationFolder();
+        copyToModal.clickOnMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
         curriculumManagerPage.waitUntilSpinnerIsNotDisplayed();
 
@@ -310,7 +310,7 @@ public class RSL_SharedWithMe_CanViewTest extends BaseTest {
 
         curriculumManagerPage.clickOnFolder(0);
         if (canView) {
-            Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), 2);
+            Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), 2);
         }
         WebElement resource0 = curriculumManagerPage.getExpandedFolderChild(0);
         WebElement resource1 = curriculumManagerPage.getFolderLastChild();

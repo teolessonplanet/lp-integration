@@ -49,12 +49,12 @@ public class User_CalendarTest extends BaseTest {
         headerPage.clickOnCurriculumCalendarButton();
         testMonthPage(TestData.getCurrentMonth(), account);
         for (int i = TestData.getCurrentMonth() + 1; i < 12; i++) {
-            calendarPage.clickNextArrowLink();
+            calendarPage.clickOnNextArrowLink();
             testMonthPage(i, account);
         }
         calendarPage.loadPage();
         for (int i = TestData.getCurrentMonth() - 1; i > 0; i--) {
-            calendarPage.clickPreviousArrowLink();
+            calendarPage.clickOnPreviousArrowLink();
             testMonthPage(i, account);
         }
     }

@@ -107,20 +107,20 @@ public class CSL_SearchTest extends BaseTest {
     }
 
     public void testFolderDetailsButton() {
-        discoverResourcesPage.clickFolderDetails(true);
+        discoverResourcesPage.clickOnFolderDetails(true);
         Assert.assertTrue(rrp.isTitleDisplayed());
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickFolderDetails(false);
+        discoverResourcesPage.clickOnFolderDetails(false);
         RrpModal rrpModal = new RrpModal(webDriver);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isTitleDisplayed());
     }
 
     public void testOpenFolderButton() {
-        discoverResourcesPage.clickOpenFolder(true);
+        discoverResourcesPage.clickOnOpenFolder(true);
         Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickOpenFolder(false);
+        discoverResourcesPage.clickOnOpenFolder(false);
         Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
     }
 

@@ -56,9 +56,9 @@ public class User_AccountManagement_CreateActiveAccountTest extends BaseTest {
     private void testStepTwo(String plan) {
         stepOneModal.typeEmail(TestData.GET_NEW_EMAIL());
         stepOneModal.typePassword(TestData.VALID_PASSWORD);
-        stepOneModal.clickOnGetStartedToday();
+        stepOneModal.clickOnGetStartedTodayButton();
 
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
         Assert.assertEquals(stepTwoModal.getFirstNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoModal.getLastNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoModal.getCardNumberError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
@@ -73,7 +73,7 @@ public class User_AccountManagement_CreateActiveAccountTest extends BaseTest {
         stepTwoModal.typeCvv(TestData.CARD_CVV);
         stepTwoModal.typeZipCode(TestData.ZIP_CODE);
         stepTwoModal.selectOffer(plan);
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
 
         Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
         subscriptionSuccessPage.clickOnGetStartedButton();

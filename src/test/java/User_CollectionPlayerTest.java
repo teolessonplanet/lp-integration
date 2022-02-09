@@ -16,7 +16,7 @@ public class User_CollectionPlayerTest extends BaseTest {
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
     private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
     private AssignModal assignModal;
@@ -31,7 +31,7 @@ public class User_CollectionPlayerTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
@@ -90,20 +90,20 @@ public class User_CollectionPlayerTest extends BaseTest {
         curriculumManagerPage.loadPage();
 
         Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_STATUS);
-        curriculumManagerPage.clickActionsDropdown(curriculumManagerPage.getFolder(0));
+        curriculumManagerPage.clickOnActionsDropdownButton(curriculumManagerPage.getFolder(0));
         curriculumManagerPage.clickOnPlayFolderButton(curriculumManagerPage.getFolder(0));
         checkCollectionPlayerTab();
 
         // publish is available only for Active & SLs
         if (!accountType.equals(TestData.PLAN_FREEMIUM)) {
-            collectionBuilderPage.clickOnEditFolder(false);
-            editCollectionModal.publishCollection(accountType, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+            collectionBuilderPage.clickOnEditFolderButton(false);
+            editFolderModal.publishCollection(accountType, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
             //generate method to publish fast
 
             if (!accountType.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountType.equals(TestData.VALID_EMAIL_CSL_COBB)) {
                 //publishedFolderModal.clickOnCloseButton(); -> this should be deleted
             } else {
-                //  Assert.assertTrue(editCollectionModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
+                //  Assert.assertTrue(editFolderModal.getAlertNotificationText().contains(TestData.CSL_PUBLISHED_COLLECTION_NOTIFICATION_TEXT));
             }
             //TODO: refactor above!
             switch (accountType) {
@@ -113,9 +113,9 @@ public class User_CollectionPlayerTest extends BaseTest {
                     break;
             }
 
-            editCollectionModal.clickOnCloseButton();
+            editFolderModal.clickOnCloseButton();
             Assert.assertEquals(curriculumManagerPage.getFolderStatus(), TestData.PRIVATE_AND_PUBLISHED_STATUS);
-            curriculumManagerPage.clickActionsDropdown(curriculumManagerPage.getFolder(0));
+            curriculumManagerPage.clickOnActionsDropdownButton(curriculumManagerPage.getFolder(0));
             curriculumManagerPage.clickOnPlayFolderButton(curriculumManagerPage.getFolder(0));
             checkCollectionPlayerTab();
         }
@@ -145,8 +145,8 @@ public class User_CollectionPlayerTest extends BaseTest {
             discoverResourcesPage.dragAndDrop(resources.get(i), collectionBuilderPage.getCollectionDroppableZone());
         }
 
-        collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.clickPlayOption();
+        collectionBuilderPage.clickOnEditFolderButton(false);
+        editFolderModal.clickOnPlayOption();
     }
 
     private void checkCollectionPlayerTab() {
@@ -191,10 +191,10 @@ public class User_CollectionPlayerTest extends BaseTest {
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_VIDEOS);
         addResourceOfType(accountType, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS);
 
-        collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.waitForModal();
-        editCollectionModal.clickPlayOption();
-        editCollectionModal.focusDriverToLastTab();
+        collectionBuilderPage.clickOnEditFolderButton(false);
+        editFolderModal.waitForModal();
+        editFolderModal.clickOnPlayOption();
+        editFolderModal.focusDriverToLastTab();
 
         collectionPlayerPage.waitUntilNavigatorItemSliderIsHidden();
         collectionPlayerPage.clickOnUpArrowButton();
@@ -320,9 +320,9 @@ public class User_CollectionPlayerTest extends BaseTest {
         assignModal.clickOnCopyButton();
         Assert.assertTrue(assignModal.getCopiedLinkPopoverText().contains(TestData.COPIED_POPOVER_TEXT));
 
-        assignModal.clickOnShowAccessKeyButton();
+        assignModal.clickOnShowAccessKeyLink();
         Assert.assertEquals(assignModal.getPasswordText(), password);
-        assignModal.clickOnHideAccessKeyButton();
+        assignModal.clickOnHideAccessKeyLink();
 
         assignModal.clickOnResetAccessKeyLink();
         Assert.assertEquals(assignModal.getAccessKeyFieldText(), "");

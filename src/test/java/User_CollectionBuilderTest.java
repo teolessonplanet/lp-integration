@@ -20,7 +20,7 @@ public class User_CollectionBuilderTest extends BaseTest {
     private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private CreateNewFolderModal createNewFolderModal;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private StepTwoPage stepTwoPage;
 
     public void initTest(WebDriver webDriver) {
@@ -40,7 +40,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         createNewFolderModal = new CreateNewFolderModal(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
     }
 
@@ -128,13 +128,13 @@ public class User_CollectionBuilderTest extends BaseTest {
     }
 
     public void testMyResourcesButton(String accountPlanText) {
-        collectionBuilderPage.isMyResourcesButtonDisplayed();
+        collectionBuilderPage.isViewMyResourcesButtonDisplayed();
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
-            collectionBuilderPage.clickOnMyResources();
-            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
-            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
+            collectionBuilderPage.clickOnViewMyResourcesButton();
+            Assert.assertTrue(collectionBuilderPage.isViewMyResourcesButtonSignInPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isViewMyResourcesButtonSignUpPopupLinkDisplayed());
         } else {
-            collectionBuilderPage.clickOnMyResources();
+            collectionBuilderPage.clickOnViewMyResourcesButton();
             Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
             curriculumManagerPage.goBackOnePage();
         }
@@ -146,14 +146,14 @@ public class User_CollectionBuilderTest extends BaseTest {
         if (accountPlanText.equals(TestData.PLAN_VISITOR)) {
             collectionBuilderPage.clickOnDropdown();
             testSignInOrJoinNowModal();
-            collectionBuilderPage.clickOnEditFolder(false);
+            collectionBuilderPage.clickOnEditFolderButton(false);
             testSignInOrJoinNowModal();
         } else {
             user_curriculumManagerPageTest.initTest(webDriver);
             user_curriculumManagerPageTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-            collectionBuilderPage.clickOnEditFolder(false);
-            editCollectionModal.waitForModal();
-            editCollectionModal.clickOnCloseButton();
+            collectionBuilderPage.clickOnEditFolderButton(false);
+            editFolderModal.waitForModal();
+            editFolderModal.clickOnCloseButton();
         }
     }
 
@@ -163,7 +163,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         collectionBuilderPage.clickOnCollectionBuilderItem(0);
         rrpModal.waitForModal();
         Assert.assertEquals(rrpModal.getTitleText(), collectionBuilderItemTitle);
-        rrpModal.clickCloseModal();
+        rrpModal.clickOnRrpModalXButton();
         collectionBuilderPage.openResourceInANewTab(0);
         browseBySubjectPage.waitForNewTab();
         browseBySubjectPage.focusDriverToLastTab();
@@ -186,7 +186,7 @@ public class User_CollectionBuilderTest extends BaseTest {
     public void testMaxCollectionCreated(String accountPlanText) {
         discoverResourcesPage.loadPage();
         collectionBuilderPage.clickOnDropdown();
-        collectionBuilderPage.clickOnCreateNewCollection();
+        collectionBuilderPage.clickOnCreateNewFolderOption();
         createNewFolderModal.typeName(TestData.NEW_FOLDER_NAME);
         createNewFolderModal.clickOnCreateFolderButton();
     }
@@ -259,7 +259,7 @@ public class User_CollectionBuilderTest extends BaseTest {
         discoverResourcesPage.expandProviderFacetIfCollapsed();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, provider);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, folderType);
-        discoverResourcesPage.clickOpenFolder(true);
+        discoverResourcesPage.clickOnOpenFolder(true);
         Assert.assertTrue(discoverResourcesPage.getPath().contains(TestData.OPEN_FOLDER_PATH));
     }
 }

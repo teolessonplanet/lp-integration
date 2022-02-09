@@ -142,11 +142,11 @@ public class DistrictPage extends LpUiBasePage {
         clickElement(ADD_BUTTON);
     }
 
-    public void clickEditActionButton(int position) {
+    public void clickOnEditActionButton(int position) {
         clickElement(EDIT_ACTION_BUTTON, position);
     }
 
-    public void clickRemoveActionButton(int position) {
+    public void clickOnRemoveActionButton(int position) {
         clickElement(REMOVE_ACTION_BUTTON, position);
     }
 
@@ -189,7 +189,7 @@ public class DistrictPage extends LpUiBasePage {
         return getTextForElement(RESULTS_SEARCH_TEXT);
     }
 
-    public void clickClearSearchButton() {
+    public void clickOnClearSearchButton() {
         clickElement(CLEAR_SEARCH_BUTTON);
     }
 

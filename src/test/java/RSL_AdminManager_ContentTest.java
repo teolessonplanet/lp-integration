@@ -68,7 +68,7 @@ public class RSL_AdminManager_ContentTest extends BaseTest {
 
         WebElement firstResource = rsl_contentManagerPage.getResourceCards().get(0);
         Assert.assertTrue(rsl_contentManagerPage.isResourceProviderDisplayed(firstResource));
-        Assert.assertTrue(rsl_contentManagerPage.isResourceHideFromViewDisplayed(firstResource));
+        Assert.assertTrue(rsl_contentManagerPage.isResourceHideFromSearchCheckboxDisplayed(firstResource));
         Assert.assertTrue(rsl_contentManagerPage.isResourceTitleDisplayed(firstResource));
         Assert.assertTrue(rsl_contentManagerPage.isResourceThumbnailDisplayed(firstResource));
         Assert.assertTrue(rsl_contentManagerPage.isResourceTypeDisplayed(firstResource));

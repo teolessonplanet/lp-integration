@@ -20,15 +20,15 @@ public class WhatMembersSayWidget extends BrowseBySubjectPage {
         return findElements(getWhatMembersSayWidget(), TESTIMONIALS_TEXT).get(0).getText().length() > TestData.ZERO_RESOURCES_FOUND;
     }
 
-    public void clickOnSeeMoreTestimonialsButton(boolean inANewTab) {
+    public void clickOnSeeMoreTestimonialsLink(boolean inANewTab) {
         openInANewTabOrClick(SEE_MORE_TESTIMONIALS_LINK, inANewTab);
     }
 
-    public void clickOnSubmitYourOwnButton(boolean inANewTab) {
+    public void clickOnSubmitYourOwnLink(boolean inANewTab) {
         openInANewTabOrClick(SUBMIT_YOUR_OWN_LINK, inANewTab);
     }
 
-    public void clickSubscriptionButton(boolean inANewTab) {
+    public void clickOnSubscriptionButton(boolean inANewTab) {
         waitForPageLoad();
         final WebElement subscriptionButton = findElements(getWhatMembersSayWidget(), WHAT_MEMBERS_SAY_SUBSCRIPTION_BUTTON).get(0);
         openInANewTabOrClick(subscriptionButton, inANewTab);

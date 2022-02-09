@@ -142,27 +142,27 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
     public void testC2067() {
         reachDirectoryPage();
         String firstCollectionCardTitle = browseBySubjectPage.getCollectionCardTitle(0);
-        browseBySubjectPage.clickSeeCollection(false);
+        browseBySubjectPage.clickOnSeeCollection(false);
         Assert.assertEquals(collectionRrpModal.getCollectionTitleText(), firstCollectionCardTitle);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testSaveCollectionButton(true, TestData.PLAN_VISITOR);
         user_rrpSearchTest.testCollectionGetFreeAccessForTenDaysButton(true);
-        collectionRrpModal.clickPanelItem(0);
+        collectionRrpModal.clickOnPanelItem(0);
         user_rrpSearchTest.testItemViewerSection();
-        collectionRrpModal.clickSeeFullReviewsLink();
+        collectionRrpModal.clickOnSeeFullReviewsLink();
         user_rrpSearchTest.testItemViewerSection();
     }
 
     @Test(description = "Visitor - RRP Browse Resource Directory - RRP Static - RRP Buttons - C2072: Collection Main Buttons", groups = {"visitor"})
     public void testC2072() {
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeCollection(true);
+        browseBySubjectPage.clickOnSeeCollection(true);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testSaveCollectionButton(false, TestData.PLAN_VISITOR);
         user_rrpSearchTest.testCollectionGetFreeAccessForTenDaysButton(false);
-        collectionRrpPage.clickPanelItem(0);
+        collectionRrpPage.clickOnPanelItem(0);
         user_rrpSearchTest.testItemViewerSection();
-        collectionRrpPage.clickSeeFullReviewsLink();
+        collectionRrpPage.clickOnSeeFullReviewsLink();
         user_rrpSearchTest.testItemViewerSection();
     }
 
@@ -180,7 +180,7 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
     public void testC3765() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeCollection(true);
+        browseBySubjectPage.clickOnSeeCollection(true);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testCollectionMainButtons(true, TestData.PLAN_PRO);
     }
@@ -189,7 +189,7 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
     public void testC3766() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeCollection(true);
+        browseBySubjectPage.clickOnSeeCollection(true);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testCollectionRRPOverview(false, TestData.PLAN_PRO);
         user_rrpSearchTest.testPanelItemsOverview();
@@ -197,7 +197,7 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
 
     protected void testLpResourceOverview(String accountPlan, boolean inModal) {
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeReview(!inModal);
+        browseBySubjectPage.clickOnSeeReview(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testRegularResourceRRPOverview(inModal, accountPlan);
         if (!inModal) {
@@ -211,21 +211,21 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
     private void testLpResourceMainButtons(boolean inModal) {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeReview(!inModal);
+        browseBySubjectPage.clickOnSeeReview(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testLpResourceMainButtons(inModal, false);
     }
 
     protected void testLpResourceMainButtonsForActiveUser(String accountPlan, boolean inModal) {
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeReview(!inModal);
+        browseBySubjectPage.clickOnSeeReview(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testRegularResourceRRPOverview(inModal, accountPlan);
     }
 
     private void testLpResourceMainButtonsForVisitor(boolean inModal) {
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeReview(!inModal);
+        browseBySubjectPage.clickOnSeeReview(!inModal);
         if (inModal) {
             Assert.assertTrue(rrpModal.getModalId().contains(browseBySubjectPage.getRegularResourceCardDataId(0)));
         }
@@ -238,15 +238,14 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
     private void testCollectionButtonsForFreemium(boolean inModal) {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeCollection(!inModal);
-
+        browseBySubjectPage.clickOnSeeCollection(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testCollectionMainButtonsForFreemium(inModal);
     }
 
     protected void testCollectionOverview(String accountPlan, boolean inModal) {
         reachDirectoryPage();
-        browseBySubjectPage.clickSeeCollection(!inModal);
+        browseBySubjectPage.clickOnSeeCollection(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testCollectionRRPOverview(inModal, accountPlan);
         user_rrpSearchTest.testPanelItemsOverview();

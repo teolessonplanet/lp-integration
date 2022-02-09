@@ -22,7 +22,7 @@ public class StepOneModal extends LpUiBasePage {
         sendKeys(PASSWORD_INPUT, password);
     }
 
-    public void clickOnGetStartedToday() {
+    public void clickOnGetStartedTodayButton() {
         clickElement(GET_STARTED_TODAY_BUTTON);
     }
 
@@ -31,7 +31,7 @@ public class StepOneModal extends LpUiBasePage {
         return isElementClickable(TITLE_TEXT);
     }
 
-    public void clickCloseModal() {
+    public void clickOnCloseModal() {
         clickElement(CLOSE_MODAL_BUTTON);
     }
 

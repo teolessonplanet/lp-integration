@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RrpModal extends Rrp {
     private static final String RRP_MODAL = "#resource-modal";
-    private static final String CLOSE_MODAL_BUTTON = "[class*='resource-modal-close']";
+    private static final String RRP_X_BUTTON = "[class*='resource-modal-close']";
     private static final String RRP_MODAL_ID = "#resource-modal div";
 
     public RrpModal(WebDriver driver) {
@@ -15,8 +15,8 @@ public class RrpModal extends Rrp {
         waitForBootstrapModalToBeVisible(RRP_MODAL);
     }
 
-    public void clickCloseModal() {
-        clickElement(CLOSE_MODAL_BUTTON);
+    public void clickOnRrpModalXButton() {
+        clickElement(RRP_X_BUTTON);
     }
 
     public boolean isTitleDisplayed() {

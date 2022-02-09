@@ -14,9 +14,9 @@ public class AssignModal extends LpUiBasePage {
     private static final String CLOSE_BUTTON = "#popup-modal [class='close']";
     private static final String GOOGLE_CLASSROOM_BUTTON = "#assign-in-google-classroom";
     private static final String ENABLED_GOOGLE_CLASSROOM_BUTTON = "#assign-in-google-classroom [data-url*='collections/player/']";
-    private static final String SHOW_ACCESS_KEY_BUTTON = "#show-player-password";
+    private static final String SHOW_ACCESS_KEY_LINK = "#show-player-password";
     private static final String PASSWORD_TEXT = "#player-password-holder [class='pw-text']";
-    private static final String HIDE_ACCESS_KEY_BUTTON = "#hide-player-password";
+    private static final String HIDE_ACCESS_KEY_LINK = "#hide-player-password";
     private static final String SHARE_LINK_TEXT = "input[class$='share-link-input']";
 
     public AssignModal(WebDriver driver) {
@@ -71,16 +71,16 @@ public class AssignModal extends LpUiBasePage {
         return isElementDisplayed(ENABLED_GOOGLE_CLASSROOM_BUTTON);
     }
 
-    public void clickOnShowAccessKeyButton() {
-        clickElement(SHOW_ACCESS_KEY_BUTTON);
+    public void clickOnShowAccessKeyLink() {
+        clickElement(SHOW_ACCESS_KEY_LINK);
     }
 
     public String getPasswordText() {
         return getTextForElement(PASSWORD_TEXT);
     }
 
-    public void clickOnHideAccessKeyButton() {
-       clickElement(HIDE_ACCESS_KEY_BUTTON);
+    public void clickOnHideAccessKeyLink() {
+       clickElement(HIDE_ACCESS_KEY_LINK);
     }
 
     public String getShareLinkText() {

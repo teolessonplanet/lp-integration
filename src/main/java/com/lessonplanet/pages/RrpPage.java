@@ -28,11 +28,11 @@ public class RrpPage extends Rrp {
         super(driver);
     }
 
-    public void clickStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
+    public void clickOnStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(START_YOUR_FREE_TRIAL_UPGRADE_ME_BUTTON, inANewTab);
     }
 
-    public void clickBottomPageUpgradeMeButton(boolean inANewTab) {
+    public void clickOnBottomPageUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(BOTTOM_PAGE_UPGRADE_ME_BUTTON, inANewTab);
     }
 
@@ -64,7 +64,7 @@ public class RrpPage extends Rrp {
         return isElementDisplayed(ALL_RESOURCE_TYPES_DROPDOWN);
     }
 
-    public void clickAllResourceTypesDropdown() {
+    public void clickOnAllResourceTypesDropdown() {
         scrollToElement(ALL_RESOURCE_TYPES_DROPDOWN);
         clickElement(ALL_RESOURCE_TYPES_DROPDOWN);
     }
@@ -73,15 +73,15 @@ public class RrpPage extends Rrp {
         return getTextForElement(ALL_RESOURCE_TYPES_OPTIONS);
     }
 
-    public void clickStartYourFreeTrialTryItFreeButton(boolean inANewTab) {
+    public void clickOnStartYourFreeTrialTryItFreeButton(boolean inANewTab) {
         openInANewTabOrClick(START_YOUR_FREE_TRIAL_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickBottomPageTryItFreeButton(boolean inANewTab) {
+    public void clickOnBottomPageTryItFreeButton(boolean inANewTab) {
         openInANewTabOrClick(BOTTOM_PAGE_TRY_IT_FREE_BUTTON, inANewTab);
     }
 
-    public void clickLessonPlansResourceType() {
+    public void clickOnLessonPlansResourceType() {
         clickElement(LESSON_PLANS_RESOURCE_TYPE);
     }
 
@@ -122,7 +122,7 @@ public class RrpPage extends Rrp {
         return isElementDisplayed(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON);
     }
 
-    public void clickFreeSampleStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
+    public void clickOnFreeSampleStartYourFreeTrialUpgradeMeButton(boolean inANewTab) {
         openInANewTabOrClick(FREE_SAMPLE_RESOURCE_START_YOUR_FREE_TRIAL_SUBSCRIPTION_BUTTON, inANewTab);
     }
 }

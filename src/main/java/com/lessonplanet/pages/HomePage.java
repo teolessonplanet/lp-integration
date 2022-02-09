@@ -58,7 +58,7 @@ public class HomePage extends LpUiBasePage {
     private static final String EDUCATOR_EDITION_ICON = "[class='lpip-hp-section']:nth-child(3) i[class$='fa-globe']";
     private static final String EDUCATOR_EDITION_TITLE_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='lpip-hp-large-title']";
     private static final String EDUCATOR_EDITION_TEXT = "[class='lpip-hp-section']:nth-child(3) [class='text']";
-    private static final String EDUCATOR_EDITION_GIVE_A_TRY_BUTTON = "[class='lpip-hp-section']:nth-child(3) [href='/search']";
+    private static final String EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON = "[class='lpip-hp-section']:nth-child(3) [href='/search']";
     private static final String EDUCATOR_EDITION_LEARN_MORE_BUTTON = "[class='lpip-hp-section']:nth-child(3) [href='/educator-edition']";
 
     private static final String LEARNING_EXPLORER_AREA = "[class$='lpip-learning-explorer-section']";
@@ -323,7 +323,7 @@ public class HomePage extends LpUiBasePage {
         return getTextForElement(EXPLORE_OUR_SOLUTIONS_TEXT);
     }
 
-    public void clickOnContactUsAnytime() {
+    public void clickOnContactUsAnytimeLink() {
         clickElement(EXPLORE_OUR_SOLUTIONS_LINK);
     }
 
@@ -347,12 +347,12 @@ public class HomePage extends LpUiBasePage {
         return getTextForElement(EDUCATOR_EDITION_TEXT);
     }
 
-    public void clickOnEducatorEditionGiveATryButton() {
-        clickElement(EDUCATOR_EDITION_GIVE_A_TRY_BUTTON);
+    public void clickOnEducatorEditionGiveItATryButton() {
+        clickElement(EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON);
     }
 
-    public String getEducatorEditionGiveATryButtonText() {
-        return getTextForElement(EDUCATOR_EDITION_GIVE_A_TRY_BUTTON);
+    public String getEducatorEditionGiveItATryButtonText() {
+        return getTextForElement(EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON);
     }
 
     public void clickOnEducatorEditionLearnMoreButton() {

@@ -48,13 +48,13 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         headerPage.clickOnTryItFree(false);
         stepOneModal.typeEmail(TestData.GET_NEW_EMAIL());
         stepOneModal.typePassword(TestData.VALID_PASSWORD);
-        stepOneModal.clickOnGetStartedToday();
+        stepOneModal.clickOnGetStartedTodayButton();
 
         //check errors for invalid Card number, Expiration date and Cvv error
         stepTwoModal.typeCardNumber(TestData.INVALID_CARD_NUMBER);
         stepTwoModal.typeExpiration(TestData.INVALID_CARD_EXPIRATION);
         stepTwoModal.typeCvv(TestData.INVALID_CARD_CVV);
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
         Assert.assertEquals(stepTwoModal.getCardNumberError(), TestData.INVALID_CARD_NUMBER_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoModal.getExpirationError(), TestData.INVALID_CARD_EXPIRATION_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoModal.getCvvError(), TestData.INVALID_CARD_CVV_ERROR_MESSAGE);
@@ -62,7 +62,7 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         stepTwoModal.clearExpiration();
         stepTwoModal.clearCvv();
 
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
         // All 6 errors should be displayed
         Assert.assertEquals(stepTwoModal.getFirstNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoModal.getLastNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
@@ -81,7 +81,7 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         final String offerToSelect = getRandomOffer();
         stepTwoModal.selectOffer(offerToSelect);
 
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
         Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
         // check if selected subscription is met
         myAccountPage.loadPage();
@@ -100,7 +100,7 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         stepTwoPage.typeCardNumber(TestData.INVALID_CARD_NUMBER);
         stepTwoPage.typeExpiration(TestData.INVALID_CARD_EXPIRATION);
         stepTwoPage.typeCvv(TestData.INVALID_CARD_CVV);
-        stepTwoPage.clickOnStartMembership();
+        stepTwoPage.clickOnStartMembershipButton();
         Assert.assertEquals(TestData.INVALID_CARD_NUMBER_ERROR_MESSAGE, stepTwoPage.getCardNumberError());
         Assert.assertEquals(TestData.INVALID_CARD_EXPIRATION_ERROR_MESSAGE, stepTwoPage.getExpirationError());
         Assert.assertEquals(TestData.INVALID_CARD_CVV_ERROR_MESSAGE, stepTwoPage.getCvvError());
@@ -108,7 +108,7 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         stepTwoPage.clearExpiration();
         stepTwoPage.clearCvv();
 
-        stepTwoModal.clickOnStartMembership();
+        stepTwoModal.clickOnStartMembershipButton();
         // All 6 errors should be displayed
         Assert.assertEquals(stepTwoPage.getFirstNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
         Assert.assertEquals(stepTwoPage.getLastNameError(), TestData.THIS_FIELD_IS_REQUIRED_ERROR_MESSAGE);
@@ -127,7 +127,7 @@ public class User_AccountManagement_StepTwoTest extends BaseTest {
         final String offerToSelect = getRandomOffer();
         stepTwoPage.selectOffer(offerToSelect);
 
-        stepTwoPage.clickOnStartMembership();
+        stepTwoPage.clickOnStartMembershipButton();
         Assert.assertEquals(subscriptionSuccessPage.getTitle(), TestData.SUBSCRIPTION_SUCCESS_PAGE_TITLE);
         // check if selected subscription is met
         myAccountPage.loadPage();

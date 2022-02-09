@@ -13,7 +13,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     private HeaderPage headerPage;
     private CurriculumManagerPage curriculumManagerPage;
     private CreateNewFolderModal createNewFolderModal;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private EditResourceModal editResourceModal;
     private DiscoverResourcesPage discoverResourcesPage;
     private CollectionBuilderPage collectionBuilderPage;
@@ -47,7 +47,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         createNewFolderModal = new CreateNewFolderModal(webDriver);
         upgradeAssignModal = new UpgradeAssignModal(webDriver);
         upgradeUploadModal = new UpgradeUploadModal(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         editResourceModal = new EditResourceModal(webDriver);
         copyToModal = new CopyToModal(webDriver);
         removeModal = new RemoveModal(webDriver);
@@ -331,10 +331,10 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     public void testAccessCurriculumManagerPageFromSearchPage(boolean loggedIn) {
         discoverResourcesPage.loadPage();
-        collectionBuilderPage.clickOnMyResources();
+        collectionBuilderPage.clickOnViewMyResourcesButton();
         if (!loggedIn) {
-            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignInPopupLinkDisplayed());
-            Assert.assertTrue(collectionBuilderPage.isMyResourcesButtonSignUpPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isViewMyResourcesButtonSignInPopupLinkDisplayed());
+            Assert.assertTrue(collectionBuilderPage.isViewMyResourcesButtonSignUpPopupLinkDisplayed());
         } else {
             Assert.assertEquals(discoverResourcesPage.getPath(), TestData.CURRICULUM_MANAGER_PATH);
         }
@@ -342,7 +342,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     public void testCreateCollectionFromCollectionBuilder(String folderName) {
         collectionBuilderPage.clickOnDropdown();
-        collectionBuilderPage.clickOnCreateNewCollection();
+        collectionBuilderPage.clickOnCreateNewFolderOption();
         createNewFolderModal.waitForModal();
         createNewFolderModal.typeName(folderName);
         createNewFolderModal.clickOnCreateFolderButton();
@@ -472,9 +472,9 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         }
         discoverResourcesPage.checkLessonPlanetProvider();
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            discoverResourcesPage.clickSeeReview(false);
+            discoverResourcesPage.clickOnSeeReview(false);
         } else {
-            discoverResourcesPage.clickSeeFullReview(false);
+            discoverResourcesPage.clickOnSeeFullReview(false);
         }
         testFavoriteButton(TestData.REGULAR_RESOURCE_STATUS, TestData.RESOURCE_TYPE_LESSON);
     }
@@ -565,7 +565,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         curriculumManagerPage.clickOnGoToResourceButton();
         rrpModal.waitForModal();
         Assert.assertTrue(rrpPage.isTitleDisplayed());
-        rrpModal.clickCloseModal();
+        rrpModal.clickOnRrpModalXButton();
         Assert.assertTrue(curriculumManagerPage.getUrl().contains(TestData.CURRICULUM_MANAGER_PATH));
     }
 
@@ -621,7 +621,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         publishResourceModal.selectSubject(TestData.UPLOAD_YOUR_FILE_SUBJECT);
         publishResourceModal.selectResourceType(TestData.UPLOAD_YOUR_FILE_RESOURCE_TYPE);
         publishResourceModal.typeDescription(TestData.NEW_COLLECTION_DESCRIPTION);
-        publishResourceModal.clickAgreementOption();
+        publishResourceModal.clickOnAgreementCheckbox();
         publishResourceModal.clickOnPublishResourceButton();
     }
 
@@ -669,9 +669,9 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
-            discoverResourcesPage.clickSeeReview(false);
+            discoverResourcesPage.clickOnSeeReview(false);
         } else {
-            discoverResourcesPage.clickSeeFullReview(false);
+            discoverResourcesPage.clickOnSeeFullReview(false);
         }
         testAddToFolderButton();
     }
@@ -687,8 +687,8 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     public void testAddToFolderButton() {
         rrpModal.waitForModal();
         rrpModal.clickOnAddToFolderDropdown();
-        rrpModal.clickCollectionFromAddToCollectionDropdown();
-        rrpModal.clickAddToFolderButton();
+        rrpModal.clickOnFolderFromAddToFolderDropdown();
+        rrpModal.clickOnAddToFolderButton();
         //Assert.assertTrue(rrpModal.getNotificationText().contains(TestData.RESOURCE_ADDED_TO_FOLDER_NOTIFICATION_TEXT));
     }
 
@@ -725,10 +725,10 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
         //from here:
         curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.clickMoreDropdown();
-        editCollectionModal.clickOnPublishOption();
-        editCollectionModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
-        editCollectionModal.clickOnCloseButton();
+        editFolderModal.clickOnMoreDropdown();
+        editFolderModal.clickOnPublishOption();
+        editFolderModal.completePublishCollectionRequirements(accountPlanText, TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editFolderModal.clickOnCloseButton();
 
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -742,14 +742,14 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     }
 
     public void testPublishFolderModal(String accountPlanText) {
-        editCollectionModal.clickOnPublishCollectionButton();
+        editFolderModal.clickOnPublishCollectionButton();
 
         if (!accountPlanText.equals(TestData.VALID_EMAIL_CSL_HENRY) && !accountPlanText.equals(TestData.VALID_EMAIL_CSL_COBB) && !accountPlanText.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             publishedFolderModal.clickOnCloseButton();
         } else {
-            editCollectionModal.waitUntilPublishFolderSectionIsNotDisplayed();
+            editFolderModal.waitUntilPublishFolderSectionIsNotDisplayed();
         }
-        editCollectionModal.clickOnCloseButton();
+        editFolderModal.clickOnCloseButton();
         curriculumManagerPage.waitForRefreshIconToDisappear();
         Assert.assertEquals(TestData.PRIVATE_AND_PUBLISHED_STATUS, curriculumManagerPage.getFolderStatus());
     }
@@ -780,7 +780,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
             copyToModal.chooseMyResourcesTab();
         }
         copyToModal.typeName(TestData.COPIED_FOLDER_NAME);
-        copyToModal.clickMyResourcesDestinationFolder();
+        copyToModal.clickOnMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
         curriculumManagerPage.waitUntilSpinnerIsNotDisplayed();
         //Assert.assertTrue(curriculumManagerPage.getNotificationText().contains(TestData.COPIED_NOTIFICATION_TEXT));
@@ -832,7 +832,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
     private void testFavoriteFreeSampleResource() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.clickFreeFullAccessReview(false);
+        discoverResourcesPage.clickOnFreeFullAccessReview(false);
         testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_INTERACTIVE);
     }
 
@@ -870,7 +870,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         createNestedFoldersRequirement();
 
         curriculumManagerPage.clickOnFolder(0);
-        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), 2);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), 2);
         WebElement folder0 = curriculumManagerPage.getFolder(0);
         curriculumManagerPage.clickOnActionsDropdownButton(folder0);
         Assert.assertTrue(curriculumManagerPage.isPlayFolderButtonDisplayed(folder0));
@@ -901,18 +901,18 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         Assert.assertTrue(curriculumManagerPage.isDeleteFolderButtonDisplayed(null));
 
         curriculumManagerPage.clickOnEditFolderButton(null);
-        editCollectionModal.waitForModal();
+        editFolderModal.waitForModal();
         String folderTitle = TestData.GET_NEW_EMAIL();
-        editCollectionModal.clickEditDetails();
-        editCollectionModal.typeTitle(folderTitle);
+        editFolderModal.clickOnEditDetails();
+        editFolderModal.typeTitle(folderTitle);
 
-        editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickOnPixabayImageOption();
-        editCollectionModal.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
-        editCollectionModal.clickPixabaySearchButton();
-        editCollectionModal.clickOnPixabayImage(0);
-        editCollectionModal.clickAddSelectedToFolderButton();
-        editCollectionModal.clickOnCloseButton();
+        editFolderModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnPixabayImageOption();
+        editFolderModal.searchPixabayImage(TestData.PIXABAY_IMAGE_TITLE);
+        editFolderModal.clickOnPixabaySearchButton();
+        editFolderModal.clickOnPixabayImage(0);
+        editFolderModal.clickOnAddSelectedToFolderButton();
+        editFolderModal.clickOnCloseButton();
 
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
 
@@ -964,7 +964,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         if (copyToModal.isMyResourcesTabDisplayed()) {
             copyToModal.chooseMyResourcesTab();
         }
-        copyToModal.clickMyResourcesDestinationFolder();
+        copyToModal.clickOnMyResourcesDestinationFolder();
         copyToModal.clickOnCopyToSelectedFolderButton();
 
         curriculumManagerPage.clickOnActionsFromHeaderDropdownButton();
@@ -1007,7 +1007,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         Assert.assertEquals(collectionBuilderPage.getCollectionBuilderItemsNumber(), numberOfFolders);
         Assert.assertEquals(collectionBuilderPage.getNumberOfItemsInCollection(), numberOfFolders);
         curriculumManagerPage.clickOnFolder(0);
-        Assert.assertEquals(curriculumManagerPage.getCountFolderChilds(), numberOfFolders);
+        Assert.assertEquals(curriculumManagerPage.getCountFolderChildren(), numberOfFolders);
     }
 
     private void testDeleteItemsFromCollectionBuilder(int noOfFoldersExpectedToLeft) {

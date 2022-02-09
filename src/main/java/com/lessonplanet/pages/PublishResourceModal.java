@@ -45,7 +45,7 @@ public class PublishResourceModal extends LpUiBasePage {
         selectFromDropdown(RESOURCE_DROPDOWN_INPUT, RESOURCE_OPTIONS, resourceType);
     }
 
-    public void clickAgreementOption() {
+    public void clickOnAgreementCheckbox() {
         clickElement(AGREEMENT_CHECKBOX);
     }
 

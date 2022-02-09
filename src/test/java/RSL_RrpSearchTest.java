@@ -53,7 +53,7 @@ public class RSL_RrpSearchTest extends BaseTest {
         user_rrpSearchTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeCollectionUnit(false);
+        discoverResourcesPage.clickOnSeeCollectionUnit(false);
         user_rrpSearchTest.testCollectionRRPOverview(true, TestData.VALID_EMAIL_RSL_SBCEO);
         user_rrpSearchTest.testPanelItemsOverview();
     }
@@ -64,7 +64,7 @@ public class RSL_RrpSearchTest extends BaseTest {
         user_rrpSearchTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeCollectionUnit(true);
+        discoverResourcesPage.clickOnSeeCollectionUnit(true);
         user_rrpSearchTest.testCollectionRRPOverview(false, TestData.VALID_EMAIL_RSL_SBCEO);
         user_rrpSearchTest.testPanelItemsOverview();
     }
@@ -120,7 +120,7 @@ public class RSL_RrpSearchTest extends BaseTest {
             discoverResourcesPage.expandProvidersFacet();
         }
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.clickSeeFullReview(!inModal);
+        discoverResourcesPage.clickOnSeeFullReview(!inModal);
         user_rrpSearchTest.testLpResourceCommonButtons(inModal, account);
     }
 
@@ -135,7 +135,7 @@ public class RSL_RrpSearchTest extends BaseTest {
         user_rrpSearchTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeCollectionUnit(!inModal);
+        discoverResourcesPage.clickOnSeeCollectionUnit(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testCollectionOrUnitMainButtons(inModal, account);
     }

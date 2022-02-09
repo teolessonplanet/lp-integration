@@ -114,6 +114,12 @@
         <artifactId>msedge-selenium-tools-java</artifactId>
         <version>3.141.0</version>
       </dependency>
+      <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.4.0</version>
+        <scope>compile</scope>
+      </dependency>
 
     </dependencies>
 

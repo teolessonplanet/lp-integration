@@ -397,7 +397,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertTrue(homePage.isExplorerOurSolutionAreaDisplayed());
         Assert.assertEquals(TestData.EXPLORE_OUR_SOLUTION_TITLE_TEXT, homePage.getExploreOurSolutionsTitleText());
         Assert.assertEquals(TestData.EXPLORE_OUR_SOLUTION_TEXT, homePage.getExploreOurSolutionsText());
-        homePage.clickOnContactUsAnytime();
+        homePage.clickOnContactUsAnytimeLink();
         Assert.assertEquals(TestData.CONTACT_US_PAGE_PATH, homePage.getPath());
         homePage.goBackOnePage();
         Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, homePage.getPath());
@@ -411,10 +411,10 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertTrue(homePage.isEducatorEditionAreaDisplayed());
         Assert.assertEquals(TestData.EDUCATOR_EDITION_TITLE_TEXT, homePage.getEducatorEditionTitleText());
         Assert.assertEquals(TestData.EDUCATOR_EDITION_TEXT, homePage.getEducatorEditionText());
-        Assert.assertEquals(TestData.EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON_TEXT, homePage.getEducatorEditionGiveATryButtonText());
+        Assert.assertEquals(TestData.EDUCATOR_EDITION_GIVE_IT_A_TRY_BUTTON_TEXT, homePage.getEducatorEditionGiveItATryButtonText());
         Assert.assertEquals(TestData.LEARN_MORE_BUTTON_TEXT, homePage.getEducatorEditionLearnMoreButtonText());
         Assert.assertTrue(homePage.areEducatorEditionImagesDisplayed());
-        homePage.clickOnEducatorEditionGiveATryButton();
+        homePage.clickOnEducatorEditionGiveItATryButton();
         Assert.assertEquals(TestData.SEARCH_PAGE_PATH, homePage.getPath());
         homePage.goBackOnePage();
         homePage.clickOnEducatorEditionLearnMoreButton();
@@ -517,7 +517,7 @@ public class User_HomepageTest extends BaseTest {
 
             homePage.clickOnParentTabStartYouTenDaysButton();
             Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
-            stepOneModal.clickCloseModal();
+            stepOneModal.clickOnCloseModal();
             homePage.clickOnParentTabSeePricingButton();
             Assert.assertEquals(TestData.PRICING_PAGE_PATH, homePage.getPath());
 
@@ -538,7 +538,7 @@ public class User_HomepageTest extends BaseTest {
             Assert.assertEquals(TestData.INSPIRE_AREA_SEE_PRICING_BUTTON_TEXT, homePage.getEducatorTabSeePricingButtonText());
             homePage.clickOnEducatorTabStartYouTenDaysButton();
             Assert.assertEquals(stepOneModal.getTitleText(), TestData.STEP_ONE_MODAL_TITLE);
-            stepOneModal.clickCloseModal();
+            stepOneModal.clickOnCloseModal();
             homePage.clickOnEducatorTabSeePricingButton();
             Assert.assertEquals(TestData.PRICING_PAGE_PATH, homePage.getPath());
         } else {

@@ -92,22 +92,22 @@ public class User_SearchTest extends BaseTest {
     @Test(description = "Visitor - Search - C2080: User clicks 'Get Free Access' footer button", groups = {"visitor"})
     public void testC2080() {
         reachSearchPageInListView();
-        discoverResourcesPage.clickGetFreeAccess(true);
-        Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+        discoverResourcesPage.clickOnGetFreeAccess(true);
+        Assert.assertTrue(stepOnePage.isAlreadyAMemberLinkDisplayed());
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickGetFreeAccess(false);
+        discoverResourcesPage.clickOnGetFreeAccess(false);
         Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-        stepOneModal.clickCloseModal();
+        stepOneModal.clickOnCloseModal();
     }
 
     @Test(description = "Free member - Search - C2149: User clicks 'Get Free Access' footer button", groups = {"freemium"})
     public void testC2149() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
-        discoverResourcesPage.clickGetFreeAccess(true);
+        discoverResourcesPage.clickOnGetFreeAccess(true);
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickGetFreeAccess(false);
+        discoverResourcesPage.clickOnGetFreeAccess(false);
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
     }
 
@@ -168,10 +168,10 @@ public class User_SearchTest extends BaseTest {
     public void testC2153() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
-        discoverResourcesPage.clickFreeFullAccessReview(true);
+        discoverResourcesPage.clickOnFreeFullAccessReview(true);
         checkRrpSample(false, true, false);
         rrpPage.closeTab();
-        discoverResourcesPage.clickFreeFullAccessReview(false);
+        discoverResourcesPage.clickOnFreeFullAccessReview(false);
         rrpModal.waitForModal();
         checkRrpSample(false, true, false);
     }
@@ -241,10 +241,10 @@ public class User_SearchTest extends BaseTest {
 
     protected void testSeeCollection() {
         reachSearchPageInListView();
-        discoverResourcesPage.clickSeeCollection(true);
+        discoverResourcesPage.clickOnSeeCollection(true);
         Assert.assertTrue(collectionRrpPage.isSaveCollectionButtonDisplayed());
         rrpPage.closeTab();
-        discoverResourcesPage.clickSeeCollection(false);
+        discoverResourcesPage.clickOnSeeCollection(false);
         Assert.assertTrue(collectionRrpModal.isCollectionTitleDisplayed());
     }
 
@@ -294,7 +294,7 @@ public class User_SearchTest extends BaseTest {
         reachSearchPageInListView();
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.clickSeeReview(false);
+        discoverResourcesPage.clickOnSeeReview(false);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
@@ -302,7 +302,7 @@ public class User_SearchTest extends BaseTest {
             if (account.equals(TestData.PLAN_FREEMIUM)) {
                 //check free resource
                 discoverResourcesPage.loadPage();
-                discoverResourcesPage.clickFreeFullAccessReview(false);
+                discoverResourcesPage.clickOnFreeFullAccessReview(false);
                 rrpModal.waitForModal();
                 checkRrpSample(false, true, false);
             }
@@ -316,20 +316,20 @@ public class User_SearchTest extends BaseTest {
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
         discoverResourcesPage.loadPage();
-        discoverResourcesPage.clickSeeCollection(false);
+        discoverResourcesPage.clickOnSeeCollection(false);
         Assert.assertTrue(collectionRrpModal.isCollectionTitleDisplayed());
     }
 
     private void testSeeReviewButton() {
         reachSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(true);
+        discoverResourcesPage.clickOnSeeReview(true);
         Assert.assertTrue(rrpPage.isTitleDisplayed());
         checkRrpSample(true, false, false);
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickSeeReview(false);
+        discoverResourcesPage.clickOnSeeReview(false);
         Assert.assertTrue(rrpModal.isTitleDisplayed());
         checkRrpSample(true, false, false);
-        rrpModal.clickCloseModal();
+        rrpModal.clickOnRrpModalXButton();
     }
 
     private void testSeePreviewButton() {
@@ -342,18 +342,18 @@ public class User_SearchTest extends BaseTest {
         discoverResourcesPage.clickSeePreview(false);
         rrpModal.waitForModal();
         Assert.assertTrue(rrpModal.isGoToResourceButtonDisplayed());
-        rrpModal.clickCloseModal();
+        rrpModal.clickOnRrpModalXButton();
     }
 
     private void testGoToResourceButtonForSharedResource() {
         reachSearchPageInListView();
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.clickGoToResourceForSharedResource(true);
+        discoverResourcesPage.clickOnGoToResourceForSharedResource(true);
         Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL));
         discoverResourcesPage.closeTab();
         final int tabsOpened = discoverResourcesPage.getCountOpenedTabs();
-        discoverResourcesPage.clickGoToResourceForSharedResource(false);
+        discoverResourcesPage.clickOnGoToResourceForSharedResource(false);
         // the resource is opened in the same tab or in a new one
         if (tabsOpened != discoverResourcesPage.getCountOpenedTabs()) {
             discoverResourcesPage.waitForNewTab();
@@ -374,12 +374,12 @@ public class User_SearchTest extends BaseTest {
         }
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
-        discoverResourcesPage.clickGoToResourceForRegularResource(true);
+        discoverResourcesPage.clickOnGoToResourceForRegularResource(true);
         String currentUrl = discoverResourcesPage.getUrl();
         boolean assertResult = currentUrl.contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || !currentUrl.contains(TestData.SERVER_URL);
         Assert.assertTrue(assertResult);
         discoverResourcesPage.closeTab();
-        discoverResourcesPage.clickGoToResourceForRegularResource(false);
+        discoverResourcesPage.clickOnGoToResourceForRegularResource(false);
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
@@ -390,19 +390,19 @@ public class User_SearchTest extends BaseTest {
 
     private void checkRrpSample(boolean limitedAccess, boolean freeSample, boolean fullReview) {
         if (limitedAccess) {
-            Assert.assertTrue(rrpModal.isLimitedAccessReviewDisplayed());
+            Assert.assertTrue(rrpModal.isLimitedAccessReviewBannerDisplayed());
         } else {
-            Assert.assertFalse(rrpModal.isLimitedAccessReviewDisplayed());
+            Assert.assertFalse(rrpModal.isLimitedAccessReviewBannerDisplayed());
         }
         if (freeSample) {
-            Assert.assertTrue((rrpModal.isFreeSampleDisplayed()));
+            Assert.assertTrue((rrpModal.isFreeSampleBadgeDisplayed()));
         } else {
-            Assert.assertFalse(rrpModal.isFreeSampleDisplayed());
+            Assert.assertFalse(rrpModal.isFreeSampleBadgeDisplayed());
         }
         if (fullReview) {
-            Assert.assertTrue(rrpModal.isFullReviewDisplayed());
+            Assert.assertTrue(rrpModal.isFullReviewBannerDisplayed());
         } else {
-            Assert.assertFalse(rrpModal.isFullReviewDisplayed());
+            Assert.assertFalse(rrpModal.isFullReviewBannerDisplayed());
         }
     }
 
@@ -591,14 +591,14 @@ public class User_SearchTest extends BaseTest {
     protected void testSeeFullReviewButton(String account) {
         reachSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
-        discoverResourcesPage.clickSeeFullReview(true);
+        discoverResourcesPage.clickOnSeeFullReview(true);
         if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             checkRrpSample(false, false, false);
         } else {
             checkRrpSample(false, false, true);
         }
         rrpPage.closeTab();
-        discoverResourcesPage.clickSeeFullReview(false);
+        discoverResourcesPage.clickOnSeeFullReview(false);
         rrpModal.waitForModal();
         if (account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             checkRrpSample(false, false, false);

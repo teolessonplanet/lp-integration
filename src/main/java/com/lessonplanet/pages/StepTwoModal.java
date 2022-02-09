@@ -97,7 +97,7 @@ public class StepTwoModal extends LpHomePage {
         return getTextForElement(ZIPCODE_INPUT + ERROR_SUFFIX);
     }
 
-    public void clickOnStartMembership() {
+    public void clickOnStartMembershipButton() {
         clickElement(START_MEMBERSHIP_BUTTON);
     }
 
