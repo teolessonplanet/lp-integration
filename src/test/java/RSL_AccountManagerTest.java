@@ -208,7 +208,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         editDistrictModal.clickOnSaveButton();
         manageDistrictPage.clickOnEditOrganizationButton();
         Assert.assertEquals(editDistrictModal.getOrganizationShortNameInput(), TestData.CONCEPT);
-        editDistrictModal.clickXButton();
+        editDistrictModal.clickOnXButton();
         Assert.assertEquals(districtPage.getOrganizationName(), districtName);
     }
 

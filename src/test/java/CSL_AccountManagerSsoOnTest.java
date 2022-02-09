@@ -176,7 +176,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         manageDistrictPage.clickOnManageDistrictButton();
         manageDistrictAdminsPage.clickOnEditButton(0);
         Assert.assertTrue(editOwnerModal.isPublishCheckboxChecked());
-        editOwnerModal.clickPublishCheckbox();
+        editOwnerModal.clickOnPublishCheckbox();
         editOwnerModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -186,7 +186,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnManageDistrictButton();
         manageDistrictAdminsPage.clickOnEditButton(0);
-        editOwnerModal.clickPublishCheckbox();
+        editOwnerModal.clickOnPublishCheckbox();
         editOwnerModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -211,7 +211,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE) && schoolPage.getTeacherRole(0).contains(TestData.SCHOOL_ADMIN_ROLE));
         schoolPage.clickOnManageAdminsButton();
         manageSchoolAdminsPage.clickOnEditButton(0);
-        editSchoolAdminModal.clickPublishCheckbox();
+        editSchoolAdminModal.clickOnPublishCheckbox();
         editSchoolAdminModal.clickOnSaveButton();
         manageSchoolAdminsPage.clickXButton();
         Assert.assertEquals(schoolPage.getTeacherRole(0), TestData.SCHOOL_ADMIN_ROLE);
@@ -222,7 +222,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testTeacherPublisherRole() {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnEditOrganizationButton();
-        editDistrictModal.clickTeacherPublishCheckbox();
+        editDistrictModal.clickOnTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
         manageDistrictPage.clickOnAccountManagerBreadcrumbs();
         rsl_accountManagerTest.testAddSchool();
@@ -237,7 +237,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         editDistrictModal.clickOnCancelButton();
         Assert.assertTrue(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE) && schoolPage.getTeacherRole(0).contains(TestData.TEACHER_ROLE));
         schoolPage.clickEditActionButton(0);
-        editTeacherModal.clickPublishCheckbox();
+        editTeacherModal.clickOnPublishCheckbox();
         editTeacherModal.clickOnSaveButton();
         Assert.assertEquals(schoolPage.getTeacherRole(0), TestData.TEACHER_ROLE);
         Assert.assertFalse(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE));
@@ -245,7 +245,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnEditOrganizationButton();
         Assert.assertTrue(editDistrictModal.isTeacherPublishCheckboxChecked());
-        editDistrictModal.clickTeacherPublishCheckbox();
+        editDistrictModal.clickOnTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
 
         schoolPage.clickOnAccountManagerBreadcrumbs();

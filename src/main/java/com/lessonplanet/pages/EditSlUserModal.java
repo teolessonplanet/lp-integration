@@ -60,7 +60,7 @@ public class EditSlUserModal extends LpUiBasePage {
         return getElementAttribute(LAST_NAME_INPUT, "disabled", 0).equals("true");
     }
 
-    public void clickPublishCheckbox() {
+    public void clickOnPublishCheckbox() {
         clickElement(PUBLISH_CHECKBOX);
     }
 

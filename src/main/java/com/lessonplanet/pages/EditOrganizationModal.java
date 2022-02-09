@@ -55,7 +55,7 @@ public abstract class EditOrganizationModal extends LpUiBasePage {
         return getTextForElement(TEACHER_PUBLISH_OPTION_TEXT);
     }
 
-    public void clickTeacherPublishCheckbox() {
+    public void clickOnTeacherPublishCheckbox() {
         clickElement(TEACHER_PUBLISH_CHECKBOX);
     }
 
@@ -83,7 +83,7 @@ public abstract class EditOrganizationModal extends LpUiBasePage {
         clickElement(CANCEL_BUTTON);
     }
 
-    public void clickXButton() {
+    public void clickOnXButton() {
         clickElement(X_BUTTON);
     }
 
