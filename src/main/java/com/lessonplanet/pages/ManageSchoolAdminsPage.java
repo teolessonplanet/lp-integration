@@ -3,7 +3,9 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 
 public class ManageSchoolAdminsPage extends ManageDistrictAdminsPage {
+
     private static final String ADD_LINK_POPOVER_TEXT = "[class='group-table admins'] [class*='placeholder'] a [class*='popuptext']";
+    private static final String ADD_ADMIN_LINK = "[class='group-table admins'] [class*='placeholder'] a";
 
     public ManageSchoolAdminsPage(WebDriver driver) {
         super(driver);

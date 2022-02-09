@@ -61,17 +61,17 @@ public class RSL_AccountManagerTest extends BaseTest {
     public void testLessonp_901() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false, true);
-        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false, true);
-        testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false, true);
-        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, true);
-        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_OWNER_FIRST_NAME + " " + TestData.RSL_SBCEO_OWNER_LAST_NAME, false, true);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false);
+        testSearchButtonFromDistrictPage(TestData.INVALID_EMAIL, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false);
+        testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_OWNER_FIRST_NAME + " " + TestData.RSL_SBCEO_OWNER_LAST_NAME, false);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin", groups = {"rsl"})
     public void testLessonp_904() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
-        testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER, false, TestData.EXISTING_DISTRICT_ADMIN_ERROR_TEXT);
+        testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER, false);
         testRemoveDistrictAdmin(TestData.RSL_SBCEO_DISTRICT_NAME);
     }
 
@@ -103,10 +103,10 @@ public class RSL_AccountManagerTest extends BaseTest {
         testRemoveSchool();
 
         districtPage.clickOnExistingSchool(TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
-        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false, true);
-        testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, false, true);
-        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, true);
-        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME + " " + TestData.RSL_SBCEO_TEACHER_LAST_NAME, false, true);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false);
+        testSearchButtonFromSchoolPage(TestData.INVALID_EMAIL, false);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_LAST_NAME, false);
+        testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME + " " + TestData.RSL_SBCEO_TEACHER_LAST_NAME, false);
     }
 
     @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
@@ -129,7 +129,7 @@ public class RSL_AccountManagerTest extends BaseTest {
     @Test(description = "Regular SL - Account Manager - lessonp-5869: Manage District Page", groups = {"rsl"})
     public void testLessonp_5869() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
-        testManageDistrictPage(false, true);
+        testManageDistrictPage(false);
     }
 
     public void initAndReachRSLAccountManagerTest(WebDriver webDriver) {
@@ -207,8 +207,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         }
         editDistrictModal.clickOnSaveButton();
         manageDistrictPage.clickOnEditOrganizationButton();
-        Assert.assertEquals(editDistrictModal.getDistrictShortName(), TestData.CONCEPT);
-        editDistrictModal.clickXButton();
+        Assert.assertEquals(editDistrictModal.getOrganizationShortNameInput(), TestData.CONCEPT);
+        editDistrictModal.clickOnXButton();
         Assert.assertEquals(districtPage.getOrganizationName(), districtName);
     }
 
@@ -257,7 +257,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         }
     }
 
-    public void testAddDistrictAdmin(String adminEmail, boolean roster, String notification) {
+    public void testAddDistrictAdmin(String adminEmail, boolean roster) {
         manageDistrictAdminsPage.clickOnAddAdminLink();
         addADistrictAdminModal.typeEmail(adminEmail);
         addADistrictAdminModal.clickOnAddButton();
@@ -282,7 +282,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertEquals(districtPage.getOrganizationName(), organizationName);
     }
 
-    public void testSearchButtonFromDistrictPage(String text, boolean roster, boolean district) {
+    public void testSearchButtonFromDistrictPage(String text, boolean roster) {
         districtPage.clickOnSearchButton();
         districtPage.typeText(text);
         districtPage.clickOnSearchButton();
@@ -371,14 +371,14 @@ public class RSL_AccountManagerTest extends BaseTest {
             if (district) {
                 for (int i = 0; i < schoolPage.getTeachersNumber(); i++) {
                     Assert.assertTrue(schoolPage.isTeacherEmailDisplayed(i));
-                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE));
+                    Assert.assertTrue(schoolPage.getTeacherRole(i).contains(TestData.SCHOOL_ADMIN_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.TEACHER_ROLE) || schoolPage.getTeacherRole(i).contains(TestData.DISTRICT_ADMIN_ROLE));
                     schoolPage.hoverOverEditButton(i);
-                    Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT));
+                    Assert.assertTrue(schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_TEACHER_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getEditButtonPopoverText().contains(TestData.ENABLED_EDIT_DISTRICT_ADMIN_POPOVER_TEXT));
                     schoolPage.hoverOverRemoveButton(i);
                     if (!roster) {
                         Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_OWNER_POPOVER_TEXT));
                     } else {
-                        Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT));
+                        Assert.assertTrue(schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_ROSTER_ON_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_SCHOOL_ADMIN_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_TEACHER_POPOVER_TEXT) || schoolPage.getRemoveButtonPopoverText().contains(TestData.REMOVE_DISTRICT_ADMIN_POPOVER_TEXT));
                     }
                 }
             } else {
@@ -594,7 +594,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         Assert.assertEquals(manageSchoolAdminsPage.getAdminsNumber(), adminsNumber - 1);
     }
 
-    public void testSearchButtonFromSchoolPage(String text, boolean roster, boolean district) {
+    public void testSearchButtonFromSchoolPage(String text, boolean roster) {
         schoolPage.clickOnSearchButton();
         schoolPage.typeText(text);
         schoolPage.clickOnSearchButton();
@@ -624,7 +624,7 @@ public class RSL_AccountManagerTest extends BaseTest {
         schoolPage.clickClearSearchButton();
     }
 
-    public void testManageDistrictPage(boolean roster, boolean district) {
+    public void testManageDistrictPage(boolean roster) {
         districtPage.clickOnManageDistrictButton();
         Assert.assertTrue(manageDistrictPage.isAccountManagerBreadcrumbsDisplayed());
         Assert.assertTrue(manageDistrictPage.isOrganizationNameDisplayed());

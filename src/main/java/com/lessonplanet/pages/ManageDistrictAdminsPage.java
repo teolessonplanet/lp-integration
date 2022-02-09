@@ -8,18 +8,18 @@ import java.util.List;
 public class ManageDistrictAdminsPage extends ManageDistrictPage {
 
     protected static final String ADD_ADMIN_LINK = "[class='group-table admins'] [class*='placeholder'] a";
+    private static final String ADD_ADMIN_LINK_EDIT_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-success disabled']";
+    private static final String ADD_ADMIN_LINK_REMOVE_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-danger disabled']";
     private static final String TITLE_TEXT = "[class='se-manage-admins-title']";
     private static final String X_BUTTON = "[class='se-close-manage-admins']";
     private static final String ADMINS_LIST = "[class='group-table admins'] [class='group-row member member']";
+    private static final String STARRED_ADMIN_ICON = "[class='group-table admins'] [class='group-row member member'] [class*='fa-asterisk']";
+    private static final String STARRED_ADMIN_ICON_POPOVER_TEXT = "[class='group-table admins'] [class='group-row member member'] [class='popuptext show']";
     private static final String ADMIN_EMAIL_TEXT = "[class='group-table admins'] [class='group-row member member'] [class*='email']";
     private static final String REMOVE_BUTTON = "[class='group-table admins'] [class='group-row member member'] [class*='btn-danger']";
     private static final String REMOVE_BUTTON_POPOVER_TEXT = "[class='group-table admins'] [class='popuptext show']";
-    private static final String ADD_ADMIN_LINK_REMOVE_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-danger disabled']";
     private static final String EDIT_BUTTON = "[class='group-table admins'] [class='group-row member member'] [class*='btn-success']";
     private static final String EDIT_BUTTON_POPOVER_TEXT = "[class='group-table admins'] [class*='btn-success'] [class='popuptext show']";
-    private static final String ADD_ADMIN_LINK_EDIT_BUTTON = "[class='group-table admins'] [class='group-row member placeholder'] [class*='btn-success disabled']";
-    private static final String STARRED_ADMIN_ICON = "[class='group-table admins'] [class='group-row member member'] [class*='fa-asterisk']";
-    private static final String STARRED_ADMIN_ICON_POPOVER_TEXT = "[class='group-table admins'] [class='group-row member member'] [class='popuptext show']";
 
     public ManageDistrictAdminsPage(WebDriver driver) {
         super(driver);

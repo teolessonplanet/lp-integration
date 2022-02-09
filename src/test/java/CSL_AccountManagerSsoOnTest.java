@@ -55,10 +55,10 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testEditDistrict(TestData.CSL_HENRY_DISTRICT_NAME, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.VALID_EMAIL_CSL_HENRY, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.PLAN_VISITOR, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME, true, true);
-        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_HENRY_OWNER_FIRST_NAME + " " + TestData.CSL_HENRY_OWNER_LAST_NAME, true, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.VALID_EMAIL_CSL_HENRY, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.PLAN_VISITOR, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME, true);
+        rsl_accountManagerTest.testSearchButtonFromDistrictPage(TestData.CSL_HENRY_OWNER_FIRST_NAME + " " + TestData.CSL_HENRY_OWNER_LAST_NAME, true);
     }
 
     @Test(description = "Custom SL - Account Manager - lessonp-1299: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin", groups = {"csl"})
@@ -66,7 +66,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testManageDistrictAdminsPage(TestData.VALID_EMAIL_CSL_HENRY, true, false);
-        rsl_accountManagerTest.testAddDistrictAdmin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, false, TestData.EXISTING_USER_ANOTHER_SL_ERROR_TEXT);
+        rsl_accountManagerTest.testAddDistrictAdmin(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, false);
         testEditDistrictAdmin();
         testEditOwner();
         rsl_accountManagerTest.testRemoveDistrictAdmin(TestData.CSL_HENRY_DISTRICT_NAME);
@@ -99,10 +99,10 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         schoolPage.clickOnAccountManagerBreadcrumbs();
         rsl_accountManagerTest.testRemoveSchool();
         districtPage.clickOnExistingSchool(TestData.CSL_HENRY_EXISTING_SCHOOL_NAME);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, true, true);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.PLAN_VISITOR, true, true);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME, true, true);
-        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME + " " + TestData.CSL_HENRY_TEACHER_LAST_NAME, true, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_EXISTING_TEACHER_EMAIL, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.PLAN_VISITOR, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME, true);
+        rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.CSL_HENRY_TEACHER_FIRST_NAME + " " + TestData.CSL_HENRY_TEACHER_LAST_NAME, true);
     }
 
     @Test(description = "Custom SL - Account Manager - lessonp-1289: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin", groups = {"csl"})
@@ -125,7 +125,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testLessonp_5870() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
-        rsl_accountManagerTest.testManageDistrictPage(false, true);
+        rsl_accountManagerTest.testManageDistrictPage(false);
     }
 
     @Test(description = "Custom SL - Account Manager - lessonp-5115: Ability to Publish", groups = {"csl"})
@@ -144,31 +144,31 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
 
     public void testEditDistrictAdmin() {
         manageDistrictAdminsPage.clickOnEditButton(1);
-        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isDistrictAdminRoleChecked());
-        editTeacherModal.clickOnSaveButton();
+        Assert.assertTrue(editDistrictAdminModal.isEmailFieldDisabled());
+        Assert.assertTrue(editDistrictAdminModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editDistrictAdminModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editDistrictAdminModal.isDistrictAdminRoleChecked());
+        editDistrictAdminModal.clickOnSaveButton();
     }
 
     public void testEditOwner() {
         manageDistrictAdminsPage.clickOnEditButton(0);
-        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isTeacherRoleDisabled());
-        Assert.assertTrue(editTeacherModal.isDistrictAdminRoleDisabled());
-        Assert.assertTrue(editTeacherModal.isSchoolAdminRoleDisabled());
-        editTeacherModal.clickOnSaveButton();
+        Assert.assertTrue(editOwnerModal.isEmailFieldDisabled());
+        Assert.assertTrue(editOwnerModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editOwnerModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editOwnerModal.isTeacherRoleDisabled());
+        Assert.assertTrue(editOwnerModal.isDistrictAdminRoleDisabled());
+        Assert.assertTrue(editOwnerModal.isSchoolAdminRoleDisabled());
+        editOwnerModal.clickOnSaveButton();
     }
 
     public void testEditSchoolAdmin() {
         manageSchoolAdminsPage.clickOnEditButton(0);
-        Assert.assertTrue(editTeacherModal.isEmailFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isFirstNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isLastNameFieldDisabled());
-        Assert.assertTrue(editTeacherModal.isSchoolAdminRoleChecked());
-        editTeacherModal.clickOnSaveButton();
+        Assert.assertTrue(editSchoolAdminModal.isEmailFieldDisabled());
+        Assert.assertTrue(editSchoolAdminModal.isFirstNameFieldDisabled());
+        Assert.assertTrue(editSchoolAdminModal.isLastNameFieldDisabled());
+        Assert.assertTrue(editSchoolAdminModal.isSchoolAdminRoleChecked());
+        editSchoolAdminModal.clickOnSaveButton();
     }
 
     public void testOwnerPublisherRole() {
@@ -176,7 +176,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         manageDistrictPage.clickOnManageDistrictButton();
         manageDistrictAdminsPage.clickOnEditButton(0);
         Assert.assertTrue(editOwnerModal.isPublishCheckboxChecked());
-        editOwnerModal.clickPublishCheckbox();
+        editOwnerModal.clickOnPublishCheckbox();
         editOwnerModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnActionsDropdown();
@@ -186,8 +186,8 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnManageDistrictButton();
         manageDistrictAdminsPage.clickOnEditButton(0);
-        editOwnerModal.clickPublishCheckbox();
-        editDistrictAdminModal.clickOnSaveButton();
+        editOwnerModal.clickOnPublishCheckbox();
+        editOwnerModal.clickOnSaveButton();
         curriculumManagerPage.loadPage();
         curriculumManagerPage.clickOnActionsDropdown();
         Assert.assertTrue(curriculumManagerPage.isPublishButtonDisplayed());
@@ -211,7 +211,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         Assert.assertTrue(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE) && schoolPage.getTeacherRole(0).contains(TestData.SCHOOL_ADMIN_ROLE));
         schoolPage.clickOnManageAdminsButton();
         manageSchoolAdminsPage.clickOnEditButton(0);
-        editSchoolAdminModal.clickPublishCheckbox();
+        editSchoolAdminModal.clickOnPublishCheckbox();
         editSchoolAdminModal.clickOnSaveButton();
         manageSchoolAdminsPage.clickXButton();
         Assert.assertEquals(schoolPage.getTeacherRole(0), TestData.SCHOOL_ADMIN_ROLE);
@@ -222,7 +222,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
     public void testTeacherPublisherRole() {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnEditOrganizationButton();
-        editDistrictModal.clickTeacherPublishCheckbox();
+        editDistrictModal.clickOnTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
         manageDistrictPage.clickOnAccountManagerBreadcrumbs();
         rsl_accountManagerTest.testAddSchool();
@@ -237,7 +237,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         editDistrictModal.clickOnCancelButton();
         Assert.assertTrue(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE) && schoolPage.getTeacherRole(0).contains(TestData.TEACHER_ROLE));
         schoolPage.clickEditActionButton(0);
-        editTeacherModal.clickPublishCheckbox();
+        editTeacherModal.clickOnPublishCheckbox();
         editTeacherModal.clickOnSaveButton();
         Assert.assertEquals(schoolPage.getTeacherRole(0), TestData.TEACHER_ROLE);
         Assert.assertFalse(schoolPage.getTeacherRole(0).contains(TestData.PUBLISHER_ROLE));
@@ -245,7 +245,7 @@ public class CSL_AccountManagerSsoOnTest extends BaseTest {
         districtPage.clickOnManageDistrictButton();
         manageDistrictPage.clickOnEditOrganizationButton();
         Assert.assertTrue(editDistrictModal.isTeacherPublishCheckboxChecked());
-        editDistrictModal.clickTeacherPublishCheckbox();
+        editDistrictModal.clickOnTeacherPublishCheckbox();
         editDistrictModal.clickOnSaveButton();
 
         schoolPage.clickOnAccountManagerBreadcrumbs();
