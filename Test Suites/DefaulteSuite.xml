@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+  <listeners>
+    <listener class-name="listeners.CustomReports"/>
+    <listener class-name="listeners.TestNGListeners"></listener>
+  </listeners>
+  <test name="lp-integration">
+    <classes>
+      <class name="Cobb_AccountManagerTest"/>
+      <class name="Cobb_CalendarPageTest"/>
+      <class name="Cobb_CanViewTest"/>
+      <class name="Cobb_CollectionBuilderTest"/>
+      <class name="Cobb_ContentManagerTest"/>
+      <class name="Cobb_CurriculumManagerTest"/>
+      <class name="Cobb_DirectoryMainPage"/>
+      <class name="Cobb_DirectoryCategoriesAndSubcategoriesPageTest"/>
+      <class name="Cobb_EditCollectionTest"/>
+      <class name="Cobb_HeaderTest"/>
+      <class name="Cobb_PublishCollectionTest"/>
+      <class name="Cobb_RrpSearchPageTest"/>
+      <class name="Cobb_SearchTest"/>
+      <class name="CSL_AccountManagerSsoOnTest"/>
+      <class name="CSL_AccountManagerRosterOnTest"/>
+      <class name="CSL_CalendarPageTest"/>
+      <class name="CSL_CanEditTest"/>
+      <class name="CSL_CanViewTest"/>
+      <class name="CSL_CollectionPlayerTest"/>
+      <class name="CSL_CollectionBuilderTest"/>
+      <class name="CSL_ContentManagerTest"/>
+      <class name="CSL_CurriculumManagerTest"/>
+      <class name="CSL_DirectoryMainPageTest"/>
+      <class name="CSL_DirectoryCategoriesAndSubcategoriesPageTest"/>
+      <class name="CSL_EditCollectionTest"/>
+      <class name="CSL_HeaderTest"/>
+      <class name="CSL_PublishCollectionTest"/>
+      <class name="CSL_RrpSearchPageTest"/>
+      <class name="CSL_SearchTest"/>
+      <class name="CSL_SharedByMyDistrictTest"/>
+      <class name="RSL_AccountManagerTest"/>
+      <class name="RSL_AccountManager_School_SL"/>
+      <class name="RSL_CalendarPageTest"/>
+      <class name="RSL_CanEditTest"/>
+      <class name="RSL_CanViewTest"/>
+      <class name="RSL_CollectionBuilderTest"/>
+      <class name="RSL_CollectionPlayerTest"/>
+      <class name="RSL_ContentManagerTest"/>
+      <class name="RSL_CurriculumManagerTest"/>
+      <class name="RSL_DirectoryMainPageTest"/>
+      <class name="RSL_DirectoryCategoriesAndSubcategoriesPageTest"/>
+      <class name="RSL_EditCollectionTest"/>
+      <class name="RSL_HeaderTest"/>
+      <class name="RSL_Iframe_FooterTest"/>
+      <class name="RSL_PublishCollection"/>
+      <class name="RSL_RrpDirectoryPageTest"/>
+      <class name="RSL_RrpSearchPageTest"/>
+      <class name="RSL_SearchTest"/>
+      <class name="User_AccountManagementTest"/>
+      <class name="User_ArticlesPageTest"/>
+      <class name="User_CalendarPageTest"/>
+      <class name="User_CollectionBuilderTest"/>
+      <class name="User_CollectionPlayerTest"/>
+      <class name="User_CurriculumManagerPageTest"/>
+      <class name="User_DirectoryMainPageTest"/>
+      <class name="User_DirectoryCategoriesAndSubcategoriesPageTest"/>
+      <class name="User_EditCollectionTest"/>
+      <class name="User_FooterTest"/>
+      <class name="User_HeaderTest"/>
+      <class name="User_HomePageTest"/>
+      <class name="User_LoginTest"/>
+      <class name="User_PublishCollectionTest"/>
+      <class name="User_RrpDirectoryPageTest"/>
+      <class name="User_RrpSearchPageTest"/>
+      <class name="User_SearchTest"/>
+      <class name="User_SignupTest"/>
+      <class name="User_StepTwoTest"/>
+    </classes>
+  </test>
+</suite>

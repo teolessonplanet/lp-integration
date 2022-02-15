@@ -1,4 +1,4 @@
-package util;
+package logs;
 
 public class ExecutionTimer {
     private long start;

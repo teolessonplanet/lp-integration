@@ -1,6 +1,7 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import logs.Log;
 import util.TestData;
 import org.openqa.selenium.WebElement;
 
@@ -108,7 +109,7 @@ public class StepTwoPage extends LpUiBasePage {
                 clickElement(options, 1);
                 break;
             default:
-                logger.error("No option is selected");
+                Log.error("No option is selected");
                 break;
         }
     }
@@ -147,7 +148,7 @@ public class StepTwoPage extends LpUiBasePage {
                 driver.get(String.format(STAGING_CREATE_USER_URL, accountPlan, email));
                 lpHomePage.loadPage();
                 if (headerPage.isUsernameDropDownDisplayed()) {
-                    logger.info("Account created via endpoint");
+                    Log.info("Account created via endpoint");
                     accountCreated = true;
                 }
             } else {
@@ -170,7 +171,7 @@ public class StepTwoPage extends LpUiBasePage {
                     completeStepTwoPageWith(accountPlan);
                     loadUrl(currentPath);
                 }
-                logger.info("Account created via UI");
+                Log.info("Account created via UI");
             } else {
                 // we have visitor account
                 email = null;

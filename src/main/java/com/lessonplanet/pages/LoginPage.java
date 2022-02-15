@@ -1,6 +1,7 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import logs.Log;
 import util.TestData;
 
 public class LoginPage extends LpUiBasePage {
@@ -51,7 +52,7 @@ public class LoginPage extends LpUiBasePage {
         if (STAGING_LOGIN_URL.startsWith(TestData.SERVER_URL)) {
             driver.get(STAGING_LOGIN_URL + email);
             if (headerPage.isUsernameDropDownDisplayed()) {
-                logger.info("Successful login via endpoint");
+                Log.info("Successful login via endpoint");
                 loggedIn = true;
             }
         }
@@ -63,7 +64,7 @@ public class LoginPage extends LpUiBasePage {
             typePassword(password);
             clickOnSignInButton();
             if (headerPage.isUsernameDropDownDisplayed()) {
-                logger.info("Successful login via UI");
+                Log.info("Successful login via UI");
                 loadUrl(path);
             } else {
                 throw new Error("Invalid login error with: " + email + ":" + password);
