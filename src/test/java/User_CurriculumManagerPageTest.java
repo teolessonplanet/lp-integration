@@ -666,6 +666,8 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     public void testAddRegularResourceToFolder(String accountPlanText) {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
+        discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS);
         if (accountPlanText.equals(TestData.PLAN_FREEMIUM)) {
             discoverResourcesPage.clickSeeReview(false);
         } else {
@@ -829,8 +831,9 @@ public class User_CurriculumManagerPageTest extends BaseTest {
 
     private void testFavoriteFreeSampleResource() {
         discoverResourcesPage.loadSearchPageInListView();
+        discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickFreeFullAccessReview(false);
-        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_PRESENTATION);
+        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_INTERACTIVE);
     }
 
     protected void testDraggingFoldersIntoAnotherFolder(String accountPlan) {

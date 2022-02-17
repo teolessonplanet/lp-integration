@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
 
+import java.util.List;
+
 public class HomePage extends LpUiBasePage {
 
     private static final String DISCOVER_AREA = "[class='lpip-hp-hero-section lpip-hp-section']";
@@ -11,10 +13,10 @@ public class HomePage extends LpUiBasePage {
     private static final String DISCOVER_TAB = "[data-navname='discover']";
     private static final String DISCOVER_TITLE = "#discover-title";
     private static final String DISCOVER_DESCRIPTION_TEXT = "#discover-text";
-    private static final String DISCOVER_CARDS = "#discover-img [class='lpip-box card-%d']";
-
+    private static final String DISCOVER_CARDS = "#discover-img [class='lpip-resource-card-group'] a";
     private static final String DISCOVER_CARD_IMAGE = "img[src*='media/homepage/']";
     private static final String DISCOVER_CARD_RATING = "img[src*='media/homepage/']";
+    private static final String DISCOVER_CARD_TITLE = "#discover-img [class='lpip-resource-card-group'] a [class='resource-info'] [class='resource-title']";
 
     private static final String COLLECT_TAB = "[data-navname='collect']";
     private static final String COLLECT_TEXT = "#collect-text";
@@ -37,7 +39,6 @@ public class HomePage extends LpUiBasePage {
     private static final String WATCH_VIDEO_IFRAME = "#lpip-hp-video";
     private static final String WATCH_VIDEO_CLOSE_BUTTON = "#lpip-hp-close-video-box-x";
 
-    private static final String WHICH_SOLUTION_AREA = "[class='lpip-hp-solution-section lpip-hp-section']";
     private static final String WHICH_SOLUTION_TITLE = "[class*='solution-section'] [class='lpip-hp-section-title']";
     private static final String PARENT_BOX = "[class*='solution-section'] [href='/parent-edition']";
     private static final String PARENT_PICTURE = "[class*='solution-section'] [href='/parent-edition'] img[src*='lessonplanet.com/packs/media/homepage/parent-icon']";
@@ -79,7 +80,6 @@ public class HomePage extends LpUiBasePage {
     private static final String PD_LEARNING_LEARN_MORE_BUTTON = "[class='lpip-hp-section']:nth-child(5) [href='/pdln']";
 
     private static final String TESTIMONIALS_AREA = "[class$='lpip-testimonial-section']";
-    private static final String TESTIMONIALS_TITLE_TEXT = "[class$='lpip-testimonial-section'] [class='lpip-hp-section-title']";
     private static final String TESTIMONIALS_PREVIOUS_BUTTON = "[class$='lpip-testimonial-section'] #prev";
     private static final String TESTIMONIALS_NEXT_BUTTON = "[class$='lpip-testimonial-section'] #next";
     private static final String TESTIMONIALS_BOXES = "[class$='lpip-testimonial-section'] #carousel [class^='lpip-testimonial-member']";
@@ -133,19 +133,21 @@ public class HomePage extends LpUiBasePage {
     }
 
     public WebElement getCardFromDiscoverArea(int cardPosition) {
-        return findElement(String.format(DISCOVER_CARDS, cardPosition));
+        return findElements(String.format(DISCOVER_CARDS)).get(cardPosition);
     }
 
-    public String getCardTextFromDiscoverArea(int cardPosition) {
-        return getTextForElement(getCardFromDiscoverArea(cardPosition));
+    public String getCardTextFromDiscoverArea(int index) {
+        final List<WebElement> cards = findElements(DISCOVER_CARDS);
+        return cards.get(index).getText();
+    }
+
+    public void clickOnCardFromDiscoverArea(int index) {
+        List<WebElement> cards1 = findElements(DISCOVER_CARD_TITLE);
+        cards1.get(index).click();
     }
 
     public boolean isCardImageDisplayed(int cardPosition) {
         return findElements(getCardFromDiscoverArea(cardPosition), DISCOVER_CARD_IMAGE).size() == 1;
-    }
-
-    public void clickOnCardFromDiscoverArea(int cardPosition) {
-        clickElement(getCardFromDiscoverArea(cardPosition));
     }
 
     public boolean isCardRatingDisplayed(int cardPosition) {
@@ -493,10 +495,6 @@ public class HomePage extends LpUiBasePage {
         return getTextForElement(INSPIRE_EDUCATOR_TAB);
     }
 
-    public void clickOnEducatorTab() {
-        clickElement(INSPIRE_EDUCATOR_TAB);
-    }
-
     public String getEducatorTabStartYouTenDaysButtonText() {
         return getTextForElement(INSPIRE_EDUCATOR_TAB_START_YOUR_10_DAYS_BUTTON);
     }
@@ -536,6 +534,4 @@ public class HomePage extends LpUiBasePage {
     public String getInspireSchoolOrDistrictRequestADemoButtonText() {
         return getTextForElement(INSPIRE_SCHOOL_OR_DISTRICT_REQUEST_A_DEMO_BUTTON);
     }
-
-
 }
