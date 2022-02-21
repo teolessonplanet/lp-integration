@@ -791,13 +791,18 @@ public class User_RrpSearchPageTest extends BaseTest {
         discoverResourcesPage.closeTab();
     }
 
+    public void testNewTabFreeSampleResourceUrl() {
+        discoverResourcesPage.waitForNewTab();
+        discoverResourcesPage.focusDriverToLastTab();
+        discoverResourcesPage.waitForLinkToLoad();
+        Assert.assertTrue(!discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
+        discoverResourcesPage.closeTab();
+    }
+
     public void testNewTabRegularResourceUrl() {
         discoverResourcesPage.waitForNewTab();
         discoverResourcesPage.focusDriverToLastTab();
         discoverResourcesPage.waitForLinkToLoad();
-//        Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2) || discoverResourcesPage.getUrl().contains(TestData.SERVER_URL));
-        //TODO: above line was removed by mistake in PR 76?  https://github.com/LessonPlanet/lp-integration/pull/76
-        //TODO: check if stable in all tests and then remove the comments
         if (discoverResourcesPage.getUrl().contains(TestData.SERVER_URL)) {
             Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
             Assert.assertTrue(resourcePreviewPage.isDownloadResourceButtonDisplayed());
@@ -890,7 +895,7 @@ public class User_RrpSearchPageTest extends BaseTest {
             rrpModal.waitForModal();
         }
         rrpPage.clickOnThumbnail();
-        testNewTabUrl(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
+        testNewTabFreeSampleResourceUrl();
     }
 
     public void testGoToResourceButtonForFreeSampleResource(boolean modal) {
@@ -898,7 +903,7 @@ public class User_RrpSearchPageTest extends BaseTest {
             rrpModal.waitForModal();
         }
         rrpPage.clickGoToResourceButton(true);
-        testNewTabUrl(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
+        testNewTabFreeSampleResourceUrl();
     }
 
     public void testSharedResourceRRPNavigationButtonsSearchPage() {

@@ -246,10 +246,10 @@ public class User_HomePageTest extends BaseTest {
         final String discoverDescription = homePage.getDiscoverDescriptionText();
         final String discoverBlueButtonText = homePage.getHeroButtonText();
         final String discoverWatchVideoButtonText = homePage.getWatchVideoButtonText();
-        final String card1Text = homePage.getCardTextFromDiscoverArea(1);
-        final String card2Text = homePage.getCardTextFromDiscoverArea(2);
-        final String card3Text = homePage.getCardTextFromDiscoverArea(3);
-        final String card4Text = homePage.getCardTextFromDiscoverArea(4);
+        final String card1Text = homePage.getCardTextFromDiscoverArea(0);
+        final String card2Text = homePage.getCardTextFromDiscoverArea(1);
+        final String card3Text = homePage.getCardTextFromDiscoverArea(2);
+        final String card4Text = homePage.getCardTextFromDiscoverArea(3);
 
         Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_TAB_TEXT, discoverTabText);
         Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_TITLE, discoverTitle);
@@ -257,31 +257,32 @@ public class User_HomePageTest extends BaseTest {
         Assert.assertEquals(TestData.HOMEPAGE_START_SEARCHING_BUTTON_TEXT, discoverBlueButtonText.replace("\"", ""));
         Assert.assertEquals(TestData.HOMEPAGE_WATCH_VIDEO_BUTTON_TEXT, discoverWatchVideoButtonText);
         Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_1_TEXT, card1Text);
+        Assert.assertTrue(homePage.isCardImageDisplayed(0));
+        Assert.assertTrue(homePage.isCardRatingDisplayed(0));
+        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_2_TEXT, card2Text);
         Assert.assertTrue(homePage.isCardImageDisplayed(1));
         Assert.assertTrue(homePage.isCardRatingDisplayed(1));
-        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_2_TEXT, card2Text);
+        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_3_TEXT, card3Text);
         Assert.assertTrue(homePage.isCardImageDisplayed(2));
         Assert.assertTrue(homePage.isCardRatingDisplayed(2));
-        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_3_TEXT, card3Text);
+        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_4_TEXT, card4Text);
         Assert.assertTrue(homePage.isCardImageDisplayed(3));
         Assert.assertTrue(homePage.isCardRatingDisplayed(3));
-        Assert.assertEquals(TestData.HOMEPAGE_DISCOVER_CARD_4_TEXT, card4Text);
-        Assert.assertTrue(homePage.isCardImageDisplayed(4));
-        Assert.assertTrue(homePage.isCardRatingDisplayed(4));
 
-        homePage.clickOnCardFromDiscoverArea(1);
+        homePage.loadPage();
+        homePage.clickOnCardFromDiscoverArea(0);
         Assert.assertEquals(TestData.PRODUCTION_URL + TestData.HOMEPAGE_DISCOVER_CARD_1_PATH, homePage.getUrl());
         homePage.goBackOnePage();
 
-        homePage.clickOnCardFromDiscoverArea(2);
+        homePage.clickOnCardFromDiscoverArea(1);
         Assert.assertEquals(TestData.PRODUCTION_URL + TestData.HOMEPAGE_DISCOVER_CARD_2_PATH, homePage.getUrl());
         homePage.goBackOnePage();
 
-        homePage.clickOnCardFromDiscoverArea(3);
+        homePage.clickOnCardFromDiscoverArea(2);
         Assert.assertEquals(TestData.PRODUCTION_URL + TestData.HOMEPAGE_DISCOVER_CARD_3_PATH, homePage.getUrl());
         homePage.goBackOnePage();
 
-        homePage.clickOnCardFromDiscoverArea(4);
+        homePage.clickOnCardFromDiscoverArea(3);
         Assert.assertEquals(TestData.PRODUCTION_URL + TestData.HOMEPAGE_DISCOVER_CARD_4_PATH, homePage.getUrl());
     }
 

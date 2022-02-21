@@ -125,12 +125,12 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickSeeFullReview(boolean inANewTab) {
-        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
+        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES)));
         super.clickSeeFullReview(inANewTab);
     }
 
     public void clickFreeFullAccessReview(boolean inANewTab) {
-        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRESENTATIONS)));
+        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES)));
         super.clickFreeFullAccessReview(inANewTab);
     }
 
