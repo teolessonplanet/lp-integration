@@ -19,28 +19,28 @@ public class Cobb_EditCollectionTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Cobb SL - Edit Collection - lessonp-5897: Edit Collection Modal Appearance", groups = {"cobb"})
-    public void testLessonp_5897() {
+    @Test(description = "Cobb SL - Edit Collection - C2625: Edit Collection Modal Appearance", groups = {"cobb"})
+    public void testC2625() {
         user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_COBB, false, TestData.NEW_FOLDER_NAME);
     }
 
-    @Test(description = "Cobb SL - Edit Collection - lessonp-5898: Edit Collection Static Page Appearance", groups = {"cobb"})
-    public void testLessonp_5898() {
+    @Test(description = "Cobb SL - Edit Collection - C2626: Edit Collection Static Page Appearance", groups = {"cobb"})
+    public void testC2626() {
         user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_CSL_COBB, true, TestData.NEW_FOLDER_NAME);
     }
 
-    @Test(description = "Cobb SL - Edit Collection - lessonp-5899: Publish. Republish", groups = {"cobb"})
-    public void testLessonp_5899() {
+    @Test(description = "Cobb SL - Edit Collection - C2627: Publish. Republish", groups = {"cobb"})
+    public void testC2627() {
         user_editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Edit Collection - lessonp-5900: Edit Collection Buttons", groups = {"cobb"})
-    public void testLessonp_5900() {
+    @Test(description = "Cobb SL - Edit Collection - C2628: Edit Collection Buttons", groups = {"cobb"})
+    public void testC2628() {
         user_editCollectionTest.testEditFolderButtons(TestData.VALID_EMAIL_CSL_COBB, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Cobb SL - Edit Collection - lessonp-5901: Item Options", groups = {"cobb"})
-    public void testLessonp_5901() {
+    @Test(description = "Cobb SL - Edit Collection - C2629: Item Options", groups = {"cobb"})
+    public void testC2629() {
         user_editCollectionTest.testItemOptions();
     }
 }

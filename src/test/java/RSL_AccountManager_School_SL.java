@@ -13,8 +13,8 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest = new RSL_AccountManagerTest();
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5875: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"rsl"})
-    public void testLessonp_5875() {
+    @Test(description = "Regular School SL - Account Manager - C2334: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"rsl"})
+    public void testC2334() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testSchoolPage(false, false);
@@ -25,8 +25,8 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest.testRemoveTeacher(false);
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5876: Edit School, Search in School", groups = {"rsl"})
-    public void testLessonp_5876() {
+    @Test(description = "Regular School SL - Account Manager - C2335: Edit School, Search in School", groups = {"rsl"})
+    public void testC2335() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
         rsl_accountManagerTest.testEditDistrict(TestData.RSL_LAGUNA_SCHOOL_NAME, false, false);
@@ -36,8 +36,8 @@ public class RSL_AccountManager_School_SL extends BaseTest {
         rsl_accountManagerTest.testSearchButtonFromSchoolPage(TestData.RSL_LAGUNA_SCHOOL_TEACHER_FIRST_NAME + " " + TestData.RSL_LAGUNA_SCHOOL_TEACHER_LAST_NAME, false);
     }
 
-    @Test(description = "Regular School SL - Account Manager - lessonp-5879: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
-    public void testLessonp_5879() {
+    @Test(description = "Regular School SL - Account Manager - C2336: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
+    public void testC2336() {
         rsl_accountManagerTest.initAndReachRSLAccountManagerTest(webDriver);
         rsl_accountManagerTest.reachAccountManagerPage(TestData.VALID_EMAIL_RSL_LAGUNA_SCHOOL, TestData.VALID_PASSWORD);
         schoolPage.clickOnManageAdminsButton();

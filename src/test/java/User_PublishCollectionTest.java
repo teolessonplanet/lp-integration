@@ -40,82 +40,82 @@ public class User_PublishCollectionTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-5826: With LP Resources", groups = {"activeUser"})
-    public void testLessonp_5826() {
+    @Test(description = "Active User - Publish Collection - C2207: With LP Resources", groups = {"activeUser"})
+    public void testC2207() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testAddResourcesToPublishCollection(TestData.PLAN_PRO, 2, 0, 0, false);
     }
 
-    @Test(description = "Active User- Publish Collection - lessonp-986: With LP Resources & Uploaded Resources - include file", groups = {"activeUser"})
-    public void testLessonp_986() {
+    @Test(description = "Active User- Publish Collection - C2208: With LP Resources & Uploaded Resources - include file", groups = {"activeUser"})
+    public void testC2208() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 0, 1, true);
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-987: With LP Resources & Uploaded Resources - do not include file", groups = {"activeUser"})
-    public void testLessonp_987() {
+    @Test(description = "Active User - Publish Collection - C2209: With LP Resources & Uploaded Resources - do not include file", groups = {"activeUser"})
+    public void testC2209() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 0, 1, false);
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-5827: With LP Resources & Folders", groups = {"activeUser"})
-    public void testLessonp_5827() {
+    @Test(description = "Active User - Publish Collection - C2210: With LP Resources & Folders", groups = {"activeUser"})
+    public void testC2210() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testAddResourcesToPublishCollection(TestData.PLAN_PRO, 2, 1, 0, false);
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-5794: With LP Resources & Folders & Uploaded Resources - include file", groups = {"activeUser"})
-    public void testLessonp_5794() {
+    @Test(description = "Active User - Publish Collection - C2211: With LP Resources & Folders & Uploaded Resources - include file", groups = {"activeUser"})
+    public void testC2211() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 1, 1, true);
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-5795: With LP Resources & Folders & Uploaded Resources - do not include file", groups = {"activeUser"})
-    public void testLessonp_5795() {
+    @Test(description = "Active User - Publish Collection - C2212: With LP Resources & Folders & Uploaded Resources - do not include file", groups = {"activeUser"})
+    public void testC2212() {
         stepTwoPage.createNewAccount(TestData.PLAN_STARTER);
         testAddResourcesToPublishCollection(TestData.PLAN_STARTER, 2, 1, 1, false);
     }
 
-    @Test(description = "Active User - Publish Collection - lessonp-5828: Collection not published modal", groups = {"activeUser"})
-    public void testLessonp_5828() {
+    @Test(description = "Active User - Publish Collection - C2213: Collection not published modal", groups = {"activeUser"})
+    public void testC2213() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionNotPublishedModal(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active User - Publish Resource - lessonp-995: Publish Uploaded File - from My Resources", groups = {"activeUser"})
-    public void testLessonp_995() {
+    @Test(description = "Active User - Publish Resource - C2214: Publish Uploaded File - from My Resources", groups = {"activeUser"})
+    public void tesC2214() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         user_curriculumManagerPageTest.initTest(webDriver);
         user_curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.PLAN_PRO, true);
     }
 
-    @Test(description = "Active User - Publish Resource - lessonp-5863:Publish Curriculum Sets folder w lp resources", groups = {"activeUser"})
-    public void testLessonp_5863() {
+    @Test(description = "Active User - Publish Resource -C2216:Publish Curriculum Sets folder w lp resources", groups = {"activeUser"})
+    public void testC2216() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[1], 2, 0, 0, false);
     }
 
-    @Test(description = "Active User - Publish Resource - lessonp-5864:Publish Chapters Folder w lp resources & uploaded resource - include file", groups = {"activeUser"})
-    public void testLessonp_5864() {
+    @Test(description = "Active User - Publish Resource - C2217:Publish Chapters Folder w lp resources & uploaded resource - include file", groups = {"activeUser"})
+    public void testC2217() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[2], 2, 0, 1, true);
     }
 
-    @Test(description = "Active User - Publish Resource - 5865:Publish Lessons Folder w lp resources & uploaded resource - don't include file", groups = {"activeUser"})
-    public void testLessonp_5865() {
+    @Test(description = "Active User - Publish Resource - C2218:Publish Lessons Folder w lp resources & uploaded resource - don't include file", groups = {"activeUser"})
+    public void testC2218() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[3], 2, 0, 1, false);
     }
 
-    @Test(description = "Active User - Publish Resource - 5866:Publish Assessment Sets folder w lp resources & folders", groups = {"activeUser"})
-    public void testLessonp_5866() {
+    @Test(description = "Active User - Publish Resource - C2219:Publish Assessment Sets folder w lp resources & folders", groups = {"activeUser"})
+    public void testC2219() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[4], 2, 1, 0, false);
     }
 
-    @Test(description = "Active User - Publish Resource - lessonp-5867:Publish Unit Modules folder w lp resources & folders & uploaded resources - include file", groups = {"activeUser"})
-    public void testLessonp_5867() {
+    @Test(description = "Active User - Publish Resource - C2220:Publish Unit Modules folder w lp resources & folders & uploaded resources - include file", groups = {"activeUser"})
+    public void testC2220() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[5], 2, 2, 2, true);
     }
 
-    @Test(description = "Active User - Publish Resource - 5868:Publish Root Folders containing only uploaded & unshared file - don't include files", groups = {"activeUser"})
-    public void testLessonp_5868() {
+    @Test(description = "Active User - Publish Resource -C2221:Publish Root Folders containing only uploaded & unshared file - don't include files", groups = {"activeUser"})
+    public void testC2221() {
         createRequirementAndTestPublishFolders(TestData.PLAN_PRO, TestData.FOLDER_TYPE[7], 0, 0, 2, false);
     }
 

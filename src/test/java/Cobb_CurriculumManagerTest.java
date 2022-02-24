@@ -24,91 +24,91 @@ public class Cobb_CurriculumManagerTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5945: Access Curriculum Manager Page", groups = {"cobb"})
-    public void testLessonp_5945() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2575: Access Curriculum Manager Page", groups = {"cobb"})
+    public void testC2575() {
         lpHomePage.loadPage();
         user_curriculumManagerPageTest.testAccessCurriculumManagerPageFromHeader(true);
         user_curriculumManagerPageTest.testAccessCurriculumManagerPageFromSearchPage(true);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5946: Create Collections", groups = {"cobb"})
-    public void testLessonp_5946() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2576: Create Collections", groups = {"cobb"})
+    public void testC2576() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[0]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5947: Upload Resource & My Uploads Folder", groups = {"cobb"})
-    public void testLessonp_5947() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2577: Upload Resource & My Uploads Folder", groups = {"cobb"})
+    public void testC2577() {
         user_curriculumManagerPageTest.testUploadResourceFromMyResources(TestData.VALID_EMAIL_CSL_COBB, false);
         user_curriculumManagerPageTest.testMyUploadsFolderActions(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5948: Favorite Resource & My Favorites Folder", groups = {"cobb"})
-    public void testLessonp_5948() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2578: Favorite Resource & My Favorites Folder", groups = {"cobb"})
+    public void testC2578() {
         user_curriculumManagerPageTest.testFavoriteResources(TestData.VALID_EMAIL_CSL_COBB);
         user_curriculumManagerPageTest.testMyFavoritesFolderActions(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5949: Collection: Actions Dropdown", groups = {"cobb"})
-    public void testLessonp_5949() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2579: Collection: Actions Dropdown", groups = {"cobb"})
+    public void testC2579() {
         curriculumManagerPage.loadPage();
         user_curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[0]);
         user_curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5950: Folder Actions Dropdown", groups = {"cobb"})
-    public void testLessonp_5950() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2580: Folder Actions Dropdown", groups = {"cobb"})
+    public void testC2580() {
         curriculumManagerPage.loadPage();
         user_curriculumManagerPageTest.testCreateFolderFromCurriculumManager(TestData.NEW_FOLDER_NAME, TestData.FOLDER_TYPE[3]);
         user_curriculumManagerPageTest.testFolderActions(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5951:Create Folders (Curriculum Sets)", groups = {"cobb"})
-    public void testLessonp_5951() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2581:Create Folders (Curriculum Sets)", groups = {"cobb"})
+    public void testC2581() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[1]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5952:Create Folders (Chapters)", groups = {"cobb"})
-    public void testLessonp_5952() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2582:Create Folders (Chapters)", groups = {"cobb"})
+    public void testC2582() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[2]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5953:Create Folders (Lessons)", groups = {"cobb"})
-    public void testLessonp_5953() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2583:Create Folders (Lessons)", groups = {"cobb"})
+    public void testC2583() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[3]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5954:Create Folders (Assessment Sets)", groups = {"cobb"})
-    public void testLessonp_5954() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2584:Create Folders (Assessment Sets)", groups = {"cobb"})
+    public void testC2584() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[4]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5955:Create Folders (Unit Modules)", groups = {"cobb"})
-    public void testLessonp_5955() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2585:Create Folders (Unit Modules)", groups = {"cobb"})
+    public void testC2585() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[5]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5956:Create Folders (Course Folders)", groups = {"cobb"})
-    public void testLessonp_5956() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2586:Create Folders (Course Folders)", groups = {"cobb"})
+    public void testC2586() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[6]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5957:Create Folders (Root Folders)", groups = {"cobb"})
-    public void testLessonp_5957() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2587:Create Folders (Root Folders)", groups = {"cobb"})
+    public void testC2587() {
         user_curriculumManagerPageTest.testMaxLimitOfFoldersCreated(TestData.FOLDER_TYPE[7]);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5996:Dragging folders into another folder", groups = {"cobb"})
-    public void testLessonp_5996() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2589:Dragging folders into another folder", groups = {"cobb"})
+    public void testC2589() {
         user_curriculumManagerPageTest.testDraggingFoldersIntoAnotherFolder(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5997:Drilled in view & functionality", groups = {"cobb"})
-    public void testLessonp_5997() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2588:Drilled in view & functionality", groups = {"cobb"})
+    public void testC2588() {
         user_curriculumManagerPageTest.testDrilledInViewAndFunctionality(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Curriculum Manager - lessonp-5998:Drag folders into the CB", groups = {"cobb"})
-    public void testLessonp_5998() {
+    @Test(description = "Cobb SL - Curriculum Manager - C2590:Drag folders into the CB", groups = {"cobb"})
+    public void testC2590() {
         user_curriculumManagerPageTest.testDragAndDrop(TestData.VALID_EMAIL_CSL_COBB);
     }
 }

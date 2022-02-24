@@ -47,8 +47,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         manageDistrictPage = new ManageDistrictPage(webDriver);
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-918: District Page, Add School, Remove School", groups = {"rsl"})
-    public void testLessonp_918() {
+    @Test(description = "Regular SL - Account Manager - C2397: District Page, Add School, Remove School", groups = {"rsl"})
+    public void testC2397() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testDistrictPage(false);
         testAddSchoolFromAddButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME);
@@ -57,8 +57,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-901: Edit District, Search in district", groups = {"rsl"})
-    public void testLessonp_901() {
+    @Test(description = "Regular SL - Account Manager - C2340: Edit District, Search in district", groups = {"rsl"})
+    public void testC2340() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testEditDistrict(TestData.RSL_SBCEO_DISTRICT_NAME, false, true);
         testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, false);
@@ -67,16 +67,16 @@ public class RSL_AccountManagerTest extends BaseTest {
         testSearchButtonFromDistrictPage(TestData.RSL_SBCEO_OWNER_FIRST_NAME + " " + TestData.RSL_SBCEO_OWNER_LAST_NAME, false);
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin", groups = {"rsl"})
-    public void testLessonp_904() {
+    @Test(description = "Regular SL - Account Manager - C23401: Manage District Admins Page, Add District Admin, Remove District Admin", groups = {"rsl"})
+    public void testC2341() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictAdminsPage(TestData.VALID_EMAIL_RSL_SBCEO, false, false);
         testAddDistrictAdmin(TestData.VALID_EMAIL_STARTER, false);
         testRemoveDistrictAdmin(TestData.RSL_SBCEO_DISTRICT_NAME);
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"rsl"})
-    public void testLessonp_920() {
+    @Test(description = "Regular SL - Account Manager - C2398: School Page, Add Teacher, Edit Teacher, Remove Teacher", groups = {"rsl"})
+    public void testC2398() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testAddSchool();
         districtPage.clickOnSchool(0);
@@ -93,8 +93,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-895: Edit School, Search in School", groups = {"rsl"})
-    public void testLessonp_895() {
+    @Test(description = "Regular SL - Account Manager - C2399: Edit School, Search in School", groups = {"rsl"})
+    public void testC2399() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testAddSchool();
         testEditSchoolFromActionsButton(TestData.GET_NEW_SCHOOL_NAME(), TestData.RSL_SBCEO_EXISTING_SCHOOL_NAME, false, false);
@@ -109,8 +109,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         testSearchButtonFromSchoolPage(TestData.RSL_SBCEO_TEACHER_FIRST_NAME + " " + TestData.RSL_SBCEO_TEACHER_LAST_NAME, false);
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
-    public void testLessonp_924() {
+    @Test(description = "Regular SL - Account Manager - C2402: Manage School Admins Page, Add School Admin, Remove School Admin", groups = {"rsl"})
+    public void testC2402() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testAddSchool();
         districtPage.clickOnSchool(0);
@@ -126,8 +126,8 @@ public class RSL_AccountManagerTest extends BaseTest {
         testRemoveSchool();
     }
 
-    @Test(description = "Regular SL - Account Manager - lessonp-5869: Manage District Page", groups = {"rsl"})
-    public void testLessonp_5869() {
+    @Test(description = "Regular SL - Account Manager - C2403: Manage District Page", groups = {"rsl"})
+    public void testC2403() {
         reachAccountManagerPage(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testManageDistrictPage(false);
     }

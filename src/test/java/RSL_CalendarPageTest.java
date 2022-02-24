@@ -20,8 +20,8 @@ public class RSL_CalendarPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Calendar Page - lessonp-5125:Buttons/Links", groups = {"rsl"})
-    public void testLessonp_5125() {
+    @Test(description = "Regular SL - Calendar Page - C2371: Buttons/Links", groups = {"rsl"})
+    public void testC2371() {
         testCurriculumCalendarPage(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 

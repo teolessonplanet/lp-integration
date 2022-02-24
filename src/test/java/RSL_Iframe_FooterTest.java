@@ -19,18 +19,18 @@ public class RSL_Iframe_FooterTest extends BaseTest {
         user_footerTest.initTest(webDriver);
     }
 
-    @Test(description = "Regular SL - Footer - lessonp-4150:Footer structure", groups = {"rsl"})
-    public void testLessonp_4150() {
+    @Test(description = "Regular SL - Footer - C2344: Footer structure", groups = {"rsl"})
+    public void testC2344() {
         user_footerTest.testFooterContainer(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Footer - lessonp-4154:Bottom footer links", groups = {"rsl"})
-    public void testLessonp_4154() {
+    @Test(description = "Regular SL - Footer - C2346: Bottom footer links", groups = {"rsl"})
+    public void testC2346() {
         user_footerTest.testBottomFooterLinks(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Footer -  lessonp-4156:LE Logo", groups = {"rsl"})
-    public void testLessonp_4156() {
+    @Test(description = "Regular SL - Footer - C2345: LE Logo", groups = {"rsl"})
+    public void testC2345() {
         user_footerTest.testRegularSlLogo();
     }
 }

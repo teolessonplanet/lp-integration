@@ -19,38 +19,38 @@ public class Cobb_PublishCollectionTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-5958: With LP Resources", groups = {"cobb"})
-    public void testLessonp_5958() {
+    @Test(description = "Cobb SL - Publish Collection - C2591: With LP Resources", groups = {"cobb"})
+    public void testC2591() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 0, 0, false);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-6128: With LP Resources & Uploaded Resources - include", groups = {"cobb"})
-    public void testLessonp_6128() {
+    @Test(description = "Cobb SL - Publish Collection - C2592: With LP Resources & Uploaded Resources - include", groups = {"cobb"})
+    public void testC2592() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 0, 1, true);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-6131: With LP Resources & Uploaded Resources - do not include", groups = {"cobb"})
-    public void testLessonp_6131() {
+    @Test(description = "Cobb SL - Publish Collection - C2593: With LP Resources & Uploaded Resources - do not include", groups = {"cobb"})
+    public void testC2593() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 0, 1, false);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-5961: With LP Resources & Folders", groups = {"cobb"})
-    public void testLessonp_5961() {
+    @Test(description = "Cobb SL - Publish Collection - C2594: With LP Resources & Folders", groups = {"cobb"})
+    public void testC2594() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 1, 0, false);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-5962: With LP Resources & Folders & Uploaded Resources - include", groups = {"cobb"})
-    public void testLessonp_5962() {
+    @Test(description = "Cobb SL - Publish Collection - C2595: With LP Resources & Folders & Uploaded Resources - include", groups = {"cobb"})
+    public void testC2595() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 1, 1, true);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-6132: With LP Resources & Folders & Uploaded Resources - do not include", groups = {"cobb"})
-    public void testLessonp_6132() {
+    @Test(description = "Cobb SL - Publish Collection - C2596: With LP Resources & Folders & Uploaded Resources - do not include", groups = {"cobb"})
+    public void testC2596() {
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_CSL_COBB, 2, 1, 1, false);
     }
 
-    @Test(description = "Cobb SL - Publish Collection - lessonp-6130: Collection not published modal", groups = {"cobb"})
-    public void testLessonp_6130() {
+    @Test(description = "Cobb SL - Publish Collection - C2597: Collection not published modal", groups = {"cobb"})
+    public void testC2597() {
         user_publishCollectionTest.testCollectionNotPublishedModal(TestData.VALID_EMAIL_CSL_COBB);
     }
 }

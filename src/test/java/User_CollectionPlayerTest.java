@@ -19,7 +19,6 @@ public class User_CollectionPlayerTest extends BaseTest {
     private EditCollectionModal editCollectionModal;
     private CollectionPlayerPage collectionPlayerPage;
     private CurriculumManagerPage curriculumManagerPage;
-    private User_AssignFolderModalTest user_assignFolderModalTest;
     private AssignModal assignModal;
     private StudentViewPage studentViewPage;
     private LpHomePage lpHomePage;
@@ -36,7 +35,6 @@ public class User_CollectionPlayerTest extends BaseTest {
         collectionPlayerPage = new CollectionPlayerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         assignModal = new AssignModal(webDriver);
-        user_assignFolderModalTest = new User_AssignFolderModalTest();
         publishedFolderModal = new PublishedFolderModal(webDriver);
     }
 
@@ -45,43 +43,43 @@ public class User_CollectionPlayerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-554:Appearance", groups = {"freemium"})
-    public void testLessonp_554() {
+    @Test(description = "Free Member - Collection player - C2191: Appearance", groups = {"freemium"})
+    public void testC2191() {
         testCollectionPlayerAppearance(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-626:Appearance", groups = {"activeUser"})
-    public void testLessonp_626() {
+    @Test(description = "Active user - Collection player - C2310: Appearance", groups = {"activeUser"})
+    public void testC2310() {
         testCollectionPlayerAppearance(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-556:Collection Navigator", groups = {"freemium"})
-    public void testLessonp_556() {
+    @Test(description = "Free Member - Collection player - C2192: Collection Navigator", groups = {"freemium"})
+    public void testC2192() {
         testCollectionNavigator(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-624:Collection Navigator", groups = {"activeUser"})
-    public void testLessonp_624() {
+    @Test(description = "Active user - Collection player - C2311: Collection Navigator", groups = {"activeUser"})
+    public void testC2311() {
         testCollectionNavigator(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Free Member - Collection player - lessonp-555:Resource Viewer", groups = {"freemium"})
-    public void testLessonp_555() {
+    @Test(description = "Free Member - Collection player - C2194: Resource Viewer", groups = {"freemium"})
+    public void testC2194() {
         testResourceViewer(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-625:Resource Viewer", groups = {"activeUser"})
-    public void testLessonp_625() {
+    @Test(description = "Active user - Collection player - C2312: Resource Viewer", groups = {"activeUser"})
+    public void testC2312() {
         testResourceViewer(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-629:Teacher View", groups = {"activeUser"})
-    public void testLessonp_629() {
+    @Test(description = "Active user - Collection player -C2314: Teacher View", groups = {"activeUser"})
+    public void testC2314() {
         testTeacherView(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Collection player - lessonp-557:Student View", groups = {"activeUser"})
-    public void testLessonp_557() {
+    @Test(description = "Active user - Collection player - C2313: Student View", groups = {"activeUser"})
+    public void testC2313() {
         testStudentView(TestData.PLAN_PRO);
     }
 
@@ -303,8 +301,38 @@ public class User_CollectionPlayerTest extends BaseTest {
         collectionPlayerPage.focusDriverToLastTab();
         collectionPlayerPage.clickAssignFolderButton();
 
-        user_assignFolderModalTest.initTest(webDriver);
-        user_assignFolderModalTest.testAssignModal(TestData.VALID_PASSWORD);
+        testAssignModal(TestData.VALID_PASSWORD);
+    }
+
+    public void testAssignModal(String password) {
+        assignModal.waitForModal();
+
+        assignModal.typeAccessKey(password);
+        assignModal.clickOnSaveButton();
+        Assert.assertEquals(assignModal.getAccessKeyFieldText(), password);
+
+        assignModal.clickOnGoogleClassroomButton();
+        assignModal.focusDriverToLastTab();
+        assignModal.waitForLinkToLoad();
+        Assert.assertTrue(assignModal.getUrl().contains(TestData.GOOGLE_URL));
+        assignModal.closeTab();
+
+        assignModal.clickOnCopyButton();
+        Assert.assertTrue(assignModal.getCopiedLinkPopoverText().contains(TestData.COPIED_POPOVER_TEXT));
+
+        assignModal.clickOnShowAccessKeyButton();
+        Assert.assertEquals(assignModal.getPasswordText(), password);
+        assignModal.clickOnHideAccessKeyButton();
+
+        assignModal.clickOnResetAccessKeyLink();
+        Assert.assertEquals(assignModal.getAccessKeyFieldText(), "");
+        Assert.assertEquals(assignModal.getShareLinkText(), "");
+        Assert.assertFalse(assignModal.isGoogleClassroomButtonEnabled());
+
+        assignModal.typeAccessKey(password);
+        assignModal.clickOnSaveButton();
+        Assert.assertTrue(assignModal.isGoogleClassroomButtonEnabled());
+        Assert.assertTrue(assignModal.getShareLinkText().startsWith(TestData.SERVER_URL));
     }
 
     protected void testStudentView(String accountType) {

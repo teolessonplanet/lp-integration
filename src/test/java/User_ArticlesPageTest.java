@@ -25,33 +25,33 @@ public class User_ArticlesPageTest extends BaseTest {
         user_rrpSearchPageTest = new User_RrpSearchPageTest();
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page", groups = {"visitor"})
-    public void testLessonp_3331() {
+    @Test(description = "Visitor - Lesson Planet Articles - C2097: Articles Main Page", groups = {"visitor"})
+    public void testC2097() {
         testArticlesMainPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Lesson Planet Articles - lessonp-5256: Articles Main Page", groups = {"freemium"})
-    public void testLessonp_5256() {
+    @Test(description = "Free Member - Lesson Planet Articles - C2188: Articles Main Page", groups = {"freemium"})
+    public void testC2188() {
         testArticlesMainPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active - Lesson Planet Articles - lessonp-5258: Articles Main Page", groups = {"activeUser"})
-    public void testLessonp_5258() {
+    @Test(description = "Active - Lesson Planet Articles - C2303: Articles Main Page", groups = {"activeUser"})
+    public void testC2303() {
         testArticlesMainPage(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Lesson Planet Articles -  lessonp-3398: Article Page", groups = {"visitor"})
-    public void testLessonp_3398() {
+    @Test(description = "Visitor - Lesson Planet Articles - C2098: Article Page", groups = {"visitor"})
+    public void testC2098() {
         testArticlesPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Lesson Planet Articles -  lessonp-5255: Article Page", groups = {"freemium"})
-    public void testLessonp_5255() {
+    @Test(description = "Free Member - Lesson Planet Articles - C2189: Article Page", groups = {"freemium"})
+    public void testC2189() {
         testArticlesPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active - Lesson Planet Articles -  lessonp-5257: Article Page", groups = {"activeUser"})
-    public void testLessonp_5257() {
+    @Test(description = "Active - Lesson Planet Articles - C2304: Article Page", groups = {"activeUser"})
+    public void testC2304() {
         testArticlesPage(TestData.PLAN_PRO);
     }
 

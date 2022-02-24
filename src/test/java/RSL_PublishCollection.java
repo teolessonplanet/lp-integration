@@ -19,50 +19,50 @@ public class RSL_PublishCollection extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5236: With LP Resources", groups = {"rsl"})
-    public void testLessonp_5236() {
+    @Test(description = "Regular SL - Publish Collection - C2337: With LP Resources", groups = {"rsl"})
+    public void testC2337() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 0, 0, false);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5237: With LP Resources & Uploaded Resources - include file", groups = {"rsl"})
-    public void testLessonp_5237() {
+    @Test(description = "Regular SL - Publish Collection - C2338: With LP Resources & Uploaded Resources - include file", groups = {"rsl"})
+    public void testC2338() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 0, 1, true);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5796: With LP Resources & Uploaded Resources - do not include file", groups = {"rsl"})
-    public void testLessonp_5796() {
+    @Test(description = "Regular SL - Publish Collection - C2339: With LP Resources & Uploaded Resources - do not include file", groups = {"rsl"})
+    public void testC2339() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 0, 1, false);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5612: With LP Resources & Folders", groups = {"rsl"})
-    public void testLessonp_5612() {
+    @Test(description = "Regular SL - Publish Collection - C2340: With LP Resources & Folders", groups = {"rsl"})
+    public void testC2340() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 1, 0, false);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5613: With LP Resources & Folders & Uploaded Resources - include file", groups = {"rsl"})
-    public void testLessonp_5613() {
+    @Test(description = "Regular SL - Publish Collection - C2341: With LP Resources & Folders & Uploaded Resources - include file", groups = {"rsl"})
+    public void testC2341() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 1, 1, true);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5797: With LP Resources & Folders & Uploaded Resources - do not include file", groups = {"rsl"})
-    public void testLessonp_5797() {
+    @Test(description = "Regular SL - Publish Collection - C2342: With LP Resources & Folders & Uploaded Resources - do not include file", groups = {"rsl"})
+    public void testC2342() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testAddResourcesToPublishCollection(TestData.VALID_EMAIL_RSL_SBCEO, 2, 1, 1, false);
     }
 
-    @Test(description = "Regular SL - Publish Collection - lessonp-5798: Collection not published modal", groups = {"rsl"})
-    public void testLessonp_5798() {
+    @Test(description = "Regular SL - Publish Collection - C2343: Collection not published modal", groups = {"rsl"})
+    public void testC2343() {
         user_publishCollectionTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_publishCollectionTest.testCollectionNotPublishedModal(TestData.VALID_EMAIL_RSL_SBCEO);

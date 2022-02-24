@@ -26,19 +26,19 @@ public class User_CalendarPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Calendar Page - lessonp-4196:Buttons/Links", groups = {"visitor"})
-    public void testLessonp_4196() {
+    @Test(description = "Visitor - Calendar Page - C2043: Buttons/Links", groups = {"visitor"})
+    public void testC2043() {
         testCurriculumCalendarPage(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free Member - Calendar Page - lessonp-5259:Buttons/Links", groups = {"freemium"})
-    public void testLessonp_5259() {
+    @Test(description = "Free Member - Calendar Page - C2190: Buttons/Links", groups = {"freemium"})
+    public void testC2190() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCurriculumCalendarPage(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Calendar Page - lessonp-5260:Buttons/Links", groups = {"activeUser"})
-    public void testLessonp_5260() {
+    @Test(description = "Active user - Calendar Page - C2305: Buttons/Links", groups = {"activeUser"})
+    public void testC2305() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCurriculumCalendarPage(TestData.PLAN_PRO);
     }

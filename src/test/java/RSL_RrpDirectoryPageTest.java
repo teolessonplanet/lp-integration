@@ -15,43 +15,43 @@ public class RSL_RrpDirectoryPageTest extends BaseTest {
         user_rrpDirectoryPageTest.initTest(webDriver);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5191:Resource Modal Overview", groups = {"rsl"})
-    public void testLessonp_5191() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Modal - C2418: Resource Modal Overview", groups = {"rsl"})
+    public void testC2418() {
         user_rrpDirectoryPageTest.testLpResourceOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Static - lessonp-5212:Resource Static Page Overview", groups = {"rsl"})
-    public void testLessonp_5212() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Static - C2422: Resource Static Page Overview", groups = {"rsl"})
+    public void testC2422() {
         user_rrpDirectoryPageTest.testLpResourceOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5192:Collection Modal Overview", groups = {"rsl"})
-    public void testLessonp_5192() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Modal - C2417: Collection Modal Overview", groups = {"rsl"})
+    public void testC2417() {
         user_rrpDirectoryPageTest.testCollectionOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5213:Collection Static Page Overview", groups = {"rsl"})
-    public void testLessonp_5213() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Modal - C2421: Collection Static Page Overview", groups = {"rsl"})
+    public void testC2421() {
         user_rrpDirectoryPageTest.testCollectionOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5625:LP Resources Main Buttons", groups = {"rsl"})
-    public void testLessonp_5625() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Modal - C2419: LP Resources Main Buttons", groups = {"rsl"})
+    public void testC2419() {
         user_rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Static - lessonp-5631:LP Resources Main Buttons", groups = {"rsl"})
-    public void testLessonp_5631() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Static - C2423: LP Resources Main Buttons", groups = {"rsl"})
+    public void testC2423() {
         user_rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Modal - lessonp-5624:Collection Main Buttons", groups = {"rsl"})
-    public void testLessonp_5624() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Modal - C2429: Collection Main Buttons", groups = {"rsl"})
+    public void testC2429() {
         user_rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Directory Page - Rrp Static - lessonp-5630:Collection Main Buttons", groups = {"rsl"})
-    public void testLessonp_5630() {
+    @Test(description = "Regular SL - RRP Directory - Rrp Static - C2424: Collection Main Buttons", groups = {"rsl"})
+    public void testC2424() {
         user_rrpDirectoryPageTest.testLpResourceMainButtonsForActiveUser(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 }

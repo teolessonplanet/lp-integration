@@ -23,32 +23,32 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5158:Resource Static Page Overview", groups = {"rsl"})
-    public void testLessonp_5158() {
+    @Test(description = "Regular SL - RRP Search - RRP Static - RRP Overview - C2394: Resource Static Page Overview", groups = {"rsl"})
+    public void testC2394() {
         user_rrpSearchPageTest.initTest(webDriver);
         testResourcePageOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5143:Resource Modal Overview", groups = {"rsl"})
-    public void testLessonp_5143() {
+    @Test(description = "Regular SL - RRP Search- RRP Modal - RRP Overview - C2391: Resource Modal Overview", groups = {"rsl"})
+    public void testC2391() {
         user_rrpSearchPageTest.initTest(webDriver);
         testResourcePageOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5159:Collection Static Page Overview", groups = {"rsl"})
-    public void testLessonp_5159() {
+    @Test(description = "Regular SL - RRP Search - RRP Static - RRP Overview - C2395: Collection Static Page Overview", groups = {"rsl"})
+    public void testC2395() {
         user_rrpSearchPageTest.initTest(webDriver);
         testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5144:Collection Modal Overview", groups = {"rsl"})
-    public void testLessonp_5144() {
+    @Test(description = "Regular SL - RRP Search - RRP Modal - RRP Overview - C2392: Collection Modal Overview", groups = {"rsl"})
+    public void testC2392() {
         user_rrpSearchPageTest.initTest(webDriver);
         testCollectionPageOverview(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5562:Unit Module Modal Overview", groups = {"rsl"})
-    public void testLessonp_5562() {
+    @Test(description = "Regular SL - RRP Search - RRP Modal - RRP Overview - C2393: Unit Module Modal Overview", groups = {"rsl"})
+    public void testC2393() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_rrpSearchPageTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
@@ -58,8 +58,8 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         user_rrpSearchPageTest.testPanelItemsOverview();
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5563:Unit Module Static Page Overview", groups = {"rsl"})
-    public void testLessonp_5563() {
+    @Test(description = "Regular SL - RRP Search - RRP Static - RRP Overview - C2396: Unit Module Static Page Overview", groups = {"rsl"})
+    public void testC2396() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_rrpSearchPageTest.initTest(webDriver);
         DiscoverResourcesPage discoverResourcesPage = new DiscoverResourcesPage(webDriver);
@@ -69,33 +69,33 @@ public class RSL_RrpSearchPageTest extends BaseTest {
         user_rrpSearchPageTest.testPanelItemsOverview();
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5145:LP Main Buttons", groups = {"rsl"})
-    public void testLessonp_5145() {
+    @Test(description = "Regular SL - RRP Search - RRP Modal - RRP Overview - C2385: LP Main Buttons", groups = {"rsl"})
+    public void testC2385() {
         testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5160:LP Main Buttons", groups = {"rsl"})
-    public void testLessonp_5160() {
+    @Test(description = "Regular SL - RRP Search - RRP Static - RRP Overview - C2388: LP Main Buttons", groups = {"rsl"})
+    public void testC2388() {
         testLpMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5151:Collection Main Buttons", groups = {"rsl"})
-    public void testLessonp_5151() {
+    @Test(description = "Regular SL - RRP Search - RRP Modal - RRP Overview - C2386: Collection Main Buttons", groups = {"rsl"})
+    public void testC2386() {
         testCollectionMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5166:Collection Main Buttons", groups = {"rsl"})
-    public void testLessonp_5166() {
+    @Test(description = "Regular SL - RRP Search - RRP Static - RRP Overview - C2389: Collection Main Buttons", groups = {"rsl"})
+    public void testC2389() {
         testCollectionMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 
-    @Test(description = "Regular SL - Search page - Rrp Modal - RRP Overview - lessonp-5598:Unit Module Main Buttons", groups = {"rsl"})
-    public void testLessonp_5598() {
+    @Test(description = "Regular SL - RRP Search - Rrp Modal - RRP Overview - C2387: Unit Module Main Buttons", groups = {"rsl"})
+    public void testC2387() {
         testCollectionUnitMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, true);
     }
 
-    @Test(description = "Regular SL - Search page - Rrp Static - RRP Overview - lessonp-5605:Unit Module Main Buttons", groups = {"rsl"})
-    public void testLessonp_5605() {
+    @Test(description = "Regular SL - RRP Search- Rrp Static - RRP Overview - C2390: Unit Module Main Buttons", groups = {"rsl"})
+    public void testC2390() {
         testCollectionUnitMainButtons(TestData.VALID_EMAIL_RSL_SBCEO, false);
     }
 

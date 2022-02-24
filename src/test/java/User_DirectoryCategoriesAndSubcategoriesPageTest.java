@@ -43,25 +43,25 @@ public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1020: Page UI", groups = {"visitor"})
-    public void testLessonp_1020() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - C2059: Page UI", groups = {"visitor"})
+    public void testC2059() {
         testPageUi();
     }
 
-    @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1197: Page UI", groups = {"freemium"})
-    public void testLessonp_1197() {
+    @Test(description = "Free member - Directory Page - Categories and subcategories - C2174: Page UI", groups = {"freemium"})
+    public void testC2174() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testPageUi();
     }
 
-    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1209: Page UI", groups = {"activeUser"})
-    public void testLessonp_1209() {
+    @Test(description = "Active user - Directory Page - Categories and subcategories - C2289: Page UI", groups = {"activeUser"})
+    public void testC2289() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPageUi();
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1022: Resource Tiles", groups = {"visitor"})
-    public void testLessonp_1022() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - C2060: Resource Tiles", groups = {"visitor"})
+    public void testC2060() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertTrue(browseBySubjectPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         discoverResourcesPage.changeToTiledView();
@@ -82,8 +82,8 @@ public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         Assert.assertTrue(rrpPage.isTitleDisplayed());
     }
 
-    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1211: Resource Tiles", groups = {"activeUser"})
-    public void testLessonp_1211() {
+    @Test(description = "Active user - Directory Page - Categories and subcategories - C2290: Resource Tiles", groups = {"activeUser"})
+    public void testC2290() {
         lpHomePage.loadPage();
         stepOnePage.completeStepOne(TestData.GET_NEW_EMAIL(), TestData.VALID_PASSWORD);
 
@@ -100,68 +100,68 @@ public class User_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         testResourceTiles(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1023: Browse by Subject", groups = {"visitor"})
-    public void testLessonp_1023() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - C2061: Browse by Subject", groups = {"visitor"})
+    public void testC2061() {
         testBrowseBySubject(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1204: Browse by Subject", groups = {"freemium"})
-    public void testLessonp_1204() {
+    @Test(description = "Free member - Directory Page - Categories and subcategories - C2175: Browse by Subject", groups = {"freemium"})
+    public void testC2175() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testBrowseBySubject(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1216: Browse by Subject", groups = {"activeUser"})
-    public void testLessonp_1216() {
+    @Test(description = "Active user - Directory Page - Categories and subcategories - C2291: Browse by Subject", groups = {"activeUser"})
+    public void testC2291() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testBrowseBySubject(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1024: Start your 10 day free trial", groups = {"visitor"})
-    public void testLessonp_1024() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - C2062: Start your 10 day free trial", groups = {"visitor"})
+    public void testC2062() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testStartYourTenDayFreeTrial(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1205: Start your 10 day free trial", groups = {"freemium"})
-    public void testLessonp_1205() {
+    @Test(description = "Free member - Directory Page - Categories and subcategories - C2176: Start your 10 day free trial", groups = {"freemium"})
+    public void testC2176() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testStartYourTenDayFreeTrial(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1025: Related Topics", groups = {"visitor"})
-    public void testLessonp_1025() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories - C2063: Related Topics", groups = {"visitor"})
+    public void testC2063() {
         testRelatedTopics();
     }
 
-    @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1206: Related Topics", groups = {"freemium"})
-    public void testLessonp_1206() {
+    @Test(description = "Free member - Directory Page - Categories and subcategories - C2177: Related Topics", groups = {"freemium"})
+    public void testC2177() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testRelatedTopics();
     }
 
-    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1218: Related Topics", groups = {"activeUser"})
-    public void testLessonp_1218() {
+    @Test(description = "Active user - Directory Page - Categories and subcategories - C2292: Related Topics", groups = {"activeUser"})
+    public void testC2292() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testRelatedTopics();
     }
 
-    @Test(description = "Visitor - Directory Page - Categories and subcategories - lessonp-1026: What members say", groups = {"visitor"})
-    public void testLessonp_1026() {
+    @Test(description = "Visitor - Directory Page - Categories and subcategories -C2064: What members say", groups = {"visitor"})
+    public void testC2064() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Directory Page - Categories and subcategories - lessonp-1207: What members say", groups = {"freemium"})
-    public void testLessonp_1207() {
+    @Test(description = "Free member - Directory Page - Categories and subcategories - C2178: What members say", groups = {"freemium"})
+    public void testC2178() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Directory Page - Categories and subcategories - lessonp-1219: What members say", groups = {"activeUser"})
-    public void testLessonp_1219() {
+    @Test(description = "Active user - Directory Page - Categories and subcategories - C2293: What members say", groups = {"activeUser"})
+    public void testC2293() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         testTestimonials(TestData.PLAN_PRO);

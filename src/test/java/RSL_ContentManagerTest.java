@@ -29,26 +29,26 @@ public class RSL_ContentManagerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-1270: Main Page", groups = {"rsl"})
-    public void testLessonp_1270() {
+    @Test(description = "Regular SL - Content Manager - C2372: Main Page", groups = {"rsl"})
+    public void testC2372() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerMainPage();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-1271: Cards list", groups = {"rsl"})
-    public void testLessonp_1271() {
+    @Test(description = "Regular SL - Content Manager -C2373: Cards list", groups = {"rsl"})
+    public void testC2373() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerCardsList(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-5076: Search", groups = {"rsl"})
-    public void testLessonp_5076() {
+    @Test(description = "Regular SL - Content Manager - C2374: Search", groups = {"rsl"})
+    public void testC2374() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerSearch();
     }
 
-    @Test(description = "Regular SL - Content Manager - lessonp-5078: Sort By", groups = {"rsl"})
-    public void testLessonp_5078() {
+    @Test(description = "Regular SL - Content Manager - C2375: Sort By", groups = {"rsl"})
+    public void testC2375() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testContentManagerSortBy();
     }

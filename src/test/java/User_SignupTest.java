@@ -25,25 +25,18 @@ public class User_SignupTest extends BaseTest {
         pricingPage = new PricingPage(webDriver);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3849:Create a Starter Account - Try it Free button", groups = {"accountManagement"})
-    public void testLessonp_3849() {
+    @Test(description = "Account Management - Sign Up/Create a Starter account - C2306: Create a Starter Account - Try it Free button", groups = {"accountManagement"})
+    public void testC2306() {
         testCreateAccountViaTryItFree(TestData.PLAN_STARTER);
     }
 
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button", groups = {"accountManagement"})
-    public void testLessonp_3851() {
+    @Test(description = "Account Management - Sign Up/Create a Pro account - C2308: Create a Pro Account - Try it Free button", groups = {"accountManagement"})
+    public void testC2308() {
         testCreateAccountViaTryItFree(TestData.PLAN_PRO);
     }
 
-    @Ignore
-    @Deprecated
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3881:Create a Starter Account - Pricing button", groups = {"accountManagement"})
-    public void testLessonp_3881() {
-        testCreateAccountViaPricing(TestData.PLAN_STARTER);
-    }
-
-    @Test(description = "Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button\n", groups = {"accountManagement"})
-    public void testLessonp_3883() {
+    @Test(description = "Account Management - Sign Up/Create a PRO account - C2309: Create a Pro Account - Pricing button\n", groups = {"accountManagement"})
+    public void testC2309() {
         testCreateAccountViaPricing(TestData.PLAN_PRO);
     }
 
