@@ -43,26 +43,26 @@ public class RSL_CanViewTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Shared With Me - lessonp-5965: Main Page", groups = {"rsl"})
-    public void testLessonp_5965() {
+    @Test(description = "Regular SL - Shared With Me - C2330: Main Page", groups = {"rsl"})
+    public void testC2330() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testSharedWithMePage();
     }
 
-    @Test(description = "Regular SL - Shared With Me - lessonp-5966: Share a folder -  Can View Permission", groups = {"rsl"})
-    public void testLessonp_5966() {
+    @Test(description = "Regular SL - Shared With Me - C2331: Share a folder -  Can View Permission", groups = {"rsl"})
+    public void testC2331() {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         testShareFolder(TestData.VALID_EMAIL_RSL_SBCEO, TestData.SHARE_FOLDER_MODAL_RSL_OWNER_NAME, TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.RSL_SBCEO_TEACHER_FIRST_NAME, TestData.RSL_SBCEO_TEACHER_LAST_NAME, TestData.RSL_SBCEO_EXISTING_DISTRICT_ADMIN_EMAIL, TestData.RSL_SBCEO_DA_FIRST_NAME, TestData.RSL_SBCEO_DA_LAST_NAME, true);
     }
 
-    @Test(description = "Regular SL - Shared With Me - Can View - lessonp-5989: Drag-and-drop items - Can View Permission", groups = {"rsl"})
-    public void testLessonp_5989() {
+    @Test(description = "Regular SL - Shared With Me - Can View - C2332: Drag-and-drop items - Can View Permission", groups = {"rsl"})
+    public void testC2332() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testDragAndDrop(true);
     }
 
-    @Test(description = "Regular SL - Shared With Me - Can View - lessonp-6012: Verify shared folder - Can View Permission", groups = {"rsl"})
-    public void testLessonp_6012() {
+    @Test(description = "Regular SL - Shared With Me - Can View - C2333: Verify shared folder - Can View Permission", groups = {"rsl"})
+    public void testC2333() {
         loginPage.performLogin(TestData.RSL_SBCEO_EXISTING_TEACHER_EMAIL, TestData.VALID_PASSWORD);
         testVerifyFolder(TestData.VALID_EMAIL_RSL_SBCEO, true, TestData.SHARED_FOLDER_STATUS_RSL_OWNER);
     }

@@ -19,28 +19,28 @@ public class RSL_EditCollectionTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5617: Edit Collection Modal Appearance", groups = {"rsl"})
-    public void testLessonp_5617() {
+    @Test(description = "Regular SL - Edit Collection - C2365: Edit Collection Modal Appearance", groups = {"rsl"})
+    public void testC2365() {
         user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_RSL_SBCEO, false, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5618: Edit Collection Static Page Appearance", groups = {"rsl"})
-    public void testLessonp_5618() {
+    @Test(description = "Regular SL - Edit Collection - C2366: Edit Collection Static Page Appearance", groups = {"rsl"})
+    public void testC2366() {
         user_editCollectionTest.testEditFolderAppearance(TestData.VALID_EMAIL_RSL_SBCEO, true, TestData.NEW_COLLECTION_NAME);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5619: Publish. Republish", groups = {"rsl"})
-    public void testLessonp_5619() {
+    @Test(description = "Regular SL - Edit Collection - C2367: Publish. Republish", groups = {"rsl"})
+    public void testC2367() {
         user_editCollectionTest.testPublishFromEditFolder(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5620: Edit Collection Buttons", groups = {"rsl"})
-    public void testLessonp_5620() {
+    @Test(description = "Regular SL - Edit Collection - C2368: Edit Collection Buttons", groups = {"rsl"})
+    public void testC2368() {
         user_editCollectionTest.testEditFolderButtons(TestData.VALID_EMAIL_RSL_SBCEO, TestData.COPIED_FOLDER_NAME);
     }
 
-    @Test(description = "Regular SL - Edit Collection - lessonp-5621: Item Options", groups = {"rsl"})
-    public void testLessonp_5621() {
+    @Test(description = "Regular SL - Edit Collection - C2369: Item Options", groups = {"rsl"})
+    public void testC2369() {
         user_editCollectionTest.testItemOptions();
     }
 }

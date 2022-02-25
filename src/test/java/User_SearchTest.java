@@ -38,18 +38,18 @@ public class User_SearchTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-494: Keyword search", groups = {"visitor"})
-    public void testLessonp_494() {
+    @Test(description = "Visitor - Search Page - C2073: Keyword search", groups = {"visitor"})
+    public void testC2073() {
         testKeywordSearch(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-493: Keywordless search", groups = {"visitor"})
-    public void testLessonp_493() {
+    @Test(description = "Visitor - Search Page - C2074: Keywordless search", groups = {"visitor"})
+    public void testC2074() {
         testKeywordlessSearch(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-487: Cards layout", groups = {"visitor"})
-    public void testLessonp_487() {
+    @Test(description = "Visitor - Search Page - C2075: Cards layout", groups = {"visitor"})
+    public void testC2075() {
         lpHomePage.loadPage();
         headerPage.clickOnSearchButton();
         Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
@@ -61,36 +61,36 @@ public class User_SearchTest extends BaseTest {
         Assert.assertTrue(discoverResourcesPage.getCountUnlockedResourcesInThumbnailMode() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-4747: User clicks result card", groups = {"visitor"})
-    public void testLessonp_4747() {
+    @Test(description = "Visitor - Search Page - C2076: User clicks result card", groups = {"visitor"})
+    public void testC2076() {
         testUserClicksResultCard(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Search Page - lessonp-503: User clicks result card", groups = {"freemium"})
-    public void testLessonp_503() {
+    @Test(description = "Free member - Search Page - C2147: User clicks result card", groups = {"freemium"})
+    public void testC2147() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testUserClicksResultCard(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Search Page - lessonp-601: User clicks result card", groups = {"activeUser"})
-    public void testLessonp_601() {
+    @Test(description = "Active user - Search Page - C2269: User clicks result card", groups = {"activeUser"})
+    public void testC2269() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testUserClicksResultCard(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)", groups = {"visitor"})
-    public void testLessonp_491() {
+    @Test(description = "Visitor - Search Page - C2079: User clicks 'See Review' footer button (LP resource)", groups = {"visitor"})
+    public void testC2079() {
         testSeeReviewButton();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-505: User clicks 'See Review' footer button (LP resource)", groups = {"freemium"})
-    public void testLessonp_505() {
+    @Test(description = "Free member - Search Page - C2148: User clicks 'See Review' footer button (LP resource)", groups = {"freemium"})
+    public void testC2148() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeeReviewButton();
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-490: User clicks 'Get Free Access' footer button", groups = {"visitor"})
-    public void testLessonp_490() {
+    @Test(description = "Visitor - Search Page - C2080: User clicks 'Get Free Access' footer button", groups = {"visitor"})
+    public void testC2080() {
         reachSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
         Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
@@ -100,8 +100,8 @@ public class User_SearchTest extends BaseTest {
         stepOneModal.clickCloseModal();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-504: User clicks 'Get Free Access' footer button", groups = {"freemium"})
-    public void testLessonp_504() {
+    @Test(description = "Free member - Search Page - C2149: User clicks 'Get Free Access' footer button", groups = {"freemium"})
+    public void testC2149() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
         discoverResourcesPage.clickGetFreeAccess(true);
@@ -111,61 +111,61 @@ public class User_SearchTest extends BaseTest {
         Assert.assertEquals(TestData.STEP_TWO_TITLE_MESSAGE, stepTwoPage.getTitleText());
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-996: User clicks 'See Preview' footer button (Shared resource)", groups = {"visitor"})
-    public void testLessonp_996() {
+    @Test(description = "Visitor - Search Page - C2081: User clicks 'See Preview' footer button (Shared resource)", groups = {"visitor"})
+    public void testC2081() {
         reachSearchPageInListView();
         testSeePreviewButton();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-998: User clicks 'See Preview' footer button (Shared resource)", groups = {"freemium"})
-    public void testLessonp_998() {
+    @Test(description = "Free member - Search Page - C2150: User clicks 'See Preview' footer button (Shared resource)", groups = {"freemium"})
+    public void testC2150() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeePreviewButton();
     }
 
-    @Test(description = "Active user - Search Page - lessonp-603: User clicks 'See Preview' footer button (Shared resource)", groups = {"activeUser"})
-    public void testLessonp_603() {
+    @Test(description = "Active user - Search Page - C2271: User clicks 'See Preview' footer button (Shared resource)", groups = {"activeUser"})
+    public void testC2271() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeePreviewButton();
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-997: User clicks 'Go to Resource' footer button (Shared resource)", groups = {"visitor"})
-    public void testLessonp_997() {
+    @Test(description = "Visitor - Search Page - C2082: User clicks 'Go to Resource' footer button (Shared resource)", groups = {"visitor"})
+    public void testC2082() {
         testGoToResourceButtonForSharedResource();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-999: User clicks 'Go to Resource' footer button (Shared resource)", groups = {"freemium"})
-    public void testLessonp_999() {
+    @Test(description = "Free member - Search Page - C2151: User clicks 'Go to Resource' footer button (Shared resource)", groups = {"freemium"})
+    public void testC2151() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testGoToResourceButtonForSharedResource();
     }
 
-    @Test(description = "Active user - Search Page - lessonp-602: User clicks 'Go to Resource' footer button (Shared/regular resource)", groups = {"activeUser"})
-    public void testLessonp_602() {
+    @Test(description = "Active user - Search Page - C2270: User clicks 'Go to Resource' footer button (Shared/regular resource)", groups = {"activeUser"})
+    public void testC2270() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testGoToResourceButtonForSharedResource();
         testGoToResourceButtonForRegularResource(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)", groups = {"visitor"})
-    public void testLessonp_492() {
+    @Test(description = "Visitor - Search Page - C2083: User clicks 'See Collection' footer button (Collection)", groups = {"visitor"})
+    public void testC2083() {
         testSeeCollection();
     }
 
-    @Test(description = "Freemium - Search Page - lessonp-507: User clicks 'See Collection' footer button (Collection)", groups = {"freemium"})
-    public void testLessonp_507() {
+    @Test(description = "Freemium - Search Page - C2152: User clicks 'See Collection' footer button (Collection)", groups = {"freemium"})
+    public void testC2152() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSeeCollection();
     }
 
-    @Test(description = "Active user - Search Page - lessonp-605: User clicks 'See Collection' footer button (Collection)", groups = {"activeUser"})
-    public void testLessonp_605() {
+    @Test(description = "Active user - Search Page - C2272: User clicks 'See Collection' footer button (Collection)", groups = {"activeUser"})
+    public void testC2272() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeeCollection();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-506: User clicks 'Free: Full Access Review' footer button", groups = {"freemium"})
-    public void testLessonp_506() {
+    @Test(description = "Free member - Search Page - C2153: User clicks 'Free: Full Access Review' footer button", groups = {"freemium"})
+    public void testC2153() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         reachSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
@@ -176,65 +176,65 @@ public class User_SearchTest extends BaseTest {
         checkRrpSample(false, true, false);
     }
 
-    @Test(description = "Active user - Search Page - lessonp-604: User clicks 'See Full Review' footer button", groups = {"activeUser"})
-    public void testLessonp_604() {
+    @Test(description = "Active user - Search Page - C2273: User clicks 'See Full Review' footer button", groups = {"activeUser"})
+    public void testC2273() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSeeFullReviewButton(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-3956: Cards details - LP resource", groups = {"visitor"})
-    public void testLessonp_3956() {
+    @Test(description = "Visitor - Search Page - C2084: Cards details - LP resource", groups = {"visitor"})
+    public void testC2084() {
         testLpResource(TestData.PLAN_VISITOR, false);
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-3957: Cards details - Collection", groups = {"visitor"})
-    public void testLessonp_3957() {
+    @Test(description = "Visitor - Search Page - C2077: Cards details - Collection", groups = {"visitor"})
+    public void testC2077() {
         testCollectionResource();
     }
 
-    @Test(description = "Visitor - Search Page - lessonp-3958: Cards details - Shared resource", groups = {"visitor"})
-    public void testLessonp_3958() {
+    @Test(description = "Visitor - Search Page -  C2078: Cards details - Shared resource", groups = {"visitor"})
+    public void testC2078() {
         testSharedResource();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-3993: Cards details - LP resource", groups = {"freemium"})
-    public void testLessonp_3993() {
+    @Test(description = "Free member - Search Page - C2154: Cards details - LP resource", groups = {"freemium"})
+    public void testC2154() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResource(TestData.PLAN_FREEMIUM, false);
     }
 
-    @Test(description = "Free member - Search Page - lessonp-4002:Cards details - Sample resource", groups = {"freemium"})
-    public void testLessonp_4002() {
+    @Test(description = "Free member - Search Page - C2155:Cards details - Sample resource", groups = {"freemium"})
+    public void testC2155() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpResource(TestData.PLAN_FREEMIUM, true);
     }
 
-    @Test(description = "Free member - Search Page - lessonp-3994: Cards details - Collection", groups = {"freemium"})
-    public void testLessonp_3994() {
+    @Test(description = "Free member - Search Page - C2156: Cards details - Collection", groups = {"freemium"})
+    public void testC2156() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCollectionResource();
     }
 
-    @Test(description = "Free member - Search Page - lessonp-3995: Cards details - Shared resource", groups = {"freemium"})
-    public void testLessonp_3995() {
+    @Test(description = "Free member - Search Page - C2157: Cards details - Shared resource", groups = {"freemium"})
+    public void testC2157() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSharedResource();
     }
 
-    @Test(description = "Active user - Search Page - lessonp-4007:Cards details - LP resource", groups = {"activeUser"})
-    public void testLessonp_4007() {
+    @Test(description = "Active user - Search Page - C2274:Cards details - LP resource", groups = {"activeUser"})
+    public void testC2274() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResource(TestData.PLAN_PRO, false);
     }
 
-    @Test(description = "Active user - Search Page - lessonp-4008: Cards details - Collection", groups = {"activeUser"})
-    public void testLessonp_4008() {
+    @Test(description = "Active user - Search Page - C2275: Cards details - Collection", groups = {"activeUser"})
+    public void testC2275() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionResource();
     }
 
-    @Test(description = "Active user - Search Page - lessonp-4009: Cards details - Shared resource", groups = {"activeUser"})
-    public void testLessonp_4009() {
+    @Test(description = "Active user - Search Page - C2276: Cards details - Shared resource", groups = {"activeUser"})
+    public void testC2276() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSharedResource();
     }

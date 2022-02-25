@@ -20,13 +20,13 @@ public class CSL_CollectionBuilderTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_HENRY, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Custom SL - Collection Builder - lessonp-4948: Collection Builder Buttons", groups = {"csl"})
-    public void testLessonp_4948() {
+    @Test(description = "Custom SL - Collection Builder - C2477: Collection Builder Buttons", groups = {"csl"})
+    public void testC2477() {
         collectionBuilderTest.testCollectionBuilderButtonsAppearance(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Collection Builder - lessonp-4949: Collection Builder Items", groups = {"csl"})
-    public void testLessonp_4949() {
+    @Test(description = "Custom SL - Collection Builder - C2478: Collection Builder Items", groups = {"csl"})
+    public void testC2478() {
         collectionBuilderTest.testCollectionBuilderItemsAppearance(TestData.VALID_EMAIL_CSL_HENRY, 10);
     }
 }

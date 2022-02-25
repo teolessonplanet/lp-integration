@@ -51,31 +51,31 @@ public class User_RrpSearchPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-467: Resource Modal Overview", groups = {"visitor"})
-    public void testLessonp_467() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Overview - C2091: Resource Modal Overview", groups = {"visitor"})
+    public void testC2091() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-1282: Shared Resource Modal Overview", groups = {"visitor"})
-    public void testLessonp_1282() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Overview - C2092: Shared Resource Modal Overview", groups = {"visitor"})
+    public void testC2092() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Overview - lessonp-468: Collection Modal Overview", groups = {"visitor"})
-    public void testLessonp_468() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Overview - C2093: Collection Modal Overview", groups = {"visitor"})
+    public void testC2093() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         testCollectionRRPOverview(true, TestData.PLAN_VISITOR);
         testPanelItemsOverview();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static - RRP Overview - lessonp-475: Resource Static Page Overview", groups = {"visitor"})
-    public void testLessonp_475() {
+    @Test(description = "Visitor - RRP Search - RRP Static - RRP Overview - C2085: Resource Static Page Overview", groups = {"visitor"})
+    public void testC2085() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testRegularResourceRRPOverview(false, TestData.PLAN_VISITOR);
@@ -83,8 +83,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static  - RRP Overview - lessonp-944: Shared Resource Static Page Overview", groups = {"visitor"})
-    public void testLessonp_944() {
+    @Test(description = "Visitor - RRP Search - RRP Static  - RRP Overview - C2086: Shared Resource Static Page Overview", groups = {"visitor"})
+    public void testC2086() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
@@ -94,16 +94,16 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static  - RRP Overview - lessonp-476: Collection Static Page Overview", groups = {"visitor"})
-    public void testLessonp_476() {
+    @Test(description = "Visitor - RRP Search - RRP Static  - RRP Overview - C2087: Collection Static Page Overview", groups = {"visitor"})
+    public void testC2087() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         testCollectionRRPOverview(false, TestData.PLAN_VISITOR);
         testPanelItemsOverview();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-469: LP Resource Main buttons", groups = {"visitor"})
-    public void testLessonp_469() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Buttons - C2094: LP Resource Main buttons", groups = {"visitor"})
+    public void testC2094() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testFavoriteButton(true);
@@ -112,8 +112,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testRegularResourceRRPNavigationButtonsSearchPage(true);
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-1254: Shared Resource Main buttons", groups = {"visitor"})
-    public void testLessonp_1254() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Buttons - C2096: Shared Resource Main buttons", groups = {"visitor"})
+    public void testC2096() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(false);
@@ -123,8 +123,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSharedResourceRRPNavigationButtonsSearchPage();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons", groups = {"visitor"})
-    public void testLessonp_473() {
+    @Test(description = "Visitor - RRP Search - RRP Modal - RRP Buttons - C2095: Collection Main buttons", groups = {"visitor"})
+    public void testC2095() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
         testSaveCollectionButton(true, TestData.PLAN_VISITOR);
@@ -136,8 +136,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testItemViewerSection();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4603: LP Resource Main buttons", groups = {"visitor"})
-    public void testLessonp_4603() {
+    @Test(description = "Visitor - RRP Search - RRP Static - RRP Buttons - C2090: LP Resource Main buttons", groups = {"visitor"})
+    public void testC2090() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeeReview(true);
@@ -149,8 +149,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4608: Shared Resource Main Buttons", groups = {"visitor"})
-    public void testLessonp_4608() {
+    @Test(description = "Visitor - RRP Search - RRP Static - RRP Buttons - C2088: Shared Resource Main Buttons", groups = {"visitor"})
+    public void testC2088() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickSeePreview(true);
@@ -164,8 +164,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesTryItFreeButton();
     }
 
-    @Test(description = "Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4609: Collection Main buttons", groups = {"visitor"})
-    public void testLessonp_4609() {
+    @Test(description = "Visitor - RRP Search - RRP Static - RRP Buttons - C2089: Collection Main buttons", groups = {"visitor"})
+    public void testC2089() {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         testSaveCollectionButton(false, TestData.PLAN_VISITOR);
@@ -176,32 +176,32 @@ public class User_RrpSearchPageTest extends BaseTest {
         testItemViewerSection();
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-523: Resource Modal Overview", groups = {"freemium"})
-    public void testLessonp_523() {
+    @Test(description = "Free member - RRP Search - RRP Modal - RRP Overview - C2158: Resource Modal Overview", groups = {"freemium"})
+    public void testC2158() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-535: Free Sample Modal Overview", groups = {"freemium"})
-    public void testLessonp_535() {
+    @Test(description = "Free member - RRP Search - RRP Modal - RRP Overview - C2159: Free Sample Modal Overview", groups = {"freemium"})
+    public void testC2159() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
         testFreeSampleResourceRRPOverview(true);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-952: Shared Resource Modal Overview", groups = {"freemium"})
-    public void testLessonp_952() {
+    @Test(description = "Free member - RRP Search - RRP Modal - RRP Overview - C2160: Shared Resource Modal Overview", groups = {"freemium"})
+    public void testC2160() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(false);
         testSharedResourceRRPOverview(true, TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Overview - lessonp-524: Collection Modal Overview", groups = {"freemium"})
-    public void testLessonp_524() {
+    @Test(description = "Free member - RRP Search - RRP Modal - RRP Overview - C2161: Collection Modal Overview", groups = {"freemium"})
+    public void testC2161() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -209,8 +209,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testPanelItemsOverview();
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-515: Resource Static Page Overview", groups = {"freemium"})
-    public void testLessonp_515() {
+    @Test(description = "Free member - RRP Search - RRP Static - RRP Overview - C2166: Resource Static Page Overview", groups = {"freemium"})
+    public void testC2166() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
@@ -219,8 +219,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-531: Free Sample Static Page Overview", groups = {"freemium"})
-    public void testLessonp_531() {
+    @Test(description = "Free member - RRP Search - RRP Static - RRP Overview - C2167: Free Sample Static Page Overview", groups = {"freemium"})
+    public void testC2167() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
@@ -230,8 +230,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-950: Shared Resource Static Page Overview", groups = {"freemium"})
-    public void testLessonp_950() {
+    @Test(description = "Free member - RRP Search - RRP Static - RRP Overview - C2168: Shared Resource Static Page Overview", groups = {"freemium"})
+    public void testC2168() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeePreview(true);
@@ -241,8 +241,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Overview - lessonp-516: Collection Static Page Overview", groups = {"freemium"})
-    public void testLessonp_516() {
+    @Test(description = "Free member - RRP Search - RRP Static - RRP Overview - C2169: Collection Static Page Overview", groups = {"freemium"})
+    public void testC2169() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -250,8 +250,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testPanelItemsOverview();
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4664: LP Resource Main buttons", groups = {"freemium"})
-    public void testLessonp_4664() {
+    @Test(description = "Free member - RRP Search - RRP Modal - RRP Buttons - C2162: LP Resource Main buttons", groups = {"freemium"})
+    public void testC2162() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
@@ -271,8 +271,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testThumbnailForRegularResource(inModal, TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4663: FreeSample Resource Main buttons", groups = {"freemium"})
-    public void testLessonp_4663() {
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - C2163: FreeSample Resource Main buttons", groups = {"freemium"})
+    public void testC2163() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(false);
@@ -282,8 +282,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testAddToCollectionDropdown(true);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4666: Shared Resource Main buttons", groups = {"freemium"})
-    public void testLessonp_4666() {
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - C2165: Shared Resource Main buttons", groups = {"freemium"})
+    public void testC2165() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -294,8 +294,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testGoToResourceButtonForSharedResource(true);
     }
 
-    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - lessonp-4667: Collection  Main buttons", groups = {"freemium"})
-    public void testLessonp_4667() {
+    @Test(description = "Free member - Search Page - RRP Modal - RRP Buttons - C2164: Collection  Main buttons", groups = {"freemium"})
+    public void testC2164() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -317,16 +317,16 @@ public class User_RrpSearchPageTest extends BaseTest {
         }
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4670: LP Resource Main buttons", groups = {"freemium"})
-    public void testLessonp_4670() {
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - C2170: LP Resource Main buttons", groups = {"freemium"})
+    public void testC2170() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
         testLpResourceMainButtons(false, true);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4669: FreeSample Resource Main buttons", groups = {"freemium"})
-    public void testLessonp_4669() {
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons -C2171: FreeSample Resource Main buttons", groups = {"freemium"})
+    public void testC2171() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickFreeFullAccessReview(true);
@@ -340,8 +340,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons  - lessonp-4671: Shared Resource Main Buttons", groups = {"freemium"})
-    public void testLessonp_4671() {
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons  - C2173: Shared Resource Main Buttons", groups = {"freemium"})
+    public void testC2173() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -356,24 +356,24 @@ public class User_RrpSearchPageTest extends BaseTest {
         user_directoryCategoriesAndSubcategoriesTest.testTestimonials(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - lessonp-4668: Collection Main buttons", groups = {"freemium"})
-    public void testLessonp_4668() {
+    @Test(description = "Free member - Search Page - RRP Static - RRP Buttons - C2172: Collection Main buttons", groups = {"freemium"})
+    public void testC2172() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
         testCollectionMainButtonsForFreemium(false);
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-586: Resource Modal Overview", groups = {"activeUser"})
-    public void testLessonp_586() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - C2283: Resource Modal Overview", groups = {"activeUser"})
+    public void testC2283() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(false);
         testRegularResourceRRPOverview(true, TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-954: Shared Resource Modal Overview", groups = {"activeUser"})
-    public void testLessonp_954() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview -  C2285: Shared Resource Modal Overview", groups = {"activeUser"})
+    public void testC2285() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -381,8 +381,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSharedResourceRRPOverview(true, TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - lessonp-587: Collection Modal Overview", groups = {"activeUser"})
-    public void testLessonp_587() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Overview - C2284: Collection Modal Overview", groups = {"activeUser"})
+    public void testC2284() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(false);
@@ -390,8 +390,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testPanelItemsOverview();
     }
 
-    @Test(description = "Active user - Search Page - RRP Static - RRP Overview - lessonp-4795: Resource Static Page Overview", groups = {"activeUser"})
-    public void testLessonp_4795() {
+    @Test(description = "Active user - Search Page - RRP Static - RRP Overview - C2277: Resource Static Page Overview", groups = {"activeUser"})
+    public void testC2277() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testResourcePageOverview(TestData.PLAN_PRO, false);
     }
@@ -408,8 +408,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(account);
     }
 
-    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4796: Shared Resource Static Page Overview", groups = {"activeUser"})
-    public void testLessonp_4796() {
+    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - C2278: Shared Resource Static Page Overview", groups = {"activeUser"})
+    public void testC2278() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -419,8 +419,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSimilarResourcesSectionOverview(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - lessonp-4797: Collection Static Page Overview", groups = {"activeUser"})
-    public void testLessonp_4797() {
+    @Test(description = "Active user - Search Page - RRP Static  - RRP Overview - C2279: Collection Static Page Overview", groups = {"activeUser"})
+    public void testC2279() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);
@@ -435,8 +435,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testPanelItemsOverview();
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4792: LP Resource Main buttons", groups = {"activeUser"})
-    public void testLessonp_4792() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - C2287: LP Resource Main buttons", groups = {"activeUser"})
+    public void testC2287() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpResourceMainButtons(false, TestData.PLAN_PRO);
     }
@@ -456,8 +456,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testGoToResourceButtonForRegularResource(!inANewTab);
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-4794: Shared Resource Main buttons", groups = {"activeUser"})
-    public void testLessonp_4794() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - C2286: Shared Resource Main buttons", groups = {"activeUser"})
+    public void testC2286() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -468,8 +468,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testGoToResourceButtonForSharedResource(true);
     }
 
-    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons", groups = {"activeUser"})
-    public void testLessonp_4793() {
+    @Test(description = "Active user - Search Page - RRP Modal - RRP Buttons - C2288: Collection Main buttons", groups = {"activeUser"})
+    public void testC2288() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCollectionMainButtons(true, TestData.PLAN_PRO);
     }
@@ -505,8 +505,8 @@ public class User_RrpSearchPageTest extends BaseTest {
     }
 
 
-    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4805: LP Resource Main buttons", groups = {"activeUser"})
-    public void testLessonp_4805() {
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - C2280: LP Resource Main buttons", groups = {"activeUser"})
+    public void testC2280() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeReview(true);
@@ -518,8 +518,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
     }
 
-    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4811: Shared Resource Main Buttons", groups = {"activeUser"})
-    public void testLessonp_4811() {
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons -C2281: Shared Resource Main Buttons", groups = {"activeUser"})
+    public void testC2281() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
@@ -532,8 +532,8 @@ public class User_RrpSearchPageTest extends BaseTest {
         testSeeSimilarResourcesDropdown();
     }
 
-    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - lessonp-4817: Collection Main buttons", groups = {"activeUser"})
-    public void testLessonp_4817() {
+    @Test(description = "Active user - Search Page - RRP Static - RRP Buttons - C2282: Collection Main buttons", groups = {"activeUser"})
+    public void testC2282() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.clickSeeCollection(true);

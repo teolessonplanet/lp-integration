@@ -18,13 +18,13 @@ public class User_LoginTest extends BaseTest {
         signInModal = new SignInModal(webDriver);
     }
 
-    @Test(description = "Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality", groups = {"accountManagement"})
-    public void testLessonp_5033() {
+    @Test(description = "Account Management - Login In/Sign in - C2136: Sing in button and functionality", groups = {"accountManagement"})
+    public void testC2136() {
         testLoginFlow(createNewUser(TestData.PLAN_FREEMIUM));
     }
 
-    @Test(description = "Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality", groups = {"accountManagement"})
-    public void testLessonp_5034() {
+    @Test(description = "Account Management - Login In/Sign in - C2256: Sign in button and functionality", groups = {"accountManagement"})
+    public void testC2256() {
         testLoginFlow(createNewUser(TestData.PLAN_STARTER));
     }
 

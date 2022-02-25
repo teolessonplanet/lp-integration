@@ -24,146 +24,146 @@ public class User_FooterTest extends BaseTest {
         browseBySubjectPage = new BrowseBySubjectPage(webDriver);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-656: Footer structure", groups = {"visitor"})
-    public void testLessonp_656() {
+    @Test(description = "Visitor - Footer - C2048: Footer structure", groups = {"visitor"})
+    public void tesC2048() {
         lpHomePage.loadPage();
         testFooterContainer(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-665: Footer structure", groups = {"freemium"})
-    public void testLessonp_665() {
+    @Test(description = "Free member - Footer - C2139: Footer structure", groups = {"freemium"})
+    public void testC2139() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testFooterContainer(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-669: Footer structure", groups = {"activeUser"})
-    public void testLessonp_669() {
+    @Test(description = "Active user - Footer - C2261: Footer structure", groups = {"activeUser"})
+    public void testC2261() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testFooterContainer(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-659: Open Educational Resources", groups = {"visitor"})
-    public void testLessonp_659() {
+    @Test(description = "Visitor - Footer - C2049: Open Educational Resources", groups = {"visitor"})
+    public void testC2049() {
         lpHomePage.loadPage();
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-667: Open Educational Resources", groups = {"freemium"})
-    public void testLessonp_667() {
+    @Test(description = "Free member - Footer - C2140: Open Educational Resources", groups = {"freemium"})
+    public void testC2140() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-671: Open Educational Resources", groups = {"activeUser"})
-    public void testLessonp_671() {
+    @Test(description = "Active user - Footer - C2262: Open Educational Resources", groups = {"activeUser"})
+    public void testC2262() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testOpenEducationalResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-660: Discover Resources", groups = {"visitor"})
-    public void testLessonp_660() {
+    @Test(description = "Visitor - Footer - C2050: Discover Resources", groups = {"visitor"})
+    public void testC2050() {
         lpHomePage.loadPage();
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-668: Discover Resources", groups = {"freemium"})
-    public void testLessonp_668() {
+    @Test(description = "Free member - Footer - C2141: Discover Resources", groups = {"freemium"})
+    public void testC2141() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp672: Discover Resources", groups = {"activeUser"})
-    public void testLessonp_672() {
+    @Test(description = "Active user - Footer - C2263: Discover Resources", groups = {"activeUser"})
+    public void testC2263() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testDiscoverResourcesSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-658: Manage Curriculum", groups = {"visitor"})
-    public void testLessonp_658() {
+    @Test(description = "Visitor - Footer - C2051: Manage Curriculum", groups = {"visitor"})
+    public void testC2051() {
         lpHomePage.loadPage();
         testManageCurriculumSection();
     }
 
-    @Test(description = "Free member - Footer - lessonp-666: Manage Curriculum", groups = {"freemium"})
-    public void testLessonp_666() {
+    @Test(description = "Free member - Footer - C2142: Manage Curriculum", groups = {"freemium"})
+    public void testC2142() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Active user - Footer - lessonp-670: Manage Curriculum", groups = {"activeUser"})
-    public void testLessonp_670() {
+    @Test(description = "Active user - Footer - C2264: Manage Curriculum", groups = {"activeUser"})
+    public void testC2264() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testManageCurriculumSection();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4033: Bottom footer links", groups = {"visitor"})
-    public void testLessonp_4033() {
+    @Test(description = "Visitor - Footer - C2052: Bottom footer links", groups = {"visitor"})
+    public void testC2052() {
         lpHomePage.loadPage();
         testBottomFooterLinks(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-4112: Bottom footer links", groups = {"freemium"})
-    public void testLessonp_4112() {
+    @Test(description = "Free member - Footer - C2143: Bottom footer links", groups = {"freemium"})
+    public void testC2143() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testBottomFooterLinks(TestData.PLAN_FREEMIUM);
     }
 
-    @Test(description = "Active user - Footer - lessonp-4117: Bottom footer links", groups = {"activeUser"})
-    public void testLessonp_4117() {
+    @Test(description = "Active user - Footer - C2265: Bottom footer links", groups = {"activeUser"})
+    public void testC2265() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testBottomFooterLinks(TestData.PLAN_PRO);
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4034: Social links", groups = {"visitor"})
-    public void testLessonp_4034() {
+    @Test(description = "Visitor - Footer - C2053: Social links", groups = {"visitor"})
+    public void testC2053() {
         lpHomePage.loadPage();
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Free member - Footer - lessonp-4114: Social links", groups = {"freemium"})
-    public void testLessonp_4114() {
+    @Test(description = "Free member - Footer - C2144: Social links", groups = {"freemium"})
+    public void testC2144() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4118: Social links", groups = {"activeUser"})
-    public void testLessonp_4118() {
+    @Test(description = "Active user - Footer - C2266: Social links", groups = {"activeUser"})
+    public void testC2266() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLessonPlanetSocialLinks();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4035: LP logo", groups = {"visitor"})
-    public void testLessonp_4035() {
+    @Test(description = "Visitor - Footer - C2054: LP logo", groups = {"visitor"})
+    public void testC2054() {
         lpHomePage.loadPage();
         testLpLogo();
     }
 
-    @Test(description = "Free member - Footer - lessonp-4115: LP logo", groups = {"freemium"})
-    public void testLessonp_4115() {
+    @Test(description = "Free member - Footer - C2145: LP logo", groups = {"freemium"})
+    public void testC2145() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLpLogo();
     }
 
-    @Test(description = "Active user - Footer - lessonp-4119: LP logo", groups = {"activeUser"})
-    public void testLessonp_4119() {
+    @Test(description = "Active user - Footer - C2267: LP logo", groups = {"activeUser"})
+    public void testC2267() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLpLogo();
     }
 
-    @Test(description = "Visitor - Footer - lessonp-4036: Newsletter", groups = {"visitor"})
-    public void testLessonp_4036() {
+    @Test(description = "Visitor - Footer - C2055: Newsletter", groups = {"visitor"})
+    public void testC2055() {
         lpHomePage.loadPage();
         testSendEmailNewsletter(TestData.PLAN_VISITOR);
     }
 
-    @Test(description = "Free member - Footer - lessonp-4116: Newsletter", groups = {"freemium"})
-    public void testLessonp_4116() {
+    @Test(description = "Free member - Footer - C2146: Newsletter", groups = {"freemium"})
+    public void testC2146() {
         String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testSendEmailNewsletter(userEmail);
     }
 
-    @Test(description = "Active user - Footer - lessonp-4120: Newsletter", groups = {"activeUser"})
-    public void testLessonp_4120() {
+    @Test(description = "Active user - Footer - C2268: Newsletter", groups = {"activeUser"})
+    public void testC2268() {
         String userEmail = stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testSendEmailNewsletter(userEmail);
     }

@@ -42,8 +42,8 @@ public class User_StepTwoTest extends BaseTest {
         headerPage.clickOnUpgradeMeButton(false);
     }
 
-    @Test(description = "Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data", groups = {"accountManagement"})
-    public void testLessonp_5252() {
+    @Test(description = "Account Management - Step 2 - C2557: Step2 Modal - User supplies invalid/valid form data", groups = {"accountManagement"})
+    public void testC2557() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(false);
         stepOneModal.typeEmail(TestData.GET_NEW_EMAIL());
@@ -88,8 +88,8 @@ public class User_StepTwoTest extends BaseTest {
         Assert.assertTrue(offerToSelect.contains(myAccountPage.getPlan().toLowerCase()));
     }
 
-    @Test(description = "Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data", groups = {"accountManagement"})
-    public void testLessonp_5253() {
+    @Test(description = "Account Management - Step 2 - C2558: Step2 Static - User supplies invalid/valid form data", groups = {"accountManagement"})
+    public void testC2558() {
         lpHomePage.loadPage();
         headerPage.clickOnTryItFree(true);
         stepOnePage.typeEmail(TestData.GET_NEW_EMAIL());

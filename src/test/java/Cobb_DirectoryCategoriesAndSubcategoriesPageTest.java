@@ -15,51 +15,51 @@ public class Cobb_DirectoryCategoriesAndSubcategoriesPageTest extends BaseTest {
         user_directoryCategoriesAndSubcategoriesPageTest = new User_DirectoryCategoriesAndSubcategoriesPageTest();
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5902: Page UI", groups = {"cobb"})
-    public void testLessonp_5902() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2610: Page UI", groups = {"cobb"})
+    public void testC2610() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testPageUi(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5903: Resource Tiles", groups = {"cobb"})
-    public void testLessonp_5903() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2611: Resource Tiles", groups = {"cobb"})
+    public void testC2611() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testResourceTiles(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5904: RRP modal (Individual resources)", groups = {"cobb"})
-    public void testLessonp_5904() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2612: RRP modal (Individual resources)", groups = {"cobb"})
+    public void testC2612() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testRrpIndividualResource(TestData.VALID_EMAIL_CSL_COBB, false);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5905: RRP modal (Collections)", groups = {"cobb"})
-    public void testLessonp_5905() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2613: RRP modal (Collections)", groups = {"cobb"})
+    public void testC2613() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testRrpCollection(TestData.VALID_EMAIL_CSL_COBB, false);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5906: RRP static (Individual resources)", groups = {"cobb"})
-    public void testLessonp_5906() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2614: RRP static (Individual resources)", groups = {"cobb"})
+    public void testC2614() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testRrpIndividualResource(TestData.VALID_EMAIL_CSL_COBB, true);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5907: RRP static (Collections)", groups = {"cobb"})
-    public void testLessonp_5907() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2615: RRP static (Collections)", groups = {"cobb"})
+    public void testC2615() {
         rsl_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         rsl_directoryCategoriesAndSubcategoriesPageTest.testRrpCollection(TestData.VALID_EMAIL_CSL_COBB, true);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5908: Browse by Subject", groups = {"cobb"})
-    public void testLessonp_5908() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2616: Browse by Subject", groups = {"cobb"})
+    public void testC2616() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         user_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         user_directoryCategoriesAndSubcategoriesPageTest.testBrowseBySubject(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - lessonp-5909: Related Topics", groups = {"cobb"})
-    public void testLessonp_5909() {
+    @Test(description = "Cobb SL - Directory Page - Categories and subcategories - C2617: Related Topics", groups = {"cobb"})
+    public void testC2617() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         user_directoryCategoriesAndSubcategoriesPageTest.initTest(webDriver);
         user_directoryCategoriesAndSubcategoriesPageTest.testRelatedTopics();

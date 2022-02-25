@@ -20,28 +20,28 @@ public class RSL_DirectoryMainPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5178: Page UI", groups = {"rsl"})
-    public void testLessonp_5178() {
+    @Test(description = "Regular SL - Directory Page - Main Page - C2404: Page UI", groups = {"rsl"})
+    public void testC2404() {
         testPageUi(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5179: Thumbnails", groups = {"rsl"})
-    public void testLessonp_5179() {
+    @Test(description = "Regular SL - Directory Page - Main Page - C2405: Thumbnails", groups = {"rsl"})
+    public void testC2405() {
         testThumbnails(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5180: Links", groups = {"rsl"})
-    public void testLessonp_5180() {
+    @Test(description = "Regular SL - Directory Page - Main Page - C2406: Links", groups = {"rsl"})
+    public void testC2406() {
         testLinks(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5181: Show All button", groups = {"rsl"})
-    public void testLessonp_5181() {
+    @Test(description = "Regular SL - Directory Page - Main Page - C2407: Show All button", groups = {"rsl"})
+    public void testC2407() {
         testShowAllButton(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Directory Page - Main Page - lessonp-5182: Categories modal", groups = {"rsl"})
-    public void testLessonp_5182() {
+    @Test(description = "Regular SL - Directory Page - Main Page - C2408: Categories modal", groups = {"rsl"})
+    public void testC2408() {
         testCategoriesModal(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 

@@ -13,15 +13,15 @@ public class Cobb_HeaderTest extends BaseTest {
         user_headerTest = new User_HeaderTest();
     }
 
-    @Test(description = "Cobb SL - Header - lessonp-5894: Header buttons", groups = {"cobb"})
-    public void testLessonp_5894() {
+    @Test(description = "Cobb SL - Header - C2623: Header buttons", groups = {"cobb"})
+    public void testC2623() {
         user_headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         user_headerTest.testHeaderButtons(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Header - lessonp-5383: Search box", groups = {"cobb"})
-    public void testLessonp_5383() {
+    @Test(description = "Cobb SL - Header - C2624", groups = {"cobb"})
+    public void testC2624() {
         user_headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
         user_headerTest.testSearchBoxKeywordFunctionality(TestData.VALID_EMAIL_CSL_COBB);

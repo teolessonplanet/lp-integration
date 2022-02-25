@@ -10,8 +10,8 @@ public class Cobb_CalendarPageTest extends BaseTest {
         rsl_calendarPageTest = new RSL_CalendarPageTest();
     }
 
-    @Test(description = "Cobb SL - Calendar page - lessonp-5514:Buttons/Links", groups = {"cobb"})
-    public void testLessonp_5514() {
+    @Test(description = "Cobb SL - Calendar page - C2640:Buttons/Links", groups = {"cobb"})
+    public void testC2640() {
         rsl_calendarPageTest.initTest(webDriver);
         rsl_calendarPageTest.testCurriculumCalendarPage(TestData.VALID_EMAIL_CSL_COBB);
     }

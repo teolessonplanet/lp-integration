@@ -11,32 +11,32 @@ public class Cobb_DirectoryMainPage extends BaseTest {
         rsl_directoryMainPageTest = new RSL_DirectoryMainPageTest();
     }
 
-    @Test(description = "Cobb SL - Directory Main Page - lessonp-5910: Page UI", groups = {"cobb"})
-    public void testLessonp_5910() {
+    @Test(description = "Cobb SL - Directory Main Page - C2618: Page UI", groups = {"cobb"})
+    public void testC2618() {
         rsl_directoryMainPageTest.initTest(webDriver);
         rsl_directoryMainPageTest.testPageUi(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Main Page - lessonp-5911: Thumbnails", groups = {"cobb"})
-    public void testLessonp_5911() {
+    @Test(description = "Cobb SL - Directory Main Page - C2619: Thumbnails", groups = {"cobb"})
+    public void testC2619() {
         rsl_directoryMainPageTest.initTest(webDriver);
         rsl_directoryMainPageTest.testThumbnails(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Main Page - lessonp-5912: Links", groups = {"cobb"})
-    public void testLessonp_5912() {
+    @Test(description = "Cobb SL - Directory Main Page - C2620: Links", groups = {"cobb"})
+    public void testC2620() {
         rsl_directoryMainPageTest.initTest(webDriver);
         rsl_directoryMainPageTest.testLinks(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory Main Page - lessonp-5913: Show All button", groups = {"cobb"})
-    public void testLessonp_5913() {
+    @Test(description = "Cobb SL - Directory Main Page - C2621: Show All button", groups = {"cobb"})
+    public void testC2621() {
         rsl_directoryMainPageTest.initTest(webDriver);
         rsl_directoryMainPageTest.testShowAllButton(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Directory  Main Page - lessonp-5914: Categories Modal", groups = {"cobb"})
-    public void testLessonp_5914() {
+    @Test(description = "Cobb SL - Directory  Main Page - C2622: Categories Modal", groups = {"cobb"})
+    public void testC2622() {
         rsl_directoryMainPageTest.initTest(webDriver);
         rsl_directoryMainPageTest.testCategoriesModal(TestData.VALID_EMAIL_CSL_COBB);
     }

@@ -20,13 +20,13 @@ public class RSL_CollectionBuilderTest extends BaseTest {
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
     }
 
-    @Test(description = "Regular SL - Collection Builder - lessonp-5141: Collection Builder Buttons", groups = {"rsl"})
-    public void testLessonp_5141() {
+    @Test(description = "Regular SL - Collection Builder - C2363: Collection Builder Buttons", groups = {"rsl"})
+    public void testC2363() {
         user_collectionBuilderTest.testCollectionBuilderButtonsAppearance(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Collection Builder - lessonp-5142: Collection Builder Items", groups = {"rsl"})
-    public void testLessonp_5142() {
+    @Test(description = "Regular SL - Collection Builder - C2364: Collection Builder Items", groups = {"rsl"})
+    public void testC2364() {
         user_collectionBuilderTest.testCollectionBuilderItemsAppearance(TestData.VALID_EMAIL_RSL_SBCEO, 10);
     }
 }

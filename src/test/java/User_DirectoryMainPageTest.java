@@ -29,74 +29,73 @@ public class User_DirectoryMainPageTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Visitor - Directory Page - Main Page - lessonp-1015: Page UI", groups = {"visitor"})
-    public void testLessonp_1015() {
+    @Test(description = "Visitor - Directory Page - Main Page - C2057: Page UI", groups = {"visitor"})
+    public void testC2057() {
         lpHomePage.loadPage();
         testPageUi();
     }
 
-    @Test(description = "Free member - Directory Page - Main Page - lessonp-1035: Page UI", groups = {"freemium"})
-    public void testLessonp_1035() {
+    @Test(description = "Free member - Directory Page - Main Page - C2183: Page UI", groups = {"freemium"})
+    public void testC2183() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testPageUi();
     }
 
-    @Test(description = "Active user - Directory Page - Main Page - lessonp-1040: Page UI", groups = {"activeUser"})
-    public void testLessonp_1040() {
+    @Test(description = "Active user - Directory Page - Main Page - C2298: Page UI", groups = {"activeUser"})
+    public void testC2298() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testPageUi();
     }
 
-    @Test(description = "Free member - Directory Page - Main Page - lessonp-1330: Tumbnails", groups = {"freemium"})
-    public void testLessonp_1030() {
+    @Test(description = "Free member - Directory Page - Main Page - C2184: Tumbnails", groups = {"freemium"})
+    public void testC2184() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testThumbnails();
     }
 
-    @Test(description = "Active user - Directory Page - Main Page - lessonp-1041: Tumbnails", groups = {"activeUser"})
-    public void testLessonp_1041() {
+    @Test(description = "Active user - Directory Page - Main Page - C2299: Tumbnails", groups = {"activeUser"})
+    public void testC2299() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testThumbnails();
     }
 
-    @Test(description = "Free member - Directory Page - Main Page - lessonp-1331: Links", groups = {"freemium"})
-    public void testLessonp_1331() {
+    @Test(description = "Free member - Directory Page - Main Page - C2185: Links", groups = {"freemium"})
+    public void testC2185() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testLinks();
     }
 
-    @Test(description = "Active user - Directory Page - Main Page - lessonp-1042: Links", groups = {"activeUser"})
-    public void testLessonp_1042() {
+    @Test(description = "Active user - Directory Page - Main Page - C2300: Links", groups = {"activeUser"})
+    public void testC2300() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testLinks();
     }
 
-    @Test(description = "Free member - Directory Page - Main Page - lessonp-1332: Show All button", groups = {"freemium"})
-    public void testLessonp_1332() {
+    @Test(description = "Free member - Directory Page - Main Page - C2186: Show All button", groups = {"freemium"})
+    public void testC2186() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testShowAllButton();
     }
 
-    @Test(description = "Active user - Directory Page - Main Page - lessonp-1043: Show All button", groups = {"activeUser"})
-
-    public void testLessonp_1043() {
+    @Test(description = "Active user - Directory Page - Main Page -C2301: Show All button", groups = {"activeUser"})
+    public void testC2301() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testShowAllButton();
     }
 
-    @Test(description = "Visitor - Directory Page - Main Page - lessonp-1018: Categories modal", groups = {"visitor"})
-    public void testLessonp_1018() {
+    @Test(description = "Visitor - Directory Page - Main Page - C2058: Categories modal", groups = {"visitor"})
+    public void testC2058() {
         testCategoriesModal();
     }
 
-    @Test(description = "Free member - Directory Page - Main Page - lessonp-1039: Categories modal", groups = {"freemium"})
-    public void testLessonp_1039() {
+    @Test(description = "Free member - Directory Page - Main Page - C2187: Categories modal", groups = {"freemium"})
+    public void testC2187() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
         testCategoriesModal();
     }
 
-    @Test(description = "Active user - Directory Page - Main Page - lessonp-1044: Categories modal", groups = {"activeUser"})
-    public void testLessonp_1044() {
+    @Test(description = "Active user - Directory Page - Main Page -C2302: Categories modal", groups = {"activeUser"})
+    public void testC2302() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
         testCategoriesModal();
     }

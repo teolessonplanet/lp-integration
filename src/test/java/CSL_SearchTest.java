@@ -31,51 +31,50 @@ public class CSL_SearchTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Custom SL - Search Page - lessonp-1673:User clicks 'See Collection' footer button", groups = {"csl"})
-    public void testLessonp_1673() {
+    @Test(description = "Custom SL - Search Page - C2502: User clicks 'See Collection' footer button", groups = {"csl"})
+    public void testC2502() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testSeeCollection(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page -  lessonp-1672:User clicks 'See Full Review' footer button", groups = {"csl"})
-    public void testLessonp_1672() {
+    @Test(description = "Custom SL - Search Page - C2503: User clicks 'See Full Review' footer button", groups = {"csl"})
+    public void testC2503() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testGoToResource(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page -  lessonp-1671:User clicks 'Go to Resource' footer button", groups = {"csl"})
-    public void testLessonp_1671() {
+    @Test(description = "Custom SL - Search Page - C2504: User clicks 'Go to Resource' footer button", groups = {"csl"})
+    public void testC2504() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testGoToResource(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page -  lessonp-5567:User clicks 'Open Folder' footer button", groups = {"csl"})
-    public void testLessonp_5567() {
+    @Test(description = "Custom SL - Search Page - C2505: User clicks 'Open Folder' footer button", groups = {"csl"})
+    public void testC2505() {
         loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_HENRY);
         testOpenFolderButton();
     }
 
-    @Test(description = "Custom SL - Search Page -  lessonp-5568:User clicks 'Folder Details' footer button", groups = {"csl"})
-    public void testLessonp_5568() {
+    @Test(description = "Custom SL - Search Page - C2506: User clicks 'Folder Details' footer button", groups = {"csl"})
+    public void testC2506() {
         loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_HENRY);
         testFolderDetailsButton();
     }
 
-
-    @Test(description = "Custom SL - Search Page - lessonp-5274:Cards details - LP resource", groups = {"csl"})
-    public void testLessonp_5274() {
+    @Test(description = "Custom SL - Search Page - C2507: Cards details - LP resource", groups = {"csl"})
+    public void testC2507() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testCardDetailsLpResource(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - lessonp-5275:Cards details - Collection", groups = {"csl"})
-    public void testLessonp_5275() {
+    @Test(description = "Custom SL - Search Page -C2508: Cards details - Collection", groups = {"csl"})
+    public void testC2508() {
         rsl_searchTest.initTest(webDriver);
         rsl_searchTest.testCardDetailsCollection(TestData.VALID_EMAIL_CSL_HENRY);
     }
 
-    @Test(description = "Custom SL - Search Page - lessonp-5664:Cards details - Folder: HMH/McGraw", groups = {"csl"})
-    public void testLessonp_5664() {
+    @Test(description = "Custom SL - Search Page - C2509: Cards details - Folder: HMH/McGraw", groups = {"csl"})
+    public void testC2509() {
         user_searchTest.initTest(webDriver);
         loginAndGetFolderResources(TestData.VALID_EMAIL_CSL_HENRY);
         testCardDetailsFolder();

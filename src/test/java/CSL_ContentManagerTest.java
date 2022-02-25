@@ -29,32 +29,32 @@ public class CSL_ContentManagerTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6003: Main Page", groups = {"csl"})
-    public void testLessonp_6003() {
+    @Test(description = "Custom SL - Content Manager - C2548: Main Page", groups = {"csl"})
+    public void testC2548() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerMainPage();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6004: Cards list", groups = {"csl"})
-    public void testLessonp_6004() {
+    @Test(description = "Custom SL - Content Manager - C2550: Cards list", groups = {"csl"})
+    public void testC2550() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerCardsList(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6005: Search", groups = {"csl"})
-    public void testLessonp_6005() {
+    @Test(description = "Custom SL - Content Manager - C2551: Search", groups = {"csl"})
+    public void testC2551() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerSearch();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-6006: Sort By", groups = {"csl"})
-    public void testLessonp_6006() {
+    @Test(description = "Custom SL - Content Manager - C2552: Sort By", groups = {"csl"})
+    public void testC2552() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         rsl_contentManagerTest.testContentManagerSortBy();
     }
 
-    @Test(description = "Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource", groups = {"csl"})
-    public void testLessonp_1692() {
+    @Test(description = "Custom SL - Content Manager - C2549: Add/Edit/Remove Site Specific Resource", groups = {"csl"})
+    public void testC2549() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
         testAddEditRemoveSiteSpecificResource(TestData.VALID_EMAIL_CSL_QA_CUSTOM);
     }
