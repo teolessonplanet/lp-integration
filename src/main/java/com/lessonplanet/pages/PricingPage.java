@@ -1,6 +1,7 @@
 package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
+import logs.Log;
 import util.TestData;
 
 public class PricingPage extends LpUiBasePage {
@@ -21,7 +22,7 @@ public class PricingPage extends LpUiBasePage {
                 clickElement(SELECT_PLAN_PRO_BUTTON);
                 break;
             default:
-                logger.error("No option is selected");
+                Log.error("No option is selected");
                 break;
         }
     }

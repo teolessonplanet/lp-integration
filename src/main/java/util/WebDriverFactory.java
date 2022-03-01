@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 public class WebDriverFactory {
     private final static String BROWSER_SYSTEM_VAR = "browser";
@@ -111,7 +112,7 @@ public class WebDriverFactory {
             }
             webDriver = new ChromeDriver(options);
         } else if (browserName.equals(BrowserName.FIREFOX.getName())) {
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            FirefoxOptions firefoxOptions = new FirefoxOptions().setLogLevel(Level.OFF);
 
             if (firefoxDefaultProfile) {
                 ProfilesIni profile = new ProfilesIni();
@@ -123,6 +124,8 @@ public class WebDriverFactory {
                 firefoxOptions.addArguments("--headless");
             }
 
+            System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
             webDriver = new FirefoxDriver(firefoxOptions);
             if (headlessBrowser) {
                 webDriver.manage().window().setSize(new Dimension(1920, 2160));

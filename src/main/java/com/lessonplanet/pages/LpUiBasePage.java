@@ -1,14 +1,12 @@
 package com.lessonplanet.pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import logs.Log;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import util.ExecutionTimer;
 import util.TestData;
 
 import java.util.ArrayList;
@@ -16,77 +14,76 @@ import java.util.List;
 
 public class LpUiBasePage {
 
-    protected static final Logger logger = LogManager.getRootLogger();
     protected WebDriver driver;
     private WebDriverWait webDriverWait;
     private JavascriptExecutor javascriptExecutor;
-    private ExecutionTimer executionTimer;
     private boolean isQaIntegrationCookieCreated = false;
 
     protected LpUiBasePage(WebDriver driver) {
         this.driver = driver;
         javascriptExecutor = (JavascriptExecutor) driver;
         webDriverWait = new WebDriverWait(driver, TestData.SHORT_TIMEOUT);
-        executionTimer = new ExecutionTimer();
     }
 
     protected WebElement findElement(String cssSelector) {
-        logStart("Wait start " + cssSelector);
+        Log.logStart("Finding Element " + cssSelector);
         waitForElement(cssSelector);
-        logEnd("Wait end " + cssSelector);
+        Log.logEnd("Element found " + cssSelector);
         return driver.findElement(By.cssSelector(cssSelector));
     }
 
     protected boolean isElementClickable(String cssSelector) {
         waitForLoad();
-        logStart("Element is clickable? " + cssSelector);
+        Log.logStart("Is element " + cssSelector + " clickable?");
         try {
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
-            logEnd("Element is clickable! " + cssSelector);
+            Log.logEnd("Element " + cssSelector + " is clickable");
             return true;
         } catch (Exception e) {
-            logEnd("Element is not clickable!  " + cssSelector);
+            Log.warn("Element " + cssSelector + " is not clickable");
             return false;
         }
     }
 
     protected boolean isElementVisible(String cssSelector) {
-        logStart("Element is visible?  " + cssSelector);
+        Log.logStart("Is element " + cssSelector + " visible?");
+        ;
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
-            logEnd("Element is visible!  " + cssSelector);
+            Log.logEnd("Element " + cssSelector + " is visible");
             return true;
         } catch (TimeoutException timeoutException) {
-            logEnd("Element " + cssSelector + " is not visible");
+            Log.warn("Element " + cssSelector + " is not visible");
             return false;
         }
     }
 
     protected void waitForElementToBeVisible(String cssSelector) {
         waitForLoad();
-        logStart("Element is visible? " + cssSelector);
+        Log.logStart("Is element " + cssSelector + " visible?");
+        ;
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
-            logEnd("Element is visible! " + cssSelector);
+            Log.logEnd("Element " + cssSelector + " is visible");
         } catch (TimeoutException timeoutException) {
-            logEnd("Element is not visible " + cssSelector);
+            Log.warn("Element " + cssSelector + " is not visible");
         }
     }
 
     private void waitUntilElementIsClickable(WebElement webElement) {
-        logStart("Wait until visible " + webElement);
+        Log.logStart("Wait until element is visible ");
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
-        logEnd("Element is visible " + webElement);
-        logStart("Wait until clickable " + webElement);
+        Log.logEnd("Element is visible ");
+        Log.logStart("Wait until clickable ");
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
-        logEnd("Element is clickable! " + webElement);
+        Log.logEnd("Element is clickable! ");
     }
 
     public void uploadUsingTextInput(String fileNameSelector, String path) {
         try {
             sendKeys(fileNameSelector, path);
         } catch (Exception e) {
-            logger.info("Cannot upload file");
+            Log.error("Cannot upload file");
         }
     }
 
@@ -99,34 +96,36 @@ public class LpUiBasePage {
         List<WebElement> result;
         waitForElement(cssSelector);
         try {
-            logStart("Find elements " + cssSelector + " in element" + element);
+            Log.logStart("Find elements " + cssSelector + " in element" + element);
             result = element.findElements(By.cssSelector(cssSelector));
-            logEnd("Elements " + cssSelector + " was found in element " + element);
+            Log.logEnd("Elements " + cssSelector + " was found in element " + element);
             return result;
         } catch (Exception e) {
-            logEnd("Element " + cssSelector + " cannot be found in the current " + element);
+            Log.warn("Element " + cssSelector + " cannot be found in the current " + element);
         }
         return null;
     }
 
     protected void waitForElement(String cssSelector) {
         waitForLoad();
-        logger.info("Wait until the webElement is clickable: " + cssSelector);
+        Log.info("Wait until " + cssSelector + "is clickable");
         try {
-            logStart("Wait until the webElement is visible: " + cssSelector);
+            Log.logStart("Wait until " + cssSelector + " is clickable");
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
-            logEnd("WebElement is clickable: " + cssSelector);
-            logStart("Wait until the webElement is clickable: " + cssSelector);
+            Log.logEnd("Element: " + cssSelector + " is clickable");
+            Log.logStart("Wait until " + cssSelector + " is visible");
             webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
-            logEnd("WebElement is clickable: " + cssSelector);
+            Log.logEnd("Element: " + cssSelector + " is visible");
         } catch (TimeoutException timeoutException) {
-            logEnd("The element " + cssSelector + " is not visible or clickable");
+            Log.warn("Element " + cssSelector + " is not visible or clickable");
         }
     }
 
     protected void sendKeys(String cssLocator, String text) {
         waitForLoad();
+        Log.info("Sending " + " text " + "to: " + cssLocator);
         findElement(cssLocator).sendKeys(text);
+        Log.info("Sent " + " text " + "to: " + cssLocator);
         waitForLoad();
     }
 
@@ -137,32 +136,37 @@ public class LpUiBasePage {
     }
 
     protected void clearText(String cssSelector) {
+        Log.info("Clearing text from: " + cssSelector);
         findElement(cssSelector).clear();
         waitForLoad();
+        Log.info(cssSelector + " is empty");
     }
 
     protected void clickElement(String cssLocator) {
-        clickElement(findElement(cssLocator));
+        Log.info("Click on element: " + cssLocator);
+        try {
+            clickElement(findElement(cssLocator));
+        } catch (NoSuchElementException e) {
+            Log.warn("The element " + cssLocator + " still not clickable");
+        }
+        Log.info("Clicked on element " + cssLocator);
     }
 
     public void clickElement(WebElement webElement) {
         waitForLoad();
         boolean elementWasClicked = false;
         int attempts = TestData.LONG_TIMEOUT;
-        logger.info("Click on webElement " + webElement);
         do {
             try {
                 waitUntilElementIsClickable(webElement);
                 webElement.click();
                 elementWasClicked = true;
-                logger.info("Clicked on webElement " + webElement);
             } catch (Exception ex) {
-                logger.error("The element " + webElement + " still no clickable");
                 attempts--;
             }
         } while (!elementWasClicked && attempts > 0);
         if (attempts == 0) {
-            throw new Error(" Unable to click on webElement " + webElement);
+            throw new Error("Unable to click on webElement " + webElement);
         }
         waitForLoad();
     }
@@ -190,7 +194,13 @@ public class LpUiBasePage {
     }
 
     protected void clickElement(String cssSelector, int position) {
-        clickElement(findElements(cssSelector), position);
+        Log.info("Click on element: " + cssSelector + " at position " + position);
+        try {
+            clickElement(findElements(cssSelector), position);
+        } catch (NoSuchElementException e) {
+            Log.warn("The element " + cssSelector + " is not clickable at position" + position);
+        }
+        Log.info("Clicked on element " + cssSelector + " at position " + position);
     }
 
     protected void clickElement(String parentCssSelector, String childCssSelector, int childPosition) {
@@ -212,6 +222,7 @@ public class LpUiBasePage {
     }
 
     protected String getTextForElement(String cssSelector) {
+        Log.info("Getting text for element: " + cssSelector);
         return getTextForElement(findElement(cssSelector));
     }
 
@@ -224,12 +235,13 @@ public class LpUiBasePage {
         while (counter > 0) {
             counter--;
             try {
+                Log.info("Waiting for element " + cssSelector + "to be displayed");
                 waitUntilElementIsDisplayed(cssSelector);
                 String str = getTextForElement(cssSelector);
                 if (!str.equals(""))
                     return str;
             } catch (Exception ex) {
-                logger.info("The element is not displayed " + cssSelector + " " + ex.toString());
+                Log.warn("The element is not displayed " + cssSelector + " " + ex.toString());
             }
         }
         return "";
@@ -246,14 +258,14 @@ public class LpUiBasePage {
                 createQaIntegrationBypassCookie();
                 isQaIntegrationCookieCreated = true;
             } catch (Exception ex) {
-                logger.info(ex.toString());
+                Log.warn(ex.toString());
             }
         }
         if (getUrl().contains(TestData.SERVER_URL)) {
             waitForLoad();
         }
         final String url = TestData.SERVER_URL + pagePath;
-        logger.info("Accessing: " + url);
+        Log.info("Accessing: " + url);
         driver.get(url);
         waitForLoad();
     }
@@ -262,10 +274,10 @@ public class LpUiBasePage {
         waitForLoad();
         try {
             String path[] = getUrl().split(".com/");
-            logger.info("Path: " + path[1]);
+            Log.info("Path: " + path[1]);
             return path[1];
         } catch (Exception e) {
-            logger.info("The homepage is loaded.");
+            Log.info("The homepage is loaded.");
             return "";
         }
     }
@@ -275,7 +287,7 @@ public class LpUiBasePage {
     }
 
     public void waitForPageLoad() {
-        logStart("Waiting for jQuery to complete");
+        Log.logStart("Waiting for jQuery to complete");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -283,35 +295,34 @@ public class LpUiBasePage {
                     return (Boolean) javascriptExecutor.executeScript("return !!window.jQuery && window.jQuery.active == 0");
                 }
             });
-            logEnd("jQuery completed");
+            Log.logEnd("jQuery completed");
         } catch (Exception ex) {
-            logEnd("jQuery is not completed: " + ex.toString());
+            Log.warn("jQuery is not completed: " + ex.toString());
         }
         waitUntilDocumentIsReady();
     }
 
     public void waitUntilDocumentIsReady() {
-        logStart("Waiting for document to be ready");
+        Log.logStart("Waiting for document to be ready");
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 return (Boolean) javascriptExecutor.executeScript("return document.readyState == 'complete'");
             }
         });
-        logEnd("Document is ready");
+        Log.logEnd("Document is ready");
     }
 
     public void waitForLoad() {
-        logger.info("Waiting for load");
+        Log.info("Waiting for load");
         waitForLinkToLoad();
         waitForPageLoad();
         waitUntilDocumentIsReady();
         waitForAngularLoad();
         waitForAxiosRequests();
-        logger.info("Waited for load");
+        Log.info("Waited for load");
     }
 
-    //Wait for Angular Load
     public void waitForAngularLoad() {
         String angularReadyScript = "var ngAppElement = document.querySelectorAll('[ng-app]')[0];" +
             "if (typeof(angular) != 'undefined' && typeof(ngAppElement) != 'undefined') {" +
@@ -320,7 +331,7 @@ public class LpUiBasePage {
             "} else {" +
             "return true;" +
             "}";
-        logStart("Waiting for Angular to load");
+        Log.logStart("Waiting for Angular to load");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -328,15 +339,15 @@ public class LpUiBasePage {
                     try {
                         return (Boolean) javascriptExecutor.executeScript(angularReadyScript);
                     } catch (Exception ex) {
-                        logEnd("Angular is not defined");
+                        Log.warn("Angular is not defined");
                         return true;
                     }
                 }
             });
         } catch (Exception ex) {
-            logEnd("The Angular modal is not found " + ex.toString());
+            Log.logEnd("The Angular modal is not found " + ex.toString());
         }
-        logEnd("Waited for Angular to load");
+        Log.logEnd("Waited for Angular to load");
     }
 
     public void waitForAxiosRequests() {
@@ -344,7 +355,7 @@ public class LpUiBasePage {
             "    return window.axiosRequests <= 0" +
             "  }else{" +
             "    return true;}";
-        logStart("Wait for Axios to load");
+        Log.logStart("Wait for Axios to load");
         try {
             webDriverWait.until(new ExpectedCondition<Boolean>() {
                 @Override
@@ -353,9 +364,9 @@ public class LpUiBasePage {
                 }
             });
         } catch (Exception ex) {
-            logEnd("The Axios modal is not found " + ex.toString());
+            Log.warn("The Axios modal is not found " + ex.toString());
         }
-        logEnd("Waited for Axios to load");
+        Log.logEnd("Waited for Axios to load");
     }
 
     public void dragAndDrop(WebElement element, WebElement target) {
@@ -363,7 +374,7 @@ public class LpUiBasePage {
         try {
             (new Actions(driver)).dragAndDrop(element, target).perform();
         } catch (Exception e) {
-            logger.info("The webElement is not visible");
+            Log.info("The webElement is not visible");
             scrollToElement(element);
             (new Actions(driver)).dragAndDrop(element, target).perform();
         }
@@ -388,17 +399,21 @@ public class LpUiBasePage {
         try {
             (new Actions(driver)).moveToElement(element).build().perform();
         } catch (StaleElementReferenceException exception) {
-            logger.info("Element is stale " + element);
+            Log.warn("Element is stale " + element);
         }
         waitForLoad();
     }
 
     protected void hoverOverElement(String cssSelector) {
+        Log.info("Hovering over " + cssSelector);
         hoverOverElement(findElement(cssSelector));
+        Log.info("Hovered over " + cssSelector);
     }
 
     protected void hoverOverElement(String cssSelector, int position) {
+        Log.info("Hovering over " + cssSelector + " at position " + position);
         hoverOverElement(findElements(cssSelector).get(position));
+        Log.info("Hovered over " + cssSelector + " at position " + position);
     }
 
     public void hoverOverElement(WebElement webElement, boolean resetPosition) {
@@ -417,17 +432,18 @@ public class LpUiBasePage {
     }
 
     protected void scrollToElement(WebElement element) {
-        logger.info("Scrolling to element");
+        Log.info("Scrolling to element");
         waitForLoad();
         try {
             javascriptExecutor.executeScript("arguments[0].scrollIntoView(false);", element);
         } catch (StaleElementReferenceException staleElementReferenceException) {
-            logger.info("Element is stale " + element);
+            Log.warn("Element is stale " + element);
         }
         waitForLoad();
     }
 
     protected void scrollToElement(String cssSelector) {
+        Log.info("Scrolling to: " + cssSelector);
         scrollToElement(findElement(cssSelector));
     }
 
@@ -452,41 +468,38 @@ public class LpUiBasePage {
     }
 
     protected void waitUntilElementIsHidden(String cssSelector) {
+        Log.logStart("Waiting until webElement is hidden " + cssSelector);
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
+        Log.logEnd("Waited until webElement was hidden " + cssSelector);
     }
 
     protected void waitUntilElementIsHidden(String cssSelector, int seconds) {
+        Log.logStart("Waiting until webElement is hidden " + cssSelector);
         WebDriverWait customWait = new WebDriverWait(driver, seconds);
         customWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(cssSelector)));
+        Log.logEnd("Waited until webElement was hidden " + cssSelector);
     }
 
     protected void waitUntilElementIsDisplayed(String cssSelector) {
+        Log.logStart("Wait until webElement is displayed " + cssSelector);
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+        Log.logEnd("Waited to webElement to be displayed " + cssSelector);
     }
 
     protected void waitUntilElementIsDisplayed(WebElement webElement) {
-        logStart("Wait until webElement is displayed " + webElement);
+        Log.logStart("Wait until webElement is displayed ");
         try {
             webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (Exception ex) {
-            logEnd("WebElement is not displayed " + webElement);
+            Log.warn("WebElement is not displayed ");
         }
-        logEnd("Waited to webElement to be displayed " + webElement);
+        Log.logEnd("Waited to webElement to be displayed ");
     }
 
     protected void waitUntilTextIsDisplayed(String cssSelector, String text) {
-        logStart("Waiting until text is " + text + " displayed for webElement " + cssSelector);
+        Log.logStart("Waiting until text is " + text + " displayed for webElement " + cssSelector);
         webDriverWait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(cssSelector), text));
-        logEnd("Waited until text was " + text + " displayed for webElement " + cssSelector);
-    }
-
-    private boolean isOnTop(WebElement element) {
-        return (boolean) javascriptExecutor.executeScript(
-            "var elm = arguments[0];" +
-                "var doc = elm.ownerDocument || document;" +
-                "var rect = elm.getBoundingClientRect();" +
-                "return elm === doc.elementFromPoint(rect.left + (rect.width / 2), rect.top + (rect.height / 2));"
-            , element);
+        Log.logEnd("Waited until text was " + text + " displayed for webElement " + cssSelector);
     }
 
     protected void createQaIntegrationBypassCookie() {
@@ -494,6 +507,7 @@ public class LpUiBasePage {
     }
 
     protected void openInANewTab(String cssSelector) {
+        Log.info("Opening a new tab: ");
         openInANewTab(findElement(cssSelector));
     }
 
@@ -508,7 +522,7 @@ public class LpUiBasePage {
             //try to get the href for parent element, eg: Header - Logo
             url = webElement.findElement(By.xpath("..")).getAttribute("href");
         }
-        logger.info("Opening a new tab and accessing the url: " + url);
+        Log.info("Opening a new tab and accessing the url: " + url);
         javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", "");
         focusDriverToLastTab();
         driver.get(url);
@@ -520,29 +534,35 @@ public class LpUiBasePage {
 
     public void openInANewTabOrClick(WebElement webElement, boolean inANewTab) {
         if (inANewTab) {
+            Log.info("Opening a new tab: ");
             openInANewTab(webElement);
         } else {
+            Log.info("Open in the same tab: ");
             clickElement(webElement);
         }
     }
 
     protected void openInANewTabOrClick(String cssSelector, boolean inANewTab) {
         if (inANewTab) {
+            Log.info("Opening a new tab: ");
             openInANewTab(cssSelector);
         } else {
+            Log.info("Open in the same tab: ");
             clickElement(cssSelector);
         }
     }
 
     public void closeTab() {
-        logger.info("Closing the tab");
+        Log.info("Closing the tab");
         driver.close();
+        Log.info("Closed the tab");
         focusDriverToLastTab();
         waitForLoad();
     }
 
     public void focusDriverToLastTab() {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        Log.info("Focusing on the last tab");
         driver.switchTo().window(tabs.get(tabs.size() - 1));
     }
 
@@ -558,14 +578,14 @@ public class LpUiBasePage {
     }
 
     public void waitForLinkToLoad() {
-        logStart("Wait for link to load");
+        Log.logStart("Wait for link to load");
         webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 return (!driver.getCurrentUrl().contains(TestData.EMPTY_URL));
             }
         });
-        logEnd("Waited for link to load");
+        Log.logEnd("Waited for link to load");
     }
 
     public void waitForNewTab() {
@@ -592,7 +612,7 @@ public class LpUiBasePage {
             }
         }
         if (!optionWasFound) {
-            logger.error("The option " + option + " was not found.");
+            Log.error("The option " + option + " was not found.");
         }
         waitForLoad();
     }
@@ -610,14 +630,14 @@ public class LpUiBasePage {
             }
         }
         if (!optionWasFound) {
-            logger.error("The text " + textToSearch + " was not found.");
+            Log.error("The text " + textToSearch + " was not found.");
         }
         waitForLoad();
     }
 
     public void waitForBootstrapModalToBeVisible(String modalId) {
         waitForLoad();
-        logStart("Waiting for Bootstrap modal to be visible " + modalId);
+        Log.logStart("Waiting for Bootstrap modal to be visible " + modalId);
         try {
             webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
@@ -629,18 +649,16 @@ public class LpUiBasePage {
                 },
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector(modalId))
             ));
-            logEnd("Waited for Bootstrap modal to be visible " + modalId);
+            Log.logEnd("Waited for Bootstrap modal to be visible " + modalId);
             waitForLoad();
-//            TODO: uodate modal-backdrop
-//            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-backdrop")));
         } catch (Exception ex) {
-            logEnd("The Bootstrap modal is not visible " + ex.toString());
+            Log.warn("The Bootstrap modal is not visible " + ex.toString());
         }
     }
 
     public void waitForReactModalToBeVisible() {
         waitForLoad();
-        logStart("Wait for React modal to be visible");
+        Log.logStart("Wait for React modal to be visible");
         try {
             webDriverWait.until(ExpectedConditions.and(
                 new ExpectedCondition<Boolean>() {
@@ -652,11 +670,11 @@ public class LpUiBasePage {
                 },
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal"))
             ));
-            logEnd("Waited for React modal to be visible");
+            Log.logEnd("Waited for React modal to be visible");
             waitForLoad();
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.react-modal-overlay")));
         } catch (Exception ex) {
-            logEnd("The React modal is not visible " + ex.toString());
+            Log.warn("The React modal is not visible " + ex.toString());
         }
     }
 
@@ -666,7 +684,7 @@ public class LpUiBasePage {
             driver.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            logger.info("Element  is  not  displayed " + cssLocator);
+            Log.warn("Element  is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -678,7 +696,7 @@ public class LpUiBasePage {
             webElement.findElement(By.cssSelector(cssLocator)).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            logger.info("Element  is  not  displayed " + cssLocator);
+            Log.warn("Element is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -710,7 +728,7 @@ public class LpUiBasePage {
             driver.findElements(By.cssSelector(cssLocator)).get(position).isDisplayed();
             return true;
         } catch (StaleElementReferenceException | org.openqa.selenium.NoSuchElementException ex) {
-            logger.info("Element  is  not  displayed " + cssLocator);
+            Log.warn("Element is  not  displayed " + cssLocator);
             return false;
         }
     }
@@ -747,16 +765,7 @@ public class LpUiBasePage {
             Alert alert = driver.switchTo().alert();
             alert.dismiss();
         } catch (NoAlertPresentException noe) {
-            System.out.println("No alert found on page");
+            Log.warn("No alert found on page");
         }
-    }
-
-    protected void logStart(String message) {
-        logger.info(message);
-        executionTimer.start();
-    }
-
-    protected void logEnd(String message) {
-        logger.info(executionTimer.toString() + message);
     }
 }

@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="lp-integration">
-  <test name="Custom SL">
+<suite name="Custom SL">
+  <listeners>
+    <listener class-name="listeners.CustomReports"/>
+    <listener class-name="listeners.TestNGListeners"></listener>
+  </listeners>
+  <test name="Custom SL Tests">
     <groups>
       <run>
         <include name="csl"></include>

@@ -1,9 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="lp-integration">
-  <test name="Free Member">
+<suite name="Active Users">
+  <listeners>
+    <listener class-name="listeners.CustomReports"/>
+    <listener class-name="listeners.TestNGListeners"></listener>
+  </listeners>
+  <test name="Active User Tests">
     <groups>
       <run>
-        <include name="freemium"></include>
+        <include name="activeUser"></include>
       </run>
     </groups>
     <classes>
