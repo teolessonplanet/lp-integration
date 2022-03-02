@@ -20,41 +20,41 @@ public class RSL_SearchTest extends BaseTest {
         beforeMethod();
     }
 
-    @Test(description = "Regular SL - Search Page - C2378:Keywordless search", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2378:Keywordless search", groups = {"rsl"})
     public void testC2378() {
         user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_searchTest.testKeywordlessSearch(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2379:Keyword search", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2379:Keyword search", groups = {"rsl"})
     public void testC2379() {
         user_searchTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_RSL_SBCEO, TestData.VALID_PASSWORD);
         user_searchTest.testKeywordSearch(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2380: Cards details - LP resource", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2380: Cards details - LP resource", groups = {"rsl"})
     public void testC2380() {
         testCardDetailsLpResource(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2381: Cards details - Collection", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2381: Cards details - Collection", groups = {"rsl"})
     public void testC2381() {
         testCardDetailsCollection(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2382: User clicks See Collection footer button", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2382: User clicks See Collection footer button", groups = {"rsl"})
     public void testC2382() {
         testSeeCollection(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2383: User clicks 'Go to Resource' footer button", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2383: User clicks 'Go to Resource' footer button", groups = {"rsl"})
     public void testC2383() {
         testGoToResource(TestData.VALID_EMAIL_RSL_SBCEO);
     }
 
-    @Test(description = "Regular SL - Search Page - C2384: User clicks 'See Full Review' footer button", groups = {"rsl"})
+    @Test(description = "Regular SL - Search - C2384: User clicks 'See Full Review' footer button", groups = {"rsl"})
     public void testC2384() {
         testSeeFullReview(TestData.VALID_EMAIL_RSL_SBCEO);
     }

@@ -11,29 +11,29 @@
       </run>
     </groups>
     <classes>
-      <class name="Cobb_AccountManagerTest">
+      <class name="Cobb_AdminManager_AccountsTest">
       </class>
-      <class name="Cobb_CalendarPageTest">
+      <class name="Cobb_CalendarTest">
       </class>
-      <class name="Cobb_CanViewTest">
+      <class name="Cobb_SharedWithMe_CanViewTest">
       </class>
       <class name="Cobb_CollectionBuilderTest">
       </class>
-      <class name="Cobb_ContentManagerTest">
+      <class name="Cobb_AdminManager_ContentTest">
       </class>
       <class name="Cobb_CurriculumManagerTest">
       </class>
-      <class name="Cobb_DirectoryCategoriesAndSubcategoriesPageTest">
+      <class name="Cobb_BrowseResourceDirectory_SubjectsTest">
       </class>
-      <class name="Cobb_DirectoryMainPage">
+      <class name="Cobb_BrowseResourceDirectory_MainPageTest">
       </class>
-      <class name="Cobb_EditCollectionTest">
+      <class name="Cobb_EditFolderTest">
       </class>
       <class name="Cobb_HeaderTest">
       </class>
-      <class name="Cobb_PublishCollectionTest">
+      <class name="Cobb_PublishFolderTest">
       </class>
-      <class name="Cobb_RrpSearchPageTest">
+      <class name="Cobb_RrpSearchTest">
       </class>
       <class name="Cobb_SearchTest">
       </class>

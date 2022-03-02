@@ -11,9 +11,9 @@
       </run>
     </groups>
     <classes>
-      <class name="User_ArticlesPageTest">
+      <class name="User_ArticlesTest">
       </class>
-      <class name="User_CalendarPageTest">
+      <class name="User_CalendarTest">
       </class>
       <class name="User_CollectionBuilderTest">
       </class>
@@ -21,27 +21,27 @@
       </class>
       <class name="User_CurriculumManagerPageTest">
       </class>
-      <class name="User_DirectoryMainPageTest">
+      <class name="User_BrowseResourceDirectory_MainPageTest">
       </class>
-      <class name="User_DirectoryCategoriesAndSubcategoriesPageTest">
+      <class name="User_BrowseResourceDirectory_SubjectsTest">
       </class>
-      <class name="User_EditCollectionTest">
+      <class name="User_EditFolderTest">
       </class>
       <class name="User_HeaderTest">
       </class>
       <class name="User_FooterTest">
       </class>
-      <class name="User_HomePageTest">
+      <class name="User_HomepageTest">
       </class>
-      <class name="User_PublishCollectionTest">
+      <class name="User_PublishFolderTest">
       </class>
       <class name="User_SearchTest">
       </class>
-      <class name="User_RrpSearchPageTest">
+      <class name="User_RrpSearchTest">
       </class>
-      <class name="User_RrpDirectoryPageTest">
+      <class name="User_RrpBrowseResourceDirectoryTest">
       </class>
-      <class name="User_PublishCollectionTest">
+      <class name="User_PublishFolderTest">
       </class>
     </classes>
   </test>

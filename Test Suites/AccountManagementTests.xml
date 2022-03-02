@@ -11,13 +11,13 @@
       </run>
     </groups>
     <classes>
-      <class name="User_StepTwoTest">
+      <class name="User_AccountManagement_StepTwoTest">
       </class>
-      <class name="User_SignupTest">
+      <class name="User_AccountManagement_CreateActiveAccountTest">
       </class>
-      <class name="User_LoginTest">
+      <class name="User_AccountManagement_LoginTest">
       </class>
-      <class name="User_AccountManagementTest">
+      <class name="User_AccountManagement_CreateFreeMemberAccountTest">
       </class>
     </classes>
   </test>

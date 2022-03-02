@@ -20,7 +20,7 @@ public class Cobb_HeaderTest extends BaseTest {
         user_headerTest.testHeaderButtons(TestData.VALID_EMAIL_CSL_COBB);
     }
 
-    @Test(description = "Cobb SL - Header - C2624", groups = {"cobb"})
+    @Test(description = "Cobb SL - Header - C2624: Search box functionality", groups = {"cobb"})
     public void testC2624() {
         user_headerTest.initTest(webDriver);
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_COBB, TestData.VALID_PASSWORD);
