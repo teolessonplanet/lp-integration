@@ -11,35 +11,35 @@
       </run>
     </groups>
     <classes>
-      <class name="CSL_AccountManagerRosterOnTest">
+      <class name="CSL_AdminManager_AccountsRosterOnTest">
       </class>
-      <class name="CSL_AccountManagerSsoOnTest">
+      <class name="CSL_AdminManager_AccountsSsoOnTest">
       </class>
-      <class name="CSL_CalendarPageTest">
+      <class name="CSL_CalendarTest">
       </class>
-      <class name="CSL_CanEditTest">
+      <class name="CSL_SharedWithMe_CanEditTest">
       </class>
-      <class name="CSL_CanViewTest">
+      <class name="CSL_SharedWithMe_CanViewTest">
       </class>
       <class name="CSL_CollectionBuilderTest">
       </class>
       <class name="CSL_CollectionPlayerTest">
       </class>
-      <class name="CSL_ContentManagerTest">
+      <class name="CSL_AdminManager_ContentTest">
       </class>
       <class name="CSL_CurriculumManagerTest">
       </class>
-      <class name="CSL_DirectoryCategoriesAndSubcategoriesPageTest">
+      <class name="CSL_BrowseResourceDirectory_SubjectsTest">
       </class>
-      <class name="CSL_DirectoryMainPageTest">
+      <class name="CSL_BrowseResourceDirectory_MainPageTest">
       </class>
-      <class name="CSL_EditCollectionTest">
+      <class name="CSL_EditFolderTest">
       </class>
       <class name="CSL_HeaderTest">
       </class>
-      <class name="CSL_PublishCollectionTest">
+      <class name="CSL_PublishFolderTest">
       </class>
-      <class name="CSL_RrpSearchPageTest">
+      <class name="CSL_RrpSearchTest">
       </class>
       <class name="CSL_SearchTest">
       </class>

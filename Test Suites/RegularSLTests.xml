@@ -11,39 +11,39 @@
       </run>
     </groups>
     <classes>
-      <class name="RSL_AccountManager_School_SL">
+      <class name="RSL_AdminManager_Accounts_SchoolSlTest">
       </class>
-      <class name="RSL_AccountManagerTest">
+      <class name="RSL_AdminManager_AccountsTest">
       </class>
-      <class name="RSL_CalendarPageTest">
+      <class name="RSL_CalendarTest">
       </class>
-      <class name="RSL_CanEditTest">
+      <class name="RSL_SharedWithMe_CanEditTest">
       </class>
-      <class name="RSL_CanViewTest">
+      <class name="RSL_SharedWithMe_CanViewTest">
       </class>
       <class name="RSL_CollectionBuilderTest">
       </class>
-      <class name="RSL_ContentManagerTest">
+      <class name="RSL_AdminManager_ContentTest">
       </class>
       <class name="RSL_CollectionPlayerTest">
       </class>
       <class name="RSL_CurriculumManagerTest">
       </class>
-      <class name="RSL_DirectoryCategoriesAndSubcategoriesPageTest">
+      <class name="RSL_BrowseResourceDirectory_SubjectsTest">
       </class>
-      <class name="RSL_DirectoryMainPageTest">
+      <class name="RSL_BrowseResourceDirectory_MainPageTest">
       </class>
-      <class name="RSL_EditCollectionTest">
+      <class name="RSL_EditFolderTest">
       </class>
       <class name="RSL_HeaderTest">
       </class>
-      <class name="RSL_Iframe_FooterTest">
+      <class name="RSL_FooterTest">
       </class>
-      <class name="RSL_PublishCollection">
+      <class name="RSL_PublishFolderTest">
       </class>
-      <class name="RSL_RrpSearchPageTest">
+      <class name="RSL_RrpSearchTest">
       </class>
-      <class name="RSL_RrpDirectoryPageTest">
+      <class name="RSL_RrpBrowseResourceDirectoryTest">
       </class>
       <class name="RSL_SearchTest">
       </class>

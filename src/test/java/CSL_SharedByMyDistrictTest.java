@@ -8,7 +8,7 @@ import util.TestData;
 
 public class CSL_SharedByMyDistrictTest extends BaseTest {
     private LoginPage loginPage;
-    private RSL_ContentManagerTest rsl_contentManagerTest;
+    private RSL_AdminManager_ContentTest rsl_adminManagerContentTest;
     private CSL_ContentManagerPage csl_contentManagerPage;
     private CurriculumManagerPage curriculumManagerPage;
     private CollectionBuilderPage collectionBuilderPage;
@@ -22,7 +22,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     private void beforeMethod() {
         loginPage = new LoginPage(webDriver);
-        rsl_contentManagerTest = new RSL_ContentManagerTest();
+        rsl_adminManagerContentTest = new RSL_AdminManager_ContentTest();
         csl_contentManagerPage = new CSL_ContentManagerPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
@@ -42,8 +42,8 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
     @Test(description = "Custom SL - Shared By My District - C2451: Content Manager Tab", priority = 1, groups = {"csl"})
     public void testC2451() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
-        rsl_contentManagerTest.initTest(webDriver);
-        rsl_contentManagerTest.reachContentManagerPage();
+        rsl_adminManagerContentTest.initTest(webDriver);
+        rsl_adminManagerContentTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();
 
         Assert.assertTrue(csl_contentManagerPage.getUrl().contains(TestData.DISTRICT_SHARED_PATH));
@@ -115,7 +115,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
 
         districtSharedPage.clickOnDatePostedOption();
         Assert.assertEquals(districtSharedPage.getSortByValue(), TestData.SORT_BY_DATE_POSTED);
-        rsl_contentManagerTest.reachContentManagerPage();
+        rsl_adminManagerContentTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();
         Assert.assertEquals(districtSharedPage.getSortByValue(), TestData.SORT_BY_DISTRICT_ORDER);
 
@@ -214,8 +214,8 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
     @Test(description = "Custom SL - Shared By My District - C2452: Unpost", priority = 3, groups = {"csl"})
     public void testC2452() {
         loginPage.performLogin(TestData.VALID_EMAIL_CSL_QA_CUSTOM, TestData.VALID_PASSWORD);
-        rsl_contentManagerTest.initTest(webDriver);
-        rsl_contentManagerTest.reachContentManagerPage();
+        rsl_adminManagerContentTest.initTest(webDriver);
+        rsl_adminManagerContentTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();
 
         districtSharedPage.clickOnFolderInfoIcon(0);
@@ -239,8 +239,8 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         curriculumManagerPage.clickOnSharedByDistrictTab();
         Assert.assertEquals(sharedByMyDistrictPage.getEmptyPageText(), TestData.SHARED_BY_EMPTY_TEXT);
 
-        rsl_contentManagerTest.initTest(webDriver);
-        rsl_contentManagerTest.reachContentManagerPage();
+        rsl_adminManagerContentTest.initTest(webDriver);
+        rsl_adminManagerContentTest.reachContentManagerPage();
         csl_contentManagerPage.clickOnDistrictSharedTab();
         districtSharedPage.clickOnActionsDropdown();
         districtSharedPage.clickOnDeleteFolderButton(null);
