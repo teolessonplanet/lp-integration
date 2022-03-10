@@ -1,7 +1,4 @@
-import com.lessonplanet.pages.HomePage;
-import com.lessonplanet.pages.StepOneModal;
-import com.lessonplanet.pages.StepTwoModal;
-import com.lessonplanet.pages.StepTwoPage;
+import com.lessonplanet.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -15,6 +12,7 @@ public class User_HomepageTest extends BaseTest {
     private StepOneModal stepOneModal;
     private StepTwoPage stepTwoPage;
     private StepTwoModal stepTwoModal;
+    private LoginPage loginPage;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -22,6 +20,7 @@ public class User_HomepageTest extends BaseTest {
         stepOneModal = new StepOneModal(webDriver);
         stepTwoPage = new StepTwoPage(webDriver);
         stepTwoModal = new StepTwoModal(webDriver);
+        loginPage = new LoginPage(webDriver);
     }
 
     public void initTest(WebDriver webDriver) {
@@ -31,70 +30,70 @@ public class User_HomepageTest extends BaseTest {
 
     @Test(description = "Visitor - Homepage - C2100: Discover", groups = {"visitor"})
     public void testC2100() {
-        testDiscoverTab();
+        testDiscoverTab(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Free Member - Homepage - C2194: Discover", groups = {"freemium"})
-    public void tesC2194() {
+    public void testC2194() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testDiscoverTab();
+        testDiscoverTab(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active User - Homepage - C2315: Discover", groups = {"activeUser"})
     public void testC2315() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testDiscoverTab();
+        testDiscoverTab(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Homepage - C2101: Collect", groups = {"visitor"})
     public void testC2101() {
-        testCollectTab();
+        testCollectTab(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Homepage - C2200: Collect", groups = {"freemium"})
     public void testC2200() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testCollectTab();
+        testCollectTab(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Homepage - C2320: Collect", groups = {"activeUser"})
     public void testC2320() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testCollectTab();
+        testCollectTab(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Homepage - C2102 :Design", groups = {"visitor"})
     public void testC2102() {
-        testDesignTab();
+        testDesignTab(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Homepage - C2201: Design", groups = {"freemium"})
     public void testC2201() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testDesignTab();
+        testDesignTab(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Homepage - C2321: Design", groups = {"activeUser"})
     public void testC2321() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testDesignTab();
+        testDesignTab(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Homepage - C2099: Deliver", groups = {"visitor"})
     public void testC2099() {
-        testDeliverTab();
+        testDeliverTab(TestData.PLAN_VISITOR);
     }
 
     @Test(description = "Freemium - Homepage - C2202: Deliver", groups = {"freemium"})
     public void testC2202() {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        testDeliverTab();
+        testDeliverTab(TestData.PLAN_FREEMIUM);
     }
 
     @Test(description = "Active user - Homepage -C2322: Deliver", groups = {"activeUser"})
     public void testC2322() {
         stepTwoPage.createNewAccount(TestData.PLAN_PRO);
-        testDeliverTab();
+        testDeliverTab(TestData.PLAN_PRO);
     }
 
     @Test(description = "Visitor - Homepage - C2103: Parent", groups = {"visitor"})
@@ -227,8 +226,8 @@ public class User_HomepageTest extends BaseTest {
         testInspireArea(TestData.PLAN_FREEMIUM);
     }
 
-    protected void testDiscoverTab() {
-        homePage.loadPage();
+    protected void testDiscoverTab(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
         Assert.assertEquals(TestData.LP_HOME_PAGE_PATH, homePage.getPath());
         Assert.assertTrue(homePage.isDiscoverAreaDisplayed());
 
@@ -305,8 +304,8 @@ public class User_HomepageTest extends BaseTest {
         homePage.clickOnCloseVideoButton();
     }
 
-    private void testCollectTab() {
-        homePage.loadPage();
+    public void testCollectTab(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
         homePage.clickOnCollectTab();
         Assert.assertEquals(TestData.HOMEPAGE_COLLECT_TAB_TEXT, homePage.getCollectTabText());
         Assert.assertEquals(TestData.HOMEPAGE_COLLECT_TEXT, homePage.getCollectText());
@@ -334,8 +333,8 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.HOMEPAGE_COLLECT_INCOMPLETE_COLLECTION, homePage.getCollectCollectionBuilderText());
     }
 
-    private void testDesignTab() {
-        homePage.loadPage();
+    public void testDesignTab(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
         homePage.clickOnDesignTab();
         Assert.assertEquals(TestData.HOMEPAGE_DESIGN_TAB_TEXT, homePage.getDesignTabText());
         Assert.assertEquals(TestData.HOMEPAGE_DESIGN_TEXT, homePage.getDesignText());
@@ -343,8 +342,8 @@ public class User_HomepageTest extends BaseTest {
         testWatchVideoAndGetStartedButtons(TestData.HOMEPAGE_DESIGN_TAB_TEXT, TestData.HOMEPAGE_GET_STARTED_BUTTON_TEXT);
     }
 
-    private void testDeliverTab() {
-        homePage.loadPage();
+    public void testDeliverTab(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
         homePage.clickOnDeliverTab();
         Assert.assertEquals(TestData.HOMEPAGE_DELIVER_TAB_TEXT, homePage.getDeliverTabText());
         Assert.assertEquals(TestData.HOMEPAGE_DELIVER_TEXT, homePage.getDeliverText());
@@ -352,7 +351,7 @@ public class User_HomepageTest extends BaseTest {
         testWatchVideoAndGetStartedButtons(TestData.HOMEPAGE_DELIVER_TAB_TEXT, TestData.HOMEPAGE_GET_STARTED_BUTTON_TEXT);
     }
 
-    private void testParentEdition(String accountPlan) {
+    public void testParentEdition(String accountPlan) {
         testWhichSolutionFirstPart(accountPlan);
         Assert.assertEquals(TestData.PARENT_BOX_TEXT, homePage.getParentBoxText());
         Assert.assertTrue(homePage.isParentPictureDisplayed());
@@ -360,7 +359,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.PARENT_EDITION_PAGE_PATH, homePage.getPath());
     }
 
-    private void testEducatorSection(String accountPlan) {
+    public void testEducatorSection(String accountPlan) {
         testWhichSolutionFirstPart(accountPlan);
         Assert.assertEquals(TestData.EDUCATOR_BOX_TEXT, homePage.getEducatorBoxText());
         Assert.assertTrue(homePage.isEducatorPictureDisplayed());
@@ -368,7 +367,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.EDUCATOR_EDITION_PAGE_PATH, homePage.getPath());
     }
 
-    private void testSchoolOrDistrictSection(String accountPlan) {
+    public void testSchoolOrDistrictSection(String accountPlan) {
         testWhichSolutionFirstPart(accountPlan);
         Assert.assertEquals(TestData.SCHOOL_OR_DISTRICT_BOX_TEXT, homePage.getSchoolOrDistrictBoxText());
         Assert.assertTrue(homePage.isSchoolOrDistrictPictureDisplayed());
@@ -376,23 +375,31 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.LEARNING_EXPLORER_URL, homePage.getUrl());
     }
 
-    private void testWhichSolutionFirstPart(String accountPlan) {
-        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
-            stepTwoPage.createNewAccount(accountPlan);
-        }
-        homePage.loadPage();
+    public void testWhichSolutionFirstPart(String accountPlan) {
+        loginInAndReachHomepage(accountPlan);
         homePage.scrollToParentSolutionSection();
         Assert.assertEquals(TestData.WHICH_SOLUTION_TITLE_TEXT, homePage.getWhichSolutionTitleText());
     }
 
     private void loginInAndReachHomepage(String accountPlan) {
-        if (!accountPlan.equals(TestData.PLAN_VISITOR)) {
-            stepTwoPage.createNewAccount(accountPlan);
+        switch (accountPlan) {
+            case TestData.PLAN_FREEMIUM:
+            case TestData.PLAN_PRO:
+            case TestData.PLAN_STARTER:
+                stepTwoPage.createNewAccount(accountPlan);
+                break;
+            case TestData.VALID_EMAIL_RSL_SBCEO:
+            case TestData.VALID_EMAIL_CSL_HENRY:
+            case TestData.VALID_EMAIL_CSL_COBB:
+                loginPage.performLogin(accountPlan, TestData.VALID_PASSWORD);
+                break;
+            case TestData.PLAN_VISITOR:
+                homePage.loadPage();
+                break;
         }
-        homePage.loadPage();
     }
 
-    private void testExploreOurSolution(String accountPlan) {
+    public void testExploreOurSolution(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
         Assert.assertTrue(homePage.isExplorerOurSolutionAreaDisplayed());
         Assert.assertEquals(TestData.EXPLORE_OUR_SOLUTION_TITLE_TEXT, homePage.getExploreOurSolutionsTitleText());
@@ -404,7 +411,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertTrue(homePage.isDiscoverAreaDisplayed());
     }
 
-    private void testEducatorEdition(String accountPlan) {
+    public void testEducatorEdition(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
         homePage.scrollToEducatorEditionArea();
         homePage.scrollToExploreOurSolutionArea();
@@ -421,7 +428,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.EDUCATOR_EDITION_PAGE_PATH, homePage.getPath());
     }
 
-    private void testLearningExplorerArea(String accountPlan) {
+    public void testLearningExplorerArea(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
         homePage.scrollToExploreOurSolutionArea();
         homePage.scrollToLearningExplorerArea();
@@ -433,7 +440,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.LEARNING_EXPLORER_URL, homePage.getUrl());
     }
 
-    private void testPdLearningArea(String accountPlan) {
+    public void testPdLearningArea(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
         homePage.scrollToLearningExplorerArea();
         homePage.scrollToPdLearningArea();
@@ -445,7 +452,7 @@ public class User_HomepageTest extends BaseTest {
         Assert.assertEquals(TestData.PD_LEARNING_NETWORK_PATH, homePage.getPath());
     }
 
-    private void testTestimonials(String accountPlan) {
+    public void testTestimonials(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
         homePage.scrollToPdLearningArea();
         homePage.scrollToTestimonialsArea();
@@ -482,7 +489,7 @@ public class User_HomepageTest extends BaseTest {
         testTestimonialsStrings(thirdVisibleTestimonial, 4);
     }
 
-    private void testTestimonialsStrings(WebElement testimonialBox, int expectedPosition) {
+    public void testTestimonialsStrings(WebElement testimonialBox, int expectedPosition) {
         Assert.assertTrue(homePage.isTestimonialRatingDisplayed(testimonialBox));
         Assert.assertTrue(homePage.isTestimonialImageDisplayed(testimonialBox));
         Assert.assertEquals(homePage.getTestimonialText(testimonialBox), TestData.TESTIMONIAL_TITLES[expectedPosition]);
@@ -500,7 +507,7 @@ public class User_HomepageTest extends BaseTest {
         }
     }
 
-    private void testInspireArea(String accountPlan) {
+    public void testInspireArea(String accountPlan) {
         loginInAndReachHomepage(accountPlan);
 
         homePage.scrollToTestimonialsArea();

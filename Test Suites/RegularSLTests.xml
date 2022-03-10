@@ -47,6 +47,8 @@
       </class>
       <class name="RSL_SearchTest">
       </class>
+      <class name="RSL_HomepageTest">
+      </class>
     </classes>
   </test>
 </suite>

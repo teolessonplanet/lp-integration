@@ -45,6 +45,8 @@
       </class>
       <class name="CSL_SharedByMyDistrictTest">
       </class>
+      <class name="CSL_HomepageTest">
+      </class>
     </classes>
   </test>
 </suite>
