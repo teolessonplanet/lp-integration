@@ -13,7 +13,7 @@ public class AssignModal extends LpUiBasePage {
     private static final String RESET_ACCESS_KEY_LINK = "#reset-player-password";
     private static final String CLOSE_BUTTON = "#popup-modal [class='close']";
     private static final String GOOGLE_CLASSROOM_BUTTON = "#assign-in-google-classroom";
-    private static final String ENABLED_GOOGLE_CLASSROOM_BUTTON = "#assign-in-google-classroom [src*='&url']";
+    private static final String ENABLED_GOOGLE_CLASSROOM_BUTTON = "#assign-in-google-classroom [data-url*='collections/player/']";
     private static final String SHOW_ACCESS_KEY_BUTTON = "#show-player-password";
     private static final String PASSWORD_TEXT = "#player-password-holder [class='pw-text']";
     private static final String HIDE_ACCESS_KEY_BUTTON = "#hide-player-password";

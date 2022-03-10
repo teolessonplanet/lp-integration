@@ -30,7 +30,7 @@ public class TestData {
     public static final String VALID_PASSWORD = "test123";
     public static final String NEW_EMAIL_PREFIX = "i_";
     private static final String NEW_EMAIL_SUFFIX = "@lp.com";
-    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = " i_o_rsl_laguna@lp.com";
+    public static final String VALID_EMAIL_RSL_LAGUNA_SCHOOL = "i_o_rsl_laguna@lp.com";
     public static final String VALID_EMAIL_RSL_SBCEO = "i_o_rsl_sbceo@lp.com";
     public static final String VALID_EMAIL_CSL_HENRY = "i_o_csl_henry@lp.com";
     public static final String VALID_EMAIL_CSL_QA_CUSTOM = "i_o_csl_qa_custom@lp.com";
