@@ -10,14 +10,14 @@ public class Rrp extends LpUiBasePage {
 
     protected static final String RESOURCE_TITLE_TEXT = "[class='resource-title'] h1";
     protected static final String GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON = "[class*='panel-default panel-review'] a[class*='btn btn-success']";
-    private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
-    private static final String FULL_REVIEW = "[class='rrp-banner'] [src*='rrp-banner-fullreview']";
-    private static final String FREE_SAMPLE = "[class*='rrp-banner'] [src*='/assets/rrp/lp_badge']";
+    private static final String LIMITED_ACCESS_REVIEW_BANNER = "[class='rrp-banner'] [src*='limited-access']";
+    private static final String FULL_REVIEW_BANNER = "[class='rrp-banner'] [src*='rrp-banner-fullreview']";
+    private static final String FREE_SAMPLE_BADGE = "[class*='rrp-banner'] [src*='/assets/rrp/lp_badge']";
     private static final String FAVORITE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-save-resource']";
     private static final String FAVORITE_BUTTON_DISABLED = "[class*='panel-default panel-review'] div[class*='btn-default disabled']";
     private static final String VISITOR_FAVORITE_BUTTON = "[class*='favorite-join'][data-title='Get Full Access']";
     private static final String VIEW_FAVORITE_RESOURCE_LINK = "[class*='alert alert-success alert-dismissible'] a[href='/my/curriculum_manager']";
-    private static final String EXISTING_COLLECTION = "#collections-list [class='list-option'] [class*='fa-square-o']";
+    private static final String EXISTING_FOLDER = "#collections-list [class='list-option'] [class*='fa-square-o']";
     private static final String NOTIFICATION_TEXT = "[class*='alert-success alert-dismissible mb0']";
     private static final String ADD_TO_FOLDER_DROPDOWN = "div[class$='add-to-folder-btn']";
     private static final String UPGRADE_FOR_FULL_REVIEW_BUTTON = "[class*='panel-default panel-review'] [class*='btn-success upgrade js-testimonial-popup trk-goto-resource']";
@@ -40,8 +40,8 @@ public class Rrp extends LpUiBasePage {
     private static final String JOIN_NOW_POPUP = "[class='bold text-danger']";
     private static final String BLANK_LEFT_SECTION = "[class='panel-body'] [class=row] [class='col-sm-3 hidden-xs'] [class='blank-rrp-left-resource-details mt15']";
     private static final String GO_TO_RESOURCE_BUTTON = "[class*='panel-default panel-review'] [class*='trk-goto-resource']";
-    private static final String ADD_TO_NEW_COLLECTION_BUTTON = "[class='resource-title-wrap pt5'] [class*='create-new-folder-btn']";
-    private static final String EDIT_YOUR_COLLECTION_LINK = "[class*='alert-success'] a[href*='/edit']";
+    private static final String ADD_TO_NEW_FOLDER_BUTTON = "[class='resource-title-wrap pt5'] [class*='create-new-folder-btn']";
+    private static final String EDIT_YOUR_FOLDER_LINK = "[class*='alert-success'] a[href*='/edit']";
 
     private static final String RESOURCE_POOL_NAME = "[class='pool-name'] [class='text']";
     private static final String ADD_TO_FOLDER_BUTTON = "button[class*='submit-btn']";
@@ -71,24 +71,24 @@ public class Rrp extends LpUiBasePage {
         return isElementClickable(RESOURCE_TITLE_TEXT);
     }
 
-    public boolean isLimitedAccessReviewDisplayed() {
-        return isElementClickable(LIMITED_ACCESS_REVIEW);
+    public boolean isLimitedAccessReviewBannerDisplayed() {
+        return isElementClickable(LIMITED_ACCESS_REVIEW_BANNER);
     }
 
-    public boolean isFullReviewDisplayed() {
-        return isElementClickable(FULL_REVIEW);
+    public boolean isFullReviewBannerDisplayed() {
+        return isElementClickable(FULL_REVIEW_BANNER);
     }
 
-    public boolean isFreeSampleDisplayed() {
-        return isElementClickable(FREE_SAMPLE);
+    public boolean isFreeSampleBadgeDisplayed() {
+        return isElementClickable(FREE_SAMPLE_BADGE);
     }
 
     public void clickOnViewFavoritesLink() {
         clickElement(VIEW_FAVORITE_RESOURCE_LINK);
     }
 
-    public void clickCollectionFromAddToCollectionDropdown() {
-        clickElement(EXISTING_COLLECTION);
+    public void clickOnFolderFromAddToFolderDropdown() {
+        clickElement(EXISTING_FOLDER);
     }
 
     public void clickOnFavoriteButton() {
@@ -104,7 +104,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(ADD_TO_FOLDER_DROPDOWN);
     }
 
-    public void clickUpgradeForFullReviewButton(boolean inANewTab) {
+    public void clickOnUpgradeForFullReviewButton(boolean inANewTab) {
         openInANewTabOrClick(UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -128,7 +128,7 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(CONCEPTS_TAGS_LIST);
     }
 
-    public boolean isReviewerRatingDisplayed() {
+    public boolean isCuratorRatingDisplayed() {
         return isElementDisplayed(RATING);
     }
 
@@ -225,7 +225,7 @@ public class Rrp extends LpUiBasePage {
         return displayResourceType;
     }
 
-    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab) {
+    public void clickOnGetFreeAccessForTenDaysButton(boolean inANewTab) {
         openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
@@ -233,7 +233,7 @@ public class Rrp extends LpUiBasePage {
         clickElement(THUMBNAIL);
     }
 
-    public void clickVisitorFavoriteButton() {
+    public void clickOnVisitorFavoriteButton() {
         clickElement(VISITOR_FAVORITE_BUTTON);
     }
 
@@ -241,7 +241,7 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(boolean inANewTab) {
+    public void clickOnSignInPopupLink(boolean inANewTab) {
         openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
@@ -249,15 +249,15 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(JOIN_NOW_POPUP);
     }
 
-    public void clickJoinNowPopupLink() {
+    public void clickOnJoinNowPopupLink() {
         clickElement(JOIN_NOW_POPUP);
     }
 
-    public void clickNextButton() {
+    public void clickOnNextButton() {
         clickElement(NEXT_BUTTON_RRP);
     }
 
-    public void clickPreviousButton() {
+    public void clickOnPreviousButton() {
         clickElement(PREVIOUS_BUTTON_RRP);
     }
 
@@ -269,7 +269,7 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(GO_TO_RESOURCE_BUTTON);
     }
 
-    public void clickGoToResourceButton(boolean inANewTab) {
+    public void clickOnGoToResourceButton(boolean inANewTab) {
         openInANewTabOrClick(GO_TO_RESOURCE_BUTTON, inANewTab);
     }
 
@@ -289,19 +289,19 @@ public class Rrp extends LpUiBasePage {
         return isElementDisplayed(UPGRADE_FOR_FULL_REVIEW_BUTTON);
     }
 
-    public void clickAddToNewCollection() {
-        clickElement(ADD_TO_NEW_COLLECTION_BUTTON);
+    public void clickOnAddToNewFolderLink() {
+        clickElement(ADD_TO_NEW_FOLDER_BUTTON);
     }
 
-    public void clickEditYourCollectionLink(boolean inANewTab) {
-        openInANewTabOrClick(EDIT_YOUR_COLLECTION_LINK, inANewTab);
+    public void clickOnEditYourFolderLink(boolean inANewTab) {
+        openInANewTabOrClick(EDIT_YOUR_FOLDER_LINK, inANewTab);
     }
 
     public String getResourcePoolName() {
         return getTextForElement(RESOURCE_POOL_NAME);
     }
 
-    public void clickAddToFolderButton() {
+    public void clickOnAddToFolderButton() {
         scrollToElement(ADD_TO_FOLDER_BUTTON);
         clickElement(ADD_TO_FOLDER_BUTTON);
     }

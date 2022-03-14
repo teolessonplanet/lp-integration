@@ -6,14 +6,14 @@ import util.TestData;
 public class FooterPage extends LpUiBasePage {
 
     private static final String LP_LOGO_IMAGE = "[class='lp-footer-logo'] #lp-footer-logo/*[xmlns()='svg']";
-    private static final String REGULAR_SL_LOGO_IMAGE = "[class='le-footer-logo'] #le-footer-logo/*[xmlns()='svg']";
+    private static final String LEARNING_EXPLORER_LOGO_IMAGE = "[class='le-footer-logo'] #le-footer-logo/*[xmlns()='svg']";
     private static final String COPY_RIGHT_TEXT = "[class='copyright-text']";
 
-    private static final String SUBSCRIPTION_EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
+    private static final String NEWSLETTER_SUBSCRIPTION_EMAIL_INPUT = "[class*='lp-newsletter-email-input']";
     private static final String SEND_BUTTON = "[class*='lp-newsletter-email-submit']";
 
     private static final String CONTACT_US_BUTTON = "[class*='footer-container'] [href='/contact-us']";
-    private static final String SITE_MAP_BUTTON = "[class*='footer-container'] [href='/content/site_map']";
+    private static final String SITE_MAP_LINK = "[class*='footer-container'] [href='/content/site_map']";
     private static final String PRIVACY_POLICY_LINK = "[class*='footer-container'] [href='/privacy-policy']";
     private static final String TERMS_OF_USE_LINK = "[class*='footer-container'] [href*='/terms-of-use']";
 
@@ -69,15 +69,15 @@ public class FooterPage extends LpUiBasePage {
         clickElement(COPY_RIGHT_TEXT);
     }
 
-    public String getTextFromSubscriptionEmailField() {
-        return findElement(SUBSCRIPTION_EMAIL_INPUT).getAttribute("value");
+    public String getTextFromNewsletterSubscriptionEmailField() {
+        return findElement(NEWSLETTER_SUBSCRIPTION_EMAIL_INPUT).getAttribute("value");
     }
 
     public void typeEmail(String email) {
-        sendKeys(SUBSCRIPTION_EMAIL_INPUT, email);
+        sendKeys(NEWSLETTER_SUBSCRIPTION_EMAIL_INPUT, email);
     }
 
-    public void clickSendButton() {
+    public void clickOnSendButton() {
         clickElement(SEND_BUTTON);
     }
 
@@ -85,8 +85,8 @@ public class FooterPage extends LpUiBasePage {
         clickElement(CONTACT_US_BUTTON);
     }
 
-    public void clickOnSiteMapButton() {
-        clickElement(SITE_MAP_BUTTON);
+    public void clickOnSiteMapLink() {
+        clickElement(SITE_MAP_LINK);
     }
 
     public void clickOnPrivacyPolicyButton() {
@@ -194,24 +194,24 @@ public class FooterPage extends LpUiBasePage {
         clickElement(SHARING_WITH_OTHERS_LINK);
     }
 
-    public boolean isSubscriptionEmailInputDisplayed() {
-        return isElementDisplayed(SUBSCRIPTION_EMAIL_INPUT);
-    }
-
-    public void clearSubscriptionEmail() {
-        clearText(SUBSCRIPTION_EMAIL_INPUT);
-    }
-
     public boolean isLpLogoDisplayed() {
         return isElementDisplayed(LP_LOGO_IMAGE);
     }
 
+    public boolean isNewsletterSubscriptionEmailInputDisplayed() {
+        return isElementDisplayed(NEWSLETTER_SUBSCRIPTION_EMAIL_INPUT);
+    }
+
+    public void clearNewsletterSubscriptionEmail() {
+        clearText(NEWSLETTER_SUBSCRIPTION_EMAIL_INPUT);
+    }
+
     public boolean isRegularSlLogoDisplayed() {
-        return isElementDisplayed(REGULAR_SL_LOGO_IMAGE);
+        return isElementDisplayed(LEARNING_EXPLORER_LOGO_IMAGE);
     }
 
     public void clickOnRegularSlLogo(boolean inANewTab) {
-        openInANewTabOrClick(REGULAR_SL_LOGO_IMAGE, inANewTab);
+        openInANewTabOrClick(LEARNING_EXPLORER_LOGO_IMAGE, inANewTab);
     }
 
     public String getCopyrightText() {
@@ -246,8 +246,8 @@ public class FooterPage extends LpUiBasePage {
         return isElementDisplayed(CONTACT_US_BUTTON);
     }
 
-    public boolean isSiteMapButtonDisplayed() {
-        return isElementDisplayed(SITE_MAP_BUTTON);
+    public boolean isSiteMapLinkDisplayed() {
+        return isElementDisplayed(SITE_MAP_LINK);
     }
 
     public boolean isPrivacyPolicyLinkDisplayed() {

@@ -98,8 +98,7 @@ public class ResourcesPage extends LpUiBasePage {
         return null;
     }
 
-
-    public void clickOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
+    public void clickOnOptionFromLeftSide(String widgetCategorySelector, String widgetCategoryName, String optionNameSelector, String optionName) {
         WebElement option;
 
         if (optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES) || optionName.equals(TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS)) {
@@ -227,51 +226,51 @@ public class ResourcesPage extends LpUiBasePage {
         return getAllResources().size();
     }
 
-    public void clickSeeCollection(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
+    public void clickOnSeeCollection(boolean inANewTab) {
+        clickOnFirstButtonOfType(SEE_COLLECTION_BUTTON, inANewTab);
     }
 
-    public void clickSeeCollectionUnit(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_COLLECTION_UNIT_BUTTON, inANewTab);
+    public void clickOnSeeCollectionUnit(boolean inANewTab) {
+        clickOnFirstButtonOfType(SEE_COLLECTION_UNIT_BUTTON, inANewTab);
     }
 
-    public void clickSeeReview(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
+    public void clickOnSeeReview(boolean inANewTab) {
+        clickOnFirstButtonOfType(SEE_REVIEW_BUTTON, inANewTab);
     }
 
-    public void clickGetFreeAccess(boolean inANewTab) {
-        clickFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
+    public void clickOnGetFreeAccess(boolean inANewTab) {
+        clickOnFirstButtonOfType(GET_FREE_ACCESS_BUTTON, inANewTab);
     }
 
-    public void clickSeePreview(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
+    public void clickOnSeePreview(boolean inANewTab) {
+        clickOnFirstButtonOfType(SEE_PREVIEW_BUTTON, inANewTab);
     }
 
-    public void clickGoToResourceForSharedResource(boolean inANewTab) {
-        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
+    public void clickOnGoToResourceForSharedResource(boolean inANewTab) {
+        clickOnFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_SHARED_RESOURCE, inANewTab);
     }
 
-    public void clickGoToResourceForRegularResource(boolean inANewTab) {
-        clickFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
+    public void clickOnGoToResourceForRegularResource(boolean inANewTab) {
+        clickOnFirstButtonOfType(GO_TO_RESOURCE_BUTTON_FOR_REGULAR_RESOURCE, inANewTab);
     }
 
-    public void clickFreeFullAccessReview(boolean inANewTab) {
-        clickFirstButtonOfType(FREE_FULL_ACCESS_BUTTON, inANewTab);
+    public void clickOnFreeFullAccessReview(boolean inANewTab) {
+        clickOnFirstButtonOfType(FREE_FULL_ACCESS_BUTTON, inANewTab);
     }
 
-    public void clickSeeFullReview(boolean inANewTab) {
-        clickFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
+    public void clickOnSeeFullReview(boolean inANewTab) {
+        clickOnFirstButtonOfType(SEE_FULL_REVIEW_BUTTON, inANewTab);
     }
 
-    public void clickFolderDetails(boolean inANewTab) {
-        clickFirstButtonOfType(FOLDER_DETAILS_BUTTON, inANewTab);
+    public void clickOnFolderDetails(boolean inANewTab) {
+        clickOnFirstButtonOfType(FOLDER_DETAILS_BUTTON, inANewTab);
     }
 
-    public void clickOpenFolder(boolean inANewTab) {
-        clickFirstButtonOfType(OPEN_FOLDER_BUTTON, inANewTab);
+    public void clickOnOpenFolder(boolean inANewTab) {
+        clickOnFirstButtonOfType(OPEN_FOLDER_BUTTON, inANewTab);
     }
 
-    protected void clickFirstButtonOfType(String cssSelector, boolean inANewTab) {
+    protected void clickOnFirstButtonOfType(String cssSelector, boolean inANewTab) {
         //TODO: add here the magic code
         boolean webElementWasFound = false;
         int attempts = TestData.SHORT_TIMEOUT;

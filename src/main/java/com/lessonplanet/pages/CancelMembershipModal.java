@@ -2,24 +2,22 @@ package com.lessonplanet.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class CancelModal extends LpUiBasePage {
+public class CancelMembershipModal extends LpUiBasePage {
 
     private static final String MODAL_ID = "#cancel_modal";
     private static final String MODAL_TITLE_TEXT = "#cancel_modal [class='modal-title']";
     private static final String MODAL_YOUR_CURRENT_MEMBERSHIP_TEXT = "#cancel_modal [class*='lead']";
     private static final String MODAL_INDIVIDUAL_MEMBERSHIP_TEXT = "#cancel_modal [class*='modal-body'] h4";
     private static final String MODAL_CONTENT_ITEMS_TEXT = "#cancel_modal [class*='modal-body'] p";
-    private static final String CONFIRM_CANCELLATION_INPUT = "#cancel_modal [class*='btn-action']";
+    private static final String CONFIRM_CANCELLATION_BUTTON = "#cancel_modal [class*='btn-action']";
 
     private static final String MODAL_WANT_TO_TRY_A_CHEAPER_PLAN_TEXT = "#cancel_modal h3";
     private static final String MODAL_PLAN_DETAILS_TEXT = "#cancel_modal [class='plan-feature']";
 
-
-    private static final String YES_SIGN_UP_INPUT = "#cancel_modal input[value='Yes, Sign Up']";
+    private static final String YES_SIGN_UP_BUTTON = "#cancel_modal input[value='Yes, Sign Up']";
     private static final String NO_THANKS_CONFIRM_CANCELLATION_LINK = "#cancel_modal [class*='btn-link']";
 
-
-    public CancelModal(WebDriver driver) {
+    public CancelMembershipModal(WebDriver driver) {
         super(driver);
     }
 
@@ -71,18 +69,18 @@ public class CancelModal extends LpUiBasePage {
         return getTextForElement(MODAL_WANT_TO_TRY_A_CHEAPER_PLAN_TEXT);
     }
 
-    public void clickOnYesSignUpInput() {
+    public void clickOnYesSignUpButton() {
         waitForModal();
-        clickElement(YES_SIGN_UP_INPUT);
+        clickElement(YES_SIGN_UP_BUTTON);
     }
 
-    public void clickOnNoThanksConfirmCancellationButton() {
+    public void clickOnNoThanksConfirmCancellationLink() {
         waitForModal();
         clickElement(NO_THANKS_CONFIRM_CANCELLATION_LINK);
     }
 
-    public void clickOnConfirmCancellation() {
+    public void clickOnConfirmCancellationButton() {
         waitForModal();
-        clickElement(CONFIRM_CANCELLATION_INPUT);
+        clickElement(CONFIRM_CANCELLATION_BUTTON);
     }
 }

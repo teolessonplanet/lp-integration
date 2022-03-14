@@ -65,7 +65,7 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
 
     private static final String FOLDERS = "[class='group-table'] [id^='collection-']:not([id^='collection-item-']) [class='group-info']";
-    private static final String FOLDERS_CHILDS = "[class='children-container'] div[id^='collection-item-']";
+    private static final String FOLDERS_CHILDREN = "[class='children-container'] div[id^='collection-item-']";
     private static final String BREADCRUMBS_ITEMS = "[class='breadcrumbs-list'] li";
     private static final String BREADCRUMBS_LAST_ITEM = "[class='breadcrumbs-list'] [class='focused-title']";
     private static final String ACTIONS_HEADER_BUTTON = "[class^='cm-table-header'] [class^='action-dropdown']";
@@ -293,8 +293,8 @@ public class CurriculumManagerPage extends LpUiBasePage {
         clickElement(findElements(getFolder(position), RESOURCE_TITLE).get(0));
     }
 
-    public int getCountFolderChilds() {
-        return findElements(FOLDERS_CHILDS).size();
+    public int getCountFolderChildren() {
+        return findElements(FOLDERS_CHILDREN).size();
     }
 
     public int getCountBreadcrumbs() {
@@ -307,10 +307,6 @@ public class CurriculumManagerPage extends LpUiBasePage {
 
     public boolean isActionsHeaderButtonDisplayed() {
         return isElementVisible(ACTIONS_HEADER_BUTTON);
-    }
-
-    public void clickActionsDropdown(WebElement folder) {
-        clickElement(findElements(folder, ACTIONS_DROPDOWN_BUTTON).get(0));
     }
 
     public void clickOnActionsDropdownButton(WebElement folder) {
@@ -438,11 +434,11 @@ public class CurriculumManagerPage extends LpUiBasePage {
     }
 
     public void hoverOverChild(int index) {
-        hoverOverElement(FOLDERS_CHILDS, index);
+        hoverOverElement(FOLDERS_CHILDREN, index);
     }
 
     public void clickOnViewChildFolderButton() {
-        clickElement(FOLDERS_CHILDS + VIEW_FOLDER_BUTTON);
+        clickElement(FOLDERS_CHILDREN + VIEW_FOLDER_BUTTON);
     }
 
     public void clickOnFavoriteResourceInfoIcon() {
@@ -465,15 +461,15 @@ public class CurriculumManagerPage extends LpUiBasePage {
     }
 
     public WebElement getExpandedFolderChild(int childPosition) {
-        return findElements(FOLDERS_CHILDS + " [class='group-info']").get(childPosition);
+        return findElements(FOLDERS_CHILDREN + " [class='group-info']").get(childPosition);
     }
 
     public String getChildFolderStatus(int childPosition) {
-        return getTextForElement(findElements(FOLDERS_CHILDS + FOLDER_STATUS).get(childPosition));
+        return getTextForElement(findElements(FOLDERS_CHILDREN + FOLDER_STATUS).get(childPosition));
     }
 
     public void clickOnFolderResourceInfoIcon(int index) {
-        findElements(FOLDERS_CHILDS + RESOURCE_DETAILS_ICON).get(index).click();
+        findElements(FOLDERS_CHILDREN + RESOURCE_DETAILS_ICON).get(index).click();
     }
 
     public void clickOnSharedWithMeTabButton() {

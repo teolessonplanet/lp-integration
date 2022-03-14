@@ -40,11 +40,11 @@ public class CalendarPage extends LpUiBasePage {
         return isElementDisplayed(CALENDAR);
     }
 
-    public void clickNextArrowLink() {
+    public void clickOnNextArrowLink() {
         clickElement(NEXT_ARROW_LINK);
     }
 
-    public void clickPreviousArrowLink() {
+    public void clickOnPreviousArrowLink() {
         clickElement(PREVIOUS_ARROW_LINK);
     }
 

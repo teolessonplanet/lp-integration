@@ -25,8 +25,8 @@ public class ArticlesPage extends LpUiBasePage {
     private static final String PINTEREST_SHARE_BUTTON = "[class*='fa-pinterest-square']";
     private static final String LINK_SHARE_BUTTON = "[class*='fa-link']";
 
-    private static final String RECENT_ARTICLES_SECTION = "#recent-articles-block";
-    private static final String RECENT_ARTICLE = "#recent-articles-block ul[class='arrow-bullet fa-ul'] a";
+    private static final String RECENT_ARTICLES_SECTION_TEXT = "#recent-articles-block";
+    private static final String RECENT_ARTICLE_LINK = "#recent-articles-block ul[class='arrow-bullet fa-ul'] a";
 
     private static final String GUIDE_SECTION = "#contributor-block";
     private static final String GUIDE_SECTION_TITLE = "#contributor-block [class='widget-title']";
@@ -99,20 +99,20 @@ public class ArticlesPage extends LpUiBasePage {
     }
 
     public int getRecentArticlesNumber() {
-        final List<WebElement> recentArticles = findElements(RECENT_ARTICLE);
+        final List<WebElement> recentArticles = findElements(RECENT_ARTICLE_LINK);
         return recentArticles.size();
     }
 
     public boolean isRecentArticlesSectionDisplayed() {
-        return isElementDisplayed(RECENT_ARTICLES_SECTION);
+        return isElementDisplayed(RECENT_ARTICLES_SECTION_TEXT);
     }
 
     public void clickOnRecentArticle(int position) {
-        clickElement(RECENT_ARTICLE, position);
+        clickElement(RECENT_ARTICLE_LINK, position);
     }
 
     public String getRecentArticleTitle(int position) {
-        return getTextForElement(RECENT_ARTICLE, position);
+        return getTextForElement(RECENT_ARTICLE_LINK, position);
     }
 
     public boolean isFacebookShareButtonDisplayed() {

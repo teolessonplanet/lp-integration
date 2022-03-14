@@ -8,7 +8,7 @@ public class StepOnePage extends LpUiBasePage {
     private static final String EMAIL_INPUT = "#user_email";
     private static final String PASSWORD_INPUT = "[class*='password optional'] #user_password";
     private static final String GET_FREE_TRIAL_BUTTON = "#qa";
-    private static final String ALREADY_A_MEMBER_BUTTON = "#login-link-no-underline";
+    private static final String ALREADY_A_MEMBER_LINK = "#login-link-no-underline";
     private static final String TITLE_TEXT = "h4[class='panel-title']";
 
     public StepOnePage(WebDriver driver) {
@@ -40,8 +40,8 @@ public class StepOnePage extends LpUiBasePage {
         loadUrl(currentPath);
     }
 
-    public boolean isAlreadyAMemberButtonDisplayed() {
-        return isElementClickable(ALREADY_A_MEMBER_BUTTON);
+    public boolean isAlreadyAMemberLinkDisplayed() {
+        return isElementClickable(ALREADY_A_MEMBER_LINK);
     }
 
     public String getTitleText() {

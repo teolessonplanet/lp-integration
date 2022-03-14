@@ -218,13 +218,13 @@ public class User_HeaderTest extends BaseTest {
 
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
-        headerPage.clickOnLearningExplorer();
+        headerPage.clickOnLearningExplorerButton();
         headerPage.waitForLinkToLoad();
         Assert.assertEquals(headerPage.getUrl(), TestData.LEARNING_EXPLORER_URL);
 
         lpHomePage.loadPage();
         headerPage.hoverOverSolutionsButton();
-        headerPage.clickOnPdLearningNetworkSolutionsButton();
+        headerPage.clickOnPdLearningNetworkButton();
         Assert.assertEquals(headerPage.getPath(), TestData.PD_LEARNING_NETWORK_PATH);
     }
 

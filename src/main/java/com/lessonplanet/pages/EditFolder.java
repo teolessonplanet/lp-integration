@@ -3,7 +3,7 @@ package com.lessonplanet.pages;
 import org.openqa.selenium.WebDriver;
 import util.TestData;
 
-public class EditCollection extends CreateNewFolderModal {
+public class EditFolder extends CreateNewFolderModal {
     private static final String EDIT_FOLDER_TITLE = "[class='edit-folder-title'] h1";
     private static final String FOLDER_TYPE = "#edit-folder-type";
     private static final String FOLDER_DEFAULT_STATUS = "[class='folder-activity-feeds'] [class='default-text']";
@@ -26,14 +26,13 @@ public class EditCollection extends CreateNewFolderModal {
     private static final String NAVIGATE_FOLDER_DROPDOWN = "[class='navigator-toggle ']";
     private static final String NAVIGATE_FOLDER_TITLE = "#folder-navigator [class='edit-folder-navigator-title']";
     private static final String ACTIVE_FOLDER = "#folder-navigator [class='list-option active']";
-//    private static final String ACTIVE_FOLDER_TITLE = "#folder-navigator [class='list-option active'] a";
     private static final String ACTIVE_FOLDER_TITLE = "h1[class*='edit-folder-title']";
 
     private static final String ADD_ITEMS_DROPDOWN = "#collection-add-items-wrap";
     private static final String WEB_LINK_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(1)";
     private static final String ADD_A_LINK_URL_INPUT = "#js-create-item [name='url']";
     private static final String ADD_A_LINK_NAME_FIELD = "#js-create-item [name='title']";
-    private static final String ADD_TO_FOLDER_BUTTON = "[class='modal-footer'] [class='btn btn-warning']";
+    private static final String ADD_TO_FOLDER_ORANGE_BUTTON = "[class='modal-footer'] [class='btn btn-warning']";
     private static final String FILE_UPLOAD_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(2)";
     private static final String PIXABAY_PANEL = "[class='edit-folder-panel add-pixabay-image']";
     private static final String PIXABAY_IMAGE_OPTION = "#add-to-folder-toolbox [class='toolbox-items'] [class='toolbox-item-wrap']:nth-child(3)";
@@ -99,7 +98,7 @@ public class EditCollection extends CreateNewFolderModal {
 
     private static final String EDIT_FOLDER_STATUS = "[class='edit-folder-status-wrap'] [class='status alone']";
 
-    public EditCollection(WebDriver driver) {
+    public EditFolder(WebDriver driver) {
         super(driver);
     }
 
@@ -111,7 +110,7 @@ public class EditCollection extends CreateNewFolderModal {
         return super.getTextForElement(EDIT_FOLDER_TITLE);
     }
 
-    public void clickMoreDropdown() {
+    public void clickOnMoreDropdown() {
         scrollToElement(MORE_DROPDOWN);
         clickElement(MORE_DROPDOWN);
     }
@@ -128,15 +127,15 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(COPY_TO_OPTION);
     }
 
-    public void clickPlayOption() {
+    public void clickOnPlayOption() {
         clickElement(PLAY_OPTION);
     }
 
-    public void clickAssignOption() {
+    public void clickOnAssignOption() {
         clickElement(ASSIGN_OPTION);
     }
 
-    public void clickCopyToOption() {
+    public void clickOnCopyToOption() {
         clickElement(COPY_TO_OPTION);
     }
 
@@ -158,10 +157,6 @@ public class EditCollection extends CreateNewFolderModal {
 
     public int getAddANoteCount() {
         return Integer.parseInt(getTextForElement(ADD_A_NOTE_COUNT).replaceAll("\\D+", ""));
-    }
-
-    public void clickAddToFolderButton() {
-        clickElement(ADD_TO_FOLDER_BUTTON);
     }
 
     public void typeTitle(String title) {
@@ -186,7 +181,7 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(ENABLED_PUBLISH_FOLDER_BUTTON);
     }
 
-    public void clickEllipsisActions(int index) {
+    public void clickOnEllipsisActions(int index) {
         findElements(ELLIPSIS_ACTIONS).get(index).click();
     }
 
@@ -210,11 +205,11 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(DELETE_OPTION);
     }
 
-    public void clickEditPageOption() {
+    public void clickOnEditPageOption() {
         clickElement(EDIT_PAGE_OPTION);
     }
 
-    public void clickAddANoteOption() {
+    public void clickOnAddANoteOption() {
         clickElement(ADD_A_NOTE_OPTION);
     }
 
@@ -222,7 +217,7 @@ public class EditCollection extends CreateNewFolderModal {
         clickElement(NOTE_TO_TEACHERS_OPTION);
     }
 
-    public void clickHideFromPlayerOption() {
+    public void clickOnHideFromPlayerOption() {
         clickElement(HIDE_FROM_PLAYER_OPTION);
     }
 
@@ -230,7 +225,7 @@ public class EditCollection extends CreateNewFolderModal {
         findElement(NOTE_TO_TEACHERS_INPUT).sendKeys(teacherNote);
     }
 
-    public void clickSaveNoteButton() {
+    public void clickOnSaveNoteButton() {
         clickElement(SAVE_NOTE_BUTTON);
     }
 
@@ -246,11 +241,11 @@ public class EditCollection extends CreateNewFolderModal {
         return getTextForNotification(ALERT_NOTIFICATION);
     }
 
-    public void clickDeleteOption() {
+    public void clickOnDeleteOption() {
         clickElement(DELETE_OPTION);
     }
 
-    public void clickDeleteItemButton() {
+    public void clickOnDeleteItemButton() {
         clickElement(DELETE_ITEM_BUTTON);
     }
 
@@ -275,7 +270,7 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(CREATE_PAGE_OPTION);
     }
 
-    public void clickFileUploadButton() {
+    public void clickOnFileUploadButton() {
         clickElement(FILE_UPLOAD_OPTION);
     }
 
@@ -287,8 +282,16 @@ public class EditCollection extends CreateNewFolderModal {
         findElement(PAGE_TITLE_INPUT).sendKeys(text);
     }
 
+    public void typePageContent(String description) {
+        findElement(PAGE_CONTENT_INPUT).sendKeys(description);
+    }
+
     public void clearPageTitle() {
         clearText(PAGE_TITLE_INPUT);
+    }
+
+    public void clickOnWebLinkOption() {
+        clickElement(WEB_LINK_OPTION);
     }
 
     public void typeUrl(String Url) {
@@ -296,19 +299,15 @@ public class EditCollection extends CreateNewFolderModal {
         sendKeys(ADD_A_LINK_URL_INPUT, Url);
     }
 
-    public void clickWebLinkOption() {
-        clickElement(WEB_LINK_OPTION);
+    public void clickOnAddToFolderButton() {
+        clickElement(ADD_TO_FOLDER_ORANGE_BUTTON);
     }
 
-    public void typePageContent(String description) {
-        findElement(PAGE_CONTENT_INPUT).sendKeys(description);
-    }
-
-    public void clickSaveButton() {
+    public void clickOnSaveButton() {
         clickElement(SAVE_BUTTON);
     }
 
-    public void clickNavigateFolderDropdown() {
+    public void clickOnNavigateFolderDropdown() {
         clickElement(NAVIGATE_FOLDER_DROPDOWN);
     }
 
@@ -324,7 +323,7 @@ public class EditCollection extends CreateNewFolderModal {
         findElement(PIXABAY_SEARCH_BAR).sendKeys(text);
     }
 
-    public void clickPixabaySearchButton() {
+    public void clickOnPixabaySearchButton() {
         clickElement(PIXABAY_SEARCH_BUTTON);
     }
 
@@ -340,7 +339,7 @@ public class EditCollection extends CreateNewFolderModal {
         scrollElementWithOffset(findElement(PIXABAY_PANEL), findElement(PIXABAY_IMAGES));
     }
 
-    public void clickAddSelectedToFolderButton() {
+    public void clickOnAddSelectedToFolderButton() {
         clickElement(ADD_SELECTED_TO_FOLDER_BUTTON);
     }
 
@@ -410,7 +409,7 @@ public class EditCollection extends CreateNewFolderModal {
         sendKeys(NAME_INPUT, name);
     }
 
-    public void clickMyResourcesDestinationFolder() {
+    public void clickOnMyResourcesDestinationFolder() {
         clickElement(MY_RESOURCES_DESTINATION_FOLDER);
     }
 
@@ -494,7 +493,7 @@ public class EditCollection extends CreateNewFolderModal {
         return isElementDisplayed(EDIT_DETAILS_OPTION);
     }
 
-    public void clickEditDetails() {
+    public void clickOnEditDetails() {
         clickElement(EDIT_DETAILS_OPTION);
     }
 
@@ -528,9 +527,8 @@ public class EditCollection extends CreateNewFolderModal {
     }
 
     public void completeCollectionForPublish(String accountPlanText, String collectionTitle, String grade, String subject, String description) {
-        clickMoreDropdown();
+        clickOnMoreDropdown();
         clickOnPublishOption();
-
         completePublishCollectionRequirements(collectionTitle, grade, subject, description);
     }
 

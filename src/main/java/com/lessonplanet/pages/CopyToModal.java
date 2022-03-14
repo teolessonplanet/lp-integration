@@ -27,7 +27,7 @@ public class CopyToModal extends LpUiBasePage {
         clickElement(CONFIRM_BUTTON);
     }
 
-    public void clickMyResourcesDestinationFolder() {
+    public void clickOnMyResourcesDestinationFolder() {
         clickElement(MY_RESOURCES_DESTINATION_FOLDER);
     }
 

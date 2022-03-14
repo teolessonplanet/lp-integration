@@ -124,7 +124,7 @@ public class ContentManagerPage extends DiscoverResourcesPage {
         return isElementDisplayed(resourceCard, RESOURCE_PROVIDER);
     }
 
-    public boolean isResourceHideFromViewDisplayed(WebElement resourceCard) {
+    public boolean isResourceHideFromSearchCheckboxDisplayed(WebElement resourceCard) {
         return isElementDisplayed(resourceCard, RESOURCE_HIDE_FROM_SEARCH_LINK);
     }
 

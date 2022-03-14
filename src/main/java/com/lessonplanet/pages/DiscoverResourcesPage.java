@@ -68,18 +68,18 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickOnListView() {
-        clickViewModeButton(LIST_VIEW_BUTTON);
+        clickOnViewModeButton(LIST_VIEW_BUTTON);
     }
 
     public void clickOnTiledView() {
-        clickViewModeButton(TILED_VIEW_BUTTON);
+        clickOnViewModeButton(TILED_VIEW_BUTTON);
     }
 
     public void clickOnThumbnailView() {
-        clickViewModeButton(THUMBNAIL_VIEW_BUTTON);
+        clickOnViewModeButton(THUMBNAIL_VIEW_BUTTON);
     }
 
-    private void clickViewModeButton(String cssSelector) {
+    private void clickOnViewModeButton(String cssSelector) {
         waitForLoad();
         try {
             clickElement(cssSelector);
@@ -89,53 +89,53 @@ public class DiscoverResourcesPage extends ResourcesPage {
         waitForLoad();
     }
 
-    public void clickSeeCollection(boolean inANewTab) {
+    public void clickOnSeeCollection(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_COLLECTIONS_TYPES)));
-        super.clickSeeCollection(inANewTab);
+        super.clickOnSeeCollection(inANewTab);
     }
 
-    public void clickSeeCollectionUnit(boolean inANewTab) {
+    public void clickOnSeeCollectionUnit(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_UNIT_MODULES)));
-        super.clickSeeCollectionUnit(inANewTab);
+        super.clickOnSeeCollectionUnit(inANewTab);
     }
 
-    public void clickSeeReview(boolean inANewTab) {
+    public void clickOnSeeReview(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS)));
-        super.clickSeeReview(inANewTab);
+        super.clickOnSeeReview(inANewTab);
     }
 
-    public void clickGetFreeAccess(boolean inANewTab) {
+    public void clickOnGetFreeAccess(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES)));
-        super.clickGetFreeAccess(inANewTab);
+        super.clickOnGetFreeAccess(inANewTab);
     }
 
     public void clickSeePreview(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES)));
-        super.clickSeePreview(inANewTab);
+        super.clickOnSeePreview(inANewTab);
     }
 
-    public void clickGoToResourceForSharedResource(boolean inANewTab) {
+    public void clickOnGoToResourceForSharedResource(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_ARTICLES)));
-        super.clickGoToResourceForSharedResource(inANewTab);
+        super.clickOnGoToResourceForSharedResource(inANewTab);
     }
 
-    public void clickGoToResourceForRegularResource(boolean inANewTab) {
+    public void clickOnGoToResourceForRegularResource(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_PROVIDERS_LESSONPLANET, TestData.FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES)));
-        super.clickGoToResourceForRegularResource(inANewTab);
+        super.clickOnGoToResourceForRegularResource(inANewTab);
     }
 
-    public void clickSeeFullReview(boolean inANewTab) {
+    public void clickOnSeeFullReview(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES)));
-        super.clickSeeFullReview(inANewTab);
+        super.clickOnSeeFullReview(inANewTab);
     }
 
-    public void clickFreeFullAccessReview(boolean inANewTab) {
+    public void clickOnFreeFullAccessReview(boolean inANewTab) {
         selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES)));
-        super.clickFreeFullAccessReview(inANewTab);
+        super.clickOnFreeFullAccessReview(inANewTab);
     }
 
     public void selectFacetFilter(String facetCategoryName, String facetName) {
-        clickOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
+        clickOnOptionFromLeftSide(FACETS_CATEGORIES, facetCategoryName, FACET_OPTIONS, facetName);
     }
 
     public void loadSearchPageInListView() {
@@ -357,6 +357,5 @@ public class DiscoverResourcesPage extends ResourcesPage {
             add(TestData.FACET_PROVIDERS);
             add("provider_ids[]=99");
         }});
-
     }
 }

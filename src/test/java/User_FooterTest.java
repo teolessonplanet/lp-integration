@@ -177,12 +177,12 @@ public class User_FooterTest extends BaseTest {
         if (!account.equals(TestData.VALID_EMAIL_RSL_SBCEO)) {
             Assert.assertTrue(footerPage.isLpLogoDisplayed());
             Assert.assertTrue(footerPage.isSignUpTextDisplayed());
-            Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+            Assert.assertTrue(footerPage.isNewsletterSubscriptionEmailInputDisplayed());
             Assert.assertTrue(footerPage.isContactUsButtonDisplayed());
             Assert.assertTrue(footerPage.isOpenEducationalResourcesSectionDisplayed());
             Assert.assertTrue(footerPage.isDiscoverResourcesSectionDisplayed());
             Assert.assertTrue(footerPage.isManageCurriculumSectionDisplayed());
-            Assert.assertTrue(footerPage.isSiteMapButtonDisplayed());
+            Assert.assertTrue(footerPage.isSiteMapLinkDisplayed());
             Assert.assertTrue(footerPage.isPrivacyPolicyLinkDisplayed());
             Assert.assertTrue(footerPage.isTermsOfUseLinkDisplayed());
             Assert.assertTrue(footerPage.isFacebookButtonDisplayed());
@@ -278,7 +278,7 @@ public class User_FooterTest extends BaseTest {
             footerPage.clickOnContactUsButton();
             Assert.assertEquals(lpHomePage.getPath(), TestData.CONTACT_US_PAGE_PATH);
 
-            footerPage.clickOnSiteMapButton();
+            footerPage.clickOnSiteMapLink();
             Assert.assertEquals(lpHomePage.getPath(), TestData.SITE_MAP_PAGE_PATH);
 
             footerPage.clickOnPrivacyPolicyButton();
@@ -348,14 +348,14 @@ public class User_FooterTest extends BaseTest {
 
     private void testSendEmailNewsletter(String account) {
         lpHomePage.loadPage();
-        Assert.assertTrue(footerPage.isSubscriptionEmailInputDisplayed());
+        Assert.assertTrue(footerPage.isNewsletterSubscriptionEmailInputDisplayed());
         Assert.assertTrue(footerPage.isSignUpTextDisplayed());
         Assert.assertEquals(footerPage.getSignUpHintText(), TestData.SIGN_UP_HINT_TEXT);
         String visitorMail = "";
         if (!account.equals(TestData.PLAN_VISITOR)) {
-            Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
+            Assert.assertEquals(footerPage.getTextFromNewsletterSubscriptionEmailField(), account);
         } else {
-            Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
+            Assert.assertEquals(footerPage.getTextFromNewsletterSubscriptionEmailField(), TestData.LP_HOME_PAGE_PATH);
             visitorMail = TestData.GET_NEW_EMAIL();
             footerPage.typeEmail(visitorMail);
         }
@@ -365,8 +365,8 @@ public class User_FooterTest extends BaseTest {
             testSendButton(account);
         }
 
-        footerPage.clearSubscriptionEmail();
-        footerPage.clickSendButton();
+        footerPage.clearNewsletterSubscriptionEmail();
+        footerPage.clickOnSendButton();
         Assert.assertEquals(footerPage.getSignUpErrorText(), TestData.REQUIRED_EMAIL_ERROR_TEXT);
 
         footerPage.typeEmail(TestData.NEW_COLLECTION_NAME);
@@ -374,10 +374,10 @@ public class User_FooterTest extends BaseTest {
     }
 
     private void testSendButton(String account) {
-        footerPage.clickSendButton();
+        footerPage.clickOnSendButton();
         subscriptionEmailModal.waitForModal();
         Assert.assertEquals(subscriptionEmailModal.getSubscriptionModalText(), TestData.SUBSCRIPTION_MODAL_TEXT);
         subscriptionEmailModal.clickOnCloseButton();
-        Assert.assertEquals(footerPage.getTextFromSubscriptionEmailField(), account);
+        Assert.assertEquals(footerPage.getTextFromNewsletterSubscriptionEmailField(), account);
     }
 }

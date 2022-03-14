@@ -8,7 +8,7 @@ import java.util.List;
 public class HeaderPage extends LpUiBasePage {
 
     private static final String LP_LOGO_IMAGE = "[class='lp-header'] [class='lp-logo-wrap lp-logo'] /*[name()='svg']";
-    private static final String REGULAR_SL_LOGO_IMAGE = "[class*='lp-logo-wrap lp-logo'] #le-logo/*[xmlns()='svg']";
+    private static final String LEARNING_EXPLORER_LOGO_IMAGE = "[class*='lp-logo-wrap lp-logo'] #le-logo/*[xmlns()='svg']";
     private static final String HENRY_CUSTOM_SL_LOGO = "[class*='custom-sl-logo-search-wrap'] #logo[src*='/assets/logos/whitelabel/henry_county_logo-'][src$='.png']";
     private static final String TRY_IT_FREE_BUTTON = "[class='lp-try-it-free'] a";
     private static final String UPGRADE_ME_BUTTON = "[class='lp-upgrade'] a";
@@ -28,7 +28,7 @@ public class HeaderPage extends LpUiBasePage {
     private static final String SOLUTIONS_BUTTON = "[class='lp-solutions']";
     private static final String EDUCATOR_EDITION_BUTTON = "[class='lp-solutions-ee']";
     private static final String LEARNING_EXPLORER_BUTTON = "[class='lp-solutions-se']";
-    private static final String PD_LEARNING_NETWORK_SOLUTIONS_BUTTON = "[class='lp-solutions-se-pd']";
+    private static final String PD_LEARNING_NETWORK_BUTTON = "[class='lp-solutions-se-pd']";
 
     private static final String ABOUT_BUTTON = "[class='lp-about']";
     private static final String CONTACT_US_BUTTON = "[href*='/contact-us']";
@@ -89,11 +89,11 @@ public class HeaderPage extends LpUiBasePage {
     }
 
     public boolean isRegularSlLogoClickable() {
-        return isElementClickable(REGULAR_SL_LOGO_IMAGE);
+        return isElementClickable(LEARNING_EXPLORER_LOGO_IMAGE);
     }
 
     public void clickOnRegularSlLogo(boolean inANewTab) {
-        openInANewTabOrClick(REGULAR_SL_LOGO_IMAGE, inANewTab);
+        openInANewTabOrClick(LEARNING_EXPLORER_LOGO_IMAGE, inANewTab);
     }
 
     public void clickOnSignInButton(boolean openInANewTab) {
@@ -149,20 +149,16 @@ public class HeaderPage extends LpUiBasePage {
         clickElement(EDUCATOR_EDITION_BUTTON);
     }
 
-    public void clickOnLearningExplorer() {
+    public void clickOnLearningExplorerButton() {
         clickElement(LEARNING_EXPLORER_BUTTON);
     }
 
-    public void clickOnPdLearningNetworkSolutionsButton() {
-        clickElement(PD_LEARNING_NETWORK_SOLUTIONS_BUTTON);
+    public void clickOnPdLearningNetworkButton() {
+        clickElement(PD_LEARNING_NETWORK_BUTTON);
     }
 
     public void hoverOverAboutButton() {
         hoverOverElement(ABOUT_BUTTON, true);
-    }
-
-    public void clickOnContactUsButton() {
-        clickElement(CONTACT_US_BUTTON);
     }
 
     public void clickOnOurStoryButton() {
@@ -175,6 +171,10 @@ public class HeaderPage extends LpUiBasePage {
 
     public void clickOnTestimonialsButton() {
         clickElement(TESTIMONIALS_BUTTON);
+    }
+
+    public void clickOnContactUsButton() {
+        clickElement(CONTACT_US_BUTTON);
     }
 
     public void clickOnPricingButton() {

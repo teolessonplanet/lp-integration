@@ -8,18 +8,18 @@ import java.util.List;
 public class CollectionBuilderPage extends LpUiBasePage {
 
     private static final String CREATE_OR_OPEN_DROPDOWN = "div[class^='dropdown cb-dropdown']";
-    private static final String CREATE_NEW_COLLECTION_OPTION = "[class*='cb-dropdown'] li[class='list-option create-new-collection']";
+    private static final String CREATE_A_NEW_FOLDER_OPTION = "[class*='cb-dropdown'] li[class='list-option create-new-collection']";
     private static final String FOLDERS_OPTIONS = "[class*='cb-dropdown'] li[class='list-option']";
     private static final String SHARED_FOLDER_CB = "[class*='cb-dropdown'] li[class='list-option']:last-child";
 
     private static final String COLLECTION_DROPPABLE_ZONE = "#new-builder [class*='builder-dropzone']";
     private static final String GET_STARTED_TEXT = "#not-droppable [class='text']";
 
-    private static final String MY_RESOURCES_BUTTON = "[class='view-manage-button']";
+    private static final String VIEW_MY_RESOURCES_BUTTON = "[class='view-manage-button']";
     private static final String EDIT_FOLDER_BUTTON = "[class='edit-folder-button']";
 
-    private static final String MY_RESOURCES_SIGN_IN_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold']";
-    private static final String MY_RESOURCES_SIGN_UP_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold text-danger']";
+    private static final String VIEW_MY_RESOURCES_SIGN_IN_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold']";
+    private static final String VIEW_MY_RESOURCES_SIGN_UP_POPUP = "[class*='visitor-popover js-cm-btn-popover'] [class='bold text-danger']";
 
     private static final String SIGN_IN_POPUP = "[class='bold']";
     private static final String SIGN_UP_POPUP = "[class='bold text-danger']";
@@ -38,8 +38,8 @@ public class CollectionBuilderPage extends LpUiBasePage {
         clickElement(CREATE_OR_OPEN_DROPDOWN);
     }
 
-    public void clickOnCreateNewCollection() {
-        clickElement(CREATE_NEW_COLLECTION_OPTION);
+    public void clickOnCreateNewFolderOption() {
+        clickElement(CREATE_A_NEW_FOLDER_OPTION);
     }
 
     public WebElement getCollectionDroppableZone() {
@@ -47,12 +47,12 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return findElement(COLLECTION_DROPPABLE_ZONE);
     }
 
-    public void clickOnMyResources() {
-        scrollToElement(MY_RESOURCES_BUTTON);
-        clickElement(MY_RESOURCES_BUTTON);
+    public void clickOnViewMyResourcesButton() {
+        scrollToElement(VIEW_MY_RESOURCES_BUTTON);
+        clickElement(VIEW_MY_RESOURCES_BUTTON);
     }
 
-    public void clickOnEditFolder(boolean inANewTab) {
+    public void clickOnEditFolderButton(boolean inANewTab) {
         scrollToElement(EDIT_FOLDER_BUTTON);
         openInANewTabOrClick(EDIT_FOLDER_BUTTON, inANewTab);
     }
@@ -61,20 +61,20 @@ public class CollectionBuilderPage extends LpUiBasePage {
         return isElementClickable(SIGN_IN_POPUP);
     }
 
-    public boolean isMyResourcesButtonSignInPopupLinkDisplayed() {
-        return isElementClickable(MY_RESOURCES_SIGN_IN_POPUP);
+    public boolean isViewMyResourcesButtonSignInPopupLinkDisplayed() {
+        return isElementClickable(VIEW_MY_RESOURCES_SIGN_IN_POPUP);
     }
 
-    public boolean isMyResourcesButtonSignUpPopupLinkDisplayed() {
-        return isElementClickable(MY_RESOURCES_SIGN_UP_POPUP);
+    public boolean isViewMyResourcesButtonSignUpPopupLinkDisplayed() {
+        return isElementClickable(VIEW_MY_RESOURCES_SIGN_UP_POPUP);
     }
 
     public boolean isSignUpPopupLinkDisplayed() {
         return isElementClickable(SIGN_UP_POPUP);
     }
 
-    public boolean isMyResourcesButtonDisplayed() {
-        return isElementDisplayed(MY_RESOURCES_BUTTON);
+    public boolean isViewMyResourcesButtonDisplayed() {
+        return isElementDisplayed(VIEW_MY_RESOURCES_BUTTON);
     }
 
     public boolean isMyCollectionDropdownDisplayed() {
@@ -135,7 +135,7 @@ public class CollectionBuilderPage extends LpUiBasePage {
         waitUntilElementIsHidden(ITEM_LOADER_ICON);
     }
 
-    public boolean isCreateNewCollectionButtonDisplayed() {
-        return isElementDisplayed(CREATE_NEW_COLLECTION_OPTION);
+    public boolean isCreateANewFolderOptionDisplayed() {
+        return isElementDisplayed(CREATE_A_NEW_FOLDER_OPTION);
     }
 }

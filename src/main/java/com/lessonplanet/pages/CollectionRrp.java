@@ -16,7 +16,7 @@ public class CollectionRrp extends Rrp {
     private static final String SAVED_COLLECTION_BUTTON = "[class='save-collection-btn'] div[disabled='disabled']";
     private static final String ITEMS_COUNT = "[class='rrp-items-count']";
     private static final String SHARE_BUTTON = "[class='top-buttons'] button[class*='rrp-share-resource']";
-    private static final String LIMITED_ACCESS_REVIEW = "[class='rrp-banner'] [src*='limited-access']";
+    private static final String LIMITED_ACCESS_REVIEW_BANNER = "[class='rrp-banner'] [src*='limited-access']";
     private static final String DESCRIPTION = "div.shared_collection div[class*='rrp-details panel-body'] div.row:nth-child(2) p:nth-child(1)";
     private static final String GRADES = "span[class*='detail-grades'][title='Grades']";
     private static final String SUBJECTS = "div.shared_collection span[title='Subject']";
@@ -56,11 +56,11 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(SAVED_COLLECTION_BUTTON);
     }
 
-    public void clickSaveCollectionButton() {
+    public void clickOnSaveCollectionButton() {
         clickElement(SAVE_COLLECTION_BUTTON);
     }
 
-    public void clickSaveCollectionButtonActiveUser() {
+    public void clickOnSaveCollectionButtonActiveUser() {
         clickElement(SAVE_COLLECTION_BUTTON_ACTIVE_USER);
     }
 
@@ -79,8 +79,8 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON);
     }
 
-    public boolean isLimitedAccessReviewDisplayed() {
-        return isElementDisplayed(LIMITED_ACCESS_REVIEW);
+    public boolean isLimitedAccessReviewBannerDisplayed() {
+        return isElementDisplayed(LIMITED_ACCESS_REVIEW_BANNER);
     }
 
     public boolean isShareButtonDisplayed() {
@@ -132,7 +132,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(NEXT_BUTTON_PANEL_ITEMS);
     }
 
-    public void clickNextButtonPanelItems() {
+    public void clickOnNextButtonPanelItems() {
         clickElement(NEXT_BUTTON_PANEL_ITEMS);
     }
 
@@ -140,7 +140,7 @@ public class CollectionRrp extends Rrp {
         return isElementVisible(SEE_FULL_REVIEWS_LINK);
     }
 
-    public void clickSeeFullReviewsLink() {
+    public void clickOnSeeFullReviewsLink() {
         clickElement(SEE_FULL_REVIEWS_LINK);
     }
 
@@ -152,7 +152,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(PREVIOUS_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickCloseExpandedRrp() {
+    public void clickOnCloseExpandedRrp() {
         clickElement(X_BUTTON_EXPANDED_RRP);
     }
 
@@ -160,7 +160,7 @@ public class CollectionRrp extends Rrp {
         return getElementAttribute(EXPANDED_RRP, "data-id", position);
     }
 
-    public void clickGetFreeAccessForTenDaysButton(boolean inANewTab) {
+    public void clickOnGetFreeAccessForTenDaysButton(boolean inANewTab) {
         openInANewTabOrClick(GET_FREE_ACCESS_FOR_TEN_DAYS_BUTTON, inANewTab);
     }
 
@@ -168,7 +168,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(SIGN_IN_POPUP);
     }
 
-    public void clickSignInPopupLink(boolean inANewTab) {
+    public void clickOnSignInPopupLink(boolean inANewTab) {
         openInANewTabOrClick(SIGN_IN_POPUP, inANewTab);
     }
 
@@ -176,7 +176,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(JOIN_NOW_POPUP);
     }
 
-    public void clickJoinNowPopupLink() {
+    public void clickOnJoinNowPopupLink() {
         clickElement(JOIN_NOW_POPUP);
     }
 
@@ -184,23 +184,23 @@ public class CollectionRrp extends Rrp {
         return getTextForElement(COLLECTION_TITLE_TEXT);
     }
 
-    public void clickNextButtonItemViewer() {
+    public void clickOnNextButtonItemViewer() {
         clickElement(NEXT_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickPreviousButtonItemViewer() {
+    public void clickOnPreviousButtonItemViewer() {
         clickElement(PREVIOUS_BUTTON_ITEM_VIEWER);
     }
 
-    public void clickPanelItem(int position) {
+    public void clickOnPanelItem(int position) {
         clickElement(PANEL_ITEMS_LIST, position);
     }
 
-    public void clickNextButtonRrp() {
+    public void clickOnNextButtonRrp() {
         clickElement(NEXT_BUTTON_RRP);
     }
 
-    public void clickPreviousButtonRrp() {
+    public void clickOnPreviousButtonRrp() {
         clickElement(PREVIOUS_BUTTON_RRP);
     }
 
@@ -216,7 +216,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON);
     }
 
-    public void clickCollectionUpgradeForFullReviewButton(boolean inANewTab) {
+    public void clickOnCollectionUpgradeForFullReviewButton(boolean inANewTab) {
         openInANewTabOrClick(COLLECTION_UPGRADE_FOR_FULL_REVIEW_BUTTON, inANewTab);
     }
 
@@ -224,7 +224,7 @@ public class CollectionRrp extends Rrp {
         return isElementDisplayed(PLAY_COLLECTION_BUTTON);
     }
 
-    public void clickPlayCollectionButton() {
+    public void clickOnPlayCollectionButton() {
         clickElement(PLAY_COLLECTION_BUTTON);
     }
 }

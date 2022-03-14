@@ -19,7 +19,7 @@ public class CollectionRrpModal extends CollectionRrp {
         return super.isCollectionTitleDisplayed();
     }
 
-    public void clickCloseModal() {
+    public void clickOnCloseModal() {
         clickElement(CLOSE_MODAL_BUTTON);
     }
 }

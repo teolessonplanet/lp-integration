@@ -144,7 +144,7 @@ public class CSL_RrpSearchTest extends BaseTest {
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, provider);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
-        discoverResourcesPage.clickSeeFullReview(!inModal);
+        discoverResourcesPage.clickOnSeeFullReview(!inModal);
         if (inModal) {
             rrpModal.waitForModal();
             Assert.assertEquals(provider, rrpModal.getResourcePoolName());
@@ -159,12 +159,12 @@ public class CSL_RrpSearchTest extends BaseTest {
         initTestAndLogin(account);
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
-        resourcesPage.clickSeeFullReview(!inModal);
+        resourcesPage.clickOnSeeFullReview(!inModal);
 
         Assert.assertTrue(rrp.isGoToResourceButtonDisplayed());
         Assert.assertTrue(rrp.isAddToFolderDropdownDisplayed());
         Assert.assertTrue(rrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
-        Assert.assertFalse(rrp.isFullReviewDisplayed());
+        Assert.assertFalse(rrp.isFullReviewBannerDisplayed());
         Assert.assertEquals(rrp.getResourcePoolName(), TestData.FACET_PROVIDERS_CLAIRMONT_PRESS);
 
         testCommonProperties(inModal, account);
@@ -175,7 +175,7 @@ public class CSL_RrpSearchTest extends BaseTest {
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
-        discoverResourcesPage.clickFolderDetails(!inModal);
+        discoverResourcesPage.clickOnFolderDetails(!inModal);
 
         Assert.assertTrue(collectionRrp.isOpenFolderButtonDisplayed());
         Assert.assertTrue(collectionRrp.isFavoriteButtonDisplayed() || rrp.isFavoriteButtonDisabledDisplayed());
@@ -203,11 +203,11 @@ public class CSL_RrpSearchTest extends BaseTest {
         discoverResourcesPage.expandProvidersFacet();
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_HENRY_COUNTRY_SCHOOLS);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES);
-        discoverResourcesPage.clickSeeFullReview(!inModal);
+        discoverResourcesPage.clickOnSeeFullReview(!inModal);
         rrpPage.clickOnThumbnail();
         testNewTabSiteSpecificResourceUrl(inModal);
 
-        rrpPage.clickGoToResourceButton(inModal);
+        rrpPage.clickOnGoToResourceButton(inModal);
         testNewTabSiteSpecificResourceUrl(inModal);
 
         if (inModal) {
@@ -231,7 +231,7 @@ public class CSL_RrpSearchTest extends BaseTest {
         discoverResourcesPage.selectFacetFilter(TestData.FACET_PROVIDERS, TestData.FACET_PROVIDERS_MCGRAW_HILL_EDUCATION);
         discoverResourcesPage.selectFacetFilter(TestData.FACET_CATEGORY_RESOURCES_TYPES, TestData.FACET_CATEGORY_RESOURCES_TYPE_CURRICULUM_SETS);
 
-        discoverResourcesPage.clickFolderDetails(false);
+        discoverResourcesPage.clickOnFolderDetails(false);
 
         if (rrp.isFavoriteButtonDisplayed()) {
             rrp.clickOnFavoriteButton();

@@ -19,7 +19,7 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
     private ArticlesPage articlesPage;
     private TestimonialsPage testimonialsPage;
     private WhatMembersSayWidget whatMembersSayWidget;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private RrpPage rrpPage;
     private CurriculumManagerPage curriculumManagerPage;
     private User_CurriculumManagerPageTest curriculumManagerTest;
@@ -39,7 +39,7 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
         articlesPage = new ArticlesPage(webDriver);
         testimonialsPage = new TestimonialsPage(webDriver);
         whatMembersSayWidget = new WhatMembersSayWidget(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         rrpPage = new RrpPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         curriculumManagerTest = new User_CurriculumManagerPageTest();
@@ -129,9 +129,9 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromGetFreeAccessButton() {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickGetFreeAccess(true);
+        discoverResourcesPage.clickOnGetFreeAccess(true);
         checkStepTwoPageNewTab();
-        discoverResourcesPage.clickGetFreeAccess(false);
+        discoverResourcesPage.clickOnGetFreeAccess(false);
         checkStepTwoPageSameTab();
     }
 
@@ -152,11 +152,11 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
 
     private void testUpgradeFreeMemberFromUpgradeForFullReviewButton() {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(false);
+        discoverResourcesPage.clickOnSeeReview(false);
         rrpModal.waitForModal();
-        rrpModal.clickUpgradeForFullReviewButton(true);
+        rrpModal.clickOnUpgradeForFullReviewButton(true);
         checkStepTwoPageNewTab();
-        rrpModal.clickUpgradeForFullReviewButton(false);
+        rrpModal.clickOnUpgradeForFullReviewButton(false);
         checkStepTwoPageSameTab();
     }
 
@@ -164,10 +164,10 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
         discoverResourcesPage.loadPage();
         curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testCreateCollectionFromCollectionBuilder(TestData.NEW_COLLECTION_NAME);
-        collectionBuilderPage.clickOnEditFolder(false);
-        editCollectionModal.waitForModal();
-        editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickFileUploadButton();
+        collectionBuilderPage.clickOnEditFolderButton(false);
+        editFolderModal.waitForModal();
+        editFolderModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnFileUploadButton();
         curriculumManagerTest.initTest(webDriver);
         curriculumManagerTest.testUpgradeModalFromUploadButton();
     }
@@ -229,10 +229,10 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
 
     private void testUpgradeFromRrpPage() {
         discoverResourcesPage.loadSearchPageInListView();
-        discoverResourcesPage.clickSeeReview(true);
-        rrpPage.clickStartYourFreeTrialUpgradeMeButton(true);
+        discoverResourcesPage.clickOnSeeReview(true);
+        rrpPage.clickOnStartYourFreeTrialUpgradeMeButton(true);
         checkStepTwoPageNewTab();
-        rrpPage.clickBottomPageUpgradeMeButton(true);
+        rrpPage.clickOnBottomPageUpgradeMeButton(true);
         checkStepTwoPageNewTab();
     }
 
@@ -252,9 +252,9 @@ public class User_AccountManagement_UpgradeTest extends BaseTest {
     }
 
     private void testClickSubscriptionButtonFromWhatMembersSayWidget() {
-        whatMembersSayWidget.clickSubscriptionButton(true);
+        whatMembersSayWidget.clickOnSubscriptionButton(true);
         checkStepTwoPageNewTab();
-        whatMembersSayWidget.clickSubscriptionButton(false);
+        whatMembersSayWidget.clickOnSubscriptionButton(false);
         checkStepTwoPageSameTab();
     }
 

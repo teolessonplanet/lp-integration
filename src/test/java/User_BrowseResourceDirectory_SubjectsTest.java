@@ -72,11 +72,11 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         Assert.assertTrue(browseBySubjectPage.getCountFreeAccessButtons() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
         Assert.assertTrue(browseBySubjectPage.getCountSeeReviewButton() % TestData.TOTAL_RESOURCES_PER_PAGE == 0);
 
-        browseBySubjectPage.clickGetFreeAccess(false);
+        browseBySubjectPage.clickOnGetFreeAccess(false);
         Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-        stepOneModal.clickCloseModal();
+        stepOneModal.clickOnCloseModal();
 
-        browseBySubjectPage.clickSeeReview(true);
+        browseBySubjectPage.clickOnSeeReview(true);
         browseBySubjectPage.focusDriverToLastTab();
 
         Assert.assertTrue(rrpPage.isTitleDisplayed());
@@ -227,28 +227,28 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         }
 
         if (account.equals(TestData.PLAN_VISITOR) || account.equals(TestData.PLAN_FREEMIUM)) {
-            browseBySubjectPage.clickGetFreeAccess(false);
+            browseBySubjectPage.clickOnGetFreeAccess(false);
             if (account.equals(TestData.PLAN_VISITOR)) {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-                stepOneModal.clickCloseModal();
+                stepOneModal.clickOnCloseModal();
             }
             if (account.equals(TestData.PLAN_FREEMIUM)) {
                 Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
                 stepTwoPage.goBackOnePage();
             }
 
-            browseBySubjectPage.clickSeeReview(true);
+            browseBySubjectPage.clickOnSeeReview(true);
             browseBySubjectPage.focusDriverToLastTab();
             Assert.assertTrue(rrpPage.isTitleDisplayed());
-            Assert.assertTrue(rrpPage.isLimitedAccessReviewDisplayed());
+            Assert.assertTrue(rrpPage.isLimitedAccessReviewBannerDisplayed());
             rrpPage.closeTab();
         } else {
             if (account.equals(TestData.PLAN_STARTER)) {
-                browseBySubjectPage.clickUpgradeForAccess(true);
+                browseBySubjectPage.clickOnUpgradeForAccess(true);
                 Assert.assertTrue(manageMembershipPage.getPath().startsWith(TestData.MANAGE_MEMBERSHIP_PAGE_PATH));
                 manageMembershipPage.closeTab();
             }
-            browseBySubjectPage.clickGoToResourceForRegularResource(true);
+            browseBySubjectPage.clickOnGoToResourceForRegularResource(true);
 
             if (discoverResourcesPage.getUrl().contains(TestData.SERVER_URL)) {
                 Assert.assertTrue(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
@@ -256,7 +256,7 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
                 Assert.assertFalse(discoverResourcesPage.getUrl().contains(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2));
             }
             browseBySubjectPage.closeTab();
-            browseBySubjectPage.clickSeeFullReview(true);
+            browseBySubjectPage.clickOnSeeFullReview(true);
 
             rrpPage.closeTab();
         }
@@ -272,14 +272,14 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.HEALTH_PAGE_PATH);
 
         //Right click on a subject title link and open in a new tab/page
-        browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE, true);
+        browseBySubjectPage.clickOnOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE, true);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_PATH);
         browseBySubjectPage.closeTab();
 
         //Click on a subject title link
         final String pagePath = browseBySubjectPage.getPath();
-        browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE, false);
+        browseBySubjectPage.clickOnOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_GROWTH_AND_DEVELOPMENT_TYPE, false);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.GROWTH_AND_DEVELOPMENT_PAGE_PATH);
         browseBySubjectPage.loadPage(pagePath);
@@ -291,33 +291,33 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
 
         //Click on the caret icon displayed in front of the subject title link &&
         //Click on the caret icon displayed in front of an expanded subject title link
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
+        browseBySubjectPage.clickOnCaretFromBrowseBySubjectCategory(0);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_FIRST_CARET_EXPANDED_TEXT);
         }
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
+        browseBySubjectPage.clickOnCaretFromBrowseBySubjectCategory(0);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         }
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(1);
+        browseBySubjectPage.clickOnCaretFromBrowseBySubjectCategory(1);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_SECOND_CARET_EXPANDED_TEXT);
         }
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(1);
+        browseBySubjectPage.clickOnCaretFromBrowseBySubjectCategory(1);
         if (!account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT + TestData.BROWSE_BY_SUBJECT_SUGGEST_A_CATEGORY_TEXT);
         } else {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_HEALTH_CATEGORY_TEXT);
         }
         //Click on a sub-subject title link or Right click on a sub-subject title link and open in a new tab/window
-        browseBySubjectPage.clickCaretFromBrowseBySubjectCategory(0);
-        browseBySubjectPage.clickOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_PHYSICAL_HEALTH_TYPE, true);
+        browseBySubjectPage.clickOnCaretFromBrowseBySubjectCategory(0);
+        browseBySubjectPage.clickOnOptionFromBrowseBySubject(TestData.SIDE_WIDGET_BROWSE_BY_SUBJECT_PHYSICAL_HEALTH_TYPE, true);
         Assert.assertEquals(browseBySubjectPage.getPageTitle(), TestData.PHYSICAL_HEALTH_PAGE_TITLE);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.PHYSICAL_HEALTH_PAGE_PATH);
         if (!account.equals(TestData.PLAN_VISITOR)) {
@@ -326,7 +326,7 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
             Assert.assertEquals(browseBySubjectPage.getBrowseBySubjectCategoryContentAsText(), TestData.BROWSE_BY_SUBJECT_FOR_PHYSICAL_HEALTH_CATEGORY_TEXT);
         }
         if (!account.equals(TestData.PLAN_VISITOR)) {
-            browseBySubjectPage.clickOnSuggestACategoryButton();
+            browseBySubjectPage.clickOnSuggestACategoryLink();
             Assert.assertEquals(suggestACategoryModal.getModalTitle(), TestData.SUGGEST_A_CATEGORY_MODAL_TITLE);
         }
     }
@@ -341,7 +341,7 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         if (account.equals(TestData.PLAN_FREEMIUM)) {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
-            Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+            Assert.assertTrue(stepOnePage.isAlreadyAMemberLinkDisplayed());
         }
         browseBySubjectPage.closeTab();
         browseBySubjectPage.waitForPageLoad();
@@ -350,33 +350,33 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
             Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
         } else {
             Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-            stepOneModal.clickCloseModal();
+            stepOneModal.clickOnCloseModal();
         }
     }
 
     protected void testRelatedTopics() {
         browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
         Assert.assertTrue(verifyRelatedTopics(browseBySubjectPage.getRelatedTopicsContentAsText()));
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_OPTION, true);
+        browseBySubjectPage.clickOnOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_OPTION, true);
         Assert.assertEquals(headerPage.getSearchText(), TestData.HEALTH_CATEGORY_MODAL_TITLE);
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_REDIRECT_PATH);
 
         discoverResourcesPage.closeTab();
-        browseBySubjectPage.clickOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_OPTION, false);
+        browseBySubjectPage.clickOnOptionFromRelatedTopics(TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_OPTION, false);
         Assert.assertEquals(headerPage.getSearchText(), TestData.HEALTH_CATEGORY_MODAL_TITLE);
         Assert.assertEquals(discoverResourcesPage.getPath(), TestData.SIDE_WIDGET_RELATED_TOPICS_HEALTH_LESSON_PLANS_REDIRECT_PATH);
     }
 
     public void testTestimonials(String account) {
         Assert.assertTrue(whatMembersSayWidget.isTestimonialTextDisplayed());
-        whatMembersSayWidget.clickOnSeeMoreTestimonialsButton(false);
+        whatMembersSayWidget.clickOnSeeMoreTestimonialsLink(false);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.goBackOnePage();
-        whatMembersSayWidget.clickOnSeeMoreTestimonialsButton(true);
+        whatMembersSayWidget.clickOnSeeMoreTestimonialsLink(true);
         Assert.assertEquals(browseBySubjectPage.getPath(), TestData.TESTIMONIALS_PAGE_PATH);
         browseBySubjectPage.closeTab();
 
-        whatMembersSayWidget.clickOnSubmitYourOwnButton(false);
+        whatMembersSayWidget.clickOnSubmitYourOwnLink(false);
         if (account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
         } else {
@@ -384,7 +384,7 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
         }
         browseBySubjectPage.goBackOnePage();
 
-        whatMembersSayWidget.clickOnSubmitYourOwnButton(true);
+        whatMembersSayWidget.clickOnSubmitYourOwnLink(true);
         if (account.equals(TestData.PLAN_VISITOR)) {
             Assert.assertEquals(loginPage.getPath(), TestData.LOGIN_PAGE_PATH);
         } else {
@@ -394,18 +394,18 @@ public class User_BrowseResourceDirectory_SubjectsTest extends BaseTest {
 
         //no Get free trial or Upgrade Me button if active user
         if (!account.equals(TestData.PLAN_PRO)) {
-            whatMembersSayWidget.clickSubscriptionButton(false);
+            whatMembersSayWidget.clickOnSubscriptionButton(false);
             if (account.equals(TestData.PLAN_VISITOR)) {
                 Assert.assertTrue(stepOneModal.isTitleTextDisplayed());
-                stepOneModal.clickCloseModal();
+                stepOneModal.clickOnCloseModal();
             } else {
                 Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
                 stepTwoPage.goBackOnePage();
             }
 
-            whatMembersSayWidget.clickSubscriptionButton(true);
+            whatMembersSayWidget.clickOnSubscriptionButton(true);
             if (account.equals(TestData.PLAN_VISITOR)) {
-                Assert.assertTrue(stepOnePage.isAlreadyAMemberButtonDisplayed());
+                Assert.assertTrue(stepOnePage.isAlreadyAMemberLinkDisplayed());
             } else {
                 Assert.assertEquals(stepTwoPage.getTitleText(), TestData.STEP_TWO_TITLE_MESSAGE);
             }

@@ -13,7 +13,7 @@ public class User_PublishFolderTest extends BaseTest {
     private User_CurriculumManagerPageTest user_curriculumManagerPageTest;
     private CurriculumManagerPage curriculumManagerPage;
     private DiscoverResourcesPage discoverResourcesPage;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private CollectionBuilderPage collectionBuilderPage;
     private ConfirmPublishUploadFileModal confirmPublishUploadFileModal;
     private CollectionNotPublishedModal collectionNotPublishedModal;
@@ -27,7 +27,7 @@ public class User_PublishFolderTest extends BaseTest {
         discoverResourcesPage = new DiscoverResourcesPage(webDriver);
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         user_curriculumManagerPageTest = new User_CurriculumManagerPageTest();
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         confirmPublishUploadFileModal = new ConfirmPublishUploadFileModal(webDriver);
         collectionNotPublishedModal = new CollectionNotPublishedModal(webDriver);
@@ -159,7 +159,7 @@ public class User_PublishFolderTest extends BaseTest {
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.completeCollectionForPublish(accountPlan, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editFolderModal.completeCollectionForPublish(accountPlan, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
         if (noOfUploadedResources > 0) {
             for (int i = 0; i < noOfUploadedResources; i++) {
@@ -167,13 +167,13 @@ public class User_PublishFolderTest extends BaseTest {
                 curriculumManagerPage.hoverOverActionsDropdown();
                 curriculumManagerPage.clickOnActionsDropdown();
                 curriculumManagerPage.clickOnEditButton();
-                editCollectionModal.clickOnAddItemsDropdown();
-                editCollectionModal.clickFileUploadButton();
+                editFolderModal.clickOnAddItemsDropdown();
+                editFolderModal.clickOnFileUploadButton();
                 user_curriculumManagerPageTest.testUpload(true, accountPlan, false);
             }
-            editCollectionModal.clickMoreDropdown();
-            editCollectionModal.clickOnPublishOption();
-            editCollectionModal.clickOnPublishFolder();
+            editFolderModal.clickOnMoreDropdown();
+            editFolderModal.clickOnPublishOption();
+            editFolderModal.clickOnPublishFolder();
 
             if (includeUploadedFiles) {
                 confirmPublishUploadFileModal.clickOnIncludeFileOption();
@@ -185,8 +185,8 @@ public class User_PublishFolderTest extends BaseTest {
             confirmPublishUploadFileModal.waitUntilConfirmPublishModalIsNotDisplayed();
 
         } else {
-            editCollectionModal.clickOnPublishFolder();
-            editCollectionModal.waitUntilPublishFolderSectionIsNotDisplayed();
+            editFolderModal.clickOnPublishFolder();
+            editFolderModal.waitUntilPublishFolderSectionIsNotDisplayed();
         }
 
         if (noOfResources == 0 & noOfFolders == 0 && !includeUploadedFiles) {
@@ -223,26 +223,26 @@ public class User_PublishFolderTest extends BaseTest {
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
 
-        editCollectionModal.completeCollectionForPublish(account, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
+        editFolderModal.completeCollectionForPublish(account, TestData.GET_CURRENT_TIME(), TestData.EDIT_COLLECTION_GRADE_HIGHER_ED, TestData.EDIT_COLLECTION_SUBJECT_SPECIAL_EDUCATION_AND_PROGRAM_SPECIAL_EDUCATION, TestData.NEW_COLLECTION_DESCRIPTION);
 
         curriculumManagerPage.refreshPageAndDismissBrowserAlert();
         curriculumManagerPage.hoverOverActionsDropdown();
         curriculumManagerPage.clickOnActionsDropdown();
         curriculumManagerPage.clickOnEditButton();
-        editCollectionModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnAddItemsDropdown();
 
-        editCollectionModal.clickOnCreatePageOption();
-        editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
-        editCollectionModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
-        editCollectionModal.clickSaveButton();
+        editFolderModal.clickOnCreatePageOption();
+        editFolderModal.typePageTitle(TestData.PAGE_TITLE);
+        editFolderModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
+        editFolderModal.clickOnSaveButton();
 
-        editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickFileUploadButton();
+        editFolderModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnFileUploadButton();
         user_curriculumManagerPageTest.testUpload(true, account, false);
 
-        editCollectionModal.clickMoreDropdown();
-        editCollectionModal.clickOnPublishOption();
-        editCollectionModal.clickOnPublishFolder();
+        editFolderModal.clickOnMoreDropdown();
+        editFolderModal.clickOnPublishOption();
+        editFolderModal.clickOnPublishFolder();
 
         confirmPublishUploadFileModal.clickOnDoNotIncludeFileOption();
         confirmPublishUploadFileModal.checkAgreementOption();
@@ -252,7 +252,7 @@ public class User_PublishFolderTest extends BaseTest {
         Assert.assertEquals(collectionNotPublishedModal.getModalTitle(), TestData.COLLECTION_NOT_PUBLISHED_MODAL_TITLE);
         Assert.assertEquals(collectionNotPublishedModal.getModalText(), TestData.COLLECTION_NOT_PUBLISHED_MODAL_TEXT);
         collectionNotPublishedModal.clickOnOkButton();
-        editCollectionModal.clickOnCloseButton();
+        editFolderModal.clickOnCloseButton();
         Assert.assertTrue(curriculumManagerPage.getFolderStatus().contains(TestData.PRIVATE_STATUS));
     }
 }

@@ -13,7 +13,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
     private CurriculumManagerPage curriculumManagerPage;
     private CollectionBuilderPage collectionBuilderPage;
     private CreateNewFolderModal createNewFolderModal;
-    private EditCollectionModal editCollectionModal;
+    private EditFolderModal editFolderModal;
     private PostToModal postToModal;
     private DeletePostedFolderModal deletePostedFolderModal;
     private DistrictSharedPage districtSharedPage;
@@ -27,7 +27,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         curriculumManagerPage = new CurriculumManagerPage(webDriver);
         collectionBuilderPage = new CollectionBuilderPage(webDriver);
         createNewFolderModal = new CreateNewFolderModal(webDriver);
-        editCollectionModal = new EditCollectionModal(webDriver);
+        editFolderModal = new EditFolderModal(webDriver);
         postToModal = new PostToModal(webDriver);
         deletePostedFolderModal = new DeletePostedFolderModal(webDriver);
         districtSharedPage = new DistrictSharedPage(webDriver);
@@ -61,7 +61,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
 
         Assert.assertTrue(collectionBuilderPage.isMyCollectionDropdownDisplayed());
         collectionBuilderPage.clickOnDropdown();
-        Assert.assertTrue(collectionBuilderPage.isCreateNewCollectionButtonDisplayed());
+        Assert.assertTrue(collectionBuilderPage.isCreateANewFolderOptionDisplayed());
 
         districtSharedPage.clickOnCreateAFolderButton();
         createNewFolderModal.waitForModal();
@@ -73,21 +73,21 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         Assert.assertEquals(districtSharedPage.getFolderType(), TestData.FOLDER_TYPE[0]);
         Assert.assertEquals(districtSharedPage.getFolderStatus(), TestData.UNPOSTED_STATUS);
 
-        collectionBuilderPage.clickOnEditFolder(false);
+        collectionBuilderPage.clickOnEditFolderButton(false);
 
-        editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickOnPixabayImageOption();
-        editCollectionModal.typePageTitle(TestData.PAGE_TITLE);
-        editCollectionModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
-        editCollectionModal.clickSaveButton();
-        Assert.assertEquals(editCollectionModal.getFolderItemTitle(0), TestData.PAGE_TITLE);
+        editFolderModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnPixabayImageOption();
+        editFolderModal.typePageTitle(TestData.PAGE_TITLE);
+        editFolderModal.typePageContent(TestData.HEALTH_CATEGORY_MODAL_DEFAULT_TEXT);
+        editFolderModal.clickOnSaveButton();
+        Assert.assertEquals(editFolderModal.getFolderItemTitle(0), TestData.PAGE_TITLE);
 
-        editCollectionModal.clickOnAddItemsDropdown();
-        editCollectionModal.clickOnCreatePageOption();
-        editCollectionModal.typeNewFolderName();
-        editCollectionModal.clickOnCreateFolderButton();
+        editFolderModal.clickOnAddItemsDropdown();
+        editFolderModal.clickOnCreatePageOption();
+        editFolderModal.typeNewFolderName();
+        editFolderModal.clickOnCreateFolderButton();
 
-        editCollectionModal.clickOnCloseButton();
+        editFolderModal.clickOnCloseButton();
         districtSharedPage.clickOnActionsDropdown();
         Assert.assertTrue(districtSharedPage.isPostFolderButtonDisplayed(null));
         Assert.assertTrue(districtSharedPage.isEditFolderButtonDisplayed(null));
@@ -101,7 +101,7 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
         districtSharedPage.clickOnPostFolderButton();
         Assert.assertEquals(postToModal.getPostToModalTitleText(), TestData.POST_TO_MODAL_TITLE);
         Assert.assertTrue(postToModal.getPostToModalBoxyText().contains(TestData.POST_TO_MODAL_BODY));
-        postToModal.clickOnPostButton();
+        postToModal.clickOnYesPostButton();
         Assert.assertEquals(districtSharedPage.getFolderStatus(), TestData.POSTED_STATUS);
 
         Assert.assertEquals(districtSharedPage.getSortByValue(), TestData.SORT_BY_DISTRICT_ORDER);
@@ -171,8 +171,8 @@ public class CSL_SharedByMyDistrictTest extends BaseTest {
 
         Assert.assertTrue(collectionBuilderPage.isMyCollectionDropdownDisplayed());
         collectionBuilderPage.clickOnDropdown();
-        Assert.assertTrue(collectionBuilderPage.isCreateNewCollectionButtonDisplayed());
-        collectionBuilderPage.clickOnCreateNewCollection();
+        Assert.assertTrue(collectionBuilderPage.isCreateANewFolderOptionDisplayed());
+        collectionBuilderPage.clickOnCreateNewFolderOption();
         createNewFolderModal.waitForModal();
         createNewFolderModal.typeName(TestData.RESOURCE_TYPE_ARTICLE);
         createNewFolderModal.clickOnCreateFolderButton();

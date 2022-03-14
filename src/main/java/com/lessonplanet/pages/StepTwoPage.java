@@ -114,7 +114,7 @@ public class StepTwoPage extends LpUiBasePage {
         }
     }
 
-    public void clickOnStartMembership() {
+    public void clickOnStartMembershipButton() {
         clickElement(START_MEMBERSHIP_BUTTON);
     }
 
@@ -127,7 +127,7 @@ public class StepTwoPage extends LpUiBasePage {
         typeZipCode(TestData.ZIP_CODE);
         selectOffer(offer);
         waitForPageLoad();
-        clickOnStartMembership();
+        clickOnStartMembershipButton();
         waitForPageLoad();
     }
 
