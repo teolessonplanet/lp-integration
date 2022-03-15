@@ -37,6 +37,8 @@
       </class>
       <class name="Cobb_SearchTest">
       </class>
+      <class name="Cobb_HomepageTest">
+      </class>
     </classes>
   </test>
 </suite>
