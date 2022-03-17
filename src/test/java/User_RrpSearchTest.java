@@ -905,9 +905,6 @@ public class User_RrpSearchTest extends BaseTest {
 
         rrpPage.clickOnGoToResourceButton(true);
         testNewTabFreeSampleResourceUrl();
-
-        rrpPage.clickOnGoToResourceButton(true);
-        testNewTabUrl(TestData.SERVER_URL + TestData.STAGING_SERVER_SHARED_RESOURCE_URL_2);
     }
 
     public void testSharedResourceRRPNavigationButtonsSearchPage() {

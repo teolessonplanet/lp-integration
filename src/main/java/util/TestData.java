@@ -336,6 +336,7 @@ public class TestData {
     public static final String FACET_CATEGORY_RESOURCES_TYPE_ARTICLES = "Articles";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_LESSON_PLANS = "Lesson Plans";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES = "Primary Sources";
+    public static final String FACET_CATEGORY_RESOURCES_TYPE_LAB_RESOURCES = "Lab Resources";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_PRINTABLES_AND_TEMPLATES = "Printables & Templates";
     public static final String FACET_CATEGORY_RESOURCES_TYPE_HANDOUTS_REFERENCES = "Handouts & References";
     public static final String FACET_CATEGORY_SUBJECTS = "Subjects";
@@ -352,7 +353,7 @@ public class TestData {
     public static final String RESOURCE_TYPE_WEBSITE = "Website";
     public static final String PRIMARY_SOURCES_TYPE = "Primary Sources";
     public static final String RESOURCE_TYPE_ARTICLE = "Article";
-    public static final String RESOURCE_TYPE_INTERACTIVE = "Interactive";
+    public static final String RESOURCE_TYPE_LAB_RESOURCE = "Lab Resource";
     public static final String RESOURCE_TYPE_LESSON = "Lesson Plan";
 
     //Accounts Page

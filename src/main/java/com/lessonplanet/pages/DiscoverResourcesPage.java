@@ -130,7 +130,7 @@ public class DiscoverResourcesPage extends ResourcesPage {
     }
 
     public void clickOnFreeFullAccessReview(boolean inANewTab) {
-        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_PRIMARY_SOURCES)));
+        selectFacetViaShortcut(new ArrayList<>(Arrays.asList(TestData.FACET_CATEGORY_RESOURCES_TYPE_LAB_RESOURCES)));
         super.clickOnFreeFullAccessReview(inANewTab);
     }
 

@@ -833,7 +833,7 @@ public class User_CurriculumManagerPageTest extends BaseTest {
         discoverResourcesPage.loadSearchPageInListView();
         discoverResourcesPage.checkLessonPlanetProvider();
         discoverResourcesPage.clickOnFreeFullAccessReview(false);
-        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_INTERACTIVE);
+        testFavoriteButton(TestData.FREE_SAMPLE_RESOURCE_STATUS, TestData.RESOURCE_TYPE_LAB_RESOURCE);
     }
 
     protected void testDraggingFoldersIntoAnotherFolder(String accountPlan) {

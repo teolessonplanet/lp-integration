@@ -35,6 +35,11 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
         browseBySubjectPage.loadPage(TestData.SOCIAL_AND_EMOTIONAL_LEARNING_PATH);
     }
 
+    public void reachHealthPage() {
+        discoverResourcesPage.loadSearchPageInListView();
+        browseBySubjectPage.loadPage(TestData.HEALTH_PAGE_PATH);
+    }
+
     @Test(description = "Visitor - RRP Browse Resource Directory - RRP Modal - RRP Overview: C2065: Resource Modal Overview", groups = {"visitor"})
     public void testC2065() {
         testLpResourceOverview(TestData.PLAN_VISITOR, true);
@@ -210,7 +215,7 @@ public class User_RrpBrowseResourceDirectoryTest extends BaseTest {
 
     private void testLpResourceMainButtons(boolean inModal) {
         stepTwoPage.createNewAccount(TestData.PLAN_FREEMIUM);
-        reachDirectoryPage();
+        reachHealthPage();
         browseBySubjectPage.clickOnSeeReview(!inModal);
         user_rrpSearchTest.initTest(webDriver);
         user_rrpSearchTest.testLpResourceMainButtons(inModal, false);
