@@ -1,0 +1,850 @@
+<html>
+<head>
+<title>TestNG:  Custom SL</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;}
+.stack-trace { display: none;}
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Custom SL</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>102/5/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 17 16:56:08 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>9502 seconds (9502646 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>csl </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testLessonp_1692()'><b>testLessonp_1692</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource</td>
+<td><div><pre>java.lang.AssertionError: expected [TestNewResource2022_02_17_16_56_36] but found [TestNewResource2022_02_17_10_11_24]
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:228)
+	at CSL_AdminManager_ContentTest.testLessonp_1692(CSL_AdminManager_ContentTest.java:59)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1273474265", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1273474265'><pre>java.lang.AssertionError: expected [TestNewResource2022_02_17_16_56_36] but found [TestNewResource2022_02_17_10_11_24]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:228)
+	at CSL_AdminManager_ContentTest.testLessonp_1692(CSL_AdminManager_ContentTest.java:59)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>124</td>
+<td>CSL_AdminManager_ContentTest@279fedbd</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testLessonp_5191()'><b>testLessonp_5191</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - lessonp-5091:Teacher View</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at User_AssignFolderModalTest.testAssignModal(User_AssignFolderModalTest.java:30)
+	at User_CollectionPlayerTest.testTeacherView(User_CollectionPlayerTest.java:307)
+	at CSL_CollectionPlayerTest.testLessonp_5191(CSL_CollectionPlayerTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1182042884", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1182042884'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at User_AssignFolderModalTest.testAssignModal(User_AssignFolderModalTest.java:30)
+	at User_CollectionPlayerTest.testTeacherView(User_CollectionPlayerTest.java:307)
+	at CSL_CollectionPlayerTest.testLessonp_5191(CSL_CollectionPlayerTest.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>65</td>
+<td>CSL_CollectionPlayerTest@752325ad</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5825()'><b>testLessonp_5825</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5825:Drag folders into the CB</td>
+<td><div><pre>java.lang.AssertionError: expected [1] but found [4]
+	at User_CurriculumManagerPageTest.checkItems(User_CurriculumManagerPageTest.java:1010)
+	at User_CurriculumManagerPageTest.testDragAndDrop(User_CurriculumManagerPageTest.java:995)
+	at CSL_CurriculumManagerTest.testLessonp_5825(CSL_CurriculumManagerTest.java:112)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1199095941", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1199095941'><pre>java.lang.AssertionError: expected [1] but found [4]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at User_CurriculumManagerPageTest.checkItems(User_CurriculumManagerPageTest.java:1010)
+	at User_CurriculumManagerPageTest.testDragAndDrop(User_CurriculumManagerPageTest.java:995)
+	at CSL_CurriculumManagerTest.testLessonp_5825(CSL_CurriculumManagerTest.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>65</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testLessonp_5981()'><b>testLessonp_5981</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - lessonp-5981: Drag-and-drop items - Can View Permission</td>
+<td><div><pre>java.lang.AssertionError: expected [2] but found [4]
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:177)
+	at CSL_SharedWithMe_CanViewTest.testLessonp_5981(CSL_SharedWithMe_CanViewTest.java:34)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace3162216", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace3162216'><pre>java.lang.AssertionError: expected [2] but found [4]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:177)
+	at CSL_SharedWithMe_CanViewTest.testLessonp_5981(CSL_SharedWithMe_CanViewTest.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>19</td>
+<td>CSL_SharedWithMe_CanViewTest@3a52dba3</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6136()'><b>testLessonp_6136</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6136: With LP Resources & Folders</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: [class=&apos;fa fa-circle-o-notch fa-spin&apos;] (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 26380, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: e9a0874e-c805-42b3-9554-c68a62dd51b9
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilElementIsHidden(LpUiBasePage.java:455)
+	at com.lessonplanet.pages.EditCollection.waitUntilPublishFolderSectionIsNotDisplayed(EditCollection.java:557)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:189)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at CSL_PublishFolderTest.testLessonp_6136(CSL_PublishFolderTest.java:41)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace742976305", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace742976305'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: [class=&apos;fa fa-circle-o-notch fa-spin&apos;] (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 26380, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: e9a0874e-c805-42b3-9554-c68a62dd51b9
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilElementIsHidden(LpUiBasePage.java:455)
+	at com.lessonplanet.pages.EditCollection.waitUntilPublishFolderSectionIsNotDisplayed(EditCollection.java:557)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:189)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at CSL_PublishFolderTest.testLessonp_6136(CSL_PublishFolderTest.java:41)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>115</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_1311()'><b>lessonp_1311</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-1311:LP Resource Modal Overview</td>
+<td></td>
+<td>40</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_1363()'><b>lessonp_1363</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-1363:LP Resource Static Page Overview</td>
+<td></td>
+<td>40</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4479()'><b>lessonp_4479</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4479:Collection Modal Overview</td>
+<td></td>
+<td>45</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4480()'><b>lessonp_4480</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4480:Collection Static Page Overview</td>
+<td></td>
+<td>51</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4950()'><b>lessonp_4950</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4950:Proprietary Resource Modal Overview</td>
+<td></td>
+<td>38</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4951()'><b>lessonp_4951</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-4951:Site Specific Resource Modal Overview</td>
+<td></td>
+<td>34</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4953()'><b>lessonp_4953</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4953:Site Specific Resource Main Buttons</td>
+<td></td>
+<td>41</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4955()'><b>lessonp_4955</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4955:LP Resource Main Buttons</td>
+<td></td>
+<td>74</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4956()'><b>lessonp_4956</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4956:Collection Main Buttons</td>
+<td></td>
+<td>112</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4977()'><b>lessonp_4977</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4977:Site Specific Resource Static Page Overview</td>
+<td></td>
+<td>43</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4979()'><b>lessonp_4979</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-4979:Proprietary Resource Static Page Overview</td>
+<td></td>
+<td>43</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4982()'><b>lessonp_4982</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Static - RRP Overview - lessonp-4956:Collection Main Buttons</td>
+<td></td>
+<td>70</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_4983()'><b>lessonp_4983</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-4983:Site Specific Resource Main Buttons</td>
+<td></td>
+<td>47</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_5569()'><b>lessonp_5569</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>47</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_5570()'><b>lessonp_5570</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Static - RRP Overview - lessonp-5569:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>49</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_5583()'><b>lessonp_5583</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5583:Folder (HMH/McGraw) Main Buttons</td>
+<td></td>
+<td>43</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_5595()'><b>lessonp_5595</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search page - Rrp Modal - RRP Overview - lessonp-5595:Folder (HMH/McGraw) Resource Main Buttons</td>
+<td></td>
+<td>43</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.lessonp_5661()'><b>lessonp_5661</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - Search Page - RRP Modal - RRP Overview - lessonp-5661:LP Resource Main Buttons</td>
+<td></td>
+<td>64</td>
+<td>CSL_RrpSearchTest@61322f9d</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1287()'><b>testLessonp_1287</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1287: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>73</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1288()'><b>testLessonp_1288</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1288: Edit School, Search in School</td>
+<td></td>
+<td>114</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1289()'><b>testLessonp_1289</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1289: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin</td>
+<td></td>
+<td>76</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1297()'><b>testLessonp_1297</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1297: District Page, Add School, Remove School</td>
+<td></td>
+<td>48</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1298()'><b>testLessonp_1298</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1298: Edit District, Search in district</td>
+<td></td>
+<td>68</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_1299()'><b>testLessonp_1299</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-1299: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin</td>
+<td></td>
+<td>90</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_1671()'><b>testLessonp_1671</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page -  lessonp-1671:User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>61</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_1672()'><b>testLessonp_1672</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page -  lessonp-1672:User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>62</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_1673()'><b>testLessonp_1673</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page - lessonp-1673:User clicks 'See Collection' footer button</td>
+<td></td>
+<td>46</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testLessonp_1726()'><b>testLessonp_1726</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Directory Page - Main Page - lessonp-1726: Thumbnails</td>
+<td></td>
+<td>47</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@2925bf5b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testLessonp_1727()'><b>testLessonp_1727</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Directory Page - Main Page - lessonp-1727: Links</td>
+<td></td>
+<td>158</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@2925bf5b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testLessonp_1728()'><b>testLessonp_1728</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Directory Page - Main Page - lessonp-1727: Show All button</td>
+<td></td>
+<td>12</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@2925bf5b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testLessonp_1729()'><b>testLessonp_1729</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Directory Page - Main Page - lessonp-1727: Categories Modal</td>
+<td></td>
+<td>32</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@2925bf5b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1730()'><b>testLessonp_1730</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1730: Page UI</td>
+<td></td>
+<td>36</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testLessonp_1730()'><b>testLessonp_1730</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Directory Page - Main Page - lessonp-1730: Page UI</td>
+<td></td>
+<td>54</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@2925bf5b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1731()'><b>testLessonp_1731</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1731: Resource Tiles</td>
+<td></td>
+<td>97</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1732()'><b>testLessonp_1732</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1732: RRP modal (Individual resources)</td>
+<td></td>
+<td>46</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1733()'><b>testLessonp_1733</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1733: RRP static (Individual resources)</td>
+<td></td>
+<td>57</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1734()'><b>testLessonp_1734</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1734: Browse by Subject</td>
+<td></td>
+<td>31</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1735()'><b>testLessonp_1735</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1735: Related Topics</td>
+<td></td>
+<td>23</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1737()'><b>testLessonp_1737</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1737: RRP modal (Collections)</td>
+<td></td>
+<td>61</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testLessonp_1739()'><b>testLessonp_1739</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Directory Page - Categories and subcategories - lessonp-1739: RRP static (Collections)</td>
+<td></td>
+<td>58</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@45c7e403</td></tr>
+<tr>
+<td title='CSL_HeaderTest.testLessonp_4176()'><b>testLessonp_4176</b><br>Test class: CSL_HeaderTest<br>Test method: Custom SL - Header - lessonp-4176: Search box (keyword functionality)</td>
+<td></td>
+<td>45</td>
+<td>CSL_HeaderTest@1ff4931d</td></tr>
+<tr>
+<td title='CSL_CalendarTest.testLessonp_4196()'><b>testLessonp_4196</b><br>Test class: CSL_CalendarTest<br>Test method: Custom SL - Calendar page - lessonp-4205:Buttons/Links</td>
+<td></td>
+<td>150</td>
+<td>CSL_CalendarTest@2aceadd4</td></tr>
+<tr>
+<td title='CSL_CollectionBuilderTest.testLessonp_4948()'><b>testLessonp_4948</b><br>Test class: CSL_CollectionBuilderTest<br>Test method: Custom SL - Collection Builder - lessonp-4948: Collection Builder Buttons</td>
+<td></td>
+<td>149</td>
+<td>CSL_CollectionBuilderTest@2a5c8d3f</td></tr>
+<tr>
+<td title='CSL_CollectionBuilderTest.testLessonp_4949()'><b>testLessonp_4949</b><br>Test class: CSL_CollectionBuilderTest<br>Test method: Custom SL - Collection Builder - lessonp-4949: Collection Builder Items</td>
+<td></td>
+<td>143</td>
+<td>CSL_CollectionBuilderTest@2a5c8d3f</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testLessonp_5088()'><b>testLessonp_5088</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - lessonp-5088:Appearance</td>
+<td></td>
+<td>92</td>
+<td>CSL_CollectionPlayerTest@752325ad</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testLessonp_5090()'><b>testLessonp_5090</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - lessonp-5090:Student View</td>
+<td></td>
+<td>109</td>
+<td>CSL_CollectionPlayerTest@752325ad</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testLessonp_5093()'><b>testLessonp_5093</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - lessonp-5093:Collection Navigator</td>
+<td></td>
+<td>68</td>
+<td>CSL_CollectionPlayerTest@752325ad</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testLessonp_5094()'><b>testLessonp_5094</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - lessonp-5094:Resource Viewer</td>
+<td></td>
+<td>234</td>
+<td>CSL_CollectionPlayerTest@752325ad</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5103()'><b>testLessonp_5103</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5103: School Page, Add Teacher, Edit Teacher</td>
+<td></td>
+<td>128</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5104()'><b>testLessonp_5104</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5104: Edit School, Search in School</td>
+<td></td>
+<td>143</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5105()'><b>testLessonp_5105</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5105: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin</td>
+<td></td>
+<td>31</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5107()'><b>testLessonp_5107</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5107: District Page</td>
+<td></td>
+<td>39</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5108()'><b>testLessonp_5108</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5108: Edit District, Search in district</td>
+<td></td>
+<td>92</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5109()'><b>testLessonp_5109</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5109: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin</td>
+<td></td>
+<td>166</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_5115()'><b>testLessonp_5115</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-5115: Ability to Publish</td>
+<td></td>
+<td>116</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_5274()'><b>testLessonp_5274</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page - lessonp-5274:Cards details - LP resource</td>
+<td></td>
+<td>159</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_5275()'><b>testLessonp_5275</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page - lessonp-5275:Cards details - Collection</td>
+<td></td>
+<td>162</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_5567()'><b>testLessonp_5567</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page -  lessonp-5567:User clicks 'Open Folder' footer button</td>
+<td></td>
+<td>49</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_5568()'><b>testLessonp_5568</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page -  lessonp-5568:User clicks 'Folder Details' footer button</td>
+<td></td>
+<td>34</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5588()'><b>testLessonp_5588</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-5588: Access Curriculum Manager Page</td>
+<td></td>
+<td>18</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5589()'><b>testLessonp_5589</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-55899: Create Collections</td>
+<td></td>
+<td>54</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5590()'><b>testLessonp_5590</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-5590: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>79</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5591()'><b>testLessonp_5591</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-5591: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>64</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5592()'><b>testLessonp_5592</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-5592: Collection: Actions Dropdown</td>
+<td></td>
+<td>223</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5593()'><b>testLessonp_5593</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - lessonp-5593: Folder Actions Dropdown</td>
+<td></td>
+<td>232</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_SearchTest.testLessonp_5664()'><b>testLessonp_5664</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search Page - lessonp-5664:Cards details - Folder: HMH/McGraw</td>
+<td></td>
+<td>162</td>
+<td>CSL_SearchTest@6ad82709</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testLessonp_5731()'><b>testLessonp_5731</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Collection - lessonp-5731: Edit Collection Modal Appearance</td>
+<td></td>
+<td>30</td>
+<td>CSL_EditFolderTest@710f4dc7</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testLessonp_5732()'><b>testLessonp_5732</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Collection - lessonp-5732: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>73</td>
+<td>CSL_EditFolderTest@710f4dc7</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testLessonp_5733()'><b>testLessonp_5733</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Collection - lessonp-5733: Publish. Republish</td>
+<td></td>
+<td>177</td>
+<td>CSL_EditFolderTest@710f4dc7</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testLessonp_5734()'><b>testLessonp_5734</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Collection - lessonp-5734: Edit Collection Buttons</td>
+<td></td>
+<td>124</td>
+<td>CSL_EditFolderTest@710f4dc7</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testLessonp_5735()'><b>testLessonp_5735</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Collection - lessonp-5735: Item Options</td>
+<td></td>
+<td>40</td>
+<td>CSL_EditFolderTest@710f4dc7</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5737()'><b>testLessonp_5737</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5737:Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>56</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5741()'><b>testLessonp_5741</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5741:Create Folders (Chapters)</td>
+<td></td>
+<td>56</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5742()'><b>testLessonp_5742</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5742:Create Folders (Lessons)</td>
+<td></td>
+<td>52</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5743()'><b>testLessonp_5743</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5743:Create Folders (Assessment Sets)</td>
+<td></td>
+<td>54</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5744()'><b>testLessonp_5744</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5744:Create Folders (Unit Modules)</td>
+<td></td>
+<td>48</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5745()'><b>testLessonp_5745</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5745:Create Folders (Course Folders)</td>
+<td></td>
+<td>54</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5746()'><b>testLessonp_5746</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5746:Create Folders (Root Folders)</td>
+<td></td>
+<td>47</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_HeaderTest.testLessonp_5793()'><b>testLessonp_5793</b><br>Test class: CSL_HeaderTest<br>Test method: Custom SL - Header - lessonp-5793: Header buttons</td>
+<td></td>
+<td>52</td>
+<td>CSL_HeaderTest@1ff4931d</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5817()'><b>testLessonp_5817</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5817:Dragging folders into another folder</td>
+<td></td>
+<td>61</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testLessonp_5818()'><b>testLessonp_5818</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - lessonp-5818:Drilled in view & functionality</td>
+<td></td>
+<td>145</td>
+<td>CSL_CurriculumManagerTest@b3ca52e</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testLessonp_5870()'><b>testLessonp_5870</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - Account Manager - lessonp-5870: Manage District Page</td>
+<td></td>
+<td>56</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@24269709</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testLessonp_5871()'><b>testLessonp_5871</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Account Manager - lessonp-5871: Manage District Page</td>
+<td></td>
+<td>56</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@7a8c8dcf</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testLessonp_5979()'><b>testLessonp_5979</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - lessonp-5979: Main Page</td>
+<td></td>
+<td>19</td>
+<td>CSL_SharedWithMe_CanViewTest@3a52dba3</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testLessonp_5980()'><b>testLessonp_5980</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - lessonp-5982: Share a folder - Can View Permission</td>
+<td></td>
+<td>157</td>
+<td>CSL_SharedWithMe_CanEditTest@24aed80c</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testLessonp_5980()'><b>testLessonp_5980</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - lessonp-5980: Share a folder - Can View Permission</td>
+<td></td>
+<td>111</td>
+<td>CSL_SharedWithMe_CanViewTest@3a52dba3</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testLessonp_5983()'><b>testLessonp_5983</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - lessonp-5983: Verify shared folder - Can View Permission</td>
+<td></td>
+<td>120</td>
+<td>CSL_SharedWithMe_CanEditTest@24aed80c</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testLessonp_5991()'><b>testLessonp_5991</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - lessonp-5991: Drag-and-drop items - Can View Permission</td>
+<td></td>
+<td>72</td>
+<td>CSL_SharedWithMe_CanEditTest@24aed80c</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testLessonp_6003()'><b>testLessonp_6003</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Content Manager - lessonp-6003: Main Page</td>
+<td></td>
+<td>43</td>
+<td>CSL_AdminManager_ContentTest@279fedbd</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testLessonp_6004()'><b>testLessonp_6004</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Content Manager - lessonp-6004: Cards list</td>
+<td></td>
+<td>79</td>
+<td>CSL_AdminManager_ContentTest@279fedbd</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testLessonp_6005()'><b>testLessonp_6005</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Content Manager - lessonp-6005: Search</td>
+<td></td>
+<td>25</td>
+<td>CSL_AdminManager_ContentTest@279fedbd</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testLessonp_6006()'><b>testLessonp_6006</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Content Manager - lessonp-6006: Sort By</td>
+<td></td>
+<td>78</td>
+<td>CSL_AdminManager_ContentTest@279fedbd</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testLessonp_6012()'><b>testLessonp_6012</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - lessonp-6012: Verify shared folder - Can View Permission</td>
+<td></td>
+<td>66</td>
+<td>CSL_SharedWithMe_CanViewTest@3a52dba3</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6133()'><b>testLessonp_6133</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6133: With LP Resources</td>
+<td></td>
+<td>89</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6134()'><b>testLessonp_6134</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6134: With LP Resources & Uploaded Resources - include</td>
+<td></td>
+<td>113</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6135()'><b>testLessonp_6135</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6135: With LP Resources & Uploaded Resources - don't include file</td>
+<td></td>
+<td>111</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6137()'><b>testLessonp_6137</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6137: With LP Resources & Folders & Uploaded Resources - include</td>
+<td></td>
+<td>151</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6138()'><b>testLessonp_6138</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6138: With LP Resources & Folders & Uploaded Resources - don't include file</td>
+<td></td>
+<td>159</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testLessonp_6139()'><b>testLessonp_6139</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Collection - lessonp-6139: Collection not published modal</td>
+<td></td>
+<td>74</td>
+<td>CSL_PublishFolderTest@65e98b1c</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testLessonp_6140()'><b>testLessonp_6140</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District -  lessonp-6140:Curriculum Manager Tab</td>
+<td></td>
+<td>32</td>
+<td>CSL_SharedByMyDistrictTest@510f3d34</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testLessonp_6141()'><b>testLessonp_6141</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District -  lessonp-6141:Content Manager Tab</td>
+<td></td>
+<td>96</td>
+<td>CSL_SharedByMyDistrictTest@510f3d34</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testLessonp_6166()'><b>testLessonp_6166</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District -  lessonp-6166: Unpost</td>
+<td></td>
+<td>37</td>
+<td>CSL_SharedByMyDistrictTest@510f3d34</td></tr>
+</table><p>
+</body>
+</html>

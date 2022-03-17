@@ -1,0 +1,722 @@
+<html>
+<head>
+<title>TestNG:  Regular SL Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Regular SL Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>113/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 15 15:36:28 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>9645 seconds (9645337 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>rsl </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testC2429()'><b>testC2429</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - C2429: Student View</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.lessonplanet.pages.LpUiBasePage$2@38874eb5 (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;192.168.100.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 13484, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: aa8cb934-5985-4b65-9a79-6c3a83327f52
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilDocumentIsReady(LpUiBasePage.java:307)
+	at com.lessonplanet.pages.LpUiBasePage.waitForPageLoad(LpUiBasePage.java:302)
+	at com.lessonplanet.pages.LpUiBasePage.waitForLoad(LpUiBasePage.java:319)
+	at com.lessonplanet.pages.LpUiBasePage.waitForElement(LpUiBasePage.java:110)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:30)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.CollectionPlayerPage.clickAssignFolderButton(CollectionPlayerPage.java:98)
+	at User_CollectionPlayerTest.testStudentView(User_CollectionPlayerTest.java:342)
+	at RSL_CollectionPlayerTest.testC2429(RSL_CollectionPlayerTest.java:36)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1233113908", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1233113908'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.lessonplanet.pages.LpUiBasePage$2@38874eb5 (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;192.168.100.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 13484, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: aa8cb934-5985-4b65-9a79-6c3a83327f52
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilDocumentIsReady(LpUiBasePage.java:307)
+	at com.lessonplanet.pages.LpUiBasePage.waitForPageLoad(LpUiBasePage.java:302)
+	at com.lessonplanet.pages.LpUiBasePage.waitForLoad(LpUiBasePage.java:319)
+	at com.lessonplanet.pages.LpUiBasePage.waitForElement(LpUiBasePage.java:110)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:30)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.CollectionPlayerPage.clickAssignFolderButton(CollectionPlayerPage.java:98)
+	at User_CollectionPlayerTest.testStudentView(User_CollectionPlayerTest.java:342)
+	at RSL_CollectionPlayerTest.testC2429(RSL_CollectionPlayerTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>55</td>
+<td>RSL_CollectionPlayerTest@11bd0f3b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5295()'><b>testLessonp_5295</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5295:Discover</td>
+<td></td>
+<td>100</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2385()'><b>testC2385</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Modal - RRP Overview - C2385: LP Main Buttons</td>
+<td></td>
+<td>68</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testC2369()'><b>testC2369</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Folder - C2369: Item Options</td>
+<td></td>
+<td>46</td>
+<td>RSL_EditFolderTest@5fd4f8f5</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2398()'><b>testC2398</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2398: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>74</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2339()'><b>testC2339</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2339: With LP Resources & Uploaded Resources - do not include file</td>
+<td></td>
+<td>155</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testC2427()'><b>testC2427</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - C2427: Resource Viewer</td>
+<td></td>
+<td>165</td>
+<td>RSL_CollectionPlayerTest@11bd0f3b</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testC2373()'><b>testC2373</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Admin Manager - Content - C2373: Cards list</td>
+<td></td>
+<td>74</td>
+<td>RSL_AdminManager_ContentTest@69e1dd28</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2349()'><b>testC2349</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2349: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>83</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testC2327()'><b>testC2327</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - Can Edit - C2327: Share a folder</td>
+<td></td>
+<td>99</td>
+<td>RSL_SharedWithMe_CanEditTest@e7edb54</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2390()'><b>testC2390</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search- Rrp Static - RRP Overview - C2390: Unit Module Main Buttons</td>
+<td></td>
+<td>87</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2384()'><b>testC2384</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2384: User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>83</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2382()'><b>testC2382</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2382: User clicks See Collection footer button</td>
+<td></td>
+<td>58</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2424()'><b>testC2424</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Static - C2424: Collection Main Buttons</td>
+<td></td>
+<td>42</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2393()'><b>testC2393</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Modal - RRP Overview - C2393: Unit Module Modal Overview</td>
+<td></td>
+<td>57</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2414()'><b>testC2414</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2414: RRP static (Collections)</td>
+<td></td>
+<td>40</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2403()'><b>testC2403</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2403: Manage District Page</td>
+<td></td>
+<td>75</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2350()'><b>testC2350</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2350: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>53</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2394()'><b>testC2394</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Static - RRP Overview - C2394: Resource Static Page Overview</td>
+<td></td>
+<td>49</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2423()'><b>testC2423</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Static - C2423: LP Resources Main Buttons</td>
+<td></td>
+<td>45</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testC2426()'><b>testC2426</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - C2426: Collection Navigator</td>
+<td></td>
+<td>66</td>
+<td>RSL_CollectionPlayerTest@11bd0f3b</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testC2428()'><b>testC2428</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - C2428: Teacher View</td>
+<td></td>
+<td>65</td>
+<td>RSL_CollectionPlayerTest@11bd0f3b</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2348()'><b>testC2348</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2348: Create Collections</td>
+<td></td>
+<td>56</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2416()'><b>testC2416</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2416: Related Topics</td>
+<td></td>
+<td>36</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2352()'><b>testC2352</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2352: Folder Actions Dropdown</td>
+<td></td>
+<td>249</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_HeaderTest.testC2377()'><b>testC2377</b><br>Test class: RSL_HeaderTest<br>Test method: Regular SL - Header - C2377: Search box (keyword functionality)</td>
+<td></td>
+<td>37</td>
+<td>RSL_HeaderTest@4e7912d8</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2422()'><b>testC2422</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Static - C2422: Resource Static Page Overview</td>
+<td></td>
+<td>45</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2395()'><b>testC2395</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Static - RRP Overview - C2395: Collection Static Page Overview</td>
+<td></td>
+<td>56</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2383()'><b>testC2383</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2383: User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>83</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2397()'><b>testC2397</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2397: District Page, Add School, Remove School</td>
+<td></td>
+<td>40</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testC2335()'><b>testC2335</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Admin Manager - Accounts - C2335: Edit School, Search in School</td>
+<td></td>
+<td>97</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@355ce81c</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testC2374()'><b>testC2374</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Admin Manager - Content - C2374: Search</td>
+<td></td>
+<td>22</td>
+<td>RSL_AdminManager_ContentTest@69e1dd28</td></tr>
+<tr>
+<td title='RSL_HeaderTest.testC2376()'><b>testC2376</b><br>Test class: RSL_HeaderTest<br>Test method: Regular SL - Header - C2376: Header buttons</td>
+<td></td>
+<td>67</td>
+<td>RSL_HeaderTest@4e7912d8</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2351()'><b>testC2351</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2351: Collection: Actions Dropdown</td>
+<td></td>
+<td>227</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testC2404()'><b>testC2404</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Browse Resource Directory - Main Page - C2404: Page UI</td>
+<td></td>
+<td>49</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@72cde7cc</td></tr>
+<tr>
+<td title='RSL_CalendarTest.testC2371()'><b>testC2371</b><br>Test class: RSL_CalendarTest<br>Test method: Regular SL - Calendar - C2371: Buttons/Links</td>
+<td></td>
+<td>134</td>
+<td>RSL_CalendarTest@2e55dd0c</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testC2331()'><b>testC2331</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View -C2331: Share a folder</td>
+<td></td>
+<td>99</td>
+<td>RSL_SharedWithMe_CanViewTest@378542de</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testC2328()'><b>testC2328</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - Can Edit - C2328: Drag-and-drop items</td>
+<td></td>
+<td>71</td>
+<td>RSL_SharedWithMe_CanEditTest@e7edb54</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2415()'><b>testC2415</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2415: Browse by Subject</td>
+<td></td>
+<td>41</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testC2336()'><b>testC2336</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Admin Manager - Accounts - C2336: Manage School Admins Page, Add School Admin, Remove School Admin</td>
+<td></td>
+<td>27</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@355ce81c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2402()'><b>testC2402</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2402: Manage School Admins Page, Add School Admin, Remove School Admin</td>
+<td></td>
+<td>72</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testC2425()'><b>testC2425</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - C2425: Appearance</td>
+<td></td>
+<td>118</td>
+<td>RSL_CollectionPlayerTest@11bd0f3b</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testC2366()'><b>testC2366</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Folder - C2366: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>63</td>
+<td>RSL_EditFolderTest@5fd4f8f5</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2409()'><b>testC2409</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2409: Page UI</td>
+<td></td>
+<td>36</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5298()'><b>testLessonp_5298</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5298:Deliver</td>
+<td></td>
+<td>32</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5301()'><b>testLessonp_5301</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5301:School or District</td>
+<td></td>
+<td>18</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2410()'><b>testC2410</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2410: Resource Tiles</td>
+<td></td>
+<td>83</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2380()'><b>testC2380</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2380: Cards details - LP resource</td>
+<td></td>
+<td>171</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5291()'><b>testLessonp_5291</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5291:What educators and parents are saying: section</td>
+<td></td>
+<td>295</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2342()'><b>testC2342</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2342: With LP Resources & Folders & Uploaded Resources - do not include file</td>
+<td></td>
+<td>151</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2396()'><b>testC2396</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Static - RRP Overview - C2396: Unit Module Static Page Overview</td>
+<td></td>
+<td>59</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testC2329()'><b>testC2329</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - Can Edit - C2329: Verify shared folder</td>
+<td></td>
+<td>107</td>
+<td>RSL_SharedWithMe_CanEditTest@e7edb54</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testC2406()'><b>testC2406</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Browse Resource Directory - Main Page - C2406: Links</td>
+<td></td>
+<td>166</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@72cde7cc</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testC2333()'><b>testC2333</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View - C2333: Verify shared folder </td>
+<td></td>
+<td>63</td>
+<td>RSL_SharedWithMe_CanViewTest@378542de</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2389()'><b>testC2389</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Static - RRP Overview - C2389: Collection Main Buttons</td>
+<td></td>
+<td>74</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5290()'><b>testLessonp_5290</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5290:PD Learning Network section</td>
+<td></td>
+<td>16</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2388()'><b>testC2388</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Static - RRP Overview - C2388: LP Main Buttons</td>
+<td></td>
+<td>75</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2357()'><b>testC2357</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2357: Create Folders (Unit Modules)</td>
+<td></td>
+<td>49</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2387()'><b>testC2387</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - Rrp Modal - RRP Overview - C2387: Unit Module Main Buttons</td>
+<td></td>
+<td>131</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testC2375()'><b>testC2375</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Admin Manager - Content - C2375: Sort By</td>
+<td></td>
+<td>60</td>
+<td>RSL_AdminManager_ContentTest@69e1dd28</td></tr>
+<tr>
+<td title='RSL_FooterTest.testC2344()'><b>testC2344</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer - C2344: Footer structure</td>
+<td></td>
+<td>0</td>
+<td>RSL_FooterTest@53976f5c</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2358()'><b>testC2358</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2358: Create Folders (Course Folders)</td>
+<td></td>
+<td>50</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2360()'><b>testC2360</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2360: Dragging folders into another folder</td>
+<td></td>
+<td>73</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5296()'><b>testLessonp_5296</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5296:Collect</td>
+<td></td>
+<td>33</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2340()'><b>testC2340</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2340: With LP Resources & Folders</td>
+<td></td>
+<td>164</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2378()'><b>testC2378</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2378:Keywordless search</td>
+<td></td>
+<td>42</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2356()'><b>testC2356</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2356: Create Folders (Assessment Sets)</td>
+<td></td>
+<td>53</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2341()'><b>testC2341</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C23401: Manage District Admins Page, Add District Admin, Remove District Admin</td>
+<td></td>
+<td>31</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testC2408()'><b>testC2408</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Browse Resource Directory - Main Page - C2408: Categories modal</td>
+<td></td>
+<td>25</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@72cde7cc</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2381()'><b>testC2381</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2381: Cards details - Collection</td>
+<td></td>
+<td>183</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2418()'><b>testC2418</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Modal - C2418: Resource Modal Overview</td>
+<td></td>
+<td>32</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2429()'><b>testC2429</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Modal - C2429: Collection Main Buttons</td>
+<td></td>
+<td>41</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testC2405()'><b>testC2405</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Browse Resource Directory - Main Page - C2405: Thumbnails</td>
+<td></td>
+<td>35</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@72cde7cc</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2421()'><b>testC2421</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Modal - C2421: Collection Static Page Overview</td>
+<td></td>
+<td>32</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2391()'><b>testC2391</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search- RRP Modal - RRP Overview - C2391: Resource Modal Overview</td>
+<td></td>
+<td>52</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2386()'><b>testC2386</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Modal - RRP Overview - C2386: Collection Main Buttons</td>
+<td></td>
+<td>115</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2419()'><b>testC2419</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Modal - C2419: LP Resources Main Buttons</td>
+<td></td>
+<td>33</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2361()'><b>testC2361</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2361: Drilled in view & functionality</td>
+<td></td>
+<td>158</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_CollectionBuilderTest.testC2364()'><b>testC2364</b><br>Test class: RSL_CollectionBuilderTest<br>Test method: Regular SL - Collection Builder - C2364: Collection Builder Items</td>
+<td></td>
+<td>64</td>
+<td>RSL_CollectionBuilderTest@3738449f</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testC2365()'><b>testC2365</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Folder - C2365: Edit Collection Modal Appearance</td>
+<td></td>
+<td>31</td>
+<td>RSL_EditFolderTest@5fd4f8f5</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2341()'><b>testC2341</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2341: With LP Resources & Folders & Uploaded Resources - include file</td>
+<td></td>
+<td>165</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2340()'><b>testC2340</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2340: Edit District, Search in district</td>
+<td></td>
+<td>66</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5297()'><b>testLessonp_5297</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5297:Design</td>
+<td></td>
+<td>28</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_SearchTest.testC2379()'><b>testC2379</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search - C2379:Keyword search</td>
+<td></td>
+<td>31</td>
+<td>RSL_SearchTest@be35cd9</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2338()'><b>testC2338</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2338: With LP Resources & Uploaded Resources - include file</td>
+<td></td>
+<td>159</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2354()'><b>testC2354</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2354: Create Folders (Chapters)</td>
+<td></td>
+<td>57</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5286()'><b>testLessonp_5286</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5286:Parent</td>
+<td></td>
+<td>15</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testC2399()'><b>testC2399</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Admin Manager - Accounts - C2399: Edit School, Search in School</td>
+<td></td>
+<td>109</td>
+<td>RSL_AdminManager_AccountsTest@2cd2a21f</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2411()'><b>testC2411</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2411: RRP modal (Individual resources)</td>
+<td></td>
+<td>57</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5288()'><b>testLessonp_5288</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5288:Educator Edition section</td>
+<td></td>
+<td>30</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2343()'><b>testC2343</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2343: Collection not published modal</td>
+<td></td>
+<td>101</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5289()'><b>testLessonp_5289</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5289:Learning Explorer section</td>
+<td></td>
+<td>15</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2412()'><b>testC2412</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2412: RRP modal (Collections)</td>
+<td></td>
+<td>44</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2355()'><b>testC2355</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2355: Create Folders (Lessons)</td>
+<td></td>
+<td>59</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_FooterTest.testC2345()'><b>testC2345</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer - C2345: LE Logo</td>
+<td></td>
+<td>10</td>
+<td>RSL_FooterTest@53976f5c</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5300()'><b>testLessonp_5300</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5300:Educator</td>
+<td></td>
+<td>20</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testC2407()'><b>testC2407</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Browse Resource Directory - Main Page - C2407: Show All button</td>
+<td></td>
+<td>11</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@72cde7cc</td></tr>
+<tr>
+<td title='RSL_FooterTest.testC2346()'><b>testC2346</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer - C2346: Bottom footer links</td>
+<td></td>
+<td>3</td>
+<td>RSL_FooterTest@53976f5c</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testC2334()'><b>testC2334</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Admin Manager - Accounts - C2334: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>98</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@355ce81c</td></tr>
+<tr>
+<td title='RSL_HomepageTest.testLessonp_5302()'><b>testLessonp_5302</b><br>Test class: RSL_HomepageTest<br>Test method: Regular SL - Homepage - lessonp-5302:Explore our solutions</td>
+<td></td>
+<td>21</td>
+<td>RSL_HomepageTest@4944252c</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2359()'><b>testC2359</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2359: Create Folders (Root Folders)</td>
+<td></td>
+<td>57</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testC2417()'><b>testC2417</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - RRP Browse Resource Directory - Rrp Modal - C2417: Collection Modal Overview</td>
+<td></td>
+<td>28</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@41e1e210</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testC2392()'><b>testC2392</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - RRP Search - RRP Modal - RRP Overview - C2392: Collection Modal Overview</td>
+<td></td>
+<td>53</td>
+<td>RSL_RrpSearchTest@29e495ff</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2362()'><b>testC2362</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2362: Drag folders into the CB</td>
+<td></td>
+<td>110</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testC2330()'><b>testC2330</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View -C2330: Main Page</td>
+<td></td>
+<td>14</td>
+<td>RSL_SharedWithMe_CanViewTest@378542de</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testC2372()'><b>testC2372</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Admin Manager - Content - C2372: Main Page</td>
+<td></td>
+<td>34</td>
+<td>RSL_AdminManager_ContentTest@69e1dd28</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2353()'><b>testC2353</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2353: Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>59</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testC2347()'><b>testC2347</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - C2347: Access Curriculum Manager Page</td>
+<td></td>
+<td>20</td>
+<td>RSL_CurriculumManagerTest@79da8dc5</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testC2368()'><b>testC2368</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Folder - C2368: Edit Collection Buttons</td>
+<td></td>
+<td>137</td>
+<td>RSL_EditFolderTest@5fd4f8f5</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testC2367()'><b>testC2367</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Folder - C2367: Publish. Republish</td>
+<td></td>
+<td>191</td>
+<td>RSL_EditFolderTest@5fd4f8f5</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testC2413()'><b>testC2413</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Browse Resource Directory - Subjects - C2413: RRP static (Individual resources)</td>
+<td></td>
+<td>54</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@67080771</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testC2337()'><b>testC2337</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Folder - C2337: With LP Resources</td>
+<td></td>
+<td>91</td>
+<td>RSL_PublishFolderTest@2f8dad04</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testC2332()'><b>testC2332</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View - C2332: Drag-and-drop items</td>
+<td></td>
+<td>52</td>
+<td>RSL_SharedWithMe_CanViewTest@378542de</td></tr>
+<tr>
+<td title='RSL_CollectionBuilderTest.testC2363()'><b>testC2363</b><br>Test class: RSL_CollectionBuilderTest<br>Test method: Regular SL - Collection Builder - C2363: Collection Builder Buttons</td>
+<td></td>
+<td>59</td>
+<td>RSL_CollectionBuilderTest@3738449f</td></tr>
+</table><p>
+</body>
+</html>

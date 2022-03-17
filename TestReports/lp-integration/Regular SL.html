@@ -1,0 +1,952 @@
+<html>
+<head>
+<title>TestNG:  Regular SL</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;}
+.stack-trace { display: none;}
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Regular SL</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>94/8/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 17 16:56:26 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>7883 seconds (7883110 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>rsl </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testLessonp_5130()'><b>testLessonp_5130</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - lessonp-5130:Teacher View</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at User_AssignFolderModalTest.testAssignModal(User_AssignFolderModalTest.java:30)
+	at User_CollectionPlayerTest.testTeacherView(User_CollectionPlayerTest.java:307)
+	at RSL_CollectionPlayerTest.testLessonp_5130(RSL_CollectionPlayerTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace884958895", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace884958895'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at User_AssignFolderModalTest.testAssignModal(User_AssignFolderModalTest.java:30)
+	at User_CollectionPlayerTest.testTeacherView(User_CollectionPlayerTest.java:307)
+	at RSL_CollectionPlayerTest.testLessonp_5130(RSL_CollectionPlayerTest.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>63</td>
+<td>RSL_CollectionPlayerTest@6200f9cb</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5236()'><b>testLessonp_5236</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5236: With LP Resources</td>
+<td><div><pre>java.lang.AssertionError: expected [Private, Published] but found [Private]
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:205)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5236(RSL_PublishFolderTest.java:26)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1817497820", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1817497820'><pre>java.lang.AssertionError: expected [Private, Published] but found [Private]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:205)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5236(RSL_PublishFolderTest.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>78</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5237()'><b>testLessonp_5237</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5237: With LP Resources & Uploaded Resources - include file</td>
+<td><div><pre>java.lang.AssertionError: expected [Private, Published] but found [Private]
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:205)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5237(RSL_PublishFolderTest.java:33)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace370265628", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace370265628'><pre>java.lang.AssertionError: expected [Private, Published] but found [Private]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:205)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5237(RSL_PublishFolderTest.java:33)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>102</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5612()'><b>testLessonp_5612</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5612: With LP Resources & Folders</td>
+<td><div><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (421f6fc2-34af-4f4f-8a8a-8fdcc2b3e538)] -&gt; css selector: [class^=&apos;rating-dropdown__indicators&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdown(LpUiBasePage.java:584)
+	at com.lessonplanet.pages.EditCollection.chooseRating(EditCollection.java:503)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:542)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:162)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5612(RSL_PublishFolderTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1748113608", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1748113608'><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (421f6fc2-34af-4f4f-8a8a-8fdcc2b3e538)] -&gt; css selector: [class^=&apos;rating-dropdown__indicators&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdown(LpUiBasePage.java:584)
+	at com.lessonplanet.pages.EditCollection.chooseRating(EditCollection.java:503)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:542)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:162)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at RSL_PublishFolderTest.testLessonp_5612(RSL_PublishFolderTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>84</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5798()'><b>testLessonp_5798</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5798: Collection not published modal</td>
+<td><div><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (fec4724e-f2c8-444b-adc1-597fcae74861)] -&gt; css selector: [class^=&apos;additional-tags-dropdown__option&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdownWithSearch(LpUiBasePage.java:607)
+	at com.lessonplanet.pages.EditCollection.chooseAdditionalTags(EditCollection.java:518)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:545)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testCollectionNotPublishedModal(User_PublishFolderTest.java:226)
+	at RSL_PublishFolderTest.testLessonp_5798(RSL_PublishFolderTest.java:68)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace599060649", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace599060649'><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (fec4724e-f2c8-444b-adc1-597fcae74861)] -&gt; css selector: [class^=&apos;additional-tags-dropdown__option&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdownWithSearch(LpUiBasePage.java:607)
+	at com.lessonplanet.pages.EditCollection.chooseAdditionalTags(EditCollection.java:518)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:545)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testCollectionNotPublishedModal(User_PublishFolderTest.java:226)
+	at RSL_PublishFolderTest.testLessonp_5798(RSL_PublishFolderTest.java:68)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>43</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testLessonp_5989()'><b>testLessonp_5989</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View - lessonp-5989: Drag-and-drop items - Can View Permission</td>
+<td><div><pre>java.lang.AssertionError: expected [2] but found [5]
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:177)
+	at RSL_SharedWithMe_CanViewTest.testLessonp_5989(RSL_SharedWithMe_CanViewTest.java:61)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace496259008", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace496259008'><pre>java.lang.AssertionError: expected [2] but found [5]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:177)
+	at RSL_SharedWithMe_CanViewTest.testLessonp_5989(RSL_SharedWithMe_CanViewTest.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>22</td>
+<td>RSL_SharedWithMe_CanViewTest@37ceb1df</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testLessonp_6116()'><b>testLessonp_6116</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - lessonp-6116:Drag-and-drop items - Can Edit Permission</td>
+<td><div><pre>java.lang.AssertionError: expected [3] but found [5]
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:181)
+	at RSL_SharedWithMe_CanEditTest.testLessonp_6116(RSL_SharedWithMe_CanEditTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1681838063", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1681838063'><pre>java.lang.AssertionError: expected [3] but found [5]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at RSL_SharedWithMe_CanViewTest.testDragAndDrop(RSL_SharedWithMe_CanViewTest.java:181)
+	at RSL_SharedWithMe_CanEditTest.testLessonp_6116(RSL_SharedWithMe_CanEditTest.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>22</td>
+<td>RSL_SharedWithMe_CanEditTest@70325e14</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testLessonp_6117()'><b>testLessonp_6117</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - lessonp-6117:Verify shared folder - Can Edit Permission</td>
+<td><div><pre>java.lang.AssertionError: expected [Shared, Published] but found [Shared by Connor K.]
+	at RSL_SharedWithMe_CanViewTest.testVerifyFolder(RSL_SharedWithMe_CanViewTest.java:287)
+	at RSL_SharedWithMe_CanEditTest.testLessonp_6117(RSL_SharedWithMe_CanEditTest.java:34)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1314688755", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1314688755'><pre>java.lang.AssertionError: expected [Shared, Published] but found [Shared by Connor K.]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at RSL_SharedWithMe_CanViewTest.testVerifyFolder(RSL_SharedWithMe_CanViewTest.java:287)
+	at RSL_SharedWithMe_CanEditTest.testLessonp_6117(RSL_SharedWithMe_CanEditTest.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>59</td>
+<td>RSL_SharedWithMe_CanEditTest@70325e14</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testLessonp_1270()'><b>testLessonp_1270</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Content Manager - lessonp-1270: Main Page</td>
+<td></td>
+<td>59</td>
+<td>RSL_AdminManager_ContentTest@20d525</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testLessonp_1271()'><b>testLessonp_1271</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Content Manager - lessonp-1271: Cards list</td>
+<td></td>
+<td>60</td>
+<td>RSL_AdminManager_ContentTest@20d525</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_4016()'><b>testLessonp_4016</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-4016: Cards details - LP resource</td>
+<td></td>
+<td>153</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_4017()'><b>testLessonp_4017</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-4017: Cards details - Collection</td>
+<td></td>
+<td>158</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_4038()'><b>testLessonp_4038</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-4038: User clicks See Collection footer button</td>
+<td></td>
+<td>39</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_4039()'><b>testLessonp_4039</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-4039: User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>52</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_4040()'><b>testLessonp_4040</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-4040: User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>60</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_HeaderTest.testLessonp_4144()'><b>testLessonp_4144</b><br>Test class: RSL_HeaderTest<br>Test method: Regular SL - Header - lessonp-4144: Search box (keyword functionality)</td>
+<td></td>
+<td>30</td>
+<td>RSL_HeaderTest@3d34d211</td></tr>
+<tr>
+<td title='RSL_FooterTest.testLessonp_4150()'><b>testLessonp_4150</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer - lessonp-4150:Footer structure</td>
+<td></td>
+<td>0</td>
+<td>RSL_FooterTest@7dc0f706</td></tr>
+<tr>
+<td title='RSL_FooterTest.testLessonp_4154()'><b>testLessonp_4154</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer - lessonp-4154:Bottom footer links</td>
+<td></td>
+<td>2</td>
+<td>RSL_FooterTest@7dc0f706</td></tr>
+<tr>
+<td title='RSL_FooterTest.testLessonp_4156()'><b>testLessonp_4156</b><br>Test class: RSL_FooterTest<br>Test method: Regular SL - Footer -  lessonp-4156:LE Logo</td>
+<td></td>
+<td>14</td>
+<td>RSL_FooterTest@7dc0f706</td></tr>
+<tr>
+<td title='RSL_HeaderTest.testLessonp_4619()'><b>testLessonp_4619</b><br>Test class: RSL_HeaderTest<br>Test method: Regular SL - Header - lessonp-4619: Header buttons</td>
+<td></td>
+<td>46</td>
+<td>RSL_HeaderTest@3d34d211</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testLessonp_5076()'><b>testLessonp_5076</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Content Manager - lessonp-5076: Search</td>
+<td></td>
+<td>21</td>
+<td>RSL_AdminManager_ContentTest@20d525</td></tr>
+<tr>
+<td title='RSL_AdminManager_ContentTest.testLessonp_5078()'><b>testLessonp_5078</b><br>Test class: RSL_AdminManager_ContentTest<br>Test method: Regular SL - Content Manager - lessonp-5078: Sort By</td>
+<td></td>
+<td>55</td>
+<td>RSL_AdminManager_ContentTest@20d525</td></tr>
+<tr>
+<td title='RSL_CalendarTest.testLessonp_5125()'><b>testLessonp_5125</b><br>Test class: RSL_CalendarTest<br>Test method: Regular SL - Calendar Page - lessonp-5125:Buttons/Links</td>
+<td></td>
+<td>129</td>
+<td>RSL_CalendarTest@23348b5d</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testLessonp_5126()'><b>testLessonp_5126</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - lessonp-5126:Student View</td>
+<td></td>
+<td>102</td>
+<td>RSL_CollectionPlayerTest@6200f9cb</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testLessonp_5127()'><b>testLessonp_5127</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - lessonp-5127:Collection Navigator</td>
+<td></td>
+<td>58</td>
+<td>RSL_CollectionPlayerTest@6200f9cb</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testLessonp_5128()'><b>testLessonp_5128</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - lessonp-5128:Resource Viewer</td>
+<td></td>
+<td>154</td>
+<td>RSL_CollectionPlayerTest@6200f9cb</td></tr>
+<tr>
+<td title='RSL_CollectionPlayerTest.testLessonp_5129()'><b>testLessonp_5129</b><br>Test class: RSL_CollectionPlayerTest<br>Test method: Regular SL - Collection player - lessonp-5088:Appearance</td>
+<td></td>
+<td>93</td>
+<td>RSL_CollectionPlayerTest@6200f9cb</td></tr>
+<tr>
+<td title='RSL_CollectionBuilderTest.testLessonp_5141()'><b>testLessonp_5141</b><br>Test class: RSL_CollectionBuilderTest<br>Test method: Regular SL - Collection Builder - lessonp-5141: Collection Builder Buttons</td>
+<td></td>
+<td>67</td>
+<td>RSL_CollectionBuilderTest@7c9d8e2</td></tr>
+<tr>
+<td title='RSL_CollectionBuilderTest.testLessonp_5142()'><b>testLessonp_5142</b><br>Test class: RSL_CollectionBuilderTest<br>Test method: Regular SL - Collection Builder - lessonp-5142: Collection Builder Items</td>
+<td></td>
+<td>78</td>
+<td>RSL_CollectionBuilderTest@7c9d8e2</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5143()'><b>testLessonp_5143</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5143:Resource Modal Overview</td>
+<td></td>
+<td>45</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5144()'><b>testLessonp_5144</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5144:Collection Modal Overview</td>
+<td></td>
+<td>51</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5145()'><b>testLessonp_5145</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5145:LP Main Buttons</td>
+<td></td>
+<td>63</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5151()'><b>testLessonp_5151</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5151:Collection Main Buttons</td>
+<td></td>
+<td>109</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5158()'><b>testLessonp_5158</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5158:Resource Static Page Overview</td>
+<td></td>
+<td>36</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5159()'><b>testLessonp_5159</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5159:Collection Static Page Overview</td>
+<td></td>
+<td>52</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5160()'><b>testLessonp_5160</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5160:LP Main Buttons</td>
+<td></td>
+<td>64</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5166()'><b>testLessonp_5166</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5166:Collection Main Buttons</td>
+<td></td>
+<td>76</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_5173()'><b>testLessonp_5173</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-5173:Keywordless search</td>
+<td></td>
+<td>29</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_SearchTest.testLessonp_5174()'><b>testLessonp_5174</b><br>Test class: RSL_SearchTest<br>Test method: Regular SL - Search Page - lessonp-5174:Keyword search</td>
+<td></td>
+<td>24</td>
+<td>RSL_SearchTest@22fcf7ab</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testLessonp_5178()'><b>testLessonp_5178</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Directory Page - Main Page - lessonp-5178: Page UI</td>
+<td></td>
+<td>43</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@6f4a47c7</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testLessonp_5179()'><b>testLessonp_5179</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Directory Page - Main Page - lessonp-5179: Thumbnails</td>
+<td></td>
+<td>36</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@6f4a47c7</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testLessonp_5180()'><b>testLessonp_5180</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Directory Page - Main Page - lessonp-5180: Links</td>
+<td></td>
+<td>117</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@6f4a47c7</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testLessonp_5181()'><b>testLessonp_5181</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Directory Page - Main Page - lessonp-5181: Show All button</td>
+<td></td>
+<td>8</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@6f4a47c7</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_MainPageTest.testLessonp_5182()'><b>testLessonp_5182</b><br>Test class: RSL_BrowseResourceDirectory_MainPageTest<br>Test method: Regular SL - Directory Page - Main Page - lessonp-5182: Categories modal</td>
+<td></td>
+<td>19</td>
+<td>RSL_BrowseResourceDirectory_MainPageTest@6f4a47c7</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5183()'><b>testLessonp_5183</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5183: Page UI</td>
+<td></td>
+<td>34</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5184()'><b>testLessonp_5184</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5184: Resource Tiles</td>
+<td></td>
+<td>68</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5185()'><b>testLessonp_5185</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5185:RRP modal (Individual resources)</td>
+<td></td>
+<td>41</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5186()'><b>testLessonp_5186</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5186:RRP modal (Collections)</td>
+<td></td>
+<td>37</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5187()'><b>testLessonp_5187</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5187:RRP static (Individual resources)</td>
+<td></td>
+<td>39</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5188()'><b>testLessonp_5188</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5188:RRP static (Collections)</td>
+<td></td>
+<td>36</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5189()'><b>testLessonp_5189</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5189:Browse by Subject</td>
+<td></td>
+<td>25</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_BrowseResourceDirectory_SubjectsTest.testLessonp_5190()'><b>testLessonp_5190</b><br>Test class: RSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Regular SL - Directory Page - Categories and subcategories - lessonp-5190:Related Topics</td>
+<td></td>
+<td>13</td>
+<td>RSL_BrowseResourceDirectory_SubjectsTest@69453e37</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5191()'><b>testLessonp_5191</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Modal - lessonp-5191:Resource Modal Overview</td>
+<td></td>
+<td>34</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5192()'><b>testLessonp_5192</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Modal - lessonp-5192:Collection Modal Overview</td>
+<td></td>
+<td>27</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5212()'><b>testLessonp_5212</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Static - lessonp-5212:Resource Static Page Overview</td>
+<td></td>
+<td>37</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5213()'><b>testLessonp_5213</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Modal - lessonp-5213:Collection Static Page Overview</td>
+<td></td>
+<td>31</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5562()'><b>testLessonp_5562</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Modal - RRP Overview - lessonp-5562:Unit Module Modal Overview</td>
+<td></td>
+<td>56</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5563()'><b>testLessonp_5563</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search Page - RRP Static - RRP Overview - lessonp-5563:Unit Module Static Page Overview</td>
+<td></td>
+<td>55</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5571()'><b>testLessonp_5571</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5571: Access Curriculum Manager Page</td>
+<td></td>
+<td>13</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5575()'><b>testLessonp_5575</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5575: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>86</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5578()'><b>testLessonp_5578</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5578: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>54</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5581()'><b>testLessonp_5581</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5581: Collection: Actions Dropdown</td>
+<td></td>
+<td>231</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5582()'><b>testLessonp_5582</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5582: Folder Actions Dropdown</td>
+<td></td>
+<td>236</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5598()'><b>testLessonp_5598</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search page - Rrp Modal - RRP Overview - lessonp-5598:Unit Module Main Buttons</td>
+<td></td>
+<td>114</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_RrpSearchTest.testLessonp_5605()'><b>testLessonp_5605</b><br>Test class: RSL_RrpSearchTest<br>Test method: Regular SL - Search page - Rrp Static - RRP Overview - lessonp-5605:Unit Module Main Buttons</td>
+<td></td>
+<td>73</td>
+<td>RSL_RrpSearchTest@43c1b556</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5613()'><b>testLessonp_5613</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5613: With LP Resources & Folders & Uploaded Resources - include file</td>
+<td></td>
+<td>128</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testLessonp_5617()'><b>testLessonp_5617</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Collection - lessonp-5617: Edit Collection Modal Appearance</td>
+<td></td>
+<td>22</td>
+<td>RSL_EditFolderTest@ae13544</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testLessonp_5618()'><b>testLessonp_5618</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Collection - lessonp-5618: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>52</td>
+<td>RSL_EditFolderTest@ae13544</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testLessonp_5619()'><b>testLessonp_5619</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Collection - lessonp-5619: Publish. Republish</td>
+<td></td>
+<td>170</td>
+<td>RSL_EditFolderTest@ae13544</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testLessonp_5620()'><b>testLessonp_5620</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Collection - lessonp-5620: Edit Collection Buttons</td>
+<td></td>
+<td>127</td>
+<td>RSL_EditFolderTest@ae13544</td></tr>
+<tr>
+<td title='RSL_EditFolderTest.testLessonp_5621()'><b>testLessonp_5621</b><br>Test class: RSL_EditFolderTest<br>Test method: Regular SL - Edit Collection - lessonp-5621: Item Options</td>
+<td></td>
+<td>34</td>
+<td>RSL_EditFolderTest@ae13544</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5624()'><b>testLessonp_5624</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Modal - lessonp-5624:Collection Main Buttons</td>
+<td></td>
+<td>33</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5625()'><b>testLessonp_5625</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Modal - lessonp-5625:LP Resources Main Buttons</td>
+<td></td>
+<td>32</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5630()'><b>testLessonp_5630</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Static - lessonp-5630:Collection Main Buttons</td>
+<td></td>
+<td>30</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_RrpBrowseResourceDirectoryTest.testLessonp_5631()'><b>testLessonp_5631</b><br>Test class: RSL_RrpBrowseResourceDirectoryTest<br>Test method: Regular SL - Directory Page - Rrp Static - lessonp-5631:LP Resources Main Buttons</td>
+<td></td>
+<td>30</td>
+<td>RSL_RrpBrowseResourceDirectoryTest@587e5365</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5655()'><b>testLessonp_5655</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5655: Create Collections</td>
+<td></td>
+<td>53</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5796()'><b>testLessonp_5796</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5796: With LP Resources & Uploaded Resources - do not include file</td>
+<td></td>
+<td>111</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_PublishFolderTest.testLessonp_5797()'><b>testLessonp_5797</b><br>Test class: RSL_PublishFolderTest<br>Test method: Regular SL - Publish Collection - lessonp-5797: With LP Resources & Folders & Uploaded Resources - do not include file</td>
+<td></td>
+<td>163</td>
+<td>RSL_PublishFolderTest@4009e306</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5806()'><b>testLessonp_5806</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5806:Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>49</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5807()'><b>testLessonp_5807</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5807:Dragging folders into another folder</td>
+<td></td>
+<td>60</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5808()'><b>testLessonp_5808</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5808:Drilled in view & functionality</td>
+<td></td>
+<td>135</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5809()'><b>testLessonp_5809</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5809:Create Folders (Chapters)</td>
+<td></td>
+<td>60</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5810()'><b>testLessonp_5810</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5810:Create Folders (Lessons)</td>
+<td></td>
+<td>55</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5811()'><b>testLessonp_5811</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5811:Create Folders (Assessment Sets)</td>
+<td></td>
+<td>51</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5812()'><b>testLessonp_5812</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5812:Create Folders (Unit Modules)</td>
+<td></td>
+<td>49</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5813()'><b>testLessonp_5813</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5813:Create Folders (Course Folders)</td>
+<td></td>
+<td>48</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5814()'><b>testLessonp_5814</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5814:Create Folders (Root Folders)</td>
+<td></td>
+<td>48</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_CurriculumManagerTest.testLessonp_5815()'><b>testLessonp_5815</b><br>Test class: RSL_CurriculumManagerTest<br>Test method: Regular SL - Curriculum Manager - lessonp-5815:Drag folders into the CB</td>
+<td></td>
+<td>82</td>
+<td>RSL_CurriculumManagerTest@2002fc1d</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_5869()'><b>testLessonp_5869</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-5869: Manage District Page</td>
+<td></td>
+<td>98</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testLessonp_5875()'><b>testLessonp_5875</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Account Manager - lessonp-5875: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>171</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@38afe297</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testLessonp_5876()'><b>testLessonp_5876</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Account Manager - lessonp-5876: Edit School, Search in School</td>
+<td></td>
+<td>147</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@38afe297</td></tr>
+<tr>
+<td title='RSL_AdminManager_Accounts_SchoolSlTest.testLessonp_5879()'><b>testLessonp_5879</b><br>Test class: RSL_AdminManager_Accounts_SchoolSlTest<br>Test method: Regular School SL - Account Manager - lessonp-5879: Manage School Admins Page, Add School Admin, Remove School Admin</td>
+<td></td>
+<td>53</td>
+<td>RSL_AdminManager_Accounts_SchoolSlTest@38afe297</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testLessonp_5965()'><b>testLessonp_5965</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - lessonp-5965: Main Page</td>
+<td></td>
+<td>15</td>
+<td>RSL_SharedWithMe_CanViewTest@37ceb1df</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testLessonp_5966()'><b>testLessonp_5966</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - lessonp-5966: Share a folder -  Can View Permission</td>
+<td></td>
+<td>90</td>
+<td>RSL_SharedWithMe_CanViewTest@37ceb1df</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanEditTest.testLessonp_5973()'><b>testLessonp_5973</b><br>Test class: RSL_SharedWithMe_CanEditTest<br>Test method: Regular SL - Shared With Me - lessonp-5973:Share a folder - Can Edit Permission</td>
+<td></td>
+<td>95</td>
+<td>RSL_SharedWithMe_CanEditTest@70325e14</td></tr>
+<tr>
+<td title='RSL_SharedWithMe_CanViewTest.testLessonp_6012()'><b>testLessonp_6012</b><br>Test class: RSL_SharedWithMe_CanViewTest<br>Test method: Regular SL - Shared With Me - Can View - lessonp-6012: Verify shared folder - Can View Permission</td>
+<td></td>
+<td>58</td>
+<td>RSL_SharedWithMe_CanViewTest@37ceb1df</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_895()'><b>testLessonp_895</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-895: Edit School, Search in School</td>
+<td></td>
+<td>122</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_901()'><b>testLessonp_901</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-901: Edit District, Search in district</td>
+<td></td>
+<td>62</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_904()'><b>testLessonp_904</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-904: Manage District Admins Page, Add District Admin, Remove District Admin</td>
+<td></td>
+<td>37</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_918()'><b>testLessonp_918</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-918: District Page, Add School, Remove School</td>
+<td></td>
+<td>42</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_920()'><b>testLessonp_920</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-920: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>77</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+<tr>
+<td title='RSL_AdminManager_AccountsTest.testLessonp_924()'><b>testLessonp_924</b><br>Test class: RSL_AdminManager_AccountsTest<br>Test method: Regular SL - Account Manager - lessonp-924: Manage School Admins Page, Add School Admin, Remove School Admin</td>
+<td></td>
+<td>64</td>
+<td>RSL_AdminManager_AccountsTest@2df3b89c</td></tr>
+</table><p>
+</body>
+</html>

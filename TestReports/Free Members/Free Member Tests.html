@@ -1,0 +1,948 @@
+<html>
+<head>
+<title>TestNG:  Free Member Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Free Member Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>89/8/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Mar 17 09:31:34 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>7555 seconds (7555499 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>freemium </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_HomepageTest.testC2206()'><b>testC2206</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2206: Explore our solutions</td>
+<td><div><pre>java.lang.AssertionError: expected [contact-us] but found []
+	at User_HomepageTest.testExploreOurSolution(User_HomepageTest.java:410)
+	at User_HomepageTest.testC2206(User_HomepageTest.java:151)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1218021867", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1218021867'><pre>java.lang.AssertionError: expected [contact-us] but found []
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at User_HomepageTest.testExploreOurSolution(User_HomepageTest.java:410)
+	at User_HomepageTest.testC2206(User_HomepageTest.java:151)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>15</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2199()'><b>testC2199</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2199: Discover.Create.Inspire section</td>
+<td><div><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (f8d923f2-5fc4-4ae9-a670-052d75de32d5)] -&gt; css selector: [class$=&apos;lpip-hp-inspire-section&apos;] [class^=&apos;lpip-hp-inspire-section-option parent&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.HomePage.clickOnInspireParentTab(HomePage.java:467)
+	at User_HomepageTest.testInspireArea(User_HomepageTest.java:519)
+	at User_HomepageTest.testC2199(User_HomepageTest.java:226)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2136756216", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2136756216'><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (f8d923f2-5fc4-4ae9-a670-052d75de32d5)] -&gt; css selector: [class$=&apos;lpip-hp-inspire-section&apos;] [class^=&apos;lpip-hp-inspire-section-option parent&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.HomePage.clickOnInspireParentTab(HomePage.java:467)
+	at User_HomepageTest.testInspireArea(User_HomepageTest.java:519)
+	at User_HomepageTest.testC2199(User_HomepageTest.java:226)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>20</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2203()'><b>testC2203</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2203: Parent</td>
+<td><div><pre>java.lang.Error: Unable to click on webElement [[[[FirefoxDriver: firefox on WINDOWS (0015fc7f-b6c5-4647-9a73-506696ea76ef)] -&gt; css selector: [class*=&apos;solution-section&apos;] [href=&apos;/parent-edition&apos;]]] -&gt; css selector: [class=&apos;lpip-action-link&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:207)
+	at com.lessonplanet.pages.HomePage.clickOnSelectSolutionForParent(HomePage.java:283)
+	at User_HomepageTest.testParentEdition(User_HomepageTest.java:358)
+	at User_HomepageTest.testC2203(User_HomepageTest.java:106)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1419765033", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1419765033'><pre>java.lang.Error: Unable to click on webElement [[[[FirefoxDriver: firefox on WINDOWS (0015fc7f-b6c5-4647-9a73-506696ea76ef)] -&gt; css selector: [class*=&apos;solution-section&apos;] [href=&apos;/parent-edition&apos;]]] -&gt; css selector: [class=&apos;lpip-action-link&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:207)
+	at com.lessonplanet.pages.HomePage.clickOnSelectSolutionForParent(HomePage.java:283)
+	at User_HomepageTest.testParentEdition(User_HomepageTest.java:358)
+	at User_HomepageTest.testC2203(User_HomepageTest.java:106)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>13</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testC2175()'><b>testC2175</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Free member - Browse Resource Directory - Subjects - C2175: Browse by Subject</td>
+<td><div><pre>java.lang.AssertionError: expected [Browse by Subject
+Health
+Wellness &amp; Safety
+Social and Emotional Learning
+Growth and Development
+Sex Education
+Suggest a Category] but found [Browse by Subject
+Health
+Wellness &amp; Safety
+Social and Emotional Learning
+Growth and Development
+Sex Education]
+	at User_BrowseResourceDirectory_SubjectsTest.testBrowseBySubject(User_BrowseResourceDirectory_SubjectsTest.java:268)
+	at User_BrowseResourceDirectory_SubjectsTest.testC2175(User_BrowseResourceDirectory_SubjectsTest.java:111)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace972598720", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace972598720'><pre>java.lang.AssertionError: expected [Browse by Subject
+Health
+Wellness &amp; Safety
+Social and Emotional Learning
+Growth and Development
+Sex Education
+Suggest a Category] but found [Browse by Subject
+Health
+Wellness &amp; Safety
+Social and Emotional Learning
+Growth and Development
+Sex Education]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at User_BrowseResourceDirectory_SubjectsTest.testBrowseBySubject(User_BrowseResourceDirectory_SubjectsTest.java:268)
+	at User_BrowseResourceDirectory_SubjectsTest.testC2175(User_BrowseResourceDirectory_SubjectsTest.java:111)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>33</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@1b11171f</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC2180()'><b>testC2180</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Free Member - RRP Browse Resource Directory - RRP Modal - RRP Overview - C2180: Collection Modal Overview</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at User_RrpSearchTest.testCollectionRRPOverview(User_RrpSearchTest.java:742)
+	at User_RrpBrowseResourceDirectoryTest.testCollectionOverview(User_RrpBrowseResourceDirectoryTest.java:255)
+	at User_RrpBrowseResourceDirectoryTest.testC2180(User_RrpBrowseResourceDirectoryTest.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1777344331", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1777344331'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at User_RrpSearchTest.testCollectionRRPOverview(User_RrpSearchTest.java:742)
+	at User_RrpBrowseResourceDirectoryTest.testCollectionOverview(User_RrpBrowseResourceDirectoryTest.java:255)
+	at User_RrpBrowseResourceDirectoryTest.testC2180(User_RrpBrowseResourceDirectoryTest.java:90)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>62</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2122()'><b>testC2122</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2122: Favorite Resource & My Favorites Folder</td>
+<td><div><pre>java.lang.AssertionError: expected [Interactive] but found [Lesson Plan]
+	at User_CurriculumManagerPageTest.testFavoriteButton(User_CurriculumManagerPageTest.java:493)
+	at User_CurriculumManagerPageTest.testFavoriteFreeSampleResource(User_CurriculumManagerPageTest.java:836)
+	at User_CurriculumManagerPageTest.testFavoriteResources(User_CurriculumManagerPageTest.java:820)
+	at User_CurriculumManagerPageTest.testC2122(User_CurriculumManagerPageTest.java:129)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1888353808", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1888353808'><pre>java.lang.AssertionError: expected [Interactive] but found [Lesson Plan]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at User_CurriculumManagerPageTest.testFavoriteButton(User_CurriculumManagerPageTest.java:493)
+	at User_CurriculumManagerPageTest.testFavoriteFreeSampleResource(User_CurriculumManagerPageTest.java:836)
+	at User_CurriculumManagerPageTest.testFavoriteResources(User_CurriculumManagerPageTest.java:820)
+	at User_CurriculumManagerPageTest.testC2122(User_CurriculumManagerPageTest.java:129)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>93</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_EditFolderTest.testC2130()'><b>testC2130</b><br>Test class: User_EditFolderTest<br>Test method: Free member - Edit Collection - C2130: Edit Collection Static Page Appearance</td>
+<td><div><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (10f98eac-4250-4453-88d8-3a26245cf81f)] -&gt; css selector: [class*=&apos;panel-footer&apos;] [href*=&apos;teachers&apos;]:not([class*=&apos;free-sample&apos;])]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:541)
+	at com.lessonplanet.pages.ResourcesPage.clickOnFirstButtonOfType(ResourcesPage.java:291)
+	at com.lessonplanet.pages.ResourcesPage.clickOnSeeReview(ResourcesPage.java:238)
+	at com.lessonplanet.pages.DiscoverResourcesPage.clickOnSeeReview(DiscoverResourcesPage.java:104)
+	at User_CurriculumManagerPageTest.testAddRegularResourceToFolder(User_CurriculumManagerPageTest.java:672)
+	at User_EditFolderTest.testEditFolderAppearance(User_EditFolderTest.java:129)
+	at User_EditFolderTest.testC2130(User_EditFolderTest.java:53)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1570875775", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1570875775'><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (10f98eac-4250-4453-88d8-3a26245cf81f)] -&gt; css selector: [class*=&apos;panel-footer&apos;] [href*=&apos;teachers&apos;]:not([class*=&apos;free-sample&apos;])]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:541)
+	at com.lessonplanet.pages.ResourcesPage.clickOnFirstButtonOfType(ResourcesPage.java:291)
+	at com.lessonplanet.pages.ResourcesPage.clickOnSeeReview(ResourcesPage.java:238)
+	at com.lessonplanet.pages.DiscoverResourcesPage.clickOnSeeReview(DiscoverResourcesPage.java:104)
+	at User_CurriculumManagerPageTest.testAddRegularResourceToFolder(User_CurriculumManagerPageTest.java:672)
+	at User_EditFolderTest.testEditFolderAppearance(User_EditFolderTest.java:129)
+	at User_EditFolderTest.testC2130(User_EditFolderTest.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>55</td>
+<td>User_EditFolderTest@1151e434</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2196()'><b>testC2196</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2196: Learning Explorer section</td>
+<td><div><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (1ed309b8-c3e4-44f6-824e-1c6af592e5b2)] -&gt; css selector: [class$=&apos;lpip-learning-explorer-section&apos;] [href=&apos;https://www.learningexplorer.com&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.HomePage.clickOnLearningExplorerLearnMoreButton(HomePage.java:387)
+	at User_HomepageTest.testLearningExplorerArea(User_HomepageTest.java:439)
+	at User_HomepageTest.testC2196(User_HomepageTest.java:181)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace400867034", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace400867034'><pre>java.lang.Error: Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (1ed309b8-c3e4-44f6-824e-1c6af592e5b2)] -&gt; css selector: [class$=&apos;lpip-learning-explorer-section&apos;] [href=&apos;https://www.learningexplorer.com&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:169)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:148)
+	at com.lessonplanet.pages.HomePage.clickOnLearningExplorerLearnMoreButton(HomePage.java:387)
+	at User_HomepageTest.testLearningExplorerArea(User_HomepageTest.java:439)
+	at User_HomepageTest.testC2196(User_HomepageTest.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>16</td>
+<td>User_HomepageTest@55634720</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2112()'><b>testC2112</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2112: Create Folders (Root Folders)</td>
+<td></td>
+<td>63</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CollectionPlayerTest.testC2192()'><b>testC2192</b><br>Test class: User_CollectionPlayerTest<br>Test method: Free Member - Collection player - C2192: Collection Navigator</td>
+<td></td>
+<td>55</td>
+<td>User_CollectionPlayerTest@26e356f0</td></tr>
+<tr>
+<td title='User_SearchTest.testC2150()'><b>testC2150</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2150: User clicks 'See Preview' footer button (Shared resource)</td>
+<td></td>
+<td>50</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2128()'><b>testC2128</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2128: Drag folders into the CB</td>
+<td></td>
+<td>87</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_HeaderTest.testC2138()'><b>testC2138</b><br>Test class: User_HeaderTest<br>Test method: Free member - Header - C2138: Header buttons</td>
+<td></td>
+<td>125</td>
+<td>User_HeaderTest@2dc54ad4</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2200()'><b>testC2200</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2200: Collect</td>
+<td></td>
+<td>26</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2159()'><b>testC2159</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Modal - RRP Overview - C2159: Free Sample Modal Overview</td>
+<td></td>
+<td>33</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_FooterTest.testC2145()'><b>testC2145</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2145: LP logo</td>
+<td></td>
+<td>12</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_EditFolderTest.testC2131()'><b>testC2131</b><br>Test class: User_EditFolderTest<br>Test method: Free member - Edit Collection - C2131: Edit Collection Buttons</td>
+<td></td>
+<td>122</td>
+<td>User_EditFolderTest@1151e434</td></tr>
+<tr>
+<td title='User_HeaderTest.testC2139()'><b>testC2139</b><br>Test class: User_HeaderTest<br>Test method: Free member - Header - C2139: Search box (keyword functionality)</td>
+<td></td>
+<td>36</td>
+<td>User_HeaderTest@2dc54ad4</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2167()'><b>testC2167</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Static - RRP Overview - C2167: Free Sample Static Page Overview</td>
+<td></td>
+<td>35</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2162()'><b>testC2162</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Modal - RRP Buttons - C2162: LP Resource Main buttons</td>
+<td></td>
+<td>61</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_CollectionPlayerTest.testC2194()'><b>testC2194</b><br>Test class: User_CollectionPlayerTest<br>Test method: Free Member - Collection player - C2194: Resource Viewer</td>
+<td></td>
+<td>128</td>
+<td>User_CollectionPlayerTest@26e356f0</td></tr>
+<tr>
+<td title='User_ArticlesTest.testC2188()'><b>testC2188</b><br>Test class: User_ArticlesTest<br>Test method: Free Member - Lesson Planet Articles - C2188: Articles Main Page</td>
+<td></td>
+<td>144</td>
+<td>User_ArticlesTest@37d4349f</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2171()'><b>testC2171</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Static - RRP Buttons -C2171: FreeSample Resource Main buttons</td>
+<td></td>
+<td>113</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2195()'><b>testC2195</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2195: Educator Edition section</td>
+<td></td>
+<td>30</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_ArticlesTest.testC2189()'><b>testC2189</b><br>Test class: User_ArticlesTest<br>Test method: Free Member - Lesson Planet Articles - C2189: Article Page</td>
+<td></td>
+<td>37</td>
+<td>User_ArticlesTest@37d4349f</td></tr>
+<tr>
+<td title='User_SearchTest.testC2147()'><b>testC2147</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2147: User clicks result card</td>
+<td></td>
+<td>119</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2164()'><b>testC2164</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Modal - RRP Buttons - C2164: Collection  Main buttons</td>
+<td></td>
+<td>115</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2117()'><b>testC2117</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2117: Create Folders (Chapters)</td>
+<td></td>
+<td>61</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_SearchTest.testC2155()'><b>testC2155</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2155:Cards details - Sample resource</td>
+<td></td>
+<td>464</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2166()'><b>testC2166</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Static - RRP Overview - C2166: Resource Static Page Overview</td>
+<td></td>
+<td>33</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC2182()'><b>testC2182</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Free Member - RRP Browse Resource Directory - RRP Static - RRP Overview - C2182: Collection Static Page Overview</td>
+<td></td>
+<td>46</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2204()'><b>testC2204</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2204: Educator</td>
+<td></td>
+<td>26</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC2179()'><b>testC2179</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Free Member - RRP Browse Resource Directory - RRP Modal - RRP Overview - C2179: LP Resource Modal Overview</td>
+<td></td>
+<td>53</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_SearchTest.testC2154()'><b>testC2154</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2154: Cards details - LP resource</td>
+<td></td>
+<td>201</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_FooterTest.testC2140()'><b>testC2140</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2140: Open Educational Resources</td>
+<td></td>
+<td>58</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2202()'><b>testC2202</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2202: Deliver</td>
+<td></td>
+<td>17</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_SearchTest.testC2149()'><b>testC2149</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2149: User clicks 'Get Free Access' footer button</td>
+<td></td>
+<td>43</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2161()'><b>testC2161</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Modal - RRP Overview - C2161: Collection Modal Overview</td>
+<td></td>
+<td>56</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2158()'><b>testC2158</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Modal - RRP Overview - C2158: Resource Modal Overview</td>
+<td></td>
+<td>35</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC2181()'><b>testC2181</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Free Member - RRP Browse Resource Directory - RRP Static - RRP Overview -C2181: Resource Static Page Overview</td>
+<td></td>
+<td>52</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC3761()'><b>testC3761</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Freemium - RRP Browse Resource Directory - Rrp Static - Rrp Buttons - Collections - C3761: Main Buttons</td>
+<td></td>
+<td>67</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_SearchTest.testC2148()'><b>testC2148</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2148: User clicks 'See Review' footer button (LP resource)</td>
+<td></td>
+<td>56</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC3760()'><b>testC3760</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Freemium - RRP Browse Resource Directory - Rrp Modal - Rrp Buttons - Collections - C3760: Main Buttons</td>
+<td></td>
+<td>99</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_EditFolderTest.testC2132()'><b>testC2132</b><br>Test class: User_EditFolderTest<br>Test method: Free member - Edit Collection - C2132: Item Options</td>
+<td></td>
+<td>66</td>
+<td>User_EditFolderTest@1151e434</td></tr>
+<tr>
+<td title='User_CollectionBuilderTest.testC2134()'><b>testC2134</b><br>Test class: User_CollectionBuilderTest<br>Test method: Free Member - Collection Builder - C2134: Collection Builder Buttons</td>
+<td></td>
+<td>73</td>
+<td>User_CollectionBuilderTest@4310d43</td></tr>
+<tr>
+<td title='User_FooterTest.testC2141()'><b>testC2141</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2141: Discover Resources</td>
+<td></td>
+<td>41</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testC2178()'><b>testC2178</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Free member - Browse Resource Directory - Subjects - C2178: What members say</td>
+<td></td>
+<td>53</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@1b11171f</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testC2183()'><b>testC2183</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Free member - Browse Resource Directory - Main Page - C2183: Page UI</td>
+<td></td>
+<td>45</td>
+<td>User_BrowseResourceDirectory_MainPageTest@27f981c6</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testC2186()'><b>testC2186</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Free member - Browse Resource Directory - Main Page - C2186: Show All button</td>
+<td></td>
+<td>10</td>
+<td>User_BrowseResourceDirectory_MainPageTest@27f981c6</td></tr>
+<tr>
+<td title='User_FooterTest.testC2139()'><b>testC2139</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2139: Footer structure</td>
+<td></td>
+<td>12</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testC2184()'><b>testC2184</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Free member - Browse Resource Directory - Main Page - C2184: Tumbnails</td>
+<td></td>
+<td>44</td>
+<td>User_BrowseResourceDirectory_MainPageTest@27f981c6</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2198()'><b>testC2198</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2198: What educators and parents are saying: section</td>
+<td></td>
+<td>281</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2121()'><b>testC2121</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2121: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>19</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2114()'><b>testC2114</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2114: Create Folders (Unit Modules)</td>
+<td></td>
+<td>61</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CollectionBuilderTest.testC2135()'><b>testC2135</b><br>Test class: User_CollectionBuilderTest<br>Test method: Free Member - Collection Builder - C2135: Collection Builder Items</td>
+<td></td>
+<td>82</td>
+<td>User_CollectionBuilderTest@4310d43</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC3762()'><b>testC3762</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Freemium - RRP Browse Resource Directory - Rrp Static - Rrp Buttons - Lp resources -C3762: Main Buttons</td>
+<td></td>
+<td>70</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2205()'><b>testC2205</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2205: School or District</td>
+<td></td>
+<td>19</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2127()'><b>testC2127</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2127: Drilled in view</td>
+<td></td>
+<td>123</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testC2174()'><b>testC2174</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Free member - Browse Resource Directory - Subjects- C2174: Page UI</td>
+<td></td>
+<td>36</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@1b11171f</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testC2177()'><b>testC2177</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Free member - Browse Resource Directory - Subjects - C2177: Related Topics</td>
+<td></td>
+<td>17</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@1b11171f</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2201()'><b>testC2201</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2201: Design</td>
+<td></td>
+<td>18</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2173()'><b>testC2173</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Static - RRP Buttons  - C2173: Shared Resource Main Buttons</td>
+<td></td>
+<td>145</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testC2187()'><b>testC2187</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Free member - Browse Resource Directory - Main Page - C2187: Categories modal</td>
+<td></td>
+<td>28</td>
+<td>User_BrowseResourceDirectory_MainPageTest@27f981c6</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testC3759()'><b>testC3759</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Freemium - RRP Browse Resource Directory - Rrp Modal - Rrp Buttons - Lp resources - C3759: Main Buttons</td>
+<td></td>
+<td>58</td>
+<td>User_RrpBrowseResourceDirectoryTest@59505b48</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2170()'><b>testC2170</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Static - RRP Buttons - C2170: LP Resource Main buttons</td>
+<td></td>
+<td>91</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_SearchTest.testC2151()'><b>testC2151</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2151: User clicks 'Go to Resource' footer button (Shared resource)</td>
+<td></td>
+<td>50</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2172()'><b>testC2172</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Static - RRP Buttons - C2172: Collection Main buttons</td>
+<td></td>
+<td>96</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_CalendarTest.testC2190()'><b>testC2190</b><br>Test class: User_CalendarTest<br>Test method: Free Member - Calendar - C2190: Buttons/Links</td>
+<td></td>
+<td>145</td>
+<td>User_CalendarTest@61001b64</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2118()'><b>testC2118</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2118: Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>57</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_SearchTest.testC2153()'><b>testC2153</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2153: User clicks 'Free: Full Access Review' footer button</td>
+<td></td>
+<td>53</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testC2176()'><b>testC2176</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Free member - Browse Resource Directory - Subjects - C2176: Start your 10 day free trial</td>
+<td></td>
+<td>18</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@1b11171f</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2197()'><b>testC2197</b><br>Test class: User_HomepageTest<br>Test method: Freemium - Homepage - C2197: PD Learning Network section</td>
+<td></td>
+<td>19</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2119()'><b>testC2119</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2119: Access Curriculum Manager Page</td>
+<td></td>
+<td>30</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_FooterTest.testC2144()'><b>testC2144</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2144: Social links</td>
+<td></td>
+<td>17</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_EditFolderTest.testC2129()'><b>testC2129</b><br>Test class: User_EditFolderTest<br>Test method: Free member - Edit Collection - C2129: Edit Collection Modal Appearance</td>
+<td></td>
+<td>37</td>
+<td>User_EditFolderTest@1151e434</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2126()'><b>testC2126</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2126: Drilled in functionality & buttons</td>
+<td></td>
+<td>124</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_FooterTest.testC2146()'><b>testC2146</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2146: Newsletter</td>
+<td></td>
+<td>15</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2115()'><b>testC2115</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2115: Create Folders (Assessment Sets)</td>
+<td></td>
+<td>61</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2125()'><b>testC2125</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2125: Dragging folders into another folder</td>
+<td></td>
+<td>76</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2120()'><b>testC2120</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2120: Create Collections</td>
+<td></td>
+<td>56</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_FooterTest.testC2143()'><b>testC2143</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2143: Bottom footer links</td>
+<td></td>
+<td>27</td>
+<td>User_FooterTest@4659191b</td></tr>
+<tr>
+<td title='User_SearchTest.testC2156()'><b>testC2156</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2156: Cards details - Collection</td>
+<td></td>
+<td>162</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2124()'><b>testC2124</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2124: Folder Actions Dropdown</td>
+<td></td>
+<td>170</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_HomepageTest.testC2194()'><b>testC2194</b><br>Test class: User_HomepageTest<br>Test method: Free Member - Homepage - C2194: Discover</td>
+<td></td>
+<td>77</td>
+<td>User_HomepageTest@55634720</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2160()'><b>testC2160</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Modal - RRP Overview - C2160: Shared Resource Modal Overview</td>
+<td></td>
+<td>29</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_CollectionPlayerTest.testC2191()'><b>testC2191</b><br>Test class: User_CollectionPlayerTest<br>Test method: Free Member - Collection player - C2191: Appearance</td>
+<td></td>
+<td>49</td>
+<td>User_CollectionPlayerTest@26e356f0</td></tr>
+<tr>
+<td title='User_SearchTest.testC2152()'><b>testC2152</b><br>Test class: User_SearchTest<br>Test method: Freemium - Search - C2152: User clicks 'See Collection' footer button (Collection)</td>
+<td></td>
+<td>50</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_SearchTest.testC2157()'><b>testC2157</b><br>Test class: User_SearchTest<br>Test method: Free member - Search - C2157: Cards details - Shared resource</td>
+<td></td>
+<td>149</td>
+<td>User_SearchTest@4c1909a3</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2163()'><b>testC2163</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Modal - RRP Buttons - C2163: FreeSample Resource Main buttons</td>
+<td></td>
+<td>69</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2165()'><b>testC2165</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - Search Page - RRP Modal - RRP Buttons - C2165: Shared Resource Main buttons</td>
+<td></td>
+<td>74</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2113()'><b>testC2113</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2113: Create Folders (Course Folders)</td>
+<td></td>
+<td>63</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2116()'><b>testC2116</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2116: Create Folders (Lessons)</td>
+<td></td>
+<td>60</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testC2123()'><b>testC2123</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Free member - Curriculum Manager - C2123: Collection: Actions Dropdown</td>
+<td></td>
+<td>167</td>
+<td>User_CurriculumManagerPageTest@47d9a273</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2169()'><b>testC2169</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Static - RRP Overview - C2169: Collection Static Page Overview</td>
+<td></td>
+<td>66</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testC2185()'><b>testC2185</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Free member - Browse Resource Directory - Main Page - C2185: Links</td>
+<td></td>
+<td>135</td>
+<td>User_BrowseResourceDirectory_MainPageTest@27f981c6</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testC2168()'><b>testC2168</b><br>Test class: User_RrpSearchTest<br>Test method: Free member - RRP Search - RRP Static - RRP Overview - C2168: Shared Resource Static Page Overview</td>
+<td></td>
+<td>45</td>
+<td>User_RrpSearchTest@2d710f1a</td></tr>
+<tr>
+<td title='User_FooterTest.testC2142()'><b>testC2142</b><br>Test class: User_FooterTest<br>Test method: Free member - Footer - C2142: Manage Curriculum</td>
+<td></td>
+<td>34</td>
+<td>User_FooterTest@4659191b</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<html>
+<head>
+<title>TestNG:  Cobb SL Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Cobb SL Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>92/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 15 15:36:45 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>8799 seconds (8799839 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>cobb </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testC2602()'><b>testC2602</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Admin Manager - Content - C2602: Add/Edit/Remove Site Specific Resource</td>
+<td><div><pre>java.lang.AssertionError: expected [TestNewResource2022_03_15_15_37_01] but found [Audubon Nature Institute: Lionfish]
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:228)
+	at Cobb_AdminManager_ContentTest.testC2602(Cobb_AdminManager_ContentTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace954697228", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace954697228'><pre>java.lang.AssertionError: expected [TestNewResource2022_03_15_15_37_01] but found [Audubon Nature Institute: Lionfish]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:228)
+	at Cobb_AdminManager_ContentTest.testC2602(Cobb_AdminManager_ContentTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>128</td>
+<td>Cobb_AdminManager_ContentTest@37858383</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2594()'><b>testC2594</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2594: With LP Resources & Folders</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: [class=&apos;fa fa-circle-o-notch fa-spin&apos;] (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;192.168.100.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 29772, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d8c3e326-550d-47a2-8b4e-26bae7207d76
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilElementIsHidden(LpUiBasePage.java:472)
+	at com.lessonplanet.pages.EditFolder.waitUntilPublishFolderSectionIsNotDisplayed(EditFolder.java:555)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:189)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testC2594(Cobb_PublishFolderTest.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1421378119", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1421378119'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to no longer be visible: By.cssSelector: [class=&apos;fa fa-circle-o-notch fa-spin&apos;] (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;192.168.100.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 29772, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d8c3e326-550d-47a2-8b4e-26bae7207d76
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilElementIsHidden(LpUiBasePage.java:472)
+	at com.lessonplanet.pages.EditFolder.waitUntilPublishFolderSectionIsNotDisplayed(EditFolder.java:555)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:189)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testC2594(Cobb_PublishFolderTest.java:39)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>137</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2566()'><b>testC2566</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Modal - RRP Overview - C2566:Collection Modal Overview</td>
+<td></td>
+<td>61</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2639()'><b>testC2639</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2639: Keyword less search</td>
+<td></td>
+<td>50</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2578()'><b>testC2578</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2578: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>75</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2614()'><b>testC2614</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL -Browse Resource  Directory - Subjects - C2614: RRP static (Individual resources)</td>
+<td></td>
+<td>75</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testC2627()'><b>testC2627</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Folder - C2627: Publish. Republish</td>
+<td></td>
+<td>197</td>
+<td>Cobb_EditFolderTest@2beee7ff</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5298()'><b>testLessonp_5298</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5298:Deliver</td>
+<td></td>
+<td>29</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2576()'><b>testC2576</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2576: Create Collections</td>
+<td></td>
+<td>60</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testC2618()'><b>testC2618</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Browse Resource Directory -  Main Page - C2618: Page UI</td>
+<td></td>
+<td>55</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@306cf3ea</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2567()'><b>testC2567</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Modal - RRP Overview - C2567:Site Specific Resource Modal Overview</td>
+<td></td>
+<td>55</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2608()'><b>testC2608</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2608: Edit School, Search in school</td>
+<td></td>
+<td>93</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_CollectionBuilderTest.testC2563()'><b>testC2563</b><br>Test class: Cobb_CollectionBuilderTest<br>Test method: Cobb SL - Collection Builder - C2563: Collection Builder Buttons</td>
+<td></td>
+<td>130</td>
+<td>Cobb_CollectionBuilderTest@776b83cc</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testC2626()'><b>testC2626</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Folder - C2626: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>92</td>
+<td>Cobb_EditFolderTest@2beee7ff</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2606()'><b>testC2606</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2606: Manage District Admins Page: Add District Admins, Edit District Admin, Remove District Admins</td>
+<td></td>
+<td>163</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2587()'><b>testC2587</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2587:Create Folders (Root Folders)</td>
+<td></td>
+<td>61</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2611()'><b>testC2611</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2611: Resource Tiles</td>
+<td></td>
+<td>105</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_HeaderTest.testC2624()'><b>testC2624</b><br>Test class: Cobb_HeaderTest<br>Test method: Cobb SL - Header - C2624: Search box functionality</td>
+<td></td>
+<td>51</td>
+<td>Cobb_HeaderTest@5136d012</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5288()'><b>testLessonp_5288</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5288:Educator Edition section</td>
+<td></td>
+<td>24</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testC2629()'><b>testC2629</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Folder - C2629: Item Options</td>
+<td></td>
+<td>40</td>
+<td>Cobb_EditFolderTest@2beee7ff</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2595()'><b>testC2595</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2595: With LP Resources & Folders & Uploaded Resources - include</td>
+<td></td>
+<td>185</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2586()'><b>testC2586</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2586:Create Folders (Course Folders)</td>
+<td></td>
+<td>60</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2605()'><b>testC2605</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2605: Manage District Page</td>
+<td></td>
+<td>67</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2589()'><b>testC2589</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2589:Dragging folders into another folder</td>
+<td></td>
+<td>69</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_CollectionBuilderTest.testC2564()'><b>testC2564</b><br>Test class: Cobb_CollectionBuilderTest<br>Test method: Cobb SL - Collection Builder - C2564: Collection Builder Items</td>
+<td></td>
+<td>141</td>
+<td>Cobb_CollectionBuilderTest@776b83cc</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2603()'><b>testC2603</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2603: District Page</td>
+<td></td>
+<td>42</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testC2625()'><b>testC2625</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Folder - C2625: Edit Collection Modal Appearance</td>
+<td></td>
+<td>30</td>
+<td>Cobb_EditFolderTest@2beee7ff</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5297()'><b>testLessonp_5297</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5297:Design</td>
+<td></td>
+<td>26</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2582()'><b>testC2582</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2582:Create Folders (Chapters)</td>
+<td></td>
+<td>52</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5289()'><b>testLessonp_5289</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5289:Learning Explorer section</td>
+<td></td>
+<td>24</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5302()'><b>testLessonp_5302</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5302:Explore our solutions</td>
+<td></td>
+<td>26</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2569()'><b>testC2569</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Modal - RRP Overview - C2568:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>53</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2568()'><b>testC2568</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Modal - RRP Overview - C2568:Proprietary Resource Modal Overview</td>
+<td></td>
+<td>46</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testC2628()'><b>testC2628</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Folder - C2628: Edit Collection Buttons</td>
+<td></td>
+<td>148</td>
+<td>Cobb_EditFolderTest@2beee7ff</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2615()'><b>testC2615</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2615: RRP static (Collections)</td>
+<td></td>
+<td>70</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testC2560()'><b>testC2560</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - Can View - C2560: Share a folder</td>
+<td></td>
+<td>122</td>
+<td>Cobb_SharedWithMe_CanViewTest@44a7bfbc</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2585()'><b>testC2585</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2585:Create Folders (Unit Modules)</td>
+<td></td>
+<td>55</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2610()'><b>testC2610</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory  - Subjects - C2610: Page UI</td>
+<td></td>
+<td>32</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2565()'><b>testC2565</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Modal - RRP Overview - C2565:LP Resource Modal Overview</td>
+<td></td>
+<td>65</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2570()'><b>testC2570</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Static - RRP Overview - C2570:LP Resource Static Page Overview</td>
+<td></td>
+<td>56</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testC2562()'><b>testC2562</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - Can View - C2562: Verify shared folder</td>
+<td></td>
+<td>65</td>
+<td>Cobb_SharedWithMe_CanViewTest@44a7bfbc</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2580()'><b>testC2580</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2580: Folder Actions Dropdown</td>
+<td></td>
+<td>284</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_HeaderTest.testC2623()'><b>testC2623</b><br>Test class: Cobb_HeaderTest<br>Test method: Cobb SL - Header - C2623: Header buttons</td>
+<td></td>
+<td>33</td>
+<td>Cobb_HeaderTest@5136d012</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2572()'><b>testC2572</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Static - RRP Overview - C2572:Site Specific Resource Static Page Overview</td>
+<td></td>
+<td>57</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5295()'><b>testLessonp_5295</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5295:Discover</td>
+<td></td>
+<td>108</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testC2599()'><b>testC2599</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Admin Manager - Content - C2599: Search</td>
+<td></td>
+<td>25</td>
+<td>Cobb_AdminManager_ContentTest@37858383</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2638()'><b>testC2638</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2638: Keyword search</td>
+<td></td>
+<td>36</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2604()'><b>testC2604</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2604: Edit District, Search in District</td>
+<td></td>
+<td>84</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5300()'><b>testLessonp_5300</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5300:Educator</td>
+<td></td>
+<td>20</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_CalendarTest.testC2640()'><b>testC2640</b><br>Test class: Cobb_CalendarTest<br>Test method: Cobb SL - Calendar - C2640: Buttons/Links</td>
+<td></td>
+<td>127</td>
+<td>Cobb_CalendarTest@524d6d96</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2591()'><b>testC2591</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2591: With LP Resources</td>
+<td></td>
+<td>92</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2609()'><b>testC2609</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2609: Manage School Admins Page: Add School Admins, Edit School Admin Remove School Admins</td>
+<td></td>
+<td>24</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testC2559()'><b>testC2559</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - Can View - C2559: Main Page</td>
+<td></td>
+<td>10</td>
+<td>Cobb_SharedWithMe_CanViewTest@44a7bfbc</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2574()'><b>testC2574</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Static - RRP Overview - C2574:Folder (HMH/McGraw) Static Overview</td>
+<td></td>
+<td>64</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testC2619()'><b>testC2619</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Browse Resource Directory -  Main Page - C2619: Thumbnails</td>
+<td></td>
+<td>39</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@306cf3ea</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testC2600()'><b>testC2600</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Admin Manager - Content - C2600: Sort By</td>
+<td></td>
+<td>60</td>
+<td>Cobb_AdminManager_ContentTest@37858383</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5291()'><b>testLessonp_5291</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5291:What educators and parents are saying: section</td>
+<td></td>
+<td>297</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2637()'><b>testC2637</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2637: Cards details - Collection</td>
+<td></td>
+<td>178</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testC2598()'><b>testC2598</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Admin Manager - Content - C2598: Main Page</td>
+<td></td>
+<td>45</td>
+<td>Cobb_AdminManager_ContentTest@37858383</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2633()'><b>testC2633</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2633: User clicks 'Open Folder' footer button</td>
+<td></td>
+<td>61</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2596()'><b>testC2596</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2596: With LP Resources & Folders & Uploaded Resources - do not include</td>
+<td></td>
+<td>232</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5296()'><b>testLessonp_5296</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5296:Collect</td>
+<td></td>
+<td>30</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testC2607()'><b>testC2607</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Admin Manager - Accounts - C2607: School Page: Add teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>44</td>
+<td>Cobb_AdminManager_AccountsTest@11c9af63</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testC2621()'><b>testC2621</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Browse Resource Directory - Main Page - C2621: Show All button</td>
+<td></td>
+<td>14</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@306cf3ea</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2631()'><b>testC2631</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2631: User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>93</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2581()'><b>testC2581</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2581:Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>51</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2590()'><b>testC2590</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2590:Drag folders into the CB</td>
+<td></td>
+<td>94</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2616()'><b>testC2616</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2616: Browse by Subject</td>
+<td></td>
+<td>41</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2592()'><b>testC2592</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2592: With LP Resources & Uploaded Resources - include</td>
+<td></td>
+<td>119</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2632()'><b>testC2632</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2632: User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>93</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2635()'><b>testC2635</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2635: Cards details - Folder: HMH/McGraw Hill</td>
+<td></td>
+<td>176</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2612()'><b>testC2612</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2612: RRP modal (Individual resources)</td>
+<td></td>
+<td>73</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5301()'><b>testLessonp_5301</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5301:School or District</td>
+<td></td>
+<td>24</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2583()'><b>testC2583</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2583:Create Folders (Lessons)</td>
+<td></td>
+<td>54</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2577()'><b>testC2577</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2577: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>93</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testC2622()'><b>testC2622</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Browse Resource Directory  - Main Page - C2622: Categories Modal</td>
+<td></td>
+<td>22</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@306cf3ea</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2634()'><b>testC2634</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2634: User clicks 'Folder Details' footer button</td>
+<td></td>
+<td>49</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2571()'><b>testC2571</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Static - RRP Overview - C2571:Collection Static Page Overview</td>
+<td></td>
+<td>66</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testC2620()'><b>testC2620</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Browse Resource Directory - Main Page - C2620: Links</td>
+<td></td>
+<td>153</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@306cf3ea</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testC2573()'><b>testC2573</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - RRP Search - RRP Static - RRP Overview -C2573:Proprietary Resource Static Page Overview</td>
+<td></td>
+<td>51</td>
+<td>Cobb_RrpSearchTest@52102734</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2636()'><b>testC2636</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2636: Cards details - LP resource</td>
+<td></td>
+<td>178</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2588()'><b>testC2588</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2588:Drilled in view & functionality</td>
+<td></td>
+<td>152</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2613()'><b>testC2613</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2613: RRP modal (Collections)</td>
+<td></td>
+<td>81</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5286()'><b>testLessonp_5286</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5286:Parent</td>
+<td></td>
+<td>29</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_HomepageTest.testLessonp_5290()'><b>testLessonp_5290</b><br>Test class: Cobb_HomepageTest<br>Test method: Cobb SL - Homepage - lessonp-5290:PD Learning Network section</td>
+<td></td>
+<td>16</td>
+<td>Cobb_HomepageTest@2177849e</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2575()'><b>testC2575</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2575: Access Curriculum Manager Page</td>
+<td></td>
+<td>16</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testC2601()'><b>testC2601</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Admin Manager - Content - C2601: Cards list</td>
+<td></td>
+<td>76</td>
+<td>Cobb_AdminManager_ContentTest@37858383</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2579()'><b>testC2579</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2579: Collection: Actions Dropdown</td>
+<td></td>
+<td>244</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2593()'><b>testC2593</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2593: With LP Resources & Uploaded Resources - do not include</td>
+<td></td>
+<td>127</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testC2630()'><b>testC2630</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search - C2630: User clicks 'See Collection' footer button</td>
+<td></td>
+<td>73</td>
+<td>Cobb_SearchTest@3541cb24</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testC2561()'><b>testC2561</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - Can View -  C2561: Drag-and-drop items </td>
+<td></td>
+<td>76</td>
+<td>Cobb_SharedWithMe_CanViewTest@44a7bfbc</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testC2597()'><b>testC2597</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Folder - C2597: Collection not published modal</td>
+<td></td>
+<td>103</td>
+<td>Cobb_PublishFolderTest@e1de817</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testC2584()'><b>testC2584</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - C2584:Create Folders (Assessment Sets)</td>
+<td></td>
+<td>56</td>
+<td>Cobb_CurriculumManagerTest@4e268090</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testC2617()'><b>testC2617</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Browse Resource Directory - Subjects - C2617: Related Topics</td>
+<td></td>
+<td>27</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@1bb266b3</td></tr>
+</table><p>
+</body>
+</html>

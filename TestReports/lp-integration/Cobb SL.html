@@ -1,0 +1,933 @@
+<html>
+<head>
+<title>TestNG:  Cobb SL</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;}
+.stack-trace { display: none;}
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Cobb SL</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>76/6/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 17 16:55:57 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>8337 seconds (8337557 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>cobb </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5903()'><b>testLessonp_5903</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5903: Resource Tiles</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 4124, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ede2fa63-3998-47d5-854e-54b96d16f4af
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at User_BrowseResourceDirectory_SubjectsTest.testResourceTiles(User_BrowseResourceDirectory_SubjectsTest.java:251)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testResourceTiles(RSL_BrowseResourceDirectory_SubjectsTest.java:88)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5903(Cobb_BrowseResourceDirectory_SubjectsTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1283403739", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1283403739'><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 4124, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ede2fa63-3998-47d5-854e-54b96d16f4af
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at User_BrowseResourceDirectory_SubjectsTest.testResourceTiles(User_BrowseResourceDirectory_SubjectsTest.java:251)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testResourceTiles(RSL_BrowseResourceDirectory_SubjectsTest.java:88)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5903(Cobb_BrowseResourceDirectory_SubjectsTest.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>411</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5904()'><b>testLessonp_5904</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5904: RRP modal (Individual resources)</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 15076, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 86550cb2-7752-4631-9b44-efe0f8cb85b6
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testRrpIndividualResource(RSL_BrowseResourceDirectory_SubjectsTest.java:110)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5904(Cobb_BrowseResourceDirectory_SubjectsTest.java:33)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace480291392", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace480291392'><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 15076, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 86550cb2-7752-4631-9b44-efe0f8cb85b6
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testRrpIndividualResource(RSL_BrowseResourceDirectory_SubjectsTest.java:110)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5904(Cobb_BrowseResourceDirectory_SubjectsTest.java:33)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>348</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5906()'><b>testLessonp_5906</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5906: RRP static (Individual resources)</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 31128, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 012fef87-7356-4fc0-b430-53ba78757e99
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testRrpIndividualResource(RSL_BrowseResourceDirectory_SubjectsTest.java:110)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5906(Cobb_BrowseResourceDirectory_SubjectsTest.java:45)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace564164959", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace564164959'><pre>org.openqa.selenium.TimeoutException: TimedPromise timed out after 300000 ms
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 31128, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 012fef87-7356-4fc0-b430-53ba78757e99
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:325)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTab(LpUiBasePage.java:514)
+	at com.lessonplanet.pages.LpUiBasePage.openInANewTabOrClick(LpUiBasePage.java:523)
+	at com.lessonplanet.pages.ResourcesPage.clickFirstButtonOfType(ResourcesPage.java:292)
+	at com.lessonplanet.pages.ResourcesPage.clickGoToResourceForRegularResource(ResourcesPage.java:255)
+	at RSL_BrowseResourceDirectory_SubjectsTest.testRrpIndividualResource(RSL_BrowseResourceDirectory_SubjectsTest.java:110)
+	at Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5906(Cobb_BrowseResourceDirectory_SubjectsTest.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>354</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5949()'><b>testLessonp_5949</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5949: Collection: Actions Dropdown</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: [class*=&apos;popuptext show&apos;]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 26412, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d0b4efad-75b1-4832-8153-9c7dc002e31f
+*** Element info: {Using=css selector, value=[class*=&apos;popuptext show&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:37)
+	at com.lessonplanet.pages.LpUiBasePage.getTextForElement(LpUiBasePage.java:215)
+	at com.lessonplanet.pages.CurriculumManagerPage.getPopoverText(CurriculumManagerPage.java:132)
+	at User_CurriculumManagerPageTest.testPlayFolderWithItems(User_CurriculumManagerPageTest.java:706)
+	at User_CurriculumManagerPageTest.testFolderActions(User_CurriculumManagerPageTest.java:634)
+	at Cobb_CurriculumManagerTest.testLessonp_5949(Cobb_CurriculumManagerTest.java:55)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace625907465", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace625907465'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: [class*=&apos;popuptext show&apos;]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 26412, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d0b4efad-75b1-4832-8153-9c7dc002e31f
+*** Element info: {Using=css selector, value=[class*=&apos;popuptext show&apos;]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor19.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:37)
+	at com.lessonplanet.pages.LpUiBasePage.getTextForElement(LpUiBasePage.java:215)
+	at com.lessonplanet.pages.CurriculumManagerPage.getPopoverText(CurriculumManagerPage.java:132)
+	at User_CurriculumManagerPageTest.testPlayFolderWithItems(User_CurriculumManagerPageTest.java:706)
+	at User_CurriculumManagerPageTest.testFolderActions(User_CurriculumManagerPageTest.java:634)
+	at Cobb_CurriculumManagerTest.testLessonp_5949(Cobb_CurriculumManagerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>134</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_5962()'><b>testLessonp_5962</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-5962: With LP Resources & Folders & Uploaded Resources - include</td>
+<td><div><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (e21727f0-695d-475e-a4f7-0c8924fd9235)] -&gt; css selector: [class^=&apos;rating-dropdown__indicators&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdown(LpUiBasePage.java:584)
+	at com.lessonplanet.pages.EditCollection.chooseRating(EditCollection.java:503)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:542)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:162)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testLessonp_5962(Cobb_PublishFolderTest.java:44)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace271099719", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace271099719'><pre>java.lang.Error:  Unable to click on webElement [[FirefoxDriver: firefox on WINDOWS (e21727f0-695d-475e-a4f7-0c8924fd9235)] -&gt; css selector: [class^=&apos;rating-dropdown__indicators&apos;]]
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:165)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.LpUiBasePage.selectFromDropdown(LpUiBasePage.java:584)
+	at com.lessonplanet.pages.EditCollection.chooseRating(EditCollection.java:503)
+	at com.lessonplanet.pages.EditCollection.completePublishCollectionRequirements(EditCollection.java:542)
+	at com.lessonplanet.pages.EditCollection.completeCollectionForPublish(EditCollection.java:534)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:162)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testLessonp_5962(Cobb_PublishFolderTest.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>93</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_6128()'><b>testLessonp_6128</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-6128: With LP Resources & Uploaded Resources - include</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: [class*=&apos;radio-row&apos;] div[class=&apos;pt15&apos;]:nth-child(2) input
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 10336, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7a1ee756-811e-48d0-9d9b-293e65712d58
+*** Element info: {Using=css selector, value=[class*=&apos;radio-row&apos;] div[class=&apos;pt15&apos;]:nth-child(2) input}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:37)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.ConfirmPublishUploadFileModal.clickOnIncludeFileOption(ConfirmPublishUploadFileModal.java:30)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:179)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testLessonp_6128(Cobb_PublishFolderTest.java:29)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace77173924", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace77173924'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: [class*=&apos;radio-row&apos;] div[class=&apos;pt15&apos;]:nth-child(2) input
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 10336, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7a1ee756-811e-48d0-9d9b-293e65712d58
+*** Element info: {Using=css selector, value=[class*=&apos;radio-row&apos;] div[class=&apos;pt15&apos;]:nth-child(2) input}
+	at jdk.internal.reflect.GeneratedConstructorAccessor19.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at com.lessonplanet.pages.LpUiBasePage.findElement(LpUiBasePage.java:37)
+	at com.lessonplanet.pages.LpUiBasePage.clickElement(LpUiBasePage.java:145)
+	at com.lessonplanet.pages.ConfirmPublishUploadFileModal.clickOnIncludeFileOption(ConfirmPublishUploadFileModal.java:30)
+	at User_PublishFolderTest.testPublishFolders(User_PublishFolderTest.java:179)
+	at User_PublishFolderTest.testAddResourcesToPublishCollection(User_PublishFolderTest.java:213)
+	at Cobb_PublishFolderTest.testLessonp_6128(Cobb_PublishFolderTest.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>92</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testLessonp_1692()'><b>testLessonp_1692</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Content Manager - lessonp-1692:Add/Edit/Remove Site Specific Resource</td>
+<td></td>
+<td>172</td>
+<td>Cobb_AdminManager_ContentTest@6150c3ec</td></tr>
+<tr>
+<td title='Cobb_CollectionBuilderTest.testLessonp_4948()'><b>testLessonp_4948</b><br>Test class: Cobb_CollectionBuilderTest<br>Test method: Cobb SL - Collection Builder - lessonp-4948: Collection Builder Buttons</td>
+<td></td>
+<td>130</td>
+<td>Cobb_CollectionBuilderTest@1573f9fc</td></tr>
+<tr>
+<td title='Cobb_CollectionBuilderTest.testLessonp_4949()'><b>testLessonp_4949</b><br>Test class: Cobb_CollectionBuilderTest<br>Test method: Cobb SL - Collection Builder - lessonp-4949: Collection Builder Items</td>
+<td></td>
+<td>133</td>
+<td>Cobb_CollectionBuilderTest@1573f9fc</td></tr>
+<tr>
+<td title='Cobb_HeaderTest.testLessonp_5383()'><b>testLessonp_5383</b><br>Test class: Cobb_HeaderTest<br>Test method: Cobb SL - Header - lessonp-5383: Search box</td>
+<td></td>
+<td>50</td>
+<td>Cobb_HeaderTest@2f4948e4</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5465()'><b>testLessonp_5465</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5465:District Page</td>
+<td></td>
+<td>63</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5466()'><b>testLessonp_5466</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5466:Edit District, Search in District</td>
+<td></td>
+<td>133</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5467()'><b>testLessonp_5467</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager -  lessonp-5467:Manage District Admins Page: Add District Admins, Edit District Admin, Remove District Admins</td>
+<td></td>
+<td>225</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5468()'><b>testLessonp_5468</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5468:School Page: Add teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>61</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5469()'><b>testLessonp_5469</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5469:Edit School, Search in school</td>
+<td></td>
+<td>98</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5470()'><b>testLessonp_5470</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5470:Manage School Admins Page: Add School Admins, Edit School Admin Remove School Admins</td>
+<td></td>
+<td>23</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_CalendarTest.testLessonp_5514()'><b>testLessonp_5514</b><br>Test class: Cobb_CalendarTest<br>Test method: Cobb SL - Calendar page - lessonp-5514:Buttons/Links</td>
+<td></td>
+<td>119</td>
+<td>Cobb_CalendarTest@815b41f</td></tr>
+<tr>
+<td title='Cobb_HeaderTest.testLessonp_5894()'><b>testLessonp_5894</b><br>Test class: Cobb_HeaderTest<br>Test method: Cobb SL - Header - lessonp-5894: Header buttons</td>
+<td></td>
+<td>24</td>
+<td>Cobb_HeaderTest@2f4948e4</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testLessonp_5897()'><b>testLessonp_5897</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Collection - lessonp-5897: Edit Collection Modal Appearance</td>
+<td></td>
+<td>31</td>
+<td>Cobb_EditFolderTest@6a78afa0</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testLessonp_5898()'><b>testLessonp_5898</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Collection - lessonp-5898: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>67</td>
+<td>Cobb_EditFolderTest@6a78afa0</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testLessonp_5899()'><b>testLessonp_5899</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Collection - lessonp-5899: Publish. Republish</td>
+<td></td>
+<td>169</td>
+<td>Cobb_EditFolderTest@6a78afa0</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testLessonp_5900()'><b>testLessonp_5900</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Collection - lessonp-5900: Edit Collection Buttons</td>
+<td></td>
+<td>139</td>
+<td>Cobb_EditFolderTest@6a78afa0</td></tr>
+<tr>
+<td title='Cobb_EditFolderTest.testLessonp_5901()'><b>testLessonp_5901</b><br>Test class: Cobb_EditFolderTest<br>Test method: Cobb SL - Edit Collection - lessonp-5901: Item Options</td>
+<td></td>
+<td>44</td>
+<td>Cobb_EditFolderTest@6a78afa0</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5902()'><b>testLessonp_5902</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5902: Page UI</td>
+<td></td>
+<td>39</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5905()'><b>testLessonp_5905</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5905: RRP modal (Collections)</td>
+<td></td>
+<td>65</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5907()'><b>testLessonp_5907</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5907: RRP static (Collections)</td>
+<td></td>
+<td>58</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5908()'><b>testLessonp_5908</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5908: Browse by Subject</td>
+<td></td>
+<td>28</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_SubjectsTest.testLessonp_5909()'><b>testLessonp_5909</b><br>Test class: Cobb_BrowseResourceDirectory_SubjectsTest<br>Test method: Cobb SL - Directory Page - Categories and subcategories - lessonp-5909: Related Topics</td>
+<td></td>
+<td>18</td>
+<td>Cobb_BrowseResourceDirectory_SubjectsTest@7e6f74c</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testLessonp_5910()'><b>testLessonp_5910</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Directory Main Page - lessonp-5910: Page UI</td>
+<td></td>
+<td>45</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@dd05255</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testLessonp_5911()'><b>testLessonp_5911</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Directory Main Page - lessonp-5911: Thumbnails</td>
+<td></td>
+<td>37</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@dd05255</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testLessonp_5912()'><b>testLessonp_5912</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Directory Main Page - lessonp-5912: Links</td>
+<td></td>
+<td>250</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@dd05255</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testLessonp_5913()'><b>testLessonp_5913</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Directory Main Page - lessonp-5913: Show All button</td>
+<td></td>
+<td>11</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@dd05255</td></tr>
+<tr>
+<td title='Cobb_BrowseResourceDirectory_MainPageTest.testLessonp_5914()'><b>testLessonp_5914</b><br>Test class: Cobb_BrowseResourceDirectory_MainPageTest<br>Test method: Cobb SL - Directory  Main Page - lessonp-5914: Categories Modal</td>
+<td></td>
+<td>19</td>
+<td>Cobb_BrowseResourceDirectory_MainPageTest@dd05255</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5916()'><b>testLessonp_5916</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-5916: Cards details - LP resource</td>
+<td></td>
+<td>164</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5917()'><b>testLessonp_5917</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-5917: Cards details - Collection</td>
+<td></td>
+<td>166</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5918()'><b>testLessonp_5918</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-5918: User clicks 'See Collection' footer button</td>
+<td></td>
+<td>50</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5919()'><b>testLessonp_5919</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page -  lessonp-5919: User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>74</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5920()'><b>testLessonp_5920</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page -  lessonp-5920: User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>67</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5940()'><b>testLessonp_5940</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page -  lessonp-5940: User clicks 'Open Folder' footer button</td>
+<td></td>
+<td>63</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5941()'><b>testLessonp_5941</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page -  lessonp-5941: User clicks 'Folder Details' footer button</td>
+<td></td>
+<td>40</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5944()'><b>testLessonp_5944</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-5944: Cards details - Folder: HMH/McGraw Hill</td>
+<td></td>
+<td>170</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5945()'><b>testLessonp_5945</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5945: Access Curriculum Manager Page</td>
+<td></td>
+<td>18</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5946()'><b>testLessonp_5946</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5946: Create Collections</td>
+<td></td>
+<td>61</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5947()'><b>testLessonp_5947</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5947: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>83</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5948()'><b>testLessonp_5948</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5948: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>65</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5950()'><b>testLessonp_5950</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5950: Folder Actions Dropdown</td>
+<td></td>
+<td>245</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5951()'><b>testLessonp_5951</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5951:Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>55</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5952()'><b>testLessonp_5952</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5952:Create Folders (Chapters)</td>
+<td></td>
+<td>63</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5953()'><b>testLessonp_5953</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5953:Create Folders (Lessons)</td>
+<td></td>
+<td>55</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5954()'><b>testLessonp_5954</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5954:Create Folders (Assessment Sets)</td>
+<td></td>
+<td>60</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5955()'><b>testLessonp_5955</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5955:Create Folders (Unit Modules)</td>
+<td></td>
+<td>56</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5956()'><b>testLessonp_5956</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5956:Create Folders (Course Folders)</td>
+<td></td>
+<td>54</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5957()'><b>testLessonp_5957</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5957:Create Folders (Root Folders)</td>
+<td></td>
+<td>51</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_5958()'><b>testLessonp_5958</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-5958: With LP Resources</td>
+<td></td>
+<td>83</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_5961()'><b>testLessonp_5961</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-5961: With LP Resources & Folders</td>
+<td></td>
+<td>115</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_AdminManager_AccountsTest.testLessonp_5963()'><b>testLessonp_5963</b><br>Test class: Cobb_AdminManager_AccountsTest<br>Test method: Cobb SL - Account Manager - lessonp-5963: Manage District Page</td>
+<td></td>
+<td>60</td>
+<td>Cobb_AdminManager_AccountsTest@3b69e7d1</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5996()'><b>testLessonp_5996</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5996:Dragging folders into another folder</td>
+<td></td>
+<td>56</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5997()'><b>testLessonp_5997</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5997:Drilled in view & functionality</td>
+<td></td>
+<td>132</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_CurriculumManagerTest.testLessonp_5998()'><b>testLessonp_5998</b><br>Test class: Cobb_CurriculumManagerTest<br>Test method: Cobb SL - Curriculum Manager - lessonp-5998:Drag folders into the CB</td>
+<td></td>
+<td>88</td>
+<td>Cobb_CurriculumManagerTest@44c03695</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_5999()'><b>testLessonp_5999</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-5999: Keyword search</td>
+<td></td>
+<td>24</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_SearchTest.testLessonp_6000()'><b>testLessonp_6000</b><br>Test class: Cobb_SearchTest<br>Test method: Cobb SL - Search Page - lessonp-6000: Keywordless search</td>
+<td></td>
+<td>32</td>
+<td>Cobb_SearchTest@3fc2959f</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testLessonp_6003()'><b>testLessonp_6003</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Content Manager - lessonp-6003: Main Page</td>
+<td></td>
+<td>66</td>
+<td>Cobb_AdminManager_ContentTest@6150c3ec</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testLessonp_6004()'><b>testLessonp_6004</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Content Manager - lessonp-6004: Cards list</td>
+<td></td>
+<td>84</td>
+<td>Cobb_AdminManager_ContentTest@6150c3ec</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testLessonp_6005()'><b>testLessonp_6005</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Content Manager - lessonp-6005: Search</td>
+<td></td>
+<td>29</td>
+<td>Cobb_AdminManager_ContentTest@6150c3ec</td></tr>
+<tr>
+<td title='Cobb_AdminManager_ContentTest.testLessonp_6006()'><b>testLessonp_6006</b><br>Test class: Cobb_AdminManager_ContentTest<br>Test method: Cobb SL - Content Manager - lessonp-6006: Sort By</td>
+<td></td>
+<td>76</td>
+<td>Cobb_AdminManager_ContentTest@6150c3ec</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_6130()'><b>testLessonp_6130</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-6130: Collection not published modal</td>
+<td></td>
+<td>86</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_6131()'><b>testLessonp_6131</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-6131: With LP Resources & Uploaded Resources - do not include</td>
+<td></td>
+<td>111</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_PublishFolderTest.testLessonp_6132()'><b>testLessonp_6132</b><br>Test class: Cobb_PublishFolderTest<br>Test method: Cobb SL - Publish Collection - lessonp-6132: With LP Resources & Folders & Uploaded Resources - do not include</td>
+<td></td>
+<td>155</td>
+<td>Cobb_PublishFolderTest@1f2586d6</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testLessonp_6160()'><b>testLessonp_6160</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - lessonp-6160: Main Page</td>
+<td></td>
+<td>10</td>
+<td>Cobb_SharedWithMe_CanViewTest@5542c4ed</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testLessonp_6161()'><b>testLessonp_6161</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - lessonp-6161: Share a folder - Can View Permission</td>
+<td></td>
+<td>112</td>
+<td>Cobb_SharedWithMe_CanViewTest@5542c4ed</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testLessonp_6162()'><b>testLessonp_6162</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - lessonp-6162: Drag-and-drop items - Can View Permission</td>
+<td></td>
+<td>58</td>
+<td>Cobb_SharedWithMe_CanViewTest@5542c4ed</td></tr>
+<tr>
+<td title='Cobb_SharedWithMe_CanViewTest.testLessonp_6163()'><b>testLessonp_6163</b><br>Test class: Cobb_SharedWithMe_CanViewTest<br>Test method: Cobb SL - Shared With Me - lessonp-6163: Verify shared folder - Can View Permission</td>
+<td></td>
+<td>64</td>
+<td>Cobb_SharedWithMe_CanViewTest@5542c4ed</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5445()'><b>testlessonp_5445</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Modal - RRP Overview - lessonp-5445:LP Resource Modal Overview</td>
+<td></td>
+<td>55</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5446()'><b>testlessonp_5446</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Modal - RRP Overview - lessonp-5446:Site Specific Resource Modal Overview</td>
+<td></td>
+<td>44</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5447()'><b>testlessonp_5447</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Modal - RRP Overview - lessonp-5447:Proprietary Resource Modal Overview</td>
+<td></td>
+<td>43</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5448()'><b>testlessonp_5448</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Modal - RRP Overview - lessonp-5448:Collection Modal Overview</td>
+<td></td>
+<td>50</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5454()'><b>testlessonp_5454</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Static - RRP Overview - lessonp-5454:LP Resource Static Page Overview</td>
+<td></td>
+<td>49</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5455()'><b>testlessonp_5455</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Static - RRP Overview - lessonp-5455:Site Specific Resource Static Page Overview</td>
+<td></td>
+<td>51</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5456()'><b>testlessonp_5456</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Static - RRP Overview - lessonp-5456:Proprietary Resource Static Page Overview</td>
+<td></td>
+<td>43</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5457()'><b>testlessonp_5457</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Static - RRP Overview - lessonp-5457:Collection Static Page Overview</td>
+<td></td>
+<td>51</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5942()'><b>testlessonp_5942</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Modal - RRP Overview - lessonp-5942:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>48</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+<tr>
+<td title='Cobb_RrpSearchTest.testlessonp_5943()'><b>testlessonp_5943</b><br>Test class: Cobb_RrpSearchTest<br>Test method: Cobb SL - Search Page - RRP Static - RRP Overview - lessonp-5943:Folder (HMH/McGraw) Static Overview</td>
+<td></td>
+<td>50</td>
+<td>Cobb_RrpSearchTest@10683d9d</td></tr>
+</table><p>
+</body>
+</html>

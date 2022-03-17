@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Active Users]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="listeners.CustomReports"/>
+    <listener class-name="listeners.TestNGListeners"/>
+  </listeners>
+  <test thread-count="5" name="Active User Tests(failed)">
+    <groups>
+      <run>
+        <include name="activeUser"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="User_BrowseResourceDirectory_MainPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
+          <include name="testC2298"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- User_BrowseResourceDirectory_MainPageTest -->
+      <class name="User_PublishFolderTest">
+        <methods>
+          <include name="testC2216"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="testC2210"/>
+          <include name="beforeMethod"/>
+          <include name="init"/>
+          <include name="testC2219"/>
+        </methods>
+      </class> <!-- User_PublishFolderTest -->
+      <class name="User_CurriculumManagerPageTest">
+        <methods>
+          <include name="testC2239"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- User_CurriculumManagerPageTest -->
+      <class name="User_CollectionPlayerTest">
+        <methods>
+          <include name="testC2311"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="testC2313"/>
+          <include name="init"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- User_CollectionPlayerTest -->
+    </classes>
+  </test> <!-- Active User Tests(failed) -->
+</suite> <!-- Failed suite [Active Users] -->

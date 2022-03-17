@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>TestNG:  Account Management Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;}
+.stack-trace { display: none;}
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Account Management Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>24/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 17 15:56:03 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1611 seconds (1611718 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>accountManagement </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testLessonp_3849()'><b>testLessonp_3849</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Active user - Sign Up/Create a Starter account - lessonp-3849:Create a Starter Account - Try it Free button</td>
+<td></td>
+<td>36</td>
+<td>User_AccountManagement_CreateActiveAccountTest@397fbdb</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testLessonp_3851()'><b>testLessonp_3851</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Active user - Sign Up/Create a Starter account - lessonp-3851:Create a Pro Account - Try it Free button</td>
+<td></td>
+<td>33</td>
+<td>User_AccountManagement_CreateActiveAccountTest@397fbdb</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testLessonp_3883()'><b>testLessonp_3883</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Active user - Sign Up/Create a Starter account - lessonp-3883:Create a Pro Account - Pricing button
+</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_CreateActiveAccountTest@397fbdb</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_3884()'><b>testLessonp_3884</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Free Member - lessonp-3884: Free member clicks any of the <Upgrade Me> or <Get Full Access> buttons</td>
+<td></td>
+<td>182</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_LoginTest.testLessonp_5033()'><b>testLessonp_5033</b><br>Test class: User_AccountManagement_LoginTest<br>Test method: Free member - Login In/Sign in - lessonp-5033: Sing in button and functionality</td>
+<td></td>
+<td>22</td>
+<td>User_AccountManagement_LoginTest@33d512c1</td></tr>
+<tr>
+<td title='User_AccountManagement_LoginTest.testLessonp_5034()'><b>testLessonp_5034</b><br>Test class: User_AccountManagement_LoginTest<br>Test method: Active user - Login In/Sign in - lessonp-5034: Sign in button and functionality</td>
+<td></td>
+<td>24</td>
+<td>User_AccountManagement_LoginTest@33d512c1</td></tr>
+<tr>
+<td title='User_AccountManagement_StepTwoTest.testLessonp_5252()'><b>testLessonp_5252</b><br>Test class: User_AccountManagement_StepTwoTest<br>Test method: Step 2 - lessonp-5252:Step2 Modal - User supplies invalid/valid form data</td>
+<td></td>
+<td>41</td>
+<td>User_AccountManagement_StepTwoTest@3590fc5b</td></tr>
+<tr>
+<td title='User_AccountManagement_StepTwoTest.testLessonp_5253()'><b>testLessonp_5253</b><br>Test class: User_AccountManagement_StepTwoTest<br>Test method: Step 2 - lessonp-5253:Step2 Static - User supplies invalid/valid form data</td>
+<td></td>
+<td>41</td>
+<td>User_AccountManagement_StepTwoTest@3590fc5b</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_673()'><b>testLessonp_673</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Pro membership - lessonp-673: No upgrade possible (Pro $72)</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_675()'><b>testLessonp_675</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Starter membership - lessonp-675: From Search page</td>
+<td></td>
+<td>37</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_676()'><b>testLessonp_676</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Starter membership - lessonp-676: From My Account page</td>
+<td></td>
+<td>33</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_678()'><b>testLessonp_678</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Starter membership - lessonp-678: From Search page</td>
+<td></td>
+<td>58</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_679()'><b>testLessonp_679</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Starter membership - lessonp-679: From My Account page</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_682()'><b>testLessonp_682</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Downgrade - lessonp-682: From Freemium membership</td>
+<td></td>
+<td>30</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_684()'><b>testLessonp_684</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Free Member - lessonp-684: Free members exceeds the allowed number of collections created</td>
+<td></td>
+<td>75</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_686()'><b>testLessonp_686</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Free Member - lessonp-686: From uploading a file from Collection Builder, Edit Collection Modal and Curriculum Manager</td>
+<td></td>
+<td>46</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_687()'><b>testLessonp_687</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Free Member - lessonp-687: From <Get Free Access> button on a resource card</td>
+<td></td>
+<td>51</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_688()'><b>testLessonp_688</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Upgrade a Free Member - lessonp-688: From <Upgrade for Full Review> button on the RRP</td>
+<td></td>
+<td>47</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_690()'><b>testLessonp_690</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: AAccount management - Upgrade a Free Member - lessonp-690: Free member tries to assign a favorite resource and a collection</td>
+<td></td>
+<td>184</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_692()'><b>testLessonp_692</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - lessonp-692: Through the 'Become a Lesson Planet Free Member' modal</td>
+<td></td>
+<td>47</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_693()'><b>testLessonp_693</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - lessonp-693: Quitting Step 2 registration process</td>
+<td></td>
+<td>20</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_694()'><b>testLessonp_694</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - lessonp-694: After membership is canceled</td>
+<td></td>
+<td>43</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_717()'><b>testLessonp_717</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - lessonp-717: Try It Free button</td>
+<td></td>
+<td>10</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testLessonp_948()'><b>testLessonp_948</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Downgrade - lessonp-948: From Pro membership</td>
+<td></td>
+<td>75</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@515c6049</td></tr>
+</table><p>
+</body>
+</html>

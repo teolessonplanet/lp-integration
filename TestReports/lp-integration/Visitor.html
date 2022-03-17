@@ -1,0 +1,606 @@
+<html>
+<head>
+<title>TestNG:  Visitor</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;}
+.stack-trace { display: none;}
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Visitor</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>71/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 17 15:56:33 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>5544 seconds (5544339 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>visitor </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_CalendarTest.tearDown()'><b>tearDown</b><br>Test class: User_CalendarTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 27488, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 640495ec-17cb-41d8-8099-f64645ff2db1
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:658)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:497)
+	at BaseTest.tearDown(BaseTest.java:51)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1579356102", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1579356102'><pre>org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 27488, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 640495ec-17cb-41d8-8099-f64645ff2db1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:658)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:497)
+	at BaseTest.tearDown(BaseTest.java:51)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:63)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:348)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:302)
+	at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:695)
+	at org.testng.internal.TestInvoker.runAfterGroupsConfigurations(TestInvoker.java:671)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:655)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>0</td>
+<td>User_CalendarTest@2e222612</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_CalendarTest.testLessonp_4196()'><b>testLessonp_4196</b><br>Test class: User_CalendarTest<br>Test method: Visitor - Calendar Page - lessonp-4196:Buttons/Links</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 27488, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 640495ec-17cb-41d8-8099-f64645ff2db1
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:537)
+	at com.lessonplanet.pages.LpUiBasePage$2.apply(LpUiBasePage.java:298)
+	at com.lessonplanet.pages.LpUiBasePage$2.apply(LpUiBasePage.java:295)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilDocumentIsReady(LpUiBasePage.java:295)
+	at com.lessonplanet.pages.LpUiBasePage.waitForPageLoad(LpUiBasePage.java:290)
+	at User_CalendarTest.testMonthPage(User_CalendarTest.java:76)
+	at User_CalendarTest.testCurriculumCalendarPage(User_CalendarTest.java:50)
+	at User_CalendarTest.testLessonp_4196(User_CalendarTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1976503781", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1976503781'><pre>org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;SVROLP01518&apos;, ip: &apos;10.97.2.250&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.3&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 97.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20220202182137, moz:geckodriverVersion: 0.30.0, moz:headless: true, moz:processID: 27488, moz:profile: C:\Users\teodora.vermesan\A..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 640495ec-17cb-41d8-8099-f64645ff2db1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:537)
+	at com.lessonplanet.pages.LpUiBasePage$2.apply(LpUiBasePage.java:298)
+	at com.lessonplanet.pages.LpUiBasePage$2.apply(LpUiBasePage.java:295)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	at com.lessonplanet.pages.LpUiBasePage.waitUntilDocumentIsReady(LpUiBasePage.java:295)
+	at com.lessonplanet.pages.LpUiBasePage.waitForPageLoad(LpUiBasePage.java:290)
+	at User_CalendarTest.testMonthPage(User_CalendarTest.java:76)
+	at User_CalendarTest.testCurriculumCalendarPage(User_CalendarTest.java:50)
+	at User_CalendarTest.testLessonp_4196(User_CalendarTest.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>32</td>
+<td>User_CalendarTest@2e222612</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testLessonp_1015()'><b>testLessonp_1015</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Visitor - Directory Page - Main Page - lessonp-1015: Page UI</td>
+<td></td>
+<td>76</td>
+<td>User_BrowseResourceDirectory_MainPageTest@7671cb68</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_MainPageTest.testLessonp_1018()'><b>testLessonp_1018</b><br>Test class: User_BrowseResourceDirectory_MainPageTest<br>Test method: Visitor - Directory Page - Main Page - lessonp-1018: Categories modal</td>
+<td></td>
+<td>26</td>
+<td>User_BrowseResourceDirectory_MainPageTest@7671cb68</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1020()'><b>testLessonp_1020</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1020: Page UI</td>
+<td></td>
+<td>39</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1022()'><b>testLessonp_1022</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1022: Resource Tiles</td>
+<td></td>
+<td>40</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1023()'><b>testLessonp_1023</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1023: Browse by Subject</td>
+<td></td>
+<td>39</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1024()'><b>testLessonp_1024</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1024: Start your 10 day free trial</td>
+<td></td>
+<td>20</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1025()'><b>testLessonp_1025</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1025: Related Topics</td>
+<td></td>
+<td>23</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_BrowseResourceDirectory_SubjectsTest.testLessonp_1026()'><b>testLessonp_1026</b><br>Test class: User_BrowseResourceDirectory_SubjectsTest<br>Test method: Visitor - Directory Page - Categories and subcategories - lessonp-1026: What members say</td>
+<td></td>
+<td>57</td>
+<td>User_BrowseResourceDirectory_SubjectsTest@49dc7102</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_1254()'><b>testLessonp_1254</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-1254: Shared Resource Main buttons</td>
+<td></td>
+<td>70</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_1282()'><b>testLessonp_1282</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Overview - lessonp-1282: Shared Resource Modal Overview</td>
+<td></td>
+<td>44</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_CurriculumManagerPageTest.testLessonp_3258()'><b>testLessonp_3258</b><br>Test class: User_CurriculumManagerPageTest<br>Test method: Visitor - Curriculum Manager - lessonp-3258: Access Curriculum Manager Page</td>
+<td></td>
+<td>21</td>
+<td>User_CurriculumManagerPageTest@73ee04c8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_3284()'><b>testLessonp_3284</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3284: Resource Modal Overview</td>
+<td></td>
+<td>23</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_3285()'><b>testLessonp_3285</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Modal - RRP Overview: lessonp-3285: Collection Modal Overview</td>
+<td></td>
+<td>35</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_3308()'><b>testLessonp_3308</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Static - RRP Overview: lessonp-3308: Resource Static Page Overview)</td>
+<td></td>
+<td>30</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_3309()'><b>testLessonp_3309</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page  - RRP Static - RRP Overview: lessonp-3309: Collection Static Page Overview</td>
+<td></td>
+<td>36</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_ArticlesTest.testLessonp_3331()'><b>testLessonp_3331</b><br>Test class: User_ArticlesTest<br>Test method: Visitor - Lesson Planet Articles - lessonp-3331: Articles Main Page</td>
+<td></td>
+<td>130</td>
+<td>User_ArticlesTest@3246fb96</td></tr>
+<tr>
+<td title='User_ArticlesTest.testLessonp_3398()'><b>testLessonp_3398</b><br>Test class: User_ArticlesTest<br>Test method: Visitor - Lesson Planet Articles -  lessonp-3398: Article Page</td>
+<td></td>
+<td>27</td>
+<td>User_ArticlesTest@3246fb96</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_3956()'><b>testLessonp_3956</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-3956: Cards details - LP resource</td>
+<td></td>
+<td>185</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_3957()'><b>testLessonp_3957</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-3957: Cards details - Collection</td>
+<td></td>
+<td>178</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_3958()'><b>testLessonp_3958</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-3958: Cards details - Shared resource</td>
+<td></td>
+<td>152</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_HeaderTest.testLessonp_4004()'><b>testLessonp_4004</b><br>Test class: User_HeaderTest<br>Test method: Visitor - Header - lessonp-4004: Search box (keyword functionality)</td>
+<td></td>
+<td>43</td>
+<td>User_HeaderTest@6b8ca3c8</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_4033()'><b>testLessonp_4033</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-4033: Bottom footer links</td>
+<td></td>
+<td>21</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_4034()'><b>testLessonp_4034</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-4034: Social links</td>
+<td></td>
+<td>20</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_4035()'><b>testLessonp_4035</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-4035: LP logo</td>
+<td></td>
+<td>10</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_4036()'><b>testLessonp_4036</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-4036: Newsletter</td>
+<td></td>
+<td>16</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_CollectionBuilderTest.testLessonp_431()'><b>testLessonp_431</b><br>Test class: User_CollectionBuilderTest<br>Test method: Visitor: Collection Builder - lessonp-431: Collection Builder Buttons</td>
+<td></td>
+<td>34</td>
+<td>User_CollectionBuilderTest@61386958</td></tr>
+<tr>
+<td title='User_CollectionBuilderTest.testLessonp_4378()'><b>testLessonp_4378</b><br>Test class: User_CollectionBuilderTest<br>Test method: Visitor: Collection Builder - lessonp-4378: Collection Builder Items</td>
+<td></td>
+<td>84</td>
+<td>User_CollectionBuilderTest@61386958</td></tr>
+<tr>
+<td title='User_HeaderTest.testLessonp_4565()'><b>testLessonp_4565</b><br>Test class: User_HeaderTest<br>Test method: Visitor - Header - lessonp-4565: Header buttons</td>
+<td></td>
+<td>79</td>
+<td>User_HeaderTest@6b8ca3c8</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_4603()'><b>testLessonp_4603</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4603: LP Resource Main buttons</td>
+<td></td>
+<td>82</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_4608()'><b>testLessonp_4608</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4608: Shared Resource Main Buttons</td>
+<td></td>
+<td>105</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_4609()'><b>testLessonp_4609</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static - RRP Buttons - lessonp-4609: Collection Main buttons</td>
+<td></td>
+<td>129</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_4610()'><b>testLessonp_4610</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4610: LP Resource Main Buttons</td>
+<td></td>
+<td>66</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_4611()'><b>testLessonp_4611</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Modal - RRP Buttons - lessonp-4611: Collection Main Buttons</td>
+<td></td>
+<td>67</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_4612()'><b>testLessonp_4612</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method:  Visitor - Directory Page - RRP Modal - RRP Buttons: lessonp-4612: LP Resource Main Buttons</td>
+<td></td>
+<td>43</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpBrowseResourceDirectoryTest.testLessonp_4613()'><b>testLessonp_4613</b><br>Test class: User_RrpBrowseResourceDirectoryTest<br>Test method: Visitor - Directory Page - RRP Static - RRP Buttons - lessonp-4613: Collection Main Buttons</td>
+<td></td>
+<td>56</td>
+<td>User_RrpBrowseResourceDirectoryTest@65f095f8</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_467()'><b>testLessonp_467</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Overview - lessonp-467: Resource Modal Overview</td>
+<td></td>
+<td>39</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_468()'><b>testLessonp_468</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Overview - lessonp-468: Collection Modal Overview</td>
+<td></td>
+<td>62</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_469()'><b>testLessonp_469</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-469: LP Resource Main buttons</td>
+<td></td>
+<td>60</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_473()'><b>testLessonp_473</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Modal - RRP Buttons - lessonp-473: Collection Main buttons</td>
+<td></td>
+<td>142</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_4747()'><b>testLessonp_4747</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-4747: User clicks result card</td>
+<td></td>
+<td>124</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_475()'><b>testLessonp_475</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static - RRP Overview - lessonp-475: Resource Static Page Overview</td>
+<td></td>
+<td>39</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_476()'><b>testLessonp_476</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static  - RRP Overview - lessonp-476: Collection Static Page Overview</td>
+<td></td>
+<td>63</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_487()'><b>testLessonp_487</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-487: Cards layout</td>
+<td></td>
+<td>37</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_490()'><b>testLessonp_490</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-490: User clicks 'Get Free Access' footer button</td>
+<td></td>
+<td>54</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_491()'><b>testLessonp_491</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-491: User clicks 'See Review' footer button (LP resource)</td>
+<td></td>
+<td>58</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_492()'><b>testLessonp_492</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-492: User clicks 'See Collection' footer button (Collection)</td>
+<td></td>
+<td>62</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_493()'><b>testLessonp_493</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-493: Keywordless search</td>
+<td></td>
+<td>25</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_494()'><b>testLessonp_494</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-494: Keyword search</td>
+<td></td>
+<td>28</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5286()'><b>testLessonp_5286</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5286:Parent</td>
+<td></td>
+<td>29</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5288()'><b>testLessonp_5288</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5288:Educator Edition section</td>
+<td></td>
+<td>40</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5289()'><b>testLessonp_5289</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5289:Learning Explorer section</td>
+<td></td>
+<td>46</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5290()'><b>testLessonp_5290</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5290:PD Learning Network section</td>
+<td></td>
+<td>23</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5291()'><b>testLessonp_5291</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5291:What educators and parents are saying: section</td>
+<td></td>
+<td>297</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5292()'><b>testLessonp_5292</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5292:Discover.Create.Inspire section</td>
+<td></td>
+<td>30</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5295()'><b>testLessonp_5295</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5295:Discover</td>
+<td></td>
+<td>33</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5296()'><b>testLessonp_5296</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5296:Collect</td>
+<td></td>
+<td>22</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5297()'><b>testLessonp_5297</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5297:Design</td>
+<td></td>
+<td>17</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5298()'><b>testLessonp_5298</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5298:Deliver</td>
+<td></td>
+<td>18</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5300()'><b>testLessonp_5300</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5300:Educator</td>
+<td></td>
+<td>9</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5301()'><b>testLessonp_5301</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5301:School or District</td>
+<td></td>
+<td>8</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5302()'><b>testLessonp_5302</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5302:Explore our solutions</td>
+<td></td>
+<td>10</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5318()'><b>testLessonp_5318</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5318:What educators and parents are saying: section</td>
+<td></td>
+<td>283</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5319()'><b>testLessonp_5319</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5319:Discover.Create.Inspire section</td>
+<td></td>
+<td>28</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_HomepageTest.testLessonp_5334()'><b>testLessonp_5334</b><br>Test class: User_HomepageTest<br>Test method: Visitor - Homepage - lessonp-5334:What educators and parents are saying: section</td>
+<td></td>
+<td>278</td>
+<td>User_HomepageTest@10959ece</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_656()'><b>testLessonp_656</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-656: Footer structure</td>
+<td></td>
+<td>8</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_658()'><b>testLessonp_658</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-658: Manage Curriculum</td>
+<td></td>
+<td>34</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_659()'><b>testLessonp_659</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-659: Open Educational Resources</td>
+<td></td>
+<td>56</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_FooterTest.testLessonp_660()'><b>testLessonp_660</b><br>Test class: User_FooterTest<br>Test method: Visitor - Footer - lessonp-660: Discover Resources</td>
+<td></td>
+<td>37</td>
+<td>User_FooterTest@68c72235</td></tr>
+<tr>
+<td title='User_RrpSearchTest.testLessonp_944()'><b>testLessonp_944</b><br>Test class: User_RrpSearchTest<br>Test method: Visitor - Search Page - RRP Static  - RRP Overview - lessonp-944: Shared Resource Static Page Overview</td>
+<td></td>
+<td>51</td>
+<td>User_RrpSearchTest@34f7cfd9</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_996()'><b>testLessonp_996</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-996: User clicks 'See Preview' footer button (Shared resource)</td>
+<td></td>
+<td>70</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+<tr>
+<td title='User_SearchTest.testLessonp_997()'><b>testLessonp_997</b><br>Test class: User_SearchTest<br>Test method: Visitor - Search Page - lessonp-997: User clicks 'Go to Resource' footer button (Shared resource)</td>
+<td></td>
+<td>55</td>
+<td>User_SearchTest@3a6bb9bf</td></tr>
+</table><p>
+</body>
+</html>

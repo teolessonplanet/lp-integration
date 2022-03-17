@@ -1,0 +1,764 @@
+<html>
+<head>
+<title>TestNG:  Custom SL Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Custom SL Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>117/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 15 15:36:37 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>11341 seconds (11341822 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>csl </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2541()'><b>testC2541</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2541: Ability to Publish</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at CSL_AdminManager_AccountsSsoOnTest.testOwnerPublisherRole(CSL_AdminManager_AccountsSsoOnTest.java:193)
+	at CSL_AdminManager_AccountsSsoOnTest.testC2541(CSL_AdminManager_AccountsSsoOnTest.java:135)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2043540180", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2043540180'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at CSL_AdminManager_AccountsSsoOnTest.testOwnerPublisherRole(CSL_AdminManager_AccountsSsoOnTest.java:193)
+	at CSL_AdminManager_AccountsSsoOnTest.testC2541(CSL_AdminManager_AccountsSsoOnTest.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>62</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testC2549()'><b>testC2549</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Admin Manager - Content - C2549: Add/Edit/Remove Site Specific Resource</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:150)
+	at CSL_AdminManager_ContentTest.testC2549(CSL_AdminManager_ContentTest.java:59)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace147995864", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace147995864'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at CSL_AdminManager_ContentTest.testAddEditRemoveSiteSpecificResource(CSL_AdminManager_ContentTest.java:150)
+	at CSL_AdminManager_ContentTest.testC2549(CSL_AdminManager_ContentTest.java:59)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
+</pre></div></td>
+<td>84</td>
+<td>CSL_AdminManager_ContentTest@e7edb54</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5295()'><b>testLessonp_5295</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5295:Discover</td>
+<td></td>
+<td>59</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2513()'><b>testC2513</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2513:LP Resource Static Page Overview</td>
+<td></td>
+<td>60</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2497()'><b>testC2497</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2497: Create Folders (Course Folders)</td>
+<td></td>
+<td>68</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2502()'><b>testC2502</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2502: User clicks 'See Collection' footer button</td>
+<td></td>
+<td>83</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5298()'><b>testLessonp_5298</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5298:Deliver</td>
+<td></td>
+<td>25</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2530()'><b>testC2530</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2530: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin</td>
+<td></td>
+<td>147</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2461()'><b>testC2461</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2461: With LP Resources & Folders & Uploaded Resources - don't include file</td>
+<td></td>
+<td>161</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5302()'><b>testLessonp_5302</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5302:Explore our solutions</td>
+<td></td>
+<td>12</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testC2455()'><b>testC2455</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - Can edit - C2455: Verify shared folder</td>
+<td></td>
+<td>115</td>
+<td>CSL_SharedWithMe_CanEditTest@62230c58</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2509()'><b>testC2509</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2509: Cards details - Folder: HMH/McGraw</td>
+<td></td>
+<td>168</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5301()'><b>testLessonp_5301</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5301:School or District</td>
+<td></td>
+<td>16</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2522()'><b>testC2522</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2522:LP Resource Modal Overview</td>
+<td></td>
+<td>57</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_HeaderTest.testC2480()'><b>testC2480</b><br>Test class: CSL_HeaderTest<br>Test method: Custom SL - Header - C2480: Search box (keyword functionality)</td>
+<td></td>
+<td>48</td>
+<td>CSL_HeaderTest@c333c60</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2505()'><b>testC2505</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2505: User clicks 'Open Folder' footer button</td>
+<td></td>
+<td>87</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2464()'><b>testC2464</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2464: Page UI</td>
+<td></td>
+<td>40</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testC2543()'><b>testC2543</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - C2543: Appearance</td>
+<td></td>
+<td>121</td>
+<td>CSL_CollectionPlayerTest@74455848</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2536()'><b>testC2536</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2536: Edit District, Search in district</td>
+<td></td>
+<td>72</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testC2552()'><b>testC2552</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Admin Manager - Content - C2552: Sort By</td>
+<td></td>
+<td>66</td>
+<td>CSL_AdminManager_ContentTest@e7edb54</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2533()'><b>testC2533</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2533: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin</td>
+<td></td>
+<td>22</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2512()'><b>testC2512</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2512:Site Specific Resource Static Page Overview</td>
+<td></td>
+<td>56</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testC2472()'><b>testC2472</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Browse Resource Directory - Main Page - C2472: Page UI</td>
+<td></td>
+<td>83</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@69e1dd28</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5291()'><b>testLessonp_5291</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5291:What educators and parents are saying: section</td>
+<td></td>
+<td>296</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testC2450()'><b>testC2450</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District - C2450: Curriculum Manager Tab</td>
+<td></td>
+<td>44</td>
+<td>CSL_SharedByMyDistrictTest@72cde7cc</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2494()'><b>testC2494</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2494: Create Folders (Lessons)</td>
+<td></td>
+<td>65</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testC2484()'><b>testC2484</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Folder - C2484: Edit Collection Buttons</td>
+<td></td>
+<td>146</td>
+<td>CSL_EditFolderTest@11bd0f3b</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2516()'><b>testC2516</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Modal - RRP Overview - C2516:Site Specific Resource Main Buttons</td>
+<td></td>
+<td>64</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2456()'><b>testC2456</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2456: With LP Resources</td>
+<td></td>
+<td>99</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_CollectionBuilderTest.testC2478()'><b>testC2478</b><br>Test class: CSL_CollectionBuilderTest<br>Test method: Custom SL - Collection Builder - C2478: Collection Builder Items</td>
+<td></td>
+<td>139</td>
+<td>CSL_CollectionBuilderTest@2e55dd0c</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testC2451()'><b>testC2451</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District - C2451: Content Manager Tab</td>
+<td></td>
+<td>98</td>
+<td>CSL_SharedByMyDistrictTest@72cde7cc</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2514()'><b>testC2514</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2514:Collection Static Page Overview</td>
+<td></td>
+<td>60</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5290()'><b>testLessonp_5290</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5290:PD Learning Network section</td>
+<td></td>
+<td>13</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2458()'><b>testC2458</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2458: With LP Resources & Uploaded Resources - don't include file</td>
+<td></td>
+<td>128</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testC2556()'><b>testC2556</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - Can view - C2556: Verify shared folder</td>
+<td></td>
+<td>73</td>
+<td>CSL_SharedWithMe_CanViewTest@2cd2a21f</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2493()'><b>testC2493</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2493: Create Folders (Chapters)</td>
+<td></td>
+<td>57</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testC25451()'><b>testC25451</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - C2545: Teacher View</td>
+<td></td>
+<td>72</td>
+<td>CSL_CollectionPlayerTest@74455848</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2462()'><b>testC2462</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2462: Collection not published modal</td>
+<td></td>
+<td>116</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2540()'><b>testC2540</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2540: Manage School Admins Page, Add School Admin, Edit School Admin, Remove School Admin</td>
+<td></td>
+<td>77</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2523()'><b>testC2523</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2523:Collection Modal Overview</td>
+<td></td>
+<td>62</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testC2548()'><b>testC2548</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Admin Manager - Content - C2548: Main Page</td>
+<td></td>
+<td>48</td>
+<td>CSL_AdminManager_ContentTest@e7edb54</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5288()'><b>testLessonp_5288</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5288:Educator Edition section</td>
+<td></td>
+<td>23</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2457()'><b>testC2457</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2457: With LP Resources & Uploaded Resources - include</td>
+<td></td>
+<td>125</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2526()'><b>testC2526</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Modal - RRP Overview - C2526:Collection Main Buttons</td>
+<td></td>
+<td>140</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2492()'><b>testC2492</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2492: Create Folders (Curriculum Sets)</td>
+<td></td>
+<td>61</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2489()'><b>testC2489</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2489: Favorite Resource & My Favorites Folder</td>
+<td></td>
+<td>64</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testC2454()'><b>testC2454</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - Can edit - C2454: Drag-and-drop items</td>
+<td></td>
+<td>77</td>
+<td>CSL_SharedWithMe_CanEditTest@62230c58</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2465()'><b>testC2465</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2465: Resource Tiles</td>
+<td></td>
+<td>104</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testC2485()'><b>testC2485</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Folder - C2485: Item Options</td>
+<td></td>
+<td>39</td>
+<td>CSL_EditFolderTest@11bd0f3b</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testC2483()'><b>testC2483</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Folder - C2483: Publish. Republish</td>
+<td></td>
+<td>169</td>
+<td>CSL_EditFolderTest@11bd0f3b</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC24596()'><b>testC24596</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2459: With LP Resources & Folders</td>
+<td></td>
+<td>150</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2511()'><b>testC2511</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2511:Proprietary Resource Static Page Overview</td>
+<td></td>
+<td>54</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2542()'><b>testC2542</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2542: Manage District Page</td>
+<td></td>
+<td>57</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2467()'><b>testC2467</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2467: RRP modal (Collections)</td>
+<td></td>
+<td>57</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2487()'><b>testC2487</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2487: Create Collections</td>
+<td></td>
+<td>53</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CollectionBuilderTest.testC2477()'><b>testC2477</b><br>Test class: CSL_CollectionBuilderTest<br>Test method: Custom SL - Collection Builder - C2477: Collection Builder Buttons</td>
+<td></td>
+<td>134</td>
+<td>CSL_CollectionBuilderTest@2e55dd0c</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testC2554()'><b>testC2554</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - Can view - C2554: Share a folder</td>
+<td></td>
+<td>120</td>
+<td>CSL_SharedWithMe_CanViewTest@2cd2a21f</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2535()'><b>testC2535</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2535: District Page, Add School, Remove School</td>
+<td></td>
+<td>46</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2510()'><b>testC2510</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2510:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>71</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testC2553()'><b>testC2553</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - Can view - C2553: Main Page</td>
+<td></td>
+<td>21</td>
+<td>CSL_SharedWithMe_CanViewTest@2cd2a21f</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2528()'><b>testC2528</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2528: District Page</td>
+<td></td>
+<td>37</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2469()'><b>testC2469</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2469: RRP static (Collections)</td>
+<td></td>
+<td>76</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanViewTest.testC2555()'><b>testC2555</b><br>Test class: CSL_SharedWithMe_CanViewTest<br>Test method: Custom SL - Shared With Me - Can view - C2555: Drag-and-drop items</td>
+<td></td>
+<td>65</td>
+<td>CSL_SharedWithMe_CanViewTest@2cd2a21f</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2537()'><b>testC2537</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2537: Manage District Admins Page, Add District Admin, Edit Owner/District Admin, Remove District Admin</td>
+<td></td>
+<td>100</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_PublishFolderTest.testC2460()'><b>testC2460</b><br>Test class: CSL_PublishFolderTest<br>Test method: Custom SL - Publish Folder - C2460: With LP Resources & Folders & Uploaded Resources - include</td>
+<td></td>
+<td>159</td>
+<td>CSL_PublishFolderTest@79da8dc5</td></tr>
+<tr>
+<td title='CSL_HeaderTest.testC2479()'><b>testC2479</b><br>Test class: CSL_HeaderTest<br>Test method: Custom SL - Header - C2479: Header buttons</td>
+<td></td>
+<td>69</td>
+<td>CSL_HeaderTest@c333c60</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testC2544()'><b>testC2544</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - C2544: Student View</td>
+<td></td>
+<td>71</td>
+<td>CSL_CollectionPlayerTest@74455848</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testC2547()'><b>testC2547</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - C2547: Resource Viewer</td>
+<td></td>
+<td>210</td>
+<td>CSL_CollectionPlayerTest@74455848</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2521()'><b>testC2521</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2521:Site Specific Resource Modal Overview</td>
+<td></td>
+<td>51</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2529()'><b>testC2529</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2529: Edit District, Search in district</td>
+<td></td>
+<td>66</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_CollectionPlayerTest.testC2546()'><b>testC2546</b><br>Test class: CSL_CollectionPlayerTest<br>Test method: Custom SL - Collection player - C2546: Collection Navigator</td>
+<td></td>
+<td>63</td>
+<td>CSL_CollectionPlayerTest@74455848</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testC2475()'><b>testC2475</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Browse Resource Directory - Main Page - C2475: Show All button</td>
+<td></td>
+<td>15</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@69e1dd28</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2496()'><b>testC2496</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2496: Create Folders (Unit Modules)</td>
+<td></td>
+<td>59</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2499()'><b>testC2499</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2499: Dragging folders into another folder</td>
+<td></td>
+<td>75</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5289()'><b>testLessonp_5289</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5289:Learning Explorer section</td>
+<td></td>
+<td>17</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2538()'><b>testC2538</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2538: School Page, Add Teacher, Edit Teacher, Remove Teacher</td>
+<td></td>
+<td>86</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2486()'><b>testC2486</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2486: Access Curriculum Manager Page</td>
+<td></td>
+<td>17</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2498()'><b>testC2498</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2498: Create Folders (Root Folders)</td>
+<td></td>
+<td>64</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2468()'><b>testC2468</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2468: RRP static (Individual resources)</td>
+<td></td>
+<td>61</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2519()'><b>testC2519</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2519:Folder (HMH/McGraw) Modal Overview</td>
+<td></td>
+<td>71</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2504()'><b>testC2504</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2504: User clicks 'Go to Resource' footer button</td>
+<td></td>
+<td>88</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5297()'><b>testLessonp_5297</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5297:Design</td>
+<td></td>
+<td>21</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_SharedWithMe_CanEditTest.testC2453()'><b>testC2453</b><br>Test class: CSL_SharedWithMe_CanEditTest<br>Test method: Custom SL - Shared With Me - Can edit - C2453: Share a folder</td>
+<td></td>
+<td>99</td>
+<td>CSL_SharedWithMe_CanEditTest@62230c58</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2515()'><b>testC2515</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Modal - RRP Overview - C2515:Folder (HMH/McGraw) Resource Main Buttons</td>
+<td></td>
+<td>55</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testC2476()'><b>testC2476</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Browse Resource Directory - Main Page - C2476: Categories Modal</td>
+<td></td>
+<td>37</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@69e1dd28</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testC2474()'><b>testC2474</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Browse Resource Directory - Main Page - C2474: Links</td>
+<td></td>
+<td>232</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@69e1dd28</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2503()'><b>testC2503</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2503: User clicks 'See Full Review' footer button</td>
+<td></td>
+<td>92</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2490()'><b>testC2490</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2490: Collection: Actions Dropdown</td>
+<td></td>
+<td>290</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2471()'><b>testC2471</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2471: Related Topics</td>
+<td></td>
+<td>31</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2532()'><b>testC2532</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2532: Edit School, Search in School</td>
+<td></td>
+<td>97</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testC2550()'><b>testC2550</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Admin Manager - Content - C2550: Cards list</td>
+<td></td>
+<td>75</td>
+<td>CSL_AdminManager_ContentTest@e7edb54</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_MainPageTest.testC2473()'><b>testC2473</b><br>Test class: CSL_BrowseResourceDirectory_MainPageTest<br>Test method: Custom SL - Browse Resource Directory - Main Page - C2473: Thumbnails</td>
+<td></td>
+<td>87</td>
+<td>CSL_BrowseResourceDirectory_MainPageTest@69e1dd28</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2524()'><b>testC2524</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Modal - RRP Overview - C2524:Folder (HMH/McGraw) Main Buttons</td>
+<td></td>
+<td>60</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2500()'><b>testC2500</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2500: Drilled in view & functionality</td>
+<td></td>
+<td>164</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_CalendarTest.testC2463()'><b>testC2463</b><br>Test class: CSL_CalendarTest<br>Test method: Custom SL - Calendar - C2463:Buttons/Links</td>
+<td></td>
+<td>177</td>
+<td>CSL_CalendarTest@747edf66</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2531()'><b>testC2531</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2531: School Page, Add Teacher, Edit Teacher</td>
+<td></td>
+<td>74</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsRosterOnTest.testC2534()'><b>testC2534</b><br>Test class: CSL_AdminManager_AccountsRosterOnTest<br>Test method: Custom SL - Roster On - Admin Manager - Accounts - C2534: Manage District Page</td>
+<td></td>
+<td>49</td>
+<td>CSL_AdminManager_AccountsRosterOnTest@40cb8df7</td></tr>
+<tr>
+<td title='CSL_AdminManager_ContentTest.testC2551()'><b>testC2551</b><br>Test class: CSL_AdminManager_ContentTest<br>Test method: Custom SL - Admin Manager - Content - C2551: Search</td>
+<td></td>
+<td>30</td>
+<td>CSL_AdminManager_ContentTest@e7edb54</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2506()'><b>testC2506</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2506: User clicks 'Folder Details' footer button</td>
+<td></td>
+<td>44</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_AdminManager_AccountsSsoOnTest.testC2539()'><b>testC2539</b><br>Test class: CSL_AdminManager_AccountsSsoOnTest<br>Test method: Custom SL - SSO On - Admin Manager - Accounts - C2539: Edit School, Search in School</td>
+<td></td>
+<td>120</td>
+<td>CSL_AdminManager_AccountsSsoOnTest@55536d9e</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2517()'><b>testC2517</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Static - RRP Overview -C2517:Collection Main Buttons</td>
+<td></td>
+<td>80</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2495()'><b>testC2495</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2495: Create Folders (Assessment Sets)</td>
+<td></td>
+<td>69</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5300()'><b>testLessonp_5300</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5300:Educator</td>
+<td></td>
+<td>19</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testC2481()'><b>testC2481</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Folder -C2481: Edit Collection Modal Appearance</td>
+<td></td>
+<td>30</td>
+<td>CSL_EditFolderTest@11bd0f3b</td></tr>
+<tr>
+<td title='CSL_SharedByMyDistrictTest.testC2452()'><b>testC2452</b><br>Test class: CSL_SharedByMyDistrictTest<br>Test method: Custom SL - Shared By My District - C2452: Unpost</td>
+<td></td>
+<td>44</td>
+<td>CSL_SharedByMyDistrictTest@72cde7cc</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2527()'><b>testC2527</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2527:LP Resource Main Buttons</td>
+<td></td>
+<td>110</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2508()'><b>testC2508</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search -C2508: Cards details - Collection</td>
+<td></td>
+<td>174</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_SearchTest.testC2507()'><b>testC2507</b><br>Test class: CSL_SearchTest<br>Test method: Custom SL - Search - C2507: Cards details - LP resource</td>
+<td></td>
+<td>171</td>
+<td>CSL_SearchTest@67080771</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2520()'><b>testC2520</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Modal - RRP Overview - C2520:Proprietary Resource Modal Overview</td>
+<td></td>
+<td>55</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2488()'><b>testC2488</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2488: Upload Resource & My Uploads Folder</td>
+<td></td>
+<td>81</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5296()'><b>testLessonp_5296</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5296:Collect</td>
+<td></td>
+<td>28</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2491()'><b>testC2491</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: CSL - Curriculum Manager - C2491: Folder Actions Dropdown</td>
+<td></td>
+<td>297</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2466()'><b>testC2466</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2466: RRP modal (Individual resources)</td>
+<td></td>
+<td>59</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_HomepageTest.testLessonp_5286()'><b>testLessonp_5286</b><br>Test class: CSL_HomepageTest<br>Test method: Custom SL - Homepage - lessonp-5286:Parent</td>
+<td></td>
+<td>18</td>
+<td>CSL_HomepageTest@5fd4f8f5</td></tr>
+<tr>
+<td title='CSL_EditFolderTest.testC24822()'><b>testC24822</b><br>Test class: CSL_EditFolderTest<br>Test method: Custom SL - Edit Folder - C2482: Edit Collection Static Page Appearance</td>
+<td></td>
+<td>79</td>
+<td>CSL_EditFolderTest@11bd0f3b</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2525()'><b>testC2525</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - Rrp Modal - RRP Overview - C2525:Site Specific Resource Main Buttons</td>
+<td></td>
+<td>56</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+<tr>
+<td title='CSL_CurriculumManagerTest.testC2501()'><b>testC2501</b><br>Test class: CSL_CurriculumManagerTest<br>Test method: Custom SL - Curriculum Manager - C2501: Drag folders into the CB</td>
+<td></td>
+<td>98</td>
+<td>CSL_CurriculumManagerTest@378542de</td></tr>
+<tr>
+<td title='CSL_BrowseResourceDirectory_SubjectsTest.testC2470()'><b>testC2470</b><br>Test class: CSL_BrowseResourceDirectory_SubjectsTest<br>Test method: Custom SL - Browse Resource Directory - Subjects - C2470: Browse by Subject</td>
+<td></td>
+<td>40</td>
+<td>CSL_BrowseResourceDirectory_SubjectsTest@3738449f</td></tr>
+<tr>
+<td title='CSL_RrpSearchTest.testC2518()'><b>testC2518</b><br>Test class: CSL_RrpSearchTest<br>Test method: Custom SL - RRP Search - RRP Static - RRP Overview - C2518:LP Resource Main Buttons</td>
+<td></td>
+<td>111</td>
+<td>CSL_RrpSearchTest@1eb5174b</td></tr>
+</table><p>
+</body>
+</html>

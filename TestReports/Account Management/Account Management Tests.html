@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>TestNG:  Account Management Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Account Management Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Mar 17 09:31:21 EET 2022</td>
+</tr>
+<tr><td>Total time:</td><td>469 seconds (469441 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>accountManagement </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testC2443()'><b>testC2443</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - C2443: Try It Free button</td>
+<td></td>
+<td>12</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@6a03bcb1</td></tr>
+<tr>
+<td title='User_AccountManagement_StepTwoTest.testC2558()'><b>testC2558</b><br>Test class: User_AccountManagement_StepTwoTest<br>Test method: Account Management - Step Two Static - C2558: Step2 Static - User supplies invalid/valid form data</td>
+<td></td>
+<td>32</td>
+<td>User_AccountManagement_StepTwoTest@10aa41f2</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testC2309()'><b>testC2309</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Account Management - Create a PRO account - C2309: Create a Pro Account - Pricing button
+</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_CreateActiveAccountTest@3098cf3b</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testC2308()'><b>testC2308</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Account Management - Create a Pro account - C2308: Create a Pro Account - Try it Free button</td>
+<td></td>
+<td>44</td>
+<td>User_AccountManagement_CreateActiveAccountTest@3098cf3b</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateActiveAccountTest.testC2306()'><b>testC2306</b><br>Test class: User_AccountManagement_CreateActiveAccountTest<br>Test method: Account Management - Create a Starter account - C2306: Create a Starter Account - Try it Free button</td>
+<td></td>
+<td>47</td>
+<td>User_AccountManagement_CreateActiveAccountTest@3098cf3b</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testC2445()'><b>testC2445</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - C2445: Quitting Step 2 registration process</td>
+<td></td>
+<td>24</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@6a03bcb1</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testC2446()'><b>testC2446</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - C2446: After membership is canceled</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@6a03bcb1</td></tr>
+<tr>
+<td title='User_AccountManagement_LoginTest.testC2136()'><b>testC2136</b><br>Test class: User_AccountManagement_LoginTest<br>Test method: Account Management - Login In Free Member- C2136: Sing in button and functionality</td>
+<td></td>
+<td>34</td>
+<td>User_AccountManagement_LoginTest@610f7aa</td></tr>
+<tr>
+<td title='User_AccountManagement_LoginTest.testC2256()'><b>testC2256</b><br>Test class: User_AccountManagement_LoginTest<br>Test method: Account Management - Login In Active Member- C2256: Sign in button and functionality</td>
+<td></td>
+<td>24</td>
+<td>User_AccountManagement_LoginTest@610f7aa</td></tr>
+<tr>
+<td title='User_AccountManagement_StepTwoTest.testC2557()'><b>testC2557</b><br>Test class: User_AccountManagement_StepTwoTest<br>Test method: Account Management - Step Two Modal - C2557: Step2 Modal - User supplies invalid/valid form data</td>
+<td></td>
+<td>29</td>
+<td>User_AccountManagement_StepTwoTest@10aa41f2</td></tr>
+<tr>
+<td title='User_AccountManagement_CreateFreeMemberAccountTest.testC2444()'><b>testC2444</b><br>Test class: User_AccountManagement_CreateFreeMemberAccountTest<br>Test method: Account management - Create a Free Member account - C2444: Through the 'Become a Lesson Planet Free Member' modal</td>
+<td></td>
+<td>27</td>
+<td>User_AccountManagement_CreateFreeMemberAccountTest@6a03bcb1</td></tr>
+</table><p>
+</body>
+</html>
